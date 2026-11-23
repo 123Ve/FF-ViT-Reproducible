@@ -2,6 +2,8 @@
 
 [中文说明](README_CN.md) · [Build and reproduction guide / 构建指南](docs/REPRODUCE.md) · [Project notes / 工程说明](docs/PROJECT_NOTES.md)
 
+**Standalone IP sources: [IP/](IP/)** — [HLS C++](IP/src/) · [Verilog](IP/vivado_ip/hdl/verilog/) · [VHDL](IP/vivado_ip/hdl/vhdl/) · [Vitis drivers](IP/vivado_ip/drivers/).
+
 This repository preserves one curated source and deployment snapshot from
 `ff_vit_re` and `FF_Vit`: DeiT-Tiny fine-tuning, W3/W8 mixed-precision QAT,
 integer/LUT export, HLS, Vivado, Vitis, three task-specific binary fixtures,
@@ -31,6 +33,7 @@ It does not execute training or access a board.
 
 | Location | Contents |
 | --- | --- |
+| `IP/` | Standalone E07 HLS sources and unpacked Vivado IP, ready to browse or import |
 | `deploy/{plantvillage,nwpu,imagenet}/` | Each task's actual backbone `weights.bin`, one S16 `input.bin`, 1000-logit `output.bin`, matching Patch/Head ROM |
 | `deploy/tasks.json` | File identities, input formats and task configuration |
 | `FF_Vit/E04_weight_schedule/E07_timing_300mhz/` | E07 candidate05 HLS sources, seed BD, Vivado Tcl, reports, Vitis applications, baseline BIT/XSA/BOOT |

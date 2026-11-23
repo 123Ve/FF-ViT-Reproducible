@@ -1,0 +1,189 @@
+
+wire kernel_monitor_reset;
+wire kernel_monitor_clock;
+wire kernel_monitor_report;
+assign kernel_monitor_reset = ~ap_rst_n;
+assign kernel_monitor_clock = ap_clk;
+assign kernel_monitor_report = 1'b0;
+wire [1:0] axis_block_sigs;
+wire [79:0] inst_idle_sigs;
+wire [73:0] inst_block_sigs;
+wire kernel_block;
+
+assign axis_block_sigs[0] = ~grp_initial_overlap_wrapper_fu_5704.task_run_pe_U0.task_recv_img_U0.i_stream_ext_TDATA_blk_n;
+assign axis_block_sigs[1] = ~grp_task_run_head_fu_11440.task_write_logits_U0.o_stream_logits_TDATA_blk_n;
+
+assign inst_idle_sigs[0] = grp_initial_overlap_wrapper_fu_5704.task_run_pe_U0.ap_idle;
+assign inst_block_sigs[0] = (grp_initial_overlap_wrapper_fu_5704.task_run_pe_U0.ap_done & ~grp_initial_overlap_wrapper_fu_5704.task_run_pe_U0.ap_continue) | ~grp_task_run_head_fu_11440.task_read_cls_fm_U0.head_in_sm_blk_n;
+assign inst_idle_sigs[1] = grp_initial_overlap_wrapper_fu_5704.task_load_weights_U0.ap_idle;
+assign inst_block_sigs[1] = (grp_initial_overlap_wrapper_fu_5704.task_load_weights_U0.ap_done & ~grp_initial_overlap_wrapper_fu_5704.task_load_weights_U0.ap_continue) | ~grp_task_run_head_fu_11440.fixed_head_do_head_U0.fixed_head_layernorm_U0.head_in_sm_blk_n | ~grp_task_run_head_fu_11440.fixed_head_do_head_U0.fixed_head_matmul_U0.do_adapt_3_U0.head_out_sm_blk_n;
+assign inst_idle_sigs[2] = grp_initial_overlap_wrapper_fu_5704.task_run_pe_U0.task_recv_img_U0.ap_idle;
+assign inst_block_sigs[2] = (grp_initial_overlap_wrapper_fu_5704.task_run_pe_U0.task_recv_img_U0.ap_done & ~grp_initial_overlap_wrapper_fu_5704.task_run_pe_U0.task_recv_img_U0.ap_continue) | ~grp_task_run_head_fu_11440.task_write_logits_U0.head_out_sm_blk_n;
+assign inst_idle_sigs[3] = grp_initial_overlap_wrapper_fu_5704.task_run_pe_U0.fixed_patch_do_patch_embed_U0.ap_idle;
+assign inst_block_sigs[3] = (grp_initial_overlap_wrapper_fu_5704.task_run_pe_U0.fixed_patch_do_patch_embed_U0.ap_done & ~grp_initial_overlap_wrapper_fu_5704.task_run_pe_U0.fixed_patch_do_patch_embed_U0.ap_continue) | ~grp_initial_overlap_wrapper_fu_5704.task_run_pe_U0.task_recv_img_U0.img_sm_blk_n;
+assign inst_idle_sigs[4] = grp_initial_overlap_wrapper_fu_5704.task_run_pe_U0.task_write_pe_to_fm_U0.ap_idle;
+assign inst_block_sigs[4] = (grp_initial_overlap_wrapper_fu_5704.task_run_pe_U0.task_write_pe_to_fm_U0.ap_done & ~grp_initial_overlap_wrapper_fu_5704.task_run_pe_U0.task_write_pe_to_fm_U0.ap_continue) | ~grp_initial_overlap_wrapper_fu_5704.task_run_pe_U0.fixed_patch_do_patch_embed_U0.do_adapt_4_U0.img_sm_blk_n | ~grp_initial_overlap_wrapper_fu_5704.task_run_pe_U0.fixed_patch_do_patch_embed_U0.do_adapt_9_1_U0.pe_out_sm_blk_n;
+assign inst_idle_sigs[5] = grp_initial_overlap_wrapper_fu_5704.task_run_pe_U0.fixed_patch_do_patch_embed_U0.do_adapt_4_U0.ap_idle;
+assign inst_block_sigs[5] = (grp_initial_overlap_wrapper_fu_5704.task_run_pe_U0.fixed_patch_do_patch_embed_U0.do_adapt_4_U0.ap_done & ~grp_initial_overlap_wrapper_fu_5704.task_run_pe_U0.fixed_patch_do_patch_embed_U0.do_adapt_4_U0.ap_continue) | ~grp_initial_overlap_wrapper_fu_5704.task_run_pe_U0.task_write_pe_to_fm_U0.pe_out_sm_blk_n;
+assign inst_idle_sigs[6] = grp_initial_overlap_wrapper_fu_5704.task_run_pe_U0.fixed_patch_do_patch_embed_U0.fixed_patch_step2_mac_replace_shift_U0.ap_idle;
+assign inst_block_sigs[6] = (grp_initial_overlap_wrapper_fu_5704.task_run_pe_U0.fixed_patch_do_patch_embed_U0.fixed_patch_step2_mac_replace_shift_U0.ap_done & ~grp_initial_overlap_wrapper_fu_5704.task_run_pe_U0.fixed_patch_do_patch_embed_U0.fixed_patch_step2_mac_replace_shift_U0.ap_continue);
+assign inst_idle_sigs[7] = grp_initial_overlap_wrapper_fu_5704.task_run_pe_U0.fixed_patch_do_patch_embed_U0.do_adapt_9_1_U0.ap_idle;
+assign inst_block_sigs[7] = (grp_initial_overlap_wrapper_fu_5704.task_run_pe_U0.fixed_patch_do_patch_embed_U0.do_adapt_9_1_U0.ap_done & ~grp_initial_overlap_wrapper_fu_5704.task_run_pe_U0.fixed_patch_do_patch_embed_U0.do_adapt_9_1_U0.ap_continue);
+assign inst_idle_sigs[8] = grp_dataflow_wrapper_fu_6443.task_read_fm_split_U0.ap_idle;
+assign inst_block_sigs[8] = (grp_dataflow_wrapper_fu_6443.task_read_fm_split_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_read_fm_split_U0.ap_continue);
+assign inst_idle_sigs[9] = grp_dataflow_wrapper_fu_6443.dataflow_wrapper_Block_entry_calc_weights_attn_weights_attn_scalars_rd_calc_weig_U0.ap_idle;
+assign inst_block_sigs[9] = (grp_dataflow_wrapper_fu_6443.dataflow_wrapper_Block_entry_calc_weights_attn_weights_attn_scalars_rd_calc_weig_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.dataflow_wrapper_Block_entry_calc_weights_attn_weights_attn_scalars_rd_calc_weig_U0.ap_continue);
+assign inst_idle_sigs[10] = grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.ap_idle;
+assign inst_block_sigs[10] = (grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.ap_continue);
+assign inst_idle_sigs[11] = grp_dataflow_wrapper_fu_6443.task_stream_cast_U0.ap_idle;
+assign inst_block_sigs[11] = (grp_dataflow_wrapper_fu_6443.task_stream_cast_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_stream_cast_U0.ap_continue);
+assign inst_idle_sigs[12] = grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.ap_idle;
+assign inst_block_sigs[12] = (grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.ap_continue);
+assign inst_idle_sigs[13] = grp_dataflow_wrapper_fu_6443.task_write_fm_U0.ap_idle;
+assign inst_block_sigs[13] = (grp_dataflow_wrapper_fu_6443.task_write_fm_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_write_fm_U0.ap_continue);
+assign inst_idle_sigs[14] = grp_dataflow_wrapper_fu_6443.task_load_weights_14_U0.ap_idle;
+assign inst_block_sigs[14] = (grp_dataflow_wrapper_fu_6443.task_load_weights_14_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_load_weights_14_U0.ap_continue);
+assign inst_idle_sigs[15] = grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_adapt_10_U0.ap_idle;
+assign inst_block_sigs[15] = (grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_adapt_10_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_adapt_10_U0.ap_continue);
+assign inst_idle_sigs[16] = grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_adapt_7_U0.ap_idle;
+assign inst_block_sigs[16] = (grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_adapt_7_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_adapt_7_U0.ap_continue);
+assign inst_idle_sigs[17] = grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_layernorm_inter_token_1_U0.ap_idle;
+assign inst_block_sigs[17] = (grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_layernorm_inter_token_1_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_layernorm_inter_token_1_U0.ap_continue);
+assign inst_idle_sigs[18] = grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.stream_copy3_U0.ap_idle;
+assign inst_block_sigs[18] = (grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.stream_copy3_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.stream_copy3_U0.ap_continue);
+assign inst_idle_sigs[19] = grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_2_U0.ap_idle;
+assign inst_block_sigs[19] = (grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_2_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_2_U0.ap_continue);
+assign inst_idle_sigs[20] = grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_2_1_U0.ap_idle;
+assign inst_block_sigs[20] = (grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_2_1_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_2_1_U0.ap_continue);
+assign inst_idle_sigs[21] = grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_4_U0.ap_idle;
+assign inst_block_sigs[21] = (grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_4_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_4_U0.ap_continue);
+assign inst_idle_sigs[22] = grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_quant_U0.ap_idle;
+assign inst_block_sigs[22] = (grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_quant_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_quant_U0.ap_continue);
+assign inst_idle_sigs[23] = grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_quant_3_U0.ap_idle;
+assign inst_block_sigs[23] = (grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_quant_3_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_quant_3_U0.ap_continue);
+assign inst_idle_sigs[24] = grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_quant_1_U0.ap_idle;
+assign inst_block_sigs[24] = (grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_quant_1_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_quant_1_U0.ap_continue);
+assign inst_idle_sigs[25] = grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_split_4_U0.ap_idle;
+assign inst_block_sigs[25] = (grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_split_4_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_split_4_U0.ap_continue);
+assign inst_idle_sigs[26] = grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_split_5_U0.ap_idle;
+assign inst_block_sigs[26] = (grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_split_5_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_split_5_U0.ap_continue);
+assign inst_idle_sigs[27] = grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_split_U0.ap_idle;
+assign inst_block_sigs[27] = (grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_split_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_split_U0.ap_continue);
+assign inst_idle_sigs[28] = grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_attn_6_U0.ap_idle;
+assign inst_block_sigs[28] = (grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_attn_6_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_attn_6_U0.ap_continue);
+assign inst_idle_sigs[29] = grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_attn_7_U0.ap_idle;
+assign inst_block_sigs[29] = (grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_attn_7_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_attn_7_U0.ap_continue);
+assign inst_idle_sigs[30] = grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_attn_U0.ap_idle;
+assign inst_block_sigs[30] = (grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_attn_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_attn_U0.ap_continue);
+assign inst_idle_sigs[31] = grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_merge_U0.ap_idle;
+assign inst_block_sigs[31] = (grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_merge_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_merge_U0.ap_continue);
+assign inst_idle_sigs[32] = grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_quant_2_U0.ap_idle;
+assign inst_block_sigs[32] = (grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_quant_2_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_quant_2_U0.ap_continue);
+assign inst_idle_sigs[33] = grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_1_U0.ap_idle;
+assign inst_block_sigs[33] = (grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_1_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_1_U0.ap_continue);
+assign inst_idle_sigs[34] = grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.stream_merge_1_U0.ap_idle;
+assign inst_block_sigs[34] = (grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.stream_merge_1_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.stream_merge_1_U0.ap_continue);
+assign inst_idle_sigs[35] = grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_2_U0.do_adapt_2_U0.ap_idle;
+assign inst_block_sigs[35] = (grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_2_U0.do_adapt_2_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_2_U0.do_adapt_2_U0.ap_continue);
+assign inst_idle_sigs[36] = grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_2_U0.matmul_step1_cache_window_2_U0.ap_idle;
+assign inst_block_sigs[36] = (grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_2_U0.matmul_step1_cache_window_2_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_2_U0.matmul_step1_cache_window_2_U0.ap_continue);
+assign inst_idle_sigs[37] = grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_2_U0.matmul_step2_mac_2_U0.ap_idle;
+assign inst_block_sigs[37] = (grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_2_U0.matmul_step2_mac_2_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_2_U0.matmul_step2_mac_2_U0.ap_continue);
+assign inst_idle_sigs[38] = grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_2_U0.do_adapt_11_U0.ap_idle;
+assign inst_block_sigs[38] = (grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_2_U0.do_adapt_11_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_2_U0.do_adapt_11_U0.ap_continue);
+assign inst_idle_sigs[39] = grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_2_1_U0.do_adapt_9_U0.ap_idle;
+assign inst_block_sigs[39] = (grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_2_1_U0.do_adapt_9_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_2_1_U0.do_adapt_9_U0.ap_continue);
+assign inst_idle_sigs[40] = grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_2_1_U0.matmul_step1_cache_window_10_U0.ap_idle;
+assign inst_block_sigs[40] = (grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_2_1_U0.matmul_step1_cache_window_10_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_2_1_U0.matmul_step1_cache_window_10_U0.ap_continue);
+assign inst_idle_sigs[41] = grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_2_1_U0.matmul_step2_mac_11_U0.ap_idle;
+assign inst_block_sigs[41] = (grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_2_1_U0.matmul_step2_mac_11_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_2_1_U0.matmul_step2_mac_11_U0.ap_continue);
+assign inst_idle_sigs[42] = grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_2_1_U0.do_adapt_12_1_U0.ap_idle;
+assign inst_block_sigs[42] = (grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_2_1_U0.do_adapt_12_1_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_2_1_U0.do_adapt_12_1_U0.ap_continue);
+assign inst_idle_sigs[43] = grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_4_U0.do_adapt_13_U0.ap_idle;
+assign inst_block_sigs[43] = (grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_4_U0.do_adapt_13_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_4_U0.do_adapt_13_U0.ap_continue);
+assign inst_idle_sigs[44] = grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_4_U0.matmul_step1_cache_window_4_U0.ap_idle;
+assign inst_block_sigs[44] = (grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_4_U0.matmul_step1_cache_window_4_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_4_U0.matmul_step1_cache_window_4_U0.ap_continue);
+assign inst_idle_sigs[45] = grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_4_U0.matmul_step2_mac_4_U0.ap_idle;
+assign inst_block_sigs[45] = (grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_4_U0.matmul_step2_mac_4_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_4_U0.matmul_step2_mac_4_U0.ap_continue);
+assign inst_idle_sigs[46] = grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_4_U0.do_adapt_13_1_U0.ap_idle;
+assign inst_block_sigs[46] = (grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_4_U0.do_adapt_13_1_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_4_U0.do_adapt_13_1_U0.ap_continue);
+assign inst_idle_sigs[47] = grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_1_U0.do_adapt_1_U0.ap_idle;
+assign inst_block_sigs[47] = (grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_1_U0.do_adapt_1_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_1_U0.do_adapt_1_U0.ap_continue);
+assign inst_idle_sigs[48] = grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_1_U0.matmul_step1_cache_window_1_U0.ap_idle;
+assign inst_block_sigs[48] = (grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_1_U0.matmul_step1_cache_window_1_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_1_U0.matmul_step1_cache_window_1_U0.ap_continue);
+assign inst_idle_sigs[49] = grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_1_U0.matmul_step2_mac_1_U0.ap_idle;
+assign inst_block_sigs[49] = (grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_1_U0.matmul_step2_mac_1_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_1_U0.matmul_step2_mac_1_U0.ap_continue);
+assign inst_idle_sigs[50] = grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_1_U0.do_adapt_8_1_U0.ap_idle;
+assign inst_block_sigs[50] = (grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_1_U0.do_adapt_8_1_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.grp_do_attn_1_fu_5150.do_matmul_1_U0.do_adapt_8_1_U0.ap_continue);
+assign inst_idle_sigs[51] = grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.stream_copy_U0.ap_idle;
+assign inst_block_sigs[51] = (grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.stream_copy_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.stream_copy_U0.ap_continue);
+assign inst_idle_sigs[52] = grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_adapt_6_U0.ap_idle;
+assign inst_block_sigs[52] = (grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_adapt_6_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_adapt_6_U0.ap_continue);
+assign inst_idle_sigs[53] = grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_adapt_5_U0.ap_idle;
+assign inst_block_sigs[53] = (grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_adapt_5_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_adapt_5_U0.ap_continue);
+assign inst_idle_sigs[54] = grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_layernorm_inter_token_U0.ap_idle;
+assign inst_block_sigs[54] = (grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_layernorm_inter_token_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_layernorm_inter_token_U0.ap_continue);
+assign inst_idle_sigs[55] = grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_matmul_3_U0.ap_idle;
+assign inst_block_sigs[55] = (grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_matmul_3_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_matmul_3_U0.ap_continue);
+assign inst_idle_sigs[56] = grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_gelu_U0.ap_idle;
+assign inst_block_sigs[56] = (grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_gelu_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_gelu_U0.ap_continue);
+assign inst_idle_sigs[57] = grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_matmul_U0.ap_idle;
+assign inst_block_sigs[57] = (grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_matmul_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_matmul_U0.ap_continue);
+assign inst_idle_sigs[58] = grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.stream_merge_U0.ap_idle;
+assign inst_block_sigs[58] = (grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.stream_merge_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.stream_merge_U0.ap_continue);
+assign inst_idle_sigs[59] = grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_matmul_3_U0.do_adapt_1_1_U0.ap_idle;
+assign inst_block_sigs[59] = (grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_matmul_3_U0.do_adapt_1_1_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_matmul_3_U0.do_adapt_1_1_U0.ap_continue);
+assign inst_idle_sigs[60] = grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_matmul_3_U0.matmul_step1_cache_window_3_U0.ap_idle;
+assign inst_block_sigs[60] = (grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_matmul_3_U0.matmul_step1_cache_window_3_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_matmul_3_U0.matmul_step1_cache_window_3_U0.ap_continue);
+assign inst_idle_sigs[61] = grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_matmul_3_U0.matmul_step2_mac_3_U0.ap_idle;
+assign inst_block_sigs[61] = (grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_matmul_3_U0.matmul_step2_mac_3_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_matmul_3_U0.matmul_step2_mac_3_U0.ap_continue);
+assign inst_idle_sigs[62] = grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_matmul_3_U0.do_adapt_12_U0.ap_idle;
+assign inst_block_sigs[62] = (grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_matmul_3_U0.do_adapt_12_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_matmul_3_U0.do_adapt_12_U0.ap_continue);
+assign inst_idle_sigs[63] = grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_matmul_U0.do_adapt_U0.ap_idle;
+assign inst_block_sigs[63] = (grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_matmul_U0.do_adapt_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_matmul_U0.do_adapt_U0.ap_continue);
+assign inst_idle_sigs[64] = grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_matmul_U0.matmul_step1_cache_window_U0.ap_idle;
+assign inst_block_sigs[64] = (grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_matmul_U0.matmul_step1_cache_window_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_matmul_U0.matmul_step1_cache_window_U0.ap_continue);
+assign inst_idle_sigs[65] = grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_matmul_U0.matmul_step2_mac_U0.ap_idle;
+assign inst_block_sigs[65] = (grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_matmul_U0.matmul_step2_mac_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_matmul_U0.matmul_step2_mac_U0.ap_continue);
+assign inst_idle_sigs[66] = grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_matmul_U0.do_adapt_8_U0.ap_idle;
+assign inst_block_sigs[66] = (grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_matmul_U0.do_adapt_8_U0.ap_done & ~grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.grp_do_mlp_fu_4710.do_matmul_U0.do_adapt_8_U0.ap_continue);
+assign inst_idle_sigs[67] = grp_task_run_head_fu_11440.task_read_cls_fm_U0.ap_idle;
+assign inst_block_sigs[67] = (grp_task_run_head_fu_11440.task_read_cls_fm_U0.ap_done & ~grp_task_run_head_fu_11440.task_read_cls_fm_U0.ap_continue);
+assign inst_idle_sigs[68] = grp_task_run_head_fu_11440.fixed_head_do_head_U0.ap_idle;
+assign inst_block_sigs[68] = (grp_task_run_head_fu_11440.fixed_head_do_head_U0.ap_done & ~grp_task_run_head_fu_11440.fixed_head_do_head_U0.ap_continue);
+assign inst_idle_sigs[69] = grp_task_run_head_fu_11440.task_write_logits_U0.ap_idle;
+assign inst_block_sigs[69] = (grp_task_run_head_fu_11440.task_write_logits_U0.ap_done & ~grp_task_run_head_fu_11440.task_write_logits_U0.ap_continue);
+assign inst_idle_sigs[70] = grp_task_run_head_fu_11440.fixed_head_do_head_U0.fixed_head_layernorm_U0.ap_idle;
+assign inst_block_sigs[70] = (grp_task_run_head_fu_11440.fixed_head_do_head_U0.fixed_head_layernorm_U0.ap_done & ~grp_task_run_head_fu_11440.fixed_head_do_head_U0.fixed_head_layernorm_U0.ap_continue);
+assign inst_idle_sigs[71] = grp_task_run_head_fu_11440.fixed_head_do_head_U0.fixed_head_matmul_U0.ap_idle;
+assign inst_block_sigs[71] = (grp_task_run_head_fu_11440.fixed_head_do_head_U0.fixed_head_matmul_U0.ap_done & ~grp_task_run_head_fu_11440.fixed_head_do_head_U0.fixed_head_matmul_U0.ap_continue);
+assign inst_idle_sigs[72] = grp_task_run_head_fu_11440.fixed_head_do_head_U0.fixed_head_matmul_U0.fixed_head_matmul_core_U0.ap_idle;
+assign inst_block_sigs[72] = (grp_task_run_head_fu_11440.fixed_head_do_head_U0.fixed_head_matmul_U0.fixed_head_matmul_core_U0.ap_done & ~grp_task_run_head_fu_11440.fixed_head_do_head_U0.fixed_head_matmul_U0.fixed_head_matmul_core_U0.ap_continue);
+assign inst_idle_sigs[73] = grp_task_run_head_fu_11440.fixed_head_do_head_U0.fixed_head_matmul_U0.do_adapt_3_U0.ap_idle;
+assign inst_block_sigs[73] = (grp_task_run_head_fu_11440.fixed_head_do_head_U0.fixed_head_matmul_U0.do_adapt_3_U0.ap_done & ~grp_task_run_head_fu_11440.fixed_head_do_head_U0.fixed_head_matmul_U0.do_adapt_3_U0.ap_continue);
+
+assign inst_idle_sigs[74] = 1'b0;
+assign inst_idle_sigs[75] = grp_initial_overlap_wrapper_fu_5704.ap_idle;
+assign inst_idle_sigs[76] = grp_initial_overlap_wrapper_fu_5704.task_run_pe_U0.ap_idle;
+assign inst_idle_sigs[77] = grp_initial_overlap_wrapper_fu_5704.task_run_pe_U0.task_recv_img_U0.ap_idle;
+assign inst_idle_sigs[78] = grp_task_run_head_fu_11440.ap_idle;
+assign inst_idle_sigs[79] = grp_task_run_head_fu_11440.task_write_logits_U0.ap_idle;
+
+vit_block_top_hls_deadlock_idx0_monitor vit_block_top_hls_deadlock_idx0_monitor_U (
+    .clock(kernel_monitor_clock),
+    .reset(kernel_monitor_reset),
+    .axis_block_sigs(axis_block_sigs),
+    .inst_idle_sigs(inst_idle_sigs),
+    .inst_block_sigs(inst_block_sigs),
+    .block(kernel_block)
+);
+
+
+always @ (kernel_block or kernel_monitor_reset) begin
+    if (kernel_block == 1'b1 && kernel_monitor_reset == 1'b0) begin
+        find_kernel_block = 1'b1;
+    end
+    else begin
+        find_kernel_block = 1'b0;
+    end
+end

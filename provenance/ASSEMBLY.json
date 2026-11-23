@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "files": 5075,
-  "bytes": 1773811784,
+  "files": 6934,
+  "bytes": 1944141979,
   "original_roots": [
     "/home/user/Desktop/ff_vit_re",
     "/home/user/Desktop/FF_Vit"
@@ -18,5 +18,6 @@
     "old duplicate ZIP releases",
     "regenerable per-block calibration activation caches"
   ],
-  "skipped_symlinks": []
+  "skipped_symlinks": [],
+  "standalone_ip": "IP/"
 }

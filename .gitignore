@@ -1,5 +1,7 @@
 # External datasets and generated work belong outside the frozen snapshot.
 /.venv*/
+/IP/build/
+/IP/vit_block_top.zip
 /work/
 /results/
 /verification/local/

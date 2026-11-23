@@ -2,6 +2,8 @@
 
 [English README](README.md) · [中英文构建指南](docs/REPRODUCE.md) · [工程说明](docs/PROJECT_NOTES.md)
 
+**单独提取的 IP 源码：[IP/](IP/)** — [HLS C++](IP/src/) · [Verilog](IP/vivado_ip/hdl/verilog/) · [VHDL](IP/vivado_ip/hdl/vhdl/) · [Vitis 驱动](IP/vivado_ip/drivers/)。
+
 本仓库从 `ff_vit_re` 和 `FF_Vit` 两个原工程中整理一条可追溯主线，包含微调、
 W3/W8 混合精度量化、整数/LUT 导出、HLS、Vivado、Vitis、三个任务的部署 BIN、
 Python 前端、云边协同 GUI 和最新独立功耗采样程序。
@@ -27,6 +29,7 @@ python3 -B tools/verify_repository.py
 
 | 路径 | 内容 |
 | --- | --- |
+| `IP/` | 独立展开的 E07 HLS 源码和完整 Vivado IP，可直接浏览或导入 |
 | `deploy/plantvillage/` | PlantVillage 权重、单帧 S16 DMA 输入、1000-logit 参考输出、配套 Patch/Head ROM |
 | `deploy/nwpu/` | NWPU-RESISC45 对应部署文件 |
 | `deploy/imagenet/` | ImageNet 原始严格 S3 对应部署文件，输入为逻辑 patch 顺序，由 testbench 转 DMA 顺序 |
