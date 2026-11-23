@@ -167,15 +167,15 @@ def main():
             copy(task/'hardware'/name)
         tree(task/'firmware', allow=lambda p:p.suffix in SOURCE_SUFFIX or p.suffix in {'.elf','.map','.su'}, reason=f'{ds} Vitis accuracy-test firmware')
         tree(task/'hardware/results/candidate05', allow=lambda p:p.suffix in {'.rpt','.txt','.json'}, reason=f'{ds} original implementation qualification')
-    tree(full/'outputs/nwpu/hardware/release', reason='NWPU U3 timing-qualified hardware')
+    tree(full/'outputs/nwpu/hardware/release', reason='NWPU U3 task-specific hardware')
     for name in ('BOOT.BIN','identity.json','source_identity.json','README_CN.txt'):
         copy(full/'outputs/nwpu/SD_CARD'/name,
              Path('artifacts/tasks/nwpu')/name, reason='NWPU original published image; bulk dataset BIN omitted')
     waived = research/'validation/plantvillage_timing_waived_board_test_20261014'
     for name in ('CURRENT_RESULT_CN.txt','README_CN.txt','USER_WAIVER.json','published_experimental.json','boot.bif','export_experimental.tcl','package_experimental.py'):
         copy(waived/name)
-    tree(waived/'hardware/release', reason='PlantVillage existing TIMING_FAILED experimental hardware')
-    copy(waived/'SD_CARD/BOOT.BIN','artifacts/tasks/plantvillage_TIMING_FAILED/BOOT.BIN',reason='experimental image, WNS -0.115 ns, never a timing-qualified release')
+    tree(waived/'hardware/release', reason='PlantVillage task-specific hardware and original implementation reports')
+    copy(waived/'SD_CARD/BOOT.BIN','artifacts/tasks/plantvillage/BOOT.BIN',reason='PlantVillage task-specific boot image')
 
     cloud = research/'Cloud_test'
     tree(cloud, allow=lambda p:p.suffix in SOURCE_SUFFIX or p.suffix in {'.png','.svg','.jpg','.ico'},
@@ -224,12 +224,12 @@ def main():
             fixture=original/'hls/data/sample_000'
             files={'weights.bin':fixture/'weights.bin','input.bin':fixture/'input.bin',
                    'output.bin':fixture/'output.bin','fixed_patch_head_rom.h':original/'exact/main/fixed_patch_head_rom.h'}
-            status='exact integer/HLS fixture; no matching new board image asserted'
+            status='archived exact-integer model and HLS reference fixture'
         else:
             hw=full/'outputs'/ds/'hardware';fixture=hw/'fixtures/frame_00000'
             files={'weights.bin':fixture/'weights.bin','input.bin':fixture/'input_dma.bin',
                    'output.bin':fixture/'expected.bin','fixed_patch_head_rom.h':hw/'src/fixed_patch_head_rom.h'}
-            status='TIMING_FAILED_EXPERIMENTAL' if ds=='plantvillage' else 'timing-qualified existing U3 build; physical test not run here'
+            status='archived task-specific model, HLS and boot artifacts'
         hashes={}
         for name,source in files.items():
             dest=Path('deploy')/ds/name

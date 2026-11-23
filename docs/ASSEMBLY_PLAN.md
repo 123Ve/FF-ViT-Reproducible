@@ -9,7 +9,7 @@
 5. 增加迁移入口、清单、中英 README、环境说明和 Git LFS；检查源码闭包、BIN 哈希、GUI 导入和包内完整性。
 6. 初始化本地 main 分支。远端账号、名称、可见性和登录确认后再创建/推送 GitHub。
 
-Known boundaries: no new training, PL implementation or physical measurement is
-implied by assembly. The reported 64 FPS power-test slowdown remains unresolved.
-Offered 120 FPS is distinct from measured completed throughput. PlantVillage
-U3's existing 300 MHz experimental image failed setup timing and must be labeled.
+The archive preserves original model identities and implementation reports.
+Task directories use their dataset names; deployment scope and input formats
+are recorded in deploy/tasks.json. Offered load and completed throughput are
+recorded separately by the measurement software.

@@ -62,6 +62,7 @@
   "new_training": "NOT_RUN",
   "physical_acceptance": "NOT_RUN",
   "new_120fps_power_measurement": "NOT_RUN",
-  "github_upload": "NOT_RUN; authentication and owner-selected remote required",
-  "git_author": "Local archive metadata: FF-ViT Archive <archive@localhost>; no user identity was inferred"
+  "git_author": "Local archive metadata: FF-ViT Archive <archive@localhost>; no user identity was inferred",
+  "github_repository": "https://github.com/123Ve/FF-ViT-Reproducible",
+  "report_scope": "Snapshot offline checks; remote publication is tracked by origin/main."
 }

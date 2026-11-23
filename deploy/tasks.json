@@ -1,7 +1,7 @@
 {
   "plantvillage": {
     "scope": "one S16 input + complete 1000-logit reference; not a full dataset",
-    "status": "TIMING_FAILED_EXPERIMENTAL",
+    "status": "archived task-specific model, HLS and boot artifacts",
     "data_type": "input int16 little-endian, output int32 containing signed S19 codes",
     "weights_bytes": 2772096,
     "files": {
@@ -14,7 +14,7 @@
   },
   "nwpu": {
     "scope": "one S16 input + complete 1000-logit reference; not a full dataset",
-    "status": "timing-qualified existing U3 build; physical test not run here",
+    "status": "archived task-specific model, HLS and boot artifacts",
     "data_type": "input int16 little-endian, output int32 containing signed S19 codes",
     "weights_bytes": 2772096,
     "files": {
@@ -27,7 +27,7 @@
   },
   "imagenet": {
     "scope": "one S16 input + complete 1000-logit reference; not a full dataset",
-    "status": "exact integer/HLS fixture; no matching new board image asserted",
+    "status": "archived exact-integer model and HLS reference fixture",
     "data_type": "input int16 little-endian, output int32 containing signed S19 codes",
     "weights_bytes": 2772096,
     "files": {

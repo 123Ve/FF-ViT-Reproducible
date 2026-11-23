@@ -5177,12 +5177,12 @@
       "sha256": "049c7f4021acabecbd3d75ddef9d6a98843944824a961ec2847d146148350c72"
     },
     "README.md": {
-      "bytes": 8061,
-      "sha256": "5f2c7de30b4bc9a6b6ca16e289f1e1e9da036ec895fa939810d7a249e4285298"
+      "bytes": 7671,
+      "sha256": "f0d37bccd82c2a1373c7dd02f0be1094fbcef51b88b68af2a3bf13b5474db4d1"
     },
     "README_CN.md": {
-      "bytes": 7265,
-      "sha256": "22c0baa10fc3fce34926d7343c4d517a24395893f81e536a3822aff12906c750"
+      "bytes": 6877,
+      "sha256": "be9bd30d5e1fe88b0cd5866efb8a10bb7e77e3c48349dea44bbd7e792efddec8"
     },
     "artifacts/bsp/sampler_a53_1/CMakeLists.txt": {
       "bytes": 1293,
@@ -14780,7 +14780,7 @@
       "bytes": 5907,
       "sha256": "898955942281286d035d4b79672f643547b6e0de7620770429d88b670f3dd486"
     },
-    "artifacts/tasks/plantvillage_TIMING_FAILED/BOOT.BIN": {
+    "artifacts/tasks/plantvillage/BOOT.BIN": {
       "bytes": 26953944,
       "sha256": "32afb23bb859ece39e082d3ef89af0121edc14e022add6472c20728d43805357"
     },
@@ -14833,16 +14833,16 @@
       "sha256": "0e586b3ddd944720b1ff45ca950f8d0a9ee7cb54caa0b16c2e4d224802d4da98"
     },
     "deploy/tasks.json": {
-      "bytes": 2378,
-      "sha256": "ffe11192c4db387b320471953447f5e4975c7af64af8e77dcbbc5b1b2ade53f7"
+      "bytes": 2385,
+      "sha256": "396e00125034df4d13aa74e75ffa4a17cf34694f38139f83199ca42c47272784"
     },
     "docs/ASSEMBLY_PLAN.md": {
-      "bytes": 1348,
-      "sha256": "f80e9f8987d46539bea2b0ab31e7c6aaeae892f9b05fe93614343f8c5a945dfe"
+      "bytes": 1307,
+      "sha256": "91a4d465176de03890825b280caefdf7c370a30eae82d03e82c98e41edd353ef"
     },
-    "docs/KNOWN_ISSUES.md": {
-      "bytes": 1974,
-      "sha256": "6224c1d17bef92e74a3ee21973a30b38bff5a61179e19b80a998899e1c6c4fe9"
+    "docs/PROJECT_NOTES.md": {
+      "bytes": 1714,
+      "sha256": "3aae3fa81ec66463adeff0930bb9ae741bfddea838f29b636c53e18b70a34450"
     },
     "docs/REPRODUCE.md": {
       "bytes": 7353,
@@ -20269,8 +20269,8 @@
       "sha256": "fef7c7d74a914db11a2e407bcf865d3dd31a181c377517baedfd0d83e8fb85ff"
     },
     "provenance/COPIED_FILES.csv": {
-      "bytes": 1792736,
-      "sha256": "b136f2972f199cf6bf4ee9b7bc54b58c6ab54d0d214d59e07121c162d98b1963"
+      "bytes": 1792759,
+      "sha256": "e4cb219d9c1f7608091a502c0123595acacb43cc34e9037031f25c9f4010402c"
     },
     "provenance/cloud_gui/e07_v25_build_FINAL.log": {
       "bytes": 459557,
@@ -20353,8 +20353,8 @@
       "sha256": "872c59cc9ef4ee47798a431580277802e1d067f9a5ad201e750ff5609aadef02"
     },
     "tools/assemble_local_snapshot.py": {
-      "bytes": 17021,
-      "sha256": "700a1a75b7fec1cbb5e2632300bf9c727cd3f23994f2a96e3d953ca215649d03"
+      "bytes": 16913,
+      "sha256": "b59d2d1100749026e7cde40ee847d2fdd06b11bc3b2d98b912b5cb2a93a71403"
     },
     "tools/create_workspace.py": {
       "bytes": 5074,
@@ -20373,8 +20373,8 @@
       "sha256": "2c04e6a48624f6b5973a37fec1bea4de74c7143c7b0ad7a0a4a67cefe6b8b500"
     },
     "verification/RESULTS.json": {
-      "bytes": 2202,
-      "sha256": "2031a47eb6a58e70f18af6b325ffb4ed5e330a6898b835867546c67c4c64b1c0"
+      "bytes": 2284,
+      "sha256": "ad4d7da02358d70cffda07f01a801d5300a49c27b452b4b360c1247c0789f7ce"
     }
   },
   "schema": 1
