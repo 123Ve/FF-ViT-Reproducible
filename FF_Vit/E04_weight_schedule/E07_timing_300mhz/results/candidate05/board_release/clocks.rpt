@@ -1,0 +1,54 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version      : Vivado v.2025.1 (lin64) Build 6140274 Wed May 21 22:58:25 MDT 2025
+| Date              : Sat Oct  3 12:07:16 2026
+| Host              : user running 64-bit Ubuntu 24.04.4 LTS
+| Command           : report_clocks -file /home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/results/candidate05/board_release/clocks.rpt
+| Design            : design_1_wrapper
+| Device            : xczu9eg-ffvb1156
+| Speed File        : -2  PRODUCTION 1.30 05-15-2022
+| Design State      : Physopt postRoute
+| Temperature Grade : E
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Clock Report
+
+
+Attributes
+  P: Propagated
+  G: Generated
+  A: Auto-derived
+  R: Renamed
+  V: Virtual
+  I: Inverted
+  S: Pin phase-shifted with Latency mode
+
+Clock                           Period(ns)  Waveform(ns)   Attributes  Sources
+clk_pl_0                        4.000       {0.000 2.000}  P           {design_1_i/zynq_ultra_ps_e_0/inst/PS8_i/PLCLK[0]}
+clk_out1_design_1_core_clock_0  3.331       {0.000 1.665}  P,G,A       {design_1_i/core_clock/inst/mmcme4_adv_inst/CLKOUT0}
+
+
+====================================================
+Generated Clocks
+====================================================
+
+Generated Clock     : clk_out1_design_1_core_clock_0
+Master Source       : design_1_i/core_clock/inst/mmcme4_adv_inst/CLKIN1
+Master Clock        : clk_pl_0
+Edges               : {1 2 3}
+Edge Shifts(ns)     : {0.000 -0.335 -0.669}
+Generated Sources   : {design_1_i/core_clock/inst/mmcme4_adv_inst/CLKOUT0}
+
+
+
+====================================================
+User Uncertainty
+====================================================
+
+
+
+====================================================
+User Jitter
+====================================================
+
+

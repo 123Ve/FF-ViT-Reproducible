@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "files": 5075,
+  "bytes": 1773811784,
+  "original_roots": [
+    "/home/user/Desktop/ff_vit_re",
+    "/home/user/Desktop/FF_Vit"
+  ],
+  "datasets_included": false,
+  "bulk_dataset_bins_included": false,
+  "new_training": false,
+  "new_PL_build": false,
+  "new_board_test": false,
+  "excluded": [
+    "raw datasets and full test-set image tensors",
+    "temporary build workspaces",
+    "intermediate epochs / rejected model branches",
+    "old duplicate ZIP releases",
+    "regenerable per-block calibration activation caches"
+  ],
+  "skipped_symlinks": []
+}

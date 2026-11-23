@@ -1,0 +1,1068 @@
+{
+  "schema_version": 2,
+  "topology": "prefetch",
+  "output_file": "e04_raw_events.csv",
+  "dut_instance": "AESL_inst_vit_block_top",
+  "sampling": {
+    "edge": "posedge AESL_clock",
+    "region": "pre-NBA active region",
+    "cycle_source": "clk_cnt",
+    "change_only_control_tuples": true,
+    "comparison": "case inequality (!==), preserving unknown transitions"
+  },
+  "roles": {
+    "top": {
+      "module_type": "vit_block_top",
+      "source": "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/hls/work/hls/syn/verilog/vit_block_top.v",
+      "instance_path": "",
+      "signals": {
+        "ap_start": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.ap_start",
+          "width": "[0:0]"
+        },
+        "ap_done": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.ap_done",
+          "width": "[0:0]"
+        },
+        "ap_ready": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.ap_ready",
+          "width": "[0:0]"
+        },
+        "ap_idle": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.ap_idle",
+          "width": "[0:0]"
+        },
+        "ap_continue": {
+          "status": "UNKNOWN",
+          "reason": "not declared in discovered module vit_block_top"
+        },
+        "ap_CS_fsm": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.ap_CS_fsm",
+          "width": "[7:0]"
+        },
+        "real_start": {
+          "status": "UNKNOWN",
+          "reason": "not declared in discovered module vit_block_top"
+        },
+        "internal_ap_ready": {
+          "status": "UNKNOWN",
+          "reason": "not declared in discovered module vit_block_top"
+        },
+        "ap_CS_fsm_state1": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.ap_CS_fsm_state1",
+          "width": "[0:0]"
+        },
+        "num_layers": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.num_layers",
+          "width": "[31:0]"
+        },
+        "layer_index_source": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.l_fu_5688",
+          "signal": "l_fu_5688",
+          "width": "[30:0]",
+          "bits": 31,
+          "method": "curr_layer_connection"
+        },
+        "layer_num_layers_source": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.trunc_ln755_reg_11531",
+          "signal": "trunc_ln755_reg_11531",
+          "width": "[30:0]",
+          "bits": 31,
+          "method": "num_layers_connection"
+        },
+        "final_num_layers_source": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.num_layers_read_reg_11520",
+          "signal": "num_layers_read_reg_11520",
+          "width": "[31:0]",
+          "bits": 32,
+          "method": "unique_num_layers_read_reg_pattern"
+        },
+        "actual_mux_parity": {
+          "status": "UNKNOWN",
+          "reason": "no unique source-connected mux-parity signal was established"
+        },
+        "compute_weight_bank_source_derived": {
+          "status": "DERIVED",
+          "expression": "AESL_inst_vit_block_top.l_fu_5688[0]",
+          "derivation": "layer_index & 1",
+          "width": "[0:0]"
+        },
+        "fm_source_bank_source_derived": {
+          "status": "DERIVED",
+          "expression": "AESL_inst_vit_block_top.l_fu_5688[0]",
+          "derivation": "layer_index & 1",
+          "width": "[0:0]"
+        },
+        "next_load_bank_source_derived": {
+          "status": "DERIVED",
+          "expression": "((AESL_inst_vit_block_top.l_fu_5688 + 1'b1) & 1'b1)",
+          "derivation": "(layer_index+1) & 1",
+          "width": "[0:0]"
+        },
+        "fm_destination_bank_source_derived": {
+          "status": "DERIVED",
+          "expression": "((AESL_inst_vit_block_top.l_fu_5688 + 1'b1) & 1'b1)",
+          "derivation": "(layer_index+1) & 1",
+          "width": "[0:0]"
+        },
+        "head_bank_source_derived": {
+          "status": "DERIVED",
+          "expression": "AESL_inst_vit_block_top.num_layers_read_reg_11520[0]",
+          "derivation": "num_layers & 1",
+          "width": "[0:0]"
+        }
+      },
+      "event": "CTRL_TOP",
+      "event_columns": [
+        "ap_start",
+        "ap_done",
+        "num_layers"
+      ]
+    },
+    "initial": {
+      "module_type": "vit_block_top_initial_overlap_wrapper",
+      "source": "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/hls/work/hls/syn/verilog/vit_block_top_initial_overlap_wrapper.v",
+      "instance_path": "grp_initial_overlap_wrapper_fu_5704",
+      "signals": {
+        "ap_start": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_initial_overlap_wrapper_fu_5704.ap_start",
+          "width": "[0:0]"
+        },
+        "ap_done": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_initial_overlap_wrapper_fu_5704.ap_done",
+          "width": "[0:0]"
+        },
+        "ap_ready": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_initial_overlap_wrapper_fu_5704.ap_ready",
+          "width": "[0:0]"
+        },
+        "ap_idle": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_initial_overlap_wrapper_fu_5704.ap_idle",
+          "width": "[0:0]"
+        },
+        "ap_continue": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_initial_overlap_wrapper_fu_5704.ap_continue",
+          "width": "[0:0]"
+        },
+        "ap_CS_fsm": {
+          "status": "UNKNOWN",
+          "reason": "not declared in discovered module vit_block_top_initial_overlap_wrapper"
+        },
+        "real_start": {
+          "status": "UNKNOWN",
+          "reason": "not declared in discovered module vit_block_top_initial_overlap_wrapper"
+        },
+        "internal_ap_ready": {
+          "status": "UNKNOWN",
+          "reason": "not declared in discovered module vit_block_top_initial_overlap_wrapper"
+        }
+      },
+      "event": "CTRL_INITIAL",
+      "event_columns": [
+        "ap_start",
+        "ap_done"
+      ]
+    },
+    "patch": {
+      "module_type": "vit_block_top_task_run_pe",
+      "source": "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/hls/work/hls/syn/verilog/vit_block_top_task_run_pe.v",
+      "instance_path": "grp_initial_overlap_wrapper_fu_5704.task_run_pe_U0",
+      "signals": {
+        "ap_start": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_initial_overlap_wrapper_fu_5704.task_run_pe_U0.ap_start",
+          "width": "[0:0]"
+        },
+        "ap_done": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_initial_overlap_wrapper_fu_5704.task_run_pe_U0.ap_done",
+          "width": "[0:0]"
+        },
+        "ap_ready": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_initial_overlap_wrapper_fu_5704.task_run_pe_U0.ap_ready",
+          "width": "[0:0]"
+        },
+        "ap_idle": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_initial_overlap_wrapper_fu_5704.task_run_pe_U0.ap_idle",
+          "width": "[0:0]"
+        },
+        "ap_continue": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_initial_overlap_wrapper_fu_5704.task_run_pe_U0.ap_continue",
+          "width": "[0:0]"
+        },
+        "ap_CS_fsm": {
+          "status": "UNKNOWN",
+          "reason": "not declared in discovered module vit_block_top_task_run_pe"
+        },
+        "real_start": {
+          "status": "UNKNOWN",
+          "reason": "not declared in discovered module vit_block_top_task_run_pe"
+        },
+        "internal_ap_ready": {
+          "status": "UNKNOWN",
+          "reason": "not declared in discovered module vit_block_top_task_run_pe"
+        }
+      },
+      "event": "CTRL_PATCH",
+      "event_columns": [
+        "ap_start",
+        "ap_done"
+      ]
+    },
+    "w0_load": {
+      "module_type": "vit_block_top_task_load_weights",
+      "source": "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/hls/work/hls/syn/verilog/vit_block_top_task_load_weights.v",
+      "instance_path": "grp_initial_overlap_wrapper_fu_5704.task_load_weights_U0",
+      "signals": {
+        "ap_start": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_initial_overlap_wrapper_fu_5704.task_load_weights_U0.ap_start",
+          "width": "[0:0]"
+        },
+        "ap_done": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_initial_overlap_wrapper_fu_5704.task_load_weights_U0.ap_done",
+          "width": "[0:0]"
+        },
+        "ap_ready": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_initial_overlap_wrapper_fu_5704.task_load_weights_U0.ap_ready",
+          "width": "[0:0]"
+        },
+        "ap_idle": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_initial_overlap_wrapper_fu_5704.task_load_weights_U0.ap_idle",
+          "width": "[0:0]"
+        },
+        "ap_continue": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_initial_overlap_wrapper_fu_5704.task_load_weights_U0.ap_continue",
+          "width": "[0:0]"
+        },
+        "ap_CS_fsm": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_initial_overlap_wrapper_fu_5704.task_load_weights_U0.ap_CS_fsm",
+          "width": "[167:0]"
+        },
+        "real_start": {
+          "status": "UNKNOWN",
+          "reason": "not declared in discovered module vit_block_top_task_load_weights"
+        },
+        "internal_ap_ready": {
+          "status": "UNKNOWN",
+          "reason": "not declared in discovered module vit_block_top_task_load_weights"
+        },
+        "p_read": {
+          "status": "UNKNOWN",
+          "reason": "not declared in discovered module vit_block_top_task_load_weights"
+        },
+        "num_layers": {
+          "status": "UNKNOWN",
+          "reason": "not declared in discovered module vit_block_top_task_load_weights"
+        }
+      },
+      "event": "CTRL_W0_LOAD",
+      "event_columns": [
+        "ap_start",
+        "ap_done"
+      ]
+    },
+    "layer": {
+      "module_type": "vit_block_top_dataflow_wrapper",
+      "source": "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/hls/work/hls/syn/verilog/vit_block_top_dataflow_wrapper.v",
+      "instance_path": "grp_dataflow_wrapper_fu_6443",
+      "signals": {
+        "ap_start": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_dataflow_wrapper_fu_6443.ap_start",
+          "width": "[0:0]"
+        },
+        "ap_done": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_dataflow_wrapper_fu_6443.ap_done",
+          "width": "[0:0]"
+        },
+        "ap_ready": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_dataflow_wrapper_fu_6443.ap_ready",
+          "width": "[0:0]"
+        },
+        "ap_idle": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_dataflow_wrapper_fu_6443.ap_idle",
+          "width": "[0:0]"
+        },
+        "ap_continue": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_dataflow_wrapper_fu_6443.ap_continue",
+          "width": "[0:0]"
+        },
+        "ap_CS_fsm": {
+          "status": "UNKNOWN",
+          "reason": "not declared in discovered module vit_block_top_dataflow_wrapper"
+        },
+        "real_start": {
+          "status": "UNKNOWN",
+          "reason": "not declared in discovered module vit_block_top_dataflow_wrapper"
+        },
+        "internal_ap_ready": {
+          "status": "UNKNOWN",
+          "reason": "not declared in discovered module vit_block_top_dataflow_wrapper"
+        },
+        "curr_layer": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_dataflow_wrapper_fu_6443.curr_layer",
+          "width": "[30:0]"
+        },
+        "num_layers": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_dataflow_wrapper_fu_6443.num_layers",
+          "width": "[30:0]"
+        },
+        "add_loc_channel_dout": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_dataflow_wrapper_fu_6443.add_loc_channel_dout",
+          "width": "[30:0]"
+        },
+        "add_loc_channel_empty_n": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_dataflow_wrapper_fu_6443.add_loc_channel_empty_n",
+          "width": "[0:0]"
+        }
+      },
+      "event": "CTRL_LAYER",
+      "event_columns": [
+        "ap_start",
+        "ap_done",
+        "curr_layer",
+        "num_layers"
+      ]
+    },
+    "attention": {
+      "module_type": "vit_block_top_task_compute_attn",
+      "source": "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/hls/work/hls/syn/verilog/vit_block_top_task_compute_attn.v",
+      "instance_path": "grp_dataflow_wrapper_fu_6443.task_compute_attn_U0",
+      "signals": {
+        "ap_start": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.ap_start",
+          "width": "[0:0]"
+        },
+        "ap_done": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.ap_done",
+          "width": "[0:0]"
+        },
+        "ap_ready": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.ap_ready",
+          "width": "[0:0]"
+        },
+        "ap_idle": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.ap_idle",
+          "width": "[0:0]"
+        },
+        "ap_continue": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.ap_continue",
+          "width": "[0:0]"
+        },
+        "ap_CS_fsm": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.ap_CS_fsm",
+          "width": "[3:0]"
+        },
+        "real_start": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.real_start",
+          "width": "[0:0]"
+        },
+        "internal_ap_ready": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_dataflow_wrapper_fu_6443.task_compute_attn_U0.internal_ap_ready",
+          "width": "[0:0]"
+        }
+      },
+      "event": "CTRL_ATTENTION",
+      "event_columns": [
+        "ap_start",
+        "ap_done"
+      ]
+    },
+    "mlp": {
+      "module_type": "vit_block_top_task_compute_mlp",
+      "source": "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/hls/work/hls/syn/verilog/vit_block_top_task_compute_mlp.v",
+      "instance_path": "grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0",
+      "signals": {
+        "ap_start": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.ap_start",
+          "width": "[0:0]"
+        },
+        "ap_done": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.ap_done",
+          "width": "[0:0]"
+        },
+        "ap_ready": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.ap_ready",
+          "width": "[0:0]"
+        },
+        "ap_idle": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.ap_idle",
+          "width": "[0:0]"
+        },
+        "ap_continue": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.ap_continue",
+          "width": "[0:0]"
+        },
+        "ap_CS_fsm": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.ap_CS_fsm",
+          "width": "[3:0]"
+        },
+        "real_start": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.real_start",
+          "width": "[0:0]"
+        },
+        "internal_ap_ready": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_dataflow_wrapper_fu_6443.task_compute_mlp_U0.internal_ap_ready",
+          "width": "[0:0]"
+        }
+      },
+      "event": "CTRL_MLP",
+      "event_columns": [
+        "ap_start",
+        "ap_done"
+      ]
+    },
+    "next_load_0": {
+      "module_type": "vit_block_top_task_load_weights_14",
+      "source": "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/hls/work/hls/syn/verilog/vit_block_top_task_load_weights_14.v",
+      "instance_path": "grp_dataflow_wrapper_fu_6443.task_load_weights_14_U0",
+      "signals": {
+        "ap_start": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_dataflow_wrapper_fu_6443.task_load_weights_14_U0.ap_start",
+          "width": "[0:0]"
+        },
+        "ap_done": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_dataflow_wrapper_fu_6443.task_load_weights_14_U0.ap_done",
+          "width": "[0:0]"
+        },
+        "ap_ready": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_dataflow_wrapper_fu_6443.task_load_weights_14_U0.ap_ready",
+          "width": "[0:0]"
+        },
+        "ap_idle": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_dataflow_wrapper_fu_6443.task_load_weights_14_U0.ap_idle",
+          "width": "[0:0]"
+        },
+        "ap_continue": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_dataflow_wrapper_fu_6443.task_load_weights_14_U0.ap_continue",
+          "width": "[0:0]"
+        },
+        "ap_CS_fsm": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_dataflow_wrapper_fu_6443.task_load_weights_14_U0.ap_CS_fsm",
+          "width": "[170:0]"
+        },
+        "real_start": {
+          "status": "UNKNOWN",
+          "reason": "not declared in discovered module vit_block_top_task_load_weights_14"
+        },
+        "internal_ap_ready": {
+          "status": "UNKNOWN",
+          "reason": "not declared in discovered module vit_block_top_task_load_weights_14"
+        },
+        "p_read": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_dataflow_wrapper_fu_6443.task_load_weights_14_U0.p_read",
+          "width": "[30:0]"
+        },
+        "num_layers": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_dataflow_wrapper_fu_6443.task_load_weights_14_U0.num_layers",
+          "width": "[30:0]"
+        }
+      },
+      "event": "CTRL_NEXT_LOAD_0",
+      "event_columns": [
+        "ap_start",
+        "ap_done",
+        "p_read",
+        "num_layers"
+      ]
+    },
+    "write_fm": {
+      "module_type": "vit_block_top_task_write_fm",
+      "source": "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/hls/work/hls/syn/verilog/vit_block_top_task_write_fm.v",
+      "instance_path": "grp_dataflow_wrapper_fu_6443.task_write_fm_U0",
+      "signals": {
+        "ap_start": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_dataflow_wrapper_fu_6443.task_write_fm_U0.ap_start",
+          "width": "[0:0]"
+        },
+        "ap_done": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_dataflow_wrapper_fu_6443.task_write_fm_U0.ap_done",
+          "width": "[0:0]"
+        },
+        "ap_ready": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_dataflow_wrapper_fu_6443.task_write_fm_U0.ap_ready",
+          "width": "[0:0]"
+        },
+        "ap_idle": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_dataflow_wrapper_fu_6443.task_write_fm_U0.ap_idle",
+          "width": "[0:0]"
+        },
+        "ap_continue": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_dataflow_wrapper_fu_6443.task_write_fm_U0.ap_continue",
+          "width": "[0:0]"
+        },
+        "ap_CS_fsm": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_dataflow_wrapper_fu_6443.task_write_fm_U0.ap_CS_fsm",
+          "width": "[0:0]"
+        },
+        "real_start": {
+          "status": "UNKNOWN",
+          "reason": "not declared in discovered module vit_block_top_task_write_fm"
+        },
+        "internal_ap_ready": {
+          "status": "UNKNOWN",
+          "reason": "not declared in discovered module vit_block_top_task_write_fm"
+        }
+      },
+      "event": "CTRL_WRITE_FM",
+      "event_columns": [
+        "ap_start",
+        "ap_done"
+      ]
+    },
+    "head": {
+      "module_type": "vit_block_top_task_run_head",
+      "source": "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/hls/work/hls/syn/verilog/vit_block_top_task_run_head.v",
+      "instance_path": "grp_task_run_head_fu_11440",
+      "signals": {
+        "ap_start": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_task_run_head_fu_11440.ap_start",
+          "width": "[0:0]"
+        },
+        "ap_done": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_task_run_head_fu_11440.ap_done",
+          "width": "[0:0]"
+        },
+        "ap_ready": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_task_run_head_fu_11440.ap_ready",
+          "width": "[0:0]"
+        },
+        "ap_idle": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_task_run_head_fu_11440.ap_idle",
+          "width": "[0:0]"
+        },
+        "ap_continue": {
+          "status": "PRESENT",
+          "path": "AESL_inst_vit_block_top.grp_task_run_head_fu_11440.ap_continue",
+          "width": "[0:0]"
+        },
+        "ap_CS_fsm": {
+          "status": "UNKNOWN",
+          "reason": "not declared in discovered module vit_block_top_task_run_head"
+        },
+        "real_start": {
+          "status": "UNKNOWN",
+          "reason": "not declared in discovered module vit_block_top_task_run_head"
+        },
+        "internal_ap_ready": {
+          "status": "UNKNOWN",
+          "reason": "not declared in discovered module vit_block_top_task_run_head"
+        }
+      },
+      "event": "CTRL_HEAD",
+      "event_columns": [
+        "ap_start",
+        "ap_done"
+      ]
+    }
+  },
+  "attribution": {
+    "layer_index": {
+      "status": "PRESENT",
+      "path": "AESL_inst_vit_block_top.l_fu_5688",
+      "signal": "l_fu_5688",
+      "width": "[30:0]",
+      "bits": 31,
+      "method": "curr_layer_connection"
+    },
+    "layer_num_layers": {
+      "status": "PRESENT",
+      "path": "AESL_inst_vit_block_top.trunc_ln755_reg_11531",
+      "signal": "trunc_ln755_reg_11531",
+      "width": "[30:0]",
+      "bits": 31,
+      "method": "num_layers_connection"
+    },
+    "final_num_layers": {
+      "status": "PRESENT",
+      "path": "AESL_inst_vit_block_top.num_layers_read_reg_11520",
+      "signal": "num_layers_read_reg_11520",
+      "width": "[31:0]",
+      "bits": 32,
+      "method": "unique_num_layers_read_reg_pattern"
+    },
+    "actual_mux_parity": {
+      "status": "UNKNOWN",
+      "reason": "no unique source-connected mux-parity signal was established"
+    },
+    "bank_sources": {
+      "compute_weight_bank_source_derived": {
+        "status": "DERIVED",
+        "expression": "AESL_inst_vit_block_top.l_fu_5688[0]",
+        "derivation": "layer_index & 1"
+      },
+      "fm_source_bank_source_derived": {
+        "status": "DERIVED",
+        "expression": "AESL_inst_vit_block_top.l_fu_5688[0]",
+        "derivation": "layer_index & 1"
+      },
+      "next_load_bank_source_derived": {
+        "status": "DERIVED",
+        "expression": "((AESL_inst_vit_block_top.l_fu_5688 + 1'b1) & 1'b1)",
+        "derivation": "(layer_index+1) & 1"
+      },
+      "fm_destination_bank_source_derived": {
+        "status": "DERIVED",
+        "expression": "((AESL_inst_vit_block_top.l_fu_5688 + 1'b1) & 1'b1)",
+        "derivation": "(layer_index+1) & 1"
+      },
+      "head_bank_source_derived": {
+        "status": "DERIVED",
+        "expression": "AESL_inst_vit_block_top.num_layers_read_reg_11520[0]",
+        "derivation": "num_layers & 1"
+      }
+    }
+  },
+  "traffic": {
+    "AXI_AR": {
+      "accepted_when": "(AESL_inst_vit_block_top.m_axi_gmem_w_ARVALID === 1'b1) && (AESL_inst_vit_block_top.m_axi_gmem_w_ARREADY === 1'b1)",
+      "columns": [
+        "id",
+        "address",
+        "len",
+        "size",
+        "requested_bytes"
+      ],
+      "fields": {
+        "id": {
+          "path_or_expression": "AESL_inst_vit_block_top.m_axi_gmem_w_ARID",
+          "width": "[C_M_AXI_GMEM_W_ID_WIDTH - 1:0]",
+          "bits": 1
+        },
+        "address": {
+          "path_or_expression": "AESL_inst_vit_block_top.m_axi_gmem_w_ARADDR",
+          "width": "[C_M_AXI_GMEM_W_ADDR_WIDTH - 1:0]",
+          "bits": 64
+        },
+        "len": {
+          "path_or_expression": "AESL_inst_vit_block_top.m_axi_gmem_w_ARLEN",
+          "width": "[7:0]",
+          "bits": 8
+        },
+        "size": {
+          "path_or_expression": "AESL_inst_vit_block_top.m_axi_gmem_w_ARSIZE",
+          "width": "[2:0]",
+          "bits": 3
+        },
+        "requested_bytes": {
+          "path_or_expression": "((64'd1 + AESL_inst_vit_block_top.m_axi_gmem_w_ARLEN) << AESL_inst_vit_block_top.m_axi_gmem_w_ARSIZE)",
+          "width": "[63:0]",
+          "bits": 64
+        }
+      },
+      "qualifier_event": "QUAL_AXI_AR",
+      "qualifier_completeness": "UNKNOWN if reset, VALID, or READY is X/Z in any sampled qualifier event"
+    },
+    "AXI_R": {
+      "accepted_when": "(AESL_inst_vit_block_top.m_axi_gmem_w_RVALID === 1'b1) && (AESL_inst_vit_block_top.m_axi_gmem_w_RREADY === 1'b1)",
+      "columns": [
+        "id",
+        "last",
+        "resp"
+      ],
+      "fields": {
+        "id": {
+          "path_or_expression": "AESL_inst_vit_block_top.m_axi_gmem_w_RID",
+          "width": "[C_M_AXI_GMEM_W_ID_WIDTH - 1:0]",
+          "bits": 1
+        },
+        "last": {
+          "path_or_expression": "AESL_inst_vit_block_top.m_axi_gmem_w_RLAST",
+          "width": "[0:0]",
+          "bits": 1
+        },
+        "resp": {
+          "path_or_expression": "AESL_inst_vit_block_top.m_axi_gmem_w_RRESP",
+          "width": "[1:0]",
+          "bits": 2
+        }
+      },
+      "qualifier_event": "QUAL_AXI_R",
+      "qualifier_completeness": "UNKNOWN if reset, VALID, or READY is X/Z in any sampled qualifier event"
+    },
+    "AXI_AW": {
+      "accepted_when": "(AESL_inst_vit_block_top.m_axi_gmem_w_AWVALID === 1'b1) && (AESL_inst_vit_block_top.m_axi_gmem_w_AWREADY === 1'b1)",
+      "columns": [
+        "id",
+        "address",
+        "len",
+        "size",
+        "requested_bytes"
+      ],
+      "fields": {
+        "id": {
+          "path_or_expression": "AESL_inst_vit_block_top.m_axi_gmem_w_AWID",
+          "width": "[C_M_AXI_GMEM_W_ID_WIDTH - 1:0]",
+          "bits": 1
+        },
+        "address": {
+          "path_or_expression": "AESL_inst_vit_block_top.m_axi_gmem_w_AWADDR",
+          "width": "[C_M_AXI_GMEM_W_ADDR_WIDTH - 1:0]",
+          "bits": 64
+        },
+        "len": {
+          "path_or_expression": "AESL_inst_vit_block_top.m_axi_gmem_w_AWLEN",
+          "width": "[7:0]",
+          "bits": 8
+        },
+        "size": {
+          "path_or_expression": "AESL_inst_vit_block_top.m_axi_gmem_w_AWSIZE",
+          "width": "[2:0]",
+          "bits": 3
+        },
+        "requested_bytes": {
+          "path_or_expression": "((64'd1 + AESL_inst_vit_block_top.m_axi_gmem_w_AWLEN) << AESL_inst_vit_block_top.m_axi_gmem_w_AWSIZE)",
+          "width": "[63:0]",
+          "bits": 64
+        }
+      },
+      "qualifier_event": "QUAL_AXI_AW",
+      "qualifier_completeness": "UNKNOWN if reset, VALID, or READY is X/Z in any sampled qualifier event"
+    },
+    "AXI_W": {
+      "accepted_when": "(AESL_inst_vit_block_top.m_axi_gmem_w_WVALID === 1'b1) && (AESL_inst_vit_block_top.m_axi_gmem_w_WREADY === 1'b1)",
+      "columns": [
+        "id",
+        "last",
+        "strb"
+      ],
+      "fields": {
+        "id": {
+          "path_or_expression": "AESL_inst_vit_block_top.m_axi_gmem_w_WID",
+          "width": "[C_M_AXI_GMEM_W_ID_WIDTH - 1:0]",
+          "bits": 1
+        },
+        "last": {
+          "path_or_expression": "AESL_inst_vit_block_top.m_axi_gmem_w_WLAST",
+          "width": "[0:0]",
+          "bits": 1
+        },
+        "strb": {
+          "path_or_expression": "AESL_inst_vit_block_top.m_axi_gmem_w_WSTRB",
+          "width": "[C_M_AXI_GMEM_W_WSTRB_WIDTH - 1:0]",
+          "bits": 16
+        }
+      },
+      "qualifier_event": "QUAL_AXI_W",
+      "qualifier_completeness": "UNKNOWN if reset, VALID, or READY is X/Z in any sampled qualifier event"
+    },
+    "AXI_B": {
+      "accepted_when": "(AESL_inst_vit_block_top.m_axi_gmem_w_BVALID === 1'b1) && (AESL_inst_vit_block_top.m_axi_gmem_w_BREADY === 1'b1)",
+      "columns": [
+        "id",
+        "resp"
+      ],
+      "fields": {
+        "id": {
+          "path_or_expression": "AESL_inst_vit_block_top.m_axi_gmem_w_BID",
+          "width": "[C_M_AXI_GMEM_W_ID_WIDTH - 1:0]",
+          "bits": 1
+        },
+        "resp": {
+          "path_or_expression": "AESL_inst_vit_block_top.m_axi_gmem_w_BRESP",
+          "width": "[1:0]",
+          "bits": 2
+        }
+      },
+      "qualifier_event": "QUAL_AXI_B",
+      "qualifier_completeness": "UNKNOWN if reset, VALID, or READY is X/Z in any sampled qualifier event"
+    },
+    "STREAM_IN": {
+      "accepted_when": "(AESL_inst_vit_block_top.i_stream_ext_TVALID === 1'b1) && (AESL_inst_vit_block_top.i_stream_ext_TREADY === 1'b1)",
+      "columns": [
+        "global_accepted_beat_index",
+        "tlast"
+      ],
+      "fields": {
+        "global_accepted_beat_index": {
+          "width": "host integer"
+        },
+        "tlast": {
+          "path_or_expression": "AESL_inst_vit_block_top.i_stream_ext_TLAST",
+          "width": "[0:0]",
+          "bits": 1
+        }
+      },
+      "aggregation": "each accepted beat; first index is 0 and TLAST is retained raw",
+      "qualifier_event": "QUAL_STREAM_IN",
+      "qualifier_completeness": "UNKNOWN if reset, VALID, or READY is X/Z in any sampled qualifier event"
+    },
+    "STREAM_OUT": {
+      "accepted_when": "(AESL_inst_vit_block_top.o_stream_logits_TVALID === 1'b1) && (AESL_inst_vit_block_top.o_stream_logits_TREADY === 1'b1)",
+      "columns": [
+        "global_accepted_beat_index",
+        "tlast"
+      ],
+      "fields": {
+        "global_accepted_beat_index": {
+          "width": "host integer"
+        },
+        "tlast": {
+          "path_or_expression": "AESL_inst_vit_block_top.o_stream_logits_TLAST",
+          "width": "[0:0]",
+          "bits": 1
+        }
+      },
+      "aggregation": "each accepted beat; first index is 0 and TLAST is retained raw",
+      "qualifier_event": "QUAL_STREAM_OUT",
+      "qualifier_completeness": "UNKNOWN if reset, VALID, or READY is X/Z in any sampled qualifier event"
+    }
+  },
+  "traffic_interface_widths": {
+    "m_axi_gmem_w_ARVALID": {
+      "width": "[0:0]",
+      "bits": 1,
+      "validated": true
+    },
+    "m_axi_gmem_w_ARREADY": {
+      "width": "[0:0]",
+      "bits": 1,
+      "validated": true
+    },
+    "m_axi_gmem_w_ARADDR": {
+      "width": "[C_M_AXI_GMEM_W_ADDR_WIDTH - 1:0]",
+      "bits": 64,
+      "validated": true
+    },
+    "m_axi_gmem_w_ARID": {
+      "width": "[C_M_AXI_GMEM_W_ID_WIDTH - 1:0]",
+      "bits": 1,
+      "validated": true
+    },
+    "m_axi_gmem_w_ARLEN": {
+      "width": "[7:0]",
+      "bits": 8,
+      "validated": true
+    },
+    "m_axi_gmem_w_ARSIZE": {
+      "width": "[2:0]",
+      "bits": 3,
+      "validated": true
+    },
+    "m_axi_gmem_w_RVALID": {
+      "width": "[0:0]",
+      "bits": 1,
+      "validated": true
+    },
+    "m_axi_gmem_w_RREADY": {
+      "width": "[0:0]",
+      "bits": 1,
+      "validated": true
+    },
+    "m_axi_gmem_w_RID": {
+      "width": "[C_M_AXI_GMEM_W_ID_WIDTH - 1:0]",
+      "bits": 1,
+      "validated": true
+    },
+    "m_axi_gmem_w_RLAST": {
+      "width": "[0:0]",
+      "bits": 1,
+      "validated": true
+    },
+    "m_axi_gmem_w_RRESP": {
+      "width": "[1:0]",
+      "bits": 2,
+      "validated": true
+    },
+    "m_axi_gmem_w_AWVALID": {
+      "width": "[0:0]",
+      "bits": 1,
+      "validated": true
+    },
+    "m_axi_gmem_w_AWREADY": {
+      "width": "[0:0]",
+      "bits": 1,
+      "validated": true
+    },
+    "m_axi_gmem_w_AWADDR": {
+      "width": "[C_M_AXI_GMEM_W_ADDR_WIDTH - 1:0]",
+      "bits": 64,
+      "validated": true
+    },
+    "m_axi_gmem_w_AWID": {
+      "width": "[C_M_AXI_GMEM_W_ID_WIDTH - 1:0]",
+      "bits": 1,
+      "validated": true
+    },
+    "m_axi_gmem_w_AWLEN": {
+      "width": "[7:0]",
+      "bits": 8,
+      "validated": true
+    },
+    "m_axi_gmem_w_AWSIZE": {
+      "width": "[2:0]",
+      "bits": 3,
+      "validated": true
+    },
+    "m_axi_gmem_w_WVALID": {
+      "width": "[0:0]",
+      "bits": 1,
+      "validated": true
+    },
+    "m_axi_gmem_w_WREADY": {
+      "width": "[0:0]",
+      "bits": 1,
+      "validated": true
+    },
+    "m_axi_gmem_w_WID": {
+      "width": "[C_M_AXI_GMEM_W_ID_WIDTH - 1:0]",
+      "bits": 1,
+      "validated": true
+    },
+    "m_axi_gmem_w_WLAST": {
+      "width": "[0:0]",
+      "bits": 1,
+      "validated": true
+    },
+    "m_axi_gmem_w_WSTRB": {
+      "width": "[C_M_AXI_GMEM_W_WSTRB_WIDTH - 1:0]",
+      "bits": 16,
+      "validated": true
+    },
+    "m_axi_gmem_w_BVALID": {
+      "width": "[0:0]",
+      "bits": 1,
+      "validated": true
+    },
+    "m_axi_gmem_w_BREADY": {
+      "width": "[0:0]",
+      "bits": 1,
+      "validated": true
+    },
+    "m_axi_gmem_w_BID": {
+      "width": "[C_M_AXI_GMEM_W_ID_WIDTH - 1:0]",
+      "bits": 1,
+      "validated": true
+    },
+    "m_axi_gmem_w_BRESP": {
+      "width": "[1:0]",
+      "bits": 2,
+      "validated": true
+    },
+    "i_stream_ext_TVALID": {
+      "width": "[0:0]",
+      "bits": 1,
+      "validated": true
+    },
+    "i_stream_ext_TREADY": {
+      "width": "[0:0]",
+      "bits": 1,
+      "validated": true
+    },
+    "i_stream_ext_TLAST": {
+      "width": "[0:0]",
+      "bits": 1,
+      "validated": true
+    },
+    "o_stream_logits_TVALID": {
+      "width": "[0:0]",
+      "bits": 1,
+      "validated": true
+    },
+    "o_stream_logits_TREADY": {
+      "width": "[0:0]",
+      "bits": 1,
+      "validated": true
+    },
+    "o_stream_logits_TLAST": {
+      "width": "[0:0]",
+      "bits": 1,
+      "validated": true
+    }
+  },
+  "qualifier_observation": {
+    "events": [
+      "QUAL_AXI_AR",
+      "QUAL_AXI_R",
+      "QUAL_AXI_AW",
+      "QUAL_AXI_W",
+      "QUAL_AXI_B",
+      "QUAL_STREAM_IN",
+      "QUAL_STREAM_OUT"
+    ],
+    "fields": [
+      "reset",
+      "valid",
+      "ready"
+    ],
+    "change_only": true,
+    "case_inequality": true,
+    "unknown_policy": "X/Z is retained raw; post-reset completeness remains UNKNOWN until offline validation"
+  },
+  "axi_outstanding_validation": "OFFLINE_REQUIRED_PER_ID_FROM_RAW_AR_R_EVENTS",
+  "boundary_semantics": {
+    "top_entry_observation": "AESL_inst_vit_block_top.ap_CS_fsm_state1 && AESL_inst_vit_block_top.ap_start",
+    "top_ready": "completion readiness; never treated universally as frame start",
+    "task_boundaries": "request, acceptance/internal launch, continuation, and completion remain distinct raw fields",
+    "parity": "source-derived only from resolved layer/final-num-layers signals; actual mux parity is separate and may be UNKNOWN"
+  },
+  "interpretation": "RAW_EVENTS_ONLY",
+  "interval_acceptance": "NONE; incomplete or ambiguous boundaries remain UNKNOWN",
+  "dut_signal_writes": []
+}

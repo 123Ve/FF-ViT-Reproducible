@@ -1,0 +1,169 @@
+test_actual_receive_clock_and_original_rejection_bounds (test_clock_handshake.ClockHandshakeTests.test_actual_receive_clock_and_original_rejection_bounds) ... 
+  test_actual_receive_clock_and_original_rejection_bounds (test_clock_handshake.ClockHandshakeTests.test_actual_receive_clock_and_original_rejection_bounds) (profile=18) ... FAIL
+  test_actual_receive_clock_and_original_rejection_bounds (test_clock_handshake.ClockHandshakeTests.test_actual_receive_clock_and_original_rejection_bounds) (profile=17) ... FAIL
+  test_actual_receive_clock_and_original_rejection_bounds (test_clock_handshake.ClockHandshakeTests.test_actual_receive_clock_and_original_rejection_bounds) (profile=16) ... FAIL
+test_first_observation_is_latched_while_heartbeat_advances (test_clock_handshake.ClockHandshakeTests.test_first_observation_is_latched_while_heartbeat_advances) ... FAIL
+
+======================================================================
+FAIL: test_actual_receive_clock_and_original_rejection_bounds (test_clock_handshake.ClockHandshakeTests.test_actual_receive_clock_and_original_rejection_bounds) (profile=18)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_handshake.py", line 25, in test_actual_receive_clock_and_original_rejection_bounds
+    self.compile_run('test_clock_receive.c',['firmware/common/phase.c'],profile)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_handshake.py", line 16, in compile_run
+    self.assertEqual(built.returncode,0,built.stdout+built.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_receive.c: In function ‘main’:
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_receive.c:14:46: error: ‘m_service’ has no member named ‘clock_ticks’; did you mean ‘clock_checks’?
+   14 |     m_service_init(&s,p,1000000,0,1000000);s.clock_ticks=clock_ticks;
+      |                                              ^~~~~~~~~~~
+      |                                              clock_checks
+In file included from /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_receive.c:2:
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_receive.c:20:30: error: ‘m_service’ has no member named ‘clock_rejections’
+   20 |     assert(!s.clock_checks&&s.clock_rejections==1&&!s.faults);
+      |                              ^
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_receive.c:26:17: error: ‘m_service’ has no member named ‘last_clock_sent’
+   26 |         assert(s.last_clock_sent==sent&&s.last_clock_sampler==entry+5&&s.last_clock_received==entry+10);
+      |                 ^
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_receive.c:26:42: error: ‘m_service’ has no member named ‘last_clock_sampler’
+   26 |         assert(s.last_clock_sent==sent&&s.last_clock_sampler==entry+5&&s.last_clock_received==entry+10);
+      |                                          ^
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_receive.c:26:73: error: ‘m_service’ has no member named ‘last_clock_received’
+   26 |         assert(s.last_clock_sent==sent&&s.last_clock_sampler==entry+5&&s.last_clock_received==entry+10);
+      |                                                                         ^
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_receive.c:27:17: error: ‘m_service’ has no member named ‘last_clock_flags’
+   27 |         assert(s.last_clock_flags==M_VALID);
+      |                 ^
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_receive.c:33:50: error: ‘m_service’ has no member named ‘clock_rejections’
+   33 |     uint64_t sent=s.ping_sent;unsigned rejected=s.clock_rejections;
+      |                                                  ^
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_receive.c:35:30: error: ‘m_service’ has no member named ‘clock_rejections’
+   35 |     assert(!s.clock_checks&&s.clock_rejections==++rejected);
+      |                              ^
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_receive.c:38:30: error: ‘m_service’ has no member named ‘clock_rejections’
+   38 |     assert(!s.clock_checks&&s.clock_rejections==++rejected);
+      |                              ^
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_receive.c:41:30: error: ‘m_service’ has no member named ‘clock_rejections’
+   41 |     assert(!s.clock_checks&&s.clock_rejections==++rejected);
+      |                              ^
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_receive.c:45:30: error: ‘m_service’ has no member named ‘clock_rejections’
+   45 |     assert(!s.clock_checks&&s.clock_rejections==++rejected&&(s.faults&M_FAULT_HANDSHAKE));
+      |                              ^
+
+
+======================================================================
+FAIL: test_actual_receive_clock_and_original_rejection_bounds (test_clock_handshake.ClockHandshakeTests.test_actual_receive_clock_and_original_rejection_bounds) (profile=17)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_handshake.py", line 25, in test_actual_receive_clock_and_original_rejection_bounds
+    self.compile_run('test_clock_receive.c',['firmware/common/phase.c'],profile)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_handshake.py", line 16, in compile_run
+    self.assertEqual(built.returncode,0,built.stdout+built.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_receive.c: In function ‘main’:
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_receive.c:14:46: error: ‘m_service’ has no member named ‘clock_ticks’; did you mean ‘clock_checks’?
+   14 |     m_service_init(&s,p,1000000,0,1000000);s.clock_ticks=clock_ticks;
+      |                                              ^~~~~~~~~~~
+      |                                              clock_checks
+In file included from /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_receive.c:2:
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_receive.c:20:30: error: ‘m_service’ has no member named ‘clock_rejections’
+   20 |     assert(!s.clock_checks&&s.clock_rejections==1&&!s.faults);
+      |                              ^
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_receive.c:26:17: error: ‘m_service’ has no member named ‘last_clock_sent’
+   26 |         assert(s.last_clock_sent==sent&&s.last_clock_sampler==entry+5&&s.last_clock_received==entry+10);
+      |                 ^
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_receive.c:26:42: error: ‘m_service’ has no member named ‘last_clock_sampler’
+   26 |         assert(s.last_clock_sent==sent&&s.last_clock_sampler==entry+5&&s.last_clock_received==entry+10);
+      |                                          ^
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_receive.c:26:73: error: ‘m_service’ has no member named ‘last_clock_received’
+   26 |         assert(s.last_clock_sent==sent&&s.last_clock_sampler==entry+5&&s.last_clock_received==entry+10);
+      |                                                                         ^
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_receive.c:27:17: error: ‘m_service’ has no member named ‘last_clock_flags’
+   27 |         assert(s.last_clock_flags==M_VALID);
+      |                 ^
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_receive.c:33:50: error: ‘m_service’ has no member named ‘clock_rejections’
+   33 |     uint64_t sent=s.ping_sent;unsigned rejected=s.clock_rejections;
+      |                                                  ^
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_receive.c:35:30: error: ‘m_service’ has no member named ‘clock_rejections’
+   35 |     assert(!s.clock_checks&&s.clock_rejections==++rejected);
+      |                              ^
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_receive.c:38:30: error: ‘m_service’ has no member named ‘clock_rejections’
+   38 |     assert(!s.clock_checks&&s.clock_rejections==++rejected);
+      |                              ^
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_receive.c:41:30: error: ‘m_service’ has no member named ‘clock_rejections’
+   41 |     assert(!s.clock_checks&&s.clock_rejections==++rejected);
+      |                              ^
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_receive.c:45:30: error: ‘m_service’ has no member named ‘clock_rejections’
+   45 |     assert(!s.clock_checks&&s.clock_rejections==++rejected&&(s.faults&M_FAULT_HANDSHAKE));
+      |                              ^
+
+
+======================================================================
+FAIL: test_actual_receive_clock_and_original_rejection_bounds (test_clock_handshake.ClockHandshakeTests.test_actual_receive_clock_and_original_rejection_bounds) (profile=16)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_handshake.py", line 25, in test_actual_receive_clock_and_original_rejection_bounds
+    self.compile_run('test_clock_receive.c',['firmware/common/phase.c'],profile)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_handshake.py", line 16, in compile_run
+    self.assertEqual(built.returncode,0,built.stdout+built.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_receive.c: In function ‘main’:
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_receive.c:14:46: error: ‘m_service’ has no member named ‘clock_ticks’; did you mean ‘clock_checks’?
+   14 |     m_service_init(&s,p,1000000,0,1000000);s.clock_ticks=clock_ticks;
+      |                                              ^~~~~~~~~~~
+      |                                              clock_checks
+In file included from /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_receive.c:2:
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_receive.c:20:30: error: ‘m_service’ has no member named ‘clock_rejections’
+   20 |     assert(!s.clock_checks&&s.clock_rejections==1&&!s.faults);
+      |                              ^
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_receive.c:26:17: error: ‘m_service’ has no member named ‘last_clock_sent’
+   26 |         assert(s.last_clock_sent==sent&&s.last_clock_sampler==entry+5&&s.last_clock_received==entry+10);
+      |                 ^
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_receive.c:26:42: error: ‘m_service’ has no member named ‘last_clock_sampler’
+   26 |         assert(s.last_clock_sent==sent&&s.last_clock_sampler==entry+5&&s.last_clock_received==entry+10);
+      |                                          ^
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_receive.c:26:73: error: ‘m_service’ has no member named ‘last_clock_received’
+   26 |         assert(s.last_clock_sent==sent&&s.last_clock_sampler==entry+5&&s.last_clock_received==entry+10);
+      |                                                                         ^
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_receive.c:27:17: error: ‘m_service’ has no member named ‘last_clock_flags’
+   27 |         assert(s.last_clock_flags==M_VALID);
+      |                 ^
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_receive.c:33:50: error: ‘m_service’ has no member named ‘clock_rejections’
+   33 |     uint64_t sent=s.ping_sent;unsigned rejected=s.clock_rejections;
+      |                                                  ^
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_receive.c:35:30: error: ‘m_service’ has no member named ‘clock_rejections’
+   35 |     assert(!s.clock_checks&&s.clock_rejections==++rejected);
+      |                              ^
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_receive.c:38:30: error: ‘m_service’ has no member named ‘clock_rejections’
+   38 |     assert(!s.clock_checks&&s.clock_rejections==++rejected);
+      |                              ^
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_receive.c:41:30: error: ‘m_service’ has no member named ‘clock_rejections’
+   41 |     assert(!s.clock_checks&&s.clock_rejections==++rejected);
+      |                              ^
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_receive.c:45:30: error: ‘m_service’ has no member named ‘clock_rejections’
+   45 |     assert(!s.clock_checks&&s.clock_rejections==++rejected&&(s.faults&M_FAULT_HANDSHAKE));
+      |                              ^
+
+
+======================================================================
+FAIL: test_first_observation_is_latched_while_heartbeat_advances (test_clock_handshake.ClockHandshakeTests.test_first_observation_is_latched_while_heartbeat_advances)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_handshake.py", line 20, in test_first_observation_is_latched_while_heartbeat_advances
+    self.compile_run('test_clock_latch.c',['firmware/common/phase.c',
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        'firmware/sampler/sampler.c','firmware/common/sensor.c'],16)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_handshake.py", line 18, in compile_run
+    self.assertEqual(run.returncode,0,run.stdout+run.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: -6 != 0 : clock: /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_clock_latch.c:16: main: Assertion `sampler.status.ping_tick==first' failed.
+
+
+----------------------------------------------------------------------
+Ran 2 tests in 1.544s
+
+FAILED (failures=4)

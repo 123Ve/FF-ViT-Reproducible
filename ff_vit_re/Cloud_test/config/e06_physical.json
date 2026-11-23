@@ -1,0 +1,38 @@
+{
+  "schema": "fvit-e06-physical-config-v1",
+  "version": 1,
+  "phase": "E06_PHYSICAL",
+  "model": "E06",
+  "network": {
+    "pc_ip": "192.168.10.1",
+    "prefix_length": 24,
+    "board_ip": "192.168.10.2",
+    "tcp_port": 5001
+  },
+  "expected_sha256": {
+    "firmware_identity": "bf59538ed3922b39391517a1e829ad6ee7853f8af05903ca5a49f322eac95be6",
+    "weights": "0fac7e4cd09ae8367e5c8dfd5cb469473780055feccf9569a8376419028e2cd7",
+    "input": "f7fa33c31113271173effc4fb684c432378b85c2f15a6681aa682aacf2ba3a2c",
+    "reference_output": "f2da31d910ab48a49c5a803f836478e2b54e0cd9fdd1081cc2eabc1d36afe842",
+    "bitstream": "fb64c88cdf155ed02d314703d7486b44338c4c25bceaa2c8caaeb279059f2f27",
+    "application_elf": "c9210a55edecef4300b1632181ae9d904532f9ed550c51929c8508b293eb4a91",
+    "boot": "6e02ba90a6fbee3140537145c5236443b26aa3c3ef7f8380e146224578ddf37f"
+  },
+  "firmware_identity_algorithm": "sha256 of canonical source/build identity payload; not a self-referential ELF hash",
+  "boot_source": "boot/BOOT_E06_NET.BIN",
+  "sd_root_files": [
+    "BOOT.BIN",
+    "weights.bin",
+    "input.bin",
+    "output.bin"
+  ],
+  "dashboard": {
+    "host": "127.0.0.1",
+    "port": 8080
+  },
+  "accuracy": {
+    "value": null,
+    "display": "N/A",
+    "reason": "E06 model is not PlantVillage"
+  }
+}

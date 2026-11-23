@@ -1,0 +1,15 @@
+dataset,purpose,path
+PlantVillage,FP32 fine-tuning,ff_vit_re/train_plantvillage.py
+PlantVillage,HLS196 conversion/fine-tuning,ff_vit_re/make_hls196_plantvillage.py
+PlantVillage,W3 QAT,ff_vit_re/qat_weight3_hls196.py
+NWPU,FP32 fine-tuning,ff_vit_re/archive/nwpu_resisc45_ffvit/scripts/train_fp32.py
+NWPU,HLS196 conversion,ff_vit_re/archive/nwpu_resisc45_ffvit/scripts/make_hls196.py
+NWPU,Historical quantization pipeline,ff_vit_re/archive/nwpu_resisc45_ffvit/scripts/quant/pipeline.py
+PlantVillage/NWPU,E07 U3 progressive MLP and Attention QAT,ff_vit_re/validation/e07_u3_progressive_qat_20261010/progressive.py
+PlantVillage/NWPU,E07 U3 integer/LUT export and evaluation,ff_vit_re/validation/e07_u3_progressive_qat_20261010/exporter.py
+ImageNet,Pretrained FP32 evaluation,ff_vit_re/image_lianghu/scripts/evaluate_fp32.py
+ImageNet,W3 QAT,ff_vit_re/image_lianghu/scripts/train_w3_qat.py
+ImageNet strict S3,MLP QAT,ff_vit_re/image1k_hls_s3_original/scripts/train_strict_mlp.py
+ImageNet strict S3,Attention QAT,ff_vit_re/image1k_hls_s3_original/scripts/train_strict_attention.py
+ImageNet strict S3,Integer/LUT build,ff_vit_re/image1k_hls_s3_original/scripts/build_exact.py
+ImageNet strict S3,Integer evaluation,ff_vit_re/image1k_hls_s3_original/scripts/evaluate_exact.py

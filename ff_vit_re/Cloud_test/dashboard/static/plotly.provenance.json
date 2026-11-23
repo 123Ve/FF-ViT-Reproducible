@@ -1,0 +1,9 @@
+{
+  "artifact": "plotly.min.js",
+  "bytes": 4763993,
+  "license": "MIT",
+  "plotly_js_version": "3.1.0",
+  "plotly_python_package_version": "6.3.0",
+  "sha256": "122e3be346d66616944d0b83eaaf7242581508c3c1cfa0995a17af0d83eff770",
+  "source_within_installed_distribution": "plotly/package_data/plotly.min.js"
+}

@@ -1,0 +1,212 @@
+% UTF-8 LaTeX fragment, audited 2026-10-13.
+% Include after the manuscript appendix heading; requires Chinese support, amsmath, booktabs.
+% No new training/accuracy/hardware measurements. No PDF or two-column figure check.
+\section{模型身份、训练记录与评价边界补充说明}
+\label{app:model_training_data_evidence}
+
+本材料将 PlantVillage、NWPU-RESISC45 最新 E07 U3 软件导出结果，
+与 ImageNet-1K 原始严格 S3 路线分别绑定至已有检查点和评价记录。
+不将 Local4、Local8 或其他 S8 路线并入原始 S3 训练链；
+本轮为现存工件审计，不是新增训练或准确率测量。
+
+\subsection{预训练模型与检查点身份}
+ImageNet 原始预训练文件为
+\texttt{deit\_tiny\_patch16\_224-a1311bcf.pth}，
+模型为非蒸馏版 \texttt{deit\_tiny\_patch16\_224}。
+已有评价解析器对应注册别名
+\texttt{timm/deit\_tiny\_patch16\_224.fb\_in1k}；
+注册名和来源 URL 不替代实际文件身份，也不构成历史下载过程的审计。
+实际本地文件和下列检查点的 SHA-256 已重新计算。
+HLS196 保留 CLS 和 195 个 Patch Token，
+删除标准 Patch index 0，沿用相应原位置编码；
+其 FP32 基线不是标准完整 197-Token 配置。
+
+以下哈希按连续 64 位十六进制解释，换行仅用于排版。
+文件路径和字节大小见 \texttt{checkpoint\_identities.csv}。
+\begin{itemize}
+\item ImageNet 原始预训练文件：\newline \texttt{a1311bcf4f24e3c9\allowbreak{}5adaa75535db67bc\allowbreak{}4412d95535b98f7c\allowbreak{}1dfd1164dda41c97}.
+\item ImageNet HLS196 FP32：\newline \texttt{9e474c8b05c1fa62\allowbreak{}841e4aa2b230eac8\allowbreak{}e72561387b99f65a\allowbreak{}11ec4efc4069a065}.
+\item ImageNet W3 QAT 父模型：\newline \texttt{b449e4572c27bc38\allowbreak{}2571b5e34a1939e7\allowbreak{}9a14b5e0aff6d9f3\allowbreak{}92fa9bf307c98aab}.
+\item ImageNet 严格 S3 MLP：\newline \texttt{ecc26c2d04c2e895\allowbreak{}2324cbc1e1806866\allowbreak{}b63a418018169a5c\allowbreak{}fc40af50d44f0e02}.
+\item ImageNet 严格 S3 Attention：\newline \texttt{bf40fc4e40a27943\allowbreak{}f7b4e27b4b6e9dc9\allowbreak{}b45320c03b13ba18\allowbreak{}1fb91fd81371fad3}.
+\item PlantVillage 最新 U3 Attention：\newline \texttt{baf8a8768174ff6f\allowbreak{}abef334f5a8fdf57\allowbreak{}943d2ea8a9230e23\allowbreak{}f643a083466f56e5}.
+\item NWPU 最新 U3 Attention：\newline \texttt{10a5d0a7e55dde17\allowbreak{}8af2919b80fd1ec6\allowbreak{}f3fe0dee4fefe059\allowbreak{}f55e2a045b16a9c5}.
+\item PlantVillage 任务 FP32：\newline \texttt{631eefe327df18c5\allowbreak{}a43814f8a043f9b6\allowbreak{}3bd1942271bbf669\allowbreak{}8a92cdfbf76f7097}.
+\item NWPU 任务 FP32：\newline \texttt{0464e45f5147d12f\allowbreak{}1cdf4c733e43a3a6\allowbreak{}a5baf37c9d681f50\allowbreak{}cca7e4e5387fa243}.
+\end{itemize}
+ImageNet 严格 S3 Attention 评价同时恢复
+\texttt{ema\_model} 和 \texttt{ema\_controller}，不能只恢复其中一部分。
+PlantVillage/NWPU 导出记录绑定各自上列 U3 Attention 检查点，
+任务 FP32 检查点另列；本材料不推断三个任务的历史下载文件完全相同。
+
+\subsection{训练计划与报告检查点的对应关系}
+ImageNet W3 父链依次采用 10k、100k、300k、500k 训练子集，
+随后在 500k 上微调最终 Norm/分类头。
+严格 S3 MLP 每轮使用 $1{,}277{,}128$ 张图像，
+实际完成 4 轮渐进量化和 7 轮联合训练，共 11 轮；
+从 0 开始编号的最佳轮次为 epoch 10，
+完整 50k 验证 Top-1 为 $69.088\%$。
+
+严格 S3 Attention 主阶段为 4 轮渐进量化和 10 轮联合训练，
+即 epoch 0--13。
+渐进顺序为 $[11,10,9,8,7,4,5,3,1,6,2,0]$，
+前四轮分别启用 3、6、9、12 个 Block。
+主阶段初始模型/尺度学习率为 $3\times10^{-5}/10^{-3}$，
+采用 AdamW，模型/尺度权重衰减为 $0.01/0$，
+蒸馏温度 2，CE/KD/特征损失权重 $1/1/0.5$，
+EMA 衰减 $0.999$，梯度裁剪 1；
+预热 0.25 轮后余弦衰减至初始学习率的 1\%。
+MLP/Attention batch size 分别为 256/128；
+训练使用 BF16 autocast，激活量化器和评价使用 FP32。
+
+主阶段后执行三个恢复分支，每个分支各两轮：
+\begin{table}[t]
+\centering
+\caption{ImageNet Attention Recovery Attempts}
+\label{tab:supp_recovery_attempts}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Epoch & Model LR & Scale LR & KD & Feature \\
+\midrule
+14--15 & $10^{-5}$ & $3\times10^{-4}$ & 2 & 0.5 \\
+16--17 & $2\times10^{-5}$ & $5\times10^{-4}$ & 1 & 1 \\
+18--19 & $5\times10^{-6}$ & $10^{-4}$ & 3 & 0.25 \\
+\bottomrule
+\end{tabular}
+\end{table}
+每个恢复分支均从冻结的主阶段最佳 EMA 状态重新开始，
+不是将六轮恢复串行施加到同一个最终模型。
+恢复尝试未超过主阶段最佳完整验证成绩；
+报告检查点仍为 branch 0、epoch 13，
+Top-1/Top-5 为 $66.954\%/87.986\%$。
+20 轮是整个训练探索流程的执行预算，
+所报模型对应 14 轮主阶段结束时的检查点；
+不能表述为“经过六轮恢复后得到所报最终准确率”。
+
+PlantVillage/NWPU 最新 U3 流程继承各自 W3 QAT 父模型，
+随后 MLP 和 Attention 各训练 10 轮：
+batch 32、AdamW、模型/尺度学习率 $10^{-5}/5\times10^{-4}$、
+模型/尺度权重衰减 $0.02/0$、余弦调度、梯度裁剪 1，
+FP32 训练并关闭 AMP；
+损失为 $0.5L_{\rm CE}+0.5T^2L_{\rm KL}$，$T=2$。
+各阶段第 1 轮启用 Block 6--11，
+第 2 轮启用 3--11，第 3--10 轮启用全部 Block。
+只按完整选模验证集选择检查点，测试集不参与选择。
+PlantVillage 的 MLP/Attention 最佳轮次为 10/8，
+NWPU 为 9/10，轮次编号从 1 开始；
+这两套流程没有执行上述 ImageNet 六轮恢复。
+
+\subsection{选择、校准图像的来源与隔离}
+ImageNet 校准集和选择集均来自原训练目录，
+不是从官方 50k 验证集抽取。
+每类各抽取 2 张用于校准、2 张用于选择，
+各形成 2,000 张图像。
+按类别排序候选 JPEG/JPG/PNG 文件，
+以 SHA-256(\texttt{20260923:WNID:task4}) 前 128 bit 构造类别内 PRNG 种子，
+一次无放回抽取 4 张，前 2 张分配校准、后 2 张分配选择，
+各角色内部再排序；文件身份和 SHA-256 保存至冻结 JSONL 清单。
+重新检查两角色的路径及内容哈希，交集均为 0。
+
+严格 S3 激活 QAT 从优化器数据中移除这 4,000 个保留路径，
+并排除与保留图像具有相同字节内容的其他训练文件。
+不同文件长度可排除内容相等；
+对与保留图像长度相同的候选进一步计算 SHA-256。
+该检查发现额外 39 个内容重复路径：
+18 个匹配校准图像、21 个匹配选择图像。
+这些是与保留角色相同内容的额外文件路径，
+不是另设 39 张选择图像，也不是声称对全训练集完成内部去重。
+因此，
+\[
+1{,}281{,}167-2{,}000-2{,}000-39=1{,}277{,}128.
+\]
+39 个路径和匹配角色见 \texttt{imagenet\_holdout\_aliases.csv}。
+这一隔离保证针对所述严格 S3 激活 QAT，
+不追溯声称历史 FP32/W3 父链从未使用过这些训练来源图像。
+
+选择集用于探针和训练监控，校准集用于尺度及 LUT 拟合。
+但历史严格 S3 流程还使用完整 50k 官方验证成绩选择检查点；
+故 50k 评价不能称为完全独立于选模的盲测。
+官方验证图像不参与所述激活 QAT 梯度更新或 LUT 拟合。
+
+PlantVillage 原训练划分为 43,429 张；
+最新激活 QAT 排除 256 张冻结校准图像，
+另排除 5 个与验证/测试图像内容相同的训练路径：
+2 个匹配选模验证集、3 个匹配测试集。
+本轮逐图 SHA-256 复核并重建训练成员哈希，
+结果与原训练配方一致。计数为
+\[
+43{,}429-256-5=43{,}168.
+\]
+5 个额外路径及其匹配图像见
+\texttt{plantvillage\_additional\_exclusions.csv}。
+NWPU 则满足 $24{,}300-256=24{,}044$。
+前两套最新激活 QAT 的校准集不参与该阶段梯度训练或选模，
+测试集不参与检查点选择；
+这些保证不自动推广到继承历史父模型的训练过程。
+
+\subsection{原始 crop09 的可执行预处理}
+\texttt{crop09} 为冻结模型评价协议的名称，
+对应解析配置 \texttt{crop\_pct=0.9}、\texttt{crop\_mode=center}。
+实际操作依次为：
+解码 RGB；
+保持宽高比，以 bicubic 插值将短边 Resize 至 248 像素，
+评价记录中 antialias 为 true；
+CenterCrop 至 $224\times224$；
+将 RGB 转为 CHW 浮点张量并除以 255；
+按通道执行
+\[
+x_c=(I_c/255-\mu_c)/\sigma_c,
+\quad
+\mu=(0.485,0.456,0.406),
+\quad
+\sigma=(0.229,0.224,0.225).
+\]
+该名称不表示随机裁剪或保留原图 90\% 面积。
+严格 S3 ImageNet 激活训练也使用固定 crop09 变换。
+PlantVillage/NWPU 最新训练的随机裁剪增强以及
+Resize 256/CenterCrop 224 评价是另一套配置，不能混写成 crop09。
+
+\subsection{准确率平台及硬件一致性的范围}
+PlantVillage 最新最终 Top-1 为 $98.5712\%$，
+对应 5,459 张测试图像中的 5,381 张正确；
+NWPU 为 $88.8222\%$，对应 4,500 张中的 3,997 张正确。
+两者由宿主机 PyTorch 整数/LUT 实现执行。
+归档启动命令和对应导出程序默认参数支持 CUDA 执行；
+最终报告未单独保存 GPU 型号及框架/驱动版本，
+本材料不据当前机器配置补造历史平台字段。
+
+ImageNet 原始 S3 MLP/Attention 正式报告明确给出
+NVIDIA GeForce RTX 5090、FP32 评价模式，
+分别在 50,000 张图像上得到 $69.088\%/66.954\%$ Top-1；
+它们是 fake-quant 软件结果，不是整数/LUT 或 FPGA 准确率。
+没有匹配测量报告的 $68.154\%$ 不属于本材料确证的原始 S3 结果。
+
+原始 ImageNet S3 的既有 HLS C-simulation 比较 4 张固定图像，
+每图检查 Patch、12 个 Block 输出及 logits，
+共 56 个边界、1,960,864 个整数，不匹配数为 0。
+这只支持所测输入的整数软件参考与 HLS C 实现一致，
+不是 RTL cosimulation、板端逐层验证或全 50k 硬件等价证明。
+
+PlantVillage/NWPU 最新导出的 HLS C-simulation、RTL 和 FPGA
+状态均为 \texttt{NOT\_MEASURED}。
+两套模型各 128 图、24 个主干 LayerNorm 实例的软件整数输出
+与独立有限位宽参考比较，不匹配数为 0，但仍属于软件验证。
+三套模型共 346,816,512 个 LN 输出码
+是每数据集 128 张相关图像展开后的元素，不是同数量的独立样本；
+局部反量化浮点参考也不等同于原 FP32 整网对应层输出。
+历史 Local4 FPS 包属于不同模型/镜像身份链，
+重复同一输入的末帧检查不能替代当前三套模型的多图硬件一致性验证。
+
+\subsection{证据文件与未完成项}
+\texttt{evidence.json} 保存原始来源路径、SHA-256、配置和核查结果；
+检查点全哈希另见 \texttt{checkpoint\_identities.csv}。
+本轮重哈希本地检查点、ImageNet 4,000 张保留图像及 39 个内容别名，
+并重算 PlantVillage 训练成员哈希；
+没有重新训练或运行完整模型准确率评价。
+本材料仅补充模型身份、训练和数据划分证据，
+不宣称已提供全部 HLS pragmas、bank map、GELU 搜索空间及定点参数。
+最终双栏 PDF 和图片可读性尚未检查；
+当前环境没有 XeLaTeX，不能将本片段称为已编译并完成版面检查的补充 PDF。
+

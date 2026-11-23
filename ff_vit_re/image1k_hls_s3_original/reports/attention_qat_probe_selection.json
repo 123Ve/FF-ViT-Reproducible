@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "selected_profile": "main",
+  "selection_basis": "Both 100-step all12 probes have finite gradients, positive matching-boundary scale movement, moving attention weights, and no teacher gradients. On identical deterministic images, the main profile has lower final CE, KD, and feature error than the conservative profile; retain the predeclared main settings.",
+  "main_final_ce": 4.882440567016602,
+  "conservative_final_ce": 5.9128851890563965,
+  "main_final_kd": 1.7120213508605957,
+  "conservative_final_kd": 1.8294765949249268,
+  "main_final_feature": 0.8681445121765137,
+  "conservative_final_feature": 0.8957250714302063,
+  "peak_cuda_memory_bytes": 19839585792,
+  "learning_rate": 0.00003,
+  "scale_learning_rate": 0.001,
+  "kd_weight": 1.0,
+  "feature_weight": 0.5,
+  "batch_size": 128,
+  "main_report": "reports/attention_qat_probe_joint_b128_main_isolated.json",
+  "conservative_report": "reports/attention_qat_probe_joint_b128_conservative_isolated.json",
+  "full_run_parent": "checkpoints/mlp/main/best.pth",
+  "probes_used_as_parent": false,
+  "diagnostic_v0_caveat": "Retained diagnostic_v0 reports contain an invalid scale_max_change comparison between initial LN1 and final LN2. Use the corrected named-boundary reports above. Initial v0 probes also overlapped checkpoint-safety-only source edits and do not establish exact full-run source identity."
+}

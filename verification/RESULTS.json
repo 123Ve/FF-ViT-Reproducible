@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "date": "2026-11-23",
+  "checks": [
+    {
+      "command": "python3 -B tools/verify_repository.py",
+      "status": "PASS",
+      "scope": "inventory, source hashes and three task binary layouts"
+    },
+    {
+      "command": "python3 -B package.py --check-only",
+      "cwd": "ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler",
+      "status": "PASS",
+      "package_files": 235
+    },
+    {
+      "command": "python3 -B tests/test_firmware.py",
+      "cwd": "ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler",
+      "status": "PASS",
+      "tests": 12,
+      "elapsed_s": 4.801
+    },
+    {
+      "command": "python3 -B -m unittest discover -s Cloud_test/tests -p test_dashboard.py -v",
+      "cwd": "ff_vit_re",
+      "status": "PASS",
+      "tests": 5,
+      "elapsed_s": 1.073,
+      "includes": "headless Chrome rendering/offline Plotly"
+    },
+    {
+      "command": "AST parse archived Python files",
+      "status": "PASS",
+      "files": 324
+    },
+    {
+      "command": "python3 -B tools/create_workspace.py --output /tmp/ffvit-repro-smoke-20261123",
+      "status": "PASS",
+      "path_files_relocated": 206,
+      "ip_component_xml": true,
+      "service_and_sampler_BSPs_present": true
+    },
+    {
+      "command": "relocated progressive.py --help; exporter.py --help; build_exact.py --help",
+      "status": "PASS",
+      "entries": 3,
+      "training_executed": false
+    },
+    {
+      "command": "python -B -m Cloud_test.run_e07_measurements --help",
+      "cwd": "relocated ff_vit_re",
+      "status": "PASS",
+      "note": "Use module form; direct file form from an arbitrary cwd lacks the Cloud_test parent import path."
+    },
+    {
+      "command": "bash -n tools/publish_github.sh",
+      "status": "PASS"
+    }
+  ],
+  "new_PL_build": "NOT_RUN",
+  "new_firmware_build": "NOT_RUN; original built ELF/BOOT preserved",
+  "new_training": "NOT_RUN",
+  "physical_acceptance": "NOT_RUN",
+  "new_120fps_power_measurement": "NOT_RUN",
+  "github_upload": "NOT_RUN; authentication and owner-selected remote required",
+  "git_author": "Local archive metadata: FF-ViT Archive <archive@localhost>; no user identity was inferred"
+}

@@ -1,0 +1,196 @@
+{
+  "artifacts": {
+    "app": {
+      "bytes": 1593272,
+      "path": "/home/user/Desktop/ff_vit_re/Cloud_test/build/e06_net_workspace/e06_net/build/e06_net.elf",
+      "sha256": "c9210a55edecef4300b1632181ae9d904532f9ed550c51929c8508b293eb4a91"
+    },
+    "bif": {
+      "bytes": 435,
+      "path": "/home/user/Desktop/ff_vit_re/Cloud_test/boot/BOOT_E06_NET.bif",
+      "sha256": "62802489831eae6e72e609151a93bf728697a3490362ee5e51379437223a5593"
+    },
+    "bit": {
+      "bytes": 26510953,
+      "path": "/home/user/Desktop/ff_vit_re/Cloud_test/vendor/e06_base/hw/design_1_wrapper.bit",
+      "sha256": "fb64c88cdf155ed02d314703d7486b44338c4c25bceaa2c8caaeb279059f2f27"
+    },
+    "boot": {
+      "bytes": 27071584,
+      "path": "/home/user/Desktop/ff_vit_re/Cloud_test/boot/BOOT_E06_NET.BIN",
+      "sha256": "6e02ba90a6fbee3140537145c5236443b26aa3c3ef7f8380e146224578ddf37f"
+    },
+    "fsbl": {
+      "bytes": 676280,
+      "path": "/home/user/Desktop/ff_vit_re/Cloud_test/vendor/e06_base/boot/fsbl.elf",
+      "sha256": "ef43542bbfdf7238dc6b53bda46705ac5a3c626cbe401370b3c02c97a6da8c79"
+    },
+    "pmufw": {
+      "bytes": 908524,
+      "path": "/home/user/Desktop/ff_vit_re/Cloud_test/vendor/e06_base/boot/pmufw.elf",
+      "sha256": "aea326ee0dd43a0dbc00adf9099be2e4a1e2665ddfaedb1b301a1d57455ee954"
+    }
+  },
+  "bootgen_stderr": "",
+  "bootgen_stdout": "\n\n****** Bootgen v2025.1\n  **** Build date : May 21 2025-14:51:08\n    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.\n    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.\n\n\n[INFO]   : Bootimage generated successfully\n\n",
+  "command": [
+    "/opt/vivado/2025.1/Vitis/bin/bootgen",
+    "-arch",
+    "zynqmp",
+    "-image",
+    "/home/user/Desktop/ff_vit_re/Cloud_test/boot/.e06-bootgen-iup7_eka/BOOT_E06_NET.bif",
+    "-o",
+    "/home/user/Desktop/ff_vit_re/Cloud_test/boot/.e06-bootgen-iup7_eka/BOOT_E06_NET.BIN",
+    "-w",
+    "on"
+  ],
+  "firmware_identity": {
+    "advertised_sha256": "bf59538ed3922b39391517a1e829ad6ee7853f8af05903ca5a49f322eac95be6",
+    "algorithm": "sha256",
+    "built_artifact": {
+      "bytes": 1593272,
+      "path": "/home/user/Desktop/ff_vit_re/Cloud_test/build/e06_net_workspace/e06_net/build/e06_net.elf",
+      "sha256": "c9210a55edecef4300b1632181ae9d904532f9ed550c51929c8508b293eb4a91"
+    },
+    "canonical_payload": {
+      "inputs": {
+        "copied_vendor_inputs": {
+          "bitstream": {
+            "bytes": 26510953,
+            "sha256": "fb64c88cdf155ed02d314703d7486b44338c4c25bceaa2c8caaeb279059f2f27"
+          },
+          "input": {
+            "bytes": 602112,
+            "sha256": "f7fa33c31113271173effc4fb684c432378b85c2f15a6681aa682aacf2ba3a2c"
+          },
+          "output": {
+            "bytes": 4000,
+            "sha256": "f2da31d910ab48a49c5a803f836478e2b54e0cd9fdd1081cc2eabc1d36afe842"
+          },
+          "weights": {
+            "bytes": 2772096,
+            "sha256": "0fac7e4cd09ae8367e5c8dfd5cb469473780055feccf9569a8376419028e2cd7"
+          },
+          "xsa": {
+            "bytes": 9337970,
+            "sha256": "9f41851e899418d63ae712930d10062744ffffa9a25763fa9a64b1043d6e7757"
+          }
+        },
+        "production_sources": [
+          {
+            "bytes": 1959,
+            "path": "common/fvit_protocol.c",
+            "sha256": "9ebbf571e72833300fa8152c9685f04c5f13a50a4ac67b0bd21ccd550aea117c"
+          },
+          {
+            "bytes": 675,
+            "path": "common/fvit_protocol.h",
+            "sha256": "40161564347c7f06c3ded009667e84eb6439b085e8d64ba0e5a09e4f862d7138"
+          },
+          {
+            "bytes": 7826,
+            "path": "e06_net/e06_inference.c",
+            "sha256": "1134d4cbe2befe3460dea9ef5f0064737434a37f37098d8bd66a39e509ee9c15"
+          },
+          {
+            "bytes": 919,
+            "path": "e06_net/e06_inference.h",
+            "sha256": "526921cccf01e66ff7dc0e3f14baef087d5141cc9c4e7915abd52be8db90b061"
+          },
+          {
+            "bytes": 20807,
+            "path": "e06_net/e06_network.c",
+            "sha256": "3b5ae1340f2ff2d5162bfc2b527d714c094fdecf98a5f593a22cd74c8355d9ad"
+          },
+          {
+            "bytes": 111,
+            "path": "e06_net/e06_network.h",
+            "sha256": "2ddc26afc0135f3830e8c3581dd2686565ddb7d457f2acfb412b2bec2736077c"
+          },
+          {
+            "bytes": 266,
+            "path": "e06_net/e06_status.h",
+            "sha256": "7c7f29b842742f3c4d1e981a7ccc5fb6a86c9fa57eec9d3670f5bfeab876c27a"
+          },
+          {
+            "bytes": 6369,
+            "path": "e06_net/e06_telemetry.c",
+            "sha256": "99cee363cb9fb7a20c79984cd8a0ff997f5f4723ea9d58a5624b7f63b7cdf569"
+          },
+          {
+            "bytes": 629,
+            "path": "e06_net/e06_telemetry.h",
+            "sha256": "ab9ccf029b687abd26085006603c8139c83973f7edfe78a5d91b01c488ba5ebe"
+          },
+          {
+            "bytes": 1252,
+            "path": "e06_net/main.c",
+            "sha256": "3ac4b75976f29f5b6ef9f5836a1f87a13b86859fce0f0fb9d4ccf9e186387bae"
+          },
+          {
+            "bytes": 1263,
+            "path": "e06_net/net_config.h",
+            "sha256": "b1d1e7b186fa98f0fdcf2eef403048663b725ed58eee95225320bba032368236"
+          },
+          {
+            "bytes": 1081,
+            "path": "e06_net/platform.c",
+            "sha256": "28b2963f5d02d6ad01ee182fcd8f52e73296e4192bfc29dc437be7e49e1f484a"
+          },
+          {
+            "bytes": 208,
+            "path": "e06_net/platform.h",
+            "sha256": "de2e65322c4b7c91b73e6a6ec55589957501afbd56f571d4c7c8927b134b93a9"
+          },
+          {
+            "bytes": 2033,
+            "path": "e06_net/weight_layout.h",
+            "sha256": "20570cc27451b5ff48318cf0a2f9554973ea5637fa421ff8bd8691a4137eb8ad"
+          }
+        ]
+      },
+      "schema": "fvit-e06-firmware-build-identity-v1",
+      "tool_policy": {
+        "architecture": "64-bit",
+        "compiler": "gcc",
+        "cpu": "psu_cortexa53_0",
+        "domain": "standalone_psu_cortexa53_0",
+        "libraries": [
+          {
+            "name": "xilffs",
+            "policy_path": "/opt/vivado/2025.1/Vitis/data/embeddedsw/lib/sw_services/xilffs_v5_4"
+          },
+          {
+            "name": "lwip220",
+            "policy_path": "/opt/vivado/2025.1/Vitis/data/embeddedsw/ThirdParty/sw_services/lwip220_v1_2"
+          }
+        ],
+        "os": "standalone",
+        "vitis_release": "2025.1"
+      }
+    },
+    "canonicalization": "utf8-json-sort-keys-compact",
+    "schema": "fvit-e06-firmware-build-identity-v1"
+  },
+  "firmware_identity_source": {
+    "bytes": 4372,
+    "path": "/home/user/Desktop/ff_vit_re/Cloud_test/build/e06_net_firmware_identity.json",
+    "sha256": "3cf31b78af97d11a6845aa9c8987cd6260b8c7340ca67f9be5dc5f308effaf4f"
+  },
+  "published_command": [
+    "/opt/vivado/2025.1/Vitis/bin/bootgen",
+    "-arch",
+    "zynqmp",
+    "-image",
+    "/home/user/Desktop/ff_vit_re/Cloud_test/boot/BOOT_E06_NET.bif",
+    "-o",
+    "/home/user/Desktop/ff_vit_re/Cloud_test/boot/BOOT_E06_NET.BIN",
+    "-w",
+    "on"
+  ],
+  "schema": "fvit-e06-net-boot-v1",
+  "tool": {
+    "path": "/opt/vivado/2025.1/Vitis/bin/bootgen",
+    "version": "****** Bootgen v2025.1"
+  }
+}

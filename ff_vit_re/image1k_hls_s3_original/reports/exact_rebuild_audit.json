@@ -1,0 +1,19 @@
+{
+  "schema": "original_hls_s3.exact_rebuild_audit.v1",
+  "status": "PASS",
+  "method": "Two independent builds, separate empty block caches, identical selected EMA and2000 calibration members, CPU4threads",
+  "commands": [
+    "python scripts/build_exact.py --output exact/main --samples 2000 --fit-tokens 6272 --workers 4 --threads 4 --device cpu",
+    "python scripts/build_exact.py --output exact/rebuild --samples 2000 --fit-tokens 6272 --workers 4 --threads 4 --device cpu"
+  ],
+  "verification": "sha256sum exact/main/{arrays.npz,manifest.json,weights.bin,weights_fields.bin,fixed_patch_head_rom.h,encoder_abi_arrays.npz} exact/rebuild/{arrays.npz,manifest.json,weights.bin,weights_fields.bin,fixed_patch_head_rom.h,encoder_abi_arrays.npz}",
+  "identical_files": {
+    "arrays.npz": "c3eed03b1a13dd65202e034efda4e796dda5bb8a5e0ef3903b9438e2fbce3664",
+    "manifest.json": "cd0cc886386ae0549d03de93aa76f2bdbd362c975ae0ae181e34b2fca28a189b",
+    "weights.bin": "0be30ecdae94b0b6270af6e12b85ccedeb3f6610bfae7e2bfa41d4f95e4b9785",
+    "weights_fields.bin": "bfdd09ac6bbb6bafae4ddb3165c62100c253d152a274a3584550e146d825c24e",
+    "fixed_patch_head_rom.h": "950041a3c4fcbbbd85f7396c419cc312d5bd5bcdfce151244cb2a2140112cc88",
+    "encoder_abi_arrays.npz": "072f87a0dc4544b87e5433adc6510c491c728c365a243d85436c6f7251f9b688"
+  },
+  "excluded": "export_hashes.json contains output-directory-qualified paths; each listed payload digest agrees"
+}

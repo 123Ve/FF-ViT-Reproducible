@@ -1,0 +1,74 @@
+schema_version: 1
+experiment:
+  name: imagenet1k_original_hls_s3
+  mainline: true
+  seed: 20260923
+data:
+  train:
+    path: /home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train
+    samples: 1281167
+  validation:
+    path: /home/user/Desktop/ff_vit_re/imagenet_val/data
+    samples: 50000
+  protocol:
+    name: crop09
+    resize_short_side: 248
+    crop_size: 224
+    interpolation: bicubic
+    normalization:
+      mean: [0.485, 0.456, 0.406]
+      std: [0.229, 0.224, 0.225]
+model:
+  fp32_checkpoint: /home/user/Desktop/ff_vit_re/image_1k/deit_tiny_patch16_224-a1311bcf.pth
+  hls196_fp32_checkpoint: /home/user/Desktop/ff_vit_re/image_lianghu/checkpoints/fp32_hls196.pth
+  w3_qat_checkpoint: /home/user/Desktop/ff_vit_re/image_lianghu/checkpoints/w3_qat_500k_headrefit/best.pth
+  parent_strict_s3_candidates:
+    - /home/user/Desktop/ff_vit_re/image_lianghu/checkpoints/strict_s3_stage1/probe/strict-s3-stage1-probe-seed20260923-steps200/best.pth
+    - /home/user/Desktop/ff_vit_re/image_lianghu/checkpoints/strict_s3_stage1/probe/strict-s3-stage1-probe-seed20260923-steps200/last.pth
+    - /home/user/Desktop/ff_vit_re/image_lianghu/checkpoints/strict_s3_stage1/probe/strict-s3-stage1-exact-steps5000/rejected.pth
+  authoritative_hls_types: /home/user/Desktop/FF_Vit/flash_vit_2/src/block0.cpp
+  python_environment: /home/user/anaconda3/envs/vlm_token
+protocol:
+  target_top1: 0.69
+  target_is_optimization_goal: true
+  full_validation_samples: 50000
+  seed: 20260923
+  qat:
+    mlp_progressive_epochs: 4
+    mlp_joint_epochs: 8
+    mlp_recovery_branches: 3
+    mlp_recovery_epochs_per_branch: 2
+    attention_progressive_epochs: 4
+    attention_joint_epochs: 10
+    attention_recovery_branches: 3
+    attention_recovery_epochs_per_branch: 2
+numeric_contract:
+  q_weight: {signedness: signed, bits: 3}
+  k_weight: {signedness: signed, bits: 3}
+  v_weight: {signedness: signed, bits: 3}
+  o_weight: {signedness: signed, bits: 3}
+  fc1_weight: {signedness: signed, bits: 3}
+  fc2_weight: {signedness: signed, bits: 3}
+  ln1_output: {signedness: signed, bits: 3}
+  q_output: {signedness: signed, bits: 3}
+  k_output: {signedness: signed, bits: 3}
+  v_output: {signedness: signed, bits: 3}
+  attention_a: {signedness: signed, bits: 3}
+  projection_input: {signedness: signed, bits: 3}
+  softmax_output: {signedness: unsigned, bits: 3}
+  ln2_output: {signedness: signed, bits: 3}
+  gelu_output: {signedness: unsigned, bits: 3}
+  attention_q_accumulator: {signedness: signed, bits: 12}
+  attention_k_accumulator: {signedness: signed, bits: 11}
+  attention_v_accumulator: {signedness: signed, bits: 11}
+  attention_r_accumulator: {signedness: signed, bits: 10}
+  attention_a_accumulator: {signedness: signed, bits: 11}
+  attention_o_accumulator: {signedness: signed, bits: 13}
+  attention_residual_output: {signedness: signed, bits: 15}
+  mlp1_accumulator: {signedness: signed, bits: 11}
+  mlp2_accumulator: {signedness: signed, bits: 13}
+  block_feature_map: {signedness: signed, bits: 13}
+  head_layernorm: {signedness: signed, bits: 8}
+  head_weight: {signedness: signed, bits: 8}
+  head_bias: {signedness: signed, bits: 19}
+  head_mac: {signedness: signed, bits: 19}

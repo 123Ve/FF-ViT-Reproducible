@@ -1,0 +1,51 @@
+{
+  "status": "RUNNING",
+  "best_val": 56.61805427358316,
+  "history": [
+    {
+      "epoch": 0,
+      "active_blocks": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "train_samples": 43168,
+      "train_top1": 42.81412157153447,
+      "loss": 15.492209283222174,
+      "optimizer_steps": 675,
+      "validation": {
+        "sample_count": 5417,
+        "correct": 1650,
+        "top1_percent": 30.45966402067565
+      },
+      "seconds": 202.6241243330296
+    },
+    {
+      "epoch": 1,
+      "active_blocks": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "train_samples": 43168,
+      "train_top1": 34.032153446997775,
+      "loss": 15.453151932639312,
+      "optimizer_steps": 1350,
+      "validation": {
+        "sample_count": 5417,
+        "correct": 2238,
+        "top1_percent": 41.31438065349825
+      },
+      "seconds": 213.53254579612985
+    }
+  ]
+}

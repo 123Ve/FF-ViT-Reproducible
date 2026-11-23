@@ -1,0 +1,124 @@
+{
+  "activation_scales": {
+    "0": {
+      "fm_int13_scale": 0.015968212896445677,
+      "gelu_uint3_scale": 0.423795610666275,
+      "ln2_signed3_scale": 0.8329593539237976,
+      "m1_int11_scale": 0.044598166414550056,
+      "m2_int13_scale": 0.015968212896445677,
+      "w1_signed3_scale": 0.05354182794690132,
+      "w2_signed3_scale": 0.0376790426671505
+    },
+    "1": {
+      "fm_int13_scale": 0.008937130904841606,
+      "gelu_uint3_scale": 0.2245417833328247,
+      "ln2_signed3_scale": 0.8561655282974243,
+      "m1_int11_scale": 0.041469109946995264,
+      "m2_int13_scale": 0.008937130904841606,
+      "w1_signed3_scale": 0.04843585565686226,
+      "w2_signed3_scale": 0.03980163857340813
+    },
+    "10": {
+      "fm_int13_scale": 0.0205952472250015,
+      "gelu_uint3_scale": 0.3137624263763428,
+      "ln2_signed3_scale": 1.1120775938034058,
+      "m1_int11_scale": 0.037433573936057396,
+      "m2_int13_scale": 0.0205952472250015,
+      "w1_signed3_scale": 0.03366093710064888,
+      "w2_signed3_scale": 0.06563962250947952
+    },
+    "11": {
+      "fm_int13_scale": 0.021886824084949907,
+      "gelu_uint3_scale": 0.32899487018585205,
+      "ln2_signed3_scale": 0.9540712237358093,
+      "m1_int11_scale": 0.03828951950906534,
+      "m2_int13_scale": 0.021886824084949907,
+      "w1_signed3_scale": 0.04013276845216751,
+      "w2_signed3_scale": 0.06652633845806122
+    },
+    "2": {
+      "fm_int13_scale": 0.009907062252227927,
+      "gelu_uint3_scale": 0.22412031888961792,
+      "ln2_signed3_scale": 0.7579175233840942,
+      "m1_int11_scale": 0.03379855505038698,
+      "m2_int13_scale": 0.009907062252227927,
+      "w1_signed3_scale": 0.04459397494792938,
+      "w2_signed3_scale": 0.044204212725162506
+    },
+    "3": {
+      "fm_int13_scale": 0.011939754201665542,
+      "gelu_uint3_scale": 0.241454616189003,
+      "ln2_signed3_scale": 0.8949818015098572,
+      "m1_int11_scale": 0.0344792174380808,
+      "m2_int13_scale": 0.011939754201665542,
+      "w1_signed3_scale": 0.0385250486433506,
+      "w2_signed3_scale": 0.049449268728494644
+    },
+    "4": {
+      "fm_int13_scale": 0.008349158876128193,
+      "gelu_uint3_scale": 0.2162109911441803,
+      "ln2_signed3_scale": 1.0072416067123413,
+      "m1_int11_scale": 0.03801876112798919,
+      "m2_int13_scale": 0.008349158876128193,
+      "w1_signed3_scale": 0.03774542361497879,
+      "w2_signed3_scale": 0.038615792989730835
+    },
+    "5": {
+      "fm_int13_scale": 0.010339121938938434,
+      "gelu_uint3_scale": 0.2201376110315323,
+      "ln2_signed3_scale": 1.1354633569717407,
+      "m1_int11_scale": 0.04415375862633475,
+      "m2_int13_scale": 0.010339121938938434,
+      "w1_signed3_scale": 0.038886114954948425,
+      "w2_signed3_scale": 0.04696663096547127
+    },
+    "6": {
+      "fm_int13_scale": 0.011889856542769639,
+      "gelu_uint3_scale": 0.24946606159210205,
+      "ln2_signed3_scale": 1.161463975906372,
+      "m1_int11_scale": 0.04343484537171616,
+      "m2_int13_scale": 0.011889856542769639,
+      "w1_signed3_scale": 0.0373966358602047,
+      "w2_signed3_scale": 0.04766121879220009
+    },
+    "7": {
+      "fm_int13_scale": 0.015851031917170744,
+      "gelu_uint3_scale": 0.321988582611084,
+      "ln2_signed3_scale": 1.3520559072494507,
+      "m1_int11_scale": 0.04280502959079868,
+      "m2_int13_scale": 0.015851031917170744,
+      "w1_signed3_scale": 0.031659215688705444,
+      "w2_signed3_scale": 0.04922855272889137
+    },
+    "8": {
+      "fm_int13_scale": 0.025805168532732292,
+      "gelu_uint3_scale": 0.450234591960907,
+      "ln2_signed3_scale": 1.9443613290786743,
+      "m1_int11_scale": 0.06324947730436348,
+      "m2_int13_scale": 0.025805168532732292,
+      "w1_signed3_scale": 0.032529693096876144,
+      "w2_signed3_scale": 0.05731493979692459
+    },
+    "9": {
+      "fm_int13_scale": 0.024521139000903025,
+      "gelu_uint3_scale": 0.42542749643325806,
+      "ln2_signed3_scale": 1.5529017448425293,
+      "m1_int11_scale": 0.05484557799815626,
+      "m2_int13_scale": 0.024521139000903025,
+      "w1_signed3_scale": 0.035318125039339066,
+      "w2_signed3_scale": 0.05763882026076317
+    }
+  },
+  "best_epoch": 10,
+  "best_test_top1": null,
+  "best_val_top1": 92.85185185185185,
+  "hardware_targets": {
+    "fm_output": "signed int13 [-4096,4095]",
+    "gelu_output": "unsigned int3 [0,7]",
+    "ln2_output": "signed int3 [-4,3]",
+    "m1_accumulator": "signed int11 [-1024,1023]",
+    "m2_accumulator": "signed int13 [-4096,4095]"
+  },
+  "initial_all_mlp_quant_val_top1": 11.37037037037037,
+  "note": "This is hardware-aware boundary QAT, not yet the final bit-accurate LayerNorm-rsqrt/GELU-address LUT emulator. The next stage converts these learned scales into exact HLS integer scalars/LUTs and checks overflow/wrap parity."
+}

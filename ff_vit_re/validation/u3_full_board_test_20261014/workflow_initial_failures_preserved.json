@@ -1,0 +1,5 @@
+{
+  "error": "Command '['/home/user/anaconda3/envs/vlm_token/bin/python', '-B', '/home/user/Desktop/ff_vit_re/validation/u3_full_board_test_20261014/qualify.py', '--dataset', 'plantvillage']' returned non-zero exit status 1.; Command '['/opt/vivado/2025.1/Vivado/bin/vivado', '-mode', 'batch', '-notrace', '-source', '/home/user/Desktop/ff_vit_re/validation/u3_full_board_test_20261014/export.tcl', '-log', '/home/user/Desktop/ff_vit_re/validation/u3_full_board_test_20261014/outputs/nwpu/hardware/export.log', '-journal', '/home/user/Desktop/ff_vit_re/validation/u3_full_board_test_20261014/outputs/nwpu/hardware/export.jou', '-tclargs', '/home/user/Desktop/ff_vit_re/validation/u3_full_board_test_20261014/outputs/nwpu/hardware', 'nwpu']' returned non-zero exit status 1.",
+  "updated_unix": 1791968025.2205245,
+  "boot_publication_blocked": true
+}

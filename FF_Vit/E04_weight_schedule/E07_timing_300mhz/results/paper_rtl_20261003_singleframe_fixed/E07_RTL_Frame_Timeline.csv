@@ -1,0 +1,17 @@
+frame,scope,stage,layer,start_cycle,end_cycle,cycles,qualification
+0,front_end,initial_overlap_wrapper,,17,75509,75492,RTL_OBSERVATION
+0,front_end_child,patch,,17,75508,75491,RTL_OBSERVATION
+0,front_end_child,weight_load_W0,0,17,16453,16436,RTL_OBSERVATION
+0,layer,dataflow_wrapper,0,75513,138002,62489,RTL_OBSERVATION
+0,layer,dataflow_wrapper,1,138006,200495,62489,RTL_OBSERVATION
+0,layer,dataflow_wrapper,2,200499,262988,62489,RTL_OBSERVATION
+0,layer,dataflow_wrapper,3,262992,325481,62489,RTL_OBSERVATION
+0,layer,dataflow_wrapper,4,325485,387974,62489,RTL_OBSERVATION
+0,layer,dataflow_wrapper,5,387978,450467,62489,RTL_OBSERVATION
+0,layer,dataflow_wrapper,6,450471,512960,62489,RTL_OBSERVATION
+0,layer,dataflow_wrapper,7,512964,575453,62489,RTL_OBSERVATION
+0,layer,dataflow_wrapper,8,575457,637946,62489,RTL_OBSERVATION
+0,layer,dataflow_wrapper,9,637950,700439,62489,RTL_OBSERVATION
+0,layer,dataflow_wrapper,10,700443,762932,62489,RTL_OBSERVATION
+0,layer,dataflow_wrapper,11,762936,825425,62489,RTL_OBSERVATION
+0,back_end,head,,825429,850038,24609,RTL_OBSERVATION

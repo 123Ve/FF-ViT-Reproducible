@@ -1,0 +1,92 @@
+#-----------------------------------------------------------
+# Vivado v2025.1 (64-bit)
+# SW Build 6140274 on Wed May 21 22:58:25 MDT 2025
+# IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+# SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+# Start of session at: Sat Oct  3 17:34:35 2026
+# Process ID         : 1426138
+# Current directory  : /home/user/Desktop/FF_Vit
+# Command line       : vivado -mode batch -source E04_weight_schedule/E07_timing_300mhz/scripts/extract_paper_netlist.tcl -log E04_weight_schedule/E07_timing_300mhz/results/paper_evidence/netlist.log -journal E04_weight_schedule/E07_timing_300mhz/results/paper_evidence/netlist.jou
+# Log file           : /home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/results/paper_evidence/netlist.log
+# Journal file       : /home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/results/paper_evidence/netlist.jou
+# Running On         : user
+# Platform           : Ubuntu
+# Operating System   : Ubuntu 24.04.4 LTS
+# Processor Detail   : Intel(R) Core(TM) i9-14900K
+# CPU Frequency      : 5696.998 MHz
+# CPU Physical cores : 24
+# CPU Logical cores  : 32
+# Host memory        : 67173 MB
+# Swap memory        : 234075 MB
+# Total Virtual      : 301248 MB
+# Available Virtual  : 283626 MB
+#-----------------------------------------------------------
+source E04_weight_schedule/E07_timing_300mhz/scripts/extract_paper_netlist.tcl
+# set root [file normalize [file join [file dirname [info script]] ..]]
+# set out [file join $root results paper_evidence]
+# set checkpoint [file join $root vivado_candidate05 e07.runs impl_1 design_1_wrapper_postroute_physopt.dcp]
+# open_checkpoint $checkpoint
+Command: open_checkpoint /home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/vivado_candidate05/e07.runs/impl_1/design_1_wrapper_postroute_physopt.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.02 . Memory (MB): peak = 1433.059 ; gain = 0.000 ; free physical = 17654 ; free virtual = 269990
+INFO: [Device 21-403] Loading part xczu9eg-ffvb1156-2-e
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2864.680 ; gain = 15.000 ; free physical = 15026 ; free virtual = 267900
+INFO: [Netlist 29-17] Analyzing 36117 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 4 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2025.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00.43 ; elapsed = 00:00:00.46 . Memory (MB): peak = 3578.531 ; gain = 124.234 ; free physical = 14354 ; free virtual = 267228
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00.22 ; elapsed = 00:00:00.22 . Memory (MB): peak = 5013.359 ; gain = 0.000 ; free physical = 12286 ; free virtual = 265207
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 5013.359 ; gain = 0.000 ; free physical = 12285 ; free virtual = 265206
+Read PlaceDB: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 5251.938 ; gain = 238.578 ; free physical = 11741 ; free virtual = 264662
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 5251.938 ; gain = 0.000 ; free physical = 11741 ; free virtual = 264662
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:08 ; elapsed = 00:00:05 . Memory (MB): peak = 5986.766 ; gain = 734.828 ; free physical = 11024 ; free virtual = 263945
+Read Physdb Files: Time (s): cpu = 00:00:14 ; elapsed = 00:00:11 . Memory (MB): peak = 5986.766 ; gain = 973.406 ; free physical = 11024 ; free virtual = 263945
+Restored from archive | CPU: 14.240000 secs | Memory: 912.732651 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:14 ; elapsed = 00:00:11 . Memory (MB): peak = 5986.766 ; gain = 973.406 ; free physical = 11018 ; free virtual = 263939
+Netlist sorting complete. Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.06 . Memory (MB): peak = 5986.766 ; gain = 0.000 ; free physical = 11017 ; free virtual = 263939
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 18812 instances were transformed.
+  DSP48E2 => DSP48E2 (DSP_ALU, DSP_A_B_DATA, DSP_C_DATA, DSP_MULTIPLIER, DSP_M_DATA, DSP_OUTPUT, DSP_PREADD, DSP_PREADD_DATA): 727 instances
+  DSP48E2 => DSP48E2 (inverted pins: OPMODE[5], OPMODE[4]) (DSP_ALU, DSP_A_B_DATA, DSP_C_DATA, DSP_MULTIPLIER, DSP_M_DATA, DSP_OUTPUT, DSP_PREADD, DSP_PREADD_DATA): 1 instance 
+  DSP48E2 => DSP48E2 (inverted pins: RSTA, RSTB, RSTM) (DSP_ALU, DSP_A_B_DATA, DSP_C_DATA, DSP_MULTIPLIER, DSP_M_DATA, DSP_OUTPUT, DSP_PREADD, DSP_PREADD_DATA): 8 instances
+  RAM128X1D => RAM128X1D (MUXF7(x2), RAMD64E(x4)): 64 instances
+  RAM128X1S => RAM128X1S (MUXF7, RAMS64E(x2)): 3568 instances
+  RAM16X1D => RAM32X1D (RAMD32(x2)): 1027 instances
+  RAM16X1S => RAM32X1S (RAMS32): 6348 instances
+  RAM256X1S => RAM256X1S (MUXF7(x2), MUXF8, RAMS64E(x4)): 3072 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 2 instances
+  RAM32M16 => RAM32M16 (RAMD32(x14), RAMS32(x2)): 145 instances
+  RAM32X1S => RAM32X1S (RAMS32): 3280 instances
+  RAM64X1D => RAM64X1D (RAMD64E(x2)): 60 instances
+  RAM64X1S => RAM64X1S (RAMS64E): 510 instances
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2025.1 (64-bit) build 6140274
+open_checkpoint: Time (s): cpu = 00:00:57 ; elapsed = 00:00:47 . Memory (MB): peak = 5986.801 ; gain = 4553.742 ; free physical = 11034 ; free virtual = 263956
+# set f [open [file join $out E07_BRAM_Cells.csv] {WRONLY CREAT EXCL}]
+# puts $f "cell,primitive"
+# foreach c [get_cells -hier -filter {REF_NAME == RAMB18E2 || REF_NAME == RAMB36E2}] {
+#     puts $f "[get_property NAME $c],[get_property REF_NAME $c]"
+# }
+# close $f
+# set f [open [file join $out E07_DSP_Cells.csv] {WRONLY CREAT EXCL}]
+# puts $f "cell,primitive"
+# foreach c [get_cells -hier -filter {REF_NAME == DSP48E2}] {
+#     puts $f "[get_property NAME $c],[get_property REF_NAME $c]"
+# }
+# close $f
+# report_utilization -hierarchical -hierarchical_depth 8 -file [file join $out E07_Utilization_Hierarchical.rpt]
+report_utilization: Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 5986.801 ; gain = 0.000 ; free physical = 11193 ; free virtual = 264116
+# close_design
+# exit
+INFO: [Common 17-206] Exiting Vivado at Sat Oct  3 17:35:37 2026...

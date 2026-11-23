@@ -1,0 +1,59 @@
+{
+  "manifest_type": "immutable_input_snapshot",
+  "schema_version": 1,
+  "parent_checkpoints": [
+    {
+      "role": "fp32_imagenet_checkpoint",
+      "path": "/home/user/Desktop/ff_vit_re/image_1k/deit_tiny_patch16_224-a1311bcf.pth",
+      "sha256": "a1311bcf4f24e3c95adaa75535db67bc4412d95535b98f7c1dfd1164dda41c97"
+    },
+    {
+      "role": "hls196_fp32_checkpoint",
+      "path": "/home/user/Desktop/ff_vit_re/image_lianghu/checkpoints/fp32_hls196.pth",
+      "sha256": "9e474c8b05c1fa62841e4aa2b230eac8e72561387b99f65a11ec4efc4069a065"
+    },
+    {
+      "role": "w3_qat_parent_checkpoint",
+      "path": "/home/user/Desktop/ff_vit_re/image_lianghu/checkpoints/w3_qat_500k_headrefit/best.pth",
+      "sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab"
+    }
+  ],
+  "strict_s3_comparison_candidates": [
+    {
+      "path": "/home/user/Desktop/ff_vit_re/image_lianghu/checkpoints/strict_s3_stage1/probe/strict-s3-stage1-probe-seed20260923-steps200/best.pth",
+      "sha256": "172eda36881f7be140f1b8ae77d6e2d2e65052f4b0ea12cf2adf29cd456a66f5"
+    },
+    {
+      "path": "/home/user/Desktop/ff_vit_re/image_lianghu/checkpoints/strict_s3_stage1/probe/strict-s3-stage1-probe-seed20260923-steps200/last.pth",
+      "sha256": "dad5bd91d57f4d06b131eb52f3236adda137ab8e4320c333312d164d3343693c"
+    },
+    {
+      "path": "/home/user/Desktop/ff_vit_re/image_lianghu/checkpoints/strict_s3_stage1/probe/strict-s3-stage1-exact-steps5000/rejected.pth",
+      "sha256": "86418a7fcd584dee441539959b89133e5e2ee9c1846a1048048ca32655566184"
+    }
+  ],
+  "external_sources": [
+    {
+      "role": "authoritative_original_hls_type_definitions",
+      "path": "/home/user/Desktop/FF_Vit/flash_vit_2/src/block0.cpp",
+      "sha256": "14a7797d5a28b43e169f5e1939564192acc36e2427be51a44921b5e8a19692e8"
+    }
+  ],
+  "dataset_paths": [
+    {
+      "role": "imagenet1k_training_set",
+      "path": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train",
+      "expected_samples": 1281167
+    },
+    {
+      "role": "imagenet1k_validation_set",
+      "path": "/home/user/Desktop/ff_vit_re/imagenet_val/data",
+      "expected_samples": 50000
+    }
+  ],
+  "python_environment_path": "/home/user/anaconda3/envs/vlm_token",
+  "contract": {
+    "path": "config/original_hls_s3.yaml",
+    "sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab"
+  }
+}

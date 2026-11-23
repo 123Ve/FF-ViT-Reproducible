@@ -1,0 +1,10 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch CLANG as the compiler.
+   Compiling ../../../../../src/block0.cpp in debug mode
+   Generating csim.exe
+E04 frame=0 layers=12 logits=1000 cumulative_mismatch=0
+E04 frame=1 layers=12 logits=1000 cumulative_mismatch=0
+E04 frame=2 layers=12 logits=1000 cumulative_mismatch=0
+INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 75264
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

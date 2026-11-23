@@ -1,0 +1,38 @@
+{
+  "status": "EXPERIMENTAL_TIMING_FAILED_NOT_BOARD_MEASURED",
+  "archive": "/home/user/Desktop/ff_vit_re/validation/plantvillage_timing_waived_board_test_20261014/PlantVillage_U3_5459_TIMING_FAILED_EXPERIMENTAL.zip",
+  "archive_sha256": "3d889f1fa80951a8a495eb4b03ee96bcd13ba6ad16cb77307d112763e263777b",
+  "boot_bin": "/home/user/Desktop/ff_vit_re/validation/plantvillage_timing_waived_board_test_20261014/SD_CARD/BOOT.BIN",
+  "boot_sha256": "32afb23bb859ece39e082d3ef89af0121edc14e022add6472c20728d43805357",
+  "timing_qualified": false,
+  "board_measured": false,
+  "frames": 5459,
+  "classes": 38,
+  "timing": {
+    "wns": -0.115,
+    "tns": -31.367,
+    "setup_fail": 781,
+    "whs": 0.006,
+    "ths": 0.0,
+    "hold_fail": 0,
+    "wpws": 0.165,
+    "tpws": 0.0,
+    "pulse_fail": 0,
+    "timing_qualified": false,
+    "setup_waived_by_user": true
+  },
+  "resources": {
+    "CLB LUTs": 218512.0,
+    "CLB Registers": 188808.0,
+    "Block RAM Tile": 473.5,
+    "DSPs": 713.0
+  },
+  "protected_originals_sha256": {
+    "/home/user/Desktop/ff_vit_re/validation/u3_full_board_test_20261014/outputs/plantvillage/hardware/results/candidate05/postroute.dcp": "22a20a705f55984ace741863ba2ca0374652f2eb8c0bbf8eac2bab2a03b1124b",
+    "/home/user/Desktop/ff_vit_re/validation/u3_full_board_test_20261014/qualify.py": "c470faf2bab0704dbc50376bad69d88490aeae5ea97c53f42a498d7802a42b72",
+    "/home/user/Desktop/ff_vit_re/validation/u3_full_board_test_20261014/board_contract.py": "9f25600d5d2f54a5dc2157c106d1bdf6ce0cedb8af5b8d1c35e4d16001693de9",
+    "/home/user/Desktop/ff_vit_re/validation/u3_full_board_test_20261014/publish.py": "c9e8454cd657d92d8aa878f84d5da6904026600bcbc6fff6c0d088815bc44565",
+    "/home/user/Desktop/ff_vit_re/validation/u3_full_board_test_20261014/outputs/nwpu/SD_CARD/BOOT.BIN": "1b68f18b5af65172a1b0f1dff68d8bbc76cee0b87198232992f2b72a98fba9bc"
+  },
+  "zip_crc_and_all_file_hashes_verified": true
+}

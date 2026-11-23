@@ -1,0 +1,9 @@
+{
+  "bits": 3,
+  "method": "canonical mse_init_scale search, independent Q/K/V; per-matrix O/MLP",
+  "range": [
+    -4,
+    3
+  ],
+  "validation_top1": 32.666666666666664
+}

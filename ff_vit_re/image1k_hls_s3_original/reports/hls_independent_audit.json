@@ -1,0 +1,10 @@
+{
+  "boundary_count": 56,
+  "checked_integer_count": 1960864,
+  "originals_unchanged": true,
+  "passed": true,
+  "reference_manifest_sha256": "0c044156cb0084676a06301d0da1b1b816fdc540b30cbd3bcff192e8ffd4ebf0",
+  "report_sha256": "e0f4125942ffbc1228b7c8c51ee029f655f9da84f6e1c4f916abae1ca8127b57",
+  "sample_count": 4,
+  "verifier_sha256": "573d92f5755365357e206f8f1a41abdb86743cc29e15e48284394e18a8ab04a6"
+}

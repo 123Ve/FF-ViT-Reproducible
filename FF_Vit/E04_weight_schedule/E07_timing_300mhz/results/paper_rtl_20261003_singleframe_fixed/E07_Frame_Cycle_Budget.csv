@@ -1,0 +1,5 @@
+component,cycles,percent_of_native_frame,evidence_class,qualification
+Patch/front_end_wrapper,75492,8.881129658234386,RTL_OBSERVATION,includes Patch and overlapped W0 load
+12_Transformer_layers,749868,88.21696252001406,RTL_OBSERVATION,sum of 12 sequential E07 layer-task windows = 749868 cycles
+Classification_head,24609,2.8950845090803,RTL_OBSERVATION,one CLS classification
+Control_gaps_and_boundary_offset,58,0.006823312671244561,RTL_OBSERVATION,56 raw control-gap cycles plus 2 observer/native boundary cycles

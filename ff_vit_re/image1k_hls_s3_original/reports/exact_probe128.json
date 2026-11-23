@@ -1,0 +1,21 @@
+{
+  "calibration_count": 2000,
+  "correct1": 79,
+  "correct5": 107,
+  "elapsed_seconds": 7.898766599828377,
+  "hls_verified": false,
+  "identity": {
+    "arrays": "c3eed03b1a13dd65202e034efda4e796dda5bb8a5e0ef3903b9438e2fbce3664",
+    "artifact": "cd0cc886386ae0549d03de93aa76f2bdbd362c975ae0ae181e34b2fca28a189b",
+    "limit": 128,
+    "protocol": "crop09",
+    "source": "0db3f95903ba72ebff90c18bf74c85b10994de259eaa79453d2b22f39fd5c02a"
+  },
+  "sample_count": 128,
+  "sample_ids_sha256": "0a661670dcfbe27b8944de125a3301a8ca60f5db2e7421594c5bca790d8df11e",
+  "stage": "exact_integer_probe",
+  "target_69_reached": false,
+  "tie_policy": "descending integer logit, ascending class id",
+  "top1": 0.6171875,
+  "top5": 0.8359375
+}

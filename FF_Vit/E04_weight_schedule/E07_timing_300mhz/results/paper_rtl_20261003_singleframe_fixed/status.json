@@ -1,0 +1,10 @@
+{
+  "version": "E07",
+  "status": "PASS",
+  "frames": 1,
+  "prepared_from": "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/results/paper_rtl_20261003",
+  "start": "2026-10-03T19:18:16.584459+08:00",
+  "reason": "first attempt limited Verilog reports but native SV sequence still drove three frames",
+  "rtl_exit_code": 0,
+  "end": "2026-10-03T19:44:45.929711+08:00"
+}

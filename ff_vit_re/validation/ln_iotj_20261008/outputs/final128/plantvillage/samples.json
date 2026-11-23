@@ -1,0 +1,1030 @@
+{
+  "samples": [
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Apple___Apple_scab/01f3deaa-6143-4b6c-9c22-620a46d8be04___FREC_Scab 3112.JPG",
+      "index": 0,
+      "label": 0,
+      "source_image_sha256": "c3580cb39e6cfd5ff54b95516ead2e2cab9b19b2d3ba54968a3483838ee47a81",
+      "transformed_fp32_sha256": "251860c89ac874e087b3775018367bf08688cfc7f98099491925935f0e19996c"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Apple___Apple_scab/cbc265da-87e2-449e-8585-b744f9371772___FREC_Scab 3431.JPG",
+      "index": 42,
+      "label": 0,
+      "source_image_sha256": "4950f43fbdc3aa1beffbc00e6d9a5fba8d22fbfd8515153af099acaa719cbe5c",
+      "transformed_fp32_sha256": "19d00e51be44753b19471e13bbfe6d830c30165ab6c5bc3f71854c85427e1506"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Apple___Black_rot/6cb50cab-0f02-4a52-a98f-17c096a6b79f___JR_FrgE.S 8637.JPG",
+      "index": 85,
+      "label": 1,
+      "source_image_sha256": "5b1a74924db2ed623778499100fe89661ed62edfbe44f2220076310edd3c524d",
+      "transformed_fp32_sha256": "f90d5187e03b37bbccae40bb933b8c0492aefd3ac472de825c7614d748bfbe78"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Apple___Cedar_apple_rust/3dcf5bf7-744a-439e-881b-10f73fd83616___FREC_C.Rust 3642.JPG",
+      "index": 128,
+      "label": 2,
+      "source_image_sha256": "150478f9c83cecf3bde4334fc7f69b5a8f2fb65dae9f9786d4f7548da400df34",
+      "transformed_fp32_sha256": "b6b99cf7897e959330725db9f6c6af4934127d4dd8ba6a2239428ff1b17200ae"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Apple___healthy/153e84e2-1849-4cf6-96b7-a1507376d496___RS_HL 8198.JPG",
+      "index": 171,
+      "label": 3,
+      "source_image_sha256": "804e6e4f69d18a41b3801a27cf9e8a6fcb6fff4be00884ee08576a4ddafcfafd",
+      "transformed_fp32_sha256": "d31ce979daec2af89daf7749a162ec2bdefe06fc23e90797fc816db27738e63d"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Apple___healthy/4eab95ce-76ec-4bd2-9cc6-f39747569750___RS_HL 5958.JPG",
+      "index": 214,
+      "label": 3,
+      "source_image_sha256": "4ecf3f35b45f5055a8a4bd84ffcd327bf0fb793c2131b8f288eee37ccc670e08",
+      "transformed_fp32_sha256": "ba61245fb20d2f0b64490700adb30c113b73092c48b5f850b71a48af61ab9e43"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Apple___healthy/953076be-ed87-4a45-a553-48cd555b63bb___RS_HL 7888.JPG",
+      "index": 257,
+      "label": 3,
+      "source_image_sha256": "f957dcce5c5f743f9f824d22eb0c92ffe8931c5ab1dd95da112cac3bc8862573",
+      "transformed_fp32_sha256": "e277a763f7743ea88c2844a49792f4286cc9dad9d2ec89eb6aefccce5654ddc0"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Apple___healthy/e181a90b-4e75-418b-a8d8-98173cd8bd1a___RS_HL 8194.JPG",
+      "index": 300,
+      "label": 3,
+      "source_image_sha256": "6935795077d73fecf6293a26af1ce918323a79b86561a7a2e8a2ff5b6d8bf4f1",
+      "transformed_fp32_sha256": "11187e608864b01edf4ceb9efce71348873e2ee7c7954b15b19929e9b7f72e88"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Blueberry___healthy/2cf8906b-0996-48e9-8da1-309283c2d70b___RS_HL 5401.JPG",
+      "index": 343,
+      "label": 4,
+      "source_image_sha256": "29bf740f1d72a73094caa718cc391363d7ab18f018e95e840ed3ef3f12dc28ba",
+      "transformed_fp32_sha256": "9a23e27d7a9b3389a08af122ac34d8a5ff002fc347a254f8aeed1fcd62f917f7"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Blueberry___healthy/79644759-c791-4d3b-9643-ce547313713e___RS_HL 2549.JPG",
+      "index": 386,
+      "label": 4,
+      "source_image_sha256": "e5ab011579970dc42d9fb1d1df272d75a5b504979ffbdd691620bbc2f5d936da",
+      "transformed_fp32_sha256": "23d89317ae8712a2861f0d2e9ae862bee18fb6e8ebb2e9c17e8ba57ccc0d47e8"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Blueberry___healthy/b4e9643f-c810-40d5-8005-6f4a137b65ca___RS_HL 5509.JPG",
+      "index": 429,
+      "label": 4,
+      "source_image_sha256": "22207fc0ef955748d3a630b2c93abe9e25fd8c09cf6419b1964e8bb9c6858880",
+      "transformed_fp32_sha256": "1134a8882f07663aefc199378da57ed0416415efb48873727ca0ea76675c2b2b"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Cherry_(including_sour)___Powdery_mildew/095db5eb-0b4e-4344-b3e9-f3f37a97ac24___FREC_Pwd.M 0421.JPG",
+      "index": 472,
+      "label": 5,
+      "source_image_sha256": "ddc2452f4b462e21a36c1b206b870d05e3a61309bb1487d7efc4085ecb46e34c",
+      "transformed_fp32_sha256": "b9acd22b06de67730011f14e57ad5d03d6e94ca18b6429567cd33c4e710abcb4"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Cherry_(including_sour)___Powdery_mildew/5ea477b7-3870-46c0-934f-4fced7ec6169___FREC_Pwd.M 4885.JPG",
+      "index": 515,
+      "label": 5,
+      "source_image_sha256": "1235a964e0eb853e719be0867655abf317dc31d256a4c161a39196bec7ae83ee",
+      "transformed_fp32_sha256": "a9f7b2c81765aea6b686954b7818b77f0cefcac3e60546c501c104925cc7e099"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Cherry_(including_sour)___Powdery_mildew/d53e4b45-41d9-4cea-9f79-80e99bac6a95___FREC_Pwd.M 4948.JPG",
+      "index": 558,
+      "label": 5,
+      "source_image_sha256": "9085440c5eded6a38139c90865481105d28526e193108f297a7bf094f442179f",
+      "transformed_fp32_sha256": "f9650d078dd0cbd182c61a7e6cb610f60fbc588c31edd857b5c49639757064d0"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Cherry_(including_sour)___healthy/32f80959-fec7-4f33-a205-28e3f8b7a277___JR_HL 9682.JPG",
+      "index": 601,
+      "label": 6,
+      "source_image_sha256": "4a3631c25685f2408602134e5272198f4786bdfd86fd95a36f0e97f4750f85d2",
+      "transformed_fp32_sha256": "c2d54d59fff2e6b65ec6e6c6f4ac572bc0cfcee9b93f2c53487a468a58d893c0"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Cherry_(including_sour)___healthy/c54f694a-5b56-48a4-b4c4-383b825d6893___JR_HL 9884 copy.JPG",
+      "index": 644,
+      "label": 6,
+      "source_image_sha256": "08f48b6419fdcdfef43b65d83dee657631df2e37d4e5d8c36720ff1b2dab6dbf",
+      "transformed_fp32_sha256": "c46fa172011545aa584bf94ded2bf12c23261d2205a0a45615e2cfca17c16962"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot/76df2cc6-af5f-4f86-9dd7-d637936f9572___RS_GLSp 4609.JPG",
+      "index": 687,
+      "label": 7,
+      "source_image_sha256": "36bf6f66a4c7aae1a0e410d52cd7e856fae7a7e4d96c4c26d172e45b2a22d706",
+      "transformed_fp32_sha256": "81d308d1b9cd363f766239e784889cc30d89442b3e176f6ebc469f00cfbef326"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Corn_(maize)___Common_rust_/RS_Rust 1743.JPG",
+      "index": 730,
+      "label": 8,
+      "source_image_sha256": "42dc53b0bcffc148dfed536f17e3932511ef9a821245fe7867167630852fa112",
+      "transformed_fp32_sha256": "893cfc58f3dc91d7db0bd54a075342f086ae5da4e0bc3345cb79e28e812ea076"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Corn_(maize)___Common_rust_/RS_Rust 2218.JPG",
+      "index": 773,
+      "label": 8,
+      "source_image_sha256": "29eb3eba6174fb4edafd4e4c1bfe6ce7036acc7fc382e2ef5003787a3388334f",
+      "transformed_fp32_sha256": "63fa0b536b0e7498062e3db3507f20182755c6e28d9e89f7354dcf98573b8ec7"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Corn_(maize)___Common_rust_/RS_Rust 2564.JPG",
+      "index": 816,
+      "label": 8,
+      "source_image_sha256": "7a66d3d0d279f5584eb4ba713aa62333f725577078585f430e20c6d16a69fde4",
+      "transformed_fp32_sha256": "180c07a15016ffeaf58ba08a1940db0bbd397f4663bb246d793c90d0e7af8415"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Corn_(maize)___Northern_Leaf_Blight/3fdd99f1-a3df-4498-8b6a-b844621a72ca___RS_NLB  4670 copy.jpg",
+      "index": 859,
+      "label": 9,
+      "source_image_sha256": "ad61c6914f1def767270cd4425bda9b902ee7d250a77d18ee1d4c154e14df46a",
+      "transformed_fp32_sha256": "d1baf76b41ed3722ab948899252e56d595663e56e0d3adfe07bba2d978363763"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Corn_(maize)___Northern_Leaf_Blight/c3243ab3-820e-45ae-876c-56e40ff54332___RS_NLB 3868.JPG",
+      "index": 902,
+      "label": 9,
+      "source_image_sha256": "6f68bc1d26a6d681b86e0b448ee505cfa41ee8066c4b745f9ff42ab07a41d57e",
+      "transformed_fp32_sha256": "131b252bacc9a7a64527304fbf841bf236350c5fa362dbf3e6a9b58f67e86191"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Corn_(maize)___healthy/1d81ce56-55bc-4037-8d1f-6d1ea0f94698___R.S_HL 5530 copy 2.jpg",
+      "index": 945,
+      "label": 10,
+      "source_image_sha256": "bd0f0f10059c9a356e66398da60d52c3a3b8195779c2d7f0e5d6918b1eaf8149",
+      "transformed_fp32_sha256": "add2b37b250a9999c304e7c218ea8483308e1bee244b27d2bdb856cb0e94fc31"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Corn_(maize)___healthy/801ec1d8-e4e4-4682-85ff-fddfeaeae8c6___R.S_HL 0603 copy.jpg",
+      "index": 988,
+      "label": 10,
+      "source_image_sha256": "be77e4d681a447bcd667a7c70b0f3d25b7e38c0aebbbd5da6d54d44991b5072f",
+      "transformed_fp32_sha256": "b84bc1a1bacb7a489ddb9b45a1f1c45fbfdf2e9822e4ad0cc90ceb8d8f7793e8"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Corn_(maize)___healthy/d8a72016-5579-43da-841b-d13030eaae6d___R.S_HL 7968 copy.jpg",
+      "index": 1031,
+      "label": 10,
+      "source_image_sha256": "f5b136ae9a15177c72b8bb5f71069d949a6b8a413727037dd42e772e29bc2364",
+      "transformed_fp32_sha256": "bae2ac4eed70f2b1e62fc8d75e711324bb7cb2abc1c56af389a93c80a8a1ad3a"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Grape___Black_rot/3f82a8c0-b79d-48a1-971e-8ae69f34dc0e___FAM_B.Rot 3012.JPG",
+      "index": 1074,
+      "label": 11,
+      "source_image_sha256": "675d0dd85111076c67096222c24fc2ba836d6d21924f5b0e8c527f09a1e7a6a9",
+      "transformed_fp32_sha256": "fa0cc7e6ff657d904dbcf9fa25ce40037b620e10761adeb61e43991a712fadbb"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Grape___Black_rot/93271ee2-23b2-4b41-8bd7-ea951853fb38___FAM_B.Rot 3456.JPG",
+      "index": 1117,
+      "label": 11,
+      "source_image_sha256": "5cfc12e8d3affa6feec7fa325c87e3633570151412fa76b1bf3fc92c4c4ef890",
+      "transformed_fp32_sha256": "c23bb969c2ef553c5ca9b4677234e1cf8fb2581b7a6482cb68461ef69d16ee22"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Grape___Black_rot/e98c6a46-badc-44af-992e-1493f70cf6f5___FAM_B.Rot 3138.JPG",
+      "index": 1160,
+      "label": 11,
+      "source_image_sha256": "0584bc63a8539d745018dc099cd29b0136d1791ca73d91332ce9883c0e4ae0b7",
+      "transformed_fp32_sha256": "6e00f1239e7b3ccedc631a969be72abee6d8ed5ce75a56dedb37be6bf4d0cf19"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Grape___Esca_(Black_Measles)/41b072e8-2992-4cdd-8296-90d0b5e8ee1f___FAM_B.Msls 3907.JPG",
+      "index": 1203,
+      "label": 12,
+      "source_image_sha256": "c95a9d329f86871fa6dac19506045065d82166c0b812525b2d8dd637da5bc0c9",
+      "transformed_fp32_sha256": "174209af427e002e0e853c3d6dd2253e77bacec3a037c3d77cbcd33f4eb74b86"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Grape___Esca_(Black_Measles)/8a8426e9-ab65-4815-bfeb-c9fb18b1d4ca___FAM_B.Msls 1315.JPG",
+      "index": 1246,
+      "label": 12,
+      "source_image_sha256": "688a5a9fc0f342476310cde19e2317a89e9c04e597b79cda8345f5b0c63c8363",
+      "transformed_fp32_sha256": "e1c266a18d28fdfb88cb9e73b6b16514926c6ac8607ca7da5d4af8f83c05a7c0"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Grape___Esca_(Black_Measles)/d7eda787-308c-4b2d-925b-93696ace08da___FAM_B.Msls 1154.JPG",
+      "index": 1289,
+      "label": 12,
+      "source_image_sha256": "c9d60bab20f4870ce4bab3b05eef6cc83e2d103d4c5a82ab4813dcbdf0c540a6",
+      "transformed_fp32_sha256": "02f5a25a16da83e19e93f8ad36aba02e588d534ee2a5232afb6a779d7f54d184"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Grape___Leaf_blight_(Isariopsis_Leaf_Spot)/4d7ad495-1420-4ac7-9123-f0aa1e828270___FAM_L.Blight 1509.JPG",
+      "index": 1332,
+      "label": 13,
+      "source_image_sha256": "722e38449f2de73c899b2d6bf8f01ea3decd3c758e446112cdbd05309ff18769",
+      "transformed_fp32_sha256": "84a6a038576e19d263af3a6524305b32bceaa9dbf92655e1a479aa078ad0198f"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Grape___Leaf_blight_(Isariopsis_Leaf_Spot)/ab0d3eec-a4fa-49ad-a1b3-d7a76ad280a1___FAM_L.Blight 1718.JPG",
+      "index": 1375,
+      "label": 13,
+      "source_image_sha256": "2f307ee2973a3a6624a583ae3d39c2130501e3d804d292e3530b7e2451733847",
+      "transformed_fp32_sha256": "953736cf62e827550f0ac2b787c722c7e5d7bf0e3220d9430259bd0120f875ee"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Grape___healthy/1725a647-0866-45be-bd9f-e5add660c340___Mt.N.V_HL 9083.JPG",
+      "index": 1418,
+      "label": 14,
+      "source_image_sha256": "2e24ed2584ab739ff93de13de04039dcca0acad0f7e890e7d2dd3d5bca3ea6b3",
+      "transformed_fp32_sha256": "c72240948baea1293e86f91614ca3c2f43db709bf6b5fd3ac7c24254f3c621f5"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Orange___Haunglongbing_(Citrus_greening)/022b0218-f902-44ee-8433-990119e0a946___CREC_HLB 4974.JPG",
+      "index": 1461,
+      "label": 15,
+      "source_image_sha256": "bb40a3545f5bc47684405e1d9635d6ba66e2be5c2be3684e3184059fbe7f0bf3",
+      "transformed_fp32_sha256": "10e8b1d8ce1b3e69dac84685006487ba707465d0210cf5104566872bd50f2542"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Orange___Haunglongbing_(Citrus_greening)/179f629b-da34-42b2-969c-2960413b64d0___UF.Citrus_HLB_Lab 0268.JPG",
+      "index": 1504,
+      "label": 15,
+      "source_image_sha256": "7e7c4bf39ee25587995d1aa18ab75a0e5b24457dac7768c8476c28355cd12d5f",
+      "transformed_fp32_sha256": "68535c7b464dc483358ffa5ee383e9ec31b13e80bec851b85375809a39cc05fd"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Orange___Haunglongbing_(Citrus_greening)/2cc01acb-91d3-4612-98ad-eaeebb4bf7ce___CREC_HLB 6939.JPG",
+      "index": 1547,
+      "label": 15,
+      "source_image_sha256": "1e0f14063435c3f2b23ddca82657fd85e8884a46c80f0859b0bc6ff5acdff724",
+      "transformed_fp32_sha256": "8cc168a279997d6f7d33e5d17e2254aa67bcac9d1647b6a45066f9933a8c132d"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Orange___Haunglongbing_(Citrus_greening)/43203eb6-dbf8-49f7-b839-eaea88569388___CREC_HLB 7505.JPG",
+      "index": 1590,
+      "label": 15,
+      "source_image_sha256": "12ea3d7925653e33c7304affdcfd18ee6cbec037315be86a208453236f7127c8",
+      "transformed_fp32_sha256": "83024d8d1a2d9ced14ca20b5bf2fcac4ce1266c67f083a9f1be856b64d9c3be4"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Orange___Haunglongbing_(Citrus_greening)/538b1706-fec8-471c-9581-81a2740c2540___CREC_HLB 4046.JPG",
+      "index": 1633,
+      "label": 15,
+      "source_image_sha256": "a5cad8ecc7c85ac7f8151da6adabce53bdf3e37511deb0e56198601a7b7e9916",
+      "transformed_fp32_sha256": "971c4164d1d4cc1329603af648b0d0dc14aa69570e59e1b21dc2df161ababb68"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Orange___Haunglongbing_(Citrus_greening)/6aec29ed-a0a1-4ec5-99f6-e90464a908ee___CREC_HLB 5036.JPG",
+      "index": 1676,
+      "label": 15,
+      "source_image_sha256": "01d824c1c0e8933d9af03dc2e1c2a31326988a86db6364e1ee1d733924217d06",
+      "transformed_fp32_sha256": "122f3ef43f781651eadbee77fca98eaf58025342f2f41161e016d8b7da24fbd4"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Orange___Haunglongbing_(Citrus_greening)/7dbdb991-c516-436e-80df-d03bff3f8a31___UF.Citrus_HLB_Lab 1516.JPG",
+      "index": 1719,
+      "label": 15,
+      "source_image_sha256": "713f12eb7414df192f35984030823eb0a528a1721f72344893ac065b21230fb2",
+      "transformed_fp32_sha256": "d98705f093a6d6c3ce705a1632373ad00be7b31a535b2c72d0a727683bd21bc3"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Orange___Haunglongbing_(Citrus_greening)/927187dd-2691-4741-b1a2-4ca0845c70e7___UF.Citrus_HLB_Lab 9825.JPG",
+      "index": 1762,
+      "label": 15,
+      "source_image_sha256": "59c2436809700f543c7c66361eab18e06c1fa05e6396fa577ce32eb12222fb45",
+      "transformed_fp32_sha256": "bb478cc3e0957d7574aeb826d555408a0890b87123b6bd55d6a53e6ac99b539c"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Orange___Haunglongbing_(Citrus_greening)/9f2d1673-8e5b-4f7d-adef-20fc08e39b6f___UF.Citrus_HLB_Lab 0335.JPG",
+      "index": 1805,
+      "label": 15,
+      "source_image_sha256": "3b06ce5a487e8a540a657ebc2543151c8934a7388e92446a79302e71c00560f3",
+      "transformed_fp32_sha256": "5051f9b59103261ead1f0157e33792b89777960c388643416b94b2e7a5c1e11b"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Orange___Haunglongbing_(Citrus_greening)/af19a087-fbf4-45c3-b777-72a15fd245a6___CREC_HLB 5417.JPG",
+      "index": 1847,
+      "label": 15,
+      "source_image_sha256": "8a35ad17a09c6caa82e285a1c913a9bedd8a6b6ff391a0844bcca9d5a5fd6faa",
+      "transformed_fp32_sha256": "ed6cf07ce078cb99ab16ad49942e304b2ebeb06c6ffe87f242a512cb013e9c63"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Orange___Haunglongbing_(Citrus_greening)/c43d30c0-e76b-44cc-abd4-33fed8609543___UF.Citrus_HLB_Lab 0742.JPG",
+      "index": 1890,
+      "label": 15,
+      "source_image_sha256": "649601eea8a204c48ad7a8648a42955c48f218c9c7e1240b97a222c908504ebc",
+      "transformed_fp32_sha256": "f1ea0ba802e3f263f4091fc7d97a1704c15e0afa8046bd203d5b25580409120d"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Orange___Haunglongbing_(Citrus_greening)/db064934-9868-49ed-9ab2-f439777caa6d___UF.Citrus_HLB_Lab 9897.JPG",
+      "index": 1933,
+      "label": 15,
+      "source_image_sha256": "7cc3c0e80410a3f9af77a4a99192bfd3759bd347ec8765e72259a07ba09fa9d2",
+      "transformed_fp32_sha256": "edb6ab149c5c018383b314c30e2f71980c50f95a8e0fa546d0517db84dec02db"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Orange___Haunglongbing_(Citrus_greening)/ec71d805-ccca-4158-a8e2-96cd357d68ad___UF.Citrus_HLB_Lab 1707.JPG",
+      "index": 1976,
+      "label": 15,
+      "source_image_sha256": "c9cc9ab836475a7a8139a75099e1b728f395097983a71aba303a478ffe39c520",
+      "transformed_fp32_sha256": "79b1fe101973a77fa3e3ef6ae33e14213b3e1cddcba6047c0bb4b582c00a765b"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Peach___Bacterial_spot/08b465e3-387a-4720-a040-3f962913f035___Rut._Bact.S 1111.JPG",
+      "index": 2019,
+      "label": 16,
+      "source_image_sha256": "c95a0592c540ed31e439ac9dbde1386343d69f39807f4dc0433039ed07f8699b",
+      "transformed_fp32_sha256": "606039fc0f44eec2cc0b38c39f57aa52dec842c9176bad10dd01785a30450147"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Peach___Bacterial_spot/3e9b6ac1-5ed7-4ccb-8437-0d012dcb8ad6___Rutg._Bact.S 1756.JPG",
+      "index": 2062,
+      "label": 16,
+      "source_image_sha256": "9efcbeb4aa77ff0f356cf2e970c47e3bab37787688e00f2df573609b808d0fde",
+      "transformed_fp32_sha256": "044302a598469354af78d98adadb88c1322fc8691d319bdaa8ca0dceb4112d91"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Peach___Bacterial_spot/7959c230-f531-4747-ab1f-977007f7ff89___Rutg._Bact.S 1237.JPG",
+      "index": 2105,
+      "label": 16,
+      "source_image_sha256": "2d42923a47ba6671be38eb2b16f83c278d75a82a6d902d43b2242ab00a1ba62a",
+      "transformed_fp32_sha256": "0a0a536d5f4436befc0e060b876a75e65b830a682db28021e291a19bca9384a6"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Peach___Bacterial_spot/a072dade-e4bc-47e9-97d2-89650aca4f8f___Rutg._Bact.S 2069.JPG",
+      "index": 2148,
+      "label": 16,
+      "source_image_sha256": "5574271d525c802a1776e824ead2e341fd7d742c9db17fab9ed4465600072eea",
+      "transformed_fp32_sha256": "e96b246a77b581456e7344048638079511781a26f2cd741e7f4ab3fbfac6ba62"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Peach___Bacterial_spot/c5cfa9db-6d7b-4dce-b32e-58aed6523b99___Rutg._Bact.S 2330.JPG",
+      "index": 2191,
+      "label": 16,
+      "source_image_sha256": "0d2a40da10f1c1e71fed7e4d68644e3183c1982d260dd2effa88c1c705389962",
+      "transformed_fp32_sha256": "65e10b44f2b4aadc4cb9d0db32358852579779aca676fcb7c75e6933c849a73c"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Peach___Bacterial_spot/f79353b5-cd00-48ec-a34a-d415b27b1b6c___Rutg._Bact.S 1236.JPG",
+      "index": 2234,
+      "label": 16,
+      "source_image_sha256": "0baecac24bce8a527419c4162090482e486fca2869c498bff36d1ee1bca0c1a5",
+      "transformed_fp32_sha256": "17f220afced79cae09d90e16be6266f6cc1f6f6f6ccc6484551b5846275f9096"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Peach___healthy/fcec3f5b-0a84-4635-abc6-a2bc6464de6d___Rutg._HL 3644.JPG",
+      "index": 2277,
+      "label": 17,
+      "source_image_sha256": "474ba9fabbb0eced6d05a426f9049423daa0153bfc3ae03a002dd2bb775682a4",
+      "transformed_fp32_sha256": "deb66cfd210819156eca262c1fadfb289bafa468a0cc317c2386d5764549ee7b"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Pepper,_bell___Bacterial_spot/61fe0fde-0e1a-4977-adee-e9b66caaf809___NREC_B.Spot 1855.JPG",
+      "index": 2320,
+      "label": 18,
+      "source_image_sha256": "bcac8dfe6b01b27d70e1e87b4622af4e99840749277232240fece3cce5158309",
+      "transformed_fp32_sha256": "453bd6db6e700d76a7aa968dbb3dde6ea7f8d26fc5adccc3a5ba11f9caa4e218"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Pepper,_bell___Bacterial_spot/d74d7c16-ab04-49fa-9feb-8677ec37810c___JR_B.Spot 9053.JPG",
+      "index": 2363,
+      "label": 18,
+      "source_image_sha256": "649b2b10184335eded0ce58d26e6bd7d43bb7e607673966e272541fe6dee0772",
+      "transformed_fp32_sha256": "9560efa8c6c46b7a8ab4ccd2a838d36808108c1684d00d996a467bc1959502b1"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Pepper,_bell___healthy/2accd1d7-e6b4-4114-9f8b-11130d583320___JR_HL 8841.JPG",
+      "index": 2406,
+      "label": 19,
+      "source_image_sha256": "e2569bdb1de82b2f339759947de614d8acf6376c2080bf2d61b276c31bdfab00",
+      "transformed_fp32_sha256": "35b935747a2020eefc363e40f4c0ea6ae3ad8415d33c59b68f95778687e525ac"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Pepper,_bell___healthy/6ff92031-6a52-47ba-91d0-3df19f11104c___JR_HL 7774.JPG",
+      "index": 2449,
+      "label": 19,
+      "source_image_sha256": "fd28b0197c8bea7fa5d8fda015d8fb0903d1f0c83b520b10da26b2563b2cab06",
+      "transformed_fp32_sha256": "c44c68e49ca9f40f495d7fe9ef38728333fd343fa477e3242d7e21a8402812f1"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Pepper,_bell___healthy/c0f45b4c-fd37-4555-8e2f-4ab0f2622e6c___JR_HL 8546.JPG",
+      "index": 2492,
+      "label": 19,
+      "source_image_sha256": "3e7cbfebb016f50b674579f591cce8fae13f9d9d991b5f76fbbf98c8515b67b3",
+      "transformed_fp32_sha256": "f7790ace2fc9dd4dd7aa587a328d34a6a1ecb09bbabc419465577de0c552efe6"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Potato___Early_blight/10c438df-8ed7-4de7-94df-83298ebcf373___RS_Early.B 7001.JPG",
+      "index": 2535,
+      "label": 20,
+      "source_image_sha256": "36586297bd46a93fc7b08c70561ad3db7075a559d06b399e9c3519d9e50fc48e",
+      "transformed_fp32_sha256": "151cfcafe6664a77deb85ce88b66fe5cc4996004d3e1869d00ccb1dcd8d76e81"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Potato___Early_blight/9141a8b4-6144-446d-b71d-925bcd432840___RS_Early.B 8648.JPG",
+      "index": 2578,
+      "label": 20,
+      "source_image_sha256": "17f501b81fd69452bdfe7fb97cdce76ec4570cd1cdf066253a3f30ef88658c5f",
+      "transformed_fp32_sha256": "bedaf3240b8c5b4f19f4bb547ca7d3d512bfd9d1ab4ced0a85e00148f4144a2b"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Potato___Early_blight/f838c192-a78c-460c-ab90-313dd5014a47___RS_Early.B 7718.JPG",
+      "index": 2621,
+      "label": 20,
+      "source_image_sha256": "5d1857ff1d4d73c92a41c9e0e4012c02f3b1ff86e18d96c94d094c6edbda2676",
+      "transformed_fp32_sha256": "96a5e178e4421a8524f0bf019c8ac8f89cce5d9183020187f67901cd35124a13"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Potato___Late_blight/546fcdf5-862b-42fb-931d-a51a85dc843c___RS_LB 4403.JPG",
+      "index": 2664,
+      "label": 21,
+      "source_image_sha256": "52c56da0d1a7a2780aca2a94302a2ef6c36e33dc2ec99836ab196a85e491dae9",
+      "transformed_fp32_sha256": "2d8c6f65d4c2db58e20f77eebf4b97a1452b9456dd1e2bde4d425cdee6de840b"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Potato___Late_blight/ca14c4bc-c9a5-4294-835e-6c3b81e61496___RS_LB 3080.JPG",
+      "index": 2707,
+      "label": 21,
+      "source_image_sha256": "98e25f78a2878b1df674d01d6bafc49292552542fdbfa8ac64a2fa83d4db6701",
+      "transformed_fp32_sha256": "4ffec56436158ec1d4b53f3623c70f37156299a39ff728db74e4015a88374a95"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Raspberry___healthy/22b87710-2baf-40c8-b37c-9b753a542813___Mary_HL 9226.JPG",
+      "index": 2750,
+      "label": 23,
+      "source_image_sha256": "53f2ceb4fe470ab0c36357586a11ae55595a416ef7d6c40bdda2e99ca27b7798",
+      "transformed_fp32_sha256": "e8ab6855ebebece72a73a541c664660d8aed63555369cfeb61bc9a75206d2fb8"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Soybean___healthy/06894f45-1f1d-464b-b8ee-92b0fe6fc4a0___RS_HL 3678.JPG",
+      "index": 2793,
+      "label": 24,
+      "source_image_sha256": "ea3195ce959e5ebea492d71b22e715de4c609fdc09637c535ba64a054c526499",
+      "transformed_fp32_sha256": "ea58b001eebe69fd820af72e4bec7ad07ab49a4d7aabc0df6277a29d15476136"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Soybean___healthy/195b9453-b578-427f-8c8d-f86086f488e2___RS_HL 4334.JPG",
+      "index": 2836,
+      "label": 24,
+      "source_image_sha256": "c0f3bde75d595dc7455ecdd296919a03f8ab91e8826dce601a5bb8b85832ddd2",
+      "transformed_fp32_sha256": "5f0a0bc37124e83dbf8c91cf8f624765996445a10df00a4c2c012c7345f2b7c5"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Soybean___healthy/2f99080a-2e4d-4d11-b658-8f60f64931cb___RS_HL 7161.JPG",
+      "index": 2879,
+      "label": 24,
+      "source_image_sha256": "5ef807c06055667efd6970c84962b71985cfb501adfa98f645cde3513cdbcf2c",
+      "transformed_fp32_sha256": "760f5d6384820f722363a2b93e3a87cf16e7a1178bbb64e507bbf5c027ab7531"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Soybean___healthy/4bc6e11c-5f1c-4046-942c-0a39a8b28838___RS_HL 5520.JPG",
+      "index": 2922,
+      "label": 24,
+      "source_image_sha256": "cb1427275339043474956a6cc1cc228b6218c26fe8605c43de8c6a4dfe93727b",
+      "transformed_fp32_sha256": "73f722b33629a30c9111caa4b36b7046af787b8fbaacc6a69ccd28f7bb6ec3de"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Soybean___healthy/6242d50b-3407-40a8-b665-2ef066e4562b___RS_HL 5765.JPG",
+      "index": 2965,
+      "label": 24,
+      "source_image_sha256": "67d8d5873a408e5ca84d5f5d22372bb13fb058b150a11674e358a071a6b19a3a",
+      "transformed_fp32_sha256": "3765edf7f007ae9d96076bcc7720b3be103b8df636b60ed0b45a83f8c8e5d665"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Soybean___healthy/77ad7ff7-d93a-4373-bc1b-5da91fe1c311___RS_HL 3420.JPG",
+      "index": 3008,
+      "label": 24,
+      "source_image_sha256": "e5bec3c2a6ad254edfda2ad365bebcc10491a9c19093c5caed5feff90ad572f0",
+      "transformed_fp32_sha256": "824bfaebfb891085cf03bd983781a49f94a15f85b71b75e7d413f8c428445500"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Soybean___healthy/8f9d3cd8-6509-4ad1-b7cd-507f7a9cc49f___RS_HL 5758.JPG",
+      "index": 3051,
+      "label": 24,
+      "source_image_sha256": "bb5fbd14c669f1767d2f58ea11e206bc1e57a61e2d1a57521794e17cf8aa0280",
+      "transformed_fp32_sha256": "bd86ce02b841c10d03e10406ae579ef98fb8c2a9cb92d6949564932334e7a1d9"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Soybean___healthy/9f894807-ac4e-4319-91cd-e7c908acb0f8___RS_HL 6915.JPG",
+      "index": 3094,
+      "label": 24,
+      "source_image_sha256": "12c5c02427bb1a4658bb9eaa7fb4111d04ad16ba557d250846ece7d6cae2375e",
+      "transformed_fp32_sha256": "87494b86a72184fd4288dd4122a5d4352f17c340f15f1b4d3f19027b6604dd5b"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Soybean___healthy/b61a7773-560f-4725-8eab-9224c99a65e8___RS_HL 4688.JPG",
+      "index": 3137,
+      "label": 24,
+      "source_image_sha256": "8084afc23eed8e444390c493f058233e069bfd622fd82f83f7214fea3fa3eaf0",
+      "transformed_fp32_sha256": "fefb3717d3ac317b51ac1bdb94a6a7d137f9443d525959e01e88b59632d4c9a0"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Soybean___healthy/c668b75d-b636-4513-b1d0-1b6420318c21___RS_HL 5268.JPG",
+      "index": 3180,
+      "label": 24,
+      "source_image_sha256": "c585e24453cbcb3119e23be1e8adece06e4c32d1be1ab8d187cb56615d271135",
+      "transformed_fp32_sha256": "93b111c27ea0bf33e07f351dba4c2cb38349d0dd54cb7bb2af02736b0aa1cdf5"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Soybean___healthy/e2e468b2-dbab-477f-8edb-7eaade3c9e45___RS_HL 5637.JPG",
+      "index": 3223,
+      "label": 24,
+      "source_image_sha256": "a3064855381bdd68270c7a62aa62007104752adf9dab4a6c439ec23ce486e696",
+      "transformed_fp32_sha256": "ea4ccb0103eaac60596039275e0ee924b91bfd657cac69e723d2bf78829d9b1f"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Soybean___healthy/f870a29f-c8df-4687-8303-f3340a1f1379___RS_HL 6885.JPG",
+      "index": 3266,
+      "label": 24,
+      "source_image_sha256": "0ced5411b59ab3a1029a85fbe39e7cf2b29f43b285016449ab19229f7a76e063",
+      "transformed_fp32_sha256": "3a4f9efffc9867eba62505ecdba72153f0c68eff08193f729bada4310e0bac5e"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Squash___Powdery_mildew/1aad4c66-4ec3-4d26-a72b-52de75d3be24___MD_Powd.M 0933.JPG",
+      "index": 3309,
+      "label": 25,
+      "source_image_sha256": "8873b991f0125e16e2597904decd46d9cc4ed613529bea8ee2887b3f857f8104",
+      "transformed_fp32_sha256": "a593e1f971bdb501eb97bcd1b9af2323652a69b124a39d04a41b4869e6936610"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Squash___Powdery_mildew/5fb6c9ee-4d51-4fab-8cc6-722a09ca9a3e___MD_Powd.M 0252.JPG",
+      "index": 3352,
+      "label": 25,
+      "source_image_sha256": "e6c6621d7af73c4c46d699b7ab39e07f437e5c87c7df01971db83557c85369e6",
+      "transformed_fp32_sha256": "1c7692a974ffca1a7b2dec89019171e30aa697bbce8659f17590a203074dc842"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Squash___Powdery_mildew/a2deac7a-324b-449a-a8d6-3fea9134a7a2___MD_Powd.M 0787.JPG",
+      "index": 3395,
+      "label": 25,
+      "source_image_sha256": "7e05066cc0ce5f29c8a26454748458c4c2d5324c3bc561c47d8290276b007213",
+      "transformed_fp32_sha256": "287e640170e628bf996d3c4ab02a5f8979a3e0c790c138a49bd6bd3b3e397db7"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Squash___Powdery_mildew/cf4acb64-b1e2-4425-8f32-9413fddc1403___UMD_Powd.M 0350.JPG",
+      "index": 3438,
+      "label": 25,
+      "source_image_sha256": "3fb8fbeba356ae83b43c671e5f9fe8e9d569f66fe1d859af79a48bcf4fb60bdc",
+      "transformed_fp32_sha256": "49a9ae7db9f15e4a1b3c4a5c6a345c84da9dab8cd2c0f51b2c84f8094ac4c138"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Strawberry___Leaf_scorch/11cb9688-7e57-4e92-a7ae-dfd13d327429___RS_L.Scorch 1549.JPG",
+      "index": 3481,
+      "label": 26,
+      "source_image_sha256": "a6f6fdc3a7f5b0958f9a09f1ef674e4ecc2b591aee59fecdaa05ba8d7a923983",
+      "transformed_fp32_sha256": "3f1806e1299d681dcec2223cabb79194830aa339d594aaa211bc23dee4974c4c"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Strawberry___Leaf_scorch/625f5b12-cac4-446f-b6a9-109c1564fec7___RS_L.Scorch 0864.JPG",
+      "index": 3524,
+      "label": 26,
+      "source_image_sha256": "1f88880bd2edc2fc8155198e97118dd00a38e5c4b10a43b22d86801da60cae72",
+      "transformed_fp32_sha256": "391d0d1456e9aa08cc55e9bacc639cdca27e4d5de3e1a370297e6a863b5bb76e"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Strawberry___Leaf_scorch/c944933f-ef35-443a-b9fc-a53538ebdc3e___RS_L.Scorch 9903.JPG",
+      "index": 3567,
+      "label": 26,
+      "source_image_sha256": "3bb2b33e8b4cccbe6795879e4cb3f78c5d248fa4874df9f9303184003fed9e2c",
+      "transformed_fp32_sha256": "9cf95017a7805b29eb07a8f555eab6a32d62f8c7f956e97c660826be4017670f"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Strawberry___healthy/941b9454-80e0-44c5-b1ca-d0b16527d2b7___RS_HL 4811.JPG",
+      "index": 3610,
+      "label": 27,
+      "source_image_sha256": "3cefa4299012b21b1e2b82e5844de911ec5b00f9e33417fe5521f2d966f4da89",
+      "transformed_fp32_sha256": "cb3dc385977bc994dcde841cca4cc2bf48307c2b4a169d2e5e620c9add28f24a"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___Bacterial_spot/1695eefb-cffc-4dac-b7ae-40f34ad9c5db___GCREC_Bact.Sp 3065.JPG",
+      "index": 3652,
+      "label": 28,
+      "source_image_sha256": "49fdf24ea23641c1461f2ef8ecd830cb0ec396bd11ba26ac6bbff2ba2d537216",
+      "transformed_fp32_sha256": "6b5568e3e9d5c1cb9f36cc598e8e35dcf57056c11f317bec9f31320d7fad7bd3"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___Bacterial_spot/51f50a63-acca-45b3-866a-95e339e08e91___GCREC_Bact.Sp 3319.JPG",
+      "index": 3695,
+      "label": 28,
+      "source_image_sha256": "579d8475c21d77a7188cfb3faf7c50a9639a28cd7c87075fc588322ae837ab09",
+      "transformed_fp32_sha256": "e29dd07a1dc056caad8a6827a4a193ab59c897cce5800a9464a4aad5c671c59a"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___Bacterial_spot/7882b2d6-96d2-43db-968c-5790a9dddc18___GCREC_Bact.Sp 6280.JPG",
+      "index": 3738,
+      "label": 28,
+      "source_image_sha256": "aefa633d501a5360c1e326a98f1368a6bdc728560990668bea683548ff01a7b9",
+      "transformed_fp32_sha256": "1183413831894d3c48f31ca04b916b5e0a50b381bef513e98e5be8f88411f191"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___Bacterial_spot/a91426e9-ff5c-4b53-8d08-b3a0e0fcb6e8___UF.GRC_BS_Lab Leaf 9004.JPG",
+      "index": 3781,
+      "label": 28,
+      "source_image_sha256": "28cc50c9fed28716e2addf98e1216486bd6c267b99d790cd44bdc5f80132b52e",
+      "transformed_fp32_sha256": "3e469161fe52afe19e1cb3cd7df0ea4a04d1c36cca728a2e62a9c4c62434a76b"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___Bacterial_spot/e6a975f7-b2f0-4dec-b360-c944abd984da___GCREC_Bact.Sp 3249.JPG",
+      "index": 3824,
+      "label": 28,
+      "source_image_sha256": "b7a8391b5e921c06ff03539f97a5494c77eb6274c1c2b76e66cb4d4f14fde1ae",
+      "transformed_fp32_sha256": "f10948250d568ebfa504a14d4e2708a7f46d36fd229e083da3084a5eafe72c08"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___Early_blight/289ba10b-f518-445a-8c54-cc981e2ffe34___RS_Erly.B 7399.JPG",
+      "index": 3867,
+      "label": 29,
+      "source_image_sha256": "c06121fea888c231a0e9e69261d1a43e8403c1c9461f8a17a4ec4771879df347",
+      "transformed_fp32_sha256": "302fdc2f2609b62f1e6c53c3050f1663f1ea7a25483392f5b9df343ca5ffcb58"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___Early_blight/8ac21e2c-f953-4e96-8d43-e82dae24017e___RS_Erly.B 7459.JPG",
+      "index": 3910,
+      "label": 29,
+      "source_image_sha256": "9afb505d6d445a6fa0192b47abd9f283e858fe4dc7492f4045b9305913f02161",
+      "transformed_fp32_sha256": "24c11afd36349ee0b69435606926c0d00f0880e9ce421cc26db5526317312aa0"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___Late_blight/03ccfc6a-8142-4f46-8eb5-f7fc77978081___RS_Late.B 4916.JPG",
+      "index": 3953,
+      "label": 30,
+      "source_image_sha256": "dd0db68a500e718d9d8a031e510427c5c5670ffadb5574aeada85abbb0bff8c2",
+      "transformed_fp32_sha256": "7d2d08318e5de0fd814a48e1e3b89bddd8aab9334743b237ab0a751408b7523d"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___Late_blight/37dacc71-848d-43bd-8bb3-85ceafb11f91___GHLB2 Leaf 8605.JPG",
+      "index": 3996,
+      "label": 30,
+      "source_image_sha256": "f3afaf2d5a87d83c22c0dd21846b76d1bb54961f50f13009aa251be769d9d2f5",
+      "transformed_fp32_sha256": "2ad919618ca0f95881a62b3ddbbcdb32f2b8fc202c7ba648ef282381685b6538"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___Late_blight/75774583-0a9d-4eb0-8c31-9fe3ef6703f5___RS_Late.B 5569.JPG",
+      "index": 4039,
+      "label": 30,
+      "source_image_sha256": "b67437e897286df70e1f6a853019ad9bbf7ccbd61549e4350c85d340cc660aca",
+      "transformed_fp32_sha256": "18ab1cbac876006b6d8779adc4973c659d18c9ab3a665af7238db84c02fb416a"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___Late_blight/b15c92e9-6973-415c-80fe-82703ff722f7___RS_Late.B 4994.JPG",
+      "index": 4082,
+      "label": 30,
+      "source_image_sha256": "47efe4cf5e75363cde5eb2b859a7cee34a481ac804047a56c328360ff51a7812",
+      "transformed_fp32_sha256": "d6285e3a2b9d13c574337d2c1027397134483dc681f958997e2128a71748e203"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___Late_blight/e5d707cd-077c-43af-bda9-6138e516ff51___GHLB2 Leaf 8999.JPG",
+      "index": 4125,
+      "label": 30,
+      "source_image_sha256": "2aeb7479e975df37dfb54aa7b403f57f2ad90b018c37809e572a2a932f55d2a7",
+      "transformed_fp32_sha256": "34f11aefb6856d822c0156db1c27c81f3595890b8e7b2d059a9595038a2bb135"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___Leaf_Mold/43728975-7569-464b-b67d-a2b3d0f5ddd5___Crnl_L.Mold 6919.JPG",
+      "index": 4168,
+      "label": 31,
+      "source_image_sha256": "cd08bcb12a2ca9c29a7d00e6fbacc29e54a7ce35722fcf0b77b4b6da5eb8428d",
+      "transformed_fp32_sha256": "033924931bad108a3cd5a45b508e0a6e17d5c76d57786571dd00175b93bc4391"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___Leaf_Mold/a8ce6b5a-1f27-4e8c-9c53-989674ae4c4b___Crnl_L.Mold 6649.JPG",
+      "index": 4211,
+      "label": 31,
+      "source_image_sha256": "955c53023763e0348ea743257909fea00744c8534540c4fa8aa046c8192413a1",
+      "transformed_fp32_sha256": "93ac6d4f0b96d0f5267b45474187320ddc9bce942a5442139648d8b8a7cf59b1"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___Septoria_leaf_spot/1a88e419-7d5c-45c7-a10f-4e1f80280cd2___Matt.S_CG 1584.JPG",
+      "index": 4254,
+      "label": 32,
+      "source_image_sha256": "c6f780d6693180e354ddf1d2508f26585ec7f124d4f9467bfa65695020688094",
+      "transformed_fp32_sha256": "14c93f9a75045ab9a92097c74f7964c40f7445021137780618f59ba45a363e2a"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___Septoria_leaf_spot/5d6bdcbf-b75a-4562-917f-4d902fa3b6b0___JR_Sept.L.S 2620.JPG",
+      "index": 4297,
+      "label": 32,
+      "source_image_sha256": "a950af85b4b2779c7de8cd60848b7fd2b5feff3506ac4c30a5c7e5390dc11004",
+      "transformed_fp32_sha256": "80c3300c1d0278b5ba0742285a5fba2bafa1fec920802e896a4c9b62a632fe36"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___Septoria_leaf_spot/9b52dfbf-f3d7-4777-a620-7eaa6d3086aa___Matt.S_CG 6156.JPG",
+      "index": 4340,
+      "label": 32,
+      "source_image_sha256": "ac0cadacbef1636cb954982999eb21a87af69c1afbe762f3f9997ae3d430ace3",
+      "transformed_fp32_sha256": "ee1567ac152bb2539a7060f65ee87f5254d4eb45e3e0c8c74f6f6c7768c24afd"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___Septoria_leaf_spot/d2d13290-3e84-4c25-adcf-aa68bc6d70ba___Matt.S_CG 7630.JPG",
+      "index": 4383,
+      "label": 32,
+      "source_image_sha256": "2346cb8b21e1653c9f734d1ab21bdb97e71b6ec050e72274f76090e99b3345c2",
+      "transformed_fp32_sha256": "870c6f7294d42252cbeea8bd128455fbd6128126351841359bf06cc0692a09ea"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___Spider_mites Two-spotted_spider_mite/16826b8c-034f-4db2-bd96-db82b5b26c67___Com.G_SpM_FL 1551.JPG",
+      "index": 4426,
+      "label": 33,
+      "source_image_sha256": "f34ec2e782c8ef5374cba168049b20278a56f4004ab108a4c3f26fe7a56b62e6",
+      "transformed_fp32_sha256": "6dda09711d437b9357b12bd122fbd6e48a3febad6fa735dddda71ce8ae7f5a3f"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___Spider_mites Two-spotted_spider_mite/5a4839d8-71de-41a8-9ca7-d3929c8e95ee___Com.G_SpM_FL 1358.JPG",
+      "index": 4469,
+      "label": 33,
+      "source_image_sha256": "7bafdfcbf9e9f89c537a17c4e632aa99a06fde2781328d87082df5e28ca4faf4",
+      "transformed_fp32_sha256": "a72fa92a6a0246ff490488a239efba51e34210896fa1950a5a8fc5cbdecab470"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___Spider_mites Two-spotted_spider_mite/8fd420fe-6e79-46a5-917e-4cfaca97bd5a___Com.G_SpM_FL 8900.JPG",
+      "index": 4512,
+      "label": 33,
+      "source_image_sha256": "ec2b9341de8e38d327eaff68631582c8a3430d48a86a7e6a819e91459465e0e9",
+      "transformed_fp32_sha256": "28cb17fe16b30f9adbc9487d5d8f856389fc6ec2622e86755d05cd868b9c3b54"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___Spider_mites Two-spotted_spider_mite/d36f91af-2f89-4834-b088-e0604cf9716b___Com.G_SpM_FL 1765.JPG",
+      "index": 4555,
+      "label": 33,
+      "source_image_sha256": "c908549b1c4d4cc1e10e16843447c42157bbcf91ede617d95a8e1f2358979c1a",
+      "transformed_fp32_sha256": "f3bd0f6748a4c1dfeaa4de8ce56e8633507fd128b75e08c254817983f20c84fc"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___Target_Spot/132459bb-916b-4bff-a176-a43a9585df7c___Com.G_TgS_FL 9904.JPG",
+      "index": 4598,
+      "label": 34,
+      "source_image_sha256": "1a6a04975d764486e09541c5cfde6ad84f61fb751cd19fee27e408393fcef1ce",
+      "transformed_fp32_sha256": "d812ed697a7ab7af6b4eda9ea7eea9d5b86b75bcb1fd882db9c5eecef3013d73"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___Target_Spot/68d28b97-72a6-41e1-8195-4afa7fa7169d___Com.G_TgS_FL 7986.JPG",
+      "index": 4641,
+      "label": 34,
+      "source_image_sha256": "dbd5f2f0d13a7d740fca1fde8efdbabcaab5ccd2ef87d271761604f258dd55b5",
+      "transformed_fp32_sha256": "d3dc65ecb30b55aa6ad36eb3d722d4f0c94bd699d96e34838dd34db46c817b84"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___Target_Spot/b3ce350d-9052-44d2-82cd-af671d1d4141___Com.G_TgS_FL 0772.JPG",
+      "index": 4684,
+      "label": 34,
+      "source_image_sha256": "7a0592fa99a3f7a2aa7efced9f1ce09797412b7c40e5b6679f740bee048075af",
+      "transformed_fp32_sha256": "a72e8c08a185e700b086be54f885c5bc551280e716a3caebb8a5b9bfaac6a28c"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___Tomato_Yellow_Leaf_Curl_Virus/014d1604-dbbb-4b24-b167-37ec77cccfc6___UF.GRC_YLCV_Lab 01441.JPG",
+      "index": 4727,
+      "label": 35,
+      "source_image_sha256": "698ddadd15d5405fc11f83adec0f677ed21b9807676506a33ee5c21d345e4e9f",
+      "transformed_fp32_sha256": "bf536617a64a7bc6ea9c1f8a0e530a158d25c45b15261383060d00801843173d"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___Tomato_Yellow_Leaf_Curl_Virus/150f2e9e-1317-492d-a926-3014853ea6de___UF.GRC_YLCV_Lab 03116.JPG",
+      "index": 4770,
+      "label": 35,
+      "source_image_sha256": "5aaf962afdc1c02bb9cd88c5734bdf29a14268630c9797df075ddb74bb307fed",
+      "transformed_fp32_sha256": "829a7cc190b173021be15b77e8aaeea667e9daee76318ebdeb8c17452d7df66c"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___Tomato_Yellow_Leaf_Curl_Virus/26b752ab-21d6-40d5-aaa2-9f3e2a6beeb8___YLCV_GCREC 5342.JPG",
+      "index": 4813,
+      "label": 35,
+      "source_image_sha256": "4e7c5eb04fac919cc0935a196334e034c7984c79a29c3057d8704ca7535c9c8d",
+      "transformed_fp32_sha256": "6afe202a46e2b833a4d6204d68957e47a746b84b2dc76e2da431e20236979bbc"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___Tomato_Yellow_Leaf_Curl_Virus/3bbbc0b0-261d-4bf7-ae6c-8d43782a7918___YLCV_NREC 2149.JPG",
+      "index": 4856,
+      "label": 35,
+      "source_image_sha256": "f09a5dfaefd5156bc3a964f2da804cbc801024245b069ea49536db642263a5cd",
+      "transformed_fp32_sha256": "3972746cb2e83fbd9f92ae213fb8315670c195b5d4de89f4449e173731ff166e"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___Tomato_Yellow_Leaf_Curl_Virus/51f50834-78d5-412f-bb47-58bcf0723da0___UF.GRC_YLCV_Lab 02874.JPG",
+      "index": 4899,
+      "label": 35,
+      "source_image_sha256": "e6c5109c4a248068f1f033744b16a8d1b9bca6d5c2f72415052bbe2eedddcec6",
+      "transformed_fp32_sha256": "c550e37ad07d69e30d00fcfbf15fd3fbe80434451205cc5413fd698e937d021d"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___Tomato_Yellow_Leaf_Curl_Virus/6a6d3b38-0486-4131-b0c0-ca0a6bb1e889___UF.GRC_YLCV_Lab 09523.JPG",
+      "index": 4942,
+      "label": 35,
+      "source_image_sha256": "a07cb6b293994034b0dcc8e70e53705b31b312cbe624ffbdfff5004ae2fcacc1",
+      "transformed_fp32_sha256": "b03edb7ab951f9e52a5d2730c9d4c7853d126ad7d411a4048d9b10585c35e504"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___Tomato_Yellow_Leaf_Curl_Virus/7f54ac2c-da47-4b56-9dc3-ae002c887d9e___UF.GRC_YLCV_Lab 01964.JPG",
+      "index": 4985,
+      "label": 35,
+      "source_image_sha256": "ba83ef5d65653487e4d303846a077471192f2922d68c9dfd2ec1d55e41f64a5b",
+      "transformed_fp32_sha256": "da03fd6c8d625107c4bdbc68eff617ee6fd7f5a1a20271b4f0687150a177944a"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___Tomato_Yellow_Leaf_Curl_Virus/923ebdea-5b01-459a-9307-220c70418b68___YLCV_GCREC 5262.JPG",
+      "index": 5028,
+      "label": 35,
+      "source_image_sha256": "5c435ad41c19fc3fb8d105f1a6717d55c783587a7d4a2f788350c4d63e8edf1a",
+      "transformed_fp32_sha256": "174eedb75c524128e03f3b5f6a8285c18107f29a3df69fe158d6fa533b8a1f98"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___Tomato_Yellow_Leaf_Curl_Virus/acd4315f-0846-4fe7-939e-ebe85bcd82e1___UF.GRC_YLCV_Lab 02277.JPG",
+      "index": 5071,
+      "label": 35,
+      "source_image_sha256": "c2335bae0b9ef5f7da2a14e67a81efab75eb0d858f6f645b06fb4ba2606d41ab",
+      "transformed_fp32_sha256": "712dba5f9f9f805b207396e2dd42252b88b0bc9c5671ed7a37e3e7fa15932281"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___Tomato_Yellow_Leaf_Curl_Virus/c363728e-7dbc-4635-8ee5-cb24ebd254c9___UF.GRC_YLCV_Lab 02733.JPG",
+      "index": 5114,
+      "label": 35,
+      "source_image_sha256": "ed5d2ddf81812992020d41897c47d852fe484e45197b23db4f9cef7655d0118d",
+      "transformed_fp32_sha256": "f3b585c136bb8f6e1c1a6d6e4afc7498dba8e4e65794386175783761313eceb9"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___Tomato_Yellow_Leaf_Curl_Virus/d434b420-e102-4ccc-9cf9-49d07b403c6f___UF.GRC_YLCV_Lab 02355.JPG",
+      "index": 5157,
+      "label": 35,
+      "source_image_sha256": "eb92636c85b7e1545814467863420e5ae23aaab0195e6b89182d0b2cf3a8a059",
+      "transformed_fp32_sha256": "1289b0042ea772ffff94aa65cdf4c0cbbe4dcc2c0bc661181d71edc898604d09"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___Tomato_Yellow_Leaf_Curl_Virus/e568fb2c-106d-4999-bbea-a3f32d63e1fd___UF.GRC_YLCV_Lab 02108.JPG",
+      "index": 5200,
+      "label": 35,
+      "source_image_sha256": "eeb22285aea9f6e68255b8201182a9d832be7b83c5eb8c5497b6f66f2a6203a0",
+      "transformed_fp32_sha256": "3386d087794a8f73610860d4b952a77a64a53ec38fcd866cdbe52da86a88aa35"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___Tomato_Yellow_Leaf_Curl_Virus/f918f907-66e6-420c-b3db-456a301205c5___YLCV_GCREC 2640.JPG",
+      "index": 5243,
+      "label": 35,
+      "source_image_sha256": "8cf71ae12ff7fc55eecc082e2cab691eabcf55cb6e906ed643c6161a4dc6392f",
+      "transformed_fp32_sha256": "dfc35731b9782ef2900c50179013ff40bafac2e349416c3131148b2955539e05"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___Tomato_mosaic_virus/97aa541d-9ac5-4933-8977-2bd64094ad38___PSU_CG 2070.JPG",
+      "index": 5286,
+      "label": 36,
+      "source_image_sha256": "3a770acc3854dbf8af3fca1f058b23904d5bd13444d18a38365d40880af778f1",
+      "transformed_fp32_sha256": "0d5d015d843780972676a33892226d575ff6b2df551d09a58dce949ba4493daf"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___healthy/2aeb668a-251a-4f68-b52f-aadeb3376d55___RS_HL 9744.JPG",
+      "index": 5329,
+      "label": 37,
+      "source_image_sha256": "a6022586b45821711ae6d316d306b608cae807be0dc191c2aa1bb8e2ff67ff3e",
+      "transformed_fp32_sha256": "897e7943bff3319484c497e65ed0b5e584724aa0c21f509a3eb05bd0891a248e"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___healthy/62c36cad-2102-451d-aca7-93f2e58e14ab___RS_HL 0481.JPG",
+      "index": 5372,
+      "label": 37,
+      "source_image_sha256": "92dd8e54f3a061e4c172eefaba1986b3a5512bb057695a090f6f84072864af6e",
+      "transformed_fp32_sha256": "7d8224fd5e49e4b1ce0072480b6a0942ad6ee58acdd5a27ce41bdba88b6b46b1"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___healthy/b59425a2-e983-49c8-a9fd-61da8f38e7f3___RS_HL 0537.JPG",
+      "index": 5415,
+      "label": 37,
+      "source_image_sha256": "94892fd679215ea591041192bdb04c5c9f3f6a85e5b2dd20d0a5a4a922e3d5b5",
+      "transformed_fp32_sha256": "fdc3de48d9e9ed1bcddd6aaf5397425022be5ad0d186034d386e2b509c0473c5"
+    },
+    {
+      "identity": "/home/user/Desktop/ff_vit_re/quantization_final/datasets/PlantVillage/color/Tomato___healthy/fb084c48-8c42-43a1-8193-191ba873bd2d___GH_HL Leaf 514.1.JPG",
+      "index": 5458,
+      "label": 37,
+      "source_image_sha256": "648899d5bbc4b7ab676b08078ddf71762bba6b29afc21e5b246399706df1899d",
+      "transformed_fp32_sha256": "621c069fe2945fdfea2d542182b652df3c5f8ad0cfd0e2a071b338eee7ffbaaa"
+    }
+  ],
+  "selected_indices": [
+    0,
+    42,
+    85,
+    128,
+    171,
+    214,
+    257,
+    300,
+    343,
+    386,
+    429,
+    472,
+    515,
+    558,
+    601,
+    644,
+    687,
+    730,
+    773,
+    816,
+    859,
+    902,
+    945,
+    988,
+    1031,
+    1074,
+    1117,
+    1160,
+    1203,
+    1246,
+    1289,
+    1332,
+    1375,
+    1418,
+    1461,
+    1504,
+    1547,
+    1590,
+    1633,
+    1676,
+    1719,
+    1762,
+    1805,
+    1847,
+    1890,
+    1933,
+    1976,
+    2019,
+    2062,
+    2105,
+    2148,
+    2191,
+    2234,
+    2277,
+    2320,
+    2363,
+    2406,
+    2449,
+    2492,
+    2535,
+    2578,
+    2621,
+    2664,
+    2707,
+    2750,
+    2793,
+    2836,
+    2879,
+    2922,
+    2965,
+    3008,
+    3051,
+    3094,
+    3137,
+    3180,
+    3223,
+    3266,
+    3309,
+    3352,
+    3395,
+    3438,
+    3481,
+    3524,
+    3567,
+    3610,
+    3652,
+    3695,
+    3738,
+    3781,
+    3824,
+    3867,
+    3910,
+    3953,
+    3996,
+    4039,
+    4082,
+    4125,
+    4168,
+    4211,
+    4254,
+    4297,
+    4340,
+    4383,
+    4426,
+    4469,
+    4512,
+    4555,
+    4598,
+    4641,
+    4684,
+    4727,
+    4770,
+    4813,
+    4856,
+    4899,
+    4942,
+    4985,
+    5028,
+    5071,
+    5114,
+    5157,
+    5200,
+    5243,
+    5286,
+    5329,
+    5372,
+    5415,
+    5458
+  ]
+}

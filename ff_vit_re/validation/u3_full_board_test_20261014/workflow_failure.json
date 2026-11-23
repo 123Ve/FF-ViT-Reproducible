@@ -1,0 +1,12 @@
+{
+  "unresolved": "PlantVillage setup timing fails at 300.21509875 MHz",
+  "wns_ns": -0.115,
+  "tns_ns": -31.367,
+  "setup_failing_endpoints": 781,
+  "plantvillage_boot_publication_blocked": true,
+  "plantvillage_full_dataset_frames_ready": 5459,
+  "nwpu_package_status": "READY_FOR_FULL_BOARD_TEST_NOT_BOARD_MEASURED",
+  "nwpu_full_dataset_frames_ready": 4500,
+  "user_choice_needed": "Allow reduced PL frequency for PlantVillage accuracy testing, or retain 300 MHz and continue arithmetic-preserving physical timing optimization",
+  "weights_luts_arithmetic_widths_and_test_data_unchanged": true
+}

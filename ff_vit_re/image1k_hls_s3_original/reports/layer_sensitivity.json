@@ -1,0 +1,5452 @@
+{
+  "identity": {
+    "checkpoint_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+    "config_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+    "data_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b",
+    "sample_count": 50000,
+    "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31"
+  },
+  "matrix": {
+    "0": {
+      "attention": 3.4,
+      "mlp": 20.098,
+      "whole-block": 25.558
+    },
+    "1": {
+      "attention": 2.824,
+      "mlp": 18.47,
+      "whole-block": 21.59
+    },
+    "10": {
+      "attention": 1.378,
+      "mlp": 0.596,
+      "whole-block": 1.864
+    },
+    "11": {
+      "attention": 1.21,
+      "mlp": 0.202,
+      "whole-block": 1.394
+    },
+    "2": {
+      "attention": 3.074,
+      "mlp": 19.752,
+      "whole-block": 25.062
+    },
+    "3": {
+      "attention": 1.65,
+      "mlp": 15.768,
+      "whole-block": 15.48
+    },
+    "4": {
+      "attention": 0.85,
+      "mlp": 12.598,
+      "whole-block": 11.488
+    },
+    "5": {
+      "attention": 1.392,
+      "mlp": 11.582,
+      "whole-block": 13.174
+    },
+    "6": {
+      "attention": 2.242,
+      "mlp": 12.126,
+      "whole-block": 21.686
+    },
+    "7": {
+      "attention": 1.614,
+      "mlp": 3.96,
+      "whole-block": 6.2
+    },
+    "8": {
+      "attention": 1.79,
+      "mlp": 0.738,
+      "whole-block": 2.91
+    },
+    "9": {
+      "attention": 1.582,
+      "mlp": 0.864,
+      "whole-block": 2.638
+    }
+  },
+  "ranking": [
+    "layer-00-whole-block",
+    "layer-02-whole-block",
+    "layer-06-whole-block",
+    "layer-01-whole-block",
+    "layer-00-mlp",
+    "layer-02-mlp",
+    "layer-01-mlp",
+    "layer-03-mlp",
+    "layer-03-whole-block",
+    "layer-05-whole-block",
+    "layer-04-mlp",
+    "layer-06-mlp",
+    "layer-05-mlp",
+    "layer-04-whole-block",
+    "layer-07-whole-block",
+    "layer-07-mlp",
+    "layer-00-attention",
+    "layer-02-attention",
+    "layer-08-whole-block",
+    "layer-01-attention",
+    "layer-09-whole-block",
+    "layer-06-attention",
+    "layer-10-whole-block",
+    "layer-08-attention",
+    "layer-03-attention",
+    "layer-07-attention",
+    "layer-09-attention",
+    "layer-11-whole-block",
+    "layer-05-attention",
+    "layer-10-attention",
+    "layer-11-attention",
+    "layer-09-mlp",
+    "layer-04-attention",
+    "layer-08-mlp",
+    "layer-10-mlp",
+    "layer-11-mlp"
+  ],
+  "records": [
+    {
+      "block": 0,
+      "checkpoint_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+      "config_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+      "data_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b",
+      "device": "cuda",
+      "duration_seconds": 41.494674406945705,
+      "experiment_id": "layer-00-attention",
+      "experiment_sha256": "8d7df3de8eecfece4af2668e36e8d937b510f1bdc987141ebcc0bf7a80ea4505",
+      "family": "layer",
+      "masks": {
+        "a": [
+          0
+        ],
+        "attention_residual": [
+          0
+        ],
+        "k": [
+          0
+        ],
+        "ln1": [
+          0
+        ],
+        "o": [
+          0
+        ],
+        "q": [
+          0
+        ],
+        "softmax": [
+          0
+        ],
+        "v": [
+          0
+        ]
+      },
+      "order": null,
+      "perturbation": "attention",
+      "perturbation_direction": "FP32_activation_to_strict_quantized",
+      "sample_count": 50000,
+      "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31",
+      "schema_version": 1,
+      "sensitivity_rank": 17,
+      "step": null,
+      "tensor_metric_direction": "FP32_activation_to_strict_quantized",
+      "tensor_metrics": {
+        "0:a": {
+          "clip_rate": 0.00016136798469387756,
+          "cosine": 0.9120636660765207,
+          "elements": 1881600000,
+          "mae": 0.04531264901160799,
+          "mse": 0.00624401263898191,
+          "observed_max": 2.3483006954193115,
+          "observed_min": -3.1310672760009766,
+          "sqnr_db": 7.575534946469795,
+          "zero_rate": 0.8945113323767007
+        },
+        "0:attention_residual": {
+          "clip_rate": 0.00031400510204081635,
+          "cosine": 0.9982450994672711,
+          "elements": 1881600000,
+          "mae": 0.0006496888728068692,
+          "mse": 0.003676563034862776,
+          "observed_max": 16.725154876708984,
+          "observed_min": -14.301400184631348,
+          "sqnr_db": 24.539578943931048,
+          "zero_rate": 0.00019430218962585035
+        },
+        "0:k": {
+          "clip_rate": 0.027887355973639456,
+          "cosine": 0.9703178033994838,
+          "elements": 1881600000,
+          "mae": 0.15172415508624204,
+          "mse": 0.035896889760647206,
+          "observed_max": 6.933938980102539,
+          "observed_min": -6.621407985687256,
+          "sqnr_db": 12.319861766065687,
+          "zero_rate": 0.35649630633503404
+        },
+        "0:ln1": {
+          "clip_rate": 0.030127739158163264,
+          "cosine": 0.9651474476902956,
+          "elements": 1881600000,
+          "mae": 0.13765674811243583,
+          "mse": 0.03573840143912561,
+          "observed_max": 10.399630546569824,
+          "observed_min": -7.539871692657471,
+          "sqnr_db": 11.643511976752592,
+          "zero_rate": 0.3374935007440476
+        },
+        "0:o": {
+          "clip_rate": 0.0,
+          "cosine": 0.9999998256586181,
+          "elements": 1881600000,
+          "mae": 0.0002301622902766325,
+          "mse": 7.065872648599889e-08,
+          "observed_max": 3.599069118499756,
+          "observed_min": -3.6794064044952393,
+          "sqnr_db": 64.57548086108133,
+          "zero_rate": 0.00025749415391156463
+        },
+        "0:q": {
+          "clip_rate": 0.030877361288265306,
+          "cosine": 0.968876678026458,
+          "elements": 1881600000,
+          "mae": 0.19037671440099346,
+          "mse": 0.05846445175691374,
+          "observed_max": 6.966618061065674,
+          "observed_min": -6.995011806488037,
+          "sqnr_db": 12.126027000329685,
+          "zero_rate": 0.46409211522108845
+        },
+        "0:softmax": {
+          "clip_rate": 0.00022878505483826185,
+          "cosine": 0.8856248050294914,
+          "elements": 5762400000,
+          "mae": 0.004554385227213659,
+          "mse": 5.347364123249004e-05,
+          "observed_max": 0.9896155595779419,
+          "observed_min": 8.410820928617113e-10,
+          "sqnr_db": 6.637417792093698,
+          "zero_rate": 0.9932952918922671
+        },
+        "0:v": {
+          "clip_rate": 0.016333047406462586,
+          "cosine": 0.947758167177028,
+          "elements": 1881600000,
+          "mae": 0.16495334888350802,
+          "mse": 0.04802375437877361,
+          "observed_max": 7.333214282989502,
+          "observed_min": -6.8834919929504395,
+          "sqnr_db": 9.919096258943085,
+          "zero_rate": 0.500419978210034
+        }
+      },
+      "top1": 0.6662,
+      "top1_drop_pp": 3.4,
+      "top5": 0.87922
+    },
+    {
+      "block": 0,
+      "checkpoint_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+      "config_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+      "data_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b",
+      "device": "cuda",
+      "duration_seconds": 41.984732179902494,
+      "experiment_id": "layer-00-mlp",
+      "experiment_sha256": "7f2fc90b8c1a4d0054492da2da71fb4d13d1615128cb21c0a95a9e7476295d93",
+      "family": "layer",
+      "masks": {
+        "fc1": [
+          0
+        ],
+        "fc2": [
+          0
+        ],
+        "gelu": [
+          0
+        ],
+        "ln2": [
+          0
+        ],
+        "mlp_residual": [
+          0
+        ]
+      },
+      "order": null,
+      "perturbation": "mlp",
+      "perturbation_direction": "FP32_activation_to_strict_quantized",
+      "sample_count": 50000,
+      "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31",
+      "schema_version": 1,
+      "sensitivity_rank": 5,
+      "step": null,
+      "tensor_metric_direction": "FP32_activation_to_strict_quantized",
+      "tensor_metrics": {
+        "0:fc1": {
+          "clip_rate": 2.6877391581632653e-05,
+          "cosine": 0.999986537822117,
+          "elements": 7526400000,
+          "mae": 0.0019048698113838052,
+          "mse": 3.610004360314722e-05,
+          "observed_max": 17.392133712768555,
+          "observed_min": -16.691940307617188,
+          "sqnr_db": 45.696431319046624,
+          "zero_rate": 0.002935640545280612
+        },
+        "0:fc2": {
+          "clip_rate": 2.3018176020408165e-05,
+          "cosine": 0.9999932267740234,
+          "elements": 1881600000,
+          "mae": 0.00031072389706895,
+          "mse": 6.511864822198407e-06,
+          "observed_max": 6.274662494659424,
+          "observed_min": -8.140485763549805,
+          "sqnr_db": 48.679036120478116,
+          "zero_rate": 0.0008990593112244898
+        },
+        "0:gelu": {
+          "clip_rate": 0.7515619686702806,
+          "cosine": 0.9402284538264405,
+          "elements": 7526400000,
+          "mae": 0.11468743257061176,
+          "mse": 0.01787058544395718,
+          "observed_max": 7.7109375,
+          "observed_min": -0.16997037827968597,
+          "sqnr_db": 9.35517193529398,
+          "zero_rate": 0.8780206723001701
+        },
+        "0:ln2": {
+          "clip_rate": 0.02525216092687075,
+          "cosine": 0.9578860953724447,
+          "elements": 1881600000,
+          "mae": 0.22304259437178128,
+          "mse": 0.10530580701840268,
+          "observed_max": 17.482467651367188,
+          "observed_min": -17.83662986755371,
+          "sqnr_db": 10.837854379376886,
+          "zero_rate": 0.3800506723001701
+        },
+        "0:mlp_residual": {
+          "clip_rate": 6.856664540816327e-05,
+          "cosine": 0.99758399217025,
+          "elements": 1881600000,
+          "mae": 0.0006923154320958723,
+          "mse": 0.0035248280488661566,
+          "observed_max": 17.62548065185547,
+          "observed_min": -11.86202335357666,
+          "sqnr_db": 23.15739121332858,
+          "zero_rate": 0.0009145014880952381
+        }
+      },
+      "top1": 0.49922,
+      "top1_drop_pp": 20.098,
+      "top5": 0.75176
+    },
+    {
+      "block": 0,
+      "checkpoint_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+      "config_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+      "data_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b",
+      "device": "cuda",
+      "duration_seconds": 41.6176967700012,
+      "experiment_id": "layer-00-whole-block",
+      "experiment_sha256": "1ab19e1b89f45cac0a0e78ccd58a83dff7a1851974c326d80a716f91b7870c5b",
+      "family": "layer",
+      "masks": {
+        "a": [
+          0
+        ],
+        "attention_residual": [
+          0
+        ],
+        "fc1": [
+          0
+        ],
+        "fc2": [
+          0
+        ],
+        "gelu": [
+          0
+        ],
+        "k": [
+          0
+        ],
+        "ln1": [
+          0
+        ],
+        "ln2": [
+          0
+        ],
+        "mlp_residual": [
+          0
+        ],
+        "o": [
+          0
+        ],
+        "q": [
+          0
+        ],
+        "softmax": [
+          0
+        ],
+        "v": [
+          0
+        ]
+      },
+      "order": null,
+      "perturbation": "whole-block",
+      "perturbation_direction": "FP32_activation_to_strict_quantized",
+      "sample_count": 50000,
+      "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31",
+      "schema_version": 1,
+      "sensitivity_rank": 1,
+      "step": null,
+      "tensor_metric_direction": "FP32_activation_to_strict_quantized",
+      "tensor_metrics": {
+        "0:a": {
+          "clip_rate": 0.00016136798469387756,
+          "cosine": 0.9120636660765207,
+          "elements": 1881600000,
+          "mae": 0.04531264901160799,
+          "mse": 0.00624401263898191,
+          "observed_max": 2.3483006954193115,
+          "observed_min": -3.1310672760009766,
+          "sqnr_db": 7.575534946469795,
+          "zero_rate": 0.8945113323767007
+        },
+        "0:attention_residual": {
+          "clip_rate": 0.00031400510204081635,
+          "cosine": 0.9982450994672711,
+          "elements": 1881600000,
+          "mae": 0.0006496888728068692,
+          "mse": 0.003676563034862776,
+          "observed_max": 16.725154876708984,
+          "observed_min": -14.301400184631348,
+          "sqnr_db": 24.539578943931048,
+          "zero_rate": 0.00019430218962585035
+        },
+        "0:fc1": {
+          "clip_rate": 2.250690901360544e-05,
+          "cosine": 0.999987906535535,
+          "elements": 7526400000,
+          "mae": 0.0019020546345716392,
+          "mse": 3.156566414268544e-05,
+          "observed_max": 17.118364334106445,
+          "observed_min": -16.623497009277344,
+          "sqnr_db": 46.16247375574424,
+          "zero_rate": 0.0028656756218112243
+        },
+        "0:fc2": {
+          "clip_rate": 1.4531781462585033e-05,
+          "cosine": 0.9999954049926898,
+          "elements": 1881600000,
+          "mae": 0.00030756640466499254,
+          "mse": 4.114771609188584e-06,
+          "observed_max": 6.13124418258667,
+          "observed_min": -8.154828071594238,
+          "sqnr_db": 50.36495325084797,
+          "zero_rate": 0.0009792548894557824
+        },
+        "0:gelu": {
+          "clip_rate": 0.7751924639934099,
+          "cosine": 0.9335816895650079,
+          "elements": 7526400000,
+          "mae": 0.1148592360825518,
+          "mse": 0.017541466209430232,
+          "observed_max": 7.7109375,
+          "observed_min": -0.16997037827968597,
+          "sqnr_db": 8.911760780342409,
+          "zero_rate": 0.8907572955197705
+        },
+        "0:k": {
+          "clip_rate": 0.027887355973639456,
+          "cosine": 0.9703178033994838,
+          "elements": 1881600000,
+          "mae": 0.15172415508624204,
+          "mse": 0.035896889760647206,
+          "observed_max": 6.933938980102539,
+          "observed_min": -6.621407985687256,
+          "sqnr_db": 12.319861766065687,
+          "zero_rate": 0.35649630633503404
+        },
+        "0:ln1": {
+          "clip_rate": 0.030127739158163264,
+          "cosine": 0.9651474476902956,
+          "elements": 1881600000,
+          "mae": 0.13765674811243583,
+          "mse": 0.03573840143912561,
+          "observed_max": 10.399630546569824,
+          "observed_min": -7.539871692657471,
+          "sqnr_db": 11.643511976752592,
+          "zero_rate": 0.3374935007440476
+        },
+        "0:ln2": {
+          "clip_rate": 0.023802304953231292,
+          "cosine": 0.9593980739849172,
+          "elements": 1881600000,
+          "mae": 0.22364140711733077,
+          "mse": 0.09778827119952849,
+          "observed_max": 12.589574813842773,
+          "observed_min": -12.684086799621582,
+          "sqnr_db": 10.993253858233675,
+          "zero_rate": 0.3800766980229592
+        },
+        "0:mlp_residual": {
+          "clip_rate": 0.00018386320153061225,
+          "cosine": 0.9979015420147721,
+          "elements": 1881600000,
+          "mae": 0.0008375372328941284,
+          "mse": 0.0045999557686341825,
+          "observed_max": 18.568790435791016,
+          "observed_min": -14.560461044311523,
+          "sqnr_db": 23.768416693568426,
+          "zero_rate": 0.000745562287414966
+        },
+        "0:o": {
+          "clip_rate": 0.0,
+          "cosine": 0.9999998256586181,
+          "elements": 1881600000,
+          "mae": 0.0002301622902766325,
+          "mse": 7.065872648599889e-08,
+          "observed_max": 3.599069118499756,
+          "observed_min": -3.6794064044952393,
+          "sqnr_db": 64.57548086108133,
+          "zero_rate": 0.00025749415391156463
+        },
+        "0:q": {
+          "clip_rate": 0.030877361288265306,
+          "cosine": 0.968876678026458,
+          "elements": 1881600000,
+          "mae": 0.19037671440099346,
+          "mse": 0.05846445175691374,
+          "observed_max": 6.966618061065674,
+          "observed_min": -6.995011806488037,
+          "sqnr_db": 12.126027000329685,
+          "zero_rate": 0.46409211522108845
+        },
+        "0:softmax": {
+          "clip_rate": 0.00022878505483826185,
+          "cosine": 0.8856248050294914,
+          "elements": 5762400000,
+          "mae": 0.004554385227213659,
+          "mse": 5.347364123249004e-05,
+          "observed_max": 0.9896155595779419,
+          "observed_min": 8.410820928617113e-10,
+          "sqnr_db": 6.637417792093698,
+          "zero_rate": 0.9932952918922671
+        },
+        "0:v": {
+          "clip_rate": 0.016333047406462586,
+          "cosine": 0.947758167177028,
+          "elements": 1881600000,
+          "mae": 0.16495334888350802,
+          "mse": 0.04802375437877361,
+          "observed_max": 7.333214282989502,
+          "observed_min": -6.8834919929504395,
+          "sqnr_db": 9.919096258943085,
+          "zero_rate": 0.500419978210034
+        }
+      },
+      "top1": 0.44462,
+      "top1_drop_pp": 25.558,
+      "top5": 0.70336
+    },
+    {
+      "block": 1,
+      "checkpoint_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+      "config_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+      "data_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b",
+      "device": "cuda",
+      "duration_seconds": 42.07601696578786,
+      "experiment_id": "layer-01-attention",
+      "experiment_sha256": "6555abf0fdaa67e657165fd0cab0cdcda0380f1237bc6471926144ac7deaf057",
+      "family": "layer",
+      "masks": {
+        "a": [
+          1
+        ],
+        "attention_residual": [
+          1
+        ],
+        "k": [
+          1
+        ],
+        "ln1": [
+          1
+        ],
+        "o": [
+          1
+        ],
+        "q": [
+          1
+        ],
+        "softmax": [
+          1
+        ],
+        "v": [
+          1
+        ]
+      },
+      "order": null,
+      "perturbation": "attention",
+      "perturbation_direction": "FP32_activation_to_strict_quantized",
+      "sample_count": 50000,
+      "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31",
+      "schema_version": 1,
+      "sensitivity_rank": 20,
+      "step": null,
+      "tensor_metric_direction": "FP32_activation_to_strict_quantized",
+      "tensor_metrics": {
+        "1:a": {
+          "clip_rate": 0.0029943542729591838,
+          "cosine": 0.9505280397933348,
+          "elements": 1881600000,
+          "mae": 0.060226327085873596,
+          "mse": 0.005727732995794865,
+          "observed_max": 1.6368868350982666,
+          "observed_min": -2.182516098022461,
+          "sqnr_db": 9.692626003797258,
+          "zero_rate": 0.6000323554421769
+        },
+        "1:attention_residual": {
+          "clip_rate": 4.21593324829932e-05,
+          "cosine": 0.9976296654439052,
+          "elements": 1881600000,
+          "mae": 0.00036066469622284984,
+          "mse": 0.0026794797106889077,
+          "observed_max": 15.952188491821289,
+          "observed_min": -10.363716125488281,
+          "sqnr_db": 23.239941286860514,
+          "zero_rate": 0.00026463807397959186
+        },
+        "1:k": {
+          "clip_rate": 0.025978207908163266,
+          "cosine": 0.9769467100072246,
+          "elements": 1881600000,
+          "mae": 0.1989663877904756,
+          "mse": 0.05721613569598612,
+          "observed_max": 6.506287574768066,
+          "observed_min": -6.567762851715088,
+          "sqnr_db": 13.378445678835455,
+          "zero_rate": 0.28905765465561223
+        },
+        "1:ln1": {
+          "clip_rate": 0.022566437074829932,
+          "cosine": 0.9596007019091625,
+          "elements": 1881600000,
+          "mae": 0.16591177640363639,
+          "mse": 0.05321384686707911,
+          "observed_max": 6.811903476715088,
+          "observed_min": -7.292713165283203,
+          "sqnr_db": 11.014585860190223,
+          "zero_rate": 0.3631741788903061
+        },
+        "1:o": {
+          "clip_rate": 1.488095238095238e-08,
+          "cosine": 0.9999998911821798,
+          "elements": 1881600000,
+          "mae": 0.00014737596506127657,
+          "mse": 2.9111359952147834e-08,
+          "observed_max": 2.609710216522217,
+          "observed_min": -2.3590087890625,
+          "sqnr_db": 66.62269963087425,
+          "zero_rate": 0.0006615842899659864
+        },
+        "1:q": {
+          "clip_rate": 0.03419831898384354,
+          "cosine": 0.976361988062298,
+          "elements": 1881600000,
+          "mae": 0.22338084677305786,
+          "mse": 0.07394818822821042,
+          "observed_max": 6.8593010902404785,
+          "observed_min": -7.08577823638916,
+          "sqnr_db": 13.295507509060691,
+          "zero_rate": 0.3074336080994898
+        },
+        "1:softmax": {
+          "clip_rate": 0.0001817989032347633,
+          "cosine": 0.9525983597641899,
+          "elements": 5762400000,
+          "mae": 0.0033218704921892522,
+          "mse": 5.9784240807143786e-05,
+          "observed_max": 0.999169111251831,
+          "observed_min": 6.832451061912986e-18,
+          "sqnr_db": 10.306891681533866,
+          "zero_rate": 0.9845607231361932
+        },
+        "1:v": {
+          "clip_rate": 0.031191331845238094,
+          "cosine": 0.969235629260261,
+          "elements": 1881600000,
+          "mae": 0.1092344771627419,
+          "mse": 0.020473015817595593,
+          "observed_max": 5.129087448120117,
+          "observed_min": -4.9831767082214355,
+          "sqnr_db": 12.176522625880503,
+          "zero_rate": 0.33217448979591835
+        }
+      },
+      "top1": 0.67196,
+      "top1_drop_pp": 2.824,
+      "top5": 0.88168
+    },
+    {
+      "block": 1,
+      "checkpoint_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+      "config_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+      "data_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b",
+      "device": "cuda",
+      "duration_seconds": 42.11101742112078,
+      "experiment_id": "layer-01-mlp",
+      "experiment_sha256": "1d9d15ec91b860564403d30d16d456e0a463d75d70d2d7cd0cb44f21a0007b33",
+      "family": "layer",
+      "masks": {
+        "fc1": [
+          1
+        ],
+        "fc2": [
+          1
+        ],
+        "gelu": [
+          1
+        ],
+        "ln2": [
+          1
+        ],
+        "mlp_residual": [
+          1
+        ]
+      },
+      "order": null,
+      "perturbation": "mlp",
+      "perturbation_direction": "FP32_activation_to_strict_quantized",
+      "sample_count": 50000,
+      "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31",
+      "schema_version": 1,
+      "sensitivity_rank": 7,
+      "step": null,
+      "tensor_metric_direction": "FP32_activation_to_strict_quantized",
+      "tensor_metrics": {
+        "1:fc1": {
+          "clip_rate": 5.2516475340136056e-06,
+          "cosine": 0.9999978294816253,
+          "elements": 7526400000,
+          "mae": 0.0014740820210528403,
+          "mse": 4.6563176685293235e-06,
+          "observed_max": 10.64560317993164,
+          "observed_min": -12.880139350891113,
+          "sqnr_db": 53.62402368934167,
+          "zero_rate": 0.002584328364158163
+        },
+        "1:fc2": {
+          "clip_rate": 9.991496598639456e-08,
+          "cosine": 0.999999893578935,
+          "elements": 1881600000,
+          "mae": 0.0001416618419721543,
+          "mse": 2.823326296903986e-08,
+          "observed_max": 2.7692642211914062,
+          "observed_min": -2.7047882080078125,
+          "sqnr_db": 66.7193942403137,
+          "zero_rate": 0.000603547512755102
+        },
+        "1:gelu": {
+          "clip_rate": 0.7984470773543793,
+          "cosine": 0.8399434076798379,
+          "elements": 7526400000,
+          "mae": 0.10641440871794057,
+          "mse": 0.014260260745141733,
+          "observed_max": 6.0234375,
+          "observed_min": -0.16997045278549194,
+          "sqnr_db": 5.308464824527644,
+          "zero_rate": 0.8740102480601616
+        },
+        "1:ln2": {
+          "clip_rate": 0.02413123405612245,
+          "cosine": 0.9605184693725594,
+          "elements": 1881600000,
+          "mae": 0.18396027962957917,
+          "mse": 0.07358154639011621,
+          "observed_max": 10.93451976776123,
+          "observed_min": -12.298952102661133,
+          "sqnr_db": 11.112240547344388,
+          "zero_rate": 0.30612125478316327
+        },
+        "1:mlp_residual": {
+          "clip_rate": 5.44828869047619e-05,
+          "cosine": 0.9972810895613443,
+          "elements": 1881600000,
+          "mae": 0.0005756749207928816,
+          "mse": 0.002654099818844672,
+          "observed_max": 15.281665802001953,
+          "observed_min": -10.035173416137695,
+          "sqnr_db": 22.645430379683074,
+          "zero_rate": 0.0009731053358843538
+        }
+      },
+      "top1": 0.5155,
+      "top1_drop_pp": 18.47,
+      "top5": 0.76698
+    },
+    {
+      "block": 1,
+      "checkpoint_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+      "config_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+      "data_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b",
+      "device": "cuda",
+      "duration_seconds": 42.272538588847965,
+      "experiment_id": "layer-01-whole-block",
+      "experiment_sha256": "0a01321950d2be484441076e8d0f4a675eb5b88cbc8fefb5105b76e6d7c23c5d",
+      "family": "layer",
+      "masks": {
+        "a": [
+          1
+        ],
+        "attention_residual": [
+          1
+        ],
+        "fc1": [
+          1
+        ],
+        "fc2": [
+          1
+        ],
+        "gelu": [
+          1
+        ],
+        "k": [
+          1
+        ],
+        "ln1": [
+          1
+        ],
+        "ln2": [
+          1
+        ],
+        "mlp_residual": [
+          1
+        ],
+        "o": [
+          1
+        ],
+        "q": [
+          1
+        ],
+        "softmax": [
+          1
+        ],
+        "v": [
+          1
+        ]
+      },
+      "order": null,
+      "perturbation": "whole-block",
+      "perturbation_direction": "FP32_activation_to_strict_quantized",
+      "sample_count": 50000,
+      "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31",
+      "schema_version": 1,
+      "sensitivity_rank": 4,
+      "step": null,
+      "tensor_metric_direction": "FP32_activation_to_strict_quantized",
+      "tensor_metrics": {
+        "1:a": {
+          "clip_rate": 0.0029943542729591838,
+          "cosine": 0.9505280397933348,
+          "elements": 1881600000,
+          "mae": 0.060226327085873596,
+          "mse": 0.005727732995794865,
+          "observed_max": 1.6368868350982666,
+          "observed_min": -2.182516098022461,
+          "sqnr_db": 9.692626003797258,
+          "zero_rate": 0.6000323554421769
+        },
+        "1:attention_residual": {
+          "clip_rate": 4.21593324829932e-05,
+          "cosine": 0.9976296654439052,
+          "elements": 1881600000,
+          "mae": 0.00036066469622284984,
+          "mse": 0.0026794797106889077,
+          "observed_max": 15.952188491821289,
+          "observed_min": -10.363716125488281,
+          "sqnr_db": 23.239941286860514,
+          "zero_rate": 0.00026463807397959186
+        },
+        "1:fc1": {
+          "clip_rate": 5.472204506802721e-06,
+          "cosine": 0.9999976931644766,
+          "elements": 7526400000,
+          "mae": 0.0014743549620109084,
+          "mse": 5.078277936686565e-06,
+          "observed_max": 10.864187240600586,
+          "observed_min": -12.831564903259277,
+          "sqnr_db": 53.35947399608525,
+          "zero_rate": 0.0025362538531037413
+        },
+        "1:fc2": {
+          "clip_rate": 5.5272108843537416e-08,
+          "cosine": 0.9999998979687146,
+          "elements": 1881600000,
+          "mae": 0.0001416587796590175,
+          "mse": 2.7893968678686136e-08,
+          "observed_max": 2.684471368789673,
+          "observed_min": -2.7583022117614746,
+          "sqnr_db": 66.90235080259102,
+          "zero_rate": 0.0005565731292517007
+        },
+        "1:gelu": {
+          "clip_rate": 0.7968550681600766,
+          "cosine": 0.8502798963960049,
+          "elements": 7526400000,
+          "mae": 0.10609178735687269,
+          "mse": 0.014198792488377332,
+          "observed_max": 6.0234375,
+          "observed_min": -0.16997045278549194,
+          "sqnr_db": 5.574136736366624,
+          "zero_rate": 0.8707149581473215
+        },
+        "1:k": {
+          "clip_rate": 0.025978207908163266,
+          "cosine": 0.9769467100072246,
+          "elements": 1881600000,
+          "mae": 0.1989663877904756,
+          "mse": 0.05721613569598612,
+          "observed_max": 6.506287574768066,
+          "observed_min": -6.567762851715088,
+          "sqnr_db": 13.378445678835455,
+          "zero_rate": 0.28905765465561223
+        },
+        "1:ln1": {
+          "clip_rate": 0.022566437074829932,
+          "cosine": 0.9596007019091625,
+          "elements": 1881600000,
+          "mae": 0.16591177640363639,
+          "mse": 0.05321384686707911,
+          "observed_max": 6.811903476715088,
+          "observed_min": -7.292713165283203,
+          "sqnr_db": 11.014585860190223,
+          "zero_rate": 0.3631741788903061
+        },
+        "1:ln2": {
+          "clip_rate": 0.02601008981717687,
+          "cosine": 0.9635485417208078,
+          "elements": 1881600000,
+          "mae": 0.18409011763527436,
+          "mse": 0.0703820460392584,
+          "observed_max": 10.89498233795166,
+          "observed_min": -12.016383171081543,
+          "sqnr_db": 11.452360973084179,
+          "zero_rate": 0.2963570498511905
+        },
+        "1:mlp_residual": {
+          "clip_rate": 7.49984056122449e-05,
+          "cosine": 0.9976108507619519,
+          "elements": 1881600000,
+          "mae": 0.0005955268393302558,
+          "mse": 0.0027679712747275755,
+          "observed_max": 15.978800773620605,
+          "observed_min": -10.03337574005127,
+          "sqnr_db": 23.206684673489356,
+          "zero_rate": 0.0008699798044217687
+        },
+        "1:o": {
+          "clip_rate": 1.488095238095238e-08,
+          "cosine": 0.9999998911821798,
+          "elements": 1881600000,
+          "mae": 0.00014737596506127657,
+          "mse": 2.9111359952147834e-08,
+          "observed_max": 2.609710216522217,
+          "observed_min": -2.3590087890625,
+          "sqnr_db": 66.62269963087425,
+          "zero_rate": 0.0006615842899659864
+        },
+        "1:q": {
+          "clip_rate": 0.03419831898384354,
+          "cosine": 0.976361988062298,
+          "elements": 1881600000,
+          "mae": 0.22338084677305786,
+          "mse": 0.07394818822821042,
+          "observed_max": 6.8593010902404785,
+          "observed_min": -7.08577823638916,
+          "sqnr_db": 13.295507509060691,
+          "zero_rate": 0.3074336080994898
+        },
+        "1:softmax": {
+          "clip_rate": 0.0001817989032347633,
+          "cosine": 0.9525983597641899,
+          "elements": 5762400000,
+          "mae": 0.0033218704921892522,
+          "mse": 5.9784240807143786e-05,
+          "observed_max": 0.999169111251831,
+          "observed_min": 6.832451061912986e-18,
+          "sqnr_db": 10.306891681533866,
+          "zero_rate": 0.9845607231361932
+        },
+        "1:v": {
+          "clip_rate": 0.031191331845238094,
+          "cosine": 0.969235629260261,
+          "elements": 1881600000,
+          "mae": 0.1092344771627419,
+          "mse": 0.020473015817595593,
+          "observed_max": 5.129087448120117,
+          "observed_min": -4.9831767082214355,
+          "sqnr_db": 12.176522625880503,
+          "zero_rate": 0.33217448979591835
+        }
+      },
+      "top1": 0.4843,
+      "top1_drop_pp": 21.59,
+      "top5": 0.73754
+    },
+    {
+      "block": 2,
+      "checkpoint_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+      "config_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+      "data_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b",
+      "device": "cuda",
+      "duration_seconds": 42.021039305021986,
+      "experiment_id": "layer-02-attention",
+      "experiment_sha256": "67e113ad4d84b2d9965aa3ca94bbbdd6dccf5bbb150118afc7c50255a441d48c",
+      "family": "layer",
+      "masks": {
+        "a": [
+          2
+        ],
+        "attention_residual": [
+          2
+        ],
+        "k": [
+          2
+        ],
+        "ln1": [
+          2
+        ],
+        "o": [
+          2
+        ],
+        "q": [
+          2
+        ],
+        "softmax": [
+          2
+        ],
+        "v": [
+          2
+        ]
+      },
+      "order": null,
+      "perturbation": "attention",
+      "perturbation_direction": "FP32_activation_to_strict_quantized",
+      "sample_count": 50000,
+      "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31",
+      "schema_version": 1,
+      "sensitivity_rank": 18,
+      "step": null,
+      "tensor_metric_direction": "FP32_activation_to_strict_quantized",
+      "tensor_metrics": {
+        "2:a": {
+          "clip_rate": 0.009666457801870748,
+          "cosine": 0.962436278486487,
+          "elements": 1881600000,
+          "mae": 0.05228826451635426,
+          "mse": 0.004493284073015085,
+          "observed_max": 1.428073763847351,
+          "observed_min": -1.9040981531143188,
+          "sqnr_db": 11.3232792692996,
+          "zero_rate": 0.5681960390093538
+        },
+        "2:attention_residual": {
+          "clip_rate": 3.405080782312925e-05,
+          "cosine": 0.9974006400303851,
+          "elements": 1881600000,
+          "mae": 0.00030499232647077687,
+          "mse": 0.001981429964333793,
+          "observed_max": 13.87655258178711,
+          "observed_min": -9.501853942871094,
+          "sqnr_db": 22.83956714635015,
+          "zero_rate": 0.0002632047193877551
+        },
+        "2:k": {
+          "clip_rate": 0.022196092155612246,
+          "cosine": 0.9771064829139968,
+          "elements": 1881600000,
+          "mae": 0.2239220915136155,
+          "mse": 0.07080353401498751,
+          "observed_max": 6.5427775382995605,
+          "observed_min": -6.78451681137085,
+          "sqnr_db": 13.388414330160728,
+          "zero_rate": 0.29077899287840137
+        },
+        "2:ln1": {
+          "clip_rate": 0.016869914965986395,
+          "cosine": 0.9451787496480134,
+          "elements": 1881600000,
+          "mae": 0.21343157361793738,
+          "mse": 0.09388718831187469,
+          "observed_max": 9.854063034057617,
+          "observed_min": -10.026832580566406,
+          "sqnr_db": 9.720914481224378,
+          "zero_rate": 0.4090044424957483
+        },
+        "2:o": {
+          "clip_rate": 2.6041666666666667e-08,
+          "cosine": 0.9999999045263523,
+          "elements": 1881600000,
+          "mae": 0.00010443052200603343,
+          "mse": 1.4797039324512153e-08,
+          "observed_max": 1.8347541093826294,
+          "observed_min": -2.0867772102355957,
+          "sqnr_db": 67.1908617587557,
+          "zero_rate": 0.00044901945153061226
+        },
+        "2:q": {
+          "clip_rate": 0.0335287925170068,
+          "cosine": 0.9762835667967971,
+          "elements": 1881600000,
+          "mae": 0.2325892190590162,
+          "mse": 0.08011731765335302,
+          "observed_max": 7.894718647003174,
+          "observed_min": -8.34486198425293,
+          "sqnr_db": 13.275415180090036,
+          "zero_rate": 0.29582576849489794
+        },
+        "2:softmax": {
+          "clip_rate": 0.0001728774468971262,
+          "cosine": 0.9666737314104538,
+          "elements": 5762400000,
+          "mae": 0.002834974948983604,
+          "mse": 5.326702736959425e-05,
+          "observed_max": 0.9954380393028259,
+          "observed_min": 1.5697822142676614e-18,
+          "sqnr_db": 11.801033895904835,
+          "zero_rate": 0.9828963140358185
+        },
+        "2:v": {
+          "clip_rate": 0.03454218005952381,
+          "cosine": 0.9720390427658784,
+          "elements": 1881600000,
+          "mae": 0.10723457788540139,
+          "mse": 0.01922986330629762,
+          "observed_max": 4.68709659576416,
+          "observed_min": -4.92038106918335,
+          "sqnr_db": 12.585125012986776,
+          "zero_rate": 0.30873023490646256
+        }
+      },
+      "top1": 0.66946,
+      "top1_drop_pp": 3.074,
+      "top5": 0.88172
+    },
+    {
+      "block": 2,
+      "checkpoint_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+      "config_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+      "data_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b",
+      "device": "cuda",
+      "duration_seconds": 42.36206150287762,
+      "experiment_id": "layer-02-mlp",
+      "experiment_sha256": "88aa53fb039eb27891a0c1e70e8e96bc40100f265d4e3279ba1943ec7e6fd28e",
+      "family": "layer",
+      "masks": {
+        "fc1": [
+          2
+        ],
+        "fc2": [
+          2
+        ],
+        "gelu": [
+          2
+        ],
+        "ln2": [
+          2
+        ],
+        "mlp_residual": [
+          2
+        ]
+      },
+      "order": null,
+      "perturbation": "mlp",
+      "perturbation_direction": "FP32_activation_to_strict_quantized",
+      "sample_count": 50000,
+      "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31",
+      "schema_version": 1,
+      "sensitivity_rank": 6,
+      "step": null,
+      "tensor_metric_direction": "FP32_activation_to_strict_quantized",
+      "tensor_metrics": {
+        "2:fc1": {
+          "clip_rate": 7.910820578231292e-07,
+          "cosine": 0.999998644969653,
+          "elements": 7526400000,
+          "mae": 0.001334760546795572,
+          "mse": 2.642852069650073e-06,
+          "observed_max": 7.684071063995361,
+          "observed_min": -12.454236030578613,
+          "sqnr_db": 55.67020949657319,
+          "zero_rate": 0.002403965375212585
+        },
+        "2:fc2": {
+          "clip_rate": 2.9150722789115644e-06,
+          "cosine": 0.999999681395388,
+          "elements": 1881600000,
+          "mae": 0.00010471076247352063,
+          "mse": 5.7653080723916575e-08,
+          "observed_max": 2.0932435989379883,
+          "observed_min": -2.38816237449646,
+          "sqnr_db": 61.957019946565964,
+          "zero_rate": 0.00030479326105442177
+        },
+        "2:gelu": {
+          "clip_rate": 0.7916354585193452,
+          "cosine": 0.8243439460726694,
+          "elements": 7526400000,
+          "mae": 0.10370220679603265,
+          "mse": 0.013782445875191441,
+          "observed_max": 5.460937023162842,
+          "observed_min": -0.1699710339307785,
+          "sqnr_db": 4.9422663292983335,
+          "zero_rate": 0.8586174395461309
+        },
+        "2:ln2": {
+          "clip_rate": 0.03543215082908163,
+          "cosine": 0.9749117407261513,
+          "elements": 1881600000,
+          "mae": 0.16471051195246988,
+          "mse": 0.04616220724941779,
+          "observed_max": 7.348424434661865,
+          "observed_min": -7.987758159637451,
+          "sqnr_db": 13.049809245033348,
+          "zero_rate": 0.26047002338435377
+        },
+        "2:mlp_residual": {
+          "clip_rate": 3.4801764455782314e-05,
+          "cosine": 0.9970329036267794,
+          "elements": 1881600000,
+          "mae": 0.0005227721272218481,
+          "mse": 0.002084344588034358,
+          "observed_max": 13.848105430603027,
+          "observed_min": -9.242173194885254,
+          "sqnr_db": 22.26542217074355,
+          "zero_rate": 0.0010840911989795918
+        }
+      },
+      "top1": 0.50268,
+      "top1_drop_pp": 19.752,
+      "top5": 0.75534
+    },
+    {
+      "block": 2,
+      "checkpoint_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+      "config_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+      "data_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b",
+      "device": "cuda",
+      "duration_seconds": 41.40800625295378,
+      "experiment_id": "layer-02-whole-block",
+      "experiment_sha256": "cd0c088ff31a55357fdb37986868a035630fb4b8f30d08b329424f993120d9b0",
+      "family": "layer",
+      "masks": {
+        "a": [
+          2
+        ],
+        "attention_residual": [
+          2
+        ],
+        "fc1": [
+          2
+        ],
+        "fc2": [
+          2
+        ],
+        "gelu": [
+          2
+        ],
+        "k": [
+          2
+        ],
+        "ln1": [
+          2
+        ],
+        "ln2": [
+          2
+        ],
+        "mlp_residual": [
+          2
+        ],
+        "o": [
+          2
+        ],
+        "q": [
+          2
+        ],
+        "softmax": [
+          2
+        ],
+        "v": [
+          2
+        ]
+      },
+      "order": null,
+      "perturbation": "whole-block",
+      "perturbation_direction": "FP32_activation_to_strict_quantized",
+      "sample_count": 50000,
+      "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31",
+      "schema_version": 1,
+      "sensitivity_rank": 2,
+      "step": null,
+      "tensor_metric_direction": "FP32_activation_to_strict_quantized",
+      "tensor_metrics": {
+        "2:a": {
+          "clip_rate": 0.009666457801870748,
+          "cosine": 0.962436278486487,
+          "elements": 1881600000,
+          "mae": 0.05228826451635426,
+          "mse": 0.004493284073015085,
+          "observed_max": 1.428073763847351,
+          "observed_min": -1.9040981531143188,
+          "sqnr_db": 11.3232792692996,
+          "zero_rate": 0.5681960390093538
+        },
+        "2:attention_residual": {
+          "clip_rate": 3.405080782312925e-05,
+          "cosine": 0.9974006400303851,
+          "elements": 1881600000,
+          "mae": 0.00030499232647077687,
+          "mse": 0.001981429964333793,
+          "observed_max": 13.87655258178711,
+          "observed_min": -9.501853942871094,
+          "sqnr_db": 22.83956714635015,
+          "zero_rate": 0.0002632047193877551
+        },
+        "2:fc1": {
+          "clip_rate": 7.303624574829932e-07,
+          "cosine": 0.999998686593237,
+          "elements": 7526400000,
+          "mae": 0.0013347390580471998,
+          "mse": 2.608694961260622e-06,
+          "observed_max": 7.4677510261535645,
+          "observed_min": -12.159255981445312,
+          "sqnr_db": 55.8057061396067,
+          "zero_rate": 0.0023714503613945577
+        },
+        "2:fc2": {
+          "clip_rate": 1.7729591836734694e-06,
+          "cosine": 0.999999781292523,
+          "elements": 1881600000,
+          "mae": 0.00010461263466883044,
+          "mse": 4.1471802404321786e-08,
+          "observed_max": 2.3356165885925293,
+          "observed_min": -2.435455083847046,
+          "sqnr_db": 63.590989952488705,
+          "zero_rate": 0.00031696800595238094
+        },
+        "2:gelu": {
+          "clip_rate": 0.7895127327806123,
+          "cosine": 0.8295888041143469,
+          "elements": 7526400000,
+          "mae": 0.10319608260565592,
+          "mse": 0.013681741184811318,
+          "observed_max": 5.460937023162842,
+          "observed_min": -0.1699710339307785,
+          "sqnr_db": 5.06143795768093,
+          "zero_rate": 0.8562944298735119
+        },
+        "2:k": {
+          "clip_rate": 0.022196092155612246,
+          "cosine": 0.9771064829139968,
+          "elements": 1881600000,
+          "mae": 0.2239220915136155,
+          "mse": 0.07080353401498751,
+          "observed_max": 6.5427775382995605,
+          "observed_min": -6.78451681137085,
+          "sqnr_db": 13.388414330160728,
+          "zero_rate": 0.29077899287840137
+        },
+        "2:ln1": {
+          "clip_rate": 0.016869914965986395,
+          "cosine": 0.9451787496480134,
+          "elements": 1881600000,
+          "mae": 0.21343157361793738,
+          "mse": 0.09388718831187469,
+          "observed_max": 9.854063034057617,
+          "observed_min": -10.026832580566406,
+          "sqnr_db": 9.720914481224378,
+          "zero_rate": 0.4090044424957483
+        },
+        "2:ln2": {
+          "clip_rate": 0.035930186011904765,
+          "cosine": 0.9753543451725575,
+          "elements": 1881600000,
+          "mae": 0.1647359442835924,
+          "mse": 0.045640832793048675,
+          "observed_max": 7.348092555999756,
+          "observed_min": -8.255000114440918,
+          "sqnr_db": 13.126143956734468,
+          "zero_rate": 0.2584884125212585
+        },
+        "2:mlp_residual": {
+          "clip_rate": 3.762701955782313e-05,
+          "cosine": 0.9974466985862732,
+          "elements": 1881600000,
+          "mae": 0.0005176712222377389,
+          "mse": 0.001977184552485603,
+          "observed_max": 14.042841911315918,
+          "observed_min": -9.272892951965332,
+          "sqnr_db": 22.91745269390903,
+          "zero_rate": 0.0010151142644557823
+        },
+        "2:o": {
+          "clip_rate": 2.6041666666666667e-08,
+          "cosine": 0.9999999045263523,
+          "elements": 1881600000,
+          "mae": 0.00010443052200603343,
+          "mse": 1.4797039324512153e-08,
+          "observed_max": 1.8347541093826294,
+          "observed_min": -2.0867772102355957,
+          "sqnr_db": 67.1908617587557,
+          "zero_rate": 0.00044901945153061226
+        },
+        "2:q": {
+          "clip_rate": 0.0335287925170068,
+          "cosine": 0.9762835667967971,
+          "elements": 1881600000,
+          "mae": 0.2325892190590162,
+          "mse": 0.08011731765335302,
+          "observed_max": 7.894718647003174,
+          "observed_min": -8.34486198425293,
+          "sqnr_db": 13.275415180090036,
+          "zero_rate": 0.29582576849489794
+        },
+        "2:softmax": {
+          "clip_rate": 0.0001728774468971262,
+          "cosine": 0.9666737314104538,
+          "elements": 5762400000,
+          "mae": 0.002834974948983604,
+          "mse": 5.326702736959425e-05,
+          "observed_max": 0.9954380393028259,
+          "observed_min": 1.5697822142676614e-18,
+          "sqnr_db": 11.801033895904835,
+          "zero_rate": 0.9828963140358185
+        },
+        "2:v": {
+          "clip_rate": 0.03454218005952381,
+          "cosine": 0.9720390427658784,
+          "elements": 1881600000,
+          "mae": 0.10723457788540139,
+          "mse": 0.01922986330629762,
+          "observed_max": 4.68709659576416,
+          "observed_min": -4.92038106918335,
+          "sqnr_db": 12.585125012986776,
+          "zero_rate": 0.30873023490646256
+        }
+      },
+      "top1": 0.44958,
+      "top1_drop_pp": 25.062,
+      "top5": 0.70486
+    },
+    {
+      "block": 3,
+      "checkpoint_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+      "config_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+      "data_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b",
+      "device": "cuda",
+      "duration_seconds": 41.847476043971255,
+      "experiment_id": "layer-03-attention",
+      "experiment_sha256": "8a4a0810f00c5f30cf8be218ef14436ac9ca3a704162baffdc03e51e65cff7e7",
+      "family": "layer",
+      "masks": {
+        "a": [
+          3
+        ],
+        "attention_residual": [
+          3
+        ],
+        "k": [
+          3
+        ],
+        "ln1": [
+          3
+        ],
+        "o": [
+          3
+        ],
+        "q": [
+          3
+        ],
+        "softmax": [
+          3
+        ],
+        "v": [
+          3
+        ]
+      },
+      "order": null,
+      "perturbation": "attention",
+      "perturbation_direction": "FP32_activation_to_strict_quantized",
+      "sample_count": 50000,
+      "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31",
+      "schema_version": 1,
+      "sensitivity_rank": 25,
+      "step": null,
+      "tensor_metric_direction": "FP32_activation_to_strict_quantized",
+      "tensor_metrics": {
+        "3:a": {
+          "clip_rate": 0.004220258822278912,
+          "cosine": 0.9545324098446039,
+          "elements": 1881600000,
+          "mae": 0.04141903782525014,
+          "mse": 0.0030173640712336377,
+          "observed_max": 1.5825058221817017,
+          "observed_min": -1.8239049911499023,
+          "sqnr_db": 10.41618251727865,
+          "zero_rate": 0.6568554682185375
+        },
+        "3:attention_residual": {
+          "clip_rate": 3.2849170918367347e-05,
+          "cosine": 0.9974697636464287,
+          "elements": 1881600000,
+          "mae": 0.00029175076491282564,
+          "mse": 0.0017767947220964566,
+          "observed_max": 13.331122398376465,
+          "observed_min": -8.61331558227539,
+          "sqnr_db": 22.95592378939243,
+          "zero_rate": 0.00027043207908163266
+        },
+        "3:k": {
+          "clip_rate": 0.0281349325042517,
+          "cosine": 0.9769462357495019,
+          "elements": 1881600000,
+          "mae": 0.1695249521566628,
+          "mse": 0.042926031564909886,
+          "observed_max": 5.974081516265869,
+          "observed_min": -5.466483116149902,
+          "sqnr_db": 13.391832817802005,
+          "zero_rate": 0.27184837903911563
+        },
+        "3:ln1": {
+          "clip_rate": 0.025012559523809524,
+          "cosine": 0.9641278435943178,
+          "elements": 1881600000,
+          "mae": 0.19133379071051365,
+          "mse": 0.06860844584128863,
+          "observed_max": 8.114361763000488,
+          "observed_min": -9.689338684082031,
+          "sqnr_db": 11.520721352957937,
+          "zero_rate": 0.31961201211734697
+        },
+        "3:o": {
+          "clip_rate": 7.44047619047619e-09,
+          "cosine": 0.9999998910787975,
+          "elements": 1881600000,
+          "mae": 9.013653850787716e-05,
+          "mse": 1.0884853565792359e-08,
+          "observed_max": 1.6178388595581055,
+          "observed_min": -1.6630462408065796,
+          "sqnr_db": 66.6185725774499,
+          "zero_rate": 0.0010057419217687075
+        },
+        "3:q": {
+          "clip_rate": 0.03244135629251701,
+          "cosine": 0.9759294268198373,
+          "elements": 1881600000,
+          "mae": 0.18071846600242158,
+          "mse": 0.049718973306196616,
+          "observed_max": 7.348244667053223,
+          "observed_min": -6.580785751342773,
+          "sqnr_db": 13.219503775636525,
+          "zero_rate": 0.2936069005102041
+        },
+        "3:softmax": {
+          "clip_rate": 8.319120505344995e-05,
+          "cosine": 0.8951062558261236,
+          "elements": 5762400000,
+          "mae": 0.003930829987540572,
+          "mse": 4.193988401813069e-05,
+          "observed_max": 0.9595189690589905,
+          "observed_min": 4.495552818895021e-09,
+          "sqnr_db": 6.916692355322343,
+          "zero_rate": 0.9758275621268916
+        },
+        "3:v": {
+          "clip_rate": 0.0368784837372449,
+          "cosine": 0.9769065842984389,
+          "elements": 1881600000,
+          "mae": 0.12484901318479555,
+          "mse": 0.024604706415591236,
+          "observed_max": 5.4657368659973145,
+          "observed_min": -4.967147350311279,
+          "sqnr_db": 13.404161778640722,
+          "zero_rate": 0.26371848480017007
+        }
+      },
+      "top1": 0.6837,
+      "top1_drop_pp": 1.65,
+      "top5": 0.89006
+    },
+    {
+      "block": 3,
+      "checkpoint_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+      "config_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+      "data_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b",
+      "device": "cuda",
+      "duration_seconds": 41.9439718069043,
+      "experiment_id": "layer-03-mlp",
+      "experiment_sha256": "f334d8e45ee141cc959eb654c445a431a0854789423c197af817ac0bca4a99ab",
+      "family": "layer",
+      "masks": {
+        "fc1": [
+          3
+        ],
+        "fc2": [
+          3
+        ],
+        "gelu": [
+          3
+        ],
+        "ln2": [
+          3
+        ],
+        "mlp_residual": [
+          3
+        ]
+      },
+      "order": null,
+      "perturbation": "mlp",
+      "perturbation_direction": "FP32_activation_to_strict_quantized",
+      "sample_count": 50000,
+      "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31",
+      "schema_version": 1,
+      "sensitivity_rank": 8,
+      "step": null,
+      "tensor_metric_direction": "FP32_activation_to_strict_quantized",
+      "tensor_metrics": {
+        "3:fc1": {
+          "clip_rate": 1.1454347363945578e-06,
+          "cosine": 0.9999990378876046,
+          "elements": 7526400000,
+          "mae": 0.0013153672243907443,
+          "mse": 2.426360768553513e-06,
+          "observed_max": 4.832516670227051,
+          "observed_min": -7.5726823806762695,
+          "sqnr_db": 57.157436948078875,
+          "zero_rate": 0.0017691891209608843
+        },
+        "3:fc2": {
+          "clip_rate": 6.946215986394558e-07,
+          "cosine": 0.9999998630505693,
+          "elements": 1881600000,
+          "mae": 9.315410939543078e-05,
+          "mse": 2.0425524572176418e-08,
+          "observed_max": 1.729683756828308,
+          "observed_min": -2.0121960639953613,
+          "sqnr_db": 65.6237310409307,
+          "zero_rate": 0.0006704140093537415
+        },
+        "3:gelu": {
+          "clip_rate": 0.8286067745535715,
+          "cosine": 0.812557817869053,
+          "elements": 7526400000,
+          "mae": 0.1041434576543571,
+          "mse": 0.013821381399827363,
+          "observed_max": 4.834134578704834,
+          "observed_min": -0.16997116804122925,
+          "sqnr_db": 4.6883947774249055,
+          "zero_rate": 0.8822778914221939
+        },
+        "3:ln2": {
+          "clip_rate": 0.024121619366496597,
+          "cosine": 0.9652330956229954,
+          "elements": 1881600000,
+          "mae": 0.20813974316561812,
+          "mse": 0.08007658693470648,
+          "observed_max": 9.281009674072266,
+          "observed_min": -9.275382041931152,
+          "sqnr_db": 11.65408882052863,
+          "zero_rate": 0.3162436160714286
+        },
+        "3:mlp_residual": {
+          "clip_rate": 3.983046343537415e-05,
+          "cosine": 0.9974080028990332,
+          "elements": 1881600000,
+          "mae": 0.0004941371348187532,
+          "mse": 0.0016811588936205886,
+          "observed_max": 13.120999336242676,
+          "observed_min": -8.265925407409668,
+          "sqnr_db": 22.85118930105902,
+          "zero_rate": 0.0010642309736394557
+        }
+      },
+      "top1": 0.54252,
+      "top1_drop_pp": 15.768,
+      "top5": 0.78628
+    },
+    {
+      "block": 3,
+      "checkpoint_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+      "config_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+      "data_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b",
+      "device": "cuda",
+      "duration_seconds": 41.504794239997864,
+      "experiment_id": "layer-03-whole-block",
+      "experiment_sha256": "c90f6f82556aff8c17b4d2da8c0cd8805337791f4d1b7b015ac9923219e758f4",
+      "family": "layer",
+      "masks": {
+        "a": [
+          3
+        ],
+        "attention_residual": [
+          3
+        ],
+        "fc1": [
+          3
+        ],
+        "fc2": [
+          3
+        ],
+        "gelu": [
+          3
+        ],
+        "k": [
+          3
+        ],
+        "ln1": [
+          3
+        ],
+        "ln2": [
+          3
+        ],
+        "mlp_residual": [
+          3
+        ],
+        "o": [
+          3
+        ],
+        "q": [
+          3
+        ],
+        "softmax": [
+          3
+        ],
+        "v": [
+          3
+        ]
+      },
+      "order": null,
+      "perturbation": "whole-block",
+      "perturbation_direction": "FP32_activation_to_strict_quantized",
+      "sample_count": 50000,
+      "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31",
+      "schema_version": 1,
+      "sensitivity_rank": 9,
+      "step": null,
+      "tensor_metric_direction": "FP32_activation_to_strict_quantized",
+      "tensor_metrics": {
+        "3:a": {
+          "clip_rate": 0.004220258822278912,
+          "cosine": 0.9545324098446039,
+          "elements": 1881600000,
+          "mae": 0.04141903782525014,
+          "mse": 0.0030173640712336377,
+          "observed_max": 1.5825058221817017,
+          "observed_min": -1.8239049911499023,
+          "sqnr_db": 10.41618251727865,
+          "zero_rate": 0.6568554682185375
+        },
+        "3:attention_residual": {
+          "clip_rate": 3.2849170918367347e-05,
+          "cosine": 0.9974697636464287,
+          "elements": 1881600000,
+          "mae": 0.00029175076491282564,
+          "mse": 0.0017767947220964566,
+          "observed_max": 13.331122398376465,
+          "observed_min": -8.61331558227539,
+          "sqnr_db": 22.95592378939243,
+          "zero_rate": 0.00027043207908163266
+        },
+        "3:fc1": {
+          "clip_rate": 9.105282738095238e-07,
+          "cosine": 0.9999990478361866,
+          "elements": 7526400000,
+          "mae": 0.0013153002292068162,
+          "mse": 2.395318586470676e-06,
+          "observed_max": 4.85211181640625,
+          "observed_min": -7.235437870025635,
+          "sqnr_db": 57.2025754118565,
+          "zero_rate": 0.0017206206154336734
+        },
+        "3:fc2": {
+          "clip_rate": 2.3171768707482992e-07,
+          "cosine": 0.9999998984548527,
+          "elements": 1881600000,
+          "mae": 9.311243559826292e-05,
+          "mse": 1.4050205088892234e-08,
+          "observed_max": 1.7557175159454346,
+          "observed_min": -2.0306901931762695,
+          "sqnr_db": 66.9226936991482,
+          "zero_rate": 0.0007029666241496599
+        },
+        "3:gelu": {
+          "clip_rate": 0.8329216273384353,
+          "cosine": 0.7979590891838262,
+          "elements": 7526400000,
+          "mae": 0.10458473305773754,
+          "mse": 0.013848399484273298,
+          "observed_max": 4.849915504455566,
+          "observed_min": -0.16997116804122925,
+          "sqnr_db": 4.39745473248574,
+          "zero_rate": 0.8862650038531037
+        },
+        "3:k": {
+          "clip_rate": 0.0281349325042517,
+          "cosine": 0.9769462357495019,
+          "elements": 1881600000,
+          "mae": 0.1695249521566628,
+          "mse": 0.042926031564909886,
+          "observed_max": 5.974081516265869,
+          "observed_min": -5.466483116149902,
+          "sqnr_db": 13.391832817802005,
+          "zero_rate": 0.27184837903911563
+        },
+        "3:ln1": {
+          "clip_rate": 0.025012559523809524,
+          "cosine": 0.9641278435943178,
+          "elements": 1881600000,
+          "mae": 0.19133379071051365,
+          "mse": 0.06860844584128863,
+          "observed_max": 8.114361763000488,
+          "observed_min": -9.689338684082031,
+          "sqnr_db": 11.520721352957937,
+          "zero_rate": 0.31961201211734697
+        },
+        "3:ln2": {
+          "clip_rate": 0.02473584768282313,
+          "cosine": 0.9653140493190704,
+          "elements": 1881600000,
+          "mae": 0.20817928673324881,
+          "mse": 0.0776963805430039,
+          "observed_max": 9.18253231048584,
+          "observed_min": -8.965702056884766,
+          "sqnr_db": 11.664080122354576,
+          "zero_rate": 0.3253380718537415
+        },
+        "3:mlp_residual": {
+          "clip_rate": 3.919323979591837e-05,
+          "cosine": 0.9972986804204353,
+          "elements": 1881600000,
+          "mae": 0.0005023157802448112,
+          "mse": 0.0018126507596617396,
+          "observed_max": 13.471627235412598,
+          "observed_min": -8.274401664733887,
+          "sqnr_db": 22.672277822523114,
+          "zero_rate": 0.0010754464285714286
+        },
+        "3:o": {
+          "clip_rate": 7.44047619047619e-09,
+          "cosine": 0.9999998910787975,
+          "elements": 1881600000,
+          "mae": 9.013653850787716e-05,
+          "mse": 1.0884853565792359e-08,
+          "observed_max": 1.6178388595581055,
+          "observed_min": -1.6630462408065796,
+          "sqnr_db": 66.6185725774499,
+          "zero_rate": 0.0010057419217687075
+        },
+        "3:q": {
+          "clip_rate": 0.03244135629251701,
+          "cosine": 0.9759294268198373,
+          "elements": 1881600000,
+          "mae": 0.18071846600242158,
+          "mse": 0.049718973306196616,
+          "observed_max": 7.348244667053223,
+          "observed_min": -6.580785751342773,
+          "sqnr_db": 13.219503775636525,
+          "zero_rate": 0.2936069005102041
+        },
+        "3:softmax": {
+          "clip_rate": 8.319120505344995e-05,
+          "cosine": 0.8951062558261236,
+          "elements": 5762400000,
+          "mae": 0.003930829987540572,
+          "mse": 4.193988401813069e-05,
+          "observed_max": 0.9595189690589905,
+          "observed_min": 4.495552818895021e-09,
+          "sqnr_db": 6.916692355322343,
+          "zero_rate": 0.9758275621268916
+        },
+        "3:v": {
+          "clip_rate": 0.0368784837372449,
+          "cosine": 0.9769065842984389,
+          "elements": 1881600000,
+          "mae": 0.12484901318479555,
+          "mse": 0.024604706415591236,
+          "observed_max": 5.4657368659973145,
+          "observed_min": -4.967147350311279,
+          "sqnr_db": 13.404161778640722,
+          "zero_rate": 0.26371848480017007
+        }
+      },
+      "top1": 0.5454,
+      "top1_drop_pp": 15.48,
+      "top5": 0.78754
+    },
+    {
+      "block": 4,
+      "checkpoint_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+      "config_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+      "data_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b",
+      "device": "cuda",
+      "duration_seconds": 42.114807141944766,
+      "experiment_id": "layer-04-attention",
+      "experiment_sha256": "b34baa95afc61be3d6e79c86083c0b8133501a3b9c56a91220fddcea2eaa7874",
+      "family": "layer",
+      "masks": {
+        "a": [
+          4
+        ],
+        "attention_residual": [
+          4
+        ],
+        "k": [
+          4
+        ],
+        "ln1": [
+          4
+        ],
+        "o": [
+          4
+        ],
+        "q": [
+          4
+        ],
+        "softmax": [
+          4
+        ],
+        "v": [
+          4
+        ]
+      },
+      "order": null,
+      "perturbation": "attention",
+      "perturbation_direction": "FP32_activation_to_strict_quantized",
+      "sample_count": 50000,
+      "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31",
+      "schema_version": 1,
+      "sensitivity_rank": 33,
+      "step": null,
+      "tensor_metric_direction": "FP32_activation_to_strict_quantized",
+      "tensor_metrics": {
+        "4:a": {
+          "clip_rate": 0.006056032100340136,
+          "cosine": 0.9626612944346776,
+          "elements": 1881600000,
+          "mae": 0.04993769294588981,
+          "mse": 0.003407668393547146,
+          "observed_max": 1.4831881523132324,
+          "observed_min": -2.1118226051330566,
+          "sqnr_db": 11.175329775908374,
+          "zero_rate": 0.4085186495535714
+        },
+        "4:attention_residual": {
+          "clip_rate": 2.9440369897959182e-05,
+          "cosine": 0.9978823763720892,
+          "elements": 1881600000,
+          "mae": 0.00027481066946582496,
+          "mse": 0.0014843504756619982,
+          "observed_max": 12.963939666748047,
+          "observed_min": -7.686129570007324,
+          "sqnr_db": 23.72760437208261,
+          "zero_rate": 0.00026081792091836733
+        },
+        "4:k": {
+          "clip_rate": 0.03372177508503402,
+          "cosine": 0.9799165656587235,
+          "elements": 1881600000,
+          "mae": 0.15442568053846656,
+          "mse": 0.03543196234901854,
+          "observed_max": 5.501070022583008,
+          "observed_min": -5.5656561851501465,
+          "sqnr_db": 13.994805777970223,
+          "zero_rate": 0.24603621173469387
+        },
+        "4:ln1": {
+          "clip_rate": 0.029759108737244896,
+          "cosine": 0.970149028789173,
+          "elements": 1881600000,
+          "mae": 0.19211481582740328,
+          "mse": 0.06437445311352594,
+          "observed_max": 8.883099555969238,
+          "observed_min": -9.578499794006348,
+          "sqnr_db": 12.305423317067998,
+          "zero_rate": 0.29615192176870747
+        },
+        "4:o": {
+          "clip_rate": 3.7733843537414965e-07,
+          "cosine": 0.9999999036153046,
+          "elements": 1881600000,
+          "mae": 8.443839197892033e-05,
+          "mse": 1.0840384395653816e-08,
+          "observed_max": 1.6291078329086304,
+          "observed_min": -1.464640498161316,
+          "sqnr_db": 67.14960703106581,
+          "zero_rate": 0.00073921981292517
+        },
+        "4:q": {
+          "clip_rate": 0.038348857355442176,
+          "cosine": 0.9779233746126893,
+          "elements": 1881600000,
+          "mae": 0.17585036594409162,
+          "mse": 0.0472561676835978,
+          "observed_max": 6.107884407043457,
+          "observed_min": -6.179947853088379,
+          "sqnr_db": 13.596860703705808,
+          "zero_rate": 0.2625285443239796
+        },
+        "4:softmax": {
+          "clip_rate": 0.00025146293211162013,
+          "cosine": 0.9197375870393821,
+          "elements": 5762400000,
+          "mae": 0.0030380389786549685,
+          "mse": 1.771278232027024e-05,
+          "observed_max": 0.8784622550010681,
+          "observed_min": 3.689473260237719e-07,
+          "sqnr_db": 7.929392355162065,
+          "zero_rate": 0.8745243077537137
+        },
+        "4:v": {
+          "clip_rate": 0.038750133397108845,
+          "cosine": 0.9781060390962334,
+          "elements": 1881600000,
+          "mae": 0.1264520174038164,
+          "mse": 0.02515095631579829,
+          "observed_max": 5.304031848907471,
+          "observed_min": -4.924472332000732,
+          "sqnr_db": 13.633579810691971,
+          "zero_rate": 0.24934616549744898
+        }
+      },
+      "top1": 0.6917,
+      "top1_drop_pp": 0.85,
+      "top5": 0.89338
+    },
+    {
+      "block": 4,
+      "checkpoint_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+      "config_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+      "data_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b",
+      "device": "cuda",
+      "duration_seconds": 41.61022546491586,
+      "experiment_id": "layer-04-mlp",
+      "experiment_sha256": "8994aa8b58bbf16a43843561380b50ca2fa9e7beac70a915dcd10a1aee7406a5",
+      "family": "layer",
+      "masks": {
+        "fc1": [
+          4
+        ],
+        "fc2": [
+          4
+        ],
+        "gelu": [
+          4
+        ],
+        "ln2": [
+          4
+        ],
+        "mlp_residual": [
+          4
+        ]
+      },
+      "order": null,
+      "perturbation": "mlp",
+      "perturbation_direction": "FP32_activation_to_strict_quantized",
+      "sample_count": 50000,
+      "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31",
+      "schema_version": 1,
+      "sensitivity_rank": 11,
+      "step": null,
+      "tensor_metric_direction": "FP32_activation_to_strict_quantized",
+      "tensor_metrics": {
+        "4:fc1": {
+          "clip_rate": 1.3461681547619048e-05,
+          "cosine": 0.9999977864556968,
+          "elements": 7526400000,
+          "mae": 0.0015446883566075725,
+          "mse": 7.358715367475286e-06,
+          "observed_max": 5.831603050231934,
+          "observed_min": -9.055035591125488,
+          "sqnr_db": 53.53844718259646,
+          "zero_rate": 0.001681831818664966
+        },
+        "4:fc2": {
+          "clip_rate": 2.5212585034013605e-06,
+          "cosine": 0.9999997859172968,
+          "elements": 1881600000,
+          "mae": 9.603787463777856e-05,
+          "mse": 3.493194680930925e-08,
+          "observed_max": 1.9216179847717285,
+          "observed_min": -2.11429500579834,
+          "sqnr_db": 63.68379541844686,
+          "zero_rate": 0.0008230877976190476
+        },
+        "4:gelu": {
+          "clip_rate": 0.8383698919802296,
+          "cosine": 0.8362343306231899,
+          "elements": 7526400000,
+          "mae": 0.09938137762793509,
+          "mse": 0.012938483543459937,
+          "observed_max": 5.829859256744385,
+          "observed_min": -0.16997109353542328,
+          "sqnr_db": 5.218347687243412,
+          "zero_rate": 0.8904258232355442
+        },
+        "4:ln2": {
+          "clip_rate": 0.019616287733843538,
+          "cosine": 0.957506144710406,
+          "elements": 1881600000,
+          "mae": 0.24148260071473254,
+          "mse": 0.11578029585873043,
+          "observed_max": 11.935870170593262,
+          "observed_min": -11.387959480285645,
+          "sqnr_db": 10.799645796000949,
+          "zero_rate": 0.3440688578869048
+        },
+        "4:mlp_residual": {
+          "clip_rate": 7.762861394557824e-05,
+          "cosine": 0.9980858110934362,
+          "elements": 1881600000,
+          "mae": 0.000471181214703911,
+          "mse": 0.0012860252296688173,
+          "observed_max": 12.21012020111084,
+          "observed_min": -7.440332889556885,
+          "sqnr_db": 24.16610065986142,
+          "zero_rate": 0.0009515438988095238
+        }
+      },
+      "top1": 0.57422,
+      "top1_drop_pp": 12.598,
+      "top5": 0.81086
+    },
+    {
+      "block": 4,
+      "checkpoint_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+      "config_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+      "data_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b",
+      "device": "cuda",
+      "duration_seconds": 41.97791449492797,
+      "experiment_id": "layer-04-whole-block",
+      "experiment_sha256": "7ca15eb3ead64e59c20600e8bab15e7b854f853f57b3a6f28582c43317ab8030",
+      "family": "layer",
+      "masks": {
+        "a": [
+          4
+        ],
+        "attention_residual": [
+          4
+        ],
+        "fc1": [
+          4
+        ],
+        "fc2": [
+          4
+        ],
+        "gelu": [
+          4
+        ],
+        "k": [
+          4
+        ],
+        "ln1": [
+          4
+        ],
+        "ln2": [
+          4
+        ],
+        "mlp_residual": [
+          4
+        ],
+        "o": [
+          4
+        ],
+        "q": [
+          4
+        ],
+        "softmax": [
+          4
+        ],
+        "v": [
+          4
+        ]
+      },
+      "order": null,
+      "perturbation": "whole-block",
+      "perturbation_direction": "FP32_activation_to_strict_quantized",
+      "sample_count": 50000,
+      "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31",
+      "schema_version": 1,
+      "sensitivity_rank": 14,
+      "step": null,
+      "tensor_metric_direction": "FP32_activation_to_strict_quantized",
+      "tensor_metrics": {
+        "4:a": {
+          "clip_rate": 0.006056032100340136,
+          "cosine": 0.9626612944346776,
+          "elements": 1881600000,
+          "mae": 0.04993769294588981,
+          "mse": 0.003407668393547146,
+          "observed_max": 1.4831881523132324,
+          "observed_min": -2.1118226051330566,
+          "sqnr_db": 11.175329775908374,
+          "zero_rate": 0.4085186495535714
+        },
+        "4:attention_residual": {
+          "clip_rate": 2.9440369897959182e-05,
+          "cosine": 0.9978823763720892,
+          "elements": 1881600000,
+          "mae": 0.00027481066946582496,
+          "mse": 0.0014843504756619982,
+          "observed_max": 12.963939666748047,
+          "observed_min": -7.686129570007324,
+          "sqnr_db": 23.72760437208261,
+          "zero_rate": 0.00026081792091836733
+        },
+        "4:fc1": {
+          "clip_rate": 1.4149659863945578e-05,
+          "cosine": 0.9999977624139055,
+          "elements": 7526400000,
+          "mae": 0.0015449500425806352,
+          "mse": 7.5362504565972734e-06,
+          "observed_max": 5.149533748626709,
+          "observed_min": -9.082321166992188,
+          "sqnr_db": 53.491510517853726,
+          "zero_rate": 0.001661293712797619
+        },
+        "4:fc2": {
+          "clip_rate": 1.0730229591836735e-06,
+          "cosine": 0.9999998710598846,
+          "elements": 1881600000,
+          "mae": 9.593130595354006e-05,
+          "mse": 1.9384916267785725e-08,
+          "observed_max": 1.845855474472046,
+          "observed_min": -1.932612657546997,
+          "sqnr_db": 65.88580345062942,
+          "zero_rate": 0.0008831478528911565
+        },
+        "4:gelu": {
+          "clip_rate": 0.8427421254517432,
+          "cosine": 0.8215646931425752,
+          "elements": 7526400000,
+          "mae": 0.09927671252793452,
+          "mse": 0.01284184276735249,
+          "observed_max": 5.1465277671813965,
+          "observed_min": -0.16997109353542328,
+          "sqnr_db": 4.879524904511748,
+          "zero_rate": 0.8943288011532738
+        },
+        "4:k": {
+          "clip_rate": 0.03372177508503402,
+          "cosine": 0.9799165656587235,
+          "elements": 1881600000,
+          "mae": 0.15442568053846656,
+          "mse": 0.03543196234901854,
+          "observed_max": 5.501070022583008,
+          "observed_min": -5.5656561851501465,
+          "sqnr_db": 13.994805777970223,
+          "zero_rate": 0.24603621173469387
+        },
+        "4:ln1": {
+          "clip_rate": 0.029759108737244896,
+          "cosine": 0.970149028789173,
+          "elements": 1881600000,
+          "mae": 0.19211481582740328,
+          "mse": 0.06437445311352594,
+          "observed_max": 8.883099555969238,
+          "observed_min": -9.578499794006348,
+          "sqnr_db": 12.305423317067998,
+          "zero_rate": 0.29615192176870747
+        },
+        "4:ln2": {
+          "clip_rate": 0.020251526892006804,
+          "cosine": 0.956380315836242,
+          "elements": 1881600000,
+          "mae": 0.2425175915296346,
+          "mse": 0.11783929405496667,
+          "observed_max": 11.81118392944336,
+          "observed_min": -11.301863670349121,
+          "sqnr_db": 10.68856221913329,
+          "zero_rate": 0.3488326307397959
+        },
+        "4:mlp_residual": {
+          "clip_rate": 6.16124574829932e-05,
+          "cosine": 0.997847637086811,
+          "elements": 1881600000,
+          "mae": 0.00047510818439646253,
+          "mse": 0.0013884458082864177,
+          "observed_max": 12.354214668273926,
+          "observed_min": -7.346757888793945,
+          "sqnr_db": 23.657275519812803,
+          "zero_rate": 0.0009848777636054422
+        },
+        "4:o": {
+          "clip_rate": 3.7733843537414965e-07,
+          "cosine": 0.9999999036153046,
+          "elements": 1881600000,
+          "mae": 8.443839197892033e-05,
+          "mse": 1.0840384395653816e-08,
+          "observed_max": 1.6291078329086304,
+          "observed_min": -1.464640498161316,
+          "sqnr_db": 67.14960703106581,
+          "zero_rate": 0.00073921981292517
+        },
+        "4:q": {
+          "clip_rate": 0.038348857355442176,
+          "cosine": 0.9779233746126893,
+          "elements": 1881600000,
+          "mae": 0.17585036594409162,
+          "mse": 0.0472561676835978,
+          "observed_max": 6.107884407043457,
+          "observed_min": -6.179947853088379,
+          "sqnr_db": 13.596860703705808,
+          "zero_rate": 0.2625285443239796
+        },
+        "4:softmax": {
+          "clip_rate": 0.00025146293211162013,
+          "cosine": 0.9197375870393821,
+          "elements": 5762400000,
+          "mae": 0.0030380389786549685,
+          "mse": 1.771278232027024e-05,
+          "observed_max": 0.8784622550010681,
+          "observed_min": 3.689473260237719e-07,
+          "sqnr_db": 7.929392355162065,
+          "zero_rate": 0.8745243077537137
+        },
+        "4:v": {
+          "clip_rate": 0.038750133397108845,
+          "cosine": 0.9781060390962334,
+          "elements": 1881600000,
+          "mae": 0.1264520174038164,
+          "mse": 0.02515095631579829,
+          "observed_max": 5.304031848907471,
+          "observed_min": -4.924472332000732,
+          "sqnr_db": 13.633579810691971,
+          "zero_rate": 0.24934616549744898
+        }
+      },
+      "top1": 0.58532,
+      "top1_drop_pp": 11.488,
+      "top5": 0.82068
+    },
+    {
+      "block": 5,
+      "checkpoint_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+      "config_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+      "data_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b",
+      "device": "cuda",
+      "duration_seconds": 41.75495920400135,
+      "experiment_id": "layer-05-attention",
+      "experiment_sha256": "e809075939e8596125f82bdeee77d4fb23bbccfcf78190d19d5076a627464de1",
+      "family": "layer",
+      "masks": {
+        "a": [
+          5
+        ],
+        "attention_residual": [
+          5
+        ],
+        "k": [
+          5
+        ],
+        "ln1": [
+          5
+        ],
+        "o": [
+          5
+        ],
+        "q": [
+          5
+        ],
+        "softmax": [
+          5
+        ],
+        "v": [
+          5
+        ]
+      },
+      "order": null,
+      "perturbation": "attention",
+      "perturbation_direction": "FP32_activation_to_strict_quantized",
+      "sample_count": 50000,
+      "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31",
+      "schema_version": 1,
+      "sensitivity_rank": 29,
+      "step": null,
+      "tensor_metric_direction": "FP32_activation_to_strict_quantized",
+      "tensor_metrics": {
+        "5:a": {
+          "clip_rate": 0.0014756021471088435,
+          "cosine": 0.9326253934256756,
+          "elements": 1881600000,
+          "mae": 0.020244383210352483,
+          "mse": 0.0013307052186170977,
+          "observed_max": 1.435019612312317,
+          "observed_min": -1.739417552947998,
+          "sqnr_db": 8.849261788064313,
+          "zero_rate": 0.8372305606930273
+        },
+        "5:attention_residual": {
+          "clip_rate": 2.8122874149659863e-05,
+          "cosine": 0.997959762596227,
+          "elements": 1881600000,
+          "mae": 0.00027334583063006796,
+          "mse": 0.0014794139302173677,
+          "observed_max": 12.838521957397461,
+          "observed_min": -7.048955917358398,
+          "sqnr_db": 23.88957697257179,
+          "zero_rate": 0.00023877232142857142
+        },
+        "5:k": {
+          "clip_rate": 0.03424291985544218,
+          "cosine": 0.9789224054100947,
+          "elements": 1881600000,
+          "mae": 0.14970552100636353,
+          "mse": 0.033836618830260234,
+          "observed_max": 5.48639440536499,
+          "observed_min": -5.417305946350098,
+          "sqnr_db": 13.790584516609439,
+          "zero_rate": 0.25233328125
+        },
+        "5:ln1": {
+          "clip_rate": 0.03141525616496599,
+          "cosine": 0.970934847700971,
+          "elements": 1881600000,
+          "mae": 0.1910549227574202,
+          "mse": 0.06549105335302041,
+          "observed_max": 8.705388069152832,
+          "observed_min": -9.878240585327148,
+          "sqnr_db": 12.419365906929563,
+          "zero_rate": 0.281450043579932
+        },
+        "5:o": {
+          "clip_rate": 6.207482993197279e-07,
+          "cosine": 0.9999998712610022,
+          "elements": 1881600000,
+          "mae": 8.386363486923117e-05,
+          "mse": 1.1540454941938167e-08,
+          "observed_max": 1.6594390869140625,
+          "observed_min": -1.25066339969635,
+          "sqnr_db": 65.89255239285512,
+          "zero_rate": 0.0011233094175170067
+        },
+        "5:q": {
+          "clip_rate": 0.034595107886904765,
+          "cosine": 0.9762917758740604,
+          "elements": 1881600000,
+          "mae": 0.1691841466408925,
+          "mse": 0.044167753263089124,
+          "observed_max": 5.578794956207275,
+          "observed_min": -5.440207004547119,
+          "sqnr_db": 13.289681743958644,
+          "zero_rate": 0.2794667586096939
+        },
+        "5:softmax": {
+          "clip_rate": 2.7627377481604886e-07,
+          "cosine": 0.8310966765316848,
+          "elements": 5762400000,
+          "mae": 0.004530987312862589,
+          "mse": 5.290473097015701e-05,
+          "observed_max": 0.9069182872772217,
+          "observed_min": 4.557552912842766e-08,
+          "sqnr_db": 4.981864796548303,
+          "zero_rate": 0.9926513216715257
+        },
+        "5:v": {
+          "clip_rate": 0.03968409704506803,
+          "cosine": 0.9783915130255375,
+          "elements": 1881600000,
+          "mae": 0.12430485554005545,
+          "mse": 0.02432751434267328,
+          "observed_max": 4.724320411682129,
+          "observed_min": -5.060574054718018,
+          "sqnr_db": 13.69035582864388,
+          "zero_rate": 0.24878005952380952
+        }
+      },
+      "top1": 0.68628,
+      "top1_drop_pp": 1.392,
+      "top5": 0.89012
+    },
+    {
+      "block": 5,
+      "checkpoint_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+      "config_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+      "data_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b",
+      "device": "cuda",
+      "duration_seconds": 41.770788486814126,
+      "experiment_id": "layer-05-mlp",
+      "experiment_sha256": "aedab4115ce246ea372da9968287b0e6cd9193cd1582618809bdf0fe53c70e9a",
+      "family": "layer",
+      "masks": {
+        "fc1": [
+          5
+        ],
+        "fc2": [
+          5
+        ],
+        "gelu": [
+          5
+        ],
+        "ln2": [
+          5
+        ],
+        "mlp_residual": [
+          5
+        ]
+      },
+      "order": null,
+      "perturbation": "mlp",
+      "perturbation_direction": "FP32_activation_to_strict_quantized",
+      "sample_count": 50000,
+      "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31",
+      "schema_version": 1,
+      "sensitivity_rank": 13,
+      "step": null,
+      "tensor_metric_direction": "FP32_activation_to_strict_quantized",
+      "tensor_metrics": {
+        "5:fc1": {
+          "clip_rate": 1.0580091411564625e-06,
+          "cosine": 0.9999992802626999,
+          "elements": 7526400000,
+          "mae": 0.001401009527973689,
+          "mse": 2.683349739565513e-06,
+          "observed_max": 7.105428218841553,
+          "observed_min": -7.137077331542969,
+          "sqnr_db": 58.41796014218716,
+          "zero_rate": 0.0016683959130527211
+        },
+        "5:fc2": {
+          "clip_rate": 6.052827380952381e-06,
+          "cosine": 0.9999994903047403,
+          "elements": 1881600000,
+          "mae": 9.922111038507608e-05,
+          "mse": 8.737500506851485e-08,
+          "observed_max": 2.229743719100952,
+          "observed_min": -2.2922558784484863,
+          "sqnr_db": 59.91623963881559,
+          "zero_rate": 0.0006511585884353742
+        },
+        "5:gelu": {
+          "clip_rate": 0.8483614433195154,
+          "cosine": 0.8491292928562616,
+          "elements": 7526400000,
+          "mae": 0.09710251739928752,
+          "mse": 0.012644107379341882,
+          "observed_max": 5.732211112976074,
+          "observed_min": -0.16997100412845612,
+          "sqnr_db": 5.544263230543942,
+          "zero_rate": 0.8978493549372875
+        },
+        "5:ln2": {
+          "clip_rate": 0.01801457110969388,
+          "cosine": 0.9524615849992688,
+          "elements": 1881600000,
+          "mae": 0.2620749739036055,
+          "mse": 0.14435535625184873,
+          "observed_max": 13.19526195526123,
+          "observed_min": -13.065969467163086,
+          "sqnr_db": 10.32365728578663,
+          "zero_rate": 0.3551166948341837
+        },
+        "5:mlp_residual": {
+          "clip_rate": 4.710140306122449e-05,
+          "cosine": 0.9983255385980846,
+          "elements": 1881600000,
+          "mae": 0.00046116017377501,
+          "mse": 0.001197286745949755,
+          "observed_max": 12.314058303833008,
+          "observed_min": -7.072502613067627,
+          "sqnr_db": 24.74748832044661,
+          "zero_rate": 0.0008813398171768707
+        }
+      },
+      "top1": 0.58438,
+      "top1_drop_pp": 11.582,
+      "top5": 0.8204
+    },
+    {
+      "block": 5,
+      "checkpoint_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+      "config_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+      "data_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b",
+      "device": "cuda",
+      "duration_seconds": 41.99160419194959,
+      "experiment_id": "layer-05-whole-block",
+      "experiment_sha256": "cc54007edb28858181b175ebb11eee88f65aaf0dfc99454b9f98e5c10654431c",
+      "family": "layer",
+      "masks": {
+        "a": [
+          5
+        ],
+        "attention_residual": [
+          5
+        ],
+        "fc1": [
+          5
+        ],
+        "fc2": [
+          5
+        ],
+        "gelu": [
+          5
+        ],
+        "k": [
+          5
+        ],
+        "ln1": [
+          5
+        ],
+        "ln2": [
+          5
+        ],
+        "mlp_residual": [
+          5
+        ],
+        "o": [
+          5
+        ],
+        "q": [
+          5
+        ],
+        "softmax": [
+          5
+        ],
+        "v": [
+          5
+        ]
+      },
+      "order": null,
+      "perturbation": "whole-block",
+      "perturbation_direction": "FP32_activation_to_strict_quantized",
+      "sample_count": 50000,
+      "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31",
+      "schema_version": 1,
+      "sensitivity_rank": 10,
+      "step": null,
+      "tensor_metric_direction": "FP32_activation_to_strict_quantized",
+      "tensor_metrics": {
+        "5:a": {
+          "clip_rate": 0.0014756021471088435,
+          "cosine": 0.9326253934256756,
+          "elements": 1881600000,
+          "mae": 0.020244383210352483,
+          "mse": 0.0013307052186170977,
+          "observed_max": 1.435019612312317,
+          "observed_min": -1.739417552947998,
+          "sqnr_db": 8.849261788064313,
+          "zero_rate": 0.8372305606930273
+        },
+        "5:attention_residual": {
+          "clip_rate": 2.8122874149659863e-05,
+          "cosine": 0.997959762596227,
+          "elements": 1881600000,
+          "mae": 0.00027334583063006796,
+          "mse": 0.0014794139302173677,
+          "observed_max": 12.838521957397461,
+          "observed_min": -7.048955917358398,
+          "sqnr_db": 23.88957697257179,
+          "zero_rate": 0.00023877232142857142
+        },
+        "5:fc1": {
+          "clip_rate": 3.714923469387755e-07,
+          "cosine": 0.9999992667105473,
+          "elements": 7526400000,
+          "mae": 0.0014008956439379187,
+          "mse": 2.6347758412498172e-06,
+          "observed_max": 5.573488712310791,
+          "observed_min": -6.782967567443848,
+          "sqnr_db": 58.33694236537654,
+          "zero_rate": 0.001706958838222789
+        },
+        "5:fc2": {
+          "clip_rate": 7.096619897959184e-06,
+          "cosine": 0.9999994640560215,
+          "elements": 1881600000,
+          "mae": 9.92698090731148e-05,
+          "mse": 9.07632062457944e-08,
+          "observed_max": 2.0664479732513428,
+          "observed_min": -2.2774109840393066,
+          "sqnr_db": 59.69809066210388,
+          "zero_rate": 0.000634906994047619
+        },
+        "5:gelu": {
+          "clip_rate": 0.8466946271789966,
+          "cosine": 0.8359480305979232,
+          "elements": 7526400000,
+          "mae": 0.0979070576840712,
+          "mse": 0.0126104985514478,
+          "observed_max": 5.575317859649658,
+          "observed_min": -0.16997100412845612,
+          "sqnr_db": 5.2104956792677,
+          "zero_rate": 0.8976026674107143
+        },
+        "5:k": {
+          "clip_rate": 0.03424291985544218,
+          "cosine": 0.9789224054100947,
+          "elements": 1881600000,
+          "mae": 0.14970552100636353,
+          "mse": 0.033836618830260234,
+          "observed_max": 5.48639440536499,
+          "observed_min": -5.417305946350098,
+          "sqnr_db": 13.790584516609439,
+          "zero_rate": 0.25233328125
+        },
+        "5:ln1": {
+          "clip_rate": 0.03141525616496599,
+          "cosine": 0.970934847700971,
+          "elements": 1881600000,
+          "mae": 0.1910549227574202,
+          "mse": 0.06549105335302041,
+          "observed_max": 8.705388069152832,
+          "observed_min": -9.878240585327148,
+          "sqnr_db": 12.419365906929563,
+          "zero_rate": 0.281450043579932
+        },
+        "5:ln2": {
+          "clip_rate": 0.017695634034863947,
+          "cosine": 0.9519064674036904,
+          "elements": 1881600000,
+          "mae": 0.26170955943216945,
+          "mse": 0.14074854689702995,
+          "observed_max": 12.491966247558594,
+          "observed_min": -12.539740562438965,
+          "sqnr_db": 10.27453525370144,
+          "zero_rate": 0.36347593856292515
+        },
+        "5:mlp_residual": {
+          "clip_rate": 3.818346088435374e-05,
+          "cosine": 0.9981914352567289,
+          "elements": 1881600000,
+          "mae": 0.0004611879855710349,
+          "mse": 0.0012214075481322432,
+          "observed_max": 12.058919906616211,
+          "observed_min": -7.153980255126953,
+          "sqnr_db": 24.41291495607411,
+          "zero_rate": 0.0009191608205782313
+        },
+        "5:o": {
+          "clip_rate": 6.207482993197279e-07,
+          "cosine": 0.9999998712610022,
+          "elements": 1881600000,
+          "mae": 8.386363486923117e-05,
+          "mse": 1.1540454941938167e-08,
+          "observed_max": 1.6594390869140625,
+          "observed_min": -1.25066339969635,
+          "sqnr_db": 65.89255239285512,
+          "zero_rate": 0.0011233094175170067
+        },
+        "5:q": {
+          "clip_rate": 0.034595107886904765,
+          "cosine": 0.9762917758740604,
+          "elements": 1881600000,
+          "mae": 0.1691841466408925,
+          "mse": 0.044167753263089124,
+          "observed_max": 5.578794956207275,
+          "observed_min": -5.440207004547119,
+          "sqnr_db": 13.289681743958644,
+          "zero_rate": 0.2794667586096939
+        },
+        "5:softmax": {
+          "clip_rate": 2.7627377481604886e-07,
+          "cosine": 0.8310966765316848,
+          "elements": 5762400000,
+          "mae": 0.004530987312862589,
+          "mse": 5.290473097015701e-05,
+          "observed_max": 0.9069182872772217,
+          "observed_min": 4.557552912842766e-08,
+          "sqnr_db": 4.981864796548303,
+          "zero_rate": 0.9926513216715257
+        },
+        "5:v": {
+          "clip_rate": 0.03968409704506803,
+          "cosine": 0.9783915130255375,
+          "elements": 1881600000,
+          "mae": 0.12430485554005545,
+          "mse": 0.02432751434267328,
+          "observed_max": 4.724320411682129,
+          "observed_min": -5.060574054718018,
+          "sqnr_db": 13.69035582864388,
+          "zero_rate": 0.24878005952380952
+        }
+      },
+      "top1": 0.56846,
+      "top1_drop_pp": 13.174,
+      "top5": 0.80426
+    },
+    {
+      "block": 6,
+      "checkpoint_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+      "config_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+      "data_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b",
+      "device": "cuda",
+      "duration_seconds": 41.680781601928174,
+      "experiment_id": "layer-06-attention",
+      "experiment_sha256": "46809837f78a91d540db021f3af004cb7b121dcfa52d3a5c8159ca6e9cd6c924",
+      "family": "layer",
+      "masks": {
+        "a": [
+          6
+        ],
+        "attention_residual": [
+          6
+        ],
+        "k": [
+          6
+        ],
+        "ln1": [
+          6
+        ],
+        "o": [
+          6
+        ],
+        "q": [
+          6
+        ],
+        "softmax": [
+          6
+        ],
+        "v": [
+          6
+        ]
+      },
+      "order": null,
+      "perturbation": "attention",
+      "perturbation_direction": "FP32_activation_to_strict_quantized",
+      "sample_count": 50000,
+      "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31",
+      "schema_version": 1,
+      "sensitivity_rank": 22,
+      "step": null,
+      "tensor_metric_direction": "FP32_activation_to_strict_quantized",
+      "tensor_metrics": {
+        "6:a": {
+          "clip_rate": 0.005236646471088436,
+          "cosine": 0.9544949972862043,
+          "elements": 1881600000,
+          "mae": 0.04755133010979897,
+          "mse": 0.003448409802526177,
+          "observed_max": 1.5964921712875366,
+          "observed_min": -2.080277681350708,
+          "sqnr_db": 10.284270126205028,
+          "zero_rate": 0.600414390412415
+        },
+        "6:attention_residual": {
+          "clip_rate": 2.9672619047619047e-05,
+          "cosine": 0.9984242317635507,
+          "elements": 1881600000,
+          "mae": 0.00026967865344638904,
+          "mse": 0.0013463544667613233,
+          "observed_max": 13.497541427612305,
+          "observed_min": -7.604241371154785,
+          "sqnr_db": 25.01068747924279,
+          "zero_rate": 0.00022525085034013606
+        },
+        "6:k": {
+          "clip_rate": 0.03289242665816326,
+          "cosine": 0.9772282411475952,
+          "elements": 1881600000,
+          "mae": 0.15954457203531522,
+          "mse": 0.0385633553921269,
+          "observed_max": 5.548826217651367,
+          "observed_min": -5.479520320892334,
+          "sqnr_db": 13.45622199024609,
+          "zero_rate": 0.266621996704932
+        },
+        "6:ln1": {
+          "clip_rate": 0.031541477465986394,
+          "cosine": 0.9724209723098619,
+          "elements": 1881600000,
+          "mae": 0.19752334521106002,
+          "mse": 0.06678474206191201,
+          "observed_max": 8.824265480041504,
+          "observed_min": -10.221903800964355,
+          "sqnr_db": 12.644181918518262,
+          "zero_rate": 0.2816795503826531
+        },
+        "6:o": {
+          "clip_rate": 1.0592580782312924e-05,
+          "cosine": 0.9999981320704873,
+          "elements": 1881600000,
+          "mae": 9.400637579195882e-05,
+          "mse": 1.9015735987745107e-07,
+          "observed_max": 2.2283403873443604,
+          "observed_min": -1.4508779048919678,
+          "sqnr_db": 54.27508593642223,
+          "zero_rate": 0.0004360751488095238
+        },
+        "6:q": {
+          "clip_rate": 0.03328616284013605,
+          "cosine": 0.9778352025334406,
+          "elements": 1881600000,
+          "mae": 0.17700088728214244,
+          "mse": 0.04746884028279966,
+          "observed_max": 6.141594886779785,
+          "observed_min": -6.094837665557861,
+          "sqnr_db": 13.575856473947246,
+          "zero_rate": 0.2783658753188776
+        },
+        "6:softmax": {
+          "clip_rate": 4.2738789393308346e-05,
+          "cosine": 0.845924079030455,
+          "elements": 5762400000,
+          "mae": 0.00410681395507805,
+          "mse": 3.987774997842973e-05,
+          "observed_max": 0.9813603162765503,
+          "observed_min": 9.832235470241812e-09,
+          "sqnr_db": 5.253804993398575,
+          "zero_rate": 0.9689721176940164
+        },
+        "6:v": {
+          "clip_rate": 0.041425893388605445,
+          "cosine": 0.9788482957660426,
+          "elements": 1881600000,
+          "mae": 0.13570014991088303,
+          "mse": 0.028989484482469404,
+          "observed_max": 5.344001293182373,
+          "observed_min": -5.176115036010742,
+          "sqnr_db": 13.78233470687195,
+          "zero_rate": 0.24369608577806123
+        }
+      },
+      "top1": 0.67778,
+      "top1_drop_pp": 2.242,
+      "top5": 0.88742
+    },
+    {
+      "block": 6,
+      "checkpoint_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+      "config_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+      "data_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b",
+      "device": "cuda",
+      "duration_seconds": 42.386089303996414,
+      "experiment_id": "layer-06-mlp",
+      "experiment_sha256": "ef2a5010f6c9e8622256898880e976ebd34477c5dc46617f488b767f4cc0958f",
+      "family": "layer",
+      "masks": {
+        "fc1": [
+          6
+        ],
+        "fc2": [
+          6
+        ],
+        "gelu": [
+          6
+        ],
+        "ln2": [
+          6
+        ],
+        "mlp_residual": [
+          6
+        ]
+      },
+      "order": null,
+      "perturbation": "mlp",
+      "perturbation_direction": "FP32_activation_to_strict_quantized",
+      "sample_count": 50000,
+      "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31",
+      "schema_version": 1,
+      "sensitivity_rank": 12,
+      "step": null,
+      "tensor_metric_direction": "FP32_activation_to_strict_quantized",
+      "tensor_metrics": {
+        "6:fc1": {
+          "clip_rate": 1.5881430697278911e-06,
+          "cosine": 0.9999991855712718,
+          "elements": 7526400000,
+          "mae": 0.0015505641510811415,
+          "mse": 3.352714757487845e-06,
+          "observed_max": 7.475383758544922,
+          "observed_min": -8.101694107055664,
+          "sqnr_db": 57.88116874798256,
+          "zero_rate": 0.00181236434417517
+        },
+        "6:fc2": {
+          "clip_rate": 3.402795493197279e-05,
+          "cosine": 0.9999953436586864,
+          "elements": 1881600000,
+          "mae": 0.00011446663631339627,
+          "mse": 1.0213863897887803e-06,
+          "observed_max": 2.2501583099365234,
+          "observed_min": -3.0589160919189453,
+          "sqnr_db": 50.30692999380034,
+          "zero_rate": 0.000611077806122449
+        },
+        "6:gelu": {
+          "clip_rate": 0.831765106292517,
+          "cosine": 0.8812301296193167,
+          "elements": 7526400000,
+          "mae": 0.09449115083286734,
+          "mse": 0.012469716320948442,
+          "observed_max": 6.34348201751709,
+          "observed_min": -0.16997072100639343,
+          "sqnr_db": 6.508436317033696,
+          "zero_rate": 0.8913624505739796
+        },
+        "6:ln2": {
+          "clip_rate": 0.01781328231292517,
+          "cosine": 0.9544408624627126,
+          "elements": 1881600000,
+          "mae": 0.2689922037427119,
+          "mse": 0.15080907654736084,
+          "observed_max": 13.492582321166992,
+          "observed_min": -13.958192825317383,
+          "sqnr_db": 10.503895932447644,
+          "zero_rate": 0.3436705107355442
+        },
+        "6:mlp_residual": {
+          "clip_rate": 3.952327806122449e-05,
+          "cosine": 0.9988656800931961,
+          "elements": 1881600000,
+          "mae": 0.00048643329454794456,
+          "mse": 0.0010528436389648764,
+          "observed_max": 13.325074195861816,
+          "observed_min": -7.579860687255859,
+          "sqnr_db": 26.437845251773666,
+          "zero_rate": 0.0008452875212585034
+        }
+      },
+      "top1": 0.57894,
+      "top1_drop_pp": 12.126,
+      "top5": 0.80928
+    },
+    {
+      "block": 6,
+      "checkpoint_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+      "config_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+      "data_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b",
+      "device": "cuda",
+      "duration_seconds": 41.823343923082575,
+      "experiment_id": "layer-06-whole-block",
+      "experiment_sha256": "ee030f966f0501a863bbf6b02306c83e77efe06157e7d7e7b8c54f0f12c6ad7e",
+      "family": "layer",
+      "masks": {
+        "a": [
+          6
+        ],
+        "attention_residual": [
+          6
+        ],
+        "fc1": [
+          6
+        ],
+        "fc2": [
+          6
+        ],
+        "gelu": [
+          6
+        ],
+        "k": [
+          6
+        ],
+        "ln1": [
+          6
+        ],
+        "ln2": [
+          6
+        ],
+        "mlp_residual": [
+          6
+        ],
+        "o": [
+          6
+        ],
+        "q": [
+          6
+        ],
+        "softmax": [
+          6
+        ],
+        "v": [
+          6
+        ]
+      },
+      "order": null,
+      "perturbation": "whole-block",
+      "perturbation_direction": "FP32_activation_to_strict_quantized",
+      "sample_count": 50000,
+      "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31",
+      "schema_version": 1,
+      "sensitivity_rank": 3,
+      "step": null,
+      "tensor_metric_direction": "FP32_activation_to_strict_quantized",
+      "tensor_metrics": {
+        "6:a": {
+          "clip_rate": 0.005236646471088436,
+          "cosine": 0.9544949972862043,
+          "elements": 1881600000,
+          "mae": 0.04755133010979897,
+          "mse": 0.003448409802526177,
+          "observed_max": 1.5964921712875366,
+          "observed_min": -2.080277681350708,
+          "sqnr_db": 10.284270126205028,
+          "zero_rate": 0.600414390412415
+        },
+        "6:attention_residual": {
+          "clip_rate": 2.9672619047619047e-05,
+          "cosine": 0.9984242317635507,
+          "elements": 1881600000,
+          "mae": 0.00026967865344638904,
+          "mse": 0.0013463544667613233,
+          "observed_max": 13.497541427612305,
+          "observed_min": -7.604241371154785,
+          "sqnr_db": 25.01068747924279,
+          "zero_rate": 0.00022525085034013606
+        },
+        "6:fc1": {
+          "clip_rate": 9.748352465986394e-07,
+          "cosine": 0.9999991833633243,
+          "elements": 7526400000,
+          "mae": 0.0015504312279048065,
+          "mse": 3.290059232394414e-06,
+          "observed_max": 7.206716537475586,
+          "observed_min": -8.101694107055664,
+          "sqnr_db": 57.869407990802486,
+          "zero_rate": 0.0018331242028061224
+        },
+        "6:fc2": {
+          "clip_rate": 8.406675170068028e-06,
+          "cosine": 0.9999991073580315,
+          "elements": 1881600000,
+          "mae": 0.00011100055723599648,
+          "mse": 1.6692372448796456e-07,
+          "observed_max": 2.0321884155273438,
+          "observed_min": -2.705505847930908,
+          "sqnr_db": 57.482318187360605,
+          "zero_rate": 0.0006701333971088436
+        },
+        "6:gelu": {
+          "clip_rate": 0.8379287024340987,
+          "cosine": 0.857844707828849,
+          "elements": 7526400000,
+          "mae": 0.09524081650650973,
+          "mse": 0.012272347811293008,
+          "observed_max": 6.34348201751709,
+          "observed_min": -0.16997072100639343,
+          "sqnr_db": 5.77772375458383,
+          "zero_rate": 0.8980330335884353
+        },
+        "6:k": {
+          "clip_rate": 0.03289242665816326,
+          "cosine": 0.9772282411475952,
+          "elements": 1881600000,
+          "mae": 0.15954457203531522,
+          "mse": 0.0385633553921269,
+          "observed_max": 5.548826217651367,
+          "observed_min": -5.479520320892334,
+          "sqnr_db": 13.45622199024609,
+          "zero_rate": 0.266621996704932
+        },
+        "6:ln1": {
+          "clip_rate": 0.031541477465986394,
+          "cosine": 0.9724209723098619,
+          "elements": 1881600000,
+          "mae": 0.19752334521106002,
+          "mse": 0.06678474206191201,
+          "observed_max": 8.824265480041504,
+          "observed_min": -10.221903800964355,
+          "sqnr_db": 12.644181918518262,
+          "zero_rate": 0.2816795503826531
+        },
+        "6:ln2": {
+          "clip_rate": 0.018103867984693878,
+          "cosine": 0.9533848553135561,
+          "elements": 1881600000,
+          "mae": 0.26955173155530016,
+          "mse": 0.15031782159883536,
+          "observed_max": 13.016800880432129,
+          "observed_min": -13.57459545135498,
+          "sqnr_db": 10.406829073987435,
+          "zero_rate": 0.35118049160289116
+        },
+        "6:mlp_residual": {
+          "clip_rate": 3.0741390306122447e-05,
+          "cosine": 0.9986865133813962,
+          "elements": 1881600000,
+          "mae": 0.0004857168264240985,
+          "mse": 0.001070563808375841,
+          "observed_max": 12.598503112792969,
+          "observed_min": -7.383007526397705,
+          "sqnr_db": 25.800555717069145,
+          "zero_rate": 0.0009141204294217687
+        },
+        "6:o": {
+          "clip_rate": 1.0592580782312924e-05,
+          "cosine": 0.9999981320704873,
+          "elements": 1881600000,
+          "mae": 9.400637579195882e-05,
+          "mse": 1.9015735987745107e-07,
+          "observed_max": 2.2283403873443604,
+          "observed_min": -1.4508779048919678,
+          "sqnr_db": 54.27508593642223,
+          "zero_rate": 0.0004360751488095238
+        },
+        "6:q": {
+          "clip_rate": 0.03328616284013605,
+          "cosine": 0.9778352025334406,
+          "elements": 1881600000,
+          "mae": 0.17700088728214244,
+          "mse": 0.04746884028279966,
+          "observed_max": 6.141594886779785,
+          "observed_min": -6.094837665557861,
+          "sqnr_db": 13.575856473947246,
+          "zero_rate": 0.2783658753188776
+        },
+        "6:softmax": {
+          "clip_rate": 4.2738789393308346e-05,
+          "cosine": 0.845924079030455,
+          "elements": 5762400000,
+          "mae": 0.00410681395507805,
+          "mse": 3.987774997842973e-05,
+          "observed_max": 0.9813603162765503,
+          "observed_min": 9.832235470241812e-09,
+          "sqnr_db": 5.253804993398575,
+          "zero_rate": 0.9689721176940164
+        },
+        "6:v": {
+          "clip_rate": 0.041425893388605445,
+          "cosine": 0.9788482957660426,
+          "elements": 1881600000,
+          "mae": 0.13570014991088303,
+          "mse": 0.028989484482469404,
+          "observed_max": 5.344001293182373,
+          "observed_min": -5.176115036010742,
+          "sqnr_db": 13.78233470687195,
+          "zero_rate": 0.24369608577806123
+        }
+      },
+      "top1": 0.48334,
+      "top1_drop_pp": 21.686,
+      "top5": 0.71646
+    },
+    {
+      "block": 7,
+      "checkpoint_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+      "config_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+      "data_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b",
+      "device": "cuda",
+      "duration_seconds": 42.23803830286488,
+      "experiment_id": "layer-07-attention",
+      "experiment_sha256": "e8e931604c37245ac033aca3d3050648c97007ba91a1aa0e7dab5e9b472dc1e2",
+      "family": "layer",
+      "masks": {
+        "a": [
+          7
+        ],
+        "attention_residual": [
+          7
+        ],
+        "k": [
+          7
+        ],
+        "ln1": [
+          7
+        ],
+        "o": [
+          7
+        ],
+        "q": [
+          7
+        ],
+        "softmax": [
+          7
+        ],
+        "v": [
+          7
+        ]
+      },
+      "order": null,
+      "perturbation": "attention",
+      "perturbation_direction": "FP32_activation_to_strict_quantized",
+      "sample_count": 50000,
+      "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31",
+      "schema_version": 1,
+      "sensitivity_rank": 26,
+      "step": null,
+      "tensor_metric_direction": "FP32_activation_to_strict_quantized",
+      "tensor_metrics": {
+        "7:a": {
+          "clip_rate": 0.003926326530612245,
+          "cosine": 0.9472520776439239,
+          "elements": 1881600000,
+          "mae": 0.04042811991495667,
+          "mse": 0.0027133424498771855,
+          "observed_max": 1.6416943073272705,
+          "observed_min": -2.010237455368042,
+          "sqnr_db": 9.23524278958695,
+          "zero_rate": 0.6006360926870749
+        },
+        "7:attention_residual": {
+          "clip_rate": 0.00012691326530612246,
+          "cosine": 0.9988263962145579,
+          "elements": 1881600000,
+          "mae": 0.00033283279926064056,
+          "mse": 0.0012023732360614036,
+          "observed_max": 14.299793243408203,
+          "observed_min": -8.513592720031738,
+          "sqnr_db": 26.282584058373434,
+          "zero_rate": 0.00022522108843537415
+        },
+        "7:k": {
+          "clip_rate": 0.034688509778911567,
+          "cosine": 0.9789341436389161,
+          "elements": 1881600000,
+          "mae": 0.16216248993658358,
+          "mse": 0.03975063674469581,
+          "observed_max": 6.046669006347656,
+          "observed_min": -5.550275802612305,
+          "sqnr_db": 13.792835401807505,
+          "zero_rate": 0.2500890183886054
+        },
+        "7:ln1": {
+          "clip_rate": 0.03461420386904762,
+          "cosine": 0.9740323164245639,
+          "elements": 1881600000,
+          "mae": 0.18939591818802431,
+          "mse": 0.06140031812018521,
+          "observed_max": 8.013526916503906,
+          "observed_min": -9.174405097961426,
+          "sqnr_db": 12.901963663595655,
+          "zero_rate": 0.2692741225552721
+        },
+        "7:o": {
+          "clip_rate": 2.9543473639455782e-05,
+          "cosine": 0.9999941916264219,
+          "elements": 1881600000,
+          "mae": 8.407225898833675e-05,
+          "mse": 3.8118961351350627e-07,
+          "observed_max": 2.099306583404541,
+          "observed_min": -1.5996159315109253,
+          "sqnr_db": 49.345166377238414,
+          "zero_rate": 0.0002373953018707483
+        },
+        "7:q": {
+          "clip_rate": 0.03685679793792517,
+          "cosine": 0.9761535582797385,
+          "elements": 1881600000,
+          "mae": 0.19119171450741265,
+          "mse": 0.056272024129998405,
+          "observed_max": 6.208822250366211,
+          "observed_min": -5.771911144256592,
+          "sqnr_db": 13.264863085108523,
+          "zero_rate": 0.26639903326955783
+        },
+        "7:softmax": {
+          "clip_rate": 5.364084409273914e-06,
+          "cosine": 0.7921681676176858,
+          "elements": 5762400000,
+          "mae": 0.0044025784686149054,
+          "mse": 5.72231383845308e-05,
+          "observed_max": 0.9448835253715515,
+          "observed_min": 2.8146201813683547e-08,
+          "sqnr_db": 4.011156850142413,
+          "zero_rate": 0.9836500793072331
+        },
+        "7:v": {
+          "clip_rate": 0.03891125531462585,
+          "cosine": 0.9789311978627788,
+          "elements": 1881600000,
+          "mae": 0.12199849532293366,
+          "mse": 0.023019953167462914,
+          "observed_max": 4.556203365325928,
+          "observed_min": -4.643656253814697,
+          "sqnr_db": 13.797565449265598,
+          "zero_rate": 0.24633253773384353
+        }
+      },
+      "top1": 0.68406,
+      "top1_drop_pp": 1.614,
+      "top5": 0.88906
+    },
+    {
+      "block": 7,
+      "checkpoint_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+      "config_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+      "data_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b",
+      "device": "cuda",
+      "duration_seconds": 42.133020498091355,
+      "experiment_id": "layer-07-mlp",
+      "experiment_sha256": "ee0926cd29b9580773932897d9c75bbd63351a5db7bcb7cc706c93ff794920d6",
+      "family": "layer",
+      "masks": {
+        "fc1": [
+          7
+        ],
+        "fc2": [
+          7
+        ],
+        "gelu": [
+          7
+        ],
+        "ln2": [
+          7
+        ],
+        "mlp_residual": [
+          7
+        ]
+      },
+      "order": null,
+      "perturbation": "mlp",
+      "perturbation_direction": "FP32_activation_to_strict_quantized",
+      "sample_count": 50000,
+      "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31",
+      "schema_version": 1,
+      "sensitivity_rank": 16,
+      "step": null,
+      "tensor_metric_direction": "FP32_activation_to_strict_quantized",
+      "tensor_metrics": {
+        "7:fc1": {
+          "clip_rate": 1.2011054421768707e-07,
+          "cosine": 0.99999915959495,
+          "elements": 7526400000,
+          "mae": 0.0019458031059015665,
+          "mse": 5.062171967381654e-06,
+          "observed_max": 7.090979099273682,
+          "observed_min": -9.215739250183105,
+          "sqnr_db": 57.74477286053694,
+          "zero_rate": 0.004498294802295918
+        },
+        "7:fc2": {
+          "clip_rate": 3.242453231292517e-06,
+          "cosine": 0.9999995421485609,
+          "elements": 1881600000,
+          "mae": 0.00013347267375529077,
+          "mse": 1.1919831980563735e-07,
+          "observed_max": 2.540036916732788,
+          "observed_min": -3.3299612998962402,
+          "sqnr_db": 60.38225778700517,
+          "zero_rate": 0.0007060958758503402
+        },
+        "7:gelu": {
+          "clip_rate": 0.8067641802189626,
+          "cosine": 0.9119367024076538,
+          "elements": 7526400000,
+          "mae": 0.07676374030753816,
+          "mse": 0.009664935273140243,
+          "observed_max": 7.089303493499756,
+          "observed_min": -0.16996794939041138,
+          "sqnr_db": 7.737090299874425,
+          "zero_rate": 0.9212073802880527
+        },
+        "7:ln2": {
+          "clip_rate": 0.019831413159013607,
+          "cosine": 0.9571935906423394,
+          "elements": 1881600000,
+          "mae": 0.31512278496297763,
+          "mse": 0.20827549195861575,
+          "observed_max": 16.820045471191406,
+          "observed_min": -16.1688175201416,
+          "sqnr_db": 10.768560212370978,
+          "zero_rate": 0.3271989620535714
+        },
+        "7:mlp_residual": {
+          "clip_rate": 0.00014516634778911563,
+          "cosine": 0.9994782174325981,
+          "elements": 1881600000,
+          "mae": 0.0006293800940039897,
+          "mse": 0.0006739145307668519,
+          "observed_max": 13.976370811462402,
+          "observed_min": -9.742582321166992,
+          "sqnr_db": 29.79432284407407,
+          "zero_rate": 0.0009394175170068027
+        }
+      },
+      "top1": 0.6606,
+      "top1_drop_pp": 3.96,
+      "top5": 0.87246
+    },
+    {
+      "block": 7,
+      "checkpoint_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+      "config_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+      "data_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b",
+      "device": "cuda",
+      "duration_seconds": 41.9061559739057,
+      "experiment_id": "layer-07-whole-block",
+      "experiment_sha256": "aa9214fe47a994b4a833c632f3cfeb29a462393feae63d0aef6a679a1ef88244",
+      "family": "layer",
+      "masks": {
+        "a": [
+          7
+        ],
+        "attention_residual": [
+          7
+        ],
+        "fc1": [
+          7
+        ],
+        "fc2": [
+          7
+        ],
+        "gelu": [
+          7
+        ],
+        "k": [
+          7
+        ],
+        "ln1": [
+          7
+        ],
+        "ln2": [
+          7
+        ],
+        "mlp_residual": [
+          7
+        ],
+        "o": [
+          7
+        ],
+        "q": [
+          7
+        ],
+        "softmax": [
+          7
+        ],
+        "v": [
+          7
+        ]
+      },
+      "order": null,
+      "perturbation": "whole-block",
+      "perturbation_direction": "FP32_activation_to_strict_quantized",
+      "sample_count": 50000,
+      "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31",
+      "schema_version": 1,
+      "sensitivity_rank": 15,
+      "step": null,
+      "tensor_metric_direction": "FP32_activation_to_strict_quantized",
+      "tensor_metrics": {
+        "7:a": {
+          "clip_rate": 0.003926326530612245,
+          "cosine": 0.9472520776439239,
+          "elements": 1881600000,
+          "mae": 0.04042811991495667,
+          "mse": 0.0027133424498771855,
+          "observed_max": 1.6416943073272705,
+          "observed_min": -2.010237455368042,
+          "sqnr_db": 9.23524278958695,
+          "zero_rate": 0.6006360926870749
+        },
+        "7:attention_residual": {
+          "clip_rate": 0.00012691326530612246,
+          "cosine": 0.9988263962145579,
+          "elements": 1881600000,
+          "mae": 0.00033283279926064056,
+          "mse": 0.0012023732360614036,
+          "observed_max": 14.299793243408203,
+          "observed_min": -8.513592720031738,
+          "sqnr_db": 26.282584058373434,
+          "zero_rate": 0.00022522108843537415
+        },
+        "7:fc1": {
+          "clip_rate": 1.0004783163265306e-07,
+          "cosine": 0.9999991636548652,
+          "elements": 7526400000,
+          "mae": 0.0019458555666467027,
+          "mse": 5.0588053578160625e-06,
+          "observed_max": 6.654458045959473,
+          "observed_min": -9.147576332092285,
+          "sqnr_db": 57.76579365177823,
+          "zero_rate": 0.004532767192814625
+        },
+        "7:fc2": {
+          "clip_rate": 1.3329081632653062e-06,
+          "cosine": 0.9999997320139332,
+          "elements": 1881600000,
+          "mae": 0.0001332209023047459,
+          "mse": 5.774708292205551e-08,
+          "observed_max": 2.384244918823242,
+          "observed_min": -2.940481662750244,
+          "sqnr_db": 62.70851840153916,
+          "zero_rate": 0.0007650680272108843
+        },
+        "7:gelu": {
+          "clip_rate": 0.8134920381590136,
+          "cosine": 0.8952551699351301,
+          "elements": 7526400000,
+          "mae": 0.07645359695233762,
+          "mse": 0.009400086840648518,
+          "observed_max": 6.653038501739502,
+          "observed_min": -0.16996794939041138,
+          "sqnr_db": 7.017892581586526,
+          "zero_rate": 0.9270635209396259
+        },
+        "7:k": {
+          "clip_rate": 0.034688509778911567,
+          "cosine": 0.9789341436389161,
+          "elements": 1881600000,
+          "mae": 0.16216248993658358,
+          "mse": 0.03975063674469581,
+          "observed_max": 6.046669006347656,
+          "observed_min": -5.550275802612305,
+          "sqnr_db": 13.792835401807505,
+          "zero_rate": 0.2500890183886054
+        },
+        "7:ln1": {
+          "clip_rate": 0.03461420386904762,
+          "cosine": 0.9740323164245639,
+          "elements": 1881600000,
+          "mae": 0.18939591818802431,
+          "mse": 0.06140031812018521,
+          "observed_max": 8.013526916503906,
+          "observed_min": -9.174405097961426,
+          "sqnr_db": 12.901963663595655,
+          "zero_rate": 0.2692741225552721
+        },
+        "7:ln2": {
+          "clip_rate": 0.019752239583333334,
+          "cosine": 0.95699759129923,
+          "elements": 1881600000,
+          "mae": 0.31494223300874036,
+          "mse": 0.20664937105296788,
+          "observed_max": 16.469083786010742,
+          "observed_min": -15.803089141845703,
+          "sqnr_db": 10.749091219261386,
+          "zero_rate": 0.3291177822066327
+        },
+        "7:mlp_residual": {
+          "clip_rate": 0.0001260671768707483,
+          "cosine": 0.9994523422323714,
+          "elements": 1881600000,
+          "mae": 0.0006079109180253742,
+          "mse": 0.0006320792288604553,
+          "observed_max": 13.384803771972656,
+          "observed_min": -10.156208992004395,
+          "sqnr_db": 29.58488608597471,
+          "zero_rate": 0.0009991369047619048
+        },
+        "7:o": {
+          "clip_rate": 2.9543473639455782e-05,
+          "cosine": 0.9999941916264219,
+          "elements": 1881600000,
+          "mae": 8.407225898833675e-05,
+          "mse": 3.8118961351350627e-07,
+          "observed_max": 2.099306583404541,
+          "observed_min": -1.5996159315109253,
+          "sqnr_db": 49.345166377238414,
+          "zero_rate": 0.0002373953018707483
+        },
+        "7:q": {
+          "clip_rate": 0.03685679793792517,
+          "cosine": 0.9761535582797385,
+          "elements": 1881600000,
+          "mae": 0.19119171450741265,
+          "mse": 0.056272024129998405,
+          "observed_max": 6.208822250366211,
+          "observed_min": -5.771911144256592,
+          "sqnr_db": 13.264863085108523,
+          "zero_rate": 0.26639903326955783
+        },
+        "7:softmax": {
+          "clip_rate": 5.364084409273914e-06,
+          "cosine": 0.7921681676176858,
+          "elements": 5762400000,
+          "mae": 0.0044025784686149054,
+          "mse": 5.72231383845308e-05,
+          "observed_max": 0.9448835253715515,
+          "observed_min": 2.8146201813683547e-08,
+          "sqnr_db": 4.011156850142413,
+          "zero_rate": 0.9836500793072331
+        },
+        "7:v": {
+          "clip_rate": 0.03891125531462585,
+          "cosine": 0.9789311978627788,
+          "elements": 1881600000,
+          "mae": 0.12199849532293366,
+          "mse": 0.023019953167462914,
+          "observed_max": 4.556203365325928,
+          "observed_min": -4.643656253814697,
+          "sqnr_db": 13.797565449265598,
+          "zero_rate": 0.24633253773384353
+        }
+      },
+      "top1": 0.6382,
+      "top1_drop_pp": 6.2,
+      "top5": 0.85704
+    },
+    {
+      "block": 8,
+      "checkpoint_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+      "config_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+      "data_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b",
+      "device": "cuda",
+      "duration_seconds": 42.081107346806675,
+      "experiment_id": "layer-08-attention",
+      "experiment_sha256": "3da897c98c3c85377dbb2c77c46b72da0a3e7d7c82e2b38c58ef1328e1426aed",
+      "family": "layer",
+      "masks": {
+        "a": [
+          8
+        ],
+        "attention_residual": [
+          8
+        ],
+        "k": [
+          8
+        ],
+        "ln1": [
+          8
+        ],
+        "o": [
+          8
+        ],
+        "q": [
+          8
+        ],
+        "softmax": [
+          8
+        ],
+        "v": [
+          8
+        ]
+      },
+      "order": null,
+      "perturbation": "attention",
+      "perturbation_direction": "FP32_activation_to_strict_quantized",
+      "sample_count": 50000,
+      "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31",
+      "schema_version": 1,
+      "sensitivity_rank": 24,
+      "step": null,
+      "tensor_metric_direction": "FP32_activation_to_strict_quantized",
+      "tensor_metrics": {
+        "8:a": {
+          "clip_rate": 0.0022703560799319728,
+          "cosine": 0.9298585612234642,
+          "elements": 1881600000,
+          "mae": 0.032570350133695296,
+          "mse": 0.0023791970811508235,
+          "observed_max": 1.6675437688827515,
+          "observed_min": -2.114933490753174,
+          "sqnr_db": 8.302710858139804,
+          "zero_rate": 0.779181565157313
+        },
+        "8:attention_residual": {
+          "clip_rate": 0.0002773990221088435,
+          "cosine": 0.9991483493202405,
+          "elements": 1881600000,
+          "mae": 0.0005505982723345832,
+          "mse": 0.0011692436423954577,
+          "observed_max": 14.363863945007324,
+          "observed_min": -11.121874809265137,
+          "sqnr_db": 27.63451688583952,
+          "zero_rate": 0.000238734587585034
+        },
+        "8:k": {
+          "clip_rate": 0.03161509194302721,
+          "cosine": 0.9771583586450607,
+          "elements": 1881600000,
+          "mae": 0.16975426186356024,
+          "mse": 0.043575655560403534,
+          "observed_max": 5.552938938140869,
+          "observed_min": -5.825158596038818,
+          "sqnr_db": 13.441604286598196,
+          "zero_rate": 0.26674673469387755
+        },
+        "8:ln1": {
+          "clip_rate": 0.03442901892006803,
+          "cosine": 0.9748531458826831,
+          "elements": 1881600000,
+          "mae": 0.1971776689486096,
+          "mse": 0.0657094753196587,
+          "observed_max": 8.781428337097168,
+          "observed_min": -8.923583030700684,
+          "sqnr_db": 13.03964013359195,
+          "zero_rate": 0.2643999139030612
+        },
+        "8:o": {
+          "clip_rate": 2.8698979591836734e-08,
+          "cosine": 0.9999998013845547,
+          "elements": 1881600000,
+          "mae": 7.845170754124307e-05,
+          "mse": 8.402663477270037e-09,
+          "observed_max": 1.557631492614746,
+          "observed_min": -1.3420295715332031,
+          "sqnr_db": 64.00956865340251,
+          "zero_rate": 0.0008529931972789115
+        },
+        "8:q": {
+          "clip_rate": 0.031929073660714284,
+          "cosine": 0.9758126491123167,
+          "elements": 1881600000,
+          "mae": 0.18467777774957062,
+          "mse": 0.052195376698257766,
+          "observed_max": 6.137571334838867,
+          "observed_min": -6.906000137329102,
+          "sqnr_db": 13.20306047120672,
+          "zero_rate": 0.283135546875
+        },
+        "8:softmax": {
+          "clip_rate": 4.2121338331250865e-06,
+          "cosine": 0.8097920100461143,
+          "elements": 5762400000,
+          "mae": 0.00450934546404977,
+          "mse": 5.32173848936525e-05,
+          "observed_max": 0.9086399674415588,
+          "observed_min": 7.05274061374439e-08,
+          "sqnr_db": 4.475854465911925,
+          "zero_rate": 0.989810960710815
+        },
+        "8:v": {
+          "clip_rate": 0.04017135522959184,
+          "cosine": 0.9785486621295069,
+          "elements": 1881600000,
+          "mae": 0.13260786411202002,
+          "mse": 0.02772855449131019,
+          "observed_max": 5.401902675628662,
+          "observed_min": -5.356902122497559,
+          "sqnr_db": 13.721797522208183,
+          "zero_rate": 0.2475354331420068
+        }
+      },
+      "top1": 0.6823,
+      "top1_drop_pp": 1.79,
+      "top5": 0.89072
+    },
+    {
+      "block": 8,
+      "checkpoint_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+      "config_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+      "data_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b",
+      "device": "cuda",
+      "duration_seconds": 41.77408117405139,
+      "experiment_id": "layer-08-mlp",
+      "experiment_sha256": "6d5999d150cd69737c81c561cacbaa3f604f55c82d86a540339f6bcfbe6a3478",
+      "family": "layer",
+      "masks": {
+        "fc1": [
+          8
+        ],
+        "fc2": [
+          8
+        ],
+        "gelu": [
+          8
+        ],
+        "ln2": [
+          8
+        ],
+        "mlp_residual": [
+          8
+        ]
+      },
+      "order": null,
+      "perturbation": "mlp",
+      "perturbation_direction": "FP32_activation_to_strict_quantized",
+      "sample_count": 50000,
+      "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31",
+      "schema_version": 1,
+      "sensitivity_rank": 34,
+      "step": null,
+      "tensor_metric_direction": "FP32_activation_to_strict_quantized",
+      "tensor_metrics": {
+        "8:fc1": {
+          "clip_rate": 4.261001275510204e-07,
+          "cosine": 0.9999992430269491,
+          "elements": 7526400000,
+          "mae": 0.0027908998282588334,
+          "mse": 1.0480097394208603e-05,
+          "observed_max": 10.8209867477417,
+          "observed_min": -13.84831428527832,
+          "sqnr_db": 58.19888755995521,
+          "zero_rate": 0.016267058753188776
+        },
+        "8:fc2": {
+          "clip_rate": 9.731611394557823e-06,
+          "cosine": 0.9999988015494725,
+          "elements": 1881600000,
+          "mae": 0.00014586075426049818,
+          "mse": 3.980084139293006e-07,
+          "observed_max": 3.797003984451294,
+          "observed_min": -3.863292694091797,
+          "sqnr_db": 56.20240132118633,
+          "zero_rate": 0.00038883981717687075
+        },
+        "8:gelu": {
+          "clip_rate": 0.7850513508450255,
+          "cosine": 0.9470655680693754,
+          "elements": 7526400000,
+          "mae": 0.05307985862620328,
+          "mse": 0.006970594621991288,
+          "observed_max": 10.818490982055664,
+          "observed_min": -0.16996677219867706,
+          "sqnr_db": 9.867983597799544,
+          "zero_rate": 0.953684876036352
+        },
+        "8:ln2": {
+          "clip_rate": 0.018583295068027212,
+          "cosine": 0.955237715306143,
+          "elements": 1881600000,
+          "mae": 0.4512478371415265,
+          "mse": 0.43367680465308445,
+          "observed_max": 24.424333572387695,
+          "observed_min": -24.000629425048828,
+          "sqnr_db": 10.578881210142795,
+          "zero_rate": 0.33439133343962585
+        },
+        "8:mlp_residual": {
+          "clip_rate": 0.0002598076105442177,
+          "cosine": 0.999667687099122,
+          "elements": 1881600000,
+          "mae": 0.0008359627592941446,
+          "mse": 0.0006424735237585438,
+          "observed_max": 15.092144012451172,
+          "observed_min": -12.045623779296875,
+          "sqnr_db": 31.72152965124949,
+          "zero_rate": 0.0009521338222789116
+        }
+      },
+      "top1": 0.69282,
+      "top1_drop_pp": 0.738,
+      "top5": 0.89408
+    },
+    {
+      "block": 8,
+      "checkpoint_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+      "config_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+      "data_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b",
+      "device": "cuda",
+      "duration_seconds": 41.463384981965646,
+      "experiment_id": "layer-08-whole-block",
+      "experiment_sha256": "79e3aaef0fe962fa58ecd53e66295d66af165b9620028ef54402e9dc86e297d7",
+      "family": "layer",
+      "masks": {
+        "a": [
+          8
+        ],
+        "attention_residual": [
+          8
+        ],
+        "fc1": [
+          8
+        ],
+        "fc2": [
+          8
+        ],
+        "gelu": [
+          8
+        ],
+        "k": [
+          8
+        ],
+        "ln1": [
+          8
+        ],
+        "ln2": [
+          8
+        ],
+        "mlp_residual": [
+          8
+        ],
+        "o": [
+          8
+        ],
+        "q": [
+          8
+        ],
+        "softmax": [
+          8
+        ],
+        "v": [
+          8
+        ]
+      },
+      "order": null,
+      "perturbation": "whole-block",
+      "perturbation_direction": "FP32_activation_to_strict_quantized",
+      "sample_count": 50000,
+      "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31",
+      "schema_version": 1,
+      "sensitivity_rank": 19,
+      "step": null,
+      "tensor_metric_direction": "FP32_activation_to_strict_quantized",
+      "tensor_metrics": {
+        "8:a": {
+          "clip_rate": 0.0022703560799319728,
+          "cosine": 0.9298585612234642,
+          "elements": 1881600000,
+          "mae": 0.032570350133695296,
+          "mse": 0.0023791970811508235,
+          "observed_max": 1.6675437688827515,
+          "observed_min": -2.114933490753174,
+          "sqnr_db": 8.302710858139804,
+          "zero_rate": 0.779181565157313
+        },
+        "8:attention_residual": {
+          "clip_rate": 0.0002773990221088435,
+          "cosine": 0.9991483493202405,
+          "elements": 1881600000,
+          "mae": 0.0005505982723345832,
+          "mse": 0.0011692436423954577,
+          "observed_max": 14.363863945007324,
+          "observed_min": -11.121874809265137,
+          "sqnr_db": 27.63451688583952,
+          "zero_rate": 0.000238734587585034
+        },
+        "8:fc1": {
+          "clip_rate": 3.4890518707482994e-07,
+          "cosine": 0.999999248591398,
+          "elements": 7526400000,
+          "mae": 0.0027907161896511276,
+          "mse": 1.0455420374340832e-05,
+          "observed_max": 10.843396186828613,
+          "observed_min": -13.621362686157227,
+          "sqnr_db": 58.230928669051636,
+          "zero_rate": 0.016217511957908163
+        },
+        "8:fc2": {
+          "clip_rate": 5.809417517006803e-06,
+          "cosine": 0.9999992529601079,
+          "elements": 1881600000,
+          "mae": 0.00014527454847100698,
+          "mse": 2.2511548482687105e-07,
+          "observed_max": 3.382073402404785,
+          "observed_min": -3.7208902835845947,
+          "sqnr_db": 58.25534351499711,
+          "zero_rate": 0.00040058673469387754
+        },
+        "8:gelu": {
+          "clip_rate": 0.7884225949989371,
+          "cosine": 0.9440499045356238,
+          "elements": 7526400000,
+          "mae": 0.05247122231157142,
+          "mse": 0.0067930784584156806,
+          "observed_max": 10.840797424316406,
+          "observed_min": -0.16996677219867706,
+          "sqnr_db": 9.632661828582584,
+          "zero_rate": 0.9556543366018282
+        },
+        "8:k": {
+          "clip_rate": 0.03161509194302721,
+          "cosine": 0.9771583586450607,
+          "elements": 1881600000,
+          "mae": 0.16975426186356024,
+          "mse": 0.043575655560403534,
+          "observed_max": 5.552938938140869,
+          "observed_min": -5.825158596038818,
+          "sqnr_db": 13.441604286598196,
+          "zero_rate": 0.26674673469387755
+        },
+        "8:ln1": {
+          "clip_rate": 0.03442901892006803,
+          "cosine": 0.9748531458826831,
+          "elements": 1881600000,
+          "mae": 0.1971776689486096,
+          "mse": 0.0657094753196587,
+          "observed_max": 8.781428337097168,
+          "observed_min": -8.923583030700684,
+          "sqnr_db": 13.03964013359195,
+          "zero_rate": 0.2643999139030612
+        },
+        "8:ln2": {
+          "clip_rate": 0.01867381855867347,
+          "cosine": 0.9546736150392331,
+          "elements": 1881600000,
+          "mae": 0.45220478087493354,
+          "mse": 0.4404803327364315,
+          "observed_max": 24.867630004882812,
+          "observed_min": -23.657424926757812,
+          "sqnr_db": 10.525706988730839,
+          "zero_rate": 0.33389638977465985
+        },
+        "8:mlp_residual": {
+          "clip_rate": 0.0002346811224489796,
+          "cosine": 0.9997051088803977,
+          "elements": 1881600000,
+          "mae": 0.0007993660795664603,
+          "mse": 0.0005557677224027161,
+          "observed_max": 14.907754898071289,
+          "observed_min": -12.10317611694336,
+          "sqnr_db": 32.243810343163624,
+          "zero_rate": 0.0009685055272108844
+        },
+        "8:o": {
+          "clip_rate": 2.8698979591836734e-08,
+          "cosine": 0.9999998013845547,
+          "elements": 1881600000,
+          "mae": 7.845170754124307e-05,
+          "mse": 8.402663477270037e-09,
+          "observed_max": 1.557631492614746,
+          "observed_min": -1.3420295715332031,
+          "sqnr_db": 64.00956865340251,
+          "zero_rate": 0.0008529931972789115
+        },
+        "8:q": {
+          "clip_rate": 0.031929073660714284,
+          "cosine": 0.9758126491123167,
+          "elements": 1881600000,
+          "mae": 0.18467777774957062,
+          "mse": 0.052195376698257766,
+          "observed_max": 6.137571334838867,
+          "observed_min": -6.906000137329102,
+          "sqnr_db": 13.20306047120672,
+          "zero_rate": 0.283135546875
+        },
+        "8:softmax": {
+          "clip_rate": 4.2121338331250865e-06,
+          "cosine": 0.8097920100461143,
+          "elements": 5762400000,
+          "mae": 0.00450934546404977,
+          "mse": 5.32173848936525e-05,
+          "observed_max": 0.9086399674415588,
+          "observed_min": 7.05274061374439e-08,
+          "sqnr_db": 4.475854465911925,
+          "zero_rate": 0.989810960710815
+        },
+        "8:v": {
+          "clip_rate": 0.04017135522959184,
+          "cosine": 0.9785486621295069,
+          "elements": 1881600000,
+          "mae": 0.13260786411202002,
+          "mse": 0.02772855449131019,
+          "observed_max": 5.401902675628662,
+          "observed_min": -5.356902122497559,
+          "sqnr_db": 13.721797522208183,
+          "zero_rate": 0.2475354331420068
+        }
+      },
+      "top1": 0.6711,
+      "top1_drop_pp": 2.91,
+      "top5": 0.8844
+    },
+    {
+      "block": 9,
+      "checkpoint_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+      "config_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+      "data_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b",
+      "device": "cuda",
+      "duration_seconds": 41.17868501902558,
+      "experiment_id": "layer-09-attention",
+      "experiment_sha256": "ecc2eca8c83922a607921ee13fed8121df5ab935a3101444bcbb90bfcf578a14",
+      "family": "layer",
+      "masks": {
+        "a": [
+          9
+        ],
+        "attention_residual": [
+          9
+        ],
+        "k": [
+          9
+        ],
+        "ln1": [
+          9
+        ],
+        "o": [
+          9
+        ],
+        "q": [
+          9
+        ],
+        "softmax": [
+          9
+        ],
+        "v": [
+          9
+        ]
+      },
+      "order": null,
+      "perturbation": "attention",
+      "perturbation_direction": "FP32_activation_to_strict_quantized",
+      "sample_count": 50000,
+      "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31",
+      "schema_version": 1,
+      "sensitivity_rank": 27,
+      "step": null,
+      "tensor_metric_direction": "FP32_activation_to_strict_quantized",
+      "tensor_metrics": {
+        "9:a": {
+          "clip_rate": 0.0007798830782312925,
+          "cosine": 0.8876445975419307,
+          "elements": 1881600000,
+          "mae": 0.03280508311428048,
+          "mse": 0.0022656003689088336,
+          "observed_max": 1.738612413406372,
+          "observed_min": -2.147697687149048,
+          "sqnr_db": 6.52822081322207,
+          "zero_rate": 0.8699926727253401
+        },
+        "9:attention_residual": {
+          "clip_rate": 0.0002174542942176871,
+          "cosine": 0.9997984809002703,
+          "elements": 1881600000,
+          "mae": 0.0003581697831757258,
+          "mse": 0.0003897778714506971,
+          "observed_max": 14.58643627166748,
+          "observed_min": -12.495339393615723,
+          "sqnr_db": 33.90240462272891,
+          "zero_rate": 0.0002440922619047619
+        },
+        "9:k": {
+          "clip_rate": 0.03132683088860544,
+          "cosine": 0.9768855557744381,
+          "elements": 1881600000,
+          "mae": 0.15842562013562658,
+          "mse": 0.03833841170982762,
+          "observed_max": 5.368699073791504,
+          "observed_min": -6.262827396392822,
+          "sqnr_db": 13.395078240843288,
+          "zero_rate": 0.2700053465136054
+        },
+        "9:ln1": {
+          "clip_rate": 0.0354922906037415,
+          "cosine": 0.9756419441448136,
+          "elements": 1881600000,
+          "mae": 0.18923011910667575,
+          "mse": 0.05934524810189881,
+          "observed_max": 9.637574195861816,
+          "observed_min": -8.239230155944824,
+          "sqnr_db": 13.176371604811262,
+          "zero_rate": 0.2620430718537415
+        },
+        "9:o": {
+          "clip_rate": 5.527210884353742e-07,
+          "cosine": 0.9999995689583998,
+          "elements": 1881600000,
+          "mae": 8.139488617101091e-05,
+          "mse": 1.8038535601979322e-08,
+          "observed_max": 1.2025127410888672,
+          "observed_min": -2.010650873184204,
+          "sqnr_db": 60.64437879531306,
+          "zero_rate": 0.0016162016369047618
+        },
+        "9:q": {
+          "clip_rate": 0.03410118356717687,
+          "cosine": 0.9765955188098243,
+          "elements": 1881600000,
+          "mae": 0.16635514758019967,
+          "mse": 0.04244904224150222,
+          "observed_max": 5.3522491455078125,
+          "observed_min": -5.653594970703125,
+          "sqnr_db": 13.345085835197615,
+          "zero_rate": 0.27338304634353744
+        },
+        "9:softmax": {
+          "clip_rate": 1.99448146605581e-06,
+          "cosine": 0.7779455624994428,
+          "elements": 5762400000,
+          "mae": 0.004624505192026558,
+          "mse": 4.528178179016403e-05,
+          "observed_max": 0.8627966642379761,
+          "observed_min": 4.188367483948241e-07,
+          "sqnr_db": 3.9225370847155396,
+          "zero_rate": 0.9905949493266695
+        },
+        "9:v": {
+          "clip_rate": 0.03964010788690476,
+          "cosine": 0.9782105006047809,
+          "elements": 1881600000,
+          "mae": 0.13250225433035648,
+          "mse": 0.027610736006996747,
+          "observed_max": 5.2141265869140625,
+          "observed_min": -5.304346084594727,
+          "sqnr_db": 13.65430105051182,
+          "zero_rate": 0.25112268973214286
+        }
+      },
+      "top1": 0.68438,
+      "top1_drop_pp": 1.582,
+      "top5": 0.8927
+    },
+    {
+      "block": 9,
+      "checkpoint_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+      "config_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+      "data_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b",
+      "device": "cuda",
+      "duration_seconds": 41.60539020388387,
+      "experiment_id": "layer-09-mlp",
+      "experiment_sha256": "a8927856ce00fee32a1fc5ee6356e9080cc3db63bb2fcbecc63b5a20e7cf9ced",
+      "family": "layer",
+      "masks": {
+        "fc1": [
+          9
+        ],
+        "fc2": [
+          9
+        ],
+        "gelu": [
+          9
+        ],
+        "ln2": [
+          9
+        ],
+        "mlp_residual": [
+          9
+        ]
+      },
+      "order": null,
+      "perturbation": "mlp",
+      "perturbation_direction": "FP32_activation_to_strict_quantized",
+      "sample_count": 50000,
+      "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31",
+      "schema_version": 1,
+      "sensitivity_rank": 32,
+      "step": null,
+      "tensor_metric_direction": "FP32_activation_to_strict_quantized",
+      "tensor_metrics": {
+        "9:fc1": {
+          "clip_rate": 5.512595663265307e-07,
+          "cosine": 0.9999990849169752,
+          "elements": 7526400000,
+          "mae": 0.0023725148120065176,
+          "mse": 7.592566661921893e-06,
+          "observed_max": 10.047618865966797,
+          "observed_min": -12.118297576904297,
+          "sqnr_db": 57.37509177494988,
+          "zero_rate": 0.0034748420227465986
+        },
+        "9:fc2": {
+          "clip_rate": 4.8782419217687075e-05,
+          "cosine": 0.9999887430052088,
+          "elements": 1881600000,
+          "mae": 0.00020593452508899224,
+          "mse": 3.843035099898238e-06,
+          "observed_max": 5.335050106048584,
+          "observed_min": -5.0973711013793945,
+          "sqnr_db": 46.46877180744152,
+          "zero_rate": 0.0009384667304421769
+        },
+        "9:gelu": {
+          "clip_rate": 0.6848771564094388,
+          "cosine": 0.9353394095012686,
+          "elements": 7526400000,
+          "mae": 0.05768430362310014,
+          "mse": 0.0070106682006902754,
+          "observed_max": 9.67672348022461,
+          "observed_min": -0.16996680200099945,
+          "sqnr_db": 9.025208746459125,
+          "zero_rate": 0.9614989240539966
+        },
+        "9:ln2": {
+          "clip_rate": 0.021471989264455784,
+          "cosine": 0.9591818691598996,
+          "elements": 1881600000,
+          "mae": 0.37621488904044725,
+          "mse": 0.2984639165272224,
+          "observed_max": 23.417381286621094,
+          "observed_min": -17.060855865478516,
+          "sqnr_db": 10.9707043229246,
+          "zero_rate": 0.3173660698341837
+        },
+        "9:mlp_residual": {
+          "clip_rate": 0.0001866140518707483,
+          "cosine": 0.9998670778688898,
+          "elements": 1881600000,
+          "mae": 0.0008621770562011017,
+          "mse": 0.0003603165630587404,
+          "observed_max": 17.861740112304688,
+          "observed_min": -14.582429885864258,
+          "sqnr_db": 35.71319302601608,
+          "zero_rate": 0.0010622714710884355
+        }
+      },
+      "top1": 0.69156,
+      "top1_drop_pp": 0.864,
+      "top5": 0.8949
+    },
+    {
+      "block": 9,
+      "checkpoint_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+      "config_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+      "data_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b",
+      "device": "cuda",
+      "duration_seconds": 41.79703801195137,
+      "experiment_id": "layer-09-whole-block",
+      "experiment_sha256": "e1fa4ddb7988dedfc14d8d91cd3d6f29a1e87eb875f2297177ef805a8b4b3684",
+      "family": "layer",
+      "masks": {
+        "a": [
+          9
+        ],
+        "attention_residual": [
+          9
+        ],
+        "fc1": [
+          9
+        ],
+        "fc2": [
+          9
+        ],
+        "gelu": [
+          9
+        ],
+        "k": [
+          9
+        ],
+        "ln1": [
+          9
+        ],
+        "ln2": [
+          9
+        ],
+        "mlp_residual": [
+          9
+        ],
+        "o": [
+          9
+        ],
+        "q": [
+          9
+        ],
+        "softmax": [
+          9
+        ],
+        "v": [
+          9
+        ]
+      },
+      "order": null,
+      "perturbation": "whole-block",
+      "perturbation_direction": "FP32_activation_to_strict_quantized",
+      "sample_count": 50000,
+      "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31",
+      "schema_version": 1,
+      "sensitivity_rank": 21,
+      "step": null,
+      "tensor_metric_direction": "FP32_activation_to_strict_quantized",
+      "tensor_metrics": {
+        "9:a": {
+          "clip_rate": 0.0007798830782312925,
+          "cosine": 0.8876445975419307,
+          "elements": 1881600000,
+          "mae": 0.03280508311428048,
+          "mse": 0.0022656003689088336,
+          "observed_max": 1.738612413406372,
+          "observed_min": -2.147697687149048,
+          "sqnr_db": 6.52822081322207,
+          "zero_rate": 0.8699926727253401
+        },
+        "9:attention_residual": {
+          "clip_rate": 0.0002174542942176871,
+          "cosine": 0.9997984809002703,
+          "elements": 1881600000,
+          "mae": 0.0003581697831757258,
+          "mse": 0.0003897778714506971,
+          "observed_max": 14.58643627166748,
+          "observed_min": -12.495339393615723,
+          "sqnr_db": 33.90240462272891,
+          "zero_rate": 0.0002440922619047619
+        },
+        "9:fc1": {
+          "clip_rate": 7.797884778911564e-07,
+          "cosine": 0.9999991032068627,
+          "elements": 7526400000,
+          "mae": 0.002372834126794361,
+          "mse": 7.732301238715853e-06,
+          "observed_max": 10.557912826538086,
+          "observed_min": -13.092491149902344,
+          "sqnr_db": 57.46277625336894,
+          "zero_rate": 0.00344765625
+        },
+        "9:fc2": {
+          "clip_rate": 3.79469600340136e-05,
+          "cosine": 0.9999892249970151,
+          "elements": 1881600000,
+          "mae": 0.00020418926331225418,
+          "mse": 3.425528317487108e-06,
+          "observed_max": 5.296598434448242,
+          "observed_min": -4.962788105010986,
+          "sqnr_db": 46.66004150211145,
+          "zero_rate": 0.0009803879676870749
+        },
+        "9:gelu": {
+          "clip_rate": 0.6889812161192602,
+          "cosine": 0.9324394159132628,
+          "elements": 7526400000,
+          "mae": 0.05628694361066061,
+          "mse": 0.006834898015957773,
+          "observed_max": 9.67672348022461,
+          "observed_min": -0.16996680200099945,
+          "sqnr_db": 8.841836535256672,
+          "zero_rate": 0.9644730913849915
+        },
+        "9:k": {
+          "clip_rate": 0.03132683088860544,
+          "cosine": 0.9768855557744381,
+          "elements": 1881600000,
+          "mae": 0.15842562013562658,
+          "mse": 0.03833841170982762,
+          "observed_max": 5.368699073791504,
+          "observed_min": -6.262827396392822,
+          "sqnr_db": 13.395078240843288,
+          "zero_rate": 0.2700053465136054
+        },
+        "9:ln1": {
+          "clip_rate": 0.0354922906037415,
+          "cosine": 0.9756419441448136,
+          "elements": 1881600000,
+          "mae": 0.18923011910667575,
+          "mse": 0.05934524810189881,
+          "observed_max": 9.637574195861816,
+          "observed_min": -8.239230155944824,
+          "sqnr_db": 13.176371604811262,
+          "zero_rate": 0.2620430718537415
+        },
+        "9:ln2": {
+          "clip_rate": 0.021595620216836735,
+          "cosine": 0.9603101811981839,
+          "elements": 1881600000,
+          "mae": 0.37566472156715075,
+          "mse": 0.2902425719157829,
+          "observed_max": 23.750776290893555,
+          "observed_min": -17.02207374572754,
+          "sqnr_db": 11.089840549668926,
+          "zero_rate": 0.3168506436011905
+        },
+        "9:mlp_residual": {
+          "clip_rate": 0.00018349489795918368,
+          "cosine": 0.9998837626254645,
+          "elements": 1881600000,
+          "mae": 0.0008493678307192969,
+          "mse": 0.0003206569043116547,
+          "observed_max": 17.768362045288086,
+          "observed_min": -14.416131019592285,
+          "sqnr_db": 36.29720189387821,
+          "zero_rate": 0.0010550589923469388
+        },
+        "9:o": {
+          "clip_rate": 5.527210884353742e-07,
+          "cosine": 0.9999995689583998,
+          "elements": 1881600000,
+          "mae": 8.139488617101091e-05,
+          "mse": 1.8038535601979322e-08,
+          "observed_max": 1.2025127410888672,
+          "observed_min": -2.010650873184204,
+          "sqnr_db": 60.64437879531306,
+          "zero_rate": 0.0016162016369047618
+        },
+        "9:q": {
+          "clip_rate": 0.03410118356717687,
+          "cosine": 0.9765955188098243,
+          "elements": 1881600000,
+          "mae": 0.16635514758019967,
+          "mse": 0.04244904224150222,
+          "observed_max": 5.3522491455078125,
+          "observed_min": -5.653594970703125,
+          "sqnr_db": 13.345085835197615,
+          "zero_rate": 0.27338304634353744
+        },
+        "9:softmax": {
+          "clip_rate": 1.99448146605581e-06,
+          "cosine": 0.7779455624994428,
+          "elements": 5762400000,
+          "mae": 0.004624505192026558,
+          "mse": 4.528178179016403e-05,
+          "observed_max": 0.8627966642379761,
+          "observed_min": 4.188367483948241e-07,
+          "sqnr_db": 3.9225370847155396,
+          "zero_rate": 0.9905949493266695
+        },
+        "9:v": {
+          "clip_rate": 0.03964010788690476,
+          "cosine": 0.9782105006047809,
+          "elements": 1881600000,
+          "mae": 0.13250225433035648,
+          "mse": 0.027610736006996747,
+          "observed_max": 5.2141265869140625,
+          "observed_min": -5.304346084594727,
+          "sqnr_db": 13.65430105051182,
+          "zero_rate": 0.25112268973214286
+        }
+      },
+      "top1": 0.67382,
+      "top1_drop_pp": 2.638,
+      "top5": 0.88712
+    },
+    {
+      "block": 10,
+      "checkpoint_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+      "config_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+      "data_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b",
+      "device": "cuda",
+      "duration_seconds": 41.61365312105045,
+      "experiment_id": "layer-10-attention",
+      "experiment_sha256": "5aa82f2908455e7143766822d7924add1cc76e4081ea4eb24a583c99f1039178",
+      "family": "layer",
+      "masks": {
+        "a": [
+          10
+        ],
+        "attention_residual": [
+          10
+        ],
+        "k": [
+          10
+        ],
+        "ln1": [
+          10
+        ],
+        "o": [
+          10
+        ],
+        "q": [
+          10
+        ],
+        "softmax": [
+          10
+        ],
+        "v": [
+          10
+        ]
+      },
+      "order": null,
+      "perturbation": "attention",
+      "perturbation_direction": "FP32_activation_to_strict_quantized",
+      "sample_count": 50000,
+      "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31",
+      "schema_version": 1,
+      "sensitivity_rank": 30,
+      "step": null,
+      "tensor_metric_direction": "FP32_activation_to_strict_quantized",
+      "tensor_metrics": {
+        "10:a": {
+          "clip_rate": 0.0012000414540816328,
+          "cosine": 0.9137205009822094,
+          "elements": 1881600000,
+          "mae": 0.03819274422429686,
+          "mse": 0.0022026835404481073,
+          "observed_max": 1.417238712310791,
+          "observed_min": -1.7593311071395874,
+          "sqnr_db": 7.080979282154174,
+          "zero_rate": 0.708571694302721
+        },
+        "10:attention_residual": {
+          "clip_rate": 0.00011295812074829932,
+          "cosine": 0.9999649021936924,
+          "elements": 1881600000,
+          "mae": 0.0002478830327399325,
+          "mse": 9.675725153561839e-05,
+          "observed_max": 15.553706169128418,
+          "observed_min": -14.822070121765137,
+          "sqnr_db": 41.51119495907241,
+          "zero_rate": 0.0002655893920068027
+        },
+        "10:k": {
+          "clip_rate": 0.02926589657738095,
+          "cosine": 0.9736727672700051,
+          "elements": 1881600000,
+          "mae": 0.14981884627255102,
+          "mse": 0.03500595610207611,
+          "observed_max": 4.834096431732178,
+          "observed_min": -5.118080139160156,
+          "sqnr_db": 12.834617883308015,
+          "zero_rate": 0.288367421875
+        },
+        "10:ln1": {
+          "clip_rate": 0.03500102412840136,
+          "cosine": 0.9757882431642944,
+          "elements": 1881600000,
+          "mae": 0.17839442449236256,
+          "mse": 0.051787534247115324,
+          "observed_max": 6.82705545425415,
+          "observed_min": -7.838878631591797,
+          "sqnr_db": 13.202305107463184,
+          "zero_rate": 0.2648835034013605
+        },
+        "10:o": {
+          "clip_rate": 2.056760204081633e-06,
+          "cosine": 0.9999992656111508,
+          "elements": 1881600000,
+          "mae": 0.00011035978346140936,
+          "mse": 4.196575852585724e-08,
+          "observed_max": 1.3583998680114746,
+          "observed_min": -2.3706159591674805,
+          "sqnr_db": 58.330165769331174,
+          "zero_rate": 0.0009662574404761904
+        },
+        "10:q": {
+          "clip_rate": 0.032948722895408164,
+          "cosine": 0.9760264131284904,
+          "elements": 1881600000,
+          "mae": 0.14723401714282625,
+          "mse": 0.033427292145187054,
+          "observed_max": 4.603985786437988,
+          "observed_min": -4.386361122131348,
+          "sqnr_db": 13.239262208279246,
+          "zero_rate": 0.28372503454506803
+        },
+        "10:softmax": {
+          "clip_rate": 2.0632028321532694e-06,
+          "cosine": 0.7434274772940044,
+          "elements": 5762400000,
+          "mae": 0.0045754890909925905,
+          "mse": 4.006292658375438e-05,
+          "observed_max": 0.7192790508270264,
+          "observed_min": 2.1310916054062545e-06,
+          "sqnr_db": 3.27036128257868,
+          "zero_rate": 0.981372616444537
+        },
+        "10:v": {
+          "clip_rate": 0.040790283269557824,
+          "cosine": 0.9774668241042507,
+          "elements": 1881600000,
+          "mae": 0.13396124060532905,
+          "mse": 0.02869761548205526,
+          "observed_max": 5.496394157409668,
+          "observed_min": -5.636569976806641,
+          "sqnr_db": 13.510659168686633,
+          "zero_rate": 0.2557074186862245
+        }
+      },
+      "top1": 0.68642,
+      "top1_drop_pp": 1.378,
+      "top5": 0.89326
+    },
+    {
+      "block": 10,
+      "checkpoint_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+      "config_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+      "data_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b",
+      "device": "cuda",
+      "duration_seconds": 41.90411742613651,
+      "experiment_id": "layer-10-mlp",
+      "experiment_sha256": "89c6aa0c8a7d86439c2085f51d94818b20d7a755972939828e8b55daf4b8e959",
+      "family": "layer",
+      "masks": {
+        "fc1": [
+          10
+        ],
+        "fc2": [
+          10
+        ],
+        "gelu": [
+          10
+        ],
+        "ln2": [
+          10
+        ],
+        "mlp_residual": [
+          10
+        ]
+      },
+      "order": null,
+      "perturbation": "mlp",
+      "perturbation_direction": "FP32_activation_to_strict_quantized",
+      "sample_count": 50000,
+      "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31",
+      "schema_version": 1,
+      "sensitivity_rank": 35,
+      "step": null,
+      "tensor_metric_direction": "FP32_activation_to_strict_quantized",
+      "tensor_metrics": {
+        "10:fc1": {
+          "clip_rate": 2.1561437074829933e-06,
+          "cosine": 0.9999992197579819,
+          "elements": 7526400000,
+          "mae": 0.0019467639579671089,
+          "mse": 5.769894459195022e-06,
+          "observed_max": 6.967004776000977,
+          "observed_min": -10.916502952575684,
+          "sqnr_db": 58.06740836086529,
+          "zero_rate": 0.0008163964179421769
+        },
+        "10:fc2": {
+          "clip_rate": 0.0005598394982993197,
+          "cosine": 0.9964782233687843,
+          "elements": 1881600000,
+          "mae": 0.000501999868421314,
+          "mse": 0.00047843618563110033,
+          "observed_max": 4.4255805015563965,
+          "observed_min": -2.1627249717712402,
+          "sqnr_db": 21.47289770525644,
+          "zero_rate": 0.0006931382865646258
+        },
+        "10:gelu": {
+          "clip_rate": 0.8789816968271683,
+          "cosine": 0.782998977071176,
+          "elements": 7526400000,
+          "mae": 0.0748003301594008,
+          "mse": 0.008931039366409224,
+          "observed_max": 6.970638275146484,
+          "observed_min": -0.16996946930885315,
+          "sqnr_db": 4.12295568931238,
+          "zero_rate": 0.9676023390997024
+        },
+        "10:ln2": {
+          "clip_rate": 0.02296228900935374,
+          "cosine": 0.9632626247278866,
+          "elements": 1881600000,
+          "mae": 0.29388777627163104,
+          "mse": 0.1752988575264554,
+          "observed_max": 19.052391052246094,
+          "observed_min": -11.760425567626953,
+          "sqnr_db": 11.419065488754965,
+          "zero_rate": 0.30171619844812925
+        },
+        "10:mlp_residual": {
+          "clip_rate": 7.439625850340137e-05,
+          "cosine": 0.9999817833560504,
+          "elements": 1881600000,
+          "mae": 0.0008016118513224244,
+          "mse": 5.289973974776438e-05,
+          "observed_max": 17.589181900024414,
+          "observed_min": -15.727577209472656,
+          "sqnr_db": 44.36540587105996,
+          "zero_rate": 0.0011520987457482993
+        }
+      },
+      "top1": 0.69424,
+      "top1_drop_pp": 0.596,
+      "top5": 0.89742
+    },
+    {
+      "block": 10,
+      "checkpoint_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+      "config_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+      "data_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b",
+      "device": "cuda",
+      "duration_seconds": 41.71743366098963,
+      "experiment_id": "layer-10-whole-block",
+      "experiment_sha256": "aa4b0ad7c3da1a54d89aff380188cdde3092c31604cbe815d5faea8e4ce31e64",
+      "family": "layer",
+      "masks": {
+        "a": [
+          10
+        ],
+        "attention_residual": [
+          10
+        ],
+        "fc1": [
+          10
+        ],
+        "fc2": [
+          10
+        ],
+        "gelu": [
+          10
+        ],
+        "k": [
+          10
+        ],
+        "ln1": [
+          10
+        ],
+        "ln2": [
+          10
+        ],
+        "mlp_residual": [
+          10
+        ],
+        "o": [
+          10
+        ],
+        "q": [
+          10
+        ],
+        "softmax": [
+          10
+        ],
+        "v": [
+          10
+        ]
+      },
+      "order": null,
+      "perturbation": "whole-block",
+      "perturbation_direction": "FP32_activation_to_strict_quantized",
+      "sample_count": 50000,
+      "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31",
+      "schema_version": 1,
+      "sensitivity_rank": 23,
+      "step": null,
+      "tensor_metric_direction": "FP32_activation_to_strict_quantized",
+      "tensor_metrics": {
+        "10:a": {
+          "clip_rate": 0.0012000414540816328,
+          "cosine": 0.9137205009822094,
+          "elements": 1881600000,
+          "mae": 0.03819274422429686,
+          "mse": 0.0022026835404481073,
+          "observed_max": 1.417238712310791,
+          "observed_min": -1.7593311071395874,
+          "sqnr_db": 7.080979282154174,
+          "zero_rate": 0.708571694302721
+        },
+        "10:attention_residual": {
+          "clip_rate": 0.00011295812074829932,
+          "cosine": 0.9999649021936924,
+          "elements": 1881600000,
+          "mae": 0.0002478830327399325,
+          "mse": 9.675725153561839e-05,
+          "observed_max": 15.553706169128418,
+          "observed_min": -14.822070121765137,
+          "sqnr_db": 41.51119495907241,
+          "zero_rate": 0.0002655893920068027
+        },
+        "10:fc1": {
+          "clip_rate": 3.9797247023809525e-06,
+          "cosine": 0.9999991245206049,
+          "elements": 7526400000,
+          "mae": 0.0019475433541901802,
+          "mse": 6.719757639496834e-06,
+          "observed_max": 6.799915313720703,
+          "observed_min": -11.137417793273926,
+          "sqnr_db": 57.56723289181309,
+          "zero_rate": 0.0007749638605442177
+        },
+        "10:fc2": {
+          "clip_rate": 0.0005262101403061225,
+          "cosine": 0.9966646443356976,
+          "elements": 1881600000,
+          "mae": 0.0004770812291813453,
+          "mse": 0.00043401248842169085,
+          "observed_max": 4.273830890655518,
+          "observed_min": -2.091961622238159,
+          "sqnr_db": 21.70791692174918,
+          "zero_rate": 0.0007291602891156462
+        },
+        "10:gelu": {
+          "clip_rate": 0.882069793792517,
+          "cosine": 0.7787227505314538,
+          "elements": 7526400000,
+          "mae": 0.07321175884527627,
+          "mse": 0.008701037733335507,
+          "observed_max": 6.7994842529296875,
+          "observed_min": -0.16996946930885315,
+          "sqnr_db": 4.048821826399637,
+          "zero_rate": 0.9693974279868197
+        },
+        "10:k": {
+          "clip_rate": 0.02926589657738095,
+          "cosine": 0.9736727672700051,
+          "elements": 1881600000,
+          "mae": 0.14981884627255102,
+          "mse": 0.03500595610207611,
+          "observed_max": 4.834096431732178,
+          "observed_min": -5.118080139160156,
+          "sqnr_db": 12.834617883308015,
+          "zero_rate": 0.288367421875
+        },
+        "10:ln1": {
+          "clip_rate": 0.03500102412840136,
+          "cosine": 0.9757882431642944,
+          "elements": 1881600000,
+          "mae": 0.17839442449236256,
+          "mse": 0.051787534247115324,
+          "observed_max": 6.82705545425415,
+          "observed_min": -7.838878631591797,
+          "sqnr_db": 13.202305107463184,
+          "zero_rate": 0.2648835034013605
+        },
+        "10:ln2": {
+          "clip_rate": 0.022953777636054423,
+          "cosine": 0.9630954545527888,
+          "elements": 1881600000,
+          "mae": 0.29420032340161484,
+          "mse": 0.17633324800461014,
+          "observed_max": 19.797325134277344,
+          "observed_min": -11.854244232177734,
+          "sqnr_db": 11.39975014660321,
+          "zero_rate": 0.30188191592261904
+        },
+        "10:mlp_residual": {
+          "clip_rate": 7.093696853741497e-05,
+          "cosine": 0.9999845257030893,
+          "elements": 1881600000,
+          "mae": 0.0007979266472894273,
+          "mse": 4.654937101703232e-05,
+          "observed_max": 17.124019622802734,
+          "observed_min": -15.634644508361816,
+          "sqnr_db": 45.07528220405534,
+          "zero_rate": 0.0011326647534013606
+        },
+        "10:o": {
+          "clip_rate": 2.056760204081633e-06,
+          "cosine": 0.9999992656111508,
+          "elements": 1881600000,
+          "mae": 0.00011035978346140936,
+          "mse": 4.196575852585724e-08,
+          "observed_max": 1.3583998680114746,
+          "observed_min": -2.3706159591674805,
+          "sqnr_db": 58.330165769331174,
+          "zero_rate": 0.0009662574404761904
+        },
+        "10:q": {
+          "clip_rate": 0.032948722895408164,
+          "cosine": 0.9760264131284904,
+          "elements": 1881600000,
+          "mae": 0.14723401714282625,
+          "mse": 0.033427292145187054,
+          "observed_max": 4.603985786437988,
+          "observed_min": -4.386361122131348,
+          "sqnr_db": 13.239262208279246,
+          "zero_rate": 0.28372503454506803
+        },
+        "10:softmax": {
+          "clip_rate": 2.0632028321532694e-06,
+          "cosine": 0.7434274772940044,
+          "elements": 5762400000,
+          "mae": 0.0045754890909925905,
+          "mse": 4.006292658375438e-05,
+          "observed_max": 0.7192790508270264,
+          "observed_min": 2.1310916054062545e-06,
+          "sqnr_db": 3.27036128257868,
+          "zero_rate": 0.981372616444537
+        },
+        "10:v": {
+          "clip_rate": 0.040790283269557824,
+          "cosine": 0.9774668241042507,
+          "elements": 1881600000,
+          "mae": 0.13396124060532905,
+          "mse": 0.02869761548205526,
+          "observed_max": 5.496394157409668,
+          "observed_min": -5.636569976806641,
+          "sqnr_db": 13.510659168686633,
+          "zero_rate": 0.2557074186862245
+        }
+      },
+      "top1": 0.68156,
+      "top1_drop_pp": 1.864,
+      "top5": 0.88944
+    },
+    {
+      "block": 11,
+      "checkpoint_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+      "config_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+      "data_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b",
+      "device": "cuda",
+      "duration_seconds": 41.5380876630079,
+      "experiment_id": "layer-11-attention",
+      "experiment_sha256": "f348c18fc2aaaa1f51b31e99e38903ca2389266d9620f4cd964089515b168485",
+      "family": "layer",
+      "masks": {
+        "a": [
+          11
+        ],
+        "attention_residual": [
+          11
+        ],
+        "k": [
+          11
+        ],
+        "ln1": [
+          11
+        ],
+        "o": [
+          11
+        ],
+        "q": [
+          11
+        ],
+        "softmax": [
+          11
+        ],
+        "v": [
+          11
+        ]
+      },
+      "order": null,
+      "perturbation": "attention",
+      "perturbation_direction": "FP32_activation_to_strict_quantized",
+      "sample_count": 50000,
+      "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31",
+      "schema_version": 1,
+      "sensitivity_rank": 31,
+      "step": null,
+      "tensor_metric_direction": "FP32_activation_to_strict_quantized",
+      "tensor_metrics": {
+        "11:a": {
+          "clip_rate": 0.013778896152210885,
+          "cosine": 0.9637218903691762,
+          "elements": 1881600000,
+          "mae": 0.0470724057551142,
+          "mse": 0.00325643019129176,
+          "observed_max": 1.756235957145691,
+          "observed_min": -1.907309651374817,
+          "sqnr_db": 11.23544922811163,
+          "zero_rate": 0.41742389721513606
+        },
+        "11:attention_residual": {
+          "clip_rate": 0.00018792835884353743,
+          "cosine": 0.9996895348443962,
+          "elements": 1881600000,
+          "mae": 0.0004909814883417276,
+          "mse": 0.0008747871863657435,
+          "observed_max": 22.386751174926758,
+          "observed_min": -15.77121639251709,
+          "sqnr_db": 32.01973574011441,
+          "zero_rate": 0.0002962850765306122
+        },
+        "11:k": {
+          "clip_rate": 0.026906335034013604,
+          "cosine": 0.9738932972869438,
+          "elements": 1881600000,
+          "mae": 0.15276963668975807,
+          "mse": 0.03625021093562709,
+          "observed_max": 4.764132022857666,
+          "observed_min": -4.7942118644714355,
+          "sqnr_db": 12.867755397632452,
+          "zero_rate": 0.2808341119260204
+        },
+        "11:ln1": {
+          "clip_rate": 0.030759580144557822,
+          "cosine": 0.972118328273804,
+          "elements": 1881600000,
+          "mae": 0.17227487311582013,
+          "mse": 0.05218765869207706,
+          "observed_max": 7.069361686706543,
+          "observed_min": -7.75806999206543,
+          "sqnr_db": 12.5974075198621,
+          "zero_rate": 0.27640513924319726
+        },
+        "11:o": {
+          "clip_rate": 3.1069302721088437e-06,
+          "cosine": 0.9999984253932404,
+          "elements": 1881600000,
+          "mae": 0.000187803646895278,
+          "mse": 1.2759963374933548e-07,
+          "observed_max": 3.7973029613494873,
+          "observed_min": -2.6159746646881104,
+          "sqnr_db": 55.017072189383214,
+          "zero_rate": 0.002138784013605442
+        },
+        "11:q": {
+          "clip_rate": 0.042140321003401364,
+          "cosine": 0.9785195791610093,
+          "elements": 1881600000,
+          "mae": 0.13713365856065157,
+          "mse": 0.029012817890424425,
+          "observed_max": 5.344489574432373,
+          "observed_min": -5.160525321960449,
+          "sqnr_db": 13.715307431590917,
+          "zero_rate": 0.2635394451530612
+        },
+        "11:softmax": {
+          "clip_rate": 7.841697903651256e-05,
+          "cosine": 0.9158492128700314,
+          "elements": 5762400000,
+          "mae": 0.0034475846163134804,
+          "mse": 2.7796446920114302e-05,
+          "observed_max": 0.8660099506378174,
+          "observed_min": 5.99065288042766e-07,
+          "sqnr_db": 7.773324564592235,
+          "zero_rate": 0.9502946402540609
+        },
+        "11:v": {
+          "clip_rate": 0.0373015625,
+          "cosine": 0.9772830251634655,
+          "elements": 1881600000,
+          "mae": 0.13029756330582679,
+          "mse": 0.02689855138311891,
+          "observed_max": 5.50084114074707,
+          "observed_min": -5.397912979125977,
+          "sqnr_db": 13.475013970314098,
+          "zero_rate": 0.2607877721088435
+        }
+      },
+      "top1": 0.6881,
+      "top1_drop_pp": 1.21,
+      "top5": 0.89178
+    },
+    {
+      "block": 11,
+      "checkpoint_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+      "config_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+      "data_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b",
+      "device": "cuda",
+      "duration_seconds": 41.973068768158555,
+      "experiment_id": "layer-11-mlp",
+      "experiment_sha256": "ff00aacf33605a88aefd30d099533d3e3355a6ee3d68d507c2a6fe28889fbc6f",
+      "family": "layer",
+      "masks": {
+        "fc1": [
+          11
+        ],
+        "fc2": [
+          11
+        ],
+        "gelu": [
+          11
+        ],
+        "ln2": [
+          11
+        ],
+        "mlp_residual": [
+          11
+        ]
+      },
+      "order": null,
+      "perturbation": "mlp",
+      "perturbation_direction": "FP32_activation_to_strict_quantized",
+      "sample_count": 50000,
+      "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31",
+      "schema_version": 1,
+      "sensitivity_rank": 36,
+      "step": null,
+      "tensor_metric_direction": "FP32_activation_to_strict_quantized",
+      "tensor_metrics": {
+        "11:fc1": {
+          "clip_rate": 2.7303890306122447e-06,
+          "cosine": 0.9999993160267608,
+          "elements": 7526400000,
+          "mae": 0.0018052646294986789,
+          "mse": 5.079987486436931e-06,
+          "observed_max": 6.379182815551758,
+          "observed_min": -10.142843246459961,
+          "sqnr_db": 58.63930148157184,
+          "zero_rate": 0.0005590437659438775
+        },
+        "11:fc2": {
+          "clip_rate": 0.005161975446428571,
+          "cosine": 0.9790833820460905,
+          "elements": 1881600000,
+          "mae": 0.0029106891982686456,
+          "mse": 0.001980077845848451,
+          "observed_max": 4.077934265136719,
+          "observed_min": -1.4957952499389648,
+          "sqnr_db": 13.268399175451723,
+          "zero_rate": 0.0007700818452380953
+        },
+        "11:gelu": {
+          "clip_rate": 0.9691852706473214,
+          "cosine": 0.6754509395548175,
+          "elements": 7526400000,
+          "mae": 0.07809131962545661,
+          "mse": 0.009398800751615777,
+          "observed_max": 6.379672527313232,
+          "observed_min": -0.16997087001800537,
+          "sqnr_db": 2.64573405942208,
+          "zero_rate": 0.9824536617772108
+        },
+        "11:ln2": {
+          "clip_rate": 0.0279768856292517,
+          "cosine": 0.9739983148101857,
+          "elements": 1881600000,
+          "mae": 0.2331291077436652,
+          "mse": 0.09412141881662306,
+          "observed_max": 10.300365447998047,
+          "observed_min": -10.372660636901855,
+          "sqnr_db": 12.896175777622057,
+          "zero_rate": 0.27116447278911565
+        },
+        "11:mlp_residual": {
+          "clip_rate": 0.0002761458333333333,
+          "cosine": 0.9992599275423657,
+          "elements": 1881600000,
+          "mae": 0.0012858545916515864,
+          "mse": 0.0019811769884091612,
+          "observed_max": 23.36312484741211,
+          "observed_min": -15.409380912780762,
+          "sqnr_db": 28.22390350765748,
+          "zero_rate": 0.0011988238732993197
+        }
+      },
+      "top1": 0.69818,
+      "top1_drop_pp": 0.202,
+      "top5": 0.89764
+    },
+    {
+      "block": 11,
+      "checkpoint_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+      "config_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+      "data_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b",
+      "device": "cuda",
+      "duration_seconds": 41.401736622909084,
+      "experiment_id": "layer-11-whole-block",
+      "experiment_sha256": "085fb1f41bbe86062a88032006784334d574f575181cfb8fb11f844d8ed02a6b",
+      "family": "layer",
+      "masks": {
+        "a": [
+          11
+        ],
+        "attention_residual": [
+          11
+        ],
+        "fc1": [
+          11
+        ],
+        "fc2": [
+          11
+        ],
+        "gelu": [
+          11
+        ],
+        "k": [
+          11
+        ],
+        "ln1": [
+          11
+        ],
+        "ln2": [
+          11
+        ],
+        "mlp_residual": [
+          11
+        ],
+        "o": [
+          11
+        ],
+        "q": [
+          11
+        ],
+        "softmax": [
+          11
+        ],
+        "v": [
+          11
+        ]
+      },
+      "order": null,
+      "perturbation": "whole-block",
+      "perturbation_direction": "FP32_activation_to_strict_quantized",
+      "sample_count": 50000,
+      "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31",
+      "schema_version": 1,
+      "sensitivity_rank": 28,
+      "step": null,
+      "tensor_metric_direction": "FP32_activation_to_strict_quantized",
+      "tensor_metrics": {
+        "11:a": {
+          "clip_rate": 0.013778896152210885,
+          "cosine": 0.9637218903691762,
+          "elements": 1881600000,
+          "mae": 0.0470724057551142,
+          "mse": 0.00325643019129176,
+          "observed_max": 1.756235957145691,
+          "observed_min": -1.907309651374817,
+          "sqnr_db": 11.23544922811163,
+          "zero_rate": 0.41742389721513606
+        },
+        "11:attention_residual": {
+          "clip_rate": 0.00018792835884353743,
+          "cosine": 0.9996895348443962,
+          "elements": 1881600000,
+          "mae": 0.0004909814883417276,
+          "mse": 0.0008747871863657435,
+          "observed_max": 22.386751174926758,
+          "observed_min": -15.77121639251709,
+          "sqnr_db": 32.01973574011441,
+          "zero_rate": 0.0002962850765306122
+        },
+        "11:fc1": {
+          "clip_rate": 3.815369897959184e-06,
+          "cosine": 0.9999993005221669,
+          "elements": 7526400000,
+          "mae": 0.001805707235850985,
+          "mse": 5.406761401025438e-06,
+          "observed_max": 5.577319145202637,
+          "observed_min": -10.249865531921387,
+          "sqnr_db": 58.541942758920335,
+          "zero_rate": 0.0005172296184098639
+        },
+        "11:fc2": {
+          "clip_rate": 0.005133567708333333,
+          "cosine": 0.9808119767952158,
+          "elements": 1881600000,
+          "mae": 0.002675136596094159,
+          "mse": 0.0017203103581769884,
+          "observed_max": 3.9914515018463135,
+          "observed_min": -1.2552363872528076,
+          "sqnr_db": 13.629349147495178,
+          "zero_rate": 0.0007894967049319728
+        },
+        "11:gelu": {
+          "clip_rate": 0.971461505766369,
+          "cosine": 0.6595204045149512,
+          "elements": 7526400000,
+          "mae": 0.07601939656106671,
+          "mse": 0.009081219499552167,
+          "observed_max": 5.5786051750183105,
+          "observed_min": -0.16997087001800537,
+          "sqnr_db": 2.4790814643099286,
+          "zero_rate": 0.9838389291028912
+        },
+        "11:k": {
+          "clip_rate": 0.026906335034013604,
+          "cosine": 0.9738932972869438,
+          "elements": 1881600000,
+          "mae": 0.15276963668975807,
+          "mse": 0.03625021093562709,
+          "observed_max": 4.764132022857666,
+          "observed_min": -4.7942118644714355,
+          "sqnr_db": 12.867755397632452,
+          "zero_rate": 0.2808341119260204
+        },
+        "11:ln1": {
+          "clip_rate": 0.030759580144557822,
+          "cosine": 0.972118328273804,
+          "elements": 1881600000,
+          "mae": 0.17227487311582013,
+          "mse": 0.05218765869207706,
+          "observed_max": 7.069361686706543,
+          "observed_min": -7.75806999206543,
+          "sqnr_db": 12.5974075198621,
+          "zero_rate": 0.27640513924319726
+        },
+        "11:ln2": {
+          "clip_rate": 0.02789952274659864,
+          "cosine": 0.9739657500920823,
+          "elements": 1881600000,
+          "mae": 0.23303631533460128,
+          "mse": 0.09416764416357287,
+          "observed_max": 10.085319519042969,
+          "observed_min": -10.424981117248535,
+          "sqnr_db": 12.890717905146687,
+          "zero_rate": 0.2711088015518707
+        },
+        "11:mlp_residual": {
+          "clip_rate": 0.0002820296556122449,
+          "cosine": 0.9993003614428676,
+          "elements": 1881600000,
+          "mae": 0.001282316564899659,
+          "mse": 0.0019056285418214505,
+          "observed_max": 23.394563674926758,
+          "observed_min": -15.768016815185547,
+          "sqnr_db": 28.467176881323834,
+          "zero_rate": 0.001189112457482993
+        },
+        "11:o": {
+          "clip_rate": 3.1069302721088437e-06,
+          "cosine": 0.9999984253932404,
+          "elements": 1881600000,
+          "mae": 0.000187803646895278,
+          "mse": 1.2759963374933548e-07,
+          "observed_max": 3.7973029613494873,
+          "observed_min": -2.6159746646881104,
+          "sqnr_db": 55.017072189383214,
+          "zero_rate": 0.002138784013605442
+        },
+        "11:q": {
+          "clip_rate": 0.042140321003401364,
+          "cosine": 0.9785195791610093,
+          "elements": 1881600000,
+          "mae": 0.13713365856065157,
+          "mse": 0.029012817890424425,
+          "observed_max": 5.344489574432373,
+          "observed_min": -5.160525321960449,
+          "sqnr_db": 13.715307431590917,
+          "zero_rate": 0.2635394451530612
+        },
+        "11:softmax": {
+          "clip_rate": 7.841697903651256e-05,
+          "cosine": 0.9158492128700314,
+          "elements": 5762400000,
+          "mae": 0.0034475846163134804,
+          "mse": 2.7796446920114302e-05,
+          "observed_max": 0.8660099506378174,
+          "observed_min": 5.99065288042766e-07,
+          "sqnr_db": 7.773324564592235,
+          "zero_rate": 0.9502946402540609
+        },
+        "11:v": {
+          "clip_rate": 0.0373015625,
+          "cosine": 0.9772830251634655,
+          "elements": 1881600000,
+          "mae": 0.13029756330582679,
+          "mse": 0.02689855138311891,
+          "observed_max": 5.50084114074707,
+          "observed_min": -5.397912979125977,
+          "sqnr_db": 13.475013970314098,
+          "zero_rate": 0.2607877721088435
+        }
+      },
+      "top1": 0.68626,
+      "top1_drop_pp": 1.394,
+      "top5": 0.89018
+    }
+  ],
+  "schema_version": 1
+}

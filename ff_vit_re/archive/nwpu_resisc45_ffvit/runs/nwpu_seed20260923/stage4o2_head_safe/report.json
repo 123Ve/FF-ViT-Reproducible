@@ -1,0 +1,19 @@
+{
+  "calibration_max_abs_acc": 246141,
+  "calibration_wrap_rate": 0.0,
+  "fit_images": 1440,
+  "num_safe_candidates": 69,
+  "safe_abs_limit": 250000,
+  "scope": "Stage4O selected signed-fix Head LN; classifier-only refit to preserve ap_int<19> while enforcing zero-wrap calibration and numerical headroom.",
+  "selected_logit_scale": 5.733177732855642e-05,
+  "selected_multiplier_vs_stage4o": 0.995,
+  "selected_weight_scale": 0.000898622754702242,
+  "stage4o_weight_scale": 0.0009031384469369266,
+  "validation_logit_range": [
+    -114099,
+    256723
+  ],
+  "validation_max_abs_acc": 256723,
+  "validation_top1": 89.74074125289917,
+  "validation_wrap_rate": 0.0
+}

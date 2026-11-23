@@ -1,0 +1,856 @@
+--- r7/PROTOCOL.md
++++ r8/PROTOCOL.md
+@@ -1,4 +1,30 @@
+ # E07 independent power candidate — protocol schema 1
++
++## Current capture policy (r8, replaces negative-only aborts in diagnostic profiles)
++
++Three immutable CPU images are available: strict18 (all rails), diagnostic17
++(exclude7), diagnostic16 (exclude7/15, mask229247). All configure and export18
++physical rails. Select the matching image and host --diagnostic17/--diagnostic16;
++profile mixing is rejected. Shared firmware ABI is4; the128-byte rail wire record
++and INA226 configuration/ADC averaging remain unchanged.
++
++observed_mask / adc_observed_mask records genuine timely CVRF observations,
++independently of signed power quality. conversion_ready_mask / power_qualified_mask
++records rails that have produced a valid power observation; it is not a current
++per-sample quality guarantee. No CVRF flags or valid bits are synthesized.
++
++Strict18 keeps the original negative-value rejection. Diagnostic negative-only
++rows (flags256/258) remain raw, invalid for included power, and do not stop
++acquisition. included_negative_samples and excluded_negative_samples count such
++software observations, including held reads; neither counts independent ADC
++conversions. Other flags/errors and the original coverage/clock gates remain fatal.
++
++Diagnostic acceptance authorizes capture integrity only. capture_valid and
++power_quality_valid are separate: an included negative can finish all phases
++while complete power/energy metrics are null. Excluded rails never contribute,
++even when positive. All18rails must still pass raw timing/error/coverage checks.
++Rail7 and Rail15 have exact decoded subsets alongside authoritative full raw exports.
++No new physical measurement or sensor calibration is claimed.
+ 
+ This is `E07_INDEPENDENT_POWER_V1`, phase `E07_INDEPENDENT_CANDIDATE`.
+ Every delivered manifest and firmware greeting says `physical_status: "NOT_RUN"`:
+--- r7/README_CN.txt
++++ r8/README_CN.txt
+@@ -1,4 +1,31 @@
+ E07 双核 PS 测量镜像　2026-11-22
++
++当前版本 r8：先完整采集，再分别判断采集完整性和功率质量。
++推荐本次使用 16 路诊断：排除 Rail7(VCCOPS)、Rail15(VADJ_FMC)。复制
++SD_CARD_DIAG16 中全部5个文件到SD根目录；所有采集/分析命令加 -Diagnostic16。
++17 路诊断仍为 -Diagnostic17 / SD_CARD_DIAG17，只排除Rail7。默认仍为严格18路。
++三套镜像和身份必须与参数一致；PL、XSA、模型、输入和权重均不改变。
++
++  .\Run-PowerRetest.ps1 -CheckOnly -Diagnostic16
++  .\Run-PowerRetest.ps1 -PrepareSD -Diagnostic16 -SDRoot E:\ -SDReceipt 'D:\E07 results\diag16-card.json'
++  .\Run-PowerRetest.ps1 -Acceptance -Diagnostic16 -SDReceipt 'D:\E07 results\diag16-card.json' -Controls 'D:\E07 results\controls.json' -BoardId '实际板卡标签' -Output 'D:\E07 results\diag16-accept'
++  .\Run-PowerRetest.ps1 -Formal -Diagnostic16 -Target120Only -Seconds 120 -Repetitions 5 -SDReceipt 'D:\E07 results\diag16-card.json' -Controls 'D:\E07 results\controls.json' -BoardId '实际板卡标签' -AcceptanceSession 'D:\E07 results\diag16-accept\session.json' -Output 'D:\E07 results\diag16-target120'
++  .\Run-PowerRetest.ps1 -Analyze -Diagnostic16 -Session 'D:\E07 results\diag16-target120' -AcceptanceSession 'D:\E07 results\diag16-accept\session.json' -Output 'D:\E07 results\diag16-analysis'
++
++E:\ 仅为示例，请核实实际盘符；收据和结果都放包外新目录。需全部条件时去掉 -Target120Only，
++即可采集 Idle、Full40/Compact40、Full120/Compact120、饱和和 PLContinuous，每条件120秒、5轮。
++Target120 仍为4×30FPS输入目标；实际完成FPS另记。先启动监听，再给使用匹配SD卡的板上电。
++
++诊断模式：仅 NEGATIVE 不再中断。CVRF证明真实ADC更新，负原码/NEGATIVE/时间戳保持不变，
++power_uW 的无效哨兵仍为 INT64_MIN，不清零/取绝对值。排除轨不积分；若未排除轨也出现负值，
++原始数据照常采满设定时长，capture_valid可为true，但power_quality_valid为false，完整功耗/能量为空。
++这不是18路正式功耗通过。I2C、溢出、饱和、陈旧、时钟、配置、覆盖或推理错误仍按原规则拒绝。
++observed_mask/adc_observed_mask 表示真实CVRF已经观察到；conversion_ready_mask/power_qualified_mask
++仅表示曾出现合格功率。负值本身不会把已更新的ADC记成从未转换。
++RECORD_COMPLETE_NOTES_CN.txt 和 RECORD_COMPLETE.diff 为本次说明/改动；以下内容保留为旧版详细操作参考，
++其中“诊断负值立即拒绝”已由上述r8规则替代。硬件实物验收与正式测量仍为 NOT_RUN。
++
++----- 以下为旧版操作与历史说明 -----
+ 
+ strict18 默认积分全部18轨。diagnostic17 固定排除编号7（VCCOPS），结果名称为
+ 17-rail diagnostic。两套镜像均读取、配置和保存全部18轨，PL、模型与冻结数据相同。
+--- /dev/null
++++ r8/RECORD_COMPLETE_NOTES_CN.txt
+@@ -0,0 +1,26 @@
++r8：诊断负值不再中断采集
++
++strict18：默认。仍严格要求18轨合格功率，负值和其他故障仍拒绝。
++diagnostic17：SD_CARD_DIAG17 / -Diagnostic17，只排除Rail7，17-rail diagnostic。
++diagnostic16：SD_CARD_DIAG16 / -Diagnostic16，排除Rail7和Rail15，16-rail diagnostic。
++所有模式均配置、读取、保存全部18轨；二进制记录仍为128字节，原始数据不改。
++
++原问题：ADC转换观察与功率质量在后续就绪/验收门混在一起。即使CVRF已到，
++未排除轨的一条负值仍会锁存全局故障，使记录不能完成。
++本次修复：真实及时的CVRF独立置 observed_mask；负值保留NEGATIVE、原码和时间戳。
++诊断模式下，仅NEGATIVE的样本分别计入included/excluded_negative_samples，不设传感器致命故障，
++不占用首次真实故障冻结槽。负值不是噪声已被证实，也不代表功率为零。
++未出现CVRF/超时、I2C、溢出、饱和、时钟、配置、缺轨/覆盖和推理错误仍拒绝。
++
++采集与计量分开：诊断验收仅授权 capture integrity，不授权完整18路功率。
++若负值只在排除轨，可形成选定16/17路指标；若在未排除轨，也采满并导出原始数据，
++但完整能量、平均功率和每帧能耗为空，power_quality_valid=false，不桥接无效样本。
++capture_valid=true不代表power_quality_valid=true。实际完成帧数/FPS独立保留。
++Rail7/Rail15另有逐条一致的decoded子集，但完整rails二进制始终是权威数据。
++
++PL、XSA、模型、量化和输入/权重不改；使用既有Vitis2025.1/BSP重新构建PS固件。
++新旧文件、模式、收据、验收不可混用。完整命令见README_CN.txt顶部。
++当前仅做针对性软件检查和必要构建/打包，不重复执行多轮整套验证。
++旧 full-suite.log 仅代表历史r5结果，不能解释为本次完整回归。
++本次 focused.log 为模拟数据和原生C验证，不是板测功耗。
++Windows PowerShell、实际SD、ZCU102实物验收和Target120正式测量均未执行。
+--- r7/Run-PowerRetest.ps1
++++ r8/Run-PowerRetest.ps1
+@@ -6,6 +6,7 @@
+     [switch]$Formal,
+     [switch]$Target120Only,
+     [switch]$Diagnostic17,
++    [switch]$Diagnostic16,
+     [switch]$Analyze,
+     [string]$Session,
+     [string]$SDRoot,
+@@ -23,6 +24,7 @@
+     [switch]$Help
+ )
+ $ErrorActionPreference = 'Stop'
++if ($Diagnostic17 -and $Diagnostic16) { throw 'Choose only one diagnostic scope.' }
+ $launchers = @()
+ if ($Python) { $launchers += ,@($Python) }
+ if ($env:VIRTUAL_ENV) { $launchers += ,@((Join-Path $env:VIRTUAL_ENV 'Scripts/python.exe')) }
+@@ -49,6 +51,7 @@
+         if (-not $Session -or -not $Output -or $Target120Only) { throw 'Analysis requires -Session and -Output.' }
+         $cli = @('-B', '-S', (Join-Path $PSScriptRoot 'host/analyze.py'), $Session, '--output', $Output)
+         if ($Diagnostic17) { $cli += '--diagnostic17' }
++        if ($Diagnostic16) { $cli += '--diagnostic16' }
+         if ($AcceptanceSession) { $cli += @('--acceptance-session', $AcceptanceSession) }
+         $program = $chosen[0]
+         $prefix = @($chosen | Select-Object -Skip 1)
+@@ -56,6 +59,7 @@
+         exit $LASTEXITCODE
+     }
+     if ($Diagnostic17) { $cli += '--diagnostic17' }
++    if ($Diagnostic16) { $cli += '--diagnostic16' }
+     if ($CheckOnly) { $cli += '--check-only' }
+     if ($PrepareSD) { $cli += '--prepare-sd' }
+     if ($Acceptance) { $cli += '--acceptance' }
+--- r7/build_firmware.py
++++ r8/build_firmware.py
+@@ -73,8 +73,11 @@
+         raise FileNotFoundError('Rebuild requires repository layout with frozen inputs at '+str(VENDOR))
+     from host import profiles
+     parser=argparse.ArgumentParser(description=__doc__)
+-    parser.add_argument('--diagnostic17',action='store_true')
+-    profile=profiles.DIAGNOSTIC if parser.parse_args().diagnostic17 else profiles.STRICT
++    selection=parser.add_mutually_exclusive_group()
++    selection.add_argument('--diagnostic17',action='store_true')
++    selection.add_argument('--diagnostic16',action='store_true')
++    args=parser.parse_args()
++    profile=profiles.DIAGNOSTIC16 if args.diagnostic16 else profiles.DIAGNOSTIC if args.diagnostic17 else profiles.STRICT
+     policy=profiles.metadata(profile)
+     identity_name,sums_name,sd_name=profiles.paths(profile)
+     build=HERE/'build';build.mkdir(exist_ok=True)
+--- r7/firmware/common/monitor.h
++++ r8/firmware/common/monitor.h
+@@ -3,7 +3,7 @@
+ #include <stdint.h>
+ #include <stddef.h>
+ #define M_MAGIC 0x314d5049u
+-#define M_VERSION 3u
++#define M_VERSION 4u
+ #define M_RAILS 18u
+ #define M_ALL_RAILS 0x3ffffu
+ #ifndef E07_PROFILE_RAILS
+@@ -12,7 +12,10 @@
+ #ifndef M_BUILD_ID
+ #define M_BUILD_ID "native-test"
+ #endif
+-#if E07_PROFILE_RAILS == 17
++#if E07_PROFILE_RAILS == 16
++#define M_REQUIRED_RAILS 0x37f7fu
++#define M_PROFILE_JSON "\"measurement_profile\":\"diagnostic16\",\"scope\":\"16-rail diagnostic\",\"included_mask\":229247,\"included_count\":16,\"excluded_rails\":[7,15],"
++#elif E07_PROFILE_RAILS == 17
+ #define M_REQUIRED_RAILS 0x3ff7fu
+ #define M_PROFILE_JSON "\"measurement_profile\":\"diagnostic17\",\"scope\":\"17-rail diagnostic\",\"included_mask\":262015,\"included_count\":17,\"excluded_rails\":[7],"
+ #elif E07_PROFILE_RAILS == 18
+@@ -94,6 +97,7 @@
+     uint32_t i2c_errors, invalid_samples, stale_samples, scan_overruns, overflows;
+     uint32_t temp_errors, ping_seq, enabled;
+     uint32_t conversion_ready, initializing_samples, observed_mask, excluded_negative_samples, profile_rails;
++    uint32_t included_negative_samples;
+     uint64_t epoch, hz, heartbeat, ping_tick, configured_tick, scan_start;
+     int32_t temperature_mC;
+     uint32_t temperature_valid;
+--- r7/firmware/common/phase.c
++++ r8/firmware/common/phase.c
+@@ -83,7 +83,7 @@
+ static int ready_snapshot(const m_service *s,m_status t,uint64_t now) {
+     return t.core==1&&t.epoch==s->epoch&&t.hz==s->hz&&t.configured==M_ALL_RAILS&&
+         t.profile_rails==E07_PROFILE_RAILS&&t.observed_mask==M_ALL_RAILS&&
+-        (t.conversion_ready&M_REQUIRED_RAILS)==M_REQUIRED_RAILS&&
++        (E07_PROFILE_RAILS!=18||(t.conversion_ready&M_REQUIRED_RAILS)==M_REQUIRED_RAILS)&&
+         t.enabled&&s->shared->control.enabled&&!t.faults&&s->clock_checks>=3&&
+         s->heartbeat_advances>=3&&now>=t.heartbeat&&now-t.heartbeat<=s->hz/4&&
+         now>=t.configured_tick&&now-t.configured_tick>=s->hz&&t.temperature_valid&&
+--- r7/firmware/common/sensor.c
++++ r8/firmware/common/sensor.c
+@@ -62,7 +62,8 @@
+     if(!(out->flags&M_I2C_ERROR)&&(raw[4]&8u)) {
+         out->flags|=M_FRESH;*fresh=out->end[4];
+     }
+-    /* CVRF is a read-to-clear observation, never a conversion count. */
++    /* CVRF is a read-to-clear observation, never a conversion count.
++       A signed negative affects power quality, not whether this ADC updated. */
+     if(!*fresh) {
+         out->flags|=M_NOT_READY;
+         /* Preserve unqualified register contents, including signed flags.
+--- r7/firmware/sampler/sampler.c
++++ r8/firmware/sampler/sampler.c
+@@ -74,19 +74,22 @@
+                     r.flags|=M_STALE;result=-1;
+                 } else ++st->initializing_samples;
+             }
+-            int excluded_negative=E07_PROFILE_RAILS==17&&rail==7&&
++            /* ADC observation is independent of signed measurement quality. */
++            if((r.flags&M_FRESH)&&!(r.flags&(M_I2C_ERROR|M_CLOCK_ERROR|M_STALE)))
++                st->observed_mask|=1u<<rail;
++            int diagnostic_negative=E07_PROFILE_RAILS!=18&&
+                 (r.flags==M_NEGATIVE||r.flags==(M_NEGATIVE|M_FRESH))&&
+                 (!unqualified||(r.flags&M_FRESH));
+-            if(result<0&&excluded_negative) {
+-                ++st->excluded_negative_samples;
+-                st->observed_mask|=1u<<rail;
++            if(result<0&&diagnostic_negative) {
++                if(M_REQUIRED_RAILS&(1u<<rail))++st->included_negative_samples;
++                else ++st->excluded_negative_samples;
+             } else if(result<0) {
+                 invalid=1;
+                 ++st->invalid_samples;st->faults|=M_FAULT_SENSOR;
+                 if(r.flags&M_I2C_ERROR)++st->i2c_errors;
+                 if(r.flags&M_STALE)++st->stale_samples;
+             } else if(!result&&(r.flags&M_FRESH)) {
+-                st->observed_mask|=1u<<rail;st->conversion_ready|=1u<<rail;
++                st->conversion_ready|=1u<<rail;
+             }
+             if(first_phase_scan&&(s->t0<st->hz||r.end[3]>s->t0-st->hz))
+                 st->faults|=M_FAULT_HANDSHAKE;
+--- r7/firmware/service/e06_network.c
++++ r8/firmware/service/e06_network.c
+@@ -473,7 +473,7 @@
+ 
+ static err_t monitor_status(e06_connection_t *state,uint32_t id,uint8_t kind) {
+     m_status s={0};int snapshot=m_status_read(m_runtime.shared,&s)==0;
+-    char json[1900];uint64_t now=network_ticks();m_control *c=&m_runtime.shared->control;
++    char json[2300];uint64_t now=network_ticks();m_control *c=&m_runtime.shared->control;
+     int n=snprintf(json,sizeof(json),
+         "{" M_PROFILE_JSON "\"schema\":1,\"physical_status\":\"NOT_RUN\",\"ready\":%s,\"snapshot_valid\":%s,"
+         "\"phase_id\":%u,\"state\":%u,\"faults\":%u,\"sampler_faults\":%u,"
+@@ -481,6 +481,7 @@
+         "\"timer_hz\":%llu,\"sampler_hz\":%llu,\"now_ticks\":%llu,\"sampler_heartbeat\":%llu,"
+         "\"clock_checks\":%u,\"heartbeat_advances\":%u,\"configured_mask\":%u,\"configured_tick\":%llu,"
+         "\"conversion_ready_mask\":%u,\"initializing_samples\":%u,\"observed_mask\":%u,\"excluded_negative_samples\":%u,\"sampler_profile_rails\":%u,"
++        "\"adc_observed_mask\":%u,\"power_qualified_mask\":%u,\"included_negative_samples\":%u,"
+         "\"mode\":%u,\"sampling_enabled\":%u,\"scan_ms\":%u,\"offset_ms\":%u,"
+         "\"t0\":%llu,\"t1\":%llu,\"sampler_phase\":%u,\"sampler_state\":%u,"
+         "\"rail_records\":%u,\"event_records\":%u,\"temperature_records\":%u,\"scan_count\":%u,"
+@@ -495,6 +496,7 @@
+         (unsigned long long)c->hz,(unsigned long long)s.hz,(unsigned long long)now,(unsigned long long)s.heartbeat,
+         m_runtime.clock_checks,m_runtime.heartbeat_advances,s.configured,(unsigned long long)s.configured_tick,
+         s.conversion_ready,s.initializing_samples,s.observed_mask,s.excluded_negative_samples,s.profile_rails,
++        s.observed_mask,s.conversion_ready,s.included_negative_samples,
+         c->mode,c->enabled,c->scan_ms,c->offset_ms,(unsigned long long)m_runtime.t0,(unsigned long long)m_runtime.t1,
+         s.phase,s.state,s.rail_count,m_runtime.event_count,s.temp_count,s.scan_count,
+         m_runtime.completed_full,m_runtime.completed_compact,m_runtime.completed_continuous,
+--- r7/host/analyze.py
++++ r8/host/analyze.py
+@@ -109,7 +109,7 @@
+     return rows
+ 
+ 
+-def integrate_rail(rows,t0,t1,hz,excluded=False):
++def integrate_rail(rows,t0,t1,hz,excluded=False,profile=profiles.DIAGNOSTIC):
+     """Trapezoids only between adjacent valid records; never bridge bad data.
+ 
+     Subtract the integer window origin before float conversion to retain timing
+@@ -124,12 +124,14 @@
+         ordered=collect.register_order_valid(r)
+         valid=(r['flags']&1 and not r['flags']&~3 and ordered and end>=begin and
+                r['power_uW']!=-(2**63) and r['power_uW']>=0)
+-        if excluded:valid=ordered and profiles.raw_power_ok(r,profiles.DIAGNOSTIC)
++        if excluded:valid=ordered and profiles.raw_power_ok(r,profile)
+         if not valid:reasons.append('invalid sample interrupts interpolation')
+         if not ordered:reasons.append('invalid register observation order')
+         points.append((x,None if excluded else r['power_uW']/1e6,valid))
+         read_widths.append((end-begin)/hz)
+-        if valid and r['flags']&2:updates.append(x)
++        # ADC update evidence is independent of whether signed power is usable.
++        if (ordered and r['flags']&2 and not r['flags']&(4|64|128|512) and r.get('mask',8)&8):
++            updates.append(x)
+     monotonic=all(b[0]>a[0] for a,b in zip(points,points[1:]))
+     if not monotonic:reasons.append('nonmonotonic Power read times')
+     if not points or points[0][0]>0 or points[-1][0]<duration:
+@@ -280,14 +282,14 @@
+         if (r['flags']&1 and (r['mask']&4 or r['shunt']>=32768 or r['current']>=32768 or
+             r['shunt'] in (32767,32768) or r['current'] in (32767,32768) or
+             r['bus']==65535 or r['power']==65535)):reasons.append('invalid overflow/saturation/signed sensor data')
+-    rails=[]
++    rails=[];power_reasons=[]
+     for rail in range(18):
+         rows=[r for r in raw['rails'] if r['rail']==rail]
+         excluded=rail in policy['excluded_rails']
+-        r=integrate_rail(rows,t0,t1,hz,excluded);r.update(**policy,included=not excluded,rail=rail,group='PS' if rail<10 else 'PL',
++        r=integrate_rail(rows,t0,t1,hz,excluded,profile);r.update(**policy,included=not excluded,rail=rail,group='PS' if rail<10 else 'PL',
+             Power_LSB_W=.03125 if rail==10 else .0125)
+         rails.append(r)
+-        reasons.extend(f'rail{rail}: {why}' for why in r['invalid_reasons'])
++        power_reasons.extend(f'rail{rail}: {why}' for why in r['invalid_reasons'])
+     events=raw['events']
+     # CLOCK reports an earlier sampler observation; START/END have scheduled
+     # ticks and can be published after an actual-time event. Publication order
+@@ -327,7 +329,8 @@
+     if n!=expected:reasons.append('board completion counter mismatch')
+     host,host_reasons=host_accounting(directory,p,input_sha256);reasons.extend(host_reasons)
+     if ids-set(host['submitted_request_ids']):reasons.append('board ACK without matching host submission')
+-    reasons=list(dict.fromkeys(reasons));valid=not reasons;duration=(t1-t0)/hz
++    capture_reasons=list(dict.fromkeys(reasons));capture_valid=not capture_reasons
++    reasons=list(dict.fromkeys(capture_reasons+power_reasons));valid=not reasons;duration=(t1-t0)/hz
+     energy=sum(r['energy_J'] for r in rails if r['included']) if valid else None
+     for r in rails:
+         r['energy_mJ_per_completed_frame']=1000*r['energy_J']/n if valid and r['included'] and mode and n else None
+@@ -336,15 +339,18 @@
+     temps=[r['temperature_mC']/1000 for r in raw['temperatures'] if r['flags']==1]
+     return dict(**policy,condition=match[2] if match else p['name'],repetition=int(match[1]) if match else None,
+         phase_name=p['name'],board_phase_id=phase,mode=mode,valid=valid,invalid_reasons=reasons,
++        capture_valid=capture_valid,capture_invalid_reasons=capture_reasons,
++        power_quality_valid=valid,power_invalid_reasons=list(dict.fromkeys(power_reasons)),
+         measurement_origin='SYNTHETIC_NOT_PHYSICAL' if synthetic else 'PHYSICAL_ORIGIN_REQUIRES_SESSION_VALIDATION',
+         units=dict(energy='J',mean_power='W',energy_per_frame='mJ/completed frame',time='s'),
+         board_window_ticks=[t0,t1],timer_hz=hz,duration_seconds=duration,energy_J=energy,
+         mean_W=energy/duration if valid else None,P17mean_W=energy/duration if valid and profile==profiles.DIAGNOSTIC else None,
++        P16mean_W=energy/duration if valid and profile==profiles.DIAGNOSTIC16 else None,
+         completed_board=n,dropped_frames=host['window_evicted'],missed_slots=host['window_missed_slots'],
+         whole_run_evicted_frames=host['evicted'],whole_run_missed_slots=host['missed_slots'],
+         host_window_monotonic=host['window_monotonic'],board_window_dropped_frames=None,
+         drop_scope='host monotonic [start,end): evictions by frame production time, missed slots by scheduled deadline',
+-        board_completed_fps=n/duration if valid else None,
++        board_completed_fps=n/duration if capture_valid else None,
+         pre_window_board=sum(e['tick']<t0 for e in successful),drain_board=sum(e['tick']>=t1 for e in successful),
+         energy_mJ_per_completed_frame=1000*energy/n if valid and n and mode else None,
+         offered_input_fps=4*p['fps'] if p['fps'] else None,
+@@ -454,11 +460,13 @@
+         if reasons:
+             stage['valid']=False;stage['invalid_reasons'].extend(reasons)
+             invalidate_rails(stage['rails'],'parent session failed validation')
+-            for key in ('energy_J','mean_W','P17mean_W','board_completed_fps','energy_mJ_per_completed_frame'):stage[key]=None
++            stage['capture_valid']=False;stage['power_quality_valid']=False
++            for key in ('energy_J','mean_W','P17mean_W','P16mean_W','board_completed_fps','energy_mJ_per_completed_frame'):stage[key]=None
+         elif not synthetic:stage['measurement_origin']='PHYSICAL_USER_SESSION'
+         stages.append(stage)
+     return dict(**profiles.metadata(profile),schema='e07-independent-analysis-v1',measurement_origin='SYNTHETIC_NOT_PHYSICAL' if synthetic else 'USER_SESSION',
+         valid=bool(stages) and all(s['valid'] for s in stages),session_invalid_reasons=reasons,
++        capture_complete=session.get('status')=='COMPLETE' and bool(stages) and all(s.get('capture_valid') for s in stages),
+         firmware_sha256=identity['firmware_sha256'],delivered_candidate_physical_status=identity['physical_status'],
+         controls=session.get('controls'),board_id=session.get('board_id'),stages=stages,aggregates=aggregate(stages),
+         qualifications=QUALIFICATIONS,analysis_sha256=collect.file_hash(__file__),
+@@ -470,8 +478,8 @@
+     wire.save_json(output/'analysis.json',result)
+     profile_fields=list(profiles.metadata(result['measurement_profile']))
+     fields=profile_fields+['condition','repetition','phase_name','valid','invalid_reasons','measurement_origin',
+-        'duration_seconds','drop_scope','host_window_monotonic','dropped_frames','missed_slots',
+-        'whole_run_evicted_frames','whole_run_missed_slots','board_window_dropped_frames','P17mean_W','energy_J','mean_W','completed_board','board_completed_fps',
++        'duration_seconds','capture_valid','power_quality_valid','drop_scope','host_window_monotonic','dropped_frames','missed_slots',
++        'whole_run_evicted_frames','whole_run_missed_slots','board_window_dropped_frames','P17mean_W','P16mean_W','energy_J','mean_W','completed_board','board_completed_fps',
+         'energy_mJ_per_completed_frame','offered_input_fps','drain_board']
+     with (output/'per-stage.csv').open('x',encoding='utf-8-sig',newline='') as stream:
+         writer=csv.DictWriter(stream,fields);writer.writeheader()
+@@ -489,7 +497,9 @@
+     parser=argparse.ArgumentParser(description=__doc__)
+     parser.add_argument('session',type=pathlib.Path,help='raw session directory')
+     parser.add_argument('--output',required=True,type=pathlib.Path,help='new derived-only directory outside the raw session')
+-    parser.add_argument('--diagnostic17',action='store_true',help='require diagnostic17 session and identity')
++    scope=parser.add_mutually_exclusive_group()
++    scope.add_argument('--diagnostic17',action='store_true',help='require diagnostic17 session and identity')
++    scope.add_argument('--diagnostic16',action='store_true',help='require diagnostic16 session; exclude7/15')
+     parser.add_argument('--synthetic',action='store_true',help='label every output SYNTHETIC_NOT_PHYSICAL; cannot qualify acceptance')
+     parser.add_argument('--acceptance-session',type=pathlib.Path,help='relocated raw acceptance session.json; exact original hashes still required')
+     args=parser.parse_args(argv)
+@@ -498,7 +508,7 @@
+     if out.is_relative_to(ROOT.resolve()):raise AnalysisError('derived output must be outside immutable package')
+     if out==raw or raw in out.parents:raise AnalysisError('derived output must be outside immutable raw session')
+     collect.verify_delivery(ROOT)
+-    profile=profiles.DIAGNOSTIC if args.diagnostic17 else profiles.STRICT
++    profile=profiles.DIAGNOSTIC16 if args.diagnostic16 else profiles.DIAGNOSTIC if args.diagnostic17 else profiles.STRICT
+     result=analyze_session(raw,args.synthetic,args.acceptance_session,profile);write_results(out,result)
+     print(json.dumps(dict(**profiles.metadata(profile),status='VALID' if result['valid'] else 'INVALID',output=str(out),measurement_origin=result['measurement_origin'])))
+     return 0 if result['valid'] else 1
+--- r7/host/collect.py
++++ r8/host/collect.py
+@@ -245,8 +245,9 @@
+                 names={4:'I2C_ERROR',8:'OVERFLOW',16:'SATURATED',32:'STALE',
+                        64:'CONFIG_ERROR',128:'CLOCK_ERROR',256:'NEGATIVE',512:'NOT_READY'}
+                 wire.save_json(path/'fault-summary.json',dict(
+-                    scope='cached complete scan; live or frozen status not attested; not a power result or calibration',
+-                    negative_policy='Unqualified negative readings remain excluded; no clipping or offset correction.',
++                    **profiles.metadata(client.profile),
++                    scan_provenance='cached complete scan; live or frozen status not attested; not a power result or calibration',
++                    negative_policy='Raw NEGATIVE retained; diagnostic capture and included-power quality are separate; no clipping or offset correction.',
+                     rails=[dict(rail=r['rail'],scan=r['scan'],flags=r['flags'],
+                         reasons=[label for bit,label in names.items() if r['flags']&bit],
+                         shunt_raw=r['shunt'],shunt_signed=signed(r['shunt']),
+@@ -341,8 +342,10 @@
+     try:result=analyze.evaluate_phase(directory,False,input_sha256,profile)
+     except IdentityError:raise
+     except (analyze.AnalysisError,KeyError,TypeError,ValueError) as exc:raise GateError(str(exc)) from exc
+-    if not result['valid']:raise GateError('invalid phase evidence: '+' | '.join(result['invalid_reasons']))
+-    return result['phase_assessment']
++    acceptable=result['valid'] if profile==profiles.STRICT else result['capture_valid']
++    if not acceptable:raise GateError('invalid phase evidence: '+' | '.join(result['invalid_reasons']))
++    return dict(result['phase_assessment'],capture_valid=result['capture_valid'],
++                power_quality_valid=result['valid'],power_invalid_reasons=result['power_invalid_reasons'])
+ 
+ 
+ def assess_coverage(directory,p,s,profile,raw,snapshots):
+@@ -354,6 +357,8 @@
+         raise GateError('missing, extra or disordered physical rail')
+     if [r for r in rails if r['rail']==7]!=read_json(directory/'exports/rail7-records.json'):
+         raise GateError('Rail7 decoded subset differs from raw export')
++    if [r for r in rails if r['rail']==15]!=read_json(directory/'exports/rail15-records.json'):
++        raise GateError('Rail15 decoded subset differs from raw export')
+     if s['faults'] or s['sampler_faults']:raise GateError('phase/latched sampler fault')
+     if s['state']!=4 or s['sampler_state']!=4:raise GateError('phase not frozen DONE')
+     if s['t0']>=s['t1'] or s['timer_hz']<=0:raise GateError('bad board measurement window')
+@@ -361,24 +366,30 @@
+     if s['phase_id']!=p['board_phase_id']:raise GateError('board phase identity mismatch')
+     warm,start,arm,observed=snapshots
+     if not observed:raise GateError('missing measured-phase configuration observations')
+-    counters=[]
++    counters=[];included_counters=[]
+     for status in [*warm,start,arm,*observed,s]:
+         validate_condition(status,p)
+         validate_status(status,require_ready=False,profile=profile)
+         if (status['timer_hz'],status['epoch'])!=(s['timer_hz'],s['epoch']):
+             raise GateError('phase clock/boot epoch changed')
+         counters.append(status['excluded_negative_samples'])
+-    warnings=sum(r['rail']==7 and r['flags'] in (256,258) for r in rails)
++        included_counters.append(status['included_negative_samples'])
++    excluded=profiles.metadata(profile)['excluded_rails']
++    warnings=sum(r['rail'] in excluded and r['flags'] in (256,258) for r in rails)
++    included_warnings=sum(r['rail'] not in excluded and r['flags'] in (256,258) for r in rails)
+     if (any(b<a for a,b in zip(counters,counters[1:])) or
+         s['excluded_negative_samples']-start['excluded_negative_samples']<warnings):
+         raise GateError('excluded-negative counter rolled back or missed exported warnings')
++    if (any(b<a for a,b in zip(included_counters,included_counters[1:])) or
++        s['included_negative_samples']-start['included_negative_samples']<included_warnings):
++        raise GateError('included-negative counter rolled back or missed exported warnings')
+     if not thermal_stable(warm):
+         raise GateError('warmup thermal evidence failed')
+     hz=s['timer_hz'];coverage=[];overlap=0
+     intervals=sorted((e['begin'],e['end']) for e in events if e['type']==6 and e['flags']==1)
+     for rail in range(18):
+         rows=[r for r in rails if r['rail']==rail]
+-        if any(not profiles.raw_power_ok(r,profile) or not register_order_valid(r) for r in rows):
++        if any(not profiles.raw_capture_ok(r,profile) or not register_order_valid(r) for r in rows):
+             raise GateError('invalid raw rail power, flags, or register read order')
+         ticks=[(r['begin'][3]+r['end'][3])/2 for r in rows]
+         # The sampler stops scheduling at the postguard deadline. The final
+@@ -407,6 +418,7 @@
+     if not counts.get('conserved') or counts.get('failed',0) or counts.get('in_flight',0):
+         raise GateError('host frame failure/accounting loss')
+     return dict(**profiles.metadata(profile),exported_excluded_negative_rows=warnings,
++                exported_included_negative_rows=included_warnings,
+                 prearm_to_end_excluded_negative_delta=s['excluded_negative_samples']-start['excluded_negative_samples'],coverage=coverage,inference_read_overlap_rails=overlap,**c,
+                 metrology_claim='Read/inference overlap is timing evidence only; ADC windows, bias and absolute accuracy remain unqualified.')
+ 
+@@ -625,7 +637,8 @@
+         require_profile(saved,profile)
+         if any(saved.get(k)!=v for k,v in p.items()):raise GateError('acceptance condition mismatch')
+         assess_phase(phase_dir,profile,identity['artifact_hashes']['input'])
+-    return dict(**profiles.metadata(profile),path=str(path),sha256=file_hash(path),inventory_sha256=file_hash(path.parent/'inventory.json'))
++    return dict(**profiles.metadata(profile),path=str(path),sha256=file_hash(path),inventory_sha256=file_hash(path.parent/'inventory.json'),
++                acceptance_scope='strict18 power and capture' if profile==profiles.STRICT else 'diagnostic capture; power quality evaluated separately')
+ 
+ 
+ class Journal:
+@@ -886,7 +899,9 @@
+     action.add_argument('--prepare-sd',action='store_true',help='verify actual mounted SD contents and save receipt; no board')
+     action.add_argument('--acceptance',action='store_true',help='physical short/startup + 17/23 ms, two-offset, 60-second checks')
+     action.add_argument('--formal',action='store_true',help='paired formal suite; requires raw physical acceptance dataset')
+-    p.add_argument('--diagnostic17',action='store_true',help='use the diagnostic17 BOOT, card and evidence')
++    scope=p.add_mutually_exclusive_group()
++    scope.add_argument('--diagnostic17',action='store_true',help='exclude Rail7; keep negative-only diagnostic records')
++    scope.add_argument('--diagnostic16',action='store_true',help='exclude Rail7/Rail15; 16-rail diagnostic capture')
+     p.add_argument('--target120-only',action='store_true',help='with --formal only: paired Target120 Full/Compact; default remains full suite')
+     p.add_argument('--sd-root',type=pathlib.Path,help='actual copied SD root while mounted on host')
+     p.add_argument('--sd-receipt',type=pathlib.Path,help='tool-generated verification receipt to write/consume')
+@@ -920,7 +935,7 @@
+         for label,path in (('output',args.output),('SD receipt',args.sd_receipt),('controls',args.controls)):
+             if path is not None and path.resolve().is_relative_to(root):
+                 raise GateError(label+' must be outside the immutable package directory')
+-    profile=profiles.DIAGNOSTIC if args.diagnostic17 else profiles.STRICT
++    profile=profiles.DIAGNOSTIC16 if args.diagnostic16 else profiles.DIAGNOSTIC if args.diagnostic17 else profiles.STRICT
+     verify_delivery(root)
+     if root!=ROOT and source_hashes(root)!=source_hashes(ROOT):
+         raise GateError('running host differs from selected package source')
+@@ -959,7 +974,8 @@
+         os=platform.platform(),python=sys.version,board_id=args.board_id,controls=controls,
+         plan=plan,acceptance_binding=acceptance,physical=False,phases=[],
+         selected_profile='acceptance' if args.acceptance else ('target120-only' if args.target120_only else 'full-suite'),
+-        qualification='New candidate physical startup and power acceptance were NOT_RUN at package delivery.')
++        qualification='New candidate physical startup and power acceptance were NOT_RUN at package delivery.',
++        acceptance_scope='strict18 power and capture' if profile==profiles.STRICT else 'diagnostic capture; negative-only records do not abort, power quality is separate')
+     wire.save_json(out/'session-start.json',session)
+     wire.save_json(out/'manifest.json',info['manifest'])
+     wire.save_json(out/'firmware-identity.json',info['identity'])
+@@ -991,9 +1007,12 @@
+         if sock:sock.close()
+         protocol_log.close()
+         session['finished_utc']=utcnow()
++        session['capture_complete']=session['status']=='COMPLETE'
++        session['power_quality_valid']=bool(session['phases']) and all(p.get('power_quality_valid') is True for p in session['phases'])
+         wire.save_json(out/'inventory.json',inventory(out))
+         wire.save_json(out/'session.json',session)
+-    print(json.dumps(dict(status=session['status'],session=str(out/'session.json'),error=session.get('error',{}).get('detail'))))
++    print(json.dumps(dict(**profiles.metadata(profile),status=session['status'],capture_complete=session['capture_complete'],
++        power_quality_valid=session['power_quality_valid'],session=str(out/'session.json'),error=session.get('error',{}).get('detail'))))
+     return 0 if session['status']=='COMPLETE' else 1
+ 
+ 
+--- r7/host/profiles.py
++++ r8/host/profiles.py
+@@ -1,17 +1,20 @@
+ """Measurement contracts shared by the builder, collector and analyzer."""
+ STRICT = 'strict18'
+ DIAGNOSTIC = 'diagnostic17'
++DIAGNOSTIC16 = 'diagnostic16'
++ALL_PROFILES = (STRICT, DIAGNOSTIC, DIAGNOSTIC16)
+ ALL = (1 << 18) - 1
+ SENTINEL = -(1 << 63)
+ 
+ 
+ def metadata(profile):
+-    if profile not in (STRICT, DIAGNOSTIC):
++    if profile not in ALL_PROFILES:
+         raise ValueError('unknown measurement profile '+str(profile))
+-    diagnostic = profile == DIAGNOSTIC
+-    return dict(measurement_profile=profile, included_mask=ALL ^ (1 << 7) if diagnostic else ALL,
+-                included_count=17 if diagnostic else 18, excluded_rails=[7] if diagnostic else [],
+-                scope='17-rail diagnostic' if diagnostic else
++    excluded = [7,15] if profile == DIAGNOSTIC16 else [7] if profile == DIAGNOSTIC else []
++    count = 18-len(excluded)
++    return dict(measurement_profile=profile, included_mask=ALL ^ sum(1 << r for r in excluded),
++                included_count=count, excluded_rails=excluded,
++                scope=f'{count}-rail diagnostic' if excluded else
+                       '18 monitored supply rails; not external whole-board input power')
+ 
+ 
+@@ -22,7 +25,7 @@
+ 
+ def paths(profile):
+     metadata(profile)
+-    suffix = '_DIAG17' if profile == DIAGNOSTIC else ''
++    suffix = '_DIAG16' if profile == DIAGNOSTIC16 else '_DIAG17' if profile == DIAGNOSTIC else ''
+     return 'FIRMWARE_IDENTITY'+suffix+'.json', 'SHA256SUMS'+suffix+'.json', 'SD_CARD'+suffix
+ 
+ 
+@@ -30,13 +33,16 @@
+     expected = metadata(profile)
+     ready = status.get('conversion_ready_mask')
+     warnings = status.get('excluded_negative_samples')
++    included = status.get('included_negative_samples')
+     return (matches(status, profile) and status.get('sampler_profile_rails') == expected['included_count'] and
+             status.get('configured_mask') == ALL and status.get('observed_mask') == ALL and
+-            type(ready) is int and 0 <= ready <= ALL and ready & expected['included_mask'] == expected['included_mask'] and
+-            type(warnings) is int and warnings >= 0 and (profile == DIAGNOSTIC or warnings == 0))
++            type(ready) is int and 0 <= ready <= ALL and
++            (profile != STRICT or ready == ALL) and
++            type(warnings) is int and warnings >= 0 and type(included) is int and included >= 0 and
++            (profile != STRICT or warnings == included == 0))
+ 
+ 
+-def raw_power_ok(row, profile):
++def raw_power_ok(row, profile, capture=False):
+     flags = row['flags']
+     signed = row['shunt'] >= 32768 or row['current'] >= 32768
+     if (row['rail'] not in range(18) or row['config'] != 0x4527 or row['calibration'] != 2048 or
+@@ -44,7 +50,13 @@
+         row['shunt'] in (32767,32768) or row['current'] in (32767,32768) or
+         row['bus'] >= 32767 or row['power'] == 65535):
+         return False
+-    if profile == DIAGNOSTIC and row['rail'] == 7 and flags in (256,258):
++    if (profile != STRICT and flags in (256,258) and
++        (capture or row['rail'] in metadata(profile)['excluded_rails'])):
+         return signed and row['power_uW'] == SENTINEL
+     return (flags in (1,3) and not signed and
+             row['power_uW'] == row['power'] * (31250 if row['rail'] == 10 else 12500))
++
++
++def raw_capture_ok(row, profile):
++    """A negative-only diagnostic record is observable, not valid included power."""
++    return raw_power_ok(row,profile,capture=True)
+--- r7/host/wire.py
++++ r8/host/wire.py
+@@ -232,5 +232,6 @@
+             first=m['next']
+         if kind in ('config','latest') and len(rows)!=18:raise ProtocolError('missing diagnostic/config rails')
+         save_json(destination/f'{kind}-records.json',rows)
+-        if kind=='rails':save_json(destination/'rail7-records.json',[r for r in rows if r['rail']==7])
++        if kind=='rails':
++            for rail in (7,15):save_json(destination/f'rail{rail}-records.json',[r for r in rows if r['rail']==rail])
+         return rows
+--- r7/package.py
++++ r8/package.py
+@@ -73,9 +73,9 @@
+         if path.stat().st_size!=expected['bytes'] or file_hash(path)!=expected['sha256']:
+             raise PackageError('package size/SHA mismatch: '+name)
+     from host import collect
+-    infos={name:collect.preflight(root,name) for name in ('strict18','diagnostic17')}
++    infos={name:collect.preflight(root,name) for name in collect.profiles.ALL_PROFILES}
+     info=infos[profile]
+-    if infos['strict18']['identity']['artifact_hashes']!=infos['diagnostic17']['identity']['artifact_hashes']:
++    if any(i['identity']['artifact_hashes']!=infos['strict18']['identity']['artifact_hashes'] for i in infos.values()):
+         raise PackageError('profiles disagree on frozen artifacts')
+     return dict(**collect.profiles.metadata(profile),status='WHOLE_PACKAGE_PREFLIGHT_PASS',file_count=len(manifest)+1,
+         firmware_sha256=info['identity']['firmware_sha256'],physical_startup='NOT_RUN',
+@@ -84,15 +84,17 @@
+ 
+ def selected_files(root):
+     from host import collect
+-    identities=[collect.preflight(root,profile)['identity'] for profile in ('strict18','diagnostic17')]
++    identities=[collect.preflight(root,profile)['identity'] for profile in collect.profiles.ALL_PROFILES]
+     identity=identities[0]
+     paths=set()
+     for name in ('FIRMWARE_IDENTITY.json','SHA256SUMS.json','README_CN.txt','PROTOCOL.md',
+                  'Run-PowerRetest.ps1','package.py','build_firmware.py','build_platform.py',
+                  'REPAIR_NOTES_CN.txt','REPAIR.diff','DIAGNOSTIC17_NOTES_CN.txt','DIAGNOSTIC17.diff',
+-                 'FIRMWARE_IDENTITY_DIAG17.json','SHA256SUMS_DIAG17.json'):
++                 'FIRMWARE_IDENTITY_DIAG17.json','SHA256SUMS_DIAG17.json',
++                 'FIRMWARE_IDENTITY_DIAG16.json','SHA256SUMS_DIAG16.json',
++                 'RECORD_COMPLETE_NOTES_CN.txt','RECORD_COMPLETE.diff'):
+         paths.add(root/name)
+-    for directory in ('host','firmware','tests','SD_CARD','SD_CARD_DIAG17'):
++    for directory in ('host','firmware','tests','SD_CARD','SD_CARD_DIAG17','SD_CARD_DIAG16'):
+         paths.update(p for p in (root/directory).rglob('*') if p.is_file() and '__pycache__' not in p.parts)
+     for current in identities:
+         build=root/current['build_directory']
+@@ -103,6 +105,8 @@
+                  'build-strict18.log','build-diagnostic17.log','red-package.log','red-package-cli.log','red-replay.log',
+                  'fix1-red.log','fix1-red-load.log','fix1-red-response.log','fix1-green.log','r6-red.log','r6-green.log','r7-green.log','full-suite.log'):
+         paths.add(audit/name)
++    for name in ('README.txt','red.log','adc-quality-red.log','focused.log','build-strict18.log','build-diagnostic17.log','build-diagnostic16.log'):
++        paths.add(root/'execution/record_complete_20261122'/name)
+     provenance=collect.read_json(root/identity['build_directory']/'provenance.json')
+     for name in provenance['sampler_startup_inputs']:paths.add(root/name)
+     for path in paths:
+@@ -138,6 +142,7 @@
+     data['BUILD_DEPENDENCIES.json']=json_bytes(dependencies(identity))
+     diagnostic=json.loads(data['FIRMWARE_IDENTITY_DIAG17.json'])
+     data['BUILD_DEPENDENCIES_DIAG17.json']=json_bytes(dependencies(diagnostic))
++    data['BUILD_DEPENDENCIES_DIAG16.json']=json_bytes(dependencies(json.loads(data['FIRMWARE_IDENTITY_DIAG16.json'])))
+     manifest={name:dict(bytes=len(value),sha256=digest(value)) for name,value in sorted(data.items())}
+     data[MANIFEST]=json_bytes(manifest)
+     archive.parent.mkdir(parents=True,exist_ok=True)
+@@ -160,11 +165,13 @@
+     action=parser.add_mutually_exclusive_group(required=True)
+     action.add_argument('--check-only',action='store_true',help='verify whole extracted package before collector use')
+     action.add_argument('--build',action='store_true',help='create uniquely named new ZIP; never overwrite')
+-    parser.add_argument('--diagnostic17',action='store_true',help='display diagnostic17 identity during verification')
++    scope=parser.add_mutually_exclusive_group()
++    scope.add_argument('--diagnostic17',action='store_true',help='display diagnostic17 identity during verification')
++    scope.add_argument('--diagnostic16',action='store_true',help='display diagnostic16 identity during verification')
+     parser.add_argument('--root',type=pathlib.Path,default=ROOT)
+     parser.add_argument('--output-zip',type=pathlib.Path)
+     args=parser.parse_args(argv);require_python()
+-    if args.check_only:result=verify_package(args.root,"diagnostic17" if args.diagnostic17 else "strict18")
++    if args.check_only:result=verify_package(args.root,"diagnostic16" if args.diagnostic16 else "diagnostic17" if args.diagnostic17 else "strict18")
+     else:
+         stamp=datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%SZ')
+         archive=args.output_zip or args.root/'archives'/f'E07_Independent_Power_v1_{stamp}_{uuid.uuid4().hex[:8]}.zip'
+--- r7/tests/test_analysis.py
++++ r8/tests/test_analysis.py
+@@ -39,7 +39,7 @@
+ 
+ 
+ def fixture_status(**changes):
+-    value = dict(**STRICT,observed_mask=262143,excluded_negative_samples=0,sampler_profile_rails=18,schema=1, physical_status='NOT_RUN', ready=True, snapshot_valid=True,
++    value = dict(**STRICT,observed_mask=262143,excluded_negative_samples=0,included_negative_samples=0,sampler_profile_rails=18,schema=1, physical_status='NOT_RUN', ready=True, snapshot_valid=True,
+         phase_id=1, state=4, faults=0, sampler_faults=0, service_core=0, sampler_core=1,
+         epoch=7, sampler_epoch=7, timer_hz=8000, sampler_hz=8000, now_ticks=104100,
+         sampler_heartbeat=104000, clock_checks=4, heartbeat_advances=4, configured_mask=262143,
+@@ -141,11 +141,12 @@
+                 prefix.parent.mkdir(parents=True,exist_ok=True)
+                 prefix.with_suffix('.bin').write_bytes(data)
+                 write_json(prefix.with_suffix('.json'),dict(request_id=100+first,
+-                    payload_sha256=hashlib.sha256(data).hexdigest(),metadata=dict(**(DIAG if self.phase['measurement_profile']=='diagnostic17' else STRICT),schema=1,record_type=kind,
++                    payload_sha256=hashlib.sha256(data).hexdigest(),metadata=dict(**{k:self.phase[k] for k in STRICT},schema=1,record_type=kind,
+                     phase_id=1,first=first,count=len(chunk),total=len(rows),record_bytes=struct.calcsize(wire.FORMATS[kind]),
+                     next=first+len(chunk),done=first+len(chunk)==len(rows))))
+             write_json(self.directory/'exports'/f'{kind}-records.json',rows)
+         write_json(self.directory/'exports/rail7-records.json',[r for r in self.rails if r['rail']==7])
++        write_json(self.directory/'exports/rail15-records.json',[r for r in self.rails if r['rail']==15])
+         write_json(self.directory/'phase.json',self.phase)
+         write_json(self.directory/'end-status.json',self.end)
+         write_json(self.directory/'start-status.json',self.start)
+--- r7/tests/test_first_conversion.c
++++ r8/tests/test_first_conversion.c
+@@ -78,7 +78,8 @@
+         int rail=!strcmp(name,"profile-other")?6:7;f.regs[rail][4]=65534;
+         f.tick=base+10000;m_sampler_step(&sampler);
+         if(rail==6){
+-            assert(sampler.status.faults==M_FAULT_SENSOR&&sampler.status.invalid_samples==1);
++            assert(!sampler.status.faults&&!sampler.status.invalid_samples);
++            assert(sampler.status.included_negative_samples==1);
+         }else{
+             assert(!sampler.status.faults);
+             if(!strcmp(name,"profile-i2c"))f.fail_bus=1;
+--- r7/tests/test_host.py
++++ r8/tests/test_host.py
+@@ -30,7 +30,7 @@
+           scope='17-rail diagnostic')
+ 
+ def status(**changes):
+-    value = dict(**STRICT,observed_mask=262143,excluded_negative_samples=0,sampler_profile_rails=18,schema=1, physical_status='NOT_RUN', ready=True, snapshot_valid=True,
++    value = dict(**STRICT,observed_mask=262143,excluded_negative_samples=0,included_negative_samples=0,sampler_profile_rails=18,schema=1, physical_status='NOT_RUN', ready=True, snapshot_valid=True,
+         phase_id=0, state=0, faults=0, sampler_faults=0, service_core=0, sampler_core=1,
+         epoch=7, sampler_epoch=7, timer_hz=1000, sampler_hz=1000, now_ticks=10000,
+         sampler_heartbeat=9990, clock_checks=4, heartbeat_advances=4, configured_mask=262143,
+@@ -323,7 +323,7 @@
+         with tempfile.TemporaryDirectory() as tmp,server(self.identity,handle) as sock:
+             collect.diagnostics(wire.Client(sock,self.identity),tmp)
+             summary=json.loads((pathlib.Path(tmp)/'diagnostics/fault-summary.json').read_text())
+-            self.assertNotIn('frozen first faulty scan',summary['scope'])
++            self.assertNotIn('frozen first faulty scan',summary['scan_provenance'])
+ 
+     def test_invalid_config_refuses_arm(self):
+         records=[dict(rail=r,flags=1,manufacturer=0x5449,die=0x2260,config=0x4527,
+--- /dev/null
++++ r8/tests/test_record_complete.c
+@@ -0,0 +1,47 @@
++/* Actual sampler with register I/O from the retained native sensor fixture. */
++#define main retained_conversion_fixture_main
++#include "test_first_conversion.c"
++#undef main
++
++int main(void) {
++    fake f;init(&f);f.tick=1000000;
++    m_shared *p=calloc(1,sizeof(*p));assert(p);
++    m_service service;m_sampler sampler;
++    m_service_init(&service,p,1000000,0,1);
++    assert(!m_sampler_init(&sampler,p,io_for(&f),1,1000000,temperature));
++    uint64_t base=f.tick;
++    for(unsigned rail=0;rail<18;rail++)f.regs[rail][6]=8;
++    for(unsigned n=0;n<3;n++) {
++        unsigned rail=(unsigned[]){6,7,15}[n];
++        f.regs[rail][1]=65534;f.regs[rail][4]=65534;f.regs[rail][3]=0;
++    }
++    f.tick=base+120000;m_sampler_step(&sampler);
++    /* CVRF proves all ADCs updated, including negative-valued rails. */
++    assert(sampler.status.observed_mask==262143);
++    assert(sampler.status.conversion_ready==229183);
++    if(E07_PROFILE_RAILS==18) {
++        assert(sampler.status.faults==M_FAULT_SENSOR);
++        assert(sampler.status.invalid_samples==3&&sampler.diagnostic_frozen);
++    } else {
++        assert(!sampler.status.faults&&!sampler.status.invalid_samples&&!sampler.diagnostic_frozen);
++        for(unsigned scan=1;scan<=55;scan++) {
++            /* Every other software scan observes a real conversion. */
++            if(scan%2==0)for(unsigned rail=0;rail<18;rail++)f.regs[rail][6]=8;
++            f.tick=base+120000+scan*20000;m_sampler_step(&sampler);
++        }
++        service.clock_checks=service.heartbeat_advances=3;
++        assert(m_service_ready(&service,f.tick));
++        m_rail_record rows[18];assert(!m_latest_read(p,rows));
++        assert(rows[15].shunt==65534&&rows[15].current==65534&&rows[15].power==0);
++        assert(rows[15].flags==M_NEGATIVE&&rows[15].power_uW==INT64_MIN);
++        assert(sampler.status.included_negative_samples>0);
++        assert(sampler.status.excluded_negative_samples>0);
++        /* A genuine sensor error remains fatal even on an excluded rail. */
++        for(unsigned rail=0;rail<18;rail++)f.regs[rail][6]=8;
++        f.regs[15][6]=12;f.tick+=20000;m_sampler_step(&sampler);
++        assert(sampler.status.faults==M_FAULT_SENSOR&&sampler.status.invalid_samples==1);
++        assert(sampler.diagnostic_frozen&&!m_latest_read(p,rows));
++        assert(rows[15].flags==(M_NEGATIVE|M_FRESH|M_OVERFLOW));
++    }
++    free(p);puts("ADC_OBSERVATION_NEGATIVE_QUALITY_AND_REAL_FAULT_OK");return 0;
++}
+--- /dev/null
++++ r8/tests/test_record_complete.py
+@@ -0,0 +1,85 @@
++"""Focused record-complete regressions; all data here are synthetic."""
++import pathlib
++import subprocess
++import sys
++import tempfile
++import unittest
++
++ROOT=pathlib.Path(__file__).resolve().parents[1]
++sys.path.insert(0,str(ROOT))
++from host import analyze,collect,profiles
++from test_analysis import RawFixture
++
++DIAG16=dict(measurement_profile='diagnostic16',included_mask=229247,included_count=16,
++            excluded_rails=[7,15],scope='16-rail diagnostic')
++
++class RecordCompleteTests(unittest.TestCase):
++    def test_actual_three_profile_samplers_keep_adc_observation_separate(self):
++        for count in (18,17,16):
++            with self.subTest(profile=count),tempfile.TemporaryDirectory() as d:
++                exe=pathlib.Path(d)/'sampler'
++                cmd=['cc','-std=c11','-O2','-Wall','-Wextra','-Werror',
++                     f'-DE07_PROFILE_RAILS={count}','-I'+str(ROOT/'firmware/common'),
++                     '-I'+str(ROOT/'firmware/sampler')]
++                cmd += [str(ROOT/n) for n in ('tests/test_record_complete.c',
++                        'firmware/common/sensor.c','firmware/sampler/sampler.c','firmware/common/phase.c')]
++                p=subprocess.run(cmd+['-o',str(exe)],capture_output=True,text=True)
++                self.assertEqual(p.returncode,0,p.stdout+p.stderr)
++                p=subprocess.run([str(exe)],capture_output=True,text=True)
++                self.assertEqual(p.returncode,0,p.stdout+p.stderr)
++
++    def fixture(self,d):
++        f=RawFixture(pathlib.Path(d)/'phase')
++        f.phase.update(DIAG16)
++        for s in [f.end,f.start,f.phase['arm_status']]+f.warm:
++            s.update(DIAG16,sampler_profile_rails=16,conversion_ready_mask=229247,
++                     observed_mask=262143,excluded_negative_samples=0,included_negative_samples=0)
++        f.end['excluded_negative_samples']=66
++        f.events=[e for e in f.events if e['type']!=5 or e['request_id']<=200]
++        f.end['completed_full']=200
++        for r in f.rails:
++            r.update(power_uW=2000000,power=64 if r['rail']==10 else 160)
++            if r['rail'] in (7,15):r.update(flags=258,shunt=65534,current=65534,power=0,power_uW=-(2**63))
++        return f
++
++    def test_sixteen_scope_sums_only_included_rails_and_preserves_raw(self):
++        try:policy=profiles.metadata('diagnostic16')
++        except ValueError:self.fail('diagnostic16 is missing')
++        self.assertEqual(policy,DIAG16)
++        with tempfile.TemporaryDirectory() as d:
++            f=self.fixture(d);f.save()
++            result=analyze.analyze_phase(f.directory,True,profile='diagnostic16')
++            self.assertTrue(result['valid'],result['invalid_reasons'])
++            self.assertEqual((result['energy_J'],result['mean_W'],result['board_completed_fps'],
++                              result['energy_mJ_per_completed_frame']),(64.,32.,100.,320.))
++            for rail in (7,15):self.assertIsNone(result['rails'][rail]['energy_J'])
++            with self.assertRaises(collect.IdentityError):collect.assess_phase(f.directory,'diagnostic17')
++
++    def test_included_negative_completes_capture_but_cannot_be_power_pass(self):
++        with tempfile.TemporaryDirectory() as d:
++            f=self.fixture(d)
++            for r in f.rails:
++                if r['rail']==6:r.update(flags=258,shunt=65534,current=65534,power=0,power_uW=-(2**63))
++            f.end['included_negative_samples']=33;f.save()
++            evidence=collect.assess_phase(f.directory,'diagnostic16')
++            self.assertTrue(evidence['capture_valid'])
++            self.assertFalse(evidence['power_quality_valid'])
++            result=analyze.analyze_phase(f.directory,True,profile='diagnostic16')
++            self.assertFalse(result['valid']);self.assertTrue(result['capture_valid'])
++            self.assertIsNone(result['energy_J']);self.assertIsNone(result['mean_W'])
++            self.assertEqual(result['board_completed_fps'],100.)
++            self.assertEqual(result['rails'][6]['observed_CVRF'],33)
++            self.assertFalse(any('CVRF' in why for why in result['rails'][6]['invalid_reasons']))
++            f.rails[15]['flags']|=4;f.save()
++            with self.assertRaises(collect.GateError):collect.assess_phase(f.directory,'diagnostic16')
++
++    def test_readiness_and_cli_select_explicit_sixteen_scope(self):
++        from test_analysis import fixture_status
++        status=fixture_status(**DIAG16,sampler_profile_rails=16,conversion_ready_mask=0,
++                              included_negative_samples=2)
++        collect.validate_status(status,profile='diagnostic16')
++        args=collect.parser().parse_args(['--check-only','--diagnostic16'])
++        self.assertTrue(args.diagnostic16)
++        with self.assertRaises(collect.IdentityError):collect.validate_status(status,profile='strict18')
++
++if __name__=='__main__':unittest.main(verbosity=2)

@@ -1,0 +1,298 @@
+{
+  "epochs": [],
+  "formal_candidates": [],
+  "peak_cuda_memory_bytes": 24588084736,
+  "probe": true,
+  "progress": {
+    "best_selection": -1.0,
+    "branch": 0,
+    "elapsed_seconds": 24.964687824249268,
+    "epoch": 0,
+    "epochs_completed": 0,
+    "global_step": 100,
+    "images_per_second": 1026.590138565531,
+    "last_ce": 3.70987606048584,
+    "last_feature": 0.9601709842681885,
+    "last_grad_norm": 14.336161613464355,
+    "last_kd": 1.2917819023132324,
+    "last_loss": 5.481743335723877,
+    "masks": {
+      "fc1": [
+        11,
+        10,
+        9,
+        8,
+        7,
+        4,
+        5,
+        3,
+        1,
+        6,
+        2,
+        0
+      ],
+      "fc2": [
+        11,
+        10,
+        9,
+        8,
+        7,
+        4,
+        5,
+        3,
+        1,
+        6,
+        2,
+        0
+      ],
+      "gelu": [
+        11,
+        10,
+        9,
+        8,
+        7,
+        4,
+        5,
+        3,
+        1,
+        6,
+        2,
+        0
+      ],
+      "ln2": [
+        11,
+        10,
+        9,
+        8,
+        7,
+        4,
+        5,
+        3,
+        1,
+        6,
+        2,
+        0
+      ],
+      "mlp_residual": [
+        11,
+        10,
+        9,
+        8,
+        7,
+        4,
+        5,
+        3,
+        1,
+        6,
+        2,
+        0
+      ]
+    },
+    "next_batch": 100,
+    "sample_offset": 25600,
+    "status": "training"
+  },
+  "recipe": {
+    "formal_role": "50000 validation images never used for gradients or scale fitting",
+    "identity": {
+      "calibration_sha256": "f967ebdb8bd614dcf335c2195895e746a9b02029ea022df21c7c1e6e58680609",
+      "class_mapping_sha256": "ced7b16ce0b0735763be6ae584bfb388279a2b0f732768a147ca5afb45caf137",
+      "contract_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+      "loss_source_sha256": "37775e3122cb7ae2c15dc9f09c6c976232da10be9c08500eab57623659fc8a4b",
+      "parent_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+      "ranking_sha256": "58931b3f36f8d104df9c98cae317491a9ddb27e4d0fd6ad3b0b722e7249ba39e",
+      "runner_source_sha256": "9bc092d6084752f021defdb0ee1f8010f592dcc7ffd1df57b85901105f8a1cbb",
+      "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31",
+      "selection_sha256": "5f6ffb0b16323328d0ad3984ce6be5f4c62ec43c63a42259dfbe6df3e2b596b8",
+      "teacher_sha256": "9e474c8b05c1fa62841e4aa2b230eac8e72561387b99f65a11ec4efc4069a065",
+      "train_membership_sha256": "9540ff2aa0efd674be2ceec6c12323be96469ac769f9eae9b694baad249a3621",
+      "trainer_source_sha256": "b2b2255709c0b6efb288fb51bc4bb021765a2fd83f663378f6bfd50542e32e5c",
+      "training_config_sha256": "7acf9676f0906c6c16d6702584dfc68f7f2ee6deedca7f329d40c1c4d3a96420",
+      "validation_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b"
+    },
+    "numeric_contract": {
+      "attention_a": {
+        "bits": 3,
+        "signedness": "signed"
+      },
+      "attention_a_accumulator": {
+        "bits": 11,
+        "signedness": "signed"
+      },
+      "attention_k_accumulator": {
+        "bits": 11,
+        "signedness": "signed"
+      },
+      "attention_o_accumulator": {
+        "bits": 13,
+        "signedness": "signed"
+      },
+      "attention_q_accumulator": {
+        "bits": 12,
+        "signedness": "signed"
+      },
+      "attention_r_accumulator": {
+        "bits": 10,
+        "signedness": "signed"
+      },
+      "attention_residual_output": {
+        "bits": 15,
+        "signedness": "signed"
+      },
+      "attention_v_accumulator": {
+        "bits": 11,
+        "signedness": "signed"
+      },
+      "block_feature_map": {
+        "bits": 13,
+        "signedness": "signed"
+      },
+      "fc1_weight": {
+        "bits": 3,
+        "signedness": "signed"
+      },
+      "fc2_weight": {
+        "bits": 3,
+        "signedness": "signed"
+      },
+      "gelu_output": {
+        "bits": 3,
+        "signedness": "unsigned"
+      },
+      "head_bias": {
+        "bits": 19,
+        "signedness": "signed"
+      },
+      "head_layernorm": {
+        "bits": 8,
+        "signedness": "signed"
+      },
+      "head_mac": {
+        "bits": 19,
+        "signedness": "signed"
+      },
+      "head_weight": {
+        "bits": 8,
+        "signedness": "signed"
+      },
+      "k_output": {
+        "bits": 3,
+        "signedness": "signed"
+      },
+      "k_weight": {
+        "bits": 3,
+        "signedness": "signed"
+      },
+      "ln1_output": {
+        "bits": 3,
+        "signedness": "signed"
+      },
+      "ln2_output": {
+        "bits": 3,
+        "signedness": "signed"
+      },
+      "mlp1_accumulator": {
+        "bits": 11,
+        "signedness": "signed"
+      },
+      "mlp2_accumulator": {
+        "bits": 13,
+        "signedness": "signed"
+      },
+      "o_weight": {
+        "bits": 3,
+        "signedness": "signed"
+      },
+      "projection_input": {
+        "bits": 3,
+        "signedness": "signed"
+      },
+      "q_output": {
+        "bits": 3,
+        "signedness": "signed"
+      },
+      "q_weight": {
+        "bits": 3,
+        "signedness": "signed"
+      },
+      "softmax_output": {
+        "bits": 3,
+        "signedness": "unsigned"
+      },
+      "v_output": {
+        "bits": 3,
+        "signedness": "signed"
+      },
+      "v_weight": {
+        "bits": 3,
+        "signedness": "signed"
+      }
+    },
+    "probe_joint": true,
+    "probe_steps": 100,
+    "selection_role": "fixed 2000 train-origin images; included in mandated full-data training",
+    "sensitivity_order": [
+      11,
+      10,
+      9,
+      8,
+      7,
+      4,
+      5,
+      3,
+      1,
+      6,
+      2,
+      0
+    ],
+    "settings": {
+      "batch_size": 256,
+      "ce_weight": 1.0,
+      "checkpoint_every_steps": 250,
+      "ema_decay": 0.999,
+      "evaluation_precision": "fp32",
+      "feature_weight": 0.5,
+      "gradient_clip": 1.0,
+      "joint_epochs": 8,
+      "kd_weight": 1.0,
+      "learning_rate": 3e-05,
+      "progressive_epochs": 4,
+      "recovery_grid": [
+        {
+          "epochs": 2,
+          "feature_weight": 0.5,
+          "kd_weight": 2.0,
+          "learning_rate": 1e-05,
+          "scale_learning_rate": 0.0003
+        },
+        {
+          "epochs": 2,
+          "feature_weight": 1.0,
+          "kd_weight": 1.0,
+          "learning_rate": 2e-05,
+          "scale_learning_rate": 0.0005
+        },
+        {
+          "epochs": 2,
+          "feature_weight": 0.25,
+          "kd_weight": 3.0,
+          "learning_rate": 5e-06,
+          "scale_learning_rate": 0.0001
+        }
+      ],
+      "scale_learning_rate": 0.001,
+      "schema_version": 1,
+      "seed": 20260923,
+      "temperature": 2.0,
+      "training_precision": "bf16_autocast_with_fp32_activation_quantizers",
+      "transform": "deterministic_crop09_full_training_set",
+      "warmup_epochs": 0.25,
+      "workers": 16
+    },
+    "train_count": 1281167
+  },
+  "scale_max_change": 0.004865914583206177,
+  "status": "probe_complete",
+  "teacher_gradients_absent": true,
+  "weight_max_change": 0.00014708936214447021
+}

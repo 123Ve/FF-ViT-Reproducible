@@ -1,0 +1,70 @@
+E07 V2.5：GEM 发送恢复候选版
+=======================================
+
+一、状态与边界
+本包更新了 PS 固件和对应的 PC 身份清单。必须使用本包 SD_CARD/BOOT.BIN。
+PL bitstream、XSA、weights.bin、input.bin、output.bin 均未改动。
+旧 V2.4 ZIP/BOOT 保留。V2.4 已在你的饱和 Full 测试中失败，不能视作通过版本。
+V2.5 仅通过离线测试和构建，physical_status=NOT_RUN，必须先 Quick 验收。
+没有新的最大吞吐、功耗、能效或云边论文实测数据；不沿用旧版本结果冒充新结果。
+本包是 Windows 源码包和已构建的板卡启动镜像，不含已验证的 Windows EXE。
+
+二、这次修订针对什么
+你的 V2.4 串口显示：最后77字节在 unacked，pbuf ref=2持续不降，nrtx=0，
+rtime/tcp_ticks持续推进，发送窗口/拥塞窗口均为65535，全部应用字节已经入队。
+真实 lwIP 的 tcp_rexmit_rto_prepare 遇到 ref!=1 会拒绝重传。因此单纯重复
+tcp_output、改 GUI、增大接收窗口或延长超时不能解决该持有引用的状态。
+尚无现场 GEM 描述符快照，不能断言是“未真正发出”还是“完成后未回收”。
+
+V2.5 每100ms在主循环执行一次受保护的 GEM TX 服务：
+1. 保存并屏蔽 IRQ，使用供应商 xemacps_process_sent_bds 回收已完成的描述符。
+2. 若仍有硬件拥有的描述符、TXEN=1、TXGO=0，执行内存屏障后重触发 STARTTX。
+3. 恢复原 IRQ 状态。不会强制减少 pbuf 引用、伪造 USED 位、重置环或重置 TCP。
+4. 每2秒最多一条 GEM_TX_RECOVERY，记录 hw/free、头描述符状态、TXSR、NWCTRL、kick。
+   正常传输也可能出现该诊断，它本身不代表失败；结合 BULK_STALL 与实际计数判断。
+所有原有 TCP 定时器、完整 ACK 排空、32KiB接收窗口、批量校验和 -O2 保留。
+离线回归使用真实 lwIP/pbuf，但 GEM 寄存器、完成事件和回收边界使用模型；
+覆盖77/555/1044字节、两种持有引用状态、-O0/-O2、IRQ恢复及禁止释放在途 DMA。
+这证明恢复决策的软件行为，不证明真实硬件已经恢复。详见 verification 目录。
+
+三、安装（务必新目录、新 BOOT）
+解压到 C:\Users\Administrator\Desktop\E07_Cloud_GUI_Win11_Source_V2_5。
+退出所有旧采集器、旧 EXE 和独立 Flask 预览服务器。
+板卡断电，备份 SD 卡原 BOOT.BIN，将本包 SD_CARD 中四个文件复制到卡根目录。
+在 Windows PowerShell 的本包根目录执行：
+    .\Cloud_test\windows\build_e07_windows.ps1
+管理员 PowerShell 在同一根目录配置 EXE 防火墙：
+    .\Cloud_test\windows\Allow-E07-Collector.ps1 -Program '.\Cloud_test\dist\E07_Cloud_GUI\E07_Cloud_GUI.exe'
+若提示该 EXE 有显式 Block 规则，核对路径后加 -DisableAppBlock 再执行。
+只允许板卡192.168.10.2到PC192.168.10.1:5001，不关闭全局防火墙。
+
+四、先短验收，不直接跑论文长测
+    .\Cloud_test\windows\Run-E07-Paper-Suite.ps1 -Suite Quick
+看到 E07_COLLECTOR_LISTENING 后，才给板卡断电重启。
+串口 FVIT_FIRMWARE_SHA256 必须匹配本包 BOOT manifest 的 advertised_sha256；
+不能仍是 V2.4 的 e52bbc9222dcb3eafc4c00c8cca8cb03c01971fd7e3de03da4f4d10c08ab2de0。
+网页使用 EXE 输出的 http://127.0.0.1:18082，不另起 gui_preview 服务器。
+Quick 含四个15秒阶段：固定 Full、固定 Compact、饱和 Full、饱和 Compact。
+必须 E07_STATUS=COMPLETE 且所有阶段完整后才能继续。
+无论成功或失败，保留完整串口日志和 results/stream_measurements/<时间戳> 整个目录。
+若仍失败，不反复延长超时；提交 BULK_STALL 和 GEM_TX_RECOVERY，继续定位实际驱动状态。
+GUI 保留每秒发布、浏览器每2秒刷新、无进度 STALE；PlantVillage Top-1框不显示。
+HTTP 200只证明网页请求成功，不证明测量成功。
+
+五、Quick 通过后的持续吞吐与论文矩阵
+退出采集器，重新启动下一轮，每次仍先监听后重启板卡。
+单TCP闭环饱和测试（Full/Compact各120秒）：
+    .\Cloud_test\dist\E07_Cloud_GUI\E07_Cloud_GUI.exe --duration 120 --streams 1 --saturation-only --board-batches 100 --export-paper --gui-port 18082
+完整论文矩阵：
+    .\Cloud_test\windows\Run-E07-Paper-Suite.ps1 -Suite Paper
+必须先审查版本身份、阶段完整性、原始计数与哈希，再接受导出的 FPS/分位时延/流量数据。
+电源轨功耗和能量仅在同版本有效遥测及覆盖率满足条件时报告，缺失不能补旧值。
+Full 是固定预处理张量往返，不执行云端模型；Compact 执行 FPGA 推理并返回小结果。
+1/2/4路是共享一条TCP和一块FPGA的输入源标签，不是多加速器/真实摄像头/WAN测量。
+闭环饱和FPS包含网络、校验、遥测、日志，不等价于PL峰值吞吐。
+本轮不报告数据集精度；固定张量逐码一致不是Top-1。
+
+六、完整性与回退
+SHA256SUMS.json 逐项记录文件大小和哈希；BOOT manifest 绑定新固件源码及原PL/数据身份。
+旧 V2.4 候选物理上已失败。如需回退，恢复完整旧SD/PC配套版本，不混用身份清单。
+verification/e07_v25_verification.json 明确记录离线通过范围与未完成的物理验收项。

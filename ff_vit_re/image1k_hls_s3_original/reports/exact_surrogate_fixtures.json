@@ -1,0 +1,412 @@
+{
+  "artifact_sha256": "cd0cc886386ae0549d03de93aa76f2bdbd362c975ae0ae181e34b2fca28a189b",
+  "boundaries": [
+    {
+      "boundary": "block00.ln1",
+      "cosine": 0.9782016450473441,
+      "exact_real_max": 1.2383353114128113,
+      "exact_real_min": -1.651113748550415,
+      "max_abs": 0.8255568742752075,
+      "mse": 0.015137201266361843
+    },
+    {
+      "boundary": "block00.ln2",
+      "cosine": 0.951328744438707,
+      "exact_real_max": 2.251527965068817,
+      "exact_real_min": -3.002037286758423,
+      "max_abs": 2.251528024673462,
+      "mse": 0.10098702999016254
+    },
+    {
+      "boundary": "block00.gelu",
+      "cosine": 0.9257402440817009,
+      "exact_real_max": 2.8817707300186157,
+      "exact_real_min": 0.0,
+      "max_abs": 2.470089077949524,
+      "mse": 0.019398102598110898
+    },
+    {
+      "boundary": "block00.mlp_residual",
+      "cosine": 0.9698592356845044,
+      "exact_real_max": 17.201588085795517,
+      "exact_real_min": -4.644522422729764,
+      "max_abs": 11.767882945945018,
+      "mse": 0.03261494173632194
+    },
+    {
+      "boundary": "block01.ln1",
+      "cosine": 0.904177288358152,
+      "exact_real_max": 1.6759929656982422,
+      "exact_real_min": -2.2346572875976562,
+      "max_abs": 2.2346572875976562,
+      "mse": 0.10249265996900665
+    },
+    {
+      "boundary": "block01.ln2",
+      "cosine": 0.8852438718511798,
+      "exact_real_max": 1.768648087978363,
+      "exact_real_min": -2.3581974506378174,
+      "max_abs": 2.9477468132972717,
+      "mse": 0.17684826504885706
+    },
+    {
+      "boundary": "block01.gelu",
+      "cosine": 0.8458123631465019,
+      "exact_real_max": 1.542224258184433,
+      "exact_real_min": 0.0,
+      "max_abs": 1.321906566619873,
+      "mse": 0.013762052504009387
+    },
+    {
+      "boundary": "block01.mlp_residual",
+      "cosine": 0.9412214951703365,
+      "exact_real_max": 16.965805341447798,
+      "exact_real_min": -3.787790947687926,
+      "max_abs": 11.244438916949054,
+      "mse": 0.040872913380037144
+    },
+    {
+      "boundary": "block02.ln1",
+      "cosine": 0.8582247932815558,
+      "exact_real_max": 2.0187149047851562,
+      "exact_real_min": -2.691619873046875,
+      "max_abs": 3.3645248413085938,
+      "mse": 0.2018816431277941
+    },
+    {
+      "boundary": "block02.ln2",
+      "cosine": 0.8276890178562559,
+      "exact_real_max": 1.810814917087555,
+      "exact_real_min": -2.4144198894500732,
+      "max_abs": 3.621629774570465,
+      "mse": 0.2865737154852833
+    },
+    {
+      "boundary": "block02.gelu",
+      "cosine": 0.7800210925732696,
+      "exact_real_max": 1.422197625041008,
+      "exact_real_min": 0.0,
+      "max_abs": 1.4221975803375244,
+      "mse": 0.017011116292899545
+    },
+    {
+      "boundary": "block02.mlp_residual",
+      "cosine": 0.9054330008758779,
+      "exact_real_max": 17.10462259958129,
+      "exact_real_min": -3.7982543910946487,
+      "max_abs": 10.941234162416002,
+      "mse": 0.04891991136585966
+    },
+    {
+      "boundary": "block03.ln1",
+      "cosine": 0.8003118819984877,
+      "exact_real_max": 2.11843478679657,
+      "exact_real_min": -2.8245797157287598,
+      "max_abs": 3.5307246446609497,
+      "mse": 0.34845352320818945
+    },
+    {
+      "boundary": "block03.ln2",
+      "cosine": 0.8017524541823916,
+      "exact_real_max": 1.8631224632263184,
+      "exact_real_min": -2.484163284301758,
+      "max_abs": 3.1052041053771973,
+      "mse": 0.3564050826901779
+    },
+    {
+      "boundary": "block03.gelu",
+      "cosine": 0.7436497061625206,
+      "exact_real_max": 1.3952388763427734,
+      "exact_real_min": 0.0,
+      "max_abs": 1.3952388763427734,
+      "mse": 0.01585283922298394
+    },
+    {
+      "boundary": "block03.mlp_residual",
+      "cosine": 0.8760894246827811,
+      "exact_real_max": 17.037372466025165,
+      "exact_real_min": -4.139344886445723,
+      "max_abs": 11.070639964041522,
+      "mse": 0.05502157161538389
+    },
+    {
+      "boundary": "block04.ln1",
+      "cosine": 0.7692778512438045,
+      "exact_real_max": 2.1173086166381836,
+      "exact_real_min": -2.823078155517578,
+      "max_abs": 3.5288476943969727,
+      "mse": 0.42848739644846934
+    },
+    {
+      "boundary": "block04.ln2",
+      "cosine": 0.7974654131762052,
+      "exact_real_max": 1.9027360081672668,
+      "exact_real_min": -2.5369813442230225,
+      "max_abs": 3.171226680278778,
+      "mse": 0.38615539693609513
+    },
+    {
+      "boundary": "block04.gelu",
+      "cosine": 0.7395876786116486,
+      "exact_real_max": 1.3964860886335373,
+      "exact_real_min": 0.0,
+      "max_abs": 1.3964860886335373,
+      "mse": 0.015174389120880444
+    },
+    {
+      "boundary": "block04.mlp_residual",
+      "cosine": 0.8600290550021324,
+      "exact_real_max": 17.099737083805234,
+      "exact_real_min": -4.31153271403319,
+      "max_abs": 10.466592493293199,
+      "mse": 0.06034607775096401
+    },
+    {
+      "boundary": "block05.ln1",
+      "cosine": 0.7711059118586436,
+      "exact_real_max": 2.2044047713279724,
+      "exact_real_min": -2.93920636177063,
+      "max_abs": 3.674008011817932,
+      "mse": 0.4471825489720327
+    },
+    {
+      "boundary": "block05.ln2",
+      "cosine": 0.7939807858419835,
+      "exact_real_max": 1.894714593887329,
+      "exact_real_min": -2.5262861251831055,
+      "max_abs": 3.157857656478882,
+      "mse": 0.40498264526911465
+    },
+    {
+      "boundary": "block05.gelu",
+      "cosine": 0.7410849779263853,
+      "exact_real_max": 1.451671451330185,
+      "exact_real_min": 0.0,
+      "max_abs": 1.4516714811325073,
+      "mse": 0.015193554608110144
+    },
+    {
+      "boundary": "block05.mlp_residual",
+      "cosine": 0.8486646127045272,
+      "exact_real_max": 17.33038835746364,
+      "exact_real_min": -4.520742058627776,
+      "max_abs": 10.23608465710495,
+      "mse": 0.06667393169745874
+    },
+    {
+      "boundary": "block06.ln1",
+      "cosine": 0.7678926291238777,
+      "exact_real_max": 2.266809403896332,
+      "exact_real_min": -3.0224125385284424,
+      "max_abs": 3.7780157327651978,
+      "mse": 0.47940988036294024
+    },
+    {
+      "boundary": "block06.ln2",
+      "cosine": 0.8011515384552066,
+      "exact_real_max": 1.775476098060608,
+      "exact_real_min": -2.3673014640808105,
+      "max_abs": 3.550952196121216,
+      "mse": 0.3982440540480809
+    },
+    {
+      "boundary": "block06.gelu",
+      "cosine": 0.7516385860052492,
+      "exact_real_max": 1.2679863274097443,
+      "exact_real_min": 0.0,
+      "max_abs": 1.4793174266815186,
+      "mse": 0.016285258882350072
+    },
+    {
+      "boundary": "block06.mlp_residual",
+      "cosine": 0.8463709161749411,
+      "exact_real_max": 18.069032845510705,
+      "exact_real_min": -4.292283359434882,
+      "max_abs": 10.035984215749963,
+      "mse": 0.07956983433414164
+    },
+    {
+      "boundary": "block07.ln1",
+      "cosine": 0.7713764736240474,
+      "exact_real_max": 2.094594955444336,
+      "exact_real_min": -2.7927932739257812,
+      "max_abs": 3.4909915924072266,
+      "mse": 0.4423365757000574
+    },
+    {
+      "boundary": "block07.ln2",
+      "cosine": 0.7985247962709969,
+      "exact_real_max": 2.111628234386444,
+      "exact_real_min": -2.815504312515259,
+      "max_abs": 4.223256528377533,
+      "mse": 0.5916018560931703
+    },
+    {
+      "boundary": "block07.gelu",
+      "cosine": 0.7450659493098287,
+      "exact_real_max": 1.5721800327301025,
+      "exact_real_min": 0.0,
+      "max_abs": 1.8342100381851196,
+      "mse": 0.017796665350601842
+    },
+    {
+      "boundary": "block07.mlp_residual",
+      "cosine": 0.8459495548603169,
+      "exact_real_max": 18.20570318741002,
+      "exact_real_min": -4.698513294156341,
+      "max_abs": 10.192759919587754,
+      "mse": 0.10176125336292408
+    },
+    {
+      "boundary": "block08.ln1",
+      "cosine": 0.7682423782198846,
+      "exact_real_max": 2.1588794589042664,
+      "exact_real_min": -2.8785059452056885,
+      "max_abs": 4.317758917808533,
+      "mse": 0.480909965203783
+    },
+    {
+      "boundary": "block08.ln2",
+      "cosine": 0.7861509154795889,
+      "exact_real_max": 3.1762232780456543,
+      "exact_real_min": -4.234964370727539,
+      "max_abs": 7.411187648773193,
+      "mse": 1.3593900445656715
+    },
+    {
+      "boundary": "block08.gelu",
+      "cosine": 0.6956532475608453,
+      "exact_real_max": 3.020454227924347,
+      "exact_real_min": 0.0,
+      "max_abs": 3.020454227924347,
+      "mse": 0.02576009341383983
+    },
+    {
+      "boundary": "block08.mlp_residual",
+      "cosine": 0.8457991209778171,
+      "exact_real_max": 16.95834085102942,
+      "exact_real_min": -5.400745493958414,
+      "max_abs": 9.864679542740845,
+      "mse": 0.15582149292064437
+    },
+    {
+      "boundary": "block09.ln1",
+      "cosine": 0.760464462503702,
+      "exact_real_max": 2.1497325897216797,
+      "exact_real_min": -2.8663101196289062,
+      "max_abs": 4.299465179443359,
+      "mse": 0.4901984034650433
+    },
+    {
+      "boundary": "block09.ln2",
+      "cosine": 0.7778795992928629,
+      "exact_real_max": 2.656172275543213,
+      "exact_real_min": -3.541563034057617,
+      "max_abs": 5.312344551086426,
+      "mse": 1.0189335173118703
+    },
+    {
+      "boundary": "block09.gelu",
+      "cosine": 0.7118749812419675,
+      "exact_real_max": 2.507403552532196,
+      "exact_real_min": 0.0,
+      "max_abs": 2.9253041744232178,
+      "mse": 0.015893717195071693
+    },
+    {
+      "boundary": "block09.mlp_residual",
+      "cosine": 0.854113605585529,
+      "exact_real_max": 13.592683305419532,
+      "exact_real_min": -6.552824525088243,
+      "max_abs": 10.495310870220049,
+      "mse": 0.20539957118984048
+    },
+    {
+      "boundary": "block10.ln1",
+      "cosine": 0.7549082074674859,
+      "exact_real_max": 2.0584112405776978,
+      "exact_real_min": -2.7445483207702637,
+      "max_abs": 4.1168224811553955,
+      "mse": 0.4435305997637316
+    },
+    {
+      "boundary": "block10.ln2",
+      "cosine": 0.7854746625001565,
+      "exact_real_max": 2.66523277759552,
+      "exact_real_min": -3.5536437034606934,
+      "max_abs": 4.442054629325867,
+      "mse": 0.7911091394579345
+    },
+    {
+      "boundary": "block10.gelu",
+      "cosine": 0.6192483564006598,
+      "exact_real_max": 3.079146981239319,
+      "exact_real_min": 0.0,
+      "max_abs": 3.079146981239319,
+      "mse": 0.007082417896072819
+    },
+    {
+      "boundary": "block10.mlp_residual",
+      "cosine": 0.8508978622964636,
+      "exact_real_max": 12.882820736329156,
+      "exact_real_min": -6.646195090851892,
+      "max_abs": 10.374455826707875,
+      "mse": 0.22990813343357758
+    },
+    {
+      "boundary": "block11.ln1",
+      "cosine": 0.7376643035604304,
+      "exact_real_max": 1.963571012020111,
+      "exact_real_min": -2.6180946826934814,
+      "max_abs": 4.581665754318237,
+      "mse": 0.41641962001297855
+    },
+    {
+      "boundary": "block11.ln2",
+      "cosine": 0.7787312834417244,
+      "exact_real_max": 2.5079455375671387,
+      "exact_real_min": -3.3439273834228516,
+      "max_abs": 4.1799092292785645,
+      "mse": 0.7445736364147129
+    },
+    {
+      "boundary": "block11.gelu",
+      "cosine": 0.9137055432208279,
+      "exact_real_max": 3.244763731956482,
+      "exact_real_min": 0.0,
+      "max_abs": 3.2447637915611267,
+      "mse": 0.007245491740763003
+    },
+    {
+      "boundary": "block11.mlp_residual",
+      "cosine": 0.8098545712180024,
+      "exact_real_max": 14.381328211690793,
+      "exact_real_min": -6.558926174065698,
+      "max_abs": 11.356677227999283,
+      "mse": 0.24646122755444438
+    }
+  ],
+  "caveat": "Approximation/domain differences are expected. Bit-exact gate compares software integers with HLS, not surrogate floats.",
+  "checkpoint_sha256": "bf40fc4e40a27943f7b4e27b4b6e9dc9b45320c03b13ba181fb91fd81371fad3",
+  "exact_predictions": [
+    34,
+    970,
+    230,
+    809
+  ],
+  "sample_count": 4,
+  "sample_ids": [
+    "validation-00000-of-00014.parquet:ILSVRC2012_val_00000001_n01751748.JPEG",
+    "validation-00000-of-00014.parquet:ILSVRC2012_val_00000002_n09193705.JPEG",
+    "validation-00000-of-00014.parquet:ILSVRC2012_val_00000003_n02105855.JPEG",
+    "validation-00000-of-00014.parquet:ILSVRC2012_val_00000004_n04263257.JPEG"
+  ],
+  "stage": "surrogate_vs_exact_fixed_fixtures",
+  "surrogate_predictions": [
+    34,
+    795,
+    230,
+    968
+  ],
+  "top1_agreement": 0.5
+}

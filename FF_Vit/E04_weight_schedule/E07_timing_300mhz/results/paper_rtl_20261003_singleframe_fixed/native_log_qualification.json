@@ -1,0 +1,8 @@
+{
+  "unused_reference_vector_warnings": 1,
+  "native_log_error_free": false,
+  "qualification": "SV control completes one frame; retained C TV files contain three frames. Native transaction-zero outputs and independent 1000-handshake comparison pass. This is not claimed as a warning-free log.",
+  "messages": [
+    "UVM_ERROR ./svr/svr_master_sequence.sv(47) @ 2550239000: uvm_test_top.top_env.env_master_svr_i_stream_ext.m_agt.sqr@@vit_block_top_subsys_test_sequence_lib.svr_port_i_stream_ext_seq [CRITICAL WARNNING] Array input is set to stream interface and array data is not all used. If simulation fails, please check array size"
+  ]
+}

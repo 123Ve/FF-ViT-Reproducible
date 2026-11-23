@@ -1,0 +1,127 @@
+{
+  "scope": "Exact Stage4M encoder + proposed signed Head LayerNorm fix + exact W8/int19 38-class classifier. 1000-logit ROM padding is generated; HLS C-sim parity is still required.",
+  "mandatory_type_changes": {
+    "__head_ln_sum_t": "ap_int<15>",
+    "__head_ln_divc_t": "ap_int<30>",
+    "__head_ln_mu_t": "ap_int<7>"
+  },
+  "cursor_choice": {
+    "selected_bits": 7,
+    "if_selected_7bit_change": "__head_ln_cursor_t: ap_uint<6> -> ap_uint<7>"
+  },
+  "final_encoder_int13_scale": 0.02420837990939617,
+  "cursor6": {
+    "ln": {
+      "cursor_bits": 6,
+      "output_scale": 0.054854801883847705,
+      "scalars": [
+        683,
+        17,
+        0,
+        14,
+        63,
+        25,
+        8,
+        0
+      ],
+      "rsqrt_rel_p999": 0.022421175248037446,
+      "rsqrt_cursor_wrap_rate": 0.0,
+      "affine_mismatch_rate": 0.2598368227481842,
+      "affine_mse_code": 0.2670491536458333,
+      "affine_max_abs_code_error": 3,
+      "rel9_wrap_rate": 0.0,
+      "real_mse": 0.0006282341615842207,
+      "stats": {
+        "sum_overflow_rate": 0.0,
+        "tmp_overflow_rate": 0.0,
+        "mean_overflow_rate": 0.0,
+        "diff_overflow_rate": 0.0,
+        "var_overflow_rate": 0.0,
+        "sum_min": -976,
+        "sum_max": 103,
+        "mean_min": -5,
+        "mean_max": 1,
+        "var_min": 87194,
+        "var_max": 908446
+      }
+    },
+    "classifier": {
+      "weight_scale": 0.001018916344149845,
+      "logit_scale": 5.589245419455414e-05,
+      "logit_mse_centered": 0.00038504214049874853,
+      "accumulator_wrap_rate": 0.0,
+      "active_logit_min": -101181,
+      "active_logit_max": 261170
+    },
+    "validation": {
+      "top1": 98.1724202632904,
+      "float_top1_same_codes": 98.28318357467651,
+      "accumulator_wrap_rate": 2.9148004614398815e-05,
+      "logit_min": -261940,
+      "logit_max": 262059
+    }
+  },
+  "cursor7": {
+    "ln": {
+      "cursor_bits": 7,
+      "output_scale": 0.054854801883847705,
+      "scalars": [
+        683,
+        17,
+        0,
+        13,
+        127,
+        20,
+        8,
+        0
+      ],
+      "rsqrt_rel_p999": 0.013768478831878964,
+      "rsqrt_cursor_wrap_rate": 0.0,
+      "affine_mismatch_rate": 0.2197469025850296,
+      "affine_mse_code": 0.22008260091145834,
+      "affine_max_abs_code_error": 2,
+      "rel9_wrap_rate": 0.0,
+      "real_mse": 0.0005002256099440804,
+      "stats": {
+        "sum_overflow_rate": 0.0,
+        "tmp_overflow_rate": 0.0,
+        "mean_overflow_rate": 0.0,
+        "diff_overflow_rate": 0.0,
+        "var_overflow_rate": 0.0,
+        "sum_min": -976,
+        "sum_max": 103,
+        "mean_min": -5,
+        "mean_max": 1,
+        "var_min": 87194,
+        "var_max": 908446
+      }
+    },
+    "classifier": {
+      "weight_scale": 0.001018916344149845,
+      "logit_scale": 5.589245419455414e-05,
+      "logit_mse_centered": 0.00022388497365200528,
+      "accumulator_wrap_rate": 0.0,
+      "active_logit_min": -101832,
+      "active_logit_max": 261194
+    },
+    "validation": {
+      "top1": 98.19087982177734,
+      "float_top1_same_codes": 98.28318357467651,
+      "accumulator_wrap_rate": 2.9148004614398815e-05,
+      "logit_min": -261076,
+      "logit_max": 261932
+    }
+  },
+  "selected": {
+    "cursor_bits": 7,
+    "head_ln_output_scale": 0.054854801883847705,
+    "head_weight_scale": 0.001018916344149845,
+    "head_logit_scale": 5.589245419455414e-05,
+    "validation_top1": 98.19087982177734,
+    "float_head_same_exact_encoder_codes_top1": 98.28318357467651,
+    "head_accumulator_wrap_rate": 2.9148004614398815e-05,
+    "active_logit_min": -261076,
+    "active_logit_max": 261932,
+    "inactive_962_bias": -262144
+  }
+}

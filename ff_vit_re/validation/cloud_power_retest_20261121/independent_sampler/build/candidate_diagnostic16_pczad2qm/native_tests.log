@@ -1,0 +1,41 @@
+/home/user/anaconda3/bin/python -B /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_firmware.py
+FIRST_CONVERSION_AND_PRESERVED_FAULT_OK
+FIRST_CONVERSION_AND_PRESERVED_FAULT_OK
+FIXED_INPUT_DMA_OUTPUT_VERIFICATION_OK
+FIRST_CONVERSION_AND_PRESERVED_FAULT_OK
+FIRST_CONVERSION_AND_PRESERVED_FAULT_OK
+FIRST_CONVERSION_AND_PRESERVED_FAULT_OK
+FIRST_CONVERSION_AND_PRESERVED_FAULT_OK
+FIRST_CONVERSION_AND_PRESERVED_FAULT_OK
+FIRST_CONVERSION_AND_PRESERVED_FAULT_OK
+FIRST_CONVERSION_AND_PRESERVED_FAULT_OK
+FIRST_CONVERSION_AND_PRESERVED_FAULT_OK
+FIRST_CONVERSION_AND_PRESERVED_FAULT_OK
+FIRST_CONVERSION_AND_PRESERVED_FAULT_OK
+FIRST_CONVERSION_AND_PRESERVED_FAULT_OK
+FIRST_CONVERSION_AND_PRESERVED_FAULT_OK
+FIRST_CONVERSION_AND_PRESERVED_FAULT_OK
+FIRST_CONVERSION_AND_PRESERVED_FAULT_OK
+BOUNDED_MMIO_I2C_TIMEOUT_NACK_OK
+NETWORK_CONTROL_REPLAY_ACK_EXPORT_OK
+PUBLICATION_PHASE_ACK_FAULT_OK
+SAMPLER_GUARDS_CONTINUITY_FAULT_OK
+SENSOR_CONFIG_RAW_FRESHNESS_OK
+test_compiled_profile_first_negative_held_and_first_fault (__main__.FirmwareTests.test_compiled_profile_first_negative_held_and_first_fault) ... ok
+test_copied_inference_rejects_sizes_dma_timeout_and_output_error (__main__.FirmwareTests.test_copied_inference_rejects_sizes_dma_timeout_and_output_error) ... ok
+test_diag_other_rail_combined_errors_and_late_first_refused (__main__.FirmwareTests.test_diag_other_rail_combined_errors_and_late_first_refused) ... ok
+test_first_conversion_observation_precedes_valid_payload_and_fault_freeze (__main__.FirmwareTests.test_first_conversion_observation_precedes_valid_payload_and_fault_freeze) ... ok
+test_i2c_actual_register_transfer_is_bounded_and_checks_errors (__main__.FirmwareTests.test_i2c_actual_register_transfer_is_bounded_and_checks_errors) ... ok
+test_link_regions_reject_overlap_shared_and_wrong_cpu_region (__main__.FirmwareTests.test_link_regions_reject_overlap_shared_and_wrong_cpu_region) ... ok
+test_network_controls_replay_delayed_ack_and_export (__main__.FirmwareTests.test_network_controls_replay_delayed_ack_and_export) ... ok
+test_publication_phase_ack_request_ids_and_faults (__main__.FirmwareTests.test_publication_phase_ack_request_ids_and_faults) ... ok
+test_sampler_guard_records_temperature_and_faults (__main__.FirmwareTests.test_sampler_guard_records_temperature_and_faults) ... ok
+test_sensor_configuration_calibration_raw_and_invalid_samples (__main__.FirmwareTests.test_sensor_configuration_calibration_raw_and_invalid_samples) ... ok
+test_shallow_extraction_imports_pure_validator_and_rebuild_explains_dependencies (__main__.FirmwareTests.test_shallow_extraction_imports_pure_validator_and_rebuild_explains_dependencies) ... ok
+test_target_seqlock_writer_orders_odd_before_payload (__main__.FirmwareTests.test_target_seqlock_writer_orders_odd_before_payload)
+Missing post-odd ordering permits an old-even/torn-payload read on Arm. ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 4.707s
+
+OK

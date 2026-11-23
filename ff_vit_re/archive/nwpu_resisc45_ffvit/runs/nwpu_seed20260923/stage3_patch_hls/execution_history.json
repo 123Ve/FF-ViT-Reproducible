@@ -1,0 +1,49 @@
+{
+  "pipeline_command": [
+    "/home/user/anaconda3/envs/vlm_token/bin/python",
+    "/home/user/Desktop/ff_vit_re/archive/nwpu_resisc45_ffvit/scripts/quant/run_stage.py",
+    "--stage",
+    "patch",
+    "--metadata",
+    "/home/user/Desktop/ff_vit_re/archive/nwpu_resisc45_ffvit/metadata",
+    "--source",
+    "/home/user/Desktop/ff_vit_re/archive/Dataset",
+    "--num-classes",
+    "45",
+    "--calibration-count",
+    "1440",
+    "--seed",
+    "20260923",
+    "--",
+    "--source-checkpoint",
+    "/home/user/Desktop/ff_vit_re/archive/nwpu_resisc45_ffvit/runs/nwpu_seed20260923/hls196/best.pth",
+    "--qat-checkpoint",
+    "/home/user/Desktop/ff_vit_re/archive/nwpu_resisc45_ffvit/runs/nwpu_seed20260923/qat_weight3_hls196/best_qat_state.pth",
+    "--data-root",
+    "/home/user/Desktop/ff_vit_re/archive/Dataset",
+    "--output",
+    "/home/user/Desktop/ff_vit_re/archive/nwpu_resisc45_ffvit/runs/nwpu_seed20260923/.patch-3q6ku7o_/result",
+    "--batch-size",
+    "32",
+    "--workers",
+    "4"
+  ],
+  "purpose": "historical execution only; temporary paths are not artifact locations",
+  "report_commands": {
+    "adapter_report.json": [
+      "/home/user/Desktop/ff_vit_re/archive/nwpu_resisc45_ffvit/scripts/quant/canonical/stage3_patch_hls_eval.py",
+      "--source-checkpoint",
+      "/home/user/Desktop/ff_vit_re/archive/nwpu_resisc45_ffvit/runs/nwpu_seed20260923/hls196/best.pth",
+      "--qat-checkpoint",
+      "/home/user/Desktop/ff_vit_re/archive/nwpu_resisc45_ffvit/runs/nwpu_seed20260923/qat_weight3_hls196/best_qat_state.pth",
+      "--data-root",
+      "/home/user/Desktop/ff_vit_re/archive/Dataset",
+      "--output",
+      "/home/user/Desktop/ff_vit_re/archive/nwpu_resisc45_ffvit/runs/nwpu_seed20260923/.patch-3q6ku7o_/result",
+      "--batch-size",
+      "32",
+      "--workers",
+      "4"
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+test_actual_receive_clock_and_original_rejection_bounds (test_clock_handshake.ClockHandshakeTests.test_actual_receive_clock_and_original_rejection_bounds) ... ok
+test_first_observation_is_latched_while_heartbeat_advances (test_clock_handshake.ClockHandshakeTests.test_first_observation_is_latched_while_heartbeat_advances) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.534s
+
+OK

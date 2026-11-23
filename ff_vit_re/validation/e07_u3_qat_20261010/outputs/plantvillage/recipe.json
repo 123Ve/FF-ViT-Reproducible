@@ -1,0 +1,35 @@
+{
+  "dataset": "plantvillage",
+  "seed": 20261010,
+  "effective_batch": 64,
+  "micro_batch": 64,
+  "epochs": 12,
+  "AdamW_model_lr": 1e-05,
+  "AdamW_table_threshold_lr": 0.0001,
+  "model_weight_decay": 0.01,
+  "scale_weight_decay": 0,
+  "gradient_clip": 1.0,
+  "loss": "CE + 0.5*T^2 KL",
+  "T": 2.0,
+  "forward": "all12 strict E07 blocks each epoch; progressive parameter unfreezing",
+  "unfreeze": [
+    [
+      6,
+      11
+    ],
+    [
+      3,
+      11
+    ],
+    [
+      0,
+      11
+    ]
+  ],
+  "selection": "full validation, original test NEVER used for tuning",
+  "learned": "six W3 matrices/biases, LN affine gamma/beta, bounded Q/K/V/A/GELU LUT gains, reciprocal U8 gain, W8 Head",
+  "frozen": "Patch, address/shift scalars, residual RM/RS, rsqrt and EXP tables; no additional hardware operation",
+  "interpretation": "learned gains affect exported table codes/weight thresholds; physical reference code scales remain frozen",
+  "parent_checkpoint": "/home/user/Desktop/ff_vit_re/quantization_final/checkpoints/stage4j_attention_qat/best_attention_qat.pth",
+  "parent_sha256": "87590f2548dc8045805710f5783c85b6b08bb16020edb3600392fe42a69661fa"
+}

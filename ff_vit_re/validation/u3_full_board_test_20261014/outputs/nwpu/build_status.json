@@ -1,0 +1,8 @@
+{
+  "dataset": "nwpu",
+  "stage": "READY_FOR_FULL_BOARD_TEST_NOT_BOARD_MEASURED",
+  "frames": 4500,
+  "archive": "/home/user/Desktop/ff_vit_re/validation/u3_full_board_test_20261014/nwpu_U3_FULL_SD_CARD.zip",
+  "boot": "/home/user/Desktop/ff_vit_re/validation/u3_full_board_test_20261014/outputs/nwpu/SD_CARD/BOOT.BIN",
+  "updated_unix": 1791968022.6415195
+}

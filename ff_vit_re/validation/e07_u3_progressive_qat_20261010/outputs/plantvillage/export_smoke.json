@@ -1,0 +1,20 @@
+{
+  "scope": "ONE_BLOCK_AND_HEAD_INTEGRATION_SMOKE_NOT_ACCURACY",
+  "block_output_shape": [
+    2,
+    196,
+    192
+  ],
+  "softmax_bits": 3,
+  "fit_images": 2,
+  "head_cursor_bound": 63,
+  "head_rsqrt_max": 1554,
+  "classifier_shape": [
+    1000,
+    192
+  ],
+  "software": "PASS",
+  "HLS": "NOT_MEASURED",
+  "FPGA": "NOT_MEASURED",
+  "exporter_sha256": "8b7a2403b79d7e09a3fa7ab65fe4fe689e37c10e3b8cefff2f95cc43585ceed9"
+}

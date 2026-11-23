@@ -1,0 +1,610 @@
+{
+  "best_formal": null,
+  "epochs": [],
+  "formal_candidates": [],
+  "peak_cuda_memory_bytes": 19839585792,
+  "probe": true,
+  "progress": {
+    "best_selection": -1.0,
+    "branch": 0,
+    "elapsed_seconds": 17.258305311203003,
+    "epoch": 0,
+    "epochs_completed": 0,
+    "global_step": 100,
+    "images_per_second": 742.8804487003018,
+    "last_ce": 5.9128851890563965,
+    "last_feature": 0.8957250714302063,
+    "last_grad_norm": 14.005280494689941,
+    "last_kd": 1.8294765949249268,
+    "last_loss": 10.01970100402832,
+    "masks": {
+      "a": [
+        11,
+        10,
+        9,
+        8,
+        7,
+        4,
+        5,
+        3,
+        1,
+        6,
+        2,
+        0
+      ],
+      "attention_residual": [
+        11,
+        10,
+        9,
+        8,
+        7,
+        4,
+        5,
+        3,
+        1,
+        6,
+        2,
+        0
+      ],
+      "fc1": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "fc2": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "gelu": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "k": [
+        11,
+        10,
+        9,
+        8,
+        7,
+        4,
+        5,
+        3,
+        1,
+        6,
+        2,
+        0
+      ],
+      "ln1": [
+        11,
+        10,
+        9,
+        8,
+        7,
+        4,
+        5,
+        3,
+        1,
+        6,
+        2,
+        0
+      ],
+      "ln2": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "mlp_residual": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "o": [
+        11,
+        10,
+        9,
+        8,
+        7,
+        4,
+        5,
+        3,
+        1,
+        6,
+        2,
+        0
+      ],
+      "q": [
+        11,
+        10,
+        9,
+        8,
+        7,
+        4,
+        5,
+        3,
+        1,
+        6,
+        2,
+        0
+      ],
+      "softmax": [
+        11,
+        10,
+        9,
+        8,
+        7,
+        4,
+        5,
+        3,
+        1,
+        6,
+        2,
+        0
+      ],
+      "v": [
+        11,
+        10,
+        9,
+        8,
+        7,
+        4,
+        5,
+        3,
+        1,
+        6,
+        2,
+        0
+      ]
+    },
+    "next_batch": 100,
+    "sample_offset": 12800,
+    "status": "training"
+  },
+  "recipe": {
+    "calibration_role": "fixed 2000 train-origin holdout images, excluded from optimizer training",
+    "checkpoint_schema": "original_hls_s3.attention_qat.v1",
+    "formal_role": "50000 validation images never used for gradients or scale fitting",
+    "identity": {
+      "attention_source_sha256": "16bce211834133c6702f2debf17d5994ca1df10cc0139455d487aeb9a7d41b5d",
+      "calibration_sha256": "f967ebdb8bd614dcf335c2195895e746a9b02029ea022df21c7c1e6e58680609",
+      "class_mapping_sha256": "ced7b16ce0b0735763be6ae584bfb388279a2b0f732768a147ca5afb45caf137",
+      "contract_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+      "data_source_sha256": "36927c59ded4df77d59653f28ab3d5084ebd2ed18a09e104e4c8e84143e5448f",
+      "loss_source_sha256": "37775e3122cb7ae2c15dc9f09c6c976232da10be9c08500eab57623659fc8a4b",
+      "model_source_sha256": "fe2523b383effda339b65cec6e979e5508d0058f499a362bb441481c2c2b7f34",
+      "parent_sha256": "ecc26c2d04c2e8952324cbc1e1806866b63a418018169a5cfc40af50d44f0e02",
+      "quant_source_sha256": "9f4a8e532f16f21e5a7a2dd0f7bdccd8a347e17c1c6015ccf9c8fc9e72379827",
+      "ranking_sha256": "58931b3f36f8d104df9c98cae317491a9ddb27e4d0fd6ad3b0b722e7249ba39e",
+      "runner_source_sha256": "0866080b77a1e942f41fe34164855d71b4f692dfab40f88c174b8f4900df99a6",
+      "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31",
+      "selection_sha256": "5f6ffb0b16323328d0ad3984ce6be5f4c62ec43c63a42259dfbe6df3e2b596b8",
+      "teacher_sha256": "9e474c8b05c1fa62841e4aa2b230eac8e72561387b99f65a11ec4efc4069a065",
+      "train_membership_sha256": "55cb2d23aa5a1733d2f4a7a8b21a7abc70e608a520d4b51319ecea38a7b10170",
+      "trainer_source_sha256": "59789e321fa98313174ebac18cc5343012b2f9829b132acc99cd8fd3caf626a8",
+      "training_config_sha256": "c777e47a575959100a2349d0e6a17afde2fbb7dc1b02e8a472f766d21b9e9322",
+      "validation_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b",
+      "w3_ancestor_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab"
+    },
+    "numeric_contract": {
+      "attention_a": {
+        "bits": 3,
+        "signedness": "signed"
+      },
+      "attention_a_accumulator": {
+        "bits": 11,
+        "signedness": "signed"
+      },
+      "attention_k_accumulator": {
+        "bits": 11,
+        "signedness": "signed"
+      },
+      "attention_o_accumulator": {
+        "bits": 13,
+        "signedness": "signed"
+      },
+      "attention_q_accumulator": {
+        "bits": 12,
+        "signedness": "signed"
+      },
+      "attention_r_accumulator": {
+        "bits": 10,
+        "signedness": "signed"
+      },
+      "attention_residual_output": {
+        "bits": 15,
+        "signedness": "signed"
+      },
+      "attention_v_accumulator": {
+        "bits": 11,
+        "signedness": "signed"
+      },
+      "block_feature_map": {
+        "bits": 13,
+        "signedness": "signed"
+      },
+      "fc1_weight": {
+        "bits": 3,
+        "signedness": "signed"
+      },
+      "fc2_weight": {
+        "bits": 3,
+        "signedness": "signed"
+      },
+      "gelu_output": {
+        "bits": 3,
+        "signedness": "unsigned"
+      },
+      "head_bias": {
+        "bits": 19,
+        "signedness": "signed"
+      },
+      "head_layernorm": {
+        "bits": 8,
+        "signedness": "signed"
+      },
+      "head_mac": {
+        "bits": 19,
+        "signedness": "signed"
+      },
+      "head_weight": {
+        "bits": 8,
+        "signedness": "signed"
+      },
+      "k_output": {
+        "bits": 3,
+        "signedness": "signed"
+      },
+      "k_weight": {
+        "bits": 3,
+        "signedness": "signed"
+      },
+      "ln1_output": {
+        "bits": 3,
+        "signedness": "signed"
+      },
+      "ln2_output": {
+        "bits": 3,
+        "signedness": "signed"
+      },
+      "mlp1_accumulator": {
+        "bits": 11,
+        "signedness": "signed"
+      },
+      "mlp2_accumulator": {
+        "bits": 13,
+        "signedness": "signed"
+      },
+      "o_weight": {
+        "bits": 3,
+        "signedness": "signed"
+      },
+      "projection_input": {
+        "bits": 3,
+        "signedness": "signed"
+      },
+      "q_output": {
+        "bits": 3,
+        "signedness": "signed"
+      },
+      "q_weight": {
+        "bits": 3,
+        "signedness": "signed"
+      },
+      "softmax_output": {
+        "bits": 3,
+        "signedness": "unsigned"
+      },
+      "v_output": {
+        "bits": 3,
+        "signedness": "signed"
+      },
+      "v_weight": {
+        "bits": 3,
+        "signedness": "signed"
+      }
+    },
+    "parent_state": "ema_model+ema_controller",
+    "probe_joint": true,
+    "probe_steps": 100,
+    "role_isolation": {
+      "alias_count": 39,
+      "content_aliases": [
+        {
+          "path": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train/n01644373/n01644373_8066.JPEG",
+          "sha256": "590f965ebe4e3a72af27e3ab9df8de67fb8c2e9f0f372a944ce801d844676fb8"
+        },
+        {
+          "path": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train/n01682714/n01682714_4821.JPEG",
+          "sha256": "8266e19802106120e0f82e0eafa191bb6fa0ce480a637fe4e52b00ac5e3dbb3d"
+        },
+        {
+          "path": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train/n01728920/n01728920_1756.JPEG",
+          "sha256": "8874cd1e4fd4e6115484b0f5af7307a31dbaf8ea3dd662f820b82dc879d304f6"
+        },
+        {
+          "path": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train/n01755581/n01755581_6627.JPEG",
+          "sha256": "8a1ae6233efc1dc44d70587938b54376ac419f32d00f0372e44ba11ba8cb11b5"
+        },
+        {
+          "path": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train/n01756291/n01756291_1752.JPEG",
+          "sha256": "72f35aca99345d6874b038fc8f6ff46c1ae8bb3e95b4e862937251cfd23c8b40"
+        },
+        {
+          "path": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train/n01797886/n01797886_11929.JPEG",
+          "sha256": "b48acd5f20dc8bdf93a0b4609025106c7e36dcb95de7d8b323775ec3bd71c534"
+        },
+        {
+          "path": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train/n01930112/n01930112_7278.JPEG",
+          "sha256": "487d3d024f59c551da3dfed2d0c3c8aaac7731f64d6b891fd2b97bb8d3e0af2d"
+        },
+        {
+          "path": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train/n01981276/n01981276_13042.JPEG",
+          "sha256": "668c40515400b4f1ab6b3acac74a342b27921cdf815e29d79e84abfde7dd5583"
+        },
+        {
+          "path": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train/n02088466/n02088466_9415.JPEG",
+          "sha256": "9a29b712cb2537010fd0fd693ade66bed5ee83b1750a8e5b0de287e9af3e9cd8"
+        },
+        {
+          "path": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train/n02101556/n02101556_183.JPEG",
+          "sha256": "84cfd5064ef2811013f882605785a8ef24f7f59d4deb88d7f39da92c64797b0a"
+        },
+        {
+          "path": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train/n02109961/n02109961_2317.JPEG",
+          "sha256": "f321780c1756e26b88b0f85f27d8fb2cc5c01c8235686d0eb861eb6f67b846fa"
+        },
+        {
+          "path": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train/n02113624/n02113624_6182.JPEG",
+          "sha256": "d7154fc3c8957ed1052b5f91a399da12d288730171fcfa8924f8c6bb808e3aef"
+        },
+        {
+          "path": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train/n02113712/n02113712_590.JPEG",
+          "sha256": "8300b747f8f9b85b43e546106c6c07414121ff238ab85b5be34cc3895b383272"
+        },
+        {
+          "path": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train/n02125311/n02125311_23860.JPEG",
+          "sha256": "1077d0bb282c2a33135e0d3a79160269939ca5e0d57876b95f9bb7673ab7a471"
+        },
+        {
+          "path": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train/n02396427/n02396427_16607.JPEG",
+          "sha256": "d1cc6da86ec58ec203a207ee1e2f2dd3a4549777db22c040607db70743519cbf"
+        },
+        {
+          "path": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train/n02488702/n02488702_5437.JPEG",
+          "sha256": "d47df0d0452ee8167471a4517e6c0bb02b8b649bbe76e74695644192c6463e4a"
+        },
+        {
+          "path": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train/n02493509/n02493509_17013.JPEG",
+          "sha256": "fcafd78f1b5778390a0b9057e9125366cf32d89b7b1a8ac3bc71cf0d108b6960"
+        },
+        {
+          "path": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train/n02504013/n02504013_1017.JPEG",
+          "sha256": "2f7b0e8e8e4e9993460e409cd74407fb23028546b20858f909d8ee817f7ac381"
+        },
+        {
+          "path": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train/n02669723/n02669723_1415.JPEG",
+          "sha256": "ff1a68c42819bbb28263603f4895003d591b5ebb9aaccf31470428ec49295c9e"
+        },
+        {
+          "path": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train/n02749479/n02749479_3207.JPEG",
+          "sha256": "972528bcba0415be2f8cfd1431f6f381f72ed8014c8049293ce7fa40fede05ad"
+        },
+        {
+          "path": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train/n02895154/n02895154_15680.JPEG",
+          "sha256": "e4535f15da522fb57c955d112eb176418e784a5d7d166ae06839ce471c4c18b4"
+        },
+        {
+          "path": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train/n02895154/n02895154_21664.JPEG",
+          "sha256": "47d1818ace389421c487f6997025cc3849f2131946f2f2187d521fa8598d246a"
+        },
+        {
+          "path": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train/n02950826/n02950826_8449.JPEG",
+          "sha256": "90b5e289d1ac36d35541a790b50d1b442103670d22050430330db6f58e184747"
+        },
+        {
+          "path": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train/n02978881/n02978881_26123.JPEG",
+          "sha256": "e83e33b9321d08e66a9f138d5a88551be3b773c38d0d1c787e3ded23b9f02da9"
+        },
+        {
+          "path": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train/n03017168/n03017168_19513.JPEG",
+          "sha256": "2695d68b3689286593ea2641a0d9ac1e700bd8d33feae66f1e90f049c5cc152c"
+        },
+        {
+          "path": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train/n03196217/n03196217_1814.JPEG",
+          "sha256": "f5bf11bb39c5ddaf4859c93efe9fecd7a40b48317b73e05cdf88bc1898708ca4"
+        },
+        {
+          "path": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train/n03447721/n03447721_15479.JPEG",
+          "sha256": "a6b223c43fb7ccade40ad9144c89bf62d78183dadb0dfe0f611c69e5936ee813"
+        },
+        {
+          "path": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train/n03710637/n03710637_1822.JPEG",
+          "sha256": "e3aad8764f9cb7dd9ab39575aee3ac33e040815e941fcfc5c341217ee7d21c52"
+        },
+        {
+          "path": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train/n03710721/n03710721_19517.JPEG",
+          "sha256": "73a799cad5d5f0c1ed0289e118747b9098d004a3a3c1487fd6563760ca9d1504"
+        },
+        {
+          "path": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train/n03773504/n03773504_15786.JPEG",
+          "sha256": "1709e592bf06fff8c47629400b023d46cb92d80bfa00fd11440afeefdb86e120"
+        },
+        {
+          "path": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train/n03773504/n03773504_29518.JPEG",
+          "sha256": "d52d581f36eb92d9452f978b7b25b02be02e767b5f038c2f82cb2aec7507b6ad"
+        },
+        {
+          "path": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train/n03782006/n03782006_2786.JPEG",
+          "sha256": "a512d3ef6285ffa1bb6e7cffa9f4f21ea2653f6cfe89305745097b6b6a09ad56"
+        },
+        {
+          "path": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train/n03832673/n03832673_13916.JPEG",
+          "sha256": "78bb9987e85bab07c7d84e7e3e125f977e16e52d547bd0b2acf3ca68f9c0fd81"
+        },
+        {
+          "path": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train/n04008634/n04008634_51379.JPEG",
+          "sha256": "2a77c54ad158ddba539a22a85a109cb65a8bfecd0e8ec07fac35990d5f324bcc"
+        },
+        {
+          "path": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train/n04116512/n04116512_25450.JPEG",
+          "sha256": "9bb16709bb1725869cbe32d23cd6537f65baaa4cbe08554025f3db8289f352d6"
+        },
+        {
+          "path": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train/n04152593/n04152593_19555.JPEG",
+          "sha256": "09124065299efa27fa13e06725dc83815f5cf785e8ded3a960d0ff20fdd62163"
+        },
+        {
+          "path": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train/n04152593/n04152593_24508.JPEG",
+          "sha256": "745d570088bca5929353a6bece1c98cb16dd20e4ff2e6d54f8b386f9308117eb"
+        },
+        {
+          "path": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train/n04264628/n04264628_8776.JPEG",
+          "sha256": "27b203b7bc0c2359edefd363a84f027d12842e8e82556a96990c962dd243b790"
+        },
+        {
+          "path": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train/n09256479/n09256479_3894.JPEG",
+          "sha256": "39e307ef797a627c4d7df38c84151774619e1d7f144dd36fc40a188462c7ed7c"
+        }
+      ],
+      "content_hash_overlap": 0,
+      "excluded_count": 4000,
+      "method": "all paths; SHA256 for every matching byte length",
+      "optimizer_count": 1277128,
+      "path_overlap": 0,
+      "retained_files_hashed": 23398
+    },
+    "selection_policy": "every_all12_epoch_formal_top1_then_top5",
+    "selection_role": "fixed 2000 train-origin holdout images, excluded from optimizer training",
+    "sensitivity_order": [
+      11,
+      10,
+      9,
+      8,
+      7,
+      4,
+      5,
+      3,
+      1,
+      6,
+      2,
+      0
+    ],
+    "settings": {
+      "batch_size": 128,
+      "ce_weight": 1.0,
+      "checkpoint_every_steps": 250,
+      "ema_decay": 0.999,
+      "evaluation_precision": "fp32",
+      "feature_weight": 0.5,
+      "gradient_clip": 1.0,
+      "joint_epochs": 10,
+      "kd_weight": 2.0,
+      "learning_rate": 1e-05,
+      "probe_grid": {
+        "conservative": {
+          "feature_weight": 0.5,
+          "kd_weight": 2.0,
+          "learning_rate": 1e-05,
+          "scale_learning_rate": 0.0003
+        }
+      },
+      "progressive_epochs": 4,
+      "recovery_grid": [
+        {
+          "epochs": 2,
+          "feature_weight": 0.5,
+          "kd_weight": 2.0,
+          "learning_rate": 1e-05,
+          "scale_learning_rate": 0.0003
+        },
+        {
+          "epochs": 2,
+          "feature_weight": 1.0,
+          "kd_weight": 1.0,
+          "learning_rate": 2e-05,
+          "scale_learning_rate": 0.0005
+        },
+        {
+          "epochs": 2,
+          "feature_weight": 0.25,
+          "kd_weight": 3.0,
+          "learning_rate": 5e-06,
+          "scale_learning_rate": 0.0001
+        }
+      ],
+      "scale_learning_rate": 0.0003,
+      "schema_version": 1,
+      "seed": 20260923,
+      "temperature": 2.0,
+      "training_precision": "bf16_autocast_with_fp32_activation_quantizers",
+      "transform": "deterministic_crop09_full_training_corpus_excluding_4000_frozen_role_holdouts_and_byte_identical_aliases",
+      "warmup_epochs": 0.25,
+      "workers": 16
+    },
+    "train_count": 1277128
+  },
+  "scale_max_change": 0.0007693767547607422,
+  "scale_movements": {
+    "a": 0.0007644891738891602,
+    "attention_residual": 0.0002684593200683594,
+    "fc1": 0.0,
+    "fc2": 0.00039958953857421875,
+    "gelu": 0.0006426572799682617,
+    "k": 0.0008167922496795654,
+    "ln1": 0.0007693767547607422,
+    "ln2": 0.0006573647260665894,
+    "mlp_residual": 0.0,
+    "o": 1.3828277587890625e-05,
+    "q": 0.0007821023464202881,
+    "softmax": 0.0007302761077880859,
+    "v": 0.0008302927017211914
+  },
+  "status": "probe_complete",
+  "teacher_gradients_absent": true,
+  "weight_max_change": 3.0471011996269226e-05
+}

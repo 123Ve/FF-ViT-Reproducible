@@ -1,0 +1,82 @@
+E07 V2.3：实时 GUI、最大持续应用吞吐与论文证据导出
+==================================================
+
+一、版本与边界
+本包更新 PC 端代码，SD_CARD 保留已完成板测的 V2.2 FINAL 固件。
+固件身份：e12e89bc424680ff2a1582129ffd32e7cb530b1d9cc452da8473d5a40603b1f7
+不要把 PC 的 V2.3 版本号误认为 FPGA 固件也已升级。
+V2.3 的新性能路径已做离线回归，但最大吞吐数值必须经你的真实板卡运行产生。
+当前环境没有可用 Windows Python，不提供未经验证的 Windows EXE；需在 Windows 构建。
+论文已有数据目录：Cloud_test/results/paper_20261007_verified_v22_final。
+原始板测报告与帧日志：Cloud_test/results/physical_v22_20261007T054436.944438Z。
+该目录只来自 20261007T054436.944438Z 这一轮真实板测，绝不混入模拟测试结果。
+
+二、Windows 构建（PowerShell，在解压目录执行）
+    .\Cloud_test\windows\build_e07_windows.ps1
+需要 Python 3.13 x64；构建脚本创建独立环境并安装 Flask、PyInstaller、Matplotlib。
+构建后程序位置：Cloud_test/dist/E07_Cloud_GUI/E07_Cloud_GUI.exe。
+不需要重新烧录或替换已通过测试的 SD 卡。
+
+三、首次运行的新目录防火墙配置（管理员 PowerShell）
+先停掉所有旧采集器及预览服务器。防火墙按 EXE 完整路径匹配，换目录后旧规则不会自动适用。
+    .\Cloud_test\windows\Allow-E07-Collector.ps1 -Program '.\Cloud_test\dist\E07_Cloud_GUI\E07_Cloud_GUI.exe'
+如提示程序存在 Block 规则，检查列出的规则后，再明确执行：
+    .\Cloud_test\windows\Allow-E07-Collector.ps1 -Program '.\Cloud_test\dist\E07_Cloud_GUI\E07_Cloud_GUI.exe' -DisableAppBlock
+仅处理该 EXE 的 TCP/Any 入站阻断，禁用而不删除；只允许 .2 到 .1:5001，默认接口名“以太网”。
+接口名称不同时，通过 -InterfaceAlias 指定。脚本不改变 IP、路由或全局防火墙开关。
+被禁用的阻断规则可用 Enable-NetFirewallRule -Name '<输出的规则名>' 恢复。
+移除本包新增放行规则：Remove-NetFirewallRule -Name 'E07-V23-Board-TCP5001'。
+
+四、先运行约一分钟的快速验收
+    .\Cloud_test\windows\Run-E07-Paper-Suite.ps1 -Suite Quick
+看到 E07_COLLECTOR_LISTENING 后，再给板卡断电重启。只运行一个采集器。
+网页：http://127.0.0.1:18082 。不要另外运行 Flask 预览命令。
+10 批 x16 次纯板推理；2 路、各10 FPS 的 Full/Compact；再分别无主动限速 Full/Compact。
+每阶段15秒，共4阶段。正常输出 E07_STATUS=COMPLETE 和 E07_PAPER=...
+GUI 每2秒轮询，采集器约每秒更新统计；数字和曲线在阶段内变化，超过10秒无进度会标 STALE。
+结束后 GUI 保持可见，Ctrl+C 退出；NETWORK_CLOSE=remote close 与正常采集器关连接一致。
+
+五、论文完整性能矩阵（约90分钟）
+快速验收成功后，退出旧采集器，再运行：
+    .\Cloud_test\windows\Run-E07-Paper-Suite.ps1 -Suite Paper
+看到监听提示后重启板卡。整轮使用同一连接，不需要每阶段重启。
+包含：100批 x16次 SD驻留输入推理；1/2/4路；每路10/20/40/80 FPS；无主动限速；
+Full/Compact；3次重复，重复间交替先后顺序。90个60秒阶段，外加同步、遥测、导出时间。
+这是闭环请求、收到响应后再发下一请求；超过链路容量时实际 FPS 低于目标，不等同于网络丢包。
+饱和结果是当前单 TCP、逐请求响应的持续吞吐，不是 FPGA 348 FPS 的重测，也不是流水化容量。
+整轮结果在 EXE 同目录 results/stream_measurements/<时间戳>/。
+若失败保留该目录，先处理真实失败，不把不完整条件填成通过。
+
+六、单独最大持续吞吐（两分钟）
+    .\Cloud_test\dist\E07_Cloud_GUI\E07_Cloud_GUI.exe --duration 60 --streams 1 --saturation-only --board-batches 100 --export-paper --gui-port 18082
+仍须先监听后重启。Full、Compact 各60秒；遥测、验证、日志开销都包含在 FPS 中。
+仅更换流数量不代表使用多个加速器：1/2/4路是同一 TCP 上轮流标记的输入源。
+
+七、输出内容与论文口径
+report.json：版本身份、运行参数、帧数、缺失/重复、响应字节、输入有效字节、双向应用流量、
+实际 FPS、目标达成率、响应与板内分段耗时 mean/P50/P95/P99、功率/能量及采样覆盖率。
+frames.jsonl：每次输入尝试、有效响应、遥测、时间同步、批量板推理或异常诊断；报告含其SHA256。
+metrics.csv：逐条件统计。
+paper/paper_evidence.json：核验原始哈希、帧数、字节总量、序号、统计算术和批次后的论文证据及未测项。
+新采集还核验原始阶段起止时间和分条件遥测；旧V2.2的时长来自旧报告，会明确标注。
+paper/measurements.csv、trial_aggregates.csv：每次试验及重复试验均值/样本标准差；单次不伪造误差条。
+paper/measurements.tex、measurements.pdf、measurements.png：表和图。
+board_benchmark：纯板计时均值、DMA/PL计时均值、计时倒数FPS，以及含命令/批间开销的主机观察FPS。
+DMA和PL时间窗可能重叠，不相加；倒数FPS不是流水启动间隔。
+
+Full 只转发同一输入张量，不运行云端模型；Compact 执行 FPGA 推理并返回小结果。
+输入是固定602112字节预处理张量，不是真实摄像头，不是互联网部署，不报告Top-1精度。
+保留完整输入比对和硬件输出一致性检查，不能把 mismatch_count=0 写成分类精度100%。
+带宽是应用层字节，不含以太网/IP/TCP头与重传；输入方向和返回方向分别列出。
+仅完整、同目标速率、实际速率/时长匹配的固定负载对可声称响应带宽减少；饱和对只作描述性比较。
+功率是固件报告的有效INA226电源轨总和，不是网卡单独功率或插座功率。
+能量只积分相邻有效采样区间；写论文必须同时列覆盖率。顺序测试的功率差不能证明因果节能。
+跨设备单向时间只作诊断，时钟漂移无界；负值保留在原始记录，不截零，出版表排除这些估计。
+重传、真实网络丢包、WAN时延、云模型时延、校准单向时延、网卡能耗、数据集精度均未测。
+纯板功耗/GOPS每瓦不能由低负载回放功耗冒充；若需要，应另做同工况专门测量。
+
+八、手动导出已有结果（不需要连接板卡）
+使用构建脚本创建的 Python，且在本包根目录执行：
+    .\Cloud_test\windows\.venv-build-win\Scripts\python.exe -m Cloud_test.tools.export_e07_paper '<report.json完整路径>'
+默认创建报告旁的 paper 目录；已存在时不覆盖，可加 --output 指定新目录。
+导出器只接受 COMPLETE E07_PHYSICAL 和原始哈希一致的报告。

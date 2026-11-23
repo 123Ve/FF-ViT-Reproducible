@@ -1,0 +1,432 @@
+{
+  "version": "E07",
+  "version_provenance": "User assigns these root CSVs to E07; CSVs contain no firmware/bitstream hash or PL-clock field.",
+  "timer_hz": 99990005,
+  "effective_MAC_per_frame": 1246416384,
+  "source_files": {
+    "FPS_SUM.CSV": {
+      "path": "/home/user/Desktop/FF_Vit/FPS_SUM.CSV",
+      "sha256": "047aa985fdb0ae3ec13421565a57b2af0edfd0f6ee4c3b97b3e84024f7ca144a",
+      "bytes": 481
+    },
+    "PWR_RAW.CSV": {
+      "path": "/home/user/Desktop/FF_Vit/PWR_RAW.CSV",
+      "sha256": "29e2207cd1a80aa28e8dd72e1ab72bd9a6fda854ff0706b8d844a6b07a0c1a8f",
+      "bytes": 10343231
+    },
+    "PWR_PHS.CSV": {
+      "path": "/home/user/Desktop/FF_Vit/PWR_PHS.CSV",
+      "sha256": "1f86084a5bf1cd61f82e18ca76176cc222807edf95a32f46075bbb5c85ec1d73",
+      "bytes": 680
+    }
+  },
+  "raw_samples": 112305,
+  "phase_records": 15,
+  "available_power_repetitions": 5,
+  "firmware_planned_power_repetitions": 10,
+  "available_repeats": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "power_protocol_status": "5 complete repeats available; not the full planned 10-repeat protocol",
+  "power_scope": "Sum of 18 ZCU102 INA226 monitored rails; NOT wall power or isolated PL dynamic power",
+  "fps": {
+    "evidence_class": "BOARD_MEASUREMENT",
+    "frame_overlap": false,
+    "repetitions": 10,
+    "frames": 1000,
+    "timer_hz": 99990005,
+    "total_seconds": 2.867979884589465,
+    "serial_throughput_fps": 348.67748040120733,
+    "mean_repeat_average_latency_ms": 2.867979884589465,
+    "stddev_repeat_average_latency_ms": 2.5970056114331145e-05,
+    "mean_repeat_fps": 348.6774804269385,
+    "stddev_repeat_fps": 0.003157327446152391,
+    "qualification": "Repeated serial frames; cache, PS scheduling, input DMA, output DMA/ack included. SD/UART/power sampling excluded from dedicated FPS batches. Latency standard deviation is across batch averages, not individual images.",
+    "latency_ms_statistics": {
+      "n": 10,
+      "mean": 2.867979884589465,
+      "stddev": 2.5970056114331145e-05,
+      "t95": 2.2621571628540993,
+      "ci95_half_width": 1.85778589902915e-05,
+      "ci95_low": 2.8679613067304746,
+      "ci95_high": 2.867998462448455,
+      "minimum": 2.8679499515976623,
+      "maximum": 2.8680253591346454
+    },
+    "fps_statistics": {
+      "n": 10,
+      "mean": 348.6774804269385,
+      "stddev": 0.003157327446152391,
+      "t95": 2.2621571628540993,
+      "ci95_half_width": 0.0022586159930716417,
+      "ci95_low": 348.6752218109454,
+      "ci95_high": 348.67973904293154,
+      "minimum": 348.6719518762292,
+      "maximum": 348.6811195721618
+    },
+    "effective_GOPS": 869.1946486078074,
+    "effective_GMAC_s": 434.5973243039037
+  },
+  "phase_power_W": {
+    "PL_CONFIGURED_IDLE": {
+      "n": 5,
+      "mean": 5.921830528663394,
+      "stddev": 0.06341074743709171,
+      "t95": 2.7764451051977987,
+      "ci95_half_width": 0.07873484219182852,
+      "ci95_low": 5.843095686471566,
+      "ci95_high": 6.000565370855222,
+      "minimum": 5.812090918820018,
+      "maximum": 5.965583861825898
+    },
+    "PS_ACTIVE_NO_PL": {
+      "n": 5,
+      "mean": 5.891199268813724,
+      "stddev": 0.028340264187223164,
+      "t95": 2.7764451051977987,
+      "ci95_half_width": 0.03518908574085853,
+      "ci95_low": 5.856010183072865,
+      "ci95_high": 5.926388354554582,
+      "minimum": 5.844261911537286,
+      "maximum": 5.916461868173562
+    },
+    "FFVIT_SUSTAINED_LOAD": {
+      "n": 5,
+      "mean": 9.506303296261926,
+      "stddev": 0.03140068045145576,
+      "t95": 2.7764451051977987,
+      "ci95_half_width": 0.03898909443567341,
+      "ci95_low": 9.467314201826253,
+      "ci95_high": 9.545292390697599,
+      "minimum": 9.456092583816858,
+      "maximum": 9.534897418318339
+    }
+  },
+  "load_minus_idle_W": {
+    "n": 5,
+    "mean": 3.5844727675985313,
+    "stddev": 0.033389596210822055,
+    "t95": 2.7764451051977987,
+    "ci95_half_width": 0.041458659529538644,
+    "ci95_low": 3.5430141080689928,
+    "ci95_high": 3.62593142712807,
+    "minimum": 3.565247775264176,
+    "maximum": 3.64400166499684
+  },
+  "load_minus_ps_active_W": {
+    "n": 5,
+    "mean": 3.6151040274482016,
+    "stddev": 0.008699937172266532,
+    "t95": 2.7764451051977987,
+    "ci95_half_width": 0.010802398773438034,
+    "ci95_low": 3.6043016286747633,
+    "ci95_high": 3.62590642622164,
+    "minimum": 3.604599456322032,
+    "maximum": 3.624521090775227
+  },
+  "power_load": {
+    "frames": 52305,
+    "ticks": 14999671155,
+    "total_seconds": 150.01170521993674,
+    "FPS": 348.6727913886056,
+    "average_ms_per_frame": 2.8680184536839066,
+    "effective_GOPS": 869.1829596835444,
+    "monitored_load_energy_mJ_per_frame": 27.26425327999535,
+    "monitored_load_GOPS_per_W": 91.43227736330746,
+    "incremental_energy_mJ_per_frame": 10.280334044200012
+  },
+  "energy_mJ_per_frame_statistics": {
+    "n": 5,
+    "mean": 27.264253227600722,
+    "stddev": 0.09003796404293356,
+    "t95": 2.7764451051977987,
+    "ci95_half_width": 0.11179689842367584,
+    "ci95_low": 27.152456329177046,
+    "ci95_high": 27.3760501260244,
+    "minimum": 27.120284272616278,
+    "maximum": 27.346251549340778
+  },
+  "GOPS_per_W_statistics": {
+    "n": 5,
+    "mean": 91.4330772764626,
+    "stddev": 0.3027098386561129,
+    "t95": 2.7764451051977987,
+    "ci95_half_width": 0.3758639085613662,
+    "ci95_low": 91.05721336790123,
+    "ci95_high": 91.80894118502397,
+    "minimum": 91.15811589395305,
+    "maximum": 91.91764890595367
+  },
+  "per_repeat": [
+    {
+      "repeat": 0,
+      "idle_W": 5.812090918820018,
+      "ps_active_no_pl_W": 5.844261911537286,
+      "load_W": 9.456092583816858,
+      "load_minus_idle_W": 3.64400166499684,
+      "frames": 10461,
+      "load_seconds": 30.002381137994742,
+      "load_FPS": 348.6723254359396,
+      "load_GOPS": 869.1817981414703,
+      "load_energy_mJ_per_frame": 27.120284272616278,
+      "load_GOPS_per_W": 91.91764890595367
+    },
+    {
+      "repeat": 1,
+      "idle_W": 5.925294445532359,
+      "ps_active_no_pl_W": 5.892942603073133,
+      "load_W": 9.497542059395165,
+      "load_minus_idle_W": 3.5722476138628068,
+      "frames": 10461,
+      "load_seconds": 30.002325052388986,
+      "load_FPS": 348.6729772353768,
+      "load_GOPS": 869.1834229684654,
+      "load_energy_mJ_per_frame": 27.239111372211994,
+      "load_GOPS_per_W": 91.51667005345358
+    },
+    {
+      "repeat": 2,
+      "idle_W": 5.944146487151823,
+      "ps_active_no_pl_W": 5.891953633741526,
+      "load_W": 9.515699714528216,
+      "load_minus_idle_W": 3.571553227376393,
+      "frames": 10461,
+      "load_seconds": 30.00236491637339,
+      "load_FPS": 348.6725139554265,
+      "load_GOPS": 869.1822680890244,
+      "load_energy_mJ_per_frame": 27.291224096157695,
+      "load_GOPS_per_W": 91.34191853090839
+    },
+    {
+      "repeat": 3,
+      "idle_W": 5.962036929986873,
+      "ps_active_no_pl_W": 5.916461868173562,
+      "load_W": 9.527284705251049,
+      "load_minus_idle_W": 3.565247775264176,
+      "frames": 10461,
+      "load_seconds": 30.00230426031082,
+      "load_FPS": 348.67321887134364,
+      "load_GOPS": 869.1840253265214,
+      "load_energy_mJ_per_frame": 27.32439484767686,
+      "load_GOPS_per_W": 91.23103299804431
+    },
+    {
+      "repeat": 4,
+      "idle_W": 5.965583861825898,
+      "ps_active_no_pl_W": 5.910376327543112,
+      "load_W": 9.534897418318339,
+      "load_minus_idle_W": 3.5693135564924408,
+      "frames": 10461,
+      "load_seconds": 30.002329852868794,
+      "load_FPS": 348.6729214464566,
+      "load_GOPS": 869.183283896017,
+      "load_energy_mJ_per_frame": 27.346251549340778,
+      "load_GOPS_per_W": 91.15811589395305
+    }
+  ],
+  "per_rail": [
+    {
+      "rail": "VCCPSINTFP",
+      "polling_group": "PS",
+      "idle_W": 1.2135389910179641,
+      "ps_active_no_pl_W": 1.2096186125748503,
+      "load_W": 1.2423426082474227,
+      "load_minus_idle_W": 0.028803617229458567,
+      "load_share_percent": 13.068619520439007
+    },
+    {
+      "rail": "VCCPSINTLP",
+      "polling_group": "PS",
+      "idle_W": 0.33649048203592813,
+      "ps_active_no_pl_W": 0.3360512874251497,
+      "load_W": 0.33923616632302406,
+      "load_minus_idle_W": 0.0027456842870959286,
+      "load_share_percent": 3.5685392707427996
+    },
+    {
+      "rail": "VCCPSAUX",
+      "polling_group": "PS",
+      "idle_W": 0.01800037125748503,
+      "ps_active_no_pl_W": 0.018022893413173653,
+      "load_W": 0.018034497250859108,
+      "load_minus_idle_W": 3.4125993374076874e-05,
+      "load_share_percent": 0.18971093903505734
+    },
+    {
+      "rail": "VCCPSPLL",
+      "polling_group": "PS",
+      "idle_W": 0.05107602994011976,
+      "ps_active_no_pl_W": 0.05106493832335329,
+      "load_W": 0.051156381411359725,
+      "load_minus_idle_W": 8.035147123996306e-05,
+      "load_share_percent": 0.5381311727291035
+    },
+    {
+      "rail": "MGTRAVCC",
+      "polling_group": "PS",
+      "idle_W": 0.07821634850299401,
+      "ps_active_no_pl_W": 0.07821329760479041,
+      "load_W": 0.0784711900172117,
+      "load_minus_idle_W": 0.00025484151421768797,
+      "load_share_percent": 0.8254648265647929
+    },
+    {
+      "rail": "MGTRAVTT",
+      "polling_group": "PS",
+      "idle_W": 0.02664773233532934,
+      "ps_active_no_pl_W": 0.026665655688622752,
+      "load_W": 0.0266612330464716,
+      "load_minus_idle_W": 1.3500711142259286e-05,
+      "load_share_percent": 0.28045847282145253
+    },
+    {
+      "rail": "VCCO_PSDDR_504",
+      "polling_group": "PS",
+      "idle_W": 0.19761433753753754,
+      "ps_active_no_pl_W": 0.18878765405405404,
+      "load_W": 0.2900274037865749,
+      "load_minus_idle_W": 0.09241306624903733,
+      "load_share_percent": 3.050895755667922
+    },
+    {
+      "rail": "VCCOPS",
+      "polling_group": "PS",
+      "idle_W": 0.0024039117117117116,
+      "ps_active_no_pl_W": 0.0023828792792792795,
+      "load_W": 0.0025733060240963855,
+      "load_minus_idle_W": 0.0001693943123846739,
+      "load_share_percent": 0.02706947110669467
+    },
+    {
+      "rail": "VCCOPS3",
+      "polling_group": "PS",
+      "idle_W": 0.0008289855855855856,
+      "ps_active_no_pl_W": 0.0008061579579579579,
+      "load_W": 0.000807576247848537,
+      "load_minus_idle_W": -2.1409337737048626e-05,
+      "load_share_percent": 0.008495166024905734
+    },
+    {
+      "rail": "VCCPSDDRPLL",
+      "polling_group": "PS",
+      "idle_W": 0.043361559759759756,
+      "ps_active_no_pl_W": 0.04336919519519519,
+      "load_W": 0.043444555938037865,
+      "load_minus_idle_W": 8.29961782781094e-05,
+      "load_share_percent": 0.45700788817795407
+    },
+    {
+      "rail": "VCCINT",
+      "polling_group": "PL",
+      "idle_W": 3.4807939963963963,
+      "ps_active_no_pl_W": 3.464425948348348,
+      "load_W": 6.92806232495697,
+      "load_minus_idle_W": 3.447268328560574,
+      "load_share_percent": 72.8786165246929
+    },
+    {
+      "rail": "VCCBRAM",
+      "polling_group": "PL",
+      "idle_W": 0.036477633633633634,
+      "ps_active_no_pl_W": 0.03592816456456457,
+      "load_W": 0.04643728709122203,
+      "load_minus_idle_W": 0.009959653457588397,
+      "load_share_percent": 0.48848943321093197
+    },
+    {
+      "rail": "VCCAUX",
+      "polling_group": "PL",
+      "idle_W": 0.3570779675675676,
+      "ps_active_no_pl_W": 0.3568983111111111,
+      "load_W": 0.35760983029259896,
+      "load_minus_idle_W": 0.0005318627250313623,
+      "load_share_percent": 3.761818018505874
+    },
+    {
+      "rail": "VCC1V2",
+      "polling_group": "PL",
+      "idle_W": 0.011272554954954956,
+      "ps_active_no_pl_W": 0.011292181981981982,
+      "load_W": 0.011320699139414803,
+      "load_minus_idle_W": 4.814418445984667e-05,
+      "load_share_percent": 0.11908623979908503
+    },
+    {
+      "rail": "VCC3V3",
+      "polling_group": "PL",
+      "idle_W": 0.02567953033033033,
+      "ps_active_no_pl_W": 0.025714642642642643,
+      "load_W": 0.025711093631669533,
+      "load_minus_idle_W": 3.156330133920193e-05,
+      "load_share_percent": 0.2704636369195128
+    },
+    {
+      "rail": "VADJ_FMC",
+      "polling_group": "PL",
+      "idle_W": -0.00040023003003003,
+      "ps_active_no_pl_W": -0.00040940540540540543,
+      "load_W": -0.000459192082616179,
+      "load_minus_idle_W": -5.8962052586149e-05,
+      "load_share_percent": -0.004830395878456168
+    },
+    {
+      "rail": "MGTAVCC",
+      "polling_group": "PL",
+      "idle_W": 0.022344992192192194,
+      "ps_active_no_pl_W": 0.021923764564564564,
+      "load_W": 0.024249685714285714,
+      "load_minus_idle_W": 0.0019046935220935202,
+      "load_share_percent": 0.25509059577155707
+    },
+    {
+      "rail": "MGTAVTT",
+      "polling_group": "PL",
+      "idle_W": 0.020405333933933935,
+      "ps_active_no_pl_W": 0.02044308948948949,
+      "load_W": 0.02061664922547332,
+      "load_minus_idle_W": 0.0002113152915393865,
+      "load_share_percent": 0.21687346366889232
+    }
+  ],
+  "sampling": {
+    "PL_CONFIGURED_IDLE": {
+      "mean_same_rail_interval_ms": 90.00083111800839,
+      "min_interval_ms": 90.00047554753098,
+      "max_interval_ms": 90.00090559051377,
+      "effective_same_rail_polling_Hz": 11.111008504897113
+    },
+    "PS_ACTIVE_NO_PL": {
+      "mean_same_rail_interval_ms": 90.00082129121543,
+      "min_interval_ms": 89.98151365228954,
+      "max_interval_ms": 90.00787628723491,
+      "effective_same_rail_polling_Hz": 11.111009718059154
+    },
+    "FFVIT_SUSTAINED_LOAD": {
+      "mean_same_rail_interval_ms": 51.62433232965687,
+      "min_interval_ms": 51.61979939894992,
+      "max_interval_ms": 51.62824024261225,
+      "effective_same_rail_polling_Hz": 19.370710571408694
+    }
+  },
+  "negative_samples": {
+    "count": 3220,
+    "rails": [
+      "VADJ_FMC",
+      "VCCOPS",
+      "VCCOPS3"
+    ],
+    "treatment": "Signed readings retained; near-zero rail offset not clipped"
+  },
+  "limitations": [
+    "95% Student-t intervals describe repeat-to-repeat variation, not sensor calibration accuracy.",
+    "Repetitions are sequential; thermal drift and autocorrelation are not removed.",
+    "No per-frame latency distribution; FPS variability is across 100-frame batch means.",
+    "Power-window FPS includes per-frame INA226 polling; dedicated FPS excludes it.",
+    "18 rails are polled sequentially; this is not a simultaneous instantaneous sum.",
+    "No new E07 APM/DDR measurement, network/cloud timing, or dataset accuracy evidence."
+  ]
+}

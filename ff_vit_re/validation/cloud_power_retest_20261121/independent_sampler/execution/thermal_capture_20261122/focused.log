@@ -1,0 +1,10 @@
+test_diagnostic_waits_thirty_seconds_but_does_not_require_steady_state (test_thermal_capture.ThermalCaptureTests.test_diagnostic_waits_thirty_seconds_but_does_not_require_steady_state) ... ok
+test_sensor_temperature_health_is_still_required (test_thermal_capture.ThermalCaptureTests.test_sensor_temperature_health_is_still_required) ... ok
+test_strict_eighteen_still_rejects_unsteady_warmup (test_thermal_capture.ThermalCaptureTests.test_strict_eighteen_still_rejects_unsteady_warmup) ... ok
+test_unsteady_diagnostic_keeps_window_average_and_reports_qualification (test_thermal_capture.ThermalCaptureTests.test_unsteady_diagnostic_keeps_window_average_and_reports_qualification) ... ok
+test_thermal_deduplicates_cached_ticks_and_requires_fresh_observations (test_host.HostTests.test_thermal_deduplicates_cached_ticks_and_requires_fresh_observations) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.052s
+
+OK

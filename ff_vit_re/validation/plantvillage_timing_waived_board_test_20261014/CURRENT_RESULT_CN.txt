@@ -1,0 +1,40 @@
+PlantVillage 全测试集实验包已生成（2026-10-14）
+
+状态：EXPERIMENTAL_TIMING_FAILED_NOT_BOARD_MEASURED
+依据：用户明确要求“不管时序，PlantVillage 也生成bin文件测试”。
+本包是保留现有失败时序的单独实验产物，不是正式时序合格发布。
+
+文件：
+- SD_CARD/BOOT.BIN
+- PlantVillage_U3_5459_TIMING_FAILED_EXPERIMENTAL.zip
+- SD_CARD/README_CN.txt：SD 启动、测试边界和返回日志说明。
+- published_experimental.json：最终身份、哈希和验证结果。
+
+内容：完整 5459 张 PlantVillage 测试图像、38 类标签、冻结权重及 Golden；
+复用已通过四张图像各两次 C-simulation 的严格 E07 U3 源码和全量精度测试固件。
+软件 Top-1 5381/5459 = 98.57116688%；尚无本包的物理板级精度/FPS 测量。
+
+保持不变：
+- PL 时钟 300.21509875 MHz。
+- WNS -0.115 ns；TNS -31.367 ns；setup 违例 781 个端点。
+- WHS +0.006 ns；WPWS +0.165 ns；hold/pulse 违例均为 0。
+- LUT 218512；FF 188808；BRAM36 473.5；DSP 713。
+- 362000 个可布线网络全部完成；布线错误为 0；DRC 无 Error/Critical Warning。
+- 原模型、量化参数、HLS 算术源码、原 routed DCP 与正式发布门槛保持不变。
+- 原 NWPU BOOT.BIN 哈希保持不变。
+
+实际执行：在已有 PlantVillage 工程中继续 write_bitstream，未重跑综合/布局/布线；
+随后导出 BIT/XSA、复核 PS 初始化/地址映射/驱动 ABI、打包匹配 FSBL/PMUFW/应用 ELF。
+Vivado 主导出脚本退出码 0；bootgen 成功并通过镜像头读取检查。
+新实验时序解析检查及原流程测试共 28 项通过；完整 ZIP CRC 与各文件 SHA256 核对通过。
+
+BOOT.BIN SHA256：
+32afb23bb859ece39e082d3ef89af0121edc14e022add6472c20728d43805357
+ZIP SHA256：
+3d889f1fa80951a8a495eb4b03ee96bcd13ba6ad16cb77307d112763e263777b
+
+重要：负 WNS 可能导致实际运行超时、不稳定或输出不匹配。一次实验成功不能证明时序闭合。
+测试程序保留暖启动与全量输出码校验，不隐藏错误。此包未进行 RTL cosimulation 或板测。
+它是全量精度/输出一致性实验程序，不是独立的 10x100 帧持续吞吐基准。
+请将整个 SD_CARD 内容放入已备份的 FAT32 SD 卡根目录，不能只复制 BOOT.BIN。
+串口 115200、8N1；测试后返回完整串口日志及 RESULT.CSV、LOGITS.BIN、ACCSUM.TXT。

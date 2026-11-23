@@ -1,0 +1,117 @@
+{
+  "attention_scales": {
+    "0": {
+      "a_signed3_scale": 0.388845294713974,
+      "attn_out_int15_scale": 0.0009102970943786204,
+      "k_signed3_scale": 0.776607871055603,
+      "ln1_signed3_scale": 0.6075389385223389,
+      "o_int13_scale": 0.017748452723026276,
+      "q_signed3_scale": 0.6920226216316223,
+      "v_signed3_scale": 0.8566877245903015
+    },
+    "1": {
+      "a_signed3_scale": 0.32029786705970764,
+      "attn_out_int15_scale": 0.0008471265900880098,
+      "k_signed3_scale": 0.9162936806678772,
+      "ln1_signed3_scale": 0.8387066721916199,
+      "o_int13_scale": 0.0131461126729846,
+      "q_signed3_scale": 0.8645003437995911,
+      "v_signed3_scale": 0.4283427596092224
+    },
+    "10": {
+      "a_signed3_scale": 0.34808799624443054,
+      "attn_out_int15_scale": 0.0006326886941678822,
+      "k_signed3_scale": 0.6471491456031799,
+      "ln1_signed3_scale": 0.8483747243881226,
+      "o_int13_scale": 0.01428606454282999,
+      "q_signed3_scale": 0.7811563014984131,
+      "v_signed3_scale": 0.7165694832801819
+    },
+    "11": {
+      "a_signed3_scale": 0.3230559527873993,
+      "attn_out_int15_scale": 0.0007025960949249566,
+      "k_signed3_scale": 0.690895140171051,
+      "ln1_signed3_scale": 0.9621437191963196,
+      "o_int13_scale": 0.016042932868003845,
+      "q_signed3_scale": 0.8863387703895569,
+      "v_signed3_scale": 0.7638463973999023
+    },
+    "2": {
+      "a_signed3_scale": 0.3138573467731476,
+      "attn_out_int15_scale": 0.0008554444648325443,
+      "k_signed3_scale": 0.8581436276435852,
+      "ln1_signed3_scale": 1.1017264127731323,
+      "o_int13_scale": 0.010204114951193333,
+      "q_signed3_scale": 0.9292160272598267,
+      "v_signed3_scale": 0.49408796429634094
+    },
+    "3": {
+      "a_signed3_scale": 0.2694285213947296,
+      "attn_out_int15_scale": 0.0008243698393926024,
+      "k_signed3_scale": 0.7558299899101257,
+      "ln1_signed3_scale": 0.9630200862884521,
+      "o_int13_scale": 0.010844534263014793,
+      "q_signed3_scale": 0.8475310206413269,
+      "v_signed3_scale": 0.6222749948501587
+    },
+    "4": {
+      "a_signed3_scale": 0.28013795614242554,
+      "attn_out_int15_scale": 0.0008155146497301757,
+      "k_signed3_scale": 0.7162906527519226,
+      "ln1_signed3_scale": 0.964901328086853,
+      "o_int13_scale": 0.009711152873933315,
+      "q_signed3_scale": 0.845788300037384,
+      "v_signed3_scale": 0.6577820181846619
+    },
+    "5": {
+      "a_signed3_scale": 0.26536205410957336,
+      "attn_out_int15_scale": 0.0007931682048365474,
+      "k_signed3_scale": 0.7322450280189514,
+      "ln1_signed3_scale": 0.9786529541015625,
+      "o_int13_scale": 0.009439247660338879,
+      "q_signed3_scale": 0.7690580487251282,
+      "v_signed3_scale": 0.5538867712020874
+    },
+    "6": {
+      "a_signed3_scale": 0.27642500400543213,
+      "attn_out_int15_scale": 0.0008859182125888765,
+      "k_signed3_scale": 0.7209380269050598,
+      "ln1_signed3_scale": 0.9861471056938171,
+      "o_int13_scale": 0.009775958955287933,
+      "q_signed3_scale": 0.8457404375076294,
+      "v_signed3_scale": 0.6719009280204773
+    },
+    "7": {
+      "a_signed3_scale": 0.2743288576602936,
+      "attn_out_int15_scale": 0.0008412040187977254,
+      "k_signed3_scale": 0.8234430551528931,
+      "ln1_signed3_scale": 1.0133999586105347,
+      "o_int13_scale": 0.00888260267674923,
+      "q_signed3_scale": 0.9931118488311768,
+      "v_signed3_scale": 0.6073306202888489
+    },
+    "8": {
+      "a_signed3_scale": 0.34518498182296753,
+      "attn_out_int15_scale": 0.0007744295289739966,
+      "k_signed3_scale": 0.7796444296836853,
+      "ln1_signed3_scale": 0.9828819632530212,
+      "o_int13_scale": 0.011628114618360996,
+      "q_signed3_scale": 1.0056500434875488,
+      "v_signed3_scale": 0.6459927558898926
+    },
+    "9": {
+      "a_signed3_scale": 0.32115626335144043,
+      "attn_out_int15_scale": 0.0006367582827806473,
+      "k_signed3_scale": 0.7059876322746277,
+      "ln1_signed3_scale": 0.9183028936386108,
+      "o_int13_scale": 0.011987520381808281,
+      "q_signed3_scale": 0.9471784830093384,
+      "v_signed3_scale": 0.6381524205207825
+    }
+  },
+  "best_epoch": 8,
+  "best_test_top1": null,
+  "best_val_top1": 91.18518518518519,
+  "initial_all_attention_quant_val_top1": 69.70370370370371,
+  "note": "Attention-aware QAT uses exact HLS boundary widths, but Softmax and requant LUT arithmetic remain surrogate. MLP parameters are frozen to preserve Stage4I closure."
+}

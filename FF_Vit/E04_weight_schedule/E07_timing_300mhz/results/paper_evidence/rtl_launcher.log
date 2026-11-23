@@ -1,0 +1,34 @@
+PREPARING
+NATIVE_COSIM_SETUP
+RTL_RUNNING
+ANALYZING
+Traceback (most recent call last):
+  File "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/scripts/run_paper_rtl.py", line 312, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/scripts/run_paper_rtl.py", line 304, in main
+    analyze(result, sim, schema, stage_schema, full, helper)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/scripts/run_paper_rtl.py", line 191, in analyze
+    check = full.compare_first_output_transaction(sim)
+  File "/home/user/Desktop/FF_Vit/E04_weight_schedule/E05_attn_ln_token_pipeline/scripts/run_rtl_mac_activity_full.py", line 86, in compare_first_output_transaction
+    "observed_sha256": __import__("hashlib").sha256(transaction_zero(observed).encode()).hexdigest(),
+                                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/user/Desktop/FF_Vit/E04_weight_schedule/E05_attn_ln_token_pipeline/scripts/run_rtl_mac_activity_full.py", line 73, in transaction_zero
+    raise RuntimeError(f"missing transaction 0 in {path}")
+RuntimeError: missing transaction 0 in /home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/results/paper_rtl_20261003/project/hls/work/hls/sim/tv/rtldatafile/rtl.vit_block_top.autotvout_o_stream_logits_V_data_V.dat
+Traceback (most recent call last):
+  File "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/scripts/run_paper_rtl.py", line 312, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/scripts/run_paper_rtl.py", line 304, in main
+    analyze(result, sim, schema, stage_schema, full, helper)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/scripts/run_paper_rtl.py", line 191, in analyze
+    check = full.compare_first_output_transaction(sim)
+  File "/home/user/Desktop/FF_Vit/E04_weight_schedule/E05_attn_ln_token_pipeline/scripts/run_rtl_mac_activity_full.py", line 86, in compare_first_output_transaction
+    "observed_sha256": __import__("hashlib").sha256(transaction_zero(observed).encode()).hexdigest(),
+                                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/user/Desktop/FF_Vit/E04_weight_schedule/E05_attn_ln_token_pipeline/scripts/run_rtl_mac_activity_full.py", line 73, in transaction_zero
+    raise RuntimeError(f"missing transaction 0 in {path}")
+RuntimeError: missing transaction 0 in /home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/results/paper_rtl_20261003/project/hls/work/hls/sim/tv/rtldatafile/rtl.vit_block_top.autotvout_o_stream_logits_V_data_V.dat

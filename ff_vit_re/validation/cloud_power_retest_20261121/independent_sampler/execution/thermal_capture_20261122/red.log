@@ -1,0 +1,49 @@
+test_diagnostic_waits_thirty_seconds_but_does_not_require_steady_state (test_thermal_capture.ThermalCaptureTests.test_diagnostic_waits_thirty_seconds_but_does_not_require_steady_state) ... ERROR
+test_sensor_temperature_health_is_still_required (test_thermal_capture.ThermalCaptureTests.test_sensor_temperature_health_is_still_required) ... 
+  test_sensor_temperature_health_is_still_required (test_thermal_capture.ThermalCaptureTests.test_sensor_temperature_health_is_still_required) (field='temperature_mC', value=151000) ... FAIL
+  test_sensor_temperature_health_is_still_required (test_thermal_capture.ThermalCaptureTests.test_sensor_temperature_health_is_still_required) (field='temperature_mC', value=-56000) ... FAIL
+test_strict_eighteen_still_rejects_unsteady_warmup (test_thermal_capture.ThermalCaptureTests.test_strict_eighteen_still_rejects_unsteady_warmup) ... ok
+test_unsteady_diagnostic_keeps_window_average_and_reports_qualification (test_thermal_capture.ThermalCaptureTests.test_unsteady_diagnostic_keeps_window_average_and_reports_qualification) ... ERROR
+
+======================================================================
+ERROR: test_diagnostic_waits_thirty_seconds_but_does_not_require_steady_state (test_thermal_capture.ThermalCaptureTests.test_diagnostic_waits_thirty_seconds_but_does_not_require_steady_state)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_thermal_capture.py", line 21, in test_diagnostic_waits_thirty_seconds_but_does_not_require_steady_state
+    self.assertFalse(collect.warmup_ready('diagnostic16',29.9,samples))
+                     ^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'host.collect' has no attribute 'warmup_ready'
+
+======================================================================
+ERROR: test_unsteady_diagnostic_keeps_window_average_and_reports_qualification (test_thermal_capture.ThermalCaptureTests.test_unsteady_diagnostic_keeps_window_average_and_reports_qualification)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_thermal_capture.py", line 40, in test_unsteady_diagnostic_keeps_window_average_and_reports_qualification
+    evidence=collect.assess_phase(f.directory,'diagnostic16')
+  File "/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/host/collect.py", line 346, in assess_phase
+    if not acceptable:raise GateError('invalid phase evidence: '+' | '.join(result['invalid_reasons']))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+host.collect.GateError: invalid phase evidence: warmup thermal evidence failed
+
+======================================================================
+FAIL: test_sensor_temperature_health_is_still_required (test_thermal_capture.ThermalCaptureTests.test_sensor_temperature_health_is_still_required) (field='temperature_mC', value=151000)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_thermal_capture.py", line 33, in test_sensor_temperature_health_is_still_required
+    with self.assertRaises(collect.GateError):collect.validate_status(s,profile='diagnostic16')
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+AssertionError: GateError not raised
+
+======================================================================
+FAIL: test_sensor_temperature_health_is_still_required (test_thermal_capture.ThermalCaptureTests.test_sensor_temperature_health_is_still_required) (field='temperature_mC', value=-56000)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_thermal_capture.py", line 33, in test_sensor_temperature_health_is_still_required
+    with self.assertRaises(collect.GateError):collect.validate_status(s,profile='diagnostic16')
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+AssertionError: GateError not raised
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.030s
+
+FAILED (failures=2, errors=2)

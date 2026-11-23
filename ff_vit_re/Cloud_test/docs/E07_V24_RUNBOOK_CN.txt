@@ -1,0 +1,71 @@
+E07 V2.4：Full 尾部发送修订与独立诊断包
+=======================================
+
+一、交付状态（务必读）
+本次不再复用 V2.2 BOOT：SD_CARD/BOOT.BIN 是新的 V2.4 FINAL PS 固件。
+PL bitstream、weights.bin、input.bin、output.bin 与原版本保持一致。
+旧 V2.2 BOOT 和 V2.3 ZIP 均保留，未覆盖；可备份 SD 卡原 BOOT.BIN 后再替换。
+本包已进行离线测试、真实 lwIP 集成测试和 Vitis/Bootgen 构建。
+尚未在你的 ZCU102 上复测，physical_status=NOT_RUN。
+这是待板卡验收的修订版，不承诺已排除所有物理原因，也不能用于声称最大吞吐已测得。
+不提供未经验证的 Windows EXE；在 Windows 使用随包脚本构建。
+
+二、确认的现象与修改
+最近完整抓包中 Full 请求1544在返回602354/602431字节时停滞，缺77字节；
+这77字节在PC超时发送FIN后才由板卡输出。另一轮缺555字节。
+PC确认窗口仍为65535，已有数据ACK完整，不能据此归因于PC接收窗口耗尽或GUI。
+代码层确认：原 bulk_active 在所有数据 tcp_write 入队后立即清零；
+临时 tcp_output ERR_MEM 后，应用不再主动服务已入队但未确认的尾部。
+现在以完整响应的TCP序列号终点判定完成，持续主动调用tcp_output直到全部ACK；
+序列号比较支持32位回绕，不重复tcp_write，不篡改有效负载，不提前宣称发送成功。
+发生2秒无进度时，串口低频输出 BULK_STALL，包括id、offset、total、ack、next、end、
+unsent/unacked首段长度、pbuf引用计数、窗口、重传次数、tcp_ticks和当前输出状态。
+正常运行不逐帧打印诊断。保留已有250ms TCP定时器、32KiB接收窗口、批量memcmp与-O2。
+注意：原 lwIP 慢定时器自身也会重试；因此“停止主动服务”不是已证明的物理停滞唯一原因。
+若新版本仍停滞，诊断用于区分TCP队列、定时器与驱动背压，不能只调大超时掩盖失败。
+
+三、Windows 与 SD 卡
+解压完整 ZIP 到新目录，例如 C:\Users\Administrator\Desktop\E07_Cloud_GUI_Win11_Source_V2_4。
+先关掉所有旧EXE和独立Flask预览服务器，不要在旧目录运行新测试。
+SD卡：断电并备份原卡，将 SD_CARD 下四个文件复制到SD卡根目录，替换同名文件。
+新版本必须更新 BOOT.BIN；仅重建PC EXE无法改变板上的发送逻辑。
+Windows PowerShell 在本包根目录运行：
+    .\Cloud_test\windows\build_e07_windows.ps1
+管理员 PowerShell 配置当前新目录的 EXE 防火墙规则：
+    .\Cloud_test\windows\Allow-E07-Collector.ps1 -Program '.\Cloud_test\dist\E07_Cloud_GUI\E07_Cloud_GUI.exe'
+若检测到该程序的Block规则，检查输出后明确加 -DisableAppBlock 重试。
+脚本保留现有规则名称 E07-V23-Board-TCP5001，以更新已有精确路径规则；名称不代表固件版本。
+仅放行板卡192.168.10.2到PC192.168.10.1:5001；不关闭全局防火墙。
+
+四、短验收（有条件操作板卡时再做）
+    .\Cloud_test\windows\Run-E07-Paper-Suite.ps1 -Suite Quick
+看到 E07_COLLECTOR_LISTENING 后给板卡断电重启。网页 http://127.0.0.1:18082。
+串口 FVIT_FIRMWARE_SHA256 应等于本包清单中的 advertised_sha256，不能仍为e12e89bc...。
+Quick含固定负载Full/Compact与饱和Full/Compact，四个15秒阶段。
+保留完整串口日志与 results/stream_measurements/<时间戳> 目录。
+必须 E07_STATUS=COMPLETE 且所有阶段完整，才进入后续较长测试。
+GUI沿用V2.3的实时绑定：约每秒发布统计、浏览器每2秒刷新，超过10秒无进度提示STALE。
+PlantVillage Top-1卡片已移除。网页刷新不等于板卡传输完成，HTTP200不等于测试通过。
+只使用EXE启动的网页，不运行指向 gui_preview/sessions 的独立预览服务器。
+
+五、持续吞吐与论文套件
+Quick通过后，退出采集器，每一轮均先监听再重启板卡。
+单TCP闭环应用吞吐（Full、Compact各120秒）：
+    .\Cloud_test\dist\E07_Cloud_GUI\E07_Cloud_GUI.exe --duration 120 --streams 1 --saturation-only --board-batches 100 --export-paper --gui-port 18082
+完整论文矩阵（约90分钟）：
+    .\Cloud_test\windows\Run-E07-Paper-Suite.ps1 -Suite Paper
+含3次重复、1/2/4路标记输入源、每路10/20/40/80FPS及饱和、Full/Compact、批量板推理。
+结果包含原始帧日志、身份与哈希、FPS、P50/P95/P99、双向应用字节、系统电源轨能量及覆盖率。
+导出器只接受完整通过、哈希和原始计数一致的结果；不完整试验不会被包装成论文通过数据。
+本包没有新板级性能数据。旧版本参考材料位于results的旧版本目录，不能与V2.4混用。
+Full是固定602112字节张量往返，不执行云端模型；Compact在FPGA运行推理后返回小结果。
+1/2/4路共享一条TCP和一块FPGA，不是多加速器，不是真实摄像头或互联网WAN实测。
+饱和FPS是包含校验、遥测与日志的单请求闭环吞吐，不是FPGA峰值或流水启动间隔。
+输入/输出逐码一致性不是数据集Top-1；本轮先不报告精度。
+DMA和PL计时窗口可能重叠，不相加；单向时延估计、网卡独立功耗、云模型时延未测。
+
+六、回退与证据
+回退须恢复旧SD卡BOOT并使用原V2.3 PC包；不要让V2.4默认身份清单接受旧固件。
+新包会拒绝旧固件身份，这是防止版本混测，不是网络故障。
+本包SHA256SUMS.json逐文件记录大小和SHA256；BOOT manifest记录固件源身份及PL/数据身份。
+verification/e07_v24_verification.json记录离线测试范围和明确未验证项。

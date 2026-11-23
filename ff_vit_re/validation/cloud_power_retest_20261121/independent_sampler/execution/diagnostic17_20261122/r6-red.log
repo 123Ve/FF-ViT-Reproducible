@@ -1,0 +1,15 @@
+test_formal_phase_summary_must_match_selected_measurement_profile (test_analysis.AnalysisTests.test_formal_phase_summary_must_match_selected_measurement_profile) ... FAIL
+
+======================================================================
+FAIL: test_formal_phase_summary_must_match_selected_measurement_profile (test_analysis.AnalysisTests.test_formal_phase_summary_must_match_selected_measurement_profile)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_analysis.py", line 451, in test_formal_phase_summary_must_match_selected_measurement_profile
+    with self.assertRaises(analyze.IdentityError):analyze.analyze_session(root,profile='diagnostic17')
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: IdentityError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 2.389s
+
+FAILED (failures=1)

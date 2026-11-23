@@ -1,0 +1,9 @@
+User reported r9 acceptance INCOMPLETE with THERMAL_NOT_STABLE.
+This exception is raised only after >=600s warmup without meeting the thermal
+stability predicate. It is distinct from temperature sensor validity/overtemperature.
+No actual temperature-cache rows were supplied for this failure; do not claim
+the board overheated or diagnose a specific physical temperature drift.
+Previously requested policy is complete diagnostic capture with separate quality
+qualification. Apply fixed30s diagnostic warmup, retain temperature health and
+strict18 steady-state requirement. Preserve actual temperature/qualification data.
+Host-only change; reuse exactr9BOOTs/ELFs. No new FPGA/firmware build is needed.

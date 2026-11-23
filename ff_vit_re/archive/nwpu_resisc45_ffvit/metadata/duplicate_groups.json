@@ -1,0 +1,103 @@
+{
+  "duplicate_group_count": 8,
+  "duplicate_path_count": 16,
+  "groups": [
+    {
+      "class_names": [
+        "airport"
+      ],
+      "count": 2,
+      "relative_paths": [
+        "train/train/airport/airport_118.jpg",
+        "train/train/airport/airport_315.jpg"
+      ],
+      "sha256": "0a4d80dd498029f027c9e8ec5cbff130d48365e7adfe562a6354a2cd904d7bfd",
+      "split": "train"
+    },
+    {
+      "class_names": [
+        "palace"
+      ],
+      "count": 2,
+      "relative_paths": [
+        "train/train/palace/palace_224.jpg",
+        "train/train/palace/palace_439.jpg"
+      ],
+      "sha256": "172af6b6c5897ab903b340c6a0200816fde5147724c05f76c25606785c51331b",
+      "split": "train"
+    },
+    {
+      "class_names": [
+        "airport"
+      ],
+      "count": 2,
+      "relative_paths": [
+        "train/train/airport/airport_050.jpg",
+        "train/train/airport/airport_420.jpg"
+      ],
+      "sha256": "61b6a3d9edd9c1ff6c4fbb07a5bf8e1b0812a9cad6da0907fa51583a40b97729",
+      "split": "test"
+    },
+    {
+      "class_names": [
+        "palace"
+      ],
+      "count": 2,
+      "relative_paths": [
+        "test/test/palace/palace_669.jpg",
+        "train/train/palace/palace_595.jpg"
+      ],
+      "sha256": "a444df1df80be8a850a48cc88d9481dd4942628fff679557da8dc1817b2ba4c7",
+      "split": "test"
+    },
+    {
+      "class_names": [
+        "airport"
+      ],
+      "count": 2,
+      "relative_paths": [
+        "train/train/airport/airport_243.jpg",
+        "train/train/airport/airport_397.jpg"
+      ],
+      "sha256": "b0e156fd5615364a95294af398b503c3f3abd34f40050bd7a2232d7dbee87b4b",
+      "split": "train"
+    },
+    {
+      "class_names": [
+        "airport"
+      ],
+      "count": 2,
+      "relative_paths": [
+        "train/train/airport/airport_361.jpg",
+        "train/train/airport/airport_509.jpg"
+      ],
+      "sha256": "c18c7cba2e9c7c65d000304b251248fa7e8d205266ace9228a11c0deb19cad4b",
+      "split": "train"
+    },
+    {
+      "class_names": [
+        "airport"
+      ],
+      "count": 2,
+      "relative_paths": [
+        "train/train/airport/airport_064.jpg",
+        "train/train/airport/airport_527.jpg"
+      ],
+      "sha256": "df386f9c782d1a78e35974160313dffa1e489bdbc058adb6a8608e50a46b247a",
+      "split": "train"
+    },
+    {
+      "class_names": [
+        "airport"
+      ],
+      "count": 2,
+      "relative_paths": [
+        "test/test/airport/airport_635.jpg",
+        "train/train/airport/airport_289.jpg"
+      ],
+      "sha256": "fbd844f1e344f92cdc4eb2984b9822188fa4105fabd29f0273bbe993b76e72dd",
+      "split": "train"
+    }
+  ],
+  "schema_version": 1
+}

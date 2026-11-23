@@ -1,0 +1,17 @@
+{
+  "method": "recomputed from image and frozen exact model",
+  "device": "cpu",
+  "image": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/airplane/airplane_604.jpg",
+  "predicted_class_id": 0,
+  "inactive_value": -262144,
+  "files": {
+    "input.bin": {
+      "bytes": 602112,
+      "sha256": "75a7680ce323fd1d50ff5e7ea61476b3388c9f807bb41dd49d2e44a55c532ba1"
+    },
+    "output.bin": {
+      "bytes": 4000,
+      "sha256": "b90530d6c03d09c748c99898d6a29081e1d1a45175ee53567c603a44f536a92c"
+    }
+  }
+}

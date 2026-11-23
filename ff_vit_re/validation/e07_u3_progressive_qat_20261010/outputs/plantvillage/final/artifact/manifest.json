@@ -1,0 +1,1669 @@
+{
+  "arrays_sha256": "b216d55fc9fcae92e08890a7ba5512f5039c53f1c5b22ee8a7168c6c8970cf25",
+  "metadata": {
+    "FPGA": "NOT_MEASURED",
+    "HLS_C_sim": "NOT_MEASURED",
+    "RTL": "NOT_MEASURED",
+    "checkpoint_sha256": "baf8a8768174ff6fabef334f5a8fdf57943d2ea8a9230e23f643a083466f56e5",
+    "original_E07_unsigned_head": true,
+    "software": "EXPORTED_NOT_YET_EVALUATED"
+  },
+  "schema": "original_hls_s3.exact.v1",
+  "tree": {
+    "blocks": [
+      {
+        "_internal_padding": {
+          "__array__": "array_00000"
+        },
+        "_tail_padding": {
+          "__array__": "array_00001"
+        },
+        "a_lut": {
+          "scalars": {
+            "__array__": "array_00002"
+          },
+          "table": {
+            "__array__": "array_00003"
+          }
+        },
+        "attn_residual": {
+          "__array__": "array_00004"
+        },
+        "gelu_lut": {
+          "scalars": {
+            "__array__": "array_00005"
+          },
+          "table": {
+            "__array__": "array_00006"
+          }
+        },
+        "k_b": {
+          "__array__": "array_00007"
+        },
+        "k_lut": {
+          "scalars": {
+            "__array__": "array_00008"
+          },
+          "table": {
+            "__array__": "array_00009"
+          }
+        },
+        "k_w": {
+          "__array__": "array_00010"
+        },
+        "ln1": {
+          "lnb": {
+            "__array__": "array_00011"
+          },
+          "lnw": {
+            "__array__": "array_00012"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00013"
+          },
+          "scalars": {
+            "__array__": "array_00014"
+          }
+        },
+        "ln2": {
+          "lnb": {
+            "__array__": "array_00015"
+          },
+          "lnw": {
+            "__array__": "array_00016"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00017"
+          },
+          "scalars": {
+            "__array__": "array_00018"
+          }
+        },
+        "m1_b": {
+          "__array__": "array_00019"
+        },
+        "m1_w": {
+          "__array__": "array_00020"
+        },
+        "m2_b": {
+          "__array__": "array_00021"
+        },
+        "m2_w": {
+          "__array__": "array_00022"
+        },
+        "mlp_residual": {
+          "__array__": "array_00023"
+        },
+        "o_b": {
+          "__array__": "array_00024"
+        },
+        "o_w": {
+          "__array__": "array_00025"
+        },
+        "q_b": {
+          "__array__": "array_00026"
+        },
+        "q_lut": {
+          "scalars": {
+            "__array__": "array_00027"
+          },
+          "table": {
+            "__array__": "array_00028"
+          }
+        },
+        "q_w": {
+          "__array__": "array_00029"
+        },
+        "softmax": {
+          "exp": {
+            "__array__": "array_00030"
+          },
+          "exp_mse": 868.2416397681521,
+          "mse": 0.009434291294642858,
+          "output_scale": 0.021957192569971085,
+          "recip1": {
+            "__array__": "array_00031"
+          },
+          "recip2": {
+            "__array__": "array_00032"
+          },
+          "scalars": {
+            "__array__": "array_00033"
+          }
+        },
+        "v_b": {
+          "__array__": "array_00034"
+        },
+        "v_lut": {
+          "scalars": {
+            "__array__": "array_00035"
+          },
+          "table": {
+            "__array__": "array_00036"
+          }
+        },
+        "v_w": {
+          "__array__": "array_00037"
+        }
+      },
+      {
+        "_internal_padding": {
+          "__array__": "array_00038"
+        },
+        "_tail_padding": {
+          "__array__": "array_00039"
+        },
+        "a_lut": {
+          "scalars": {
+            "__array__": "array_00040"
+          },
+          "table": {
+            "__array__": "array_00041"
+          }
+        },
+        "attn_residual": {
+          "__array__": "array_00042"
+        },
+        "gelu_lut": {
+          "scalars": {
+            "__array__": "array_00043"
+          },
+          "table": {
+            "__array__": "array_00044"
+          }
+        },
+        "k_b": {
+          "__array__": "array_00045"
+        },
+        "k_lut": {
+          "scalars": {
+            "__array__": "array_00046"
+          },
+          "table": {
+            "__array__": "array_00047"
+          }
+        },
+        "k_w": {
+          "__array__": "array_00048"
+        },
+        "ln1": {
+          "lnb": {
+            "__array__": "array_00049"
+          },
+          "lnw": {
+            "__array__": "array_00050"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00051"
+          },
+          "scalars": {
+            "__array__": "array_00052"
+          }
+        },
+        "ln2": {
+          "lnb": {
+            "__array__": "array_00053"
+          },
+          "lnw": {
+            "__array__": "array_00054"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00055"
+          },
+          "scalars": {
+            "__array__": "array_00056"
+          }
+        },
+        "m1_b": {
+          "__array__": "array_00057"
+        },
+        "m1_w": {
+          "__array__": "array_00058"
+        },
+        "m2_b": {
+          "__array__": "array_00059"
+        },
+        "m2_w": {
+          "__array__": "array_00060"
+        },
+        "mlp_residual": {
+          "__array__": "array_00061"
+        },
+        "o_b": {
+          "__array__": "array_00062"
+        },
+        "o_w": {
+          "__array__": "array_00063"
+        },
+        "q_b": {
+          "__array__": "array_00064"
+        },
+        "q_lut": {
+          "scalars": {
+            "__array__": "array_00065"
+          },
+          "table": {
+            "__array__": "array_00066"
+          }
+        },
+        "q_w": {
+          "__array__": "array_00067"
+        },
+        "softmax": {
+          "exp": {
+            "__array__": "array_00068"
+          },
+          "exp_mse": 434.4276183209253,
+          "mse": 0.005552953603316327,
+          "output_scale": 0.031172728165984154,
+          "recip1": {
+            "__array__": "array_00069"
+          },
+          "recip2": {
+            "__array__": "array_00070"
+          },
+          "scalars": {
+            "__array__": "array_00071"
+          }
+        },
+        "v_b": {
+          "__array__": "array_00072"
+        },
+        "v_lut": {
+          "scalars": {
+            "__array__": "array_00073"
+          },
+          "table": {
+            "__array__": "array_00074"
+          }
+        },
+        "v_w": {
+          "__array__": "array_00075"
+        }
+      },
+      {
+        "_internal_padding": {
+          "__array__": "array_00076"
+        },
+        "_tail_padding": {
+          "__array__": "array_00077"
+        },
+        "a_lut": {
+          "scalars": {
+            "__array__": "array_00078"
+          },
+          "table": {
+            "__array__": "array_00079"
+          }
+        },
+        "attn_residual": {
+          "__array__": "array_00080"
+        },
+        "gelu_lut": {
+          "scalars": {
+            "__array__": "array_00081"
+          },
+          "table": {
+            "__array__": "array_00082"
+          }
+        },
+        "k_b": {
+          "__array__": "array_00083"
+        },
+        "k_lut": {
+          "scalars": {
+            "__array__": "array_00084"
+          },
+          "table": {
+            "__array__": "array_00085"
+          }
+        },
+        "k_w": {
+          "__array__": "array_00086"
+        },
+        "ln1": {
+          "lnb": {
+            "__array__": "array_00087"
+          },
+          "lnw": {
+            "__array__": "array_00088"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00089"
+          },
+          "scalars": {
+            "__array__": "array_00090"
+          }
+        },
+        "ln2": {
+          "lnb": {
+            "__array__": "array_00091"
+          },
+          "lnw": {
+            "__array__": "array_00092"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00093"
+          },
+          "scalars": {
+            "__array__": "array_00094"
+          }
+        },
+        "m1_b": {
+          "__array__": "array_00095"
+        },
+        "m1_w": {
+          "__array__": "array_00096"
+        },
+        "m2_b": {
+          "__array__": "array_00097"
+        },
+        "m2_w": {
+          "__array__": "array_00098"
+        },
+        "mlp_residual": {
+          "__array__": "array_00099"
+        },
+        "o_b": {
+          "__array__": "array_00100"
+        },
+        "o_w": {
+          "__array__": "array_00101"
+        },
+        "q_b": {
+          "__array__": "array_00102"
+        },
+        "q_lut": {
+          "scalars": {
+            "__array__": "array_00103"
+          },
+          "table": {
+            "__array__": "array_00104"
+          }
+        },
+        "q_w": {
+          "__array__": "array_00105"
+        },
+        "softmax": {
+          "exp": {
+            "__array__": "array_00106"
+          },
+          "exp_mse": 511.31961210823613,
+          "mse": 0.006127182318239796,
+          "output_scale": 0.029479224234819412,
+          "recip1": {
+            "__array__": "array_00107"
+          },
+          "recip2": {
+            "__array__": "array_00108"
+          },
+          "scalars": {
+            "__array__": "array_00109"
+          }
+        },
+        "v_b": {
+          "__array__": "array_00110"
+        },
+        "v_lut": {
+          "scalars": {
+            "__array__": "array_00111"
+          },
+          "table": {
+            "__array__": "array_00112"
+          }
+        },
+        "v_w": {
+          "__array__": "array_00113"
+        }
+      },
+      {
+        "_internal_padding": {
+          "__array__": "array_00114"
+        },
+        "_tail_padding": {
+          "__array__": "array_00115"
+        },
+        "a_lut": {
+          "scalars": {
+            "__array__": "array_00116"
+          },
+          "table": {
+            "__array__": "array_00117"
+          }
+        },
+        "attn_residual": {
+          "__array__": "array_00118"
+        },
+        "gelu_lut": {
+          "scalars": {
+            "__array__": "array_00119"
+          },
+          "table": {
+            "__array__": "array_00120"
+          }
+        },
+        "k_b": {
+          "__array__": "array_00121"
+        },
+        "k_lut": {
+          "scalars": {
+            "__array__": "array_00122"
+          },
+          "table": {
+            "__array__": "array_00123"
+          }
+        },
+        "k_w": {
+          "__array__": "array_00124"
+        },
+        "ln1": {
+          "lnb": {
+            "__array__": "array_00125"
+          },
+          "lnw": {
+            "__array__": "array_00126"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00127"
+          },
+          "scalars": {
+            "__array__": "array_00128"
+          }
+        },
+        "ln2": {
+          "lnb": {
+            "__array__": "array_00129"
+          },
+          "lnw": {
+            "__array__": "array_00130"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00131"
+          },
+          "scalars": {
+            "__array__": "array_00132"
+          }
+        },
+        "m1_b": {
+          "__array__": "array_00133"
+        },
+        "m1_w": {
+          "__array__": "array_00134"
+        },
+        "m2_b": {
+          "__array__": "array_00135"
+        },
+        "m2_w": {
+          "__array__": "array_00136"
+        },
+        "mlp_residual": {
+          "__array__": "array_00137"
+        },
+        "o_b": {
+          "__array__": "array_00138"
+        },
+        "o_w": {
+          "__array__": "array_00139"
+        },
+        "q_b": {
+          "__array__": "array_00140"
+        },
+        "q_lut": {
+          "scalars": {
+            "__array__": "array_00141"
+          },
+          "table": {
+            "__array__": "array_00142"
+          }
+        },
+        "q_w": {
+          "__array__": "array_00143"
+        },
+        "softmax": {
+          "exp": {
+            "__array__": "array_00144"
+          },
+          "exp_mse": 781.2702842457136,
+          "mse": 0.018462511957908163,
+          "output_scale": 0.011199542321264744,
+          "recip1": {
+            "__array__": "array_00145"
+          },
+          "recip2": {
+            "__array__": "array_00146"
+          },
+          "scalars": {
+            "__array__": "array_00147"
+          }
+        },
+        "v_b": {
+          "__array__": "array_00148"
+        },
+        "v_lut": {
+          "scalars": {
+            "__array__": "array_00149"
+          },
+          "table": {
+            "__array__": "array_00150"
+          }
+        },
+        "v_w": {
+          "__array__": "array_00151"
+        }
+      },
+      {
+        "_internal_padding": {
+          "__array__": "array_00152"
+        },
+        "_tail_padding": {
+          "__array__": "array_00153"
+        },
+        "a_lut": {
+          "scalars": {
+            "__array__": "array_00154"
+          },
+          "table": {
+            "__array__": "array_00155"
+          }
+        },
+        "attn_residual": {
+          "__array__": "array_00156"
+        },
+        "gelu_lut": {
+          "scalars": {
+            "__array__": "array_00157"
+          },
+          "table": {
+            "__array__": "array_00158"
+          }
+        },
+        "k_b": {
+          "__array__": "array_00159"
+        },
+        "k_lut": {
+          "scalars": {
+            "__array__": "array_00160"
+          },
+          "table": {
+            "__array__": "array_00161"
+          }
+        },
+        "k_w": {
+          "__array__": "array_00162"
+        },
+        "ln1": {
+          "lnb": {
+            "__array__": "array_00163"
+          },
+          "lnw": {
+            "__array__": "array_00164"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00165"
+          },
+          "scalars": {
+            "__array__": "array_00166"
+          }
+        },
+        "ln2": {
+          "lnb": {
+            "__array__": "array_00167"
+          },
+          "lnw": {
+            "__array__": "array_00168"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00169"
+          },
+          "scalars": {
+            "__array__": "array_00170"
+          }
+        },
+        "m1_b": {
+          "__array__": "array_00171"
+        },
+        "m1_w": {
+          "__array__": "array_00172"
+        },
+        "m2_b": {
+          "__array__": "array_00173"
+        },
+        "m2_w": {
+          "__array__": "array_00174"
+        },
+        "mlp_residual": {
+          "__array__": "array_00175"
+        },
+        "o_b": {
+          "__array__": "array_00176"
+        },
+        "o_w": {
+          "__array__": "array_00177"
+        },
+        "q_b": {
+          "__array__": "array_00178"
+        },
+        "q_lut": {
+          "scalars": {
+            "__array__": "array_00179"
+          },
+          "table": {
+            "__array__": "array_00180"
+          }
+        },
+        "q_w": {
+          "__array__": "array_00181"
+        },
+        "softmax": {
+          "exp": {
+            "__array__": "array_00182"
+          },
+          "exp_mse": 660.5319677456441,
+          "mse": 0.0174984056122449,
+          "output_scale": 0.009833441115915775,
+          "recip1": {
+            "__array__": "array_00183"
+          },
+          "recip2": {
+            "__array__": "array_00184"
+          },
+          "scalars": {
+            "__array__": "array_00185"
+          }
+        },
+        "v_b": {
+          "__array__": "array_00186"
+        },
+        "v_lut": {
+          "scalars": {
+            "__array__": "array_00187"
+          },
+          "table": {
+            "__array__": "array_00188"
+          }
+        },
+        "v_w": {
+          "__array__": "array_00189"
+        }
+      },
+      {
+        "_internal_padding": {
+          "__array__": "array_00190"
+        },
+        "_tail_padding": {
+          "__array__": "array_00191"
+        },
+        "a_lut": {
+          "scalars": {
+            "__array__": "array_00192"
+          },
+          "table": {
+            "__array__": "array_00193"
+          }
+        },
+        "attn_residual": {
+          "__array__": "array_00194"
+        },
+        "gelu_lut": {
+          "scalars": {
+            "__array__": "array_00195"
+          },
+          "table": {
+            "__array__": "array_00196"
+          }
+        },
+        "k_b": {
+          "__array__": "array_00197"
+        },
+        "k_lut": {
+          "scalars": {
+            "__array__": "array_00198"
+          },
+          "table": {
+            "__array__": "array_00199"
+          }
+        },
+        "k_w": {
+          "__array__": "array_00200"
+        },
+        "ln1": {
+          "lnb": {
+            "__array__": "array_00201"
+          },
+          "lnw": {
+            "__array__": "array_00202"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00203"
+          },
+          "scalars": {
+            "__array__": "array_00204"
+          }
+        },
+        "ln2": {
+          "lnb": {
+            "__array__": "array_00205"
+          },
+          "lnw": {
+            "__array__": "array_00206"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00207"
+          },
+          "scalars": {
+            "__array__": "array_00208"
+          }
+        },
+        "m1_b": {
+          "__array__": "array_00209"
+        },
+        "m1_w": {
+          "__array__": "array_00210"
+        },
+        "m2_b": {
+          "__array__": "array_00211"
+        },
+        "m2_w": {
+          "__array__": "array_00212"
+        },
+        "mlp_residual": {
+          "__array__": "array_00213"
+        },
+        "o_b": {
+          "__array__": "array_00214"
+        },
+        "o_w": {
+          "__array__": "array_00215"
+        },
+        "q_b": {
+          "__array__": "array_00216"
+        },
+        "q_lut": {
+          "scalars": {
+            "__array__": "array_00217"
+          },
+          "table": {
+            "__array__": "array_00218"
+          }
+        },
+        "q_w": {
+          "__array__": "array_00219"
+        },
+        "softmax": {
+          "exp": {
+            "__array__": "array_00220"
+          },
+          "exp_mse": 1151.0236866908754,
+          "mse": 0.0326164401307398,
+          "output_scale": 0.008809694088995457,
+          "recip1": {
+            "__array__": "array_00221"
+          },
+          "recip2": {
+            "__array__": "array_00222"
+          },
+          "scalars": {
+            "__array__": "array_00223"
+          }
+        },
+        "v_b": {
+          "__array__": "array_00224"
+        },
+        "v_lut": {
+          "scalars": {
+            "__array__": "array_00225"
+          },
+          "table": {
+            "__array__": "array_00226"
+          }
+        },
+        "v_w": {
+          "__array__": "array_00227"
+        }
+      },
+      {
+        "_internal_padding": {
+          "__array__": "array_00228"
+        },
+        "_tail_padding": {
+          "__array__": "array_00229"
+        },
+        "a_lut": {
+          "scalars": {
+            "__array__": "array_00230"
+          },
+          "table": {
+            "__array__": "array_00231"
+          }
+        },
+        "attn_residual": {
+          "__array__": "array_00232"
+        },
+        "gelu_lut": {
+          "scalars": {
+            "__array__": "array_00233"
+          },
+          "table": {
+            "__array__": "array_00234"
+          }
+        },
+        "k_b": {
+          "__array__": "array_00235"
+        },
+        "k_lut": {
+          "scalars": {
+            "__array__": "array_00236"
+          },
+          "table": {
+            "__array__": "array_00237"
+          }
+        },
+        "k_w": {
+          "__array__": "array_00238"
+        },
+        "ln1": {
+          "lnb": {
+            "__array__": "array_00239"
+          },
+          "lnw": {
+            "__array__": "array_00240"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00241"
+          },
+          "scalars": {
+            "__array__": "array_00242"
+          }
+        },
+        "ln2": {
+          "lnb": {
+            "__array__": "array_00243"
+          },
+          "lnw": {
+            "__array__": "array_00244"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00245"
+          },
+          "scalars": {
+            "__array__": "array_00246"
+          }
+        },
+        "m1_b": {
+          "__array__": "array_00247"
+        },
+        "m1_w": {
+          "__array__": "array_00248"
+        },
+        "m2_b": {
+          "__array__": "array_00249"
+        },
+        "m2_w": {
+          "__array__": "array_00250"
+        },
+        "mlp_residual": {
+          "__array__": "array_00251"
+        },
+        "o_b": {
+          "__array__": "array_00252"
+        },
+        "o_w": {
+          "__array__": "array_00253"
+        },
+        "q_b": {
+          "__array__": "array_00254"
+        },
+        "q_lut": {
+          "scalars": {
+            "__array__": "array_00255"
+          },
+          "table": {
+            "__array__": "array_00256"
+          }
+        },
+        "q_w": {
+          "__array__": "array_00257"
+        },
+        "softmax": {
+          "exp": {
+            "__array__": "array_00258"
+          },
+          "exp_mse": 655.6881651416944,
+          "mse": 0.01948017976721939,
+          "output_scale": 0.009625736624002457,
+          "recip1": {
+            "__array__": "array_00259"
+          },
+          "recip2": {
+            "__array__": "array_00260"
+          },
+          "scalars": {
+            "__array__": "array_00261"
+          }
+        },
+        "v_b": {
+          "__array__": "array_00262"
+        },
+        "v_lut": {
+          "scalars": {
+            "__array__": "array_00263"
+          },
+          "table": {
+            "__array__": "array_00264"
+          }
+        },
+        "v_w": {
+          "__array__": "array_00265"
+        }
+      },
+      {
+        "_internal_padding": {
+          "__array__": "array_00266"
+        },
+        "_tail_padding": {
+          "__array__": "array_00267"
+        },
+        "a_lut": {
+          "scalars": {
+            "__array__": "array_00268"
+          },
+          "table": {
+            "__array__": "array_00269"
+          }
+        },
+        "attn_residual": {
+          "__array__": "array_00270"
+        },
+        "gelu_lut": {
+          "scalars": {
+            "__array__": "array_00271"
+          },
+          "table": {
+            "__array__": "array_00272"
+          }
+        },
+        "k_b": {
+          "__array__": "array_00273"
+        },
+        "k_lut": {
+          "scalars": {
+            "__array__": "array_00274"
+          },
+          "table": {
+            "__array__": "array_00275"
+          }
+        },
+        "k_w": {
+          "__array__": "array_00276"
+        },
+        "ln1": {
+          "lnb": {
+            "__array__": "array_00277"
+          },
+          "lnw": {
+            "__array__": "array_00278"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00279"
+          },
+          "scalars": {
+            "__array__": "array_00280"
+          }
+        },
+        "ln2": {
+          "lnb": {
+            "__array__": "array_00281"
+          },
+          "lnw": {
+            "__array__": "array_00282"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00283"
+          },
+          "scalars": {
+            "__array__": "array_00284"
+          }
+        },
+        "m1_b": {
+          "__array__": "array_00285"
+        },
+        "m1_w": {
+          "__array__": "array_00286"
+        },
+        "m2_b": {
+          "__array__": "array_00287"
+        },
+        "m2_w": {
+          "__array__": "array_00288"
+        },
+        "mlp_residual": {
+          "__array__": "array_00289"
+        },
+        "o_b": {
+          "__array__": "array_00290"
+        },
+        "o_w": {
+          "__array__": "array_00291"
+        },
+        "q_b": {
+          "__array__": "array_00292"
+        },
+        "q_lut": {
+          "scalars": {
+            "__array__": "array_00293"
+          },
+          "table": {
+            "__array__": "array_00294"
+          }
+        },
+        "q_w": {
+          "__array__": "array_00295"
+        },
+        "softmax": {
+          "exp": {
+            "__array__": "array_00296"
+          },
+          "exp_mse": 652.447779191396,
+          "mse": 0.02092509367028061,
+          "output_scale": 0.009969884529709816,
+          "recip1": {
+            "__array__": "array_00297"
+          },
+          "recip2": {
+            "__array__": "array_00298"
+          },
+          "scalars": {
+            "__array__": "array_00299"
+          }
+        },
+        "v_b": {
+          "__array__": "array_00300"
+        },
+        "v_lut": {
+          "scalars": {
+            "__array__": "array_00301"
+          },
+          "table": {
+            "__array__": "array_00302"
+          }
+        },
+        "v_w": {
+          "__array__": "array_00303"
+        }
+      },
+      {
+        "_internal_padding": {
+          "__array__": "array_00304"
+        },
+        "_tail_padding": {
+          "__array__": "array_00305"
+        },
+        "a_lut": {
+          "scalars": {
+            "__array__": "array_00306"
+          },
+          "table": {
+            "__array__": "array_00307"
+          }
+        },
+        "attn_residual": {
+          "__array__": "array_00308"
+        },
+        "gelu_lut": {
+          "scalars": {
+            "__array__": "array_00309"
+          },
+          "table": {
+            "__array__": "array_00310"
+          }
+        },
+        "k_b": {
+          "__array__": "array_00311"
+        },
+        "k_lut": {
+          "scalars": {
+            "__array__": "array_00312"
+          },
+          "table": {
+            "__array__": "array_00313"
+          }
+        },
+        "k_w": {
+          "__array__": "array_00314"
+        },
+        "ln1": {
+          "lnb": {
+            "__array__": "array_00315"
+          },
+          "lnw": {
+            "__array__": "array_00316"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00317"
+          },
+          "scalars": {
+            "__array__": "array_00318"
+          }
+        },
+        "ln2": {
+          "lnb": {
+            "__array__": "array_00319"
+          },
+          "lnw": {
+            "__array__": "array_00320"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00321"
+          },
+          "scalars": {
+            "__array__": "array_00322"
+          }
+        },
+        "m1_b": {
+          "__array__": "array_00323"
+        },
+        "m1_w": {
+          "__array__": "array_00324"
+        },
+        "m2_b": {
+          "__array__": "array_00325"
+        },
+        "m2_w": {
+          "__array__": "array_00326"
+        },
+        "mlp_residual": {
+          "__array__": "array_00327"
+        },
+        "o_b": {
+          "__array__": "array_00328"
+        },
+        "o_w": {
+          "__array__": "array_00329"
+        },
+        "q_b": {
+          "__array__": "array_00330"
+        },
+        "q_lut": {
+          "scalars": {
+            "__array__": "array_00331"
+          },
+          "table": {
+            "__array__": "array_00332"
+          }
+        },
+        "q_w": {
+          "__array__": "array_00333"
+        },
+        "softmax": {
+          "exp": {
+            "__array__": "array_00334"
+          },
+          "exp_mse": 635.2552961873525,
+          "mse": 0.017388791454081634,
+          "output_scale": 0.013470696285367012,
+          "recip1": {
+            "__array__": "array_00335"
+          },
+          "recip2": {
+            "__array__": "array_00336"
+          },
+          "scalars": {
+            "__array__": "array_00337"
+          }
+        },
+        "v_b": {
+          "__array__": "array_00338"
+        },
+        "v_lut": {
+          "scalars": {
+            "__array__": "array_00339"
+          },
+          "table": {
+            "__array__": "array_00340"
+          }
+        },
+        "v_w": {
+          "__array__": "array_00341"
+        }
+      },
+      {
+        "_internal_padding": {
+          "__array__": "array_00342"
+        },
+        "_tail_padding": {
+          "__array__": "array_00343"
+        },
+        "a_lut": {
+          "scalars": {
+            "__array__": "array_00344"
+          },
+          "table": {
+            "__array__": "array_00345"
+          }
+        },
+        "attn_residual": {
+          "__array__": "array_00346"
+        },
+        "gelu_lut": {
+          "scalars": {
+            "__array__": "array_00347"
+          },
+          "table": {
+            "__array__": "array_00348"
+          }
+        },
+        "k_b": {
+          "__array__": "array_00349"
+        },
+        "k_lut": {
+          "scalars": {
+            "__array__": "array_00350"
+          },
+          "table": {
+            "__array__": "array_00351"
+          }
+        },
+        "k_w": {
+          "__array__": "array_00352"
+        },
+        "ln1": {
+          "lnb": {
+            "__array__": "array_00353"
+          },
+          "lnw": {
+            "__array__": "array_00354"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00355"
+          },
+          "scalars": {
+            "__array__": "array_00356"
+          }
+        },
+        "ln2": {
+          "lnb": {
+            "__array__": "array_00357"
+          },
+          "lnw": {
+            "__array__": "array_00358"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00359"
+          },
+          "scalars": {
+            "__array__": "array_00360"
+          }
+        },
+        "m1_b": {
+          "__array__": "array_00361"
+        },
+        "m1_w": {
+          "__array__": "array_00362"
+        },
+        "m2_b": {
+          "__array__": "array_00363"
+        },
+        "m2_w": {
+          "__array__": "array_00364"
+        },
+        "mlp_residual": {
+          "__array__": "array_00365"
+        },
+        "o_b": {
+          "__array__": "array_00366"
+        },
+        "o_w": {
+          "__array__": "array_00367"
+        },
+        "q_b": {
+          "__array__": "array_00368"
+        },
+        "q_lut": {
+          "scalars": {
+            "__array__": "array_00369"
+          },
+          "table": {
+            "__array__": "array_00370"
+          }
+        },
+        "q_w": {
+          "__array__": "array_00371"
+        },
+        "softmax": {
+          "exp": {
+            "__array__": "array_00372"
+          },
+          "exp_mse": 395.07651380067335,
+          "mse": 0.01915133729272959,
+          "output_scale": 0.0110843600705266,
+          "recip1": {
+            "__array__": "array_00373"
+          },
+          "recip2": {
+            "__array__": "array_00374"
+          },
+          "scalars": {
+            "__array__": "array_00375"
+          }
+        },
+        "v_b": {
+          "__array__": "array_00376"
+        },
+        "v_lut": {
+          "scalars": {
+            "__array__": "array_00377"
+          },
+          "table": {
+            "__array__": "array_00378"
+          }
+        },
+        "v_w": {
+          "__array__": "array_00379"
+        }
+      },
+      {
+        "_internal_padding": {
+          "__array__": "array_00380"
+        },
+        "_tail_padding": {
+          "__array__": "array_00381"
+        },
+        "a_lut": {
+          "scalars": {
+            "__array__": "array_00382"
+          },
+          "table": {
+            "__array__": "array_00383"
+          }
+        },
+        "attn_residual": {
+          "__array__": "array_00384"
+        },
+        "gelu_lut": {
+          "scalars": {
+            "__array__": "array_00385"
+          },
+          "table": {
+            "__array__": "array_00386"
+          }
+        },
+        "k_b": {
+          "__array__": "array_00387"
+        },
+        "k_lut": {
+          "scalars": {
+            "__array__": "array_00388"
+          },
+          "table": {
+            "__array__": "array_00389"
+          }
+        },
+        "k_w": {
+          "__array__": "array_00390"
+        },
+        "ln1": {
+          "lnb": {
+            "__array__": "array_00391"
+          },
+          "lnw": {
+            "__array__": "array_00392"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00393"
+          },
+          "scalars": {
+            "__array__": "array_00394"
+          }
+        },
+        "ln2": {
+          "lnb": {
+            "__array__": "array_00395"
+          },
+          "lnw": {
+            "__array__": "array_00396"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00397"
+          },
+          "scalars": {
+            "__array__": "array_00398"
+          }
+        },
+        "m1_b": {
+          "__array__": "array_00399"
+        },
+        "m1_w": {
+          "__array__": "array_00400"
+        },
+        "m2_b": {
+          "__array__": "array_00401"
+        },
+        "m2_w": {
+          "__array__": "array_00402"
+        },
+        "mlp_residual": {
+          "__array__": "array_00403"
+        },
+        "o_b": {
+          "__array__": "array_00404"
+        },
+        "o_w": {
+          "__array__": "array_00405"
+        },
+        "q_b": {
+          "__array__": "array_00406"
+        },
+        "q_lut": {
+          "scalars": {
+            "__array__": "array_00407"
+          },
+          "table": {
+            "__array__": "array_00408"
+          }
+        },
+        "q_w": {
+          "__array__": "array_00409"
+        },
+        "softmax": {
+          "exp": {
+            "__array__": "array_00410"
+          },
+          "exp_mse": 531.24192068409,
+          "mse": 0.014166384327168368,
+          "output_scale": 0.014449012465775013,
+          "recip1": {
+            "__array__": "array_00411"
+          },
+          "recip2": {
+            "__array__": "array_00412"
+          },
+          "scalars": {
+            "__array__": "array_00413"
+          }
+        },
+        "v_b": {
+          "__array__": "array_00414"
+        },
+        "v_lut": {
+          "scalars": {
+            "__array__": "array_00415"
+          },
+          "table": {
+            "__array__": "array_00416"
+          }
+        },
+        "v_w": {
+          "__array__": "array_00417"
+        }
+      },
+      {
+        "_internal_padding": {
+          "__array__": "array_00418"
+        },
+        "_tail_padding": {
+          "__array__": "array_00419"
+        },
+        "a_lut": {
+          "scalars": {
+            "__array__": "array_00420"
+          },
+          "table": {
+            "__array__": "array_00421"
+          }
+        },
+        "attn_residual": {
+          "__array__": "array_00422"
+        },
+        "gelu_lut": {
+          "scalars": {
+            "__array__": "array_00423"
+          },
+          "table": {
+            "__array__": "array_00424"
+          }
+        },
+        "k_b": {
+          "__array__": "array_00425"
+        },
+        "k_lut": {
+          "scalars": {
+            "__array__": "array_00426"
+          },
+          "table": {
+            "__array__": "array_00427"
+          }
+        },
+        "k_w": {
+          "__array__": "array_00428"
+        },
+        "ln1": {
+          "lnb": {
+            "__array__": "array_00429"
+          },
+          "lnw": {
+            "__array__": "array_00430"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00431"
+          },
+          "scalars": {
+            "__array__": "array_00432"
+          }
+        },
+        "ln2": {
+          "lnb": {
+            "__array__": "array_00433"
+          },
+          "lnw": {
+            "__array__": "array_00434"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00435"
+          },
+          "scalars": {
+            "__array__": "array_00436"
+          }
+        },
+        "m1_b": {
+          "__array__": "array_00437"
+        },
+        "m1_w": {
+          "__array__": "array_00438"
+        },
+        "m2_b": {
+          "__array__": "array_00439"
+        },
+        "m2_w": {
+          "__array__": "array_00440"
+        },
+        "mlp_residual": {
+          "__array__": "array_00441"
+        },
+        "o_b": {
+          "__array__": "array_00442"
+        },
+        "o_w": {
+          "__array__": "array_00443"
+        },
+        "q_b": {
+          "__array__": "array_00444"
+        },
+        "q_lut": {
+          "scalars": {
+            "__array__": "array_00445"
+          },
+          "table": {
+            "__array__": "array_00446"
+          }
+        },
+        "q_w": {
+          "__array__": "array_00447"
+        },
+        "softmax": {
+          "exp": {
+            "__array__": "array_00448"
+          },
+          "exp_mse": 739.4435353541927,
+          "mse": 0.016732352120535716,
+          "output_scale": 0.011063138023018837,
+          "recip1": {
+            "__array__": "array_00449"
+          },
+          "recip2": {
+            "__array__": "array_00450"
+          },
+          "scalars": {
+            "__array__": "array_00451"
+          }
+        },
+        "v_b": {
+          "__array__": "array_00452"
+        },
+        "v_lut": {
+          "scalars": {
+            "__array__": "array_00453"
+          },
+          "table": {
+            "__array__": "array_00454"
+          }
+        },
+        "v_w": {
+          "__array__": "array_00455"
+        }
+      }
+    ],
+    "final_encoder_scale": 0.024391666816794277,
+    "head": {
+      "head_bias": {
+        "__array__": "array_00456"
+      },
+      "head_ln_scalars": {
+        "__array__": "array_00457"
+      },
+      "head_lnb": {
+        "__array__": "array_00458"
+      },
+      "head_lnw": {
+        "__array__": "array_00459"
+      },
+      "head_rsqrt": {
+        "__array__": "array_00460"
+      },
+      "head_weight": {
+        "__array__": "array_00461"
+      }
+    },
+    "patch": {
+      "bias_raw": {
+        "__array__": "array_00462"
+      },
+      "cls_raw": {
+        "__array__": "array_00463"
+      },
+      "shift": 8,
+      "weight_code": {
+        "__array__": "array_00464"
+      }
+    }
+  }
+}

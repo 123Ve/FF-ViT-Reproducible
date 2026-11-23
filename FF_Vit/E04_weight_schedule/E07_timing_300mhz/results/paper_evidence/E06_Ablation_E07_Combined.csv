@@ -1,0 +1,7 @@
+version,evidence_group,configuration,delta_reference,PL_clock_MHz,RTL_frame_cycles,delta_cycles,cycle_reduction_percent,RTL_latency_ms_derived,LUT,delta_LUT,FF,delta_FF,BRAM36_equivalent,delta_BRAM36,DSP,delta_DSP,WNS_ns,TNS_ns,timing_closed,qualification
+SF0,E06_SINGLE_FACTOR_250MHz,folded_baseline,SF0,250,1255315,0,0.000000,5.021260000,213696,0,144130,0,548.5,0,727,0,0,0,YES,RTL_time_not_board_latency
+SF1,E06_SINGLE_FACTOR_250MHz,weight_prefetch_only,SF0,250,1074954,-180361,14.367788,4.299816000,213459,-237,143937,-193,548.5,0,727,0,-0.058,-27.463,NO,250MHz_latency_is_arithmetic_only_not_achieved_performance
+SF2,E06_SINGLE_FACTOR_250MHz,rowwise_attention_only,SF0,250,1239223,-16092,1.281909,4.956892000,214063,367,143452,-678,506.5,-42,727,0,0.017,0,YES,RTL_time_not_board_latency
+SF3,E06_SINGLE_FACTOR_250MHz,activation_pingpong_only,SF0,250,1029498,-225817,17.988871,4.117992000,213155,-541,143953,-177,549.5,1,727,0,0.006,0,YES,RTL_time_not_board_latency
+E06,E06_SINGLE_FACTOR_250MHz,all_three_mechanisms,SF0,250,833045,-422270,33.638569,3.332180000,213977,281,142803,-1327,507.5,-41,727,0,0.028,0,YES,RTL_time_not_board_latency
+E07,CROSS_VERSION_TIMING_OPTIMIZATION,E06_plus_timing_optimization_bundle,E06,300.21509875,850027,16982,-2.038545,2.831393236,218759,4782,188403,45600,505,-2.5,736,9,0.023,0,YES,not_E07_single_factor_ablation; different_HLS_clock_and_implementation_clock; RTL_time_not_board_latency

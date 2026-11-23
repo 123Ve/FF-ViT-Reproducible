@@ -1,0 +1,10 @@
+# Versions observed in the preserved training environment; not a universal lock.
+# Install matching CUDA/CPU torch wheels for your machine before this file.
+torch==2.11.0
+torchvision==0.26.0
+timm==1.0.20
+numpy==2.4.4
+Pillow==12.2.0
+pyarrow==24.0.0
+PyYAML==6.0.3
+pytest==8.4.2

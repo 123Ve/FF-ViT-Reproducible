@@ -1,0 +1,140 @@
+[
+  {
+    "source": "quantization_final/scripts/qat_weight3_hls196.py",
+    "source_sha256": "38cc7f0dabd9da1b7e3d58d45720e753e1e2d92424173e551a11d74a9d885a61",
+    "port": "canonical/qat_weight3_hls196.py",
+    "port_sha256": "8bd2d566dd8aec9d69e9334a18aced566677f6bdee23607181d05c1eb4cc3884"
+  },
+  {
+    "source": "quantization_final/scripts/stage3_patch_hls_eval.py",
+    "source_sha256": "1f2b76b59fea7bfa9ebb6e433f3abf22573dff8567d7f271bda76dc0d5c59183",
+    "port": "canonical/stage3_patch_hls_eval.py",
+    "port_sha256": "d9e9bbd489bd3966822f86559014b742bc6bd0a259313480abc09c98641a8df0"
+  },
+  {
+    "source": "quantization_final/scripts/stage4a_collect_ranges.py",
+    "source_sha256": "0c9e829da8d31247fb2944614f86cb7387dd6a9914d3649c2713721b6499ae17",
+    "port": "canonical/stage4a_collect_ranges.py",
+    "port_sha256": "411166abe5b65aee4297a736168904e117881ddaf31a046ece35b8dced2d63bc"
+  },
+  {
+    "source": "quantization_final/scripts/stage4b_activation_ptq_eval.py",
+    "source_sha256": "9e6572e3c1aa61e8dfd28271385c9b7d0efa4c3c1c44e862310dbb7707494128",
+    "port": "canonical/stage4b_activation_ptq_eval.py",
+    "port_sha256": "8eca24a987b563af9e628ff4153a299bffe87c307bc8b078bc6c2f8edc472159"
+  },
+  {
+    "source": "quantization_final/scripts/stage4d_mlp_activation_qat.py",
+    "source_sha256": "2927d15f7f0c1ab41001b5b315e621b31959ddac7d86eb6522b6a9e4802d2580",
+    "port": "canonical/stage4d_mlp_activation_qat.py",
+    "port_sha256": "b38a675a53873e343c452e4ed80231c8a29260e7e25a857357819e257ce93a04"
+  },
+  {
+    "source": "quantization_final/scripts/stage4f_exact_gelu_lut.py",
+    "source_sha256": "67c973f81859c9023d93003d1a6aee7c6e223d4df5a025725b32f600b3e933fb",
+    "port": "canonical/stage4f_exact_gelu_lut.py",
+    "port_sha256": "524550b31f63c0ff2c4c5bceeeb717f61a2e46281119f8ab1050b2f37982b1a2"
+  },
+  {
+    "source": "quantization_final/scripts/stage4h_exact_layernorm_roundfix.py",
+    "source_sha256": "2f8727e9bede9d159bde4573250942f82e98148c40da91cd0cf48dd413c56da6",
+    "port": "canonical/stage4h_exact_layernorm_roundfix.py",
+    "port_sha256": "b648dd5c7cb5143c7f608c1b578b78522eea1f712fcef881dc52f556585d9fe3"
+  },
+  {
+    "source": "quantization_final/scripts/stage4i_exact_mlp.py",
+    "source_sha256": "ad33416fa990d2dc1013a8568a2b2f2f198b279069c5713e6f4222bd0865837f",
+    "port": "canonical/stage4i_exact_mlp.py",
+    "port_sha256": "d1a8de706fcd433fe055714f55c894814d907f3642a90f344dbd7ee845816590"
+  },
+  {
+    "source": "quantization_final/scripts/stage4j_attention_activation_qat.py",
+    "source_sha256": "5016d6c313070c278e5a7a558385cb303fbe7149ff5a99253b77e11c2af4bc0c",
+    "port": "canonical/stage4j_attention_activation_qat.py",
+    "port_sha256": "d3fc6aa906c7769dd6bfb643c293a04eb4d13cec48ccb5570179126c5e0ec9dc"
+  },
+  {
+    "source": "quantization_final/scripts/stage4k_exact_attention_outer.py",
+    "source_sha256": "d3213eb49535ba3e81f84174bbe0c94926d804a8845e6716b8b6e7653e850eb4",
+    "port": "canonical/stage4k_exact_attention_outer.py",
+    "port_sha256": "bedae6599cfa013a1671d514e6770855ecee7f3f9c99bf43e01f4bb11bc22b2d"
+  },
+  {
+    "source": "quantization_final/scripts/stage4k2_refine_qkv_lut.py",
+    "source_sha256": "db905e498f1dc8272e68c2547f62a6941fef4ce38521cc718c145194bdb4047c",
+    "port": "canonical/stage4k2_refine_qkv_lut.py",
+    "port_sha256": "3c3cac752d469bec27b3fce18094e1aea0b7cf5e9ccd06e17dbc35c87986d947"
+  },
+  {
+    "source": "quantization_final/scripts/stage4l_exact_softmax_aq.py",
+    "source_sha256": "acfb54672ca393ecc937ad83edfdc0de05534534515fcba6bdd6ad9c811878d9",
+    "port": "canonical/stage4l_exact_softmax_aq.py",
+    "port_sha256": "5789b9a5cb3e1153f25c7edd286e5a8c05aa88582902659c5a8bae3a00ef1ef3"
+  },
+  {
+    "source": "quantization_final/scripts/stage4m_exact_encoder_backbone.py",
+    "source_sha256": "0b17e21188d2de39156356ba1462ace97f238f0b01b2d6b997c7ddf259025597",
+    "port": "canonical/stage4m_exact_encoder_backbone.py",
+    "port_sha256": "e541e351d95485e40ada3e5c84043498843dd647aafb0a044fdb59c0f7ef4551"
+  },
+  {
+    "source": "quantization_final/scripts/stage4n_head_integer_audit.py",
+    "source_sha256": "7c1fdf0f53d889458f961fd79eb79c0a015ff2dc21364ab776fc7ee4537dc7c1",
+    "port": "canonical/stage4n_head_integer_audit.py",
+    "port_sha256": "73ac1a589dc9e15f22fbb0dd9dd7220c5175a65e7a1052e6b400bfc134744c78"
+  },
+  {
+    "source": "quantization_final/scripts/stage4o_exact_head_signedfix.py",
+    "source_sha256": "52ba75ba7978424ee632b87fad439fe5fbca5173702899dfeaf8e7decf6d4af3",
+    "port": "canonical/stage4o_exact_head_signedfix.py",
+    "port_sha256": "047542481157eb30a43dea98bf86d8671df8190200e0cf8fda0e0c1cc4ed80b8"
+  },
+  {
+    "source": "quantization_final/scripts/stage4o2_head_safe_refit.py",
+    "source_sha256": "79566e77ba2d156d4126701d5b22fa57f7aac543d1ce67dd695f0bb870260505",
+    "port": "canonical/stage4o2_head_safe_refit.py",
+    "port_sha256": "53d56b2d3143c6c19bc0491c974851ffa1d3a317d697e97f029576c79fa4b5ae"
+  },
+  {
+    "source": "quantization_final/scripts/verify_patch_bitexact.py",
+    "source_sha256": "f21cbf10e375d402c17e8bb2a2305bf99d247f049013e35fd84134fb9cd72862",
+    "port": "canonical/verify_patch_bitexact.py",
+    "port_sha256": "dcd0c14d4be85e295db6fc1bb25bbf871e9b6dc203867d135486b9b24d457f4d"
+  },
+  {
+    "source": "quantization_final/scripts/lib/hls_abi.py",
+    "source_sha256": "783b1adbf3eef100537c609c83aeac9f941605b01d470dee24207a0a9ea0554d",
+    "port": "canonical/lib/hls_abi.py",
+    "port_sha256": "783b1adbf3eef100537c609c83aeac9f941605b01d470dee24207a0a9ea0554d"
+  },
+  {
+    "source": "quantization_final/scripts/lib/frozen_quantization.py",
+    "source_sha256": "b9c1a4d85523192c81a59642c7820abd5f4468c3d287dd1f312dd5b27a38a90e",
+    "port": "canonical/lib/frozen_quantization.py",
+    "port_sha256": "b9c1a4d85523192c81a59642c7820abd5f4468c3d287dd1f312dd5b27a38a90e"
+  },
+  {
+    "source": "quantization_final/scripts/lib/pack_weights_hls.cpp",
+    "source_sha256": "6771f10e0f774b826a5a212abc79e9c1ca92aa91768a381998c237d2536a9931",
+    "port": "canonical/lib/pack_weights_hls.cpp",
+    "port_sha256": "6771f10e0f774b826a5a212abc79e9c1ca92aa91768a381998c237d2536a9931"
+  },
+  {
+    "source": "quantization_final/scripts/deployment/export_hls.py",
+    "source_sha256": "d9373dfaee3a22025eeebde3bfb61867ada4f1e61df8605dfd1c9f8f573d9a51",
+    "port": "canonical/deployment/export_hls.py",
+    "port_sha256": "d9373dfaee3a22025eeebde3bfb61867ada4f1e61df8605dfd1c9f8f573d9a51"
+  },
+  {
+    "source": "quantization_final/scripts/deployment/generate_fixture.py",
+    "source_sha256": "f949ebc094213c1237a62e5a53373eda5cc37e0e681e93f2dfc0df3615165f58",
+    "port": "canonical/deployment/generate_fixture.py",
+    "port_sha256": "af2dbac554f007dc28dccaa7c13b1f854d973c40270d821e54cb0b7f24995f93"
+  },
+  {
+    "source": "quantization_final/scripts/stage4q_generate_csim_fixture_v2.py",
+    "source_sha256": "9f2a00c8d51621ee69b7b5528778f6f07b6118349a7234d417ffb107dc05cc3f",
+    "port": "canonical/stage4q_generate_csim_fixture_v2.py",
+    "port_sha256": "c58bb31ee893248916cdd4109a580ab6b746c1868df32e2d079c33cfe6c35b09"
+  }
+]

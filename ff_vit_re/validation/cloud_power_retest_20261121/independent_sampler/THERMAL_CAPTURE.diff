@@ -1,0 +1,357 @@
+--- r9/PROTOCOL.md
++++ r10/PROTOCOL.md
+@@ -1,4 +1,17 @@
+ # E07 independent power candidate — protocol schema 1
++
++## r10 host thermal capture policy
++
++Diagnostic16/17 collect after at least30s warmup with healthy/fresh temperatures
++and at least29s of advancing board-status observations. They do not wait up to
++600s for the strict thermal stability predicate. Strict18 retains that predicate.
++Every profile still rejects invalid/stale/out-of-range temperature evidence.
++Warmup samples and actual elapsed time are preserved; no stable flag is invented.
++Analysis recomputes warmup_thermal_stable and reports thermal_qualification on
++each phase/CSV and the number of qualified repetitions. A valid diagnostic time
++integral is not a thermal-steady-state or matched-temperature comparison claim.
++The warmup flag itself assesses the warmup only, not stationarity over the full
++measurement interval. R9 firmware and its immutable identities are unchanged.
+ 
+ ## Current capture policy (r8, replaces negative-only aborts in diagnostic profiles)
+ 
+@@ -322,8 +335,9 @@
+ flags1; invalid INT32_MIN. Hardware reads have no explicit freshness/error API;
+ reject raw0/65535 and nonfinite/out-of-range -55..150°C conversions. Sampling is
+ once per second; the record is a read observation, not proof of ADC conversion
+-freshness. Host applies the predeclared thermal stability rule to these/cached
+-warmup readings.
++freshness. Strict18 applies the thermal stability gate to these/cached warmup
++readings. Diagnostic profiles preserve the separate warmup qualification and
++use the fixed minimum warmup policy described in the r10 section above.
+ 
+ Event record, 64 bytes, `<8I4Q`: seq/phase/type/request_id/mode/flags/
+ mismatch_count/reserved(UINT32) at0..28; begin/end/tick/aux(UINT64) at32/40/48/56.
+--- r9/README_CN.txt
++++ r10/README_CN.txt
+@@ -1,4 +1,19 @@
+ E07 双核 PS 测量镜像　2026-11-22
++
++当前交付 r10：诊断采集不再等待热稳态最多10分钟。
++diagnostic16/17 每阶段至少预热30秒，并验证该段温度有效、新鲜、范围正常及时间跨度，随后采集。
++真实温度全部保存，单独输出 warmup_thermal_stable 与 thermal_qualification；未证明稳定时，
++平均功率只是该诊断时间窗的平均值，不宣称稳态功耗、匹配热状态节能或完整18路正式验收。
++严格18路仍保留原热稳态判据及600秒等待上限；所有模式的温度无效、陈旧、超范围以及其他故障仍拒绝。
++原来的负值完整记录、数据覆盖、双核时钟握手规则保持。30秒是每阶段预热，验收其他条件不变。
++
++本次只更新主机程序，r9的全部BOOT/ELF/SD文件逐字节复用，无需重新烧录或换SD镜像。
++把 $Pkg 改为r10解压目录。由于主机源码更新，按原 -PrepareSD 流程对同一张卡生成新的
++card_diag16_r10.json，再 -Acceptance -Diagnostic16，输出到 acceptance_diag16_r10 新目录。
++保留r9失败日志。下面共用命令继续适用，收据/输出名称换成r10。
++THERMAL_CAPTURE_NOTES_CN.txt / THERMAL_CAPTURE.diff 为本次说明与改动，r10主机实物验收尚未执行。
++
++----- r9固件说明（r10继续使用同一固件） -----
+ 
+ 当前交付 r9：修复 r8 的 startup readiness deadline expired / clock_checks反复0、1。
+ Core1固定同一ping编号的首次观察时戳，心跳独立更新；Core0在读完一致性快照后才记录接收时刻，
+@@ -175,9 +190,10 @@
+ 正式门限必需重读两组 sampling0/1-observations.jsonl 和 throughput-sampling0/1.jsonl，
+ 核验心跳/扫描/控制/错误、逐帧输出校验、计数及 interval_start/end 真实主机区间；
+ 仅有汇总 PASS 或重新计算 inventory.json 不能替代这些原始证据。
+-每阶段先在同一实际负载下预热至少30秒；最后30秒温度极差<=1°C、首尾10秒均值差
+-<=0.2°C，最长600秒。不满足则失败，不挑选更有利窗口。
+-验收最低约15分钟，加导出/网络/温稳时间；最坏温稳等待会超过2小时。
++严格18路每阶段在同一实际负载下预热至少30秒；最后30秒温度极差<=1°C、首尾10秒均值差
++<=0.2°C，最长600秒。不满足则失败。诊断16/17路按r10固定最低30秒预热，不等待稳态门限，
++保留温度健康检查和独立稳态资格。验收仍有原来的多个条件，最低约15分钟，加导出/网络时间；
++只有严格18路额外等待温稳时可能更长。
+ 
+ 检查会话 COMPLETE 与所有阶段验收：两核心跳、同频时钟、18轨身份/0x4527/2048
+ 配置及conversion_ready_mask=262143、读数/推理时间重叠、输出逐码校验、温度、
+--- /dev/null
++++ r10/THERMAL_CAPTURE_NOTES_CN.txt
+@@ -0,0 +1,24 @@
++r10：诊断模式固定预热，温度资格独立记录
++
++用户r9报错THERMAL_NOT_STABLE。源码仅在等待原热稳条件至少600秒后触发，
++并不专指过温。未收到此次temperature-cache原始序列，因此不认定具体物理温漂或采样间隔原因。
++原规则要求30秒内至少30个唯一温度样本、跨度>=29秒、相邻间隔<=1.5秒、
++极差<=1°C且前后10秒均值差<=0.2°C。此规则适用于严格稳态资格，不应使诊断记录始终无法开始。
++
++新规则：diagnostic16/17至少预热30秒；温度样本必须有效、新鲜、在原范围内，
++板端状态观察须递增且跨度>=29秒。之后继续完整采集，不因未达到热稳条件等待600秒。
++严格18路仍使用原稳态门限。所有模式仍检查温度有效性、2秒新鲜度、原范围-55..150°C；
++该范围是已有传感器数据检查范围，不是新增的器件安全温度保证。
++负值、其他传感器/推理错误、时钟、物理覆盖和原始数据规则保持r9/r8定义。
++
++诊断数据可报告真实时间窗能量和平均功率，同时保留warmup_thermal_stable=false、
++thermal_qualification='not established; diagnostic time-window average'。
++这不等于稳态功耗合格、匹配温度节能或18路正式通过。温度原始序列、实际预热时长、
++正式窗口温度范围/端点漂移均保存。稳态标志由原始预热数据重算，不信任写入的自报标志。
++
++这是主机程序更新：完全复用r9三套BOOT、六个ELF及五项SD文件，不重新编译PS/PL。
++新软件仍需新收据绑定；SD内容不变，可按原PrepareSD步骤对同一张卡生成r10收据。
++用r10目录的Run-PowerRetest.ps1 -Acceptance -Diagnostic16，输出到新r10结果目录。
++不覆盖r9失败数据。不重新跑整套验证，仅本次定向检查及打包完整性检查。
++完整旧测试日志对应其历史版本；本次检查见execution/thermal_capture_20261122。
++Windows PowerShell、实际SD/板卡r10主机验收和正式功耗尚未执行。
+--- r9/host/analyze.py
++++ r10/host/analyze.py
+@@ -24,6 +24,7 @@
+ 
+ ROOT=pathlib.Path(__file__).resolve().parents[1]
+ QUALIFICATIONS=[
++    'Diagnostic capture uses at least30s warmup; thermal steady state is not assumed. The warmup qualification does not prove stationarity of the complete measurement window.',
+     '35.2 ms nominal bus+shunt ADC averaging interval; read midpoint is an observation-time convention.',
+     'Power read begin/end are preserved; ADC update phase and boundary uncertainty remain unresolved.',
+     'CVRF is a readiness observation, not an exact conversion sequence or independent-sample count.',
+@@ -341,6 +342,10 @@
+         phase_name=p['name'],board_phase_id=phase,mode=mode,valid=valid,invalid_reasons=reasons,
+         capture_valid=capture_valid,capture_invalid_reasons=capture_reasons,
+         power_quality_valid=valid,power_invalid_reasons=list(dict.fromkeys(power_reasons)),
++        warmup_thermal_stable=assessment.get('warmup_thermal_stable',False),
++        warmup_policy='strict-stability' if profile==profiles.STRICT else 'diagnostic-minimum-30s',
++        warmup_elapsed_seconds=p.get('warmup_elapsed_seconds'),
++        thermal_qualification=assessment.get('thermal_qualification','not established; invalid capture'),
+         measurement_origin='SYNTHETIC_NOT_PHYSICAL' if synthetic else 'PHYSICAL_ORIGIN_REQUIRES_SESSION_VALIDATION',
+         units=dict(energy='J',mean_power='W',energy_per_frame='mJ/completed frame',time='s'),
+         board_window_ticks=[t0,t1],timer_hz=hz,duration_seconds=duration,energy_J=energy,
+@@ -385,6 +390,8 @@
+     result=[]
+     for name,values in groups.items():
+         row=dict(**profiles.metadata(values[0]['measurement_profile']),condition=name,repetitions_total=len(values),repetitions_valid=sum(s['valid'] for s in values),
++            warmup_thermal_stable_repetitions=sum(s['valid'] and s.get('warmup_thermal_stable') is True for s in values),
++            thermal_qualification='Warmup qualification only; inspect each phase and measured temperature series before claiming steady state.',
+             interpretation='Repeated phases of this setup; not asserted independent restarts or instrument accuracy.')
+         for metric in ('mean_W','energy_J','board_completed_fps','energy_mJ_per_completed_frame'):
+             data=[s[metric] for s in values if s['valid'] and s.get(metric) is not None]
+@@ -478,7 +485,8 @@
+     wire.save_json(output/'analysis.json',result)
+     profile_fields=list(profiles.metadata(result['measurement_profile']))
+     fields=profile_fields+['condition','repetition','phase_name','valid','invalid_reasons','measurement_origin',
+-        'duration_seconds','capture_valid','power_quality_valid','drop_scope','host_window_monotonic','dropped_frames','missed_slots',
++        'duration_seconds','capture_valid','power_quality_valid','warmup_policy','warmup_elapsed_seconds','warmup_thermal_stable','thermal_qualification',
++        'drop_scope','host_window_monotonic','dropped_frames','missed_slots',
+         'whole_run_evicted_frames','whole_run_missed_slots','board_window_dropped_frames','P17mean_W','P16mean_W','energy_J','mean_W','completed_board','board_completed_fps',
+         'energy_mJ_per_completed_frame','offered_input_fps','drain_board']
+     with (output/'per-stage.csv').open('x',encoding='utf-8-sig',newline='') as stream:
+@@ -486,11 +494,11 @@
+         for stage in result['stages']:
+             row={k:stage.get(k) for k in fields};row['invalid_reasons']=' | '.join(stage['invalid_reasons']);writer.writerow(row)
+     with (output/'per-repeat.csv').open('x',encoding='utf-8-sig',newline='') as stream:
+-        writer=csv.writer(stream);writer.writerow(profile_fields+['condition','repetitions_total','repetitions_valid','metric','unit','n','mean','sample_SD'])
++        writer=csv.writer(stream);writer.writerow(profile_fields+['condition','repetitions_total','repetitions_valid','warmup_thermal_stable_repetitions','thermal_qualification','metric','unit','n','mean','sample_SD'])
+         for group in result['aggregates']:
+             for metric,unit in [('mean_W','W'),('energy_J','J'),('board_completed_fps','frames/s'),
+                                 ('energy_mJ_per_completed_frame','mJ/completed frame')]:
+-                m=group[metric];writer.writerow([group[k] for k in profile_fields]+[group['condition'],group['repetitions_total'],group['repetitions_valid'],metric,unit,m['n'],m['mean'],m['sample_SD']])
++                m=group[metric];writer.writerow([group[k] for k in profile_fields]+[group['condition'],group['repetitions_total'],group['repetitions_valid'],group['warmup_thermal_stable_repetitions'],group['thermal_qualification'],metric,unit,m['n'],m['mean'],m['sample_SD']])
+ 
+ 
+ def main(argv=None):
+--- r9/host/collect.py
++++ r10/host/collect.py
+@@ -150,6 +150,16 @@
+     return not (ip.is_loopback or ip.is_unspecified or ip.is_multicast)
+ 
+ 
++def temperature_sample_valid(s):
++    """Sensor health/freshness is required even without a steady-state claim."""
++    try:
++        hz=s['timer_hz']
++        return (hz>0 and s['temperature_valid']==1 and
++                0<=s['now_ticks']-s['temperature_tick']<=2*hz and
++                -55000<=s['temperature_mC']<=150000)
++    except (KeyError,TypeError):return False
++
++
+ def validate_status(s,require_ready=True,profile=profiles.STRICT):
+     require_profile(s,profile,sampler=True)
+     try:
+@@ -159,7 +169,7 @@
+             profiles.qualified(s,profile),
+             s['clock_checks']>=3,s['heartbeat_advances']>=3,
+             0<=now-s['sampler_heartbeat']<=hz/4,now-s['configured_tick']>=hz,
+-            s['temperature_valid']==1,0<=now-s['temperature_tick']<=2*hz,
++            temperature_sample_valid(s),
+             s['faults']==0,s['sampler_faults']==0,not any(s[k] for k in COUNTERS),s['sampling_enabled']==1,
+             not require_ready or s['ready'] is True)
+         if not all(checks):raise GateError('sampler readiness/clock/configuration/fault gate failed')
+@@ -302,8 +312,7 @@
+     for s in samples:
+         try:
+             hz=s['timer_hz'];tick=s['temperature_tick']
+-            if not s['temperature_valid'] or not 0<=s['now_ticks']-tick<=2*hz:return False
+-            if not -55000<=s['temperature_mC']<=150000:return False
++            if not temperature_sample_valid(s):return False
+             unique[tick]=s
+         except (KeyError,TypeError):return False
+     latest=max(unique)
+@@ -317,6 +326,19 @@
+     last=[s['temperature_mC'] for s in window if s['temperature_tick']>ticks[-1]-10*hz]
+     return (len(first)>=9 and len(last)>=9 and max(values)-min(values)<=1000 and
+             abs(statistics.mean(first)-statistics.mean(last))<=200)
++
++
++def warmup_ready(profile,elapsed,samples):
++    """Fixed diagnostic warmup; strict18 still needs the original stable window."""
++    profiles.metadata(profile)
++    if type(elapsed) not in (int,float) or not math.isfinite(elapsed) or elapsed<30 or not samples:return False
++    if profile==profiles.STRICT:return thermal_stable(samples)
++    try:
++        hz=samples[-1]['timer_hz'];ticks=[s['now_ticks'] for s in samples]
++        return (len(ticks)>=2 and ticks[-1]-ticks[0]>=29*hz and
++                all(b>a for a,b in zip(ticks,ticks[1:])) and
++                all(temperature_sample_valid(s) and s['timer_hz']==hz for s in samples))
++    except (KeyError,TypeError):return False
+ 
+ 
+ def board_counts(events,s,mode):
+@@ -383,8 +405,12 @@
+     if (any(b<a for a,b in zip(included_counters,included_counters[1:])) or
+         s['included_negative_samples']-start['included_negative_samples']<included_warnings):
+         raise GateError('included-negative counter rolled back or missed exported warnings')
+-    if not thermal_stable(warm):
+-        raise GateError('warmup thermal evidence failed')
++    steady=thermal_stable(warm)
++    elapsed=p.get('warmup_elapsed_seconds')
++    if profile==profiles.STRICT:
++        if not steady:raise GateError('warmup thermal evidence failed')
++    elif not warmup_ready(profile,elapsed,warm):
++        raise GateError('diagnostic minimum warmup/temperature evidence failed')
+     hz=s['timer_hz'];coverage=[];overlap=0
+     intervals=sorted((e['begin'],e['end']) for e in events if e['type']==6 and e['flags']==1)
+     for rail in range(18):
+@@ -419,6 +445,10 @@
+         raise GateError('host frame failure/accounting loss')
+     return dict(**profiles.metadata(profile),exported_excluded_negative_rows=warnings,
+                 exported_included_negative_rows=included_warnings,
++                warmup_thermal_stable=steady,warmup_elapsed_seconds=elapsed,
++                warmup_policy='strict-stability' if profile==profiles.STRICT else 'diagnostic-minimum-30s',
++                thermal_qualification='warmup criterion met; measured temperatures retained separately' if steady else
++                    ('not established; strict18 rejected' if profile==profiles.STRICT else 'not established; diagnostic time-window average'),
+                 prearm_to_end_excluded_negative_delta=s['excluded_negative_samples']-start['excluded_negative_samples'],coverage=coverage,inference_read_overlap_rails=overlap,**c,
+                 metrology_claim='Read/inference overlap is timing evidence only; ADC windows, bias and absolute accuracy remain unqualified.')
+ 
+@@ -795,12 +825,15 @@
+                     validate_status(status,profile=self.client.profile)
+                     validate_condition(status,p)
+                     warm.append(status);last_status=now
+-                    if now-warm_start>=30 and thermal_stable(warm):break
++                    if warmup_ready(self.client.profile,now-warm_start,warm):break
+                     if now-warm_start>=600:raise GateError('THERMAL_NOT_STABLE')
+                 if p['mode'] in (1,2):
+                     if not self.serve_frame(producer,p['mode'],record,p['name']):time.sleep(.001)
+                 else:time.sleep(.01)
+             wire.save_json(directory/'warmup-temperatures.json',warm)
++            phase_info.update(warmup_elapsed_seconds=time.monotonic()-warm_start,
++                warmup_policy='strict-stability' if self.client.profile==profiles.STRICT else 'diagnostic-minimum-30s',
++                warmup_thermal_stable=thermal_stable(warm))
+             start=ensure_ready(self.client,directory)
+             validate_condition(start,p)
+             # Cache config/latest before arm; later export is DONE only.
+@@ -1009,10 +1042,12 @@
+         session['finished_utc']=utcnow()
+         session['capture_complete']=session['status']=='COMPLETE'
+         session['power_quality_valid']=bool(session['phases']) and all(p.get('power_quality_valid') is True for p in session['phases'])
++        session['warmup_thermal_stable_for_all_phases']=bool(session['phases']) and all(p.get('warmup_thermal_stable') is True for p in session['phases'])
+         wire.save_json(out/'inventory.json',inventory(out))
+         wire.save_json(out/'session.json',session)
+     print(json.dumps(dict(**profiles.metadata(profile),status=session['status'],capture_complete=session['capture_complete'],
+-        power_quality_valid=session['power_quality_valid'],session=str(out/'session.json'),error=session.get('error',{}).get('detail'))))
++        power_quality_valid=session['power_quality_valid'],warmup_thermal_stable_for_all_phases=session['warmup_thermal_stable_for_all_phases'],
++        session=str(out/'session.json'),error=session.get('error',{}).get('detail'))))
+     return 0 if session['status']=='COMPLETE' else 1
+ 
+ 
+--- r9/package.py
++++ r10/package.py
+@@ -93,7 +93,8 @@
+                  'FIRMWARE_IDENTITY_DIAG17.json','SHA256SUMS_DIAG17.json',
+                  'FIRMWARE_IDENTITY_DIAG16.json','SHA256SUMS_DIAG16.json',
+                  'RECORD_COMPLETE_NOTES_CN.txt','RECORD_COMPLETE.diff',
+-                 'CLOCK_HANDSHAKE_NOTES_CN.txt','CLOCK_HANDSHAKE.diff'):
++                 'CLOCK_HANDSHAKE_NOTES_CN.txt','CLOCK_HANDSHAKE.diff',
++                 'THERMAL_CAPTURE_NOTES_CN.txt','THERMAL_CAPTURE.diff'):
+         paths.add(root/name)
+     for directory in ('host','firmware','tests','SD_CARD','SD_CARD_DIAG17','SD_CARD_DIAG16'):
+         paths.update(p for p in (root/directory).rglob('*') if p.is_file() and '__pycache__' not in p.parts)
+@@ -110,6 +111,8 @@
+         paths.add(root/'execution/record_complete_20261122'/name)
+     for name in ('EVIDENCE.txt','red.log','focused.log','build-strict18.log','build-diagnostic17.log','build-diagnostic16.log'):
+         paths.add(root/'execution/clock_handshake_20261122'/name)
++    for name in ('EVIDENCE.txt','red.log','focused.log'):
++        paths.add(root/'execution/thermal_capture_20261122'/name)
+     provenance=collect.read_json(root/identity['build_directory']/'provenance.json')
+     for name in provenance['sampler_startup_inputs']:paths.add(root/name)
+     for path in paths:
+--- r9/tests/test_analysis.py
++++ r10/tests/test_analysis.py
+@@ -95,7 +95,7 @@
+         self.phase=dict(**STRICT,name='r1-Target120-Full',mode=1,fps=30,seconds=2,scan_ms=20,
+             offset_ms=0,board_phase_id=1,board_t0=80000,board_t1=96000,timer_hz=8000,
+             arm_status=fixture_status(state=1,sampler_state=1),
+-            host_window_monotonic=[1000.0,1002.0],status='EXPORTED')
++            host_window_monotonic=[1000.0,1002.0],warmup_elapsed_seconds=30.,status='EXPORTED')
+         self.warm=[fixture_status(now_ticks=(i+40)*8000,sampler_heartbeat=(i+40)*8000-1,temperature_tick=(i+40)*8000)
+                    for i in range(31)]
+         self.host=dict(produced=240,submitted=240,completed=240,failed=0,remaining=0,in_flight=0,
+--- /dev/null
++++ r10/tests/test_thermal_capture.py
+@@ -0,0 +1,58 @@
++"""Diagnostic capture may proceed without claiming thermal steady state."""
++import pathlib
++import sys
++import tempfile
++import unittest
++ROOT=pathlib.Path(__file__).resolve().parents[1]
++sys.path.insert(0,str(ROOT))
++from host import collect,analyze
++from test_analysis import RawFixture,fixture_status
++import test_record_complete as record_fixture
++DIAG16=record_fixture.DIAG16
++
++class ThermalCaptureTests(unittest.TestCase):
++    def ramp(self):
++        return [fixture_status(now_ticks=(40+i)*8000,sampler_heartbeat=(40+i)*8000-1,
++            temperature_tick=(40+i)*8000,temperature_mC=26800+100*i) for i in range(31)]
++
++    def test_diagnostic_waits_thirty_seconds_but_does_not_require_steady_state(self):
++        samples=self.ramp()
++        self.assertFalse(collect.thermal_stable(samples))
++        self.assertFalse(collect.warmup_ready('diagnostic16',29.9,samples))
++        self.assertTrue(collect.warmup_ready('diagnostic16',30.,samples))
++        self.assertTrue(collect.warmup_ready('diagnostic17',30.,samples))
++        self.assertFalse(collect.warmup_ready('strict18',600.,samples))
++        self.assertFalse(collect.warmup_ready('diagnostic16',30.,samples[-1:]))
++
++    def test_sensor_temperature_health_is_still_required(self):
++        for field,value in [('temperature_valid',0),('temperature_mC',151000),
++                            ('temperature_mC',-56000),('temperature_tick',0)]:
++            with self.subTest(field=field,value=value):
++                s=fixture_status(**DIAG16,sampler_profile_rails=16)
++                s[field]=value
++                with self.assertRaises(collect.GateError):collect.validate_status(s,profile='diagnostic16')
++
++    def test_unsteady_diagnostic_keeps_window_average_and_reports_qualification(self):
++        with tempfile.TemporaryDirectory() as d:
++            f=record_fixture.RecordCompleteTests().fixture(d)
++            for i,s in enumerate(f.warm):s['temperature_mC']=26800+100*i
++            f.phase['warmup_elapsed_seconds']=30.;f.save()
++            evidence=collect.assess_phase(f.directory,'diagnostic16')
++            self.assertTrue(evidence['capture_valid'])
++            self.assertFalse(evidence['warmup_thermal_stable'])
++            result=analyze.analyze_phase(f.directory,True,profile='diagnostic16')
++            self.assertTrue(result['valid'],result['invalid_reasons'])
++            self.assertEqual((result['energy_J'],result['mean_W']),(64.,32.))
++            self.assertFalse(result['warmup_thermal_stable'])
++            self.assertEqual(result['thermal_qualification'],'not established; diagnostic time-window average')
++            f.warm[-1]['temperature_mC']=151000;f.save()
++            with self.assertRaises(collect.GateError):collect.assess_phase(f.directory,'diagnostic16')
++
++    def test_strict_eighteen_still_rejects_unsteady_warmup(self):
++        with tempfile.TemporaryDirectory() as d:
++            f=RawFixture(pathlib.Path(d)/'strict')
++            for i,s in enumerate(f.warm):s['temperature_mC']=26800+100*i
++            f.save()
++            with self.assertRaises(collect.GateError):collect.assess_phase(f.directory,'strict18')
++
++if __name__=='__main__':unittest.main(verbosity=2)

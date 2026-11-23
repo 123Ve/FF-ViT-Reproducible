@@ -1,0 +1,19 @@
+# External datasets and generated work belong outside the frozen snapshot.
+/.venv*/
+/work/
+/results/
+/verification/local/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.Xil/
+.DS_Store
+Thumbs.db
+.env
+.env.*
+!/.env.example
+*.pem
+*.key
+# Deployment BIN/BIT/XSA/ELF and selected checkpoints are deliberately tracked.
+# Never add a blanket *.bin or *.pth exclusion here.

@@ -1,0 +1,331 @@
+{
+  "scope": "PS-only real-image accuracy test of unchanged E07; no HLS/Vivado runs",
+  "board_accuracy_status": "pending actual board run",
+  "frozen_files": {
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/board_300mhz/deploy/BOOT.BIN": "7a52f3370ba076a97e18b3d833da0d108a5ed7d5f656e52c39f53817f35913dc",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/board_300mhz/deploy/boot.bif": "ce8fa5654fcfd0994c810bbfc044e33c94f80e846efe45a7ae90398b293c33f8",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/board_300mhz/deploy/clock.txt": "416848924ea391e6bb3a2b732f4254529181da704f320154ace831e963788f18",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/board_300mhz/deploy/design_1_wrapper.bit": "2fedb6d70a0916fc9aebfdf3141008690685c0dbd1b5bab0ae58821564ef1037",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/board_300mhz/deploy/e07_inference.elf": "98b3dd0a3ac8e387db7ed704466cb1496cc9e42c57eb74b0b7ca821f1bb098ba",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/board_300mhz/deploy/fsbl.elf": "bf9ec44a54ba9b0433b9dcef754055b349437921d37b5dcbd28dcaecc7f88c40",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/board_300mhz/deploy/input.bin": "f7fa33c31113271173effc4fb684c432378b85c2f15a6681aa682aacf2ba3a2c",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/board_300mhz/deploy/manifest.csv": "b96dccc714800251c5f63ee4bbe5b671b12e3afa2f0e20321c4d9a1d9b95b38f",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/board_300mhz/deploy/output.bin": "f2da31d910ab48a49c5a803f836478e2b54e0cd9fdd1081cc2eabc1d36afe842",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/board_300mhz/deploy/pmufw.elf": "daea9ebd9b30a3819abe6530c55ad8da697ae86952b0aee24a59b6485f2c1a08",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/board_300mhz/deploy/weights.bin": "0fac7e4cd09ae8367e5c8dfd5cb469473780055feccf9569a8376419028e2cd7",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/inputs/head_weights.bin": "c3707cfebef37f8ee5bb94b308cca8b06367ea0dcc22a2d4b9bf324f47a27b58",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/inputs/input.bin": "f7fa33c31113271173effc4fb684c432378b85c2f15a6681aa682aacf2ba3a2c",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/inputs/output.bin": "f2da31d910ab48a49c5a803f836478e2b54e0cd9fdd1081cc2eabc1d36afe842",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/inputs/patch_weights.bin": "c918bb7e25031773096af2013d3ade99c8192ee8c3fa73343304bd9f70e76b54",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/inputs/weights.bin": "0fac7e4cd09ae8367e5c8dfd5cb469473780055feccf9569a8376419028e2cd7",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src/adapter.h": "a8aeaf5b8c6c4a492025f926048da4137db59479a230a10fd567bc70fcdf27ac",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src/attn.h": "9713faaaac599099a92e9e277e3c2aab2c6aa2e3e79338fbb8eb69cefc08f45c",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src/block0.cpp": "ae9aba847cb8fdffdba289915acd5bc3347a6fd5e9426679e708fbd6cf88a06a",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src/block0_head_only.cpp": "e955ed628b20ce84d7ff858cea486fd22a96d183a78cb0d2181283d682cf8623",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src/common.h": "17d751c68dd62aa254cd662ca19e1f292ab1249ed31efd9fb9044bbb28c01a3c",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src/dataflow.h": "0fa233ffe760eeeae5562db4d6eb74b85d1ad0fd6469030437dce262b3ceb076",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src/fixed_patch_head_rom.h": "ce2b8271c0a173cb7a23e45036e64f7c6d79a437cd12912b66d53435a2516521",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src/fused_flash_attn.h": "8f0d451389d87350260cf662f727cce050917f4a80d2d6963f6a9fc74daeef5b",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src/fused_flash_attn_v3.h": "453a5ff3a8bf83737f99a1920790ae163efbc5b22b686f80464a50c621a24fac",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src/fused_flash_attn_v3_fixed.h": "c94cc3c84b7a1e64131aa70fff6e24a11698a72cc900a7f31d5d5e32017ae60a",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src/gelu.h": "d32f38e16f2d77114430ee4330ea9047e5ccda766a41ff4e6c7503c1ef794858",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src/head.h": "7ec966d20a14b7df5c95eb46bab07d17a99e891fd2f2b6ddad7d9ba4b76f11f6",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src/head_split.h": "33fa0db7905d71c7e5a753f1ab8283fb448aa4e821ab8412940950dc8cf39b58",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src/layernorm.h": "6f12ab6fbad2419b1bf15069b3f0fd825b3de40f24e6272431db469437385791",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src/matmul.h": "71697a79fe79dc0fe202e4226c33e093a8fbcbd146ca6547657d68845e96064f",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src/mlp.h": "7d245d36b92b6aedf8f60523cf55c8e4db3b76a260dbf9fe4bd7a92bcb36b14e",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src/patch_embed.h": "b19a5f4477e167987cec5174bb13c4cfcf02e0a046afb2da435b2ed3815ca2a8",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src/quant.h": "4ee96011f992d8d7ccf1636c749d2bd540bc14e7945cf5c337eed42530cb935f",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src/reshaper.h": "af953450fe1d37ec5459fed662be73f22b684e13c7e8ed11dc1d128a30643717",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src/softmax.h": "edfd494c27e8ebef8f5df145a4f9b3afdf3cfd98d2d7657826a0158aca5d6d6c",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src/utils.h": "cf1ec1a0c4397ad1c88e2cabc9fe9f042ea61b40bcb534ee6a2bf8f90fcf4cdb",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src/wrapper.h": "f59376ea297726cc5cc6486d50e72de2e8a28956f6f96c058503328b9678ad59"
+  },
+  "source_files": {
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/board_300mhz/imagenet_frozen_50k_test/src/accuracy_math.h": "28f2a6daf49b940c5c32d73dcbb61e8f42f29552c82193306197f9c60346a4ca",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/board_300mhz/imagenet_frozen_50k_test/src/main.c": "9abdc039ad71dff86189f71601fd8ab85c3467d3ec140724e780ce0ed70d3825"
+  },
+  "compiler": "/opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/aarch64-none-elf-gcc",
+  "compiler_flags": [
+    "-DSDT",
+    "-specs=/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/board_300mhz/workspace/e07_platform/export/e07_platform/sw/standalone_psu_cortexa53_0/Xilinx.spec",
+    "-I/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/board_300mhz/workspace/e07_platform/export/e07_platform/sw/standalone_psu_cortexa53_0/include",
+    "-I/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/board_300mhz/src",
+    "-I/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/board_300mhz/imagenet_frozen_50k_test/src",
+    "-std=gnu11",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-O0",
+    "-g3",
+    "-U__clang__"
+  ],
+  "bsp_libraries": {
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/board_300mhz/workspace/e07_platform/export/e07_platform/sw/standalone_psu_cortexa53_0/lib/libxil.a": "4296615a25f329ca939dd4bc5b2ff3f81bdd8a87eedc6833a83e5dd3750fbd8d",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/board_300mhz/workspace/e07_platform/export/e07_platform/sw/standalone_psu_cortexa53_0/lib/libxilffs.a": "967dc1f0901c51f0261e96773638b4f47e00b9d251fbca588d938249cb511642",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/board_300mhz/workspace/e07_platform/export/e07_platform/sw/standalone_psu_cortexa53_0/lib/libxilstandalone.a": "0667f3aa66857bd364efd80425d2f10a57fdcd0cb4174136e3f916ad6e39d61c",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/board_300mhz/workspace/e07_platform/export/e07_platform/sw/standalone_psu_cortexa53_0/lib/libxiltimer.a": "5510802b9883fed832088c5e52f339807349ec2a06040c404bc99e99c0ac5ee6"
+  },
+  "deployment_files": {
+    "BOOT.BIN": {
+      "bytes": 26953944,
+      "sha256": "863d6e86695329848b84c94747d05db81dc2b1b068b7260bd7b77e51c317e4c1"
+    },
+    "I000.BIN": {
+      "bytes": 301056000,
+      "sha256": "80c696e23bc0a9e801525e67a2041266a28a60215af39f98f3235b70a1882cbd"
+    },
+    "I001.BIN": {
+      "bytes": 301056000,
+      "sha256": "725b56db812b7eba21e8ecbbb100b83e1297017d84e82653aec6908a5d76546c"
+    },
+    "I002.BIN": {
+      "bytes": 301056000,
+      "sha256": "c01dccef1240ba71e6b73e2e81b71cfd8eaf340a270d18d20721305b43fd5439"
+    },
+    "I003.BIN": {
+      "bytes": 301056000,
+      "sha256": "6f4df6aaca7b20ab81e2b09f2c3dd126e0509f241ccff28d83c6d758d86aa06d"
+    },
+    "I004.BIN": {
+      "bytes": 301056000,
+      "sha256": "c8e0d067e28638a0cfba7e20af733af8264948f4e12c8997d55f62c312f0caed"
+    },
+    "I005.BIN": {
+      "bytes": 301056000,
+      "sha256": "9d2b1b52966d3c2c7eede0c3f04ab45a9985f88ce0ec84ceb44cd568657e3960"
+    },
+    "I006.BIN": {
+      "bytes": 301056000,
+      "sha256": "ad83aa445be78a3607404d83d16b670ada16445acb2b7f14460105b4d63156bc"
+    },
+    "I007.BIN": {
+      "bytes": 301056000,
+      "sha256": "52685067ee85e930fa122fcb780224fc1f5070a5d930cfabc1e969a30d45c756"
+    },
+    "I008.BIN": {
+      "bytes": 301056000,
+      "sha256": "68a1498eadabcaaf59b51ad4a66fc6d3af101aaa8ec60dbceaea4294973643c1"
+    },
+    "I009.BIN": {
+      "bytes": 301056000,
+      "sha256": "2b513f45e70c4e29f1b93b822f76e5888e346f831253f0584df9dac14d8436e3"
+    },
+    "I010.BIN": {
+      "bytes": 301056000,
+      "sha256": "025b416a5f0bd7425cd92b1ef4c1dfd8ad566b1d0c8f77b4de358a3ee2cd5fea"
+    },
+    "I011.BIN": {
+      "bytes": 301056000,
+      "sha256": "a289ae4a5b0c422c3c91c6446c97187c9205a890f2d44ddeff5025a857141b3e"
+    },
+    "I012.BIN": {
+      "bytes": 301056000,
+      "sha256": "0373ce54aed7b7fd635030982bb3ca35c3373aba4977962036b251d6857aae92"
+    },
+    "I013.BIN": {
+      "bytes": 301056000,
+      "sha256": "16b78b43ec755389b2da30605bea3369d8f55e32429b65fa4b3a646423341085"
+    },
+    "I014.BIN": {
+      "bytes": 301056000,
+      "sha256": "987c44b36a9154d6b53b7a4cafc4a0096710624cca25b3111394e1b528a45fa3"
+    },
+    "I015.BIN": {
+      "bytes": 301056000,
+      "sha256": "9ba784e887fa2e87af3b8d0c5d2e63cc250fa588c61f589c95e6ae8017592b9a"
+    },
+    "I016.BIN": {
+      "bytes": 301056000,
+      "sha256": "d2ef04213254745dcb5231ff7c74d619bed38a8978e7c4c4c8c50b3a40280377"
+    },
+    "I017.BIN": {
+      "bytes": 301056000,
+      "sha256": "155b28c19eeb60cb22215f6e7ed99a66d30903fcb6d6196414e5e860f98f5ca6"
+    },
+    "I018.BIN": {
+      "bytes": 301056000,
+      "sha256": "b018778d217f7a811d1bed0ac7d96676002e361bd8666b39398e4951cd428ef6"
+    },
+    "I019.BIN": {
+      "bytes": 301056000,
+      "sha256": "9607b7a6131bfbb13f7bb16d49e43e0dcd44da51ec49c92df3e7c470fc97a43f"
+    },
+    "I020.BIN": {
+      "bytes": 301056000,
+      "sha256": "f717d3782a874197d061a46a2307d074300858a62088a2ff258eb3c7ca0a7f3b"
+    },
+    "I021.BIN": {
+      "bytes": 301056000,
+      "sha256": "0c5f560fd40df35dac30d1c8e4de5248aa28490cfc7a8ef07d8f0a5a23823301"
+    },
+    "I022.BIN": {
+      "bytes": 301056000,
+      "sha256": "3f8a15c4b84729bbb075bc9b3d872b6e664bc2de726ca07be34397b94ad02388"
+    },
+    "I023.BIN": {
+      "bytes": 301056000,
+      "sha256": "430fcf8696e796b3f53188cf4029096d39661db3e9b59ce49600069b41910f3a"
+    },
+    "I024.BIN": {
+      "bytes": 301056000,
+      "sha256": "cfc6df113f81a773420ce823aa26d14af0da80a69b7d3b6b152d65eabd651e6f"
+    },
+    "I025.BIN": {
+      "bytes": 301056000,
+      "sha256": "037f7240ec1c14c79f92b48b25eb11711678583e01556a2d9eed5d907564ec6c"
+    },
+    "I026.BIN": {
+      "bytes": 301056000,
+      "sha256": "eb78935dc57112743db4609550c5dffef41f2420da3a79c17a19863d135c3a0f"
+    },
+    "I027.BIN": {
+      "bytes": 301056000,
+      "sha256": "3c4b8928f67a0b1b431ba0f6f84648f4c767a330870b8bb70d810407828fe45c"
+    },
+    "I028.BIN": {
+      "bytes": 301056000,
+      "sha256": "3452b032a7025f5b1f9e6b27dcb56e641cc80106a1e93b4f5375a5db7a4591ae"
+    },
+    "I029.BIN": {
+      "bytes": 301056000,
+      "sha256": "0162b4572e7010155734e93662785037187fbcc9083ad3f2908e1300c1b9e921"
+    },
+    "I030.BIN": {
+      "bytes": 301056000,
+      "sha256": "bd1a9eba837dc159aa569e44e23aa6a089989b24a942dbe4d9253cc098c3e831"
+    },
+    "I031.BIN": {
+      "bytes": 301056000,
+      "sha256": "2da689d7bb7ee694b65554e01e0d6940cff5c37ccf920b45b963b923b55e3591"
+    },
+    "I032.BIN": {
+      "bytes": 301056000,
+      "sha256": "0683ed475f864020410dee4dccbd647e3bad867a3ebdd1af8d13893a05cac92d"
+    },
+    "I033.BIN": {
+      "bytes": 301056000,
+      "sha256": "e72f2899761bfcbf9a293cd63dfd912b98b2b12aa88a8282cadc8ba86af35698"
+    },
+    "I034.BIN": {
+      "bytes": 301056000,
+      "sha256": "cf1ce743e16be390187ed74459a56b477b93766efc4be98387b8f832c946a9ad"
+    },
+    "I035.BIN": {
+      "bytes": 301056000,
+      "sha256": "4d27cb8d6c0390322a2af3ee370ebfe22a09b218c86fc84debd6dc21c058040d"
+    },
+    "I036.BIN": {
+      "bytes": 301056000,
+      "sha256": "3c36ecb3f1cf6a2668b9740c5389e865553a39f65683a6922a90877efb6bcf05"
+    },
+    "I037.BIN": {
+      "bytes": 301056000,
+      "sha256": "f7fc6ebc971b419d71df340117b3fa31f67fe5499b8296cc64af09ba45b488aa"
+    },
+    "I038.BIN": {
+      "bytes": 301056000,
+      "sha256": "2fe0e7fbef76dd32a66f555fc08f9fbe204d42fe1e12d2dc4f7fdb6181e945d9"
+    },
+    "I039.BIN": {
+      "bytes": 301056000,
+      "sha256": "db3b681368a38b3fa49de99eef9f07bb1ce7ba9dd8d94c35818252e349bbe80e"
+    },
+    "I040.BIN": {
+      "bytes": 301056000,
+      "sha256": "955b974356e621b47ba494199e821392e541d72a721c5109e9f0b8a9f3cf5c7b"
+    },
+    "I041.BIN": {
+      "bytes": 301056000,
+      "sha256": "6f86619fa2a96873b671bc453719752e194d44b519cbbfd40b6db405915d1d9e"
+    },
+    "I042.BIN": {
+      "bytes": 301056000,
+      "sha256": "109429cf95ebc0b9928d9ae09befde12bc8eed632eb01ffec95ab2f24935a86a"
+    },
+    "I043.BIN": {
+      "bytes": 301056000,
+      "sha256": "cbe851bfd75e5af083eeaeaff5aa4614bb6bdf0151a2201ff4ecd26b5f23c8a4"
+    },
+    "I044.BIN": {
+      "bytes": 301056000,
+      "sha256": "d4d4a89b77b8139c0cfdabb6c207d8faca24030193bbd48041304e373e6a0215"
+    },
+    "I045.BIN": {
+      "bytes": 301056000,
+      "sha256": "b16950ebb9aab114fe172fb5ca344f9a1cfabc0d9028a8d305f9a395c5a8a566"
+    },
+    "I046.BIN": {
+      "bytes": 301056000,
+      "sha256": "ef47070882576abcda893109d9c31724a9fd5c576e85a88944e41af57728f50e"
+    },
+    "I047.BIN": {
+      "bytes": 301056000,
+      "sha256": "909ecadafe42f6546800afef73cbac0cb2e91d281694dc7e8dd296c629819914"
+    },
+    "I048.BIN": {
+      "bytes": 301056000,
+      "sha256": "84797c5a43003bb4a3463894f5dcd5b749ec226f3e55b096d5c93c72e6356c1e"
+    },
+    "I049.BIN": {
+      "bytes": 301056000,
+      "sha256": "f813444ad0df0e5d227a1be249ea95e84d7cd943fdcc111ce21d3d98e6f342ec"
+    },
+    "INDEX.BIN": {
+      "bytes": 600032,
+      "sha256": "86dfc9e6f306ce281f27789a107baa9d2e95506cb6b0f9e18d8191def7e9e421"
+    },
+    "README.txt": {
+      "bytes": 3981,
+      "sha256": "bb03da6c941d1de771ab558bfbf6967725d01a1ebe91b327f9fae81e061d376b"
+    },
+    "SAMPLES.CSV": {
+      "bytes": 12299159,
+      "sha256": "c35c2b9f381b77d839ca148289f5688a89b129d419fcf9fe1acb77c471613714"
+    },
+    "boot.bif": {
+      "bytes": 206,
+      "sha256": "b93b5be25d165dce35b0f5c6bfdd1640cd6d8a4941bb3ffa54f3ee957cdc7b9a"
+    },
+    "clock.txt": {
+      "bytes": 428,
+      "sha256": "416848924ea391e6bb3a2b732f4254529181da704f320154ace831e963788f18"
+    },
+    "dataset_identity.json": {
+      "bytes": 25501,
+      "sha256": "fe6c89043fcd9cd7824929c92759c9734bbde7a93ac89324e53b5d110986e821"
+    },
+    "design_1_wrapper.bit": {
+      "bytes": 26510953,
+      "sha256": "2fedb6d70a0916fc9aebfdf3141008690685c0dbd1b5bab0ae58821564ef1037"
+    },
+    "e07_image_accuracy.elf": {
+      "bytes": 694736,
+      "sha256": "c3128b7fb04bd3218694a69f4f75dcb72a64f3dc625cf635171829bb5a249cdb"
+    },
+    "fsbl.elf": {
+      "bytes": 675568,
+      "sha256": "bf9ec44a54ba9b0433b9dcef754055b349437921d37b5dcbd28dcaecc7f88c40"
+    },
+    "input.bin": {
+      "bytes": 602112,
+      "sha256": "f7fa33c31113271173effc4fb684c432378b85c2f15a6681aa682aacf2ba3a2c"
+    },
+    "output.bin": {
+      "bytes": 4000,
+      "sha256": "f2da31d910ab48a49c5a803f836478e2b54e0cd9fdd1081cc2eabc1d36afe842"
+    },
+    "pmufw.elf": {
+      "bytes": 907668,
+      "sha256": "daea9ebd9b30a3819abe6530c55ad8da697ae86952b0aee24a59b6485f2c1a08"
+    },
+    "summarize_results.py": {
+      "bytes": 4192,
+      "sha256": "da5c7fdafbdd9dcd20c8d47fe183114367cd365d2fad359eee7d454010f3eb31"
+    },
+    "weights.bin": {
+      "bytes": 2772096,
+      "sha256": "0fac7e4cd09ae8367e5c8dfd5cb469473780055feccf9569a8376419028e2cd7"
+    }
+  }
+}

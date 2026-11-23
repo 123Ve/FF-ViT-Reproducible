@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "checked": {
+    "files": 573,
+    "python": 188,
+    "shell": 1,
+    "json": 263
+  },
+  "errors": [],
+  "scope": "INTEGRITY_AND_STATIC_SYNTAX_ONLY",
+  "training": "NOT_RUN",
+  "accuracy": "NOT_REMEASURED",
+  "HLS_compilation": "NOT_RUN",
+  "FPGA": "NOT_RUN",
+  "python": "3.11.15 (main, Mar 11 2026, 17:20:07) [GCC 14.3.0]",
+  "non_S3_experiment_paths": "ABSENT",
+  "source_snapshot_bytes": "UNCHANGED",
+  "original_source_files": 562
+}

@@ -1,0 +1,31 @@
+{
+  "results": [
+    {
+      "stage": "mlp",
+      "loss": 0.45598840713500977,
+      "finite_gradients": true,
+      "softmax_calls": null
+    },
+    {
+      "stage": "attention",
+      "loss": 3.426570415496826,
+      "finite_gradients": true,
+      "softmax_calls": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  ],
+  "code_sha256": "6377a668b294d6cd614516b30653e37cea04c9b4c3da9d7b698f4af6be6ce2e6",
+  "training_complete": false
+}

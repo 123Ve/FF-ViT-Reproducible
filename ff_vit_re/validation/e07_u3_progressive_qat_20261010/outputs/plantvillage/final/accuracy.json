@@ -1,0 +1,22 @@
+{
+  "val": {
+    "sample_count": 5417,
+    "correct": 5335,
+    "correct5": 5416,
+    "top1_percent": 98.4862470001846,
+    "top5_percent": 99.98153959756323,
+    "complete_split": true,
+    "predictions_sha256": "c86e5658eb83f116af3803e5c3a87e2da93a868c0ddce8867d675511ee07be2c",
+    "numeric_mode": "strict E07 integer/LUT software with original unsigned Head; NOT FPGA"
+  },
+  "test": {
+    "sample_count": 5459,
+    "correct": 5381,
+    "correct5": 5459,
+    "top1_percent": 98.57116688038103,
+    "top5_percent": 100.0,
+    "complete_split": true,
+    "predictions_sha256": "0fe864310569549699fe006227c5d7e6ebc7b32abd1ff231aa09e7e0dccfc3da",
+    "numeric_mode": "strict E07 integer/LUT software with original unsigned Head; NOT FPGA"
+  }
+}

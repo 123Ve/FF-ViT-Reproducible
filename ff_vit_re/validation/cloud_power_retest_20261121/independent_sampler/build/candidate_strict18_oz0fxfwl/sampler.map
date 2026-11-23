@@ -1,0 +1,1383 @@
+Archive member included to satisfy reference by file (symbol)
+
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(asm_vectors.S.obj)
+                              (_vector_table)
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_mmu.c.obj)
+                              /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_board.o (Xil_SetTlbAttributes)
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(vectors.c.obj)
+                              /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(asm_vectors.S.obj) (FIQInterrupt)
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_exception.c.obj)
+                              /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(vectors.c.obj) (XExc_VectorTable)
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(boot.S.obj)
+                              /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(asm_vectors.S.obj) (_boot)
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(translation_table.S.obj)
+                              /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(boot.S.obj) (MMUTableL0)
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_cache.c.obj)
+                              /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_mmu.c.obj) (Xil_DCacheFlush)
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xarmv8_g.c.obj)
+                              /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(boot.S.obj) (XARMv8_ConfigTable)
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil-crt0.S.obj)
+                              /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(boot.S.obj) (_startup)
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_sinit.c.obj)
+                              /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_hardware.o (XIicPs_LookupConfig)
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_options.c.obj)
+                              /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_hardware.o (XIicPs_SetSClk)
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps.c.obj)
+                              /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_hardware.o (XIicPs_CfgInitialize)
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_selftest.c.obj)
+                              /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_hardware.o (XIicPs_SelfTest)
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_g.c.obj)
+                              /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_sinit.c.obj) (XIicPs_ConfigTable)
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu.c.obj)
+                              /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_hardware.o (XSysMonPsu_GetAdcData)
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_intr.c.obj)
+                              /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu.c.obj) (XSysMonPsu_IntrGetStatus)
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_sinit.c.obj)
+                              /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_hardware.o (XSysMonPsu_LookupConfig)
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_hw.c.obj)
+                              /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps.c.obj) (XIicPs_Reset)
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_g.c.obj)
+                              /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_sinit.c.obj) (XSysMonPsu_ConfigTable)
+/opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/libgcc.a(ldadd_4_3.o)
+                              /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_phase.o (__aarch64_ldadd4_rel)
+/opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/libgcc.a(lse-init.o)
+                              /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/libgcc.a(ldadd_4_3.o) (__aarch64_have_lse_atomics)
+/opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-exit.o)
+                              /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil-crt0.S.obj) (exit)
+/opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-findfp.o)
+                              /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-exit.o) (__stdio_exit_handler)
+/opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-fwalk.o)
+                              /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-findfp.o) (_fwalk_sglue)
+/opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-stdio.o)
+                              /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-findfp.o) (__sread)
+/opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-closer.o)
+                              /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-stdio.o) (_close_r)
+/opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-reent.o)
+                              /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-closer.o) (errno)
+/opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-impure.o)
+                              /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-reent.o) (_impure_ptr)
+/opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-lseekr.o)
+                              /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-stdio.o) (_lseek_r)
+/opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-readr.o)
+                              /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-stdio.o) (_read_r)
+/opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-writer.o)
+                              /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-stdio.o) (_write_r)
+/opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-init.o)
+                              /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil-crt0.S.obj) (__libc_init_array)
+/opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-fini.o)
+                              /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil-crt0.S.obj) (__libc_fini_array)
+/opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-memcmp.o)
+                              /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_sampler.o (memcmp)
+/opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-memset.o)
+                              /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_sampler.o (memset)
+/opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-__call_atexit.o)
+                              /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-exit.o) (__call_exitprocs)
+/opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-freer.o)
+                              /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-reent.o) (_free_r)
+/opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-mallocr.o)
+                              /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-findfp.o) (_malloc_r)
+/opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-mlock.o)
+                              /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-freer.o) (__malloc_lock)
+/opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-fclose.o)
+                              /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-findfp.o) (_fclose_r)
+/opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-fflush.o)
+                              /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-fclose.o) (__sflush_r)
+/opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-sbrkr.o)
+                              /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-freer.o) (_sbrk_r)
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_assert.c.obj)
+                              /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_options.c.obj) (Xil_Assert)
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xplatform_info.c.obj)
+                              /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_hw.c.obj) (XGetPlatform_Info)
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(read.c.obj)
+                              /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-readr.o) (_read)
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(_sbrk.c.obj)
+                              /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-sbrkr.o) (_sbrk)
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(_exit.c.obj)
+                              /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-exit.o) (_exit)
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(close.c.obj)
+                              /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-closer.o) (_close)
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(write.c.obj)
+                              /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-writer.o) (_write)
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(lseek.c.obj)
+                              /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-lseekr.o) (_lseek)
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(errno.c.obj)
+                              /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(lseek.c.obj) (__errno)
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xuartps_hw.c.obj)
+                              /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(write.c.obj) (outbyte)
+
+Merging program properties
+
+Removed property 0xc0000000 to merge /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-memcmp.o) (0x3) and /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/crti.o (not found)
+Removed property 0xc0000000 to merge /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-memcmp.o) (not found) and /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-memset.o) (0x3)
+
+Discarded input sections
+
+ .note.gnu.property
+                0x0000000000000000       0x20 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-memcmp.o)
+ .note.gnu.property
+                0x0000000000000000       0x20 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-memset.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+psu_ddr_1_memory_1 0x0000000800000000 0x0000000080000000
+psu_ddr_0_memory_0 0x0000000020000000 0x0000000001000000
+psu_qspi_linear_0_memory_0 0x00000000c0000000 0x0000000020000000
+psu_ocm_ram_0_memory_0 0x00000000fffc0000 0x0000000000040000
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/crti.o
+LOAD /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/crtbegin.o
+LOAD /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_bounded_i2c.o
+LOAD /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_hardware.o
+LOAD /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_main.o
+LOAD /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_sampler.o
+LOAD /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_board.o
+LOAD /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_phase.o
+LOAD /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_sensor.o
+                0x0000000000002000                _STACK_SIZE = DEFINED (_STACK_SIZE)?_STACK_SIZE:0x2000
+                0x0000000000002000                _HEAP_SIZE = DEFINED (_HEAP_SIZE)?_HEAP_SIZE:0x2000
+                0x0000000000000400                _EL0_STACK_SIZE = DEFINED (_EL0_STACK_SIZE)?_EL0_STACK_SIZE:0x400
+                0x0000000000000800                _EL1_STACK_SIZE = DEFINED (_EL1_STACK_SIZE)?_EL1_STACK_SIZE:0x800
+                0x0000000000000400                _EL2_STACK_SIZE = DEFINED (_EL2_STACK_SIZE)?_EL2_STACK_SIZE:0x400
+
+.text           0x0000000020000000     0x8a5c
+ *(.vectors)
+ .vectors       0x0000000020000000      0x938 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(asm_vectors.S.obj)
+                0x0000000020000000                _vector_table
+                0x0000000020000918                FPUStatus
+ *(.boot)
+ .boot          0x0000000020000938      0x258 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(boot.S.obj)
+                0x0000000020000938                _boot
+                0x0000000020000938                _prestart
+ *(.text)
+ .text          0x0000000020000b90        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/crti.o
+ .text          0x0000000020000b90       0x78 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/crtbegin.o
+ *fill*         0x0000000020000c08        0x8 
+ .text          0x0000000020000c10      0x2a8 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_bounded_i2c.o
+                0x0000000020000c10                m_i2c_transfer
+ *fill*         0x0000000020000eb8        0x8 
+ .text          0x0000000020000ec0      0x314 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_hardware.o
+                0x0000000020001010                m_hardware_init
+                0x0000000020001104                m_temperature_read
+ .text          0x00000000200011d4        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_main.o
+ *fill*         0x00000000200011d4        0xc 
+ .text          0x00000000200011e0      0x904 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_sampler.o
+                0x00000000200011e0                m_sampler_init
+                0x0000000020001370                m_sampler_step
+ *fill*         0x0000000020001ae4        0xc 
+ .text          0x0000000020001af0       0x80 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_board.o
+                0x0000000020001af0                m_ticks
+                0x0000000020001b00                m_frequency
+                0x0000000020001b10                m_core_id
+                0x0000000020001b20                m_map_shared
+ .text          0x0000000020001b70      0xfa8 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_phase.o
+                0x0000000020001c50                m_publish_rail
+                0x0000000020001cf4                m_publish_temp
+                0x0000000020001d80                m_status_publish
+                0x0000000020001dc0                m_status_read
+                0x0000000020001e20                m_latest_publish
+                0x0000000020001e60                m_latest_read
+                0x0000000020001ec0                m_service_init
+                0x0000000020001fb0                m_event_add
+                0x0000000020002020                m_fail
+                0x0000000020002170                m_service_ready
+                0x0000000020002240                m_service_poll
+                0x0000000020002640                m_arm
+                0x0000000020002754                m_finish
+                0x0000000020002840                m_release
+                0x00000000200028a0                m_ack_begin
+                0x00000000200028d0                m_ack_poll
+                0x00000000200029b0                m_inference_event
+ *fill*         0x0000000020002b18        0x8 
+ .text          0x0000000020002b20      0x514 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_sensor.o
+                0x0000000020002b20                m_configure
+                0x0000000020002ce0                m_power_uW
+                0x0000000020002d20                m_sample
+ .text          0x0000000020003034        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(asm_vectors.S.obj)
+ *fill*         0x0000000020003034        0xc 
+ .text          0x0000000020003040      0x174 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_mmu.c.obj)
+                0x0000000020003040                Xil_SetTlbAttributes
+                0x00000000200030a4                Xil_MemMap
+ *fill*         0x00000000200031b4        0xc 
+ .text          0x00000000200031c0       0x58 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(vectors.c.obj)
+                0x00000000200031c0                FIQInterrupt
+                0x00000000200031d4                IRQInterrupt
+                0x00000000200031f0                SynchronousInterrupt
+                0x0000000020003204                SErrorInterrupt
+ *fill*         0x0000000020003218        0x8 
+ .text          0x0000000020003220       0x88 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_exception.c.obj)
+                0x0000000020003234                Xil_ExceptionInit
+                0x0000000020003240                Xil_ExceptionRegisterHandler
+                0x0000000020003260                Xil_GetExceptionRegisterHandler
+                0x0000000020003284                Xil_ExceptionRemoveHandler
+ .text          0x00000000200032a8        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(boot.S.obj)
+ .text          0x00000000200032a8        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(translation_table.S.obj)
+ *fill*         0x00000000200032a8        0x8 
+ .text          0x00000000200032b0      0x59c /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_cache.c.obj)
+                0x00000000200032b0                Xil_DCacheDisable
+                0x00000000200033e0                Xil_DCacheInvalidate
+                0x0000000020003500                Xil_DCacheEnable
+                0x0000000020003530                Xil_DCacheInvalidateLine
+                0x0000000020003570                Xil_DCacheInvalidateRange
+                0x00000000200035b0                Xil_DCacheFlush
+                0x00000000200036d0                Xil_DCacheFlushLine
+                0x0000000020003710                Xil_ICacheEnable
+                0x0000000020003750                Xil_ICacheDisable
+                0x0000000020003784                Xil_ICacheInvalidate
+                0x00000000200037b0                Xil_ICacheInvalidateLine
+                0x00000000200037e0                Xil_ICacheInvalidateRange
+                0x0000000020003830                Xil_ConfigureL1Prefetch
+ .text          0x000000002000384c        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xarmv8_g.c.obj)
+ *fill*         0x000000002000384c        0x4 
+ .text          0x0000000020003850       0xc0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil-crt0.S.obj)
+                0x0000000020003870                _startup
+ .text          0x0000000020003910       0x50 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_sinit.c.obj)
+                0x0000000020003910                XIicPs_LookupConfig
+ .text          0x0000000020003960      0x52c /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_options.c.obj)
+                0x0000000020003960                XIicPs_GetOptions
+                0x0000000020003a20                XIicPs_SetOptions
+                0x0000000020003b14                XIicPs_ClearOptions
+                0x0000000020003c04                XIicPs_SetSClk
+                0x0000000020003de4                XIicPs_GetSClk
+ *fill*         0x0000000020003e8c        0x4 
+ .text          0x0000000020003e90      0x2f8 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps.c.obj)
+                0x0000000020003ec0                XIicPs_CfgInitialize
+                0x0000000020003f70                XIicPs_BusIsBusy
+                0x0000000020003fc0                XIicPs_Abort
+                0x0000000020004060                TransmitFifoFill
+                0x00000000200040c0                XIicPsSclHold
+                0x0000000020004130                XIicPsSetTimeOut
+ *fill*         0x0000000020004188        0x8 
+ .text          0x0000000020004190       0xd4 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_selftest.c.obj)
+                0x0000000020004190                XIicPs_SelfTest
+ .text          0x0000000020004264        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_g.c.obj)
+ *fill*         0x0000000020004264        0xc 
+ .text          0x0000000020004270     0x1e38 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu.c.obj)
+                0x00000000200042a0                XSysMonPsu_Reset
+                0x0000000020004300                XSysMonPsu_GetStatus
+                0x00000000200043b0                XSysMonPsu_StartAdcConversion
+                0x0000000020004440                XSysMonPsu_GetAdcData
+                0x0000000020004570                XSysMonPsu_GetCalibCoefficient
+                0x0000000020004644                XSysMonPsu_GetMinMaxMeasurement
+                0x0000000020004750                XSysMonPsu_SetAvg
+                0x0000000020004820                XSysMonPsu_GetAvg
+                0x00000000200048d4                XSysMonPsu_SetAlarmEnables
+                0x00000000200049e0                XSysMonPsu_GetAlarmEnables
+                0x0000000020004ac0                XSysMonPsu_SetSequencerMode
+                0x0000000020004b90                XSysMonPsu_GetSequencerMode
+                0x0000000020004c44                XSysMonPsu_SetSingleChParams
+                0x0000000020004e14                XSysMonPsu_SetSequencerEvent
+                0x0000000020004ef0                XSysMonPsu_GetSequencerEvent
+                0x0000000020004fb0                XSysMonPsu_SetExtenalMux
+                0x0000000020005090                XSysMonPsu_GetExtenalMux
+                0x0000000020005144                XSysMonPsu_SetAdcClkDivisor
+                0x0000000020005200                XSysMonPsu_GetAdcClkDivisor
+                0x00000000200052b4                XSysMonPsu_UpdateAdcClkDivisor
+                0x0000000020005480                XSysMonPsu_CfgInitialize
+                0x00000000200055a0                XSysMonPsu_SetSeqChEnables
+                0x00000000200056a0                XSysMonPsu_GetSeqChEnables
+                0x0000000020005770                XSysMonPsu_SetSeqAvgEnables
+                0x0000000020005870                XSysMonPsu_GetSeqAvgEnables
+                0x0000000020005940                XSysMonPsu_SetSeqInputMode
+                0x0000000020005a40                XSysMonPsu_GetSeqInputMode
+                0x0000000020005b10                XSysMonPsu_SetSeqAcqTime
+                0x0000000020005c10                XSysMonPsu_GetSeqAcqTime
+                0x0000000020005ce0                XSysMonPsu_SetAlarmThreshold
+                0x0000000020005e00                XSysMonPsu_GetAlarmThreshold
+                0x0000000020005f14                XSysMonPsu_SetPSAutoConversion
+                0x0000000020005fa0                XSysMonPsu_GetMonitorStatus
+                0x0000000020006030                XSysMonPsu_InitInstance
+ *fill*         0x00000000200060a8        0x8 
+ .text          0x00000000200060b0      0x320 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_intr.c.obj)
+                0x00000000200060b0                XSysMonPsu_IntrEnable
+                0x0000000020006150                XSysMonPsu_IntrDisable
+                0x00000000200061f0                XSysMonPsu_IntrGetEnabled
+                0x0000000020006294                XSysMonPsu_IntrGetStatus
+                0x0000000020006334                XSysMonPsu_IntrClear
+ .text          0x00000000200063d0       0x60 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_sinit.c.obj)
+                0x00000000200063d0                XSysMonPsu_LookupConfig
+ .text          0x0000000020006430      0x1d8 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_hw.c.obj)
+                0x0000000020006430                XIicPs_ResetHw
+                0x0000000020006470                XIicPs_Reset
+                0x0000000020006510                XIicPs_MasterRead
+ .text          0x0000000020006608        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_g.c.obj)
+ *fill*         0x0000000020006608        0x8 
+ .text          0x0000000020006610       0x30 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/libgcc.a(ldadd_4_3.o)
+                0x0000000020006610                __aarch64_ldadd4_rel
+ .text          0x0000000020006640        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/libgcc.a(lse-init.o)
+ .text          0x0000000020006640       0x34 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-exit.o)
+                0x0000000020006640                exit
+ *fill*         0x0000000020006674        0xc 
+ .text          0x0000000020006680      0x38c /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-findfp.o)
+                0x0000000020006860                __sfp
+                0x0000000020006980                __sinit
+                0x00000000200069b0                __sfp_lock_acquire
+                0x00000000200069c0                __sfp_lock_release
+                0x00000000200069d0                __fp_lock_all
+                0x00000000200069f0                __fp_unlock_all
+ *fill*         0x0000000020006a0c        0x4 
+ .text          0x0000000020006a10       0xa4 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-fwalk.o)
+                0x0000000020006a10                _fwalk_sglue
+ *fill*         0x0000000020006ab4        0xc 
+ .text          0x0000000020006ac0      0x15c /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-stdio.o)
+                0x0000000020006ac0                __sread
+                0x0000000020006b20                __seofread
+                0x0000000020006b30                __swrite
+                0x0000000020006bb0                __sseek
+                0x0000000020006c10                __sclose
+ *fill*         0x0000000020006c1c        0x4 
+ .text          0x0000000020006c20       0x58 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-closer.o)
+                0x0000000020006c20                _close_r
+ *fill*         0x0000000020006c78        0x8 
+ .text          0x0000000020006c80       0xdc /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-reent.o)
+                0x0000000020006c80                _reclaim_reent
+ .text          0x0000000020006d5c        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-impure.o)
+ *fill*         0x0000000020006d5c        0x4 
+ .text          0x0000000020006d60       0x60 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-lseekr.o)
+                0x0000000020006d60                _lseek_r
+ .text          0x0000000020006dc0       0x64 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-readr.o)
+                0x0000000020006dc0                _read_r
+ *fill*         0x0000000020006e24        0xc 
+ .text          0x0000000020006e30       0x64 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-writer.o)
+                0x0000000020006e30                _write_r
+ *fill*         0x0000000020006e94        0xc 
+ .text          0x0000000020006ea0       0x98 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-init.o)
+                0x0000000020006ea0                __libc_init_array
+ *fill*         0x0000000020006f38        0x8 
+ .text          0x0000000020006f40       0x50 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-fini.o)
+                0x0000000020006f40                __libc_fini_array
+ *fill*         0x0000000020006f90       0x30 
+ .text          0x0000000020006fc0      0x1c8 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-memcmp.o)
+                0x0000000020006fc0                memcmp
+ *fill*         0x0000000020007188       0x38 
+ .text          0x00000000200071c0      0x104 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-memset.o)
+                0x00000000200071c0                memset
+ *fill*         0x00000000200072c4        0xc 
+ .text          0x00000000200072d0      0x134 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-__call_atexit.o)
+                0x00000000200072d0                __call_exitprocs
+ *fill*         0x0000000020007404        0xc 
+ .text          0x0000000020007410      0x420 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-freer.o)
+                0x0000000020007410                _malloc_trim_r
+                0x0000000020007540                _free_r
+ .text          0x0000000020007830      0x7f4 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-mallocr.o)
+                0x0000000020007830                _malloc_r
+ *fill*         0x0000000020008024        0xc 
+ .text          0x0000000020008030       0x18 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-mlock.o)
+                0x0000000020008030                __malloc_lock
+                0x0000000020008040                __malloc_unlock
+ *fill*         0x0000000020008048        0x8 
+ .text          0x0000000020008050      0x114 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-fclose.o)
+                0x0000000020008050                _fclose_r
+                0x0000000020008150                fclose
+ *fill*         0x0000000020008164        0xc 
+ .text          0x0000000020008170      0x2fc /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-fflush.o)
+                0x0000000020008170                __sflush_r
+                0x0000000020008380                _fflush_r
+                0x00000000200083e0                fflush
+ *fill*         0x000000002000846c        0x4 
+ .text          0x0000000020008470       0x58 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-sbrkr.o)
+                0x0000000020008470                _sbrk_r
+ *fill*         0x00000000200084c8        0x8 
+ .text          0x00000000200084d0       0x54 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_assert.c.obj)
+                0x00000000200084d0                Xil_Assert
+                0x0000000020008514                Xil_AssertSetCallback
+                0x0000000020008520                XNullHandler
+ *fill*         0x0000000020008524        0xc 
+ .text          0x0000000020008530       0x48 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xplatform_info.c.obj)
+                0x0000000020008530                XGetPlatform_Info
+                0x0000000020008540                XGet_Zynq_UltraMp_Platform_info
+                0x0000000020008554                XGetPSVersion_Info
+                0x0000000020008570                XGetCoreId
+ *fill*         0x0000000020008578        0x8 
+ .text          0x0000000020008580       0xfc /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(read.c.obj)
+                0x0000000020008580                read
+                0x0000000020008600                _read
+ *fill*         0x000000002000867c        0x4 
+ .text          0x0000000020008680       0x48 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(_sbrk.c.obj)
+                0x0000000020008680                _sbrk
+ *fill*         0x00000000200086c8        0x8 
+ .text          0x00000000200086d0        0x4 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(_exit.c.obj)
+                0x00000000200086d0                _exit
+ *fill*         0x00000000200086d4        0xc 
+ .text          0x00000000200086e0        0x8 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(close.c.obj)
+                0x00000000200086e0                _close
+ *fill*         0x00000000200086e8        0x8 
+ .text          0x00000000200086f0       0xe8 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(write.c.obj)
+                0x00000000200086f0                write
+                0x0000000020008764                _write
+ *fill*         0x00000000200087d8        0x8 
+ .text          0x00000000200087e0       0x48 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(lseek.c.obj)
+                0x00000000200087e0                lseek
+                0x0000000020008804                _lseek
+ *fill*         0x0000000020008828        0x8 
+ .text          0x0000000020008830        0xc /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(errno.c.obj)
+                0x0000000020008830                __errno
+ *fill*         0x000000002000883c        0x4 
+ .text          0x0000000020008840      0x108 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xuartps_hw.c.obj)
+                0x0000000020008840                XUartPs_SendByte
+                0x0000000020008860                XUartPs_RecvByte
+                0x0000000020008880                XUartPs_ResetHw
+                0x00000000200088f0                XUartPs_WaitTransmitDone
+                0x0000000020008910                outbyte
+                0x0000000020008930                inbyte
+ .text          0x0000000020008948        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/crtend.o
+ .text          0x0000000020008948        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/crtn.o
+ *(.text.*)
+ *fill*         0x0000000020008948        0x8 
+ .text.startup  0x0000000020008950      0x10c /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_main.o
+                0x0000000020008950                main
+ *(.gnu.linkonce.t.*)
+ *(.plt)
+ *(.gnu_warning)
+ *(.gcc_execpt_table)
+ *(.glue_7)
+ *(.glue_7t)
+ *(.ARM.extab)
+ *(.gnu.linkonce.armextab.*)
+
+.iplt           0x0000000020008a5c        0x0
+ .iplt          0x0000000020008a5c        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/crtbegin.o
+
+.note.gnu.build-id
+                0x0000000020008a5c       0x24
+ *(.note.gnu.build-id)
+ .note.gnu.build-id
+                0x0000000020008a5c       0x24 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/crti.o
+
+.init           0x0000000020008a80       0x34
+ *(.init)
+ .init          0x0000000020008a80       0x18 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/crti.o
+                0x0000000020008a80                _init
+ .init          0x0000000020008a98       0x1c /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/crtn.o
+
+.fini           0x0000000020008ac0       0x34
+ *(.fini)
+ .fini          0x0000000020008ac0       0x18 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/crti.o
+                0x0000000020008ac0                _fini
+ .fini          0x0000000020008ad8       0x1c /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/crtn.o
+
+.interp
+ *(.interp)
+
+.note-ABI-tag
+ *(.note-ABI-tag)
+
+.rodata         0x0000000020008b00      0x810
+                0x0000000020008b00                . = ALIGN (0x40)
+                0x0000000020008b00                __rodata_start = .
+ *(.rodata)
+ .rodata        0x0000000020008b00       0x28 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_hardware.o
+ *fill*         0x0000000020008b28        0x8 
+ .rodata        0x0000000020008b30       0x41 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_main.o
+                0x0000000020008b30                sampler_identity
+ *fill*         0x0000000020008b71        0xf 
+ .rodata        0x0000000020008b80      0x13d /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_sensor.o
+                0x0000000020008b80                m_rails
+ *fill*         0x0000000020008cbd        0x3 
+ .rodata        0x0000000020008cc0       0x20 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_options.c.obj)
+ *(.rodata.*)
+ .rodata.str1.8
+                0x0000000020008ce0      0x61b /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_sampler.o
+                                         0x41 (size before relaxing)
+ .rodata.str1.8
+                0x00000000200092fb       0x41 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_phase.o
+ *fill*         0x00000000200092fb        0x5 
+ .rodata.cst8   0x0000000020009300       0x10 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_phase.o
+                                          0x8 (size before relaxing)
+ .rodata.str1.8
+                0x0000000020009310       0xd8 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_sensor.o
+ .rodata.str1.8
+                0x0000000020009310       0xc6 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_options.c.obj)
+ .rodata.str1.8
+                0x0000000020009310       0xbe /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps.c.obj)
+ .rodata.str1.8
+                0x0000000020009310       0xc7 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_selftest.c.obj)
+ .rodata.str1.8
+                0x0000000020009310        0xf /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_g.c.obj)
+ .rodata.str1.8
+                0x0000000020009310       0xc6 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu.c.obj)
+ .rodata.cst8   0x0000000020009310        0x8 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu.c.obj)
+ .rodata.str1.8
+                0x0000000020009310       0xcb /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_intr.c.obj)
+ .rodata.str1.8
+                0x0000000020009310       0xc1 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_hw.c.obj)
+ .rodata.str1.8
+                0x0000000020009310       0x3b /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_g.c.obj)
+ *(.gnu.linkonce.r.*)
+                0x0000000020009310                __rodata_end = .
+
+.rodata1        0x0000000020009310       0x30
+                0x0000000020009340                . = ALIGN (0x40)
+ *fill*         0x0000000020009310       0x30 
+                0x0000000020009340                __rodata1_start = .
+ *(.rodata1)
+ *(.rodata1.*)
+                0x0000000020009340                __rodata1_end = .
+
+.sdata2         0x0000000020009340        0x0
+                0x0000000020009340                . = ALIGN (0x40)
+                0x0000000020009340                __sdata2_start = .
+ *(.sdata2)
+ *(.sdata2.*)
+ *(.gnu.linkonce.s2.*)
+                0x0000000020009340                __sdata2_end = .
+
+.sbss2          0x0000000020009340        0x0
+                0x0000000020009340                . = ALIGN (0x40)
+                0x0000000020009340                __sbss2_start = .
+ *(.sbss2)
+ *(.sbss2.*)
+ *(.gnu.linkonce.sb2.*)
+                0x0000000020009340                __sbss2_end = .
+
+.data           0x0000000020009340      0xa68
+                0x0000000020009340                . = ALIGN (0x40)
+                0x0000000020009340                __data_start = .
+ *(.data)
+ .data          0x0000000020009340        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/crti.o
+ .data          0x0000000020009340        0x8 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/crtbegin.o
+                0x0000000020009340                __dso_handle
+ .data          0x0000000020009348        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_bounded_i2c.o
+ .data          0x0000000020009348        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_hardware.o
+ .data          0x0000000020009348        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_main.o
+ .data          0x0000000020009348        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_sampler.o
+ .data          0x0000000020009348        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_board.o
+ .data          0x0000000020009348        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_phase.o
+ .data          0x0000000020009348        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_sensor.o
+ .data          0x0000000020009348        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(asm_vectors.S.obj)
+ .data          0x0000000020009348        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_mmu.c.obj)
+ .data          0x0000000020009348        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(vectors.c.obj)
+ .data          0x0000000020009348       0x60 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_exception.c.obj)
+                0x0000000020009348                XExc_VectorTable
+ .data          0x00000000200093a8        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(boot.S.obj)
+ .data          0x00000000200093a8        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(translation_table.S.obj)
+ .data          0x00000000200093a8        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_cache.c.obj)
+ .data          0x00000000200093a8        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xarmv8_g.c.obj)
+ .data          0x00000000200093a8        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil-crt0.S.obj)
+ .data          0x00000000200093a8        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_sinit.c.obj)
+ .data          0x00000000200093a8        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_options.c.obj)
+ .data          0x00000000200093a8        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps.c.obj)
+ .data          0x00000000200093a8        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_selftest.c.obj)
+ .data          0x00000000200093a8        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_g.c.obj)
+ .data          0x00000000200093a8        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu.c.obj)
+ .data          0x00000000200093a8        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_intr.c.obj)
+ .data          0x00000000200093a8        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_sinit.c.obj)
+ .data          0x00000000200093a8        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_hw.c.obj)
+ .data          0x00000000200093a8        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_g.c.obj)
+ .data          0x00000000200093a8        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/libgcc.a(ldadd_4_3.o)
+ .data          0x00000000200093a8        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/libgcc.a(lse-init.o)
+ .data          0x00000000200093a8        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-exit.o)
+ .data          0x00000000200093a8       0x18 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-findfp.o)
+                0x00000000200093a8                __sglue
+ .data          0x00000000200093c0        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-fwalk.o)
+ .data          0x00000000200093c0        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-stdio.o)
+ .data          0x00000000200093c0        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-closer.o)
+ .data          0x00000000200093c0        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-reent.o)
+ .data          0x00000000200093c0      0x160 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-impure.o)
+                0x00000000200093c0                _impure_ptr
+                0x00000000200093c8                _impure_data
+ .data          0x0000000020009520        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-lseekr.o)
+ .data          0x0000000020009520        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-readr.o)
+ .data          0x0000000020009520        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-writer.o)
+ .data          0x0000000020009520        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-init.o)
+ .data          0x0000000020009520        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-fini.o)
+ .data          0x0000000020009520        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-memcmp.o)
+ .data          0x0000000020009520        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-memset.o)
+ .data          0x0000000020009520        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-__call_atexit.o)
+ .data          0x0000000020009520        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-freer.o)
+ .data          0x0000000020009520      0x820 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-mallocr.o)
+                0x0000000020009520                __malloc_av_
+                0x0000000020009d30                __malloc_sbrk_base
+                0x0000000020009d38                __malloc_trim_threshold
+ .data          0x0000000020009d40        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-mlock.o)
+ .data          0x0000000020009d40        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-fclose.o)
+ .data          0x0000000020009d40        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-fflush.o)
+ .data          0x0000000020009d40        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-sbrkr.o)
+ .data          0x0000000020009d40        0x4 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_assert.c.obj)
+                0x0000000020009d40                Xil_AssertWait
+ .data          0x0000000020009d44        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xplatform_info.c.obj)
+ .data          0x0000000020009d44        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(read.c.obj)
+ .data          0x0000000020009d44        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(_sbrk.c.obj)
+ .data          0x0000000020009d44        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(_exit.c.obj)
+ .data          0x0000000020009d44        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(close.c.obj)
+ .data          0x0000000020009d44        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(write.c.obj)
+ .data          0x0000000020009d44        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(lseek.c.obj)
+ .data          0x0000000020009d44        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(errno.c.obj)
+ .data          0x0000000020009d44        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xuartps_hw.c.obj)
+ .data          0x0000000020009d44        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/crtend.o
+ .data          0x0000000020009d44        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/crtn.o
+ *(.data.*)
+ *(.gnu.linkonce.d.*)
+ *(.jcr)
+ *(.got)
+ *fill*         0x0000000020009d44        0x4 
+ .got           0x0000000020009d48       0x48 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/crtbegin.o
+                0x0000000020009d48                _GLOBAL_OFFSET_TABLE_
+ *(.got.plt)
+ .got.plt       0x0000000020009d90       0x18 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/crtbegin.o
+                0x0000000020009da8                __data_end = .
+
+.igot.plt       0x0000000020009da8        0x0
+ .igot.plt      0x0000000020009da8        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/crtbegin.o
+
+.data1          0x0000000020009da8       0x18
+                0x0000000020009dc0                . = ALIGN (0x40)
+ *fill*         0x0000000020009da8       0x18 
+                0x0000000020009dc0                __data1_start = .
+ *(.data1)
+ *(.data1.*)
+                0x0000000020009dc0                __data1_end = .
+
+.got
+ *(.got)
+
+.got1
+ *(.got1)
+
+.got2           0x0000000020009dc0        0x0
+ *(.got2)
+ .got2          0x0000000020009dc0        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil-crt0.S.obj)
+
+.ctors          0x0000000020009dc0        0x0
+                0x0000000020009dc0                . = ALIGN (0x40)
+                0x0000000020009dc0                __CTOR_LIST__ = .
+                0x0000000020009dc0                ___CTORS_LIST___ = .
+ *crtbegin.o(.ctors)
+ *(EXCLUDE_FILE(*crtend.o) .ctors)
+ *(SORT_BY_NAME(.ctors.*))
+ *(.ctors)
+                0x0000000020009dc0                __CTOR_END__ = .
+                0x0000000020009dc0                ___CTORS_END___ = .
+
+.dtors          0x0000000020009dc0        0x0
+                0x0000000020009dc0                . = ALIGN (0x40)
+                0x0000000020009dc0                __DTOR_LIST__ = .
+                0x0000000020009dc0                ___DTORS_LIST___ = .
+ *crtbegin.o(.dtors)
+ *(EXCLUDE_FILE(*crtend.o) .dtors)
+ *(SORT_BY_NAME(.dtors.*))
+ *(.dtors)
+                0x0000000020009dc0                __DTOR_END__ = .
+                0x0000000020009dc0                ___DTORS_END___ = .
+
+.fixup          0x0000000020009dc0        0x0
+                0x0000000020009dc0                __fixup_start = .
+ *(.fixup)
+                0x0000000020009dc0                __fixup_end = .
+
+.eh_frame       0x0000000020009dc0       0x58
+ *(.eh_frame)
+ .eh_frame      0x0000000020009dc0        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/crtbegin.o
+ .eh_frame      0x0000000020009dc0       0x28 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/libgcc.a(ldadd_4_3.o)
+ .eh_frame      0x0000000020009de8       0x18 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-memcmp.o)
+                                         0x28 (size before relaxing)
+ .eh_frame      0x0000000020009e00       0x14 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-memset.o)
+                                         0x28 (size before relaxing)
+ .eh_frame      0x0000000020009e14        0x4 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/crtend.o
+
+.eh_framehdr    0x0000000020009e18        0x0
+                0x0000000020009e18                __eh_framehdr_start = .
+ *(.eh_framehdr)
+                0x0000000020009e18                __eh_framehdr_end = .
+
+.gcc_except_table
+ *(.gcc_except_table)
+
+.mmu_tbl0       0x000000002000a000       0x10
+                0x000000002000a000                __mmu_tbl0_start = .
+ *(.mmu_tbl0)
+ .mmu_tbl0      0x000000002000a000       0x10 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(translation_table.S.obj)
+                0x000000002000a000                MMUTableL0
+                0x000000002000a010                __mmu_tbl0_end = .
+
+.mmu_tbl1       0x000000002000b000     0x2000
+                0x000000002000b000                __mmu_tbl1_start = .
+ *(.mmu_tbl1)
+ .mmu_tbl1      0x000000002000b000     0x2000 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(translation_table.S.obj)
+                0x000000002000b000                MMUTableL1
+                0x000000002000d000                __mmu_tbl1_end = .
+
+.mmu_tbl2       0x000000002000d000     0x4000
+                0x000000002000d000                __mmu_tbl2_start = .
+ *(.mmu_tbl2)
+ .mmu_tbl2      0x000000002000d000     0x4000 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(translation_table.S.obj)
+                0x000000002000d000                MMUTableL2
+                0x0000000020011000                __mmu_tbl2_end = .
+
+.rela.dyn       0x0000000020011000        0x0
+ .rela.iplt     0x0000000020011000        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/crtbegin.o
+ .rela.got      0x0000000020011000        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/crtbegin.o
+ .rela.boot     0x0000000020011000        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/crtbegin.o
+ .rela.text     0x0000000020011000        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/crtbegin.o
+
+.ARM.exidx      0x0000000020011000        0x0
+                0x0000000020011000                __exidx_start = .
+ *(.ARM.exidx*)
+ *(.gnu.linkonce.armexidix.*.*)
+                0x0000000020011000                __exidx_end = .
+
+.preinit_array  0x0000000020011000        0x0
+                0x0000000020011000                . = ALIGN (0x40)
+                0x0000000020011000                __preinit_array_start = .
+ *(SORT_BY_NAME(.preinit_array.*))
+ *(.preinit_array)
+                0x0000000020011000                __preinit_array_end = .
+
+.init_array     0x0000000020011000        0x8
+                0x0000000020011000                . = ALIGN (0x40)
+                0x0000000020011000                __init_array_start = .
+ *(SORT_BY_NAME(.init_array.*))
+ *(.init_array)
+ .init_array    0x0000000020011000        0x8 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/crtbegin.o
+                0x0000000020011008                __init_array_end = .
+
+.fini_array     0x0000000020011008       0x40
+                0x0000000020011040                . = ALIGN (0x40)
+ *fill*         0x0000000020011008       0x38 
+                0x0000000020011040                __fini_array_start = .
+ *(SORT_BY_NAME(.fini_array.*))
+ *(.fini_array)
+ .fini_array    0x0000000020011040        0x8 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/crtbegin.o
+                0x0000000020011048                __fini_array_end = .
+
+.drvcfg_sec     0x0000000020011048       0xe8
+                0x0000000020011048                . = ALIGN (0x8)
+                0x0000000020011048                __drvcfgsecdata_start = .
+ *(.drvcfg_sec)
+ .drvcfg_sec    0x0000000020011048        0xc /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xarmv8_g.c.obj)
+                0x0000000020011048                XARMv8_ConfigTable
+ *fill*         0x0000000020011054        0x4 
+ .drvcfg_sec    0x0000000020011058       0x78 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_g.c.obj)
+                0x0000000020011058                XIicPs_ConfigTable
+ .drvcfg_sec    0x00000000200110d0       0x60 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_g.c.obj)
+                0x00000000200110d0                XSysMonPsu_ConfigTable
+                0x0000000020011130                __drvcfgsecdata_end = .
+                0x0000000020011130                __drvcfgsecdata_size = (__drvcfgsecdata_end - __drvcfgsecdata_start)
+
+.ARM.attributes
+                0x0000000020011130        0x0
+                0x0000000020011130                __ARM.attributes_start = .
+ *(.ARM.attributes)
+                0x0000000020011130                __ARM.attributes_end = .
+
+.sdata          0x0000000020011130       0x10
+                0x0000000020011140                . = ALIGN (0x40)
+ *fill*         0x0000000020011130       0x10 
+                0x0000000020011140                __sdata_start = .
+ *(.sdata)
+ *(.sdata.*)
+ *(.gnu.linkonce.s.*)
+                0x0000000020011140                __sdata_end = .
+
+.sbss           0x0000000020011140        0x0
+                0x0000000020011140                . = ALIGN (0x40)
+                0x0000000020011140                __sbss_start = .
+ *(.sbss)
+ *(.sbss.*)
+ *(.gnu.linkonce.sb.*)
+                0x0000000020011140                . = ALIGN (0x40)
+                0x0000000020011140                __sbss_end = .
+
+.tdata          0x0000000020011140        0x0
+                0x0000000020011140                . = ALIGN (0x40)
+                0x0000000020011140                __tdata_start = .
+ *(.tdata)
+ *(.tdata.*)
+ *(.gnu.linkonce.td.*)
+                0x0000000020011140                __tdata_end = .
+
+.tbss           0x0000000020011140        0x0
+                0x0000000020011140                . = ALIGN (0x40)
+                0x0000000020011140                __tbss_start = .
+ *(.tbss)
+ *(.tbss.*)
+ *(.gnu.linkonce.tb.*)
+                0x0000000020011140                __tbss_end = .
+
+.bss            0x0000000020011140      0x3c0
+                0x0000000020011140                . = ALIGN (0x40)
+                0x0000000020011140                __bss_start__ = .
+ *(.bss)
+ .bss           0x0000000020011140        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/crti.o
+ .bss           0x0000000020011140       0x38 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/crtbegin.o
+ .bss           0x0000000020011178        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_bounded_i2c.o
+ .bss           0x0000000020011178       0xd8 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_hardware.o
+ .bss           0x0000000020011250        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_main.o
+ .bss           0x0000000020011250        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_sampler.o
+ .bss           0x0000000020011250        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_board.o
+ .bss           0x0000000020011250        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_phase.o
+ .bss           0x0000000020011250        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_sensor.o
+ .bss           0x0000000020011250        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(asm_vectors.S.obj)
+ .bss           0x0000000020011250        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_mmu.c.obj)
+ .bss           0x0000000020011250        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(vectors.c.obj)
+ .bss           0x0000000020011250        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_exception.c.obj)
+ .bss           0x0000000020011250        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(boot.S.obj)
+ .bss           0x0000000020011250        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(translation_table.S.obj)
+ .bss           0x0000000020011250        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_cache.c.obj)
+ .bss           0x0000000020011250        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xarmv8_g.c.obj)
+ .bss           0x0000000020011250        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil-crt0.S.obj)
+ .bss           0x0000000020011250        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_sinit.c.obj)
+ .bss           0x0000000020011250        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_options.c.obj)
+ .bss           0x0000000020011250        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps.c.obj)
+ .bss           0x0000000020011250        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_selftest.c.obj)
+ .bss           0x0000000020011250        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_g.c.obj)
+ .bss           0x0000000020011250        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu.c.obj)
+ .bss           0x0000000020011250        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_intr.c.obj)
+ .bss           0x0000000020011250        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_sinit.c.obj)
+ .bss           0x0000000020011250        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_hw.c.obj)
+ .bss           0x0000000020011250        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_g.c.obj)
+ .bss           0x0000000020011250        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/libgcc.a(ldadd_4_3.o)
+ .bss           0x0000000020011250        0x1 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/libgcc.a(lse-init.o)
+                0x0000000020011250                __aarch64_have_lse_atomics
+ .bss           0x0000000020011251        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-exit.o)
+ *fill*         0x0000000020011251        0x7 
+ .bss           0x0000000020011258      0x218 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-findfp.o)
+                0x0000000020011258                __sf
+                0x0000000020011468                __stdio_exit_handler
+ .bss           0x0000000020011470        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-fwalk.o)
+ .bss           0x0000000020011470        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-stdio.o)
+ .bss           0x0000000020011470        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-closer.o)
+ .bss           0x0000000020011470        0x4 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-reent.o)
+                0x0000000020011470                errno
+ .bss           0x0000000020011474        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-impure.o)
+ .bss           0x0000000020011474        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-lseekr.o)
+ .bss           0x0000000020011474        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-readr.o)
+ .bss           0x0000000020011474        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-writer.o)
+ .bss           0x0000000020011474        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-init.o)
+ .bss           0x0000000020011474        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-fini.o)
+ .bss           0x0000000020011474        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-memcmp.o)
+ .bss           0x0000000020011474        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-memset.o)
+ *fill*         0x0000000020011474        0x4 
+ .bss           0x0000000020011478        0x8 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-__call_atexit.o)
+                0x0000000020011478                __atexit
+ .bss           0x0000000020011480        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-freer.o)
+ .bss           0x0000000020011480       0x40 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-mallocr.o)
+                0x0000000020011480                __malloc_top_pad
+                0x0000000020011488                __malloc_current_mallinfo
+                0x00000000200114b0                __malloc_max_sbrked_mem
+                0x00000000200114b8                __malloc_max_total_mem
+ .bss           0x00000000200114c0        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-mlock.o)
+ .bss           0x00000000200114c0        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-fclose.o)
+ .bss           0x00000000200114c0        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-fflush.o)
+ .bss           0x00000000200114c0        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a(libc_a-sbrkr.o)
+ .bss           0x00000000200114c0        0xc /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_assert.c.obj)
+                0x00000000200114c8                Xil_AssertStatus
+ .bss           0x00000000200114cc        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xplatform_info.c.obj)
+ .bss           0x00000000200114cc        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(read.c.obj)
+ *fill*         0x00000000200114cc        0x4 
+ .bss           0x00000000200114d0        0x8 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(_sbrk.c.obj)
+ .bss           0x00000000200114d8        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(_exit.c.obj)
+ .bss           0x00000000200114d8        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(close.c.obj)
+ .bss           0x00000000200114d8        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(write.c.obj)
+ .bss           0x00000000200114d8        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(lseek.c.obj)
+ .bss           0x00000000200114d8        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(errno.c.obj)
+ .bss           0x00000000200114d8        0x0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xuartps_hw.c.obj)
+ .bss           0x00000000200114d8        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/crtend.o
+ .bss           0x00000000200114d8        0x0 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/crtn.o
+ *(.bss.*)
+ *(.gnu.linkonce.b.*)
+ *(COMMON)
+                0x0000000020011500                . = ALIGN (0x40)
+ *fill*         0x00000000200114d8       0x28 
+                0x0000000020011500                __bss_end__ = .
+                0x0000000020011140                _SDA_BASE_ = (__sdata_start + ((__sbss_end - __sdata_start) / 0x2))
+                0x0000000020009340                _SDA2_BASE_ = (__sdata2_start + ((__sbss2_end - __sdata2_start) / 0x2))
+
+.heap           0x0000000020011500     0x2000
+                0x0000000020011500                . = ALIGN (0x40)
+                0x0000000020011500                _heap = .
+                0x0000000020011500                HeapBase = .
+                0x0000000020011500                _heap_start = .
+                0x0000000020013500                . = (. + _HEAP_SIZE)
+ *fill*         0x0000000020011500     0x2000 
+                0x0000000020013500                _heap_end = .
+                0x0000000020013500                HeapLimit = .
+
+.stack          0x0000000020013500     0x3000
+                0x0000000020013500                . = ALIGN (0x40)
+                0x0000000020013500                _el3_stack_end = .
+                0x0000000020015500                . = (. + _STACK_SIZE)
+ *fill*         0x0000000020013500     0x2000 
+                0x0000000020015500                __el3_stack = .
+                0x0000000020015500                _el2_stack_end = .
+                0x0000000020015900                . = (. + _EL2_STACK_SIZE)
+ *fill*         0x0000000020015500      0x400 
+                0x0000000020015900                . = ALIGN (0x40)
+                0x0000000020015900                __el2_stack = .
+                0x0000000020015900                _el1_stack_end = .
+                0x0000000020016100                . = (. + _EL1_STACK_SIZE)
+ *fill*         0x0000000020015900      0x800 
+                0x0000000020016100                . = ALIGN (0x40)
+                0x0000000020016100                __el1_stack = .
+                0x0000000020016100                _el0_stack_end = .
+                0x0000000020016500                . = (. + _EL0_STACK_SIZE)
+ *fill*         0x0000000020016100      0x400 
+                0x0000000020016500                . = ALIGN (0x40)
+                0x0000000020016500                __el0_stack = .
+                0x0000000020016500                _end = .
+START GROUP
+LOAD /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a
+LOAD /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxiltimer.a
+LOAD /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a
+LOAD /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/libgcc.a
+LOAD /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a
+LOAD /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libm.a
+END GROUP
+LOAD /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/libgcc.a
+LOAD /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libg.a
+LOAD /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/libc.a
+LOAD /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/libgcc.a
+LOAD /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/crtend.o
+LOAD /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/crtn.o
+OUTPUT(/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler.elf elf64-littleaarch64)
+LOAD linker stubs
+
+.comment        0x0000000000000000       0x12
+ .comment       0x0000000000000000       0x12 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/crtbegin.o
+                                         0x13 (size before relaxing)
+ .comment       0x0000000000000012       0x13 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_bounded_i2c.o
+ .comment       0x0000000000000012       0x13 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_hardware.o
+ .comment       0x0000000000000012       0x13 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_main.o
+ .comment       0x0000000000000012       0x13 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_sampler.o
+ .comment       0x0000000000000012       0x13 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_board.o
+ .comment       0x0000000000000012       0x13 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_phase.o
+ .comment       0x0000000000000012       0x13 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_sensor.o
+ .comment       0x0000000000000012       0x13 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_mmu.c.obj)
+ .comment       0x0000000000000012       0x13 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(vectors.c.obj)
+ .comment       0x0000000000000012       0x13 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_exception.c.obj)
+ .comment       0x0000000000000012       0x13 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_cache.c.obj)
+ .comment       0x0000000000000012       0x13 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xarmv8_g.c.obj)
+ .comment       0x0000000000000012       0x13 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_sinit.c.obj)
+ .comment       0x0000000000000012       0x13 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_options.c.obj)
+ .comment       0x0000000000000012       0x13 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps.c.obj)
+ .comment       0x0000000000000012       0x13 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_selftest.c.obj)
+ .comment       0x0000000000000012       0x13 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_g.c.obj)
+ .comment       0x0000000000000012       0x13 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu.c.obj)
+ .comment       0x0000000000000012       0x13 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_intr.c.obj)
+ .comment       0x0000000000000012       0x13 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_sinit.c.obj)
+ .comment       0x0000000000000012       0x13 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_hw.c.obj)
+ .comment       0x0000000000000012       0x13 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_g.c.obj)
+ .comment       0x0000000000000012       0x13 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_assert.c.obj)
+ .comment       0x0000000000000012       0x13 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xplatform_info.c.obj)
+ .comment       0x0000000000000012       0x13 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(read.c.obj)
+ .comment       0x0000000000000012       0x13 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(_sbrk.c.obj)
+ .comment       0x0000000000000012       0x13 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(_exit.c.obj)
+ .comment       0x0000000000000012       0x13 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(close.c.obj)
+ .comment       0x0000000000000012       0x13 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(write.c.obj)
+ .comment       0x0000000000000012       0x13 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(lseek.c.obj)
+ .comment       0x0000000000000012       0x13 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(errno.c.obj)
+ .comment       0x0000000000000012       0x13 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xuartps_hw.c.obj)
+ .comment       0x0000000000000012       0x13 /opt/vivado/2025.1/Vitis/gnu/aarch64/lin/aarch64-none/bin/../aarch64-xilinx-elf/usr/lib64/aarch64-xilinx-elf/13.3.0/crtend.o
+
+.debug_info     0x0000000000000000     0xf070
+ .debug_info    0x0000000000000000      0x489 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_bounded_i2c.o
+ .debug_info    0x0000000000000489      0xc5e /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_hardware.o
+ .debug_info    0x00000000000010e7      0xb0e /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_main.o
+ .debug_info    0x0000000000001bf5      0xe73 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_sampler.o
+ .debug_info    0x0000000000002a68      0x1c2 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_board.o
+ .debug_info    0x0000000000002c2a     0x1927 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_phase.o
+ .debug_info    0x0000000000004551      0x756 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_sensor.o
+ .debug_info    0x0000000000004ca7      0x2dd /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_mmu.c.obj)
+ .debug_info    0x0000000000004f84      0x145 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(vectors.c.obj)
+ .debug_info    0x00000000000050c9      0x317 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_exception.c.obj)
+ .debug_info    0x00000000000053e0       0x29 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(boot.S.obj)
+ .debug_info    0x0000000000005409      0xb85 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_cache.c.obj)
+ .debug_info    0x0000000000005f8e       0xed /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xarmv8_g.c.obj)
+ .debug_info    0x000000000000607b       0x29 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil-crt0.S.obj)
+ .debug_info    0x00000000000060a4      0x1ec /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_sinit.c.obj)
+ .debug_info    0x0000000000006290      0xa8b /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_options.c.obj)
+ .debug_info    0x0000000000006d1b      0xaa9 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps.c.obj)
+ .debug_info    0x00000000000077c4      0x4e6 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_selftest.c.obj)
+ .debug_info    0x0000000000007caa      0x17c /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_g.c.obj)
+ .debug_info    0x0000000000007e26     0x3f4e /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu.c.obj)
+ .debug_info    0x000000000000bd74      0xbc1 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_intr.c.obj)
+ .debug_info    0x000000000000c935      0x1a8 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_sinit.c.obj)
+ .debug_info    0x000000000000cadd      0x91c /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_hw.c.obj)
+ .debug_info    0x000000000000d3f9      0x126 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_g.c.obj)
+ .debug_info    0x000000000000d51f      0x1f9 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_assert.c.obj)
+ .debug_info    0x000000000000d718      0x265 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xplatform_info.c.obj)
+ .debug_info    0x000000000000d97d      0x1b0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(read.c.obj)
+ .debug_info    0x000000000000db2d      0x173 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(_sbrk.c.obj)
+ .debug_info    0x000000000000dca0       0xb7 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(_exit.c.obj)
+ .debug_info    0x000000000000dd57       0xd2 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(close.c.obj)
+ .debug_info    0x000000000000de29      0x1bf /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(write.c.obj)
+ .debug_info    0x000000000000dfe8      0x170 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(lseek.c.obj)
+ .debug_info    0x000000000000e158      0x72b /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(errno.c.obj)
+ .debug_info    0x000000000000e883      0x7ed /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xuartps_hw.c.obj)
+
+.debug_abbrev   0x0000000000000000     0x33ca
+ .debug_abbrev  0x0000000000000000      0x160 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_bounded_i2c.o
+ .debug_abbrev  0x0000000000000160      0x304 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_hardware.o
+ .debug_abbrev  0x0000000000000464      0x245 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_main.o
+ .debug_abbrev  0x00000000000006a9      0x2bc /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_sampler.o
+ .debug_abbrev  0x0000000000000965       0xe7 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_board.o
+ .debug_abbrev  0x0000000000000a4c      0x418 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_phase.o
+ .debug_abbrev  0x0000000000000e64      0x203 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_sensor.o
+ .debug_abbrev  0x0000000000001067      0x15b /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_mmu.c.obj)
+ .debug_abbrev  0x00000000000011c2       0xb5 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(vectors.c.obj)
+ .debug_abbrev  0x0000000000001277      0x1e0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_exception.c.obj)
+ .debug_abbrev  0x0000000000001457       0x14 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(boot.S.obj)
+ .debug_abbrev  0x000000000000146b      0x1b1 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_cache.c.obj)
+ .debug_abbrev  0x000000000000161c       0x8b /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xarmv8_g.c.obj)
+ .debug_abbrev  0x00000000000016a7       0x14 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil-crt0.S.obj)
+ .debug_abbrev  0x00000000000016bb       0xdb /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_sinit.c.obj)
+ .debug_abbrev  0x0000000000001796      0x2a5 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_options.c.obj)
+ .debug_abbrev  0x0000000000001a3b      0x2e4 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps.c.obj)
+ .debug_abbrev  0x0000000000001d1f      0x1c2 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_selftest.c.obj)
+ .debug_abbrev  0x0000000000001ee1       0xab /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_g.c.obj)
+ .debug_abbrev  0x0000000000001f8c      0x37f /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu.c.obj)
+ .debug_abbrev  0x000000000000230b      0x24b /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_intr.c.obj)
+ .debug_abbrev  0x0000000000002556       0xeb /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_sinit.c.obj)
+ .debug_abbrev  0x0000000000002641      0x247 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_hw.c.obj)
+ .debug_abbrev  0x0000000000002888       0xa2 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_g.c.obj)
+ .debug_abbrev  0x000000000000292a      0x115 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_assert.c.obj)
+ .debug_abbrev  0x0000000000002a3f       0xfb /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xplatform_info.c.obj)
+ .debug_abbrev  0x0000000000002b3a      0x131 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(read.c.obj)
+ .debug_abbrev  0x0000000000002c6b       0xdd /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(_sbrk.c.obj)
+ .debug_abbrev  0x0000000000002d48       0x69 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(_exit.c.obj)
+ .debug_abbrev  0x0000000000002db1       0x77 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(close.c.obj)
+ .debug_abbrev  0x0000000000002e28      0x149 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(write.c.obj)
+ .debug_abbrev  0x0000000000002f71       0xe9 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(lseek.c.obj)
+ .debug_abbrev  0x000000000000305a      0x19a /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(errno.c.obj)
+ .debug_abbrev  0x00000000000031f4      0x1d6 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xuartps_hw.c.obj)
+
+.debug_loclists
+                0x0000000000000000     0x788f
+ .debug_loclists
+                0x0000000000000000      0x20f /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_bounded_i2c.o
+ .debug_loclists
+                0x000000000000020f      0x337 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_hardware.o
+ .debug_loclists
+                0x0000000000000546       0x24 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_main.o
+ .debug_loclists
+                0x000000000000056a      0x5fc /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_sampler.o
+ .debug_loclists
+                0x0000000000000b66       0x50 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_board.o
+ .debug_loclists
+                0x0000000000000bb6      0xdcf /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_phase.o
+ .debug_loclists
+                0x0000000000001985      0x39f /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_sensor.o
+ .debug_loclists
+                0x0000000000001d24      0x253 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_mmu.c.obj)
+ .debug_loclists
+                0x0000000000001f77       0x78 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_exception.c.obj)
+ .debug_loclists
+                0x0000000000001fef      0x9b4 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_cache.c.obj)
+ .debug_loclists
+                0x00000000000029a3       0x3b /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_sinit.c.obj)
+ .debug_loclists
+                0x00000000000029de      0x7b5 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_options.c.obj)
+ .debug_loclists
+                0x0000000000003193      0x41e /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps.c.obj)
+ .debug_loclists
+                0x00000000000035b1       0xe0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_selftest.c.obj)
+ .debug_loclists
+                0x0000000000003691     0x3344 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu.c.obj)
+ .debug_loclists
+                0x00000000000069d5      0x58e /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_intr.c.obj)
+ .debug_loclists
+                0x0000000000006f63       0x49 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_sinit.c.obj)
+ .debug_loclists
+                0x0000000000006fac      0x2f5 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_hw.c.obj)
+ .debug_loclists
+                0x00000000000072a1       0x48 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_assert.c.obj)
+ .debug_loclists
+                0x00000000000072e9       0x73 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xplatform_info.c.obj)
+ .debug_loclists
+                0x000000000000735c      0x13e /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(read.c.obj)
+ .debug_loclists
+                0x000000000000749a       0x46 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(_sbrk.c.obj)
+ .debug_loclists
+                0x00000000000074e0       0x14 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(_exit.c.obj)
+ .debug_loclists
+                0x00000000000074f4       0x1e /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(close.c.obj)
+ .debug_loclists
+                0x0000000000007512       0xc0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(write.c.obj)
+ .debug_loclists
+                0x00000000000075d2       0x42 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(lseek.c.obj)
+ .debug_loclists
+                0x0000000000007614      0x27b /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xuartps_hw.c.obj)
+
+.debug_aranges  0x0000000000000000      0x630
+ .debug_aranges
+                0x0000000000000000       0x30 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_bounded_i2c.o
+ .debug_aranges
+                0x0000000000000030       0x30 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_hardware.o
+ .debug_aranges
+                0x0000000000000060       0x30 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_main.o
+ .debug_aranges
+                0x0000000000000090       0x30 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_sampler.o
+ .debug_aranges
+                0x00000000000000c0       0x30 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_board.o
+ .debug_aranges
+                0x00000000000000f0       0x30 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_phase.o
+ .debug_aranges
+                0x0000000000000120       0x30 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_sensor.o
+ .debug_aranges
+                0x0000000000000150       0x30 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_mmu.c.obj)
+ .debug_aranges
+                0x0000000000000180       0x30 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(vectors.c.obj)
+ .debug_aranges
+                0x00000000000001b0       0x30 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_exception.c.obj)
+ .debug_aranges
+                0x00000000000001e0       0x30 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(boot.S.obj)
+ .debug_aranges
+                0x0000000000000210       0x30 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_cache.c.obj)
+ .debug_aranges
+                0x0000000000000240       0x20 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xarmv8_g.c.obj)
+ .debug_aranges
+                0x0000000000000260       0x30 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil-crt0.S.obj)
+ .debug_aranges
+                0x0000000000000290       0x30 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_sinit.c.obj)
+ .debug_aranges
+                0x00000000000002c0       0x30 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_options.c.obj)
+ .debug_aranges
+                0x00000000000002f0       0x30 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps.c.obj)
+ .debug_aranges
+                0x0000000000000320       0x30 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_selftest.c.obj)
+ .debug_aranges
+                0x0000000000000350       0x20 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_g.c.obj)
+ .debug_aranges
+                0x0000000000000370       0x30 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu.c.obj)
+ .debug_aranges
+                0x00000000000003a0       0x30 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_intr.c.obj)
+ .debug_aranges
+                0x00000000000003d0       0x30 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_sinit.c.obj)
+ .debug_aranges
+                0x0000000000000400       0x30 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_hw.c.obj)
+ .debug_aranges
+                0x0000000000000430       0x20 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_g.c.obj)
+ .debug_aranges
+                0x0000000000000450       0x30 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_assert.c.obj)
+ .debug_aranges
+                0x0000000000000480       0x30 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xplatform_info.c.obj)
+ .debug_aranges
+                0x00000000000004b0       0x30 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(read.c.obj)
+ .debug_aranges
+                0x00000000000004e0       0x30 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(_sbrk.c.obj)
+ .debug_aranges
+                0x0000000000000510       0x30 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(_exit.c.obj)
+ .debug_aranges
+                0x0000000000000540       0x30 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(close.c.obj)
+ .debug_aranges
+                0x0000000000000570       0x30 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(write.c.obj)
+ .debug_aranges
+                0x00000000000005a0       0x30 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(lseek.c.obj)
+ .debug_aranges
+                0x00000000000005d0       0x30 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(errno.c.obj)
+ .debug_aranges
+                0x0000000000000600       0x30 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xuartps_hw.c.obj)
+
+.debug_rnglists
+                0x0000000000000000      0x857
+ .debug_rnglists
+                0x0000000000000000       0x1c /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_bounded_i2c.o
+ .debug_rnglists
+                0x000000000000001c       0x42 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_hardware.o
+ .debug_rnglists
+                0x000000000000005e       0x18 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_main.o
+ .debug_rnglists
+                0x0000000000000076       0xb3 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_sampler.o
+ .debug_rnglists
+                0x0000000000000129       0x16 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_board.o
+ .debug_rnglists
+                0x000000000000013f       0xb7 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_phase.o
+ .debug_rnglists
+                0x00000000000001f6       0x3c /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_sensor.o
+ .debug_rnglists
+                0x0000000000000232       0x1c /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_mmu.c.obj)
+ .debug_rnglists
+                0x000000000000024e       0x71 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_cache.c.obj)
+ .debug_rnglists
+                0x00000000000002bf       0x33 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_options.c.obj)
+ .debug_rnglists
+                0x00000000000002f2       0x4e /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps.c.obj)
+ .debug_rnglists
+                0x0000000000000340       0x17 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_selftest.c.obj)
+ .debug_rnglists
+                0x0000000000000357      0x3a4 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu.c.obj)
+ .debug_rnglists
+                0x00000000000006fb       0x72 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_intr.c.obj)
+ .debug_rnglists
+                0x000000000000076d       0x6d /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_hw.c.obj)
+ .debug_rnglists
+                0x00000000000007da       0x7d /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xuartps_hw.c.obj)
+
+.debug_line     0x0000000000000000     0x83b6
+ .debug_line    0x0000000000000000      0x209 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_bounded_i2c.o
+ .debug_line    0x0000000000000209      0x33a /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_hardware.o
+ .debug_line    0x0000000000000543      0x13c /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_main.o
+ .debug_line    0x000000000000067f      0x955 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_sampler.o
+ .debug_line    0x0000000000000fd4       0xea /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_board.o
+ .debug_line    0x00000000000010be      0xea9 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_phase.o
+ .debug_line    0x0000000000001f67      0x528 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_sensor.o
+ .debug_line    0x000000000000248f      0x1e6 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_mmu.c.obj)
+ .debug_line    0x0000000000002675       0x70 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(vectors.c.obj)
+ .debug_line    0x00000000000026e5      0x107 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_exception.c.obj)
+ .debug_line    0x00000000000027ec       0xdd /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(boot.S.obj)
+ .debug_line    0x00000000000028c9      0x781 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_cache.c.obj)
+ .debug_line    0x000000000000304a       0x5a /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xarmv8_g.c.obj)
+ .debug_line    0x00000000000030a4       0x7c /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil-crt0.S.obj)
+ .debug_line    0x0000000000003120       0xd7 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_sinit.c.obj)
+ .debug_line    0x00000000000031f7      0x739 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_options.c.obj)
+ .debug_line    0x0000000000003930      0x58d /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps.c.obj)
+ .debug_line    0x0000000000003ebd      0x19a /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_selftest.c.obj)
+ .debug_line    0x0000000000004057       0x5a /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_g.c.obj)
+ .debug_line    0x00000000000040b1     0x2dd2 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu.c.obj)
+ .debug_line    0x0000000000006e83      0x5f7 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_intr.c.obj)
+ .debug_line    0x000000000000747a       0xed /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_sinit.c.obj)
+ .debug_line    0x0000000000007567      0x3dd /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_hw.c.obj)
+ .debug_line    0x0000000000007944       0x5a /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_g.c.obj)
+ .debug_line    0x000000000000799e       0xe6 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_assert.c.obj)
+ .debug_line    0x0000000000007a84       0xd9 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xplatform_info.c.obj)
+ .debug_line    0x0000000000007b5d       0xd4 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(read.c.obj)
+ .debug_line    0x0000000000007c31       0xc5 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(_sbrk.c.obj)
+ .debug_line    0x0000000000007cf6       0x6b /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(_exit.c.obj)
+ .debug_line    0x0000000000007d61       0x73 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(close.c.obj)
+ .debug_line    0x0000000000007dd4       0xfa /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(write.c.obj)
+ .debug_line    0x0000000000007ece       0xa5 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(lseek.c.obj)
+ .debug_line    0x0000000000007f73       0x83 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(errno.c.obj)
+ .debug_line    0x0000000000007ff6      0x3c0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xuartps_hw.c.obj)
+
+.debug_str      0x0000000000000000     0x1fbf
+ .debug_str     0x0000000000000000     0x1fbf /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_bounded_i2c.o
+                                        0x2b2 (size before relaxing)
+ .debug_str     0x0000000000001fbf      0x476 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_hardware.o
+ .debug_str     0x0000000000001fbf      0x556 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_main.o
+ .debug_str     0x0000000000001fbf      0x630 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_sampler.o
+ .debug_str     0x0000000000001fbf      0x149 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_board.o
+ .debug_str     0x0000000000001fbf      0x870 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_phase.o
+ .debug_str     0x0000000000001fbf      0x27f /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_sensor.o
+ .debug_str     0x0000000000001fbf      0x1fc /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_mmu.c.obj)
+ .debug_str     0x0000000000001fbf      0x199 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(vectors.c.obj)
+ .debug_str     0x0000000000001fbf      0x239 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_exception.c.obj)
+ .debug_str     0x0000000000001fbf      0x1a4 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(boot.S.obj)
+ .debug_str     0x0000000000001fbf      0x2f5 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_cache.c.obj)
+ .debug_str     0x0000000000001fbf      0x14b /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xarmv8_g.c.obj)
+ .debug_str     0x0000000000001fbf       0xda /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil-crt0.S.obj)
+ .debug_str     0x0000000000001fbf      0x1e2 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_sinit.c.obj)
+ .debug_str     0x0000000000001fbf      0x3f5 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_options.c.obj)
+ .debug_str     0x0000000000001fbf      0x3f6 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps.c.obj)
+ .debug_str     0x0000000000001fbf      0x2f4 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_selftest.c.obj)
+ .debug_str     0x0000000000001fbf      0x1af /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_g.c.obj)
+ .debug_str     0x0000000000001fbf      0x8ad /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu.c.obj)
+ .debug_str     0x0000000000001fbf      0x338 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_intr.c.obj)
+ .debug_str     0x0000000000001fbf      0x1c4 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_sinit.c.obj)
+ .debug_str     0x0000000000001fbf      0x367 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_hw.c.obj)
+ .debug_str     0x0000000000001fbf      0x18b /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_g.c.obj)
+ .debug_str     0x0000000000001fbf      0x1d8 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_assert.c.obj)
+ .debug_str     0x0000000000001fbf      0x1d3 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xplatform_info.c.obj)
+ .debug_str     0x0000000000001fbf      0x154 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(read.c.obj)
+ .debug_str     0x0000000000001fbf      0x168 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(_sbrk.c.obj)
+ .debug_str     0x0000000000001fbf      0x10e /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(_exit.c.obj)
+ .debug_str     0x0000000000001fbf      0x113 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(close.c.obj)
+ .debug_str     0x0000000000001fbf      0x155 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(write.c.obj)
+ .debug_str     0x0000000000001fbf      0x15b /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(lseek.c.obj)
+ .debug_str     0x0000000000001fbf      0x435 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(errno.c.obj)
+ .debug_str     0x0000000000001fbf      0x1f5 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xuartps_hw.c.obj)
+
+.debug_line_str
+                0x0000000000000000     0x2408
+ .debug_line_str
+                0x0000000000000000     0x2408 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_bounded_i2c.o
+                                        0x2c3 (size before relaxing)
+ .debug_line_str
+                0x0000000000002408      0x40a /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_hardware.o
+ .debug_line_str
+                0x0000000000002408      0x31c /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_main.o
+ .debug_line_str
+                0x0000000000002408      0x415 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_sampler.o
+ .debug_line_str
+                0x0000000000002408      0x36a /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_board.o
+ .debug_line_str
+                0x0000000000002408      0x390 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_phase.o
+ .debug_line_str
+                0x0000000000002408      0x393 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_sensor.o
+ .debug_line_str
+                0x0000000000002408      0x567 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_mmu.c.obj)
+ .debug_line_str
+                0x0000000000002408      0x33a /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(vectors.c.obj)
+ .debug_line_str
+                0x0000000000002408      0x4e6 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_exception.c.obj)
+ .debug_line_str
+                0x0000000000002408      0x196 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(boot.S.obj)
+ .debug_line_str
+                0x0000000000002408      0x4d4 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_cache.c.obj)
+ .debug_line_str
+                0x0000000000002408      0x4ba /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xarmv8_g.c.obj)
+ .debug_line_str
+                0x0000000000002408      0x1a5 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil-crt0.S.obj)
+ .debug_line_str
+                0x0000000000002408      0x4bc /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_sinit.c.obj)
+ .debug_line_str
+                0x0000000000002408      0x4d8 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_options.c.obj)
+ .debug_line_str
+                0x0000000000002408      0x4c0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps.c.obj)
+ .debug_line_str
+                0x0000000000002408      0x4db /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_selftest.c.obj)
+ .debug_line_str
+                0x0000000000002408      0x4b0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_g.c.obj)
+ .debug_line_str
+                0x0000000000002408      0x4f7 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu.c.obj)
+ .debug_line_str
+                0x0000000000002408      0x4f7 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_intr.c.obj)
+ .debug_line_str
+                0x0000000000002408      0x4d4 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_sinit.c.obj)
+ .debug_line_str
+                0x0000000000002408      0x4e8 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_hw.c.obj)
+ .debug_line_str
+                0x0000000000002408      0x4c8 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_g.c.obj)
+ .debug_line_str
+                0x0000000000002408      0x409 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_assert.c.obj)
+ .debug_line_str
+                0x0000000000002408      0x411 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xplatform_info.c.obj)
+ .debug_line_str
+                0x0000000000002408      0x4d0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(read.c.obj)
+ .debug_line_str
+                0x0000000000002408      0x4ce /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(_sbrk.c.obj)
+ .debug_line_str
+                0x0000000000002408      0x45d /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(_exit.c.obj)
+ .debug_line_str
+                0x0000000000002408      0x4c6 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(close.c.obj)
+ .debug_line_str
+                0x0000000000002408      0x4d3 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(write.c.obj)
+ .debug_line_str
+                0x0000000000002408      0x4df /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(lseek.c.obj)
+ .debug_line_str
+                0x0000000000002408      0x501 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(errno.c.obj)
+ .debug_line_str
+                0x0000000000002408      0x4b8 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xuartps_hw.c.obj)
+
+.debug_frame    0x0000000000000000     0x1d90
+ .debug_frame   0x0000000000000000       0x98 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_bounded_i2c.o
+ .debug_frame   0x0000000000000098      0x150 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_hardware.o
+ .debug_frame   0x00000000000001e8       0x40 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_main.o
+ .debug_frame   0x0000000000000228      0x130 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_sampler.o
+ .debug_frame   0x0000000000000358       0x88 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_board.o
+ .debug_frame   0x00000000000003e0      0x350 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_phase.o
+ .debug_frame   0x0000000000000730      0x108 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler_sensor.o
+ .debug_frame   0x0000000000000838       0x90 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_mmu.c.obj)
+ .debug_frame   0x00000000000008c8       0x70 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(vectors.c.obj)
+ .debug_frame   0x0000000000000938       0xb8 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_exception.c.obj)
+ .debug_frame   0x00000000000009f0      0x158 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_cache.c.obj)
+ .debug_frame   0x0000000000000b48       0x28 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_sinit.c.obj)
+ .debug_frame   0x0000000000000b70      0x150 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_options.c.obj)
+ .debug_frame   0x0000000000000cc0      0x150 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps.c.obj)
+ .debug_frame   0x0000000000000e10       0x58 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_selftest.c.obj)
+ .debug_frame   0x0000000000000e68      0x988 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu.c.obj)
+ .debug_frame   0x00000000000017f0      0x140 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_intr.c.obj)
+ .debug_frame   0x0000000000001930       0x28 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xsysmonpsu_sinit.c.obj)
+ .debug_frame   0x0000000000001958       0xb0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xiicps_hw.c.obj)
+ .debug_frame   0x0000000000001a08       0x68 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xil_assert.c.obj)
+ .debug_frame   0x0000000000001a70       0x70 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(xplatform_info.c.obj)
+ .debug_frame   0x0000000000001ae0       0x90 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(read.c.obj)
+ .debug_frame   0x0000000000001b70       0x28 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(_sbrk.c.obj)
+ .debug_frame   0x0000000000001b98       0x28 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(_exit.c.obj)
+ .debug_frame   0x0000000000001bc0       0x28 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(close.c.obj)
+ .debug_frame   0x0000000000001be8       0x80 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(write.c.obj)
+ .debug_frame   0x0000000000001c68       0x60 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(lseek.c.obj)
+ .debug_frame   0x0000000000001cc8       0x28 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxilstandalone.a(errno.c.obj)
+ .debug_frame   0x0000000000001cf0       0xa0 /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace/sampler_platform/export/sampler_platform/sw/sampler_a53_1/lib/libxil.a(xuartps_hw.c.obj)

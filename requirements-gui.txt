@@ -1,0 +1,7 @@
+# The small host GUI does not require PyTorch or the training environment.
+Flask>=3.0,<4
+numpy>=1.26
+Pillow>=10
+matplotlib>=3.8
+pyserial>=3.5
+# Plotly JavaScript and its license are included under dashboard/static/.

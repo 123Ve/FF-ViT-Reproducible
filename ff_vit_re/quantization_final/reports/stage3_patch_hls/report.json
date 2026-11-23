@@ -1,0 +1,78 @@
+{
+  "baseline_w3_qat_plus_input16_top1": 99.74354277340173,
+  "stage3_hls_patch_top1": 99.76186114673017,
+  "patch_quant_drop_pp": -0.018318373328440885,
+  "patch_weight": {
+    "logical_type": "signed int8",
+    "range": [
+      -128,
+      127
+    ],
+    "scale": 0.0018330015312498949,
+    "mse": 3.2240643577097217e-07,
+    "saturation_rate": 6.781684351153672e-05,
+    "logical_shape": [
+      192,
+      768
+    ],
+    "hls_bank_shape": [
+      12,
+      24,
+      16,
+      32
+    ]
+  },
+  "patch_bias": {
+    "raw_scale": 2.8640648925779608e-05,
+    "raw_min": -195038,
+    "raw_max": 186776,
+    "meaning": "patch_embed.bias + positional embedding",
+    "hls_bank_shape": [
+      2,
+      12,
+      98,
+      16
+    ]
+  },
+  "patch_cls": {
+    "raw_min": -74740,
+    "raw_max": 474878,
+    "meaning": "CLS token + CLS positional embedding",
+    "hls_bank_shape": [
+      12,
+      16
+    ]
+  },
+  "patch_output": {
+    "hls_type": "ap_int<13>",
+    "shift": 8,
+    "round_bias": 128,
+    "real_scale": 0.0073320061249995796,
+    "prewrap_min": -1384,
+    "prewrap_max": 1855,
+    "overflow_count": 0,
+    "total_values": 205433088,
+    "overflow_rate": 0.0
+  },
+  "input_stream": {
+    "logical_shape": [
+      196,
+      768
+    ],
+    "physical_stream_shape": [
+      98,
+      768,
+      2
+    ],
+    "dtype": "signed int16",
+    "scale": 0.015625,
+    "bytes_per_image": 301056,
+    "ordering": "[tt][ci][tp], token pair interleaved"
+  },
+  "sample0": {
+    "label_index": 0,
+    "label_name": "Apple___Apple_scab",
+    "input_bin": "stage3_patch_hls/sample0_input_hls_stream_int16.bin",
+    "patch_output_bin": "stage3_patch_hls/sample0_patch_output_stream_int13.bin"
+  }
+}

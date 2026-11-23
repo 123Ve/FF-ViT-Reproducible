@@ -1,0 +1,278 @@
+{
+  "blocks": [
+    {
+      "block": 0,
+      "softmax": {
+        "fitted_rows": 4096,
+        "score_scale": 0.07671256813566174,
+        "output_scale": 0.053225871056569625,
+        "scale_candidates": 128,
+        "float_grid_mse": 5.2202948644276474e-05,
+        "lut_code_mse": 0.0014872648278061226,
+        "final_shift": 17,
+        "preserved": "EXP and reciprocal address mappings",
+        "probability_bits": 3,
+        "reciprocal_bits": 8
+      },
+      "aq": {
+        "fitted_codes": 9633792,
+        "target": "FP64 softmax(same integer QK score) times same V, quantized to frozen S3 A scale",
+        "mismatch_rate": 0.2381530554116178,
+        "cursor_wrap_rate": 0.0
+      },
+      "elapsed_seconds": 1.6889445681590587
+    },
+    {
+      "block": 1,
+      "softmax": {
+        "fitted_rows": 4096,
+        "score_scale": 0.10893848563127362,
+        "output_scale": 0.08009465759638784,
+        "scale_candidates": 128,
+        "float_grid_mse": 6.0206858051094e-05,
+        "lut_code_mse": 0.001695282605229592,
+        "final_shift": 16,
+        "preserved": "EXP and reciprocal address mappings",
+        "probability_bits": 3,
+        "reciprocal_bits": 8
+      },
+      "aq": {
+        "fitted_codes": 9633792,
+        "target": "FP64 softmax(same integer QK score) times same V, quantized to frozen S3 A scale",
+        "mismatch_rate": 0.27779871103714926,
+        "cursor_wrap_rate": 0.0
+      },
+      "elapsed_seconds": 1.4457786621060222
+    },
+    {
+      "block": 2,
+      "softmax": {
+        "fitted_rows": 4096,
+        "score_scale": 0.10581279089694728,
+        "output_scale": 0.07069045912339048,
+        "scale_candidates": 128,
+        "float_grid_mse": 4.9072456313342276e-05,
+        "lut_code_mse": 0.004334741709183673,
+        "final_shift": 17,
+        "preserved": "EXP and reciprocal address mappings",
+        "probability_bits": 3,
+        "reciprocal_bits": 8
+      },
+      "aq": {
+        "fitted_codes": 9633792,
+        "target": "FP64 softmax(same integer QK score) times same V, quantized to frozen S3 A scale",
+        "mismatch_rate": 0.5203914512582377,
+        "cursor_wrap_rate": 0.0
+      },
+      "elapsed_seconds": 1.6143219280056655
+    },
+    {
+      "block": 3,
+      "softmax": {
+        "fitted_rows": 4096,
+        "score_scale": 0.07980668390238321,
+        "output_scale": 0.01826282918484617,
+        "scale_candidates": 128,
+        "float_grid_mse": 2.489944612643968e-05,
+        "lut_code_mse": 0.01110466159119898,
+        "final_shift": 16,
+        "preserved": "EXP and reciprocal address mappings",
+        "probability_bits": 3,
+        "reciprocal_bits": 8
+      },
+      "aq": {
+        "fitted_codes": 9633792,
+        "target": "FP64 softmax(same integer QK score) times same V, quantized to frozen S3 A scale",
+        "mismatch_rate": 0.3750794079838967,
+        "cursor_wrap_rate": 0.0
+      },
+      "elapsed_seconds": 1.6048214549664408
+    },
+    {
+      "block": 4,
+      "softmax": {
+        "fitted_rows": 4096,
+        "score_scale": 0.07013240917177654,
+        "output_scale": 0.0074356708242281945,
+        "scale_candidates": 128,
+        "float_grid_mse": 7.189112544411987e-06,
+        "lut_code_mse": 0.024218500876913265,
+        "final_shift": 15,
+        "preserved": "EXP and reciprocal address mappings",
+        "probability_bits": 3,
+        "reciprocal_bits": 8
+      },
+      "aq": {
+        "fitted_codes": 9633792,
+        "target": "FP64 softmax(same integer QK score) times same V, quantized to frozen S3 A scale",
+        "mismatch_rate": 0.12757292247953866,
+        "cursor_wrap_rate": 0.0
+      },
+      "elapsed_seconds": 1.7719545979052782
+    },
+    {
+      "block": 5,
+      "softmax": {
+        "fitted_rows": 4096,
+        "score_scale": 0.05942297151911902,
+        "output_scale": 0.01039589880928027,
+        "scale_candidates": 128,
+        "float_grid_mse": 1.649564060713324e-05,
+        "lut_code_mse": 0.02820571588010204,
+        "final_shift": 15,
+        "preserved": "EXP and reciprocal address mappings",
+        "probability_bits": 3,
+        "reciprocal_bits": 8
+      },
+      "aq": {
+        "fitted_codes": 9633792,
+        "target": "FP64 softmax(same integer QK score) times same V, quantized to frozen S3 A scale",
+        "mismatch_rate": 0.21516231614716197,
+        "cursor_wrap_rate": 0.0
+      },
+      "elapsed_seconds": 1.6928404509089887
+    },
+    {
+      "block": 6,
+      "softmax": {
+        "fitted_rows": 4096,
+        "score_scale": 0.06894438169843076,
+        "output_scale": 0.010104296814381856,
+        "scale_candidates": 128,
+        "float_grid_mse": 1.4730136310130238e-05,
+        "lut_code_mse": 0.019364337531887755,
+        "final_shift": 15,
+        "preserved": "EXP and reciprocal address mappings",
+        "probability_bits": 3,
+        "reciprocal_bits": 8
+      },
+      "aq": {
+        "fitted_codes": 9633792,
+        "target": "FP64 softmax(same integer QK score) times same V, quantized to frozen S3 A scale",
+        "mismatch_rate": 0.21673179159359057,
+        "cursor_wrap_rate": 0.0
+      },
+      "elapsed_seconds": 1.60146968299523
+    },
+    {
+      "block": 7,
+      "softmax": {
+        "fitted_rows": 4096,
+        "score_scale": 0.09392888095526963,
+        "output_scale": 0.010791003789472134,
+        "scale_candidates": 128,
+        "float_grid_mse": 1.2028743103235627e-05,
+        "lut_code_mse": 0.020795549665178572,
+        "final_shift": 15,
+        "preserved": "EXP and reciprocal address mappings",
+        "probability_bits": 3,
+        "reciprocal_bits": 8
+      },
+      "aq": {
+        "fitted_codes": 9633792,
+        "target": "FP64 softmax(same integer QK score) times same V, quantized to frozen S3 A scale",
+        "mismatch_rate": 0.16475994084157097,
+        "cursor_wrap_rate": 0.0
+      },
+      "elapsed_seconds": 1.7453906550072134
+    },
+    {
+      "block": 8,
+      "softmax": {
+        "fitted_rows": 4096,
+        "score_scale": 0.10483034296111082,
+        "output_scale": 0.02392356906820185,
+        "scale_candidates": 128,
+        "float_grid_mse": 3.316970189681415e-05,
+        "lut_code_mse": 0.008653290417729591,
+        "final_shift": 16,
+        "preserved": "EXP and reciprocal address mappings",
+        "probability_bits": 3,
+        "reciprocal_bits": 8
+      },
+      "aq": {
+        "fitted_codes": 9633792,
+        "target": "FP64 softmax(same integer QK score) times same V, quantized to frozen S3 A scale",
+        "mismatch_rate": 0.5560448056175595,
+        "cursor_wrap_rate": 0.9999982353781356
+      },
+      "elapsed_seconds": 1.3901438149623573
+    },
+    {
+      "block": 9,
+      "softmax": {
+        "fitted_rows": 4096,
+        "score_scale": 0.08879889326897228,
+        "output_scale": 0.016966989065052562,
+        "scale_candidates": 128,
+        "float_grid_mse": 3.2280809562977266e-05,
+        "lut_code_mse": 0.014222437021683673,
+        "final_shift": 15,
+        "preserved": "EXP and reciprocal address mappings",
+        "probability_bits": 3,
+        "reciprocal_bits": 8
+      },
+      "aq": {
+        "fitted_codes": 9633792,
+        "target": "FP64 softmax(same integer QK score) times same V, quantized to frozen S3 A scale",
+        "mismatch_rate": 0.38407929089604587,
+        "cursor_wrap_rate": 0.0
+      },
+      "elapsed_seconds": 1.543530996888876
+    },
+    {
+      "block": 10,
+      "softmax": {
+        "fitted_rows": 4096,
+        "score_scale": 0.06191569473337033,
+        "output_scale": 0.030961128813789665,
+        "scale_candidates": 128,
+        "float_grid_mse": 3.435954661966412e-05,
+        "lut_code_mse": 0.0033768634406887753,
+        "final_shift": 16,
+        "preserved": "EXP and reciprocal address mappings",
+        "probability_bits": 3,
+        "reciprocal_bits": 8
+      },
+      "aq": {
+        "fitted_codes": 9633792,
+        "target": "FP64 softmax(same integer QK score) times same V, quantized to frozen S3 A scale",
+        "mismatch_rate": 0.6241775824099172,
+        "cursor_wrap_rate": 0.0
+      },
+      "elapsed_seconds": 1.5966991649474949
+    },
+    {
+      "block": 11,
+      "softmax": {
+        "fitted_rows": 4096,
+        "score_scale": 0.06974947482186433,
+        "output_scale": 0.007967676484336193,
+        "scale_candidates": 128,
+        "float_grid_mse": 1.2416746213848292e-05,
+        "lut_code_mse": 0.023489815848214284,
+        "final_shift": 15,
+        "preserved": "EXP and reciprocal address mappings",
+        "probability_bits": 3,
+        "reciprocal_bits": 8
+      },
+      "aq": {
+        "fitted_codes": 9633792,
+        "target": "FP64 softmax(same integer QK score) times same V, quantized to frozen S3 A scale",
+        "mismatch_rate": 0.15001548715189206,
+        "cursor_wrap_rate": 0.0
+      },
+      "elapsed_seconds": 1.7214278881438076
+    }
+  ],
+  "changes": {
+    "changed_bytes": 2153,
+    "unauthorized_byte_changes": 0,
+    "permitted_block_byte_interval": [
+      78360,
+      78688
+    ],
+    "preserved": "all six W3 matrices/biases, LN1/LN2, GELU, both residuals, padding; Patch/Head ROM"
+  },
+  "labels_used": false
+}

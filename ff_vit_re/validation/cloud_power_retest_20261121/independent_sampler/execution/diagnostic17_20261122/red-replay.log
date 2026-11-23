@@ -1,0 +1,15 @@
+test_cross_profile_status_and_formal_binding_abort_before_results (test_analysis.AnalysisTests.test_cross_profile_status_and_formal_binding_abort_before_results) ... FAIL
+
+======================================================================
+FAIL: test_cross_profile_status_and_formal_binding_abort_before_results (test_analysis.AnalysisTests.test_cross_profile_status_and_formal_binding_abort_before_results)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_analysis.py", line 470, in test_cross_profile_status_and_formal_binding_abort_before_results
+    with self.assertRaises(analyze.AnalysisError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: AnalysisError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 0.086s
+
+FAILED (failures=1)

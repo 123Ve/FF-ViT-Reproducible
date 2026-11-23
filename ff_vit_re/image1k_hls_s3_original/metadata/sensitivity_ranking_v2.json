@@ -1,0 +1,33 @@
+{
+  "basis": "corrected whole-block Top-1 descending on formal 50k",
+  "low_sensitivity_order": [
+    11,
+    10,
+    9,
+    8,
+    7,
+    4,
+    3,
+    5,
+    1,
+    2,
+    0,
+    6
+  ],
+  "schema_version": 2,
+  "v2_identity": {
+    "base_identity": {
+      "checkpoint_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+      "config_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+      "data_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b",
+      "sample_count": 50000,
+      "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31"
+    },
+    "schema_version": 2,
+    "semantic_revision": "attention_residual_before_ln2_and_mlp_skip.v2",
+    "source_sha256": {
+      "src/quant.py": "ce973cfd6b8534f9de38e5ea4fdcc1e39c0c5a19b9a1f748d1ad8a8cf4edb3b1",
+      "src/sensitivity.py": "e1f1427edd5c8e90cbef7833ae1b1c876d47d43843aba52abde52772060ce8e1"
+    }
+  }
+}

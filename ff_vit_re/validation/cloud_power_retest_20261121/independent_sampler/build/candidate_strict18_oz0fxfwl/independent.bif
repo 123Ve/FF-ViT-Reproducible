@@ -1,0 +1,8 @@
+the_ROM_image:
+{
+  [bootloader] /home/user/Desktop/ff_vit_re/Cloud_test/e07/vendor/e07_base/fsbl.elf
+  [pmufw_image] /home/user/Desktop/ff_vit_re/Cloud_test/e07/vendor/e07_base/pmufw.elf
+  [destination_device=pl] /home/user/Desktop/ff_vit_re/Cloud_test/e07/vendor/e07_base/design_1_wrapper.bit
+  [destination_cpu=a53-0, exception_level=el-3] /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/service.elf
+  [destination_cpu=a53-1, exception_level=el-3] /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_strict18_oz0fxfwl/sampler.elf
+}

@@ -1,0 +1,9 @@
+{
+  "target": "/home/user/Desktop/FF_Vit/论文修改 (1)_E07_待RTL补测.docx",
+  "copy": "/home/user/Desktop/FF_Vit/论文修改 (1)_E07_功耗与RTL完整修订_20261008.docx",
+  "backup": "/home/user/Desktop/FF_Vit/论文修改 (1)_E07_待RTL补测_补功耗前备份_20261008.docx",
+  "before_sha256": "cca8faa6bda88557a96839c255ea87b77ef3ddda9ee6a80cc26964e042fdca25",
+  "after_sha256": "4fd561fe27bc7c24f54ebc5045ddf55f5234671cf1f8e8b66cc9e7939f9a6771",
+  "backup_sha256": "cca8faa6bda88557a96839c255ea87b77ef3ddda9ee6a80cc26964e042fdca25",
+  "only_changed_zip_member": "word/document.xml"
+}

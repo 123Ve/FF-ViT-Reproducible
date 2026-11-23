@@ -1,0 +1,35 @@
+test_diagnostic_framing_status_and_wrong_boot (test_host.HostTests.test_diagnostic_framing_status_and_wrong_boot) ... ERROR
+test_cross_profile_card_receipt_is_refused (test_host.HostTests.test_cross_profile_card_receipt_is_refused) ... ERROR
+test_diagnostic_hand_fixture_exclusion_and_scope (test_analysis.AnalysisTests.test_diagnostic_hand_fixture_exclusion_and_scope) ... ERROR
+
+======================================================================
+ERROR: test_diagnostic_framing_status_and_wrong_boot (test_host.HostTests.test_diagnostic_framing_status_and_wrong_boot)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_host.py", line 124, in test_diagnostic_framing_status_and_wrong_boot
+    c=wire.Client(sock,identity)
+  File "/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/host/wire.py", line 94, in __init__
+    raise ProtocolError('wrong/legacy firmware greeting or manifest identity')
+host.wire.ProtocolError: wrong/legacy firmware greeting or manifest identity
+
+======================================================================
+ERROR: test_cross_profile_card_receipt_is_refused (test_host.HostTests.test_cross_profile_card_receipt_is_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_host.py", line 138, in test_cross_profile_card_receipt_is_refused
+    collect.verify_sd(ROOT,ROOT/'SD_CARD',destination,'diagnostic17')
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: verify_sd() takes 3 positional arguments but 4 were given
+
+======================================================================
+ERROR: test_diagnostic_hand_fixture_exclusion_and_scope (test_analysis.AnalysisTests.test_diagnostic_hand_fixture_exclusion_and_scope)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_analysis.py", line 191, in test_diagnostic_hand_fixture_exclusion_and_scope
+    result=analyze.analyze_phase(f.directory,True,profile='diagnostic17')
+TypeError: analyze_phase() got an unexpected keyword argument 'profile'
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.007s
+
+FAILED (errors=3)

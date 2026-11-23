@@ -1,0 +1,9 @@
+{
+  "updated_utc": "2026-10-10T15:05:33Z",
+  "driver_pid": 2283841,
+  "status": "COMPLETE_SOFTWARE_EXPERIMENT",
+  "archive": "/home/user/Desktop/ff_vit_re/validation/e07_u3_progressive_qat_20261010/e07_u3_progressive_qat_evidence.zip",
+  "HLS": "NOT_MEASURED",
+  "RTL": "NOT_MEASURED",
+  "FPGA": "NOT_MEASURED"
+}

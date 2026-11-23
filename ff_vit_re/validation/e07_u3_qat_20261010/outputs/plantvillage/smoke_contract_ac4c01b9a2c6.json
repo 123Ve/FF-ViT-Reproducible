@@ -1,0 +1,50 @@
+{
+  "sources": {
+    "/home/user/Desktop/ff_vit_re/quantization_final/checkpoints/stage4j_attention_qat/best_attention_qat.pth": "87590f2548dc8045805710f5783c85b6b08bb16020edb3600392fe42a69661fa",
+    "/home/user/Desktop/ff_vit_re/quantization_final/deployment/weights.bin": "07063ceedeac0bab1dc82eba354e70c26c1f638ba8a4f33b07765dd981a7b9a3",
+    "/home/user/Desktop/ff_vit_re/quantization_final/deployment/fixed_patch_head_rom.h": "d92bf33e863b28eb7e7650d8d1809bd3dcc1328b2a40fdd26b90746b241f853f",
+    "/home/user/Desktop/ff_vit_re/validation/e07_u3_qat_20261010/train.py": "7593670c5dffbdf1b67fa19492beff6a6242e3cff1d3544cbe8e99e613947545",
+    "/home/user/Desktop/ff_vit_re/validation/e07_u3_qat_20261010/runtime.py": "e7a535b6e0cf440cebe3af16836cf55c9def369700b598055b96bf7a29361925",
+    "/home/user/Desktop/ff_vit_re/image1k_hls_s3_original/src/exact.py": "0db3f95903ba72ebff90c18bf74c85b10994de259eaa79453d2b22f39fd5c02a",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src/block0.cpp": "ae9aba847cb8fdffdba289915acd5bc3347a6fd5e9426679e708fbd6cf88a06a",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src/fused_flash_attn.h": "8f0d451389d87350260cf662f727cce050917f4a80d2d6963f6a9fc74daeef5b",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src/layernorm.h": "6f12ab6fbad2419b1bf15069b3f0fd825b3de40f24e6272431db469437385791",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src/quant.h": "4ee96011f992d8d7ccf1636c749d2bd540bc14e7945cf5c337eed42530cb935f",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src/mlp.h": "7d245d36b92b6aedf8f60523cf55c8e4db3b76a260dbf9fe4bd7a92bcb36b14e",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src/matmul.h": "71697a79fe79dc0fe202e4226c33e093a8fbcbd146ca6547657d68845e96064f"
+  },
+  "E07": "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src",
+  "head": {
+    "sum": "U15",
+    "mean_product": "U30",
+    "mean": "U7",
+    "variance": "U24",
+    "cursor": "U6",
+    "rsqrt": "U11",
+    "affine": "S36",
+    "shift": "S9",
+    "output": "S8",
+    "weight": "S8",
+    "MAC": "S19"
+  },
+  "encoder": {
+    "weight": "S3",
+    "LN_Q_K_V_AQ": "S3",
+    "softmax": "U3",
+    "GELU": "U3",
+    "Q_MAC": "S12",
+    "K_V_M1_A_MAC": "S11",
+    "O_M2_FM": "S13",
+    "attention_residual": "S15",
+    "LN_variance": "S36",
+    "LN_affine": "S40"
+  },
+  "signed_head_fix": false,
+  "post_MAC_requant_added": false,
+  "states": {
+    "software": "PENDING",
+    "HLS_full_C_sim": "NOT_MEASURED",
+    "RTL_cosim": "NOT_MEASURED",
+    "FPGA": "NOT_MEASURED"
+  }
+}

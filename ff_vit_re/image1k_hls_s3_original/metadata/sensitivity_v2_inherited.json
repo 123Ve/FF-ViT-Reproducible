@@ -1,0 +1,41 @@
+{
+  "base_identity": {
+    "checkpoint_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+    "config_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+    "data_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b",
+    "sample_count": 50000,
+    "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31"
+  },
+  "inheritance": "byte-identical v1 shards whose masks exclude attention_residual",
+  "schema_version": 2,
+  "shards": {
+    "baseline": "0b20d11df308cf49c2595882baa4b3603273eded6e092be18c3c333646f2f353",
+    "group-all-a3": "7389fdc39f8e46a39744834f9a49bf58ffe7ef9527e1d1caf45368f6ccde31e3",
+    "group-attention-all": "bc8baef65f2ea5201465420a989640882234ca5f967fe056a8b35692266016d3",
+    "group-mlp-all": "8531262cd09e773d66bafb6e47aca1241e531f32ab8570005f4fb4f0cd3c74bf",
+    "group-qkv": "ab183728e1ef40ea307980944496c04c12eed9ab9a83879196a4a100f6774470",
+    "layer-00-mlp": "e513831052bab47735d298f72db90b8b3a7bdec8577cdcdfa5d344e1302b1727",
+    "layer-01-mlp": "7dc95ca4f2725c9f066dcee3e4ef973e2203c2f1f791c3a46daa5f69f57567c3",
+    "layer-02-mlp": "eeacabea59942657a62976c7886fc0bf0df0de674cfe79ec900708d8fa77209e",
+    "layer-03-mlp": "d678fe647fd68dbf65c5b90f76071655df3e47cb603e4f36847b8632d8e6f3c0",
+    "layer-04-mlp": "997751d522816d6273d42a9e200ec3cb47ac67c7055905708cf9e9d56b919000",
+    "layer-05-mlp": "bf1b037f91b8f38370342b8802a360fb561babf73575a91f0e269d99dd4eedaf",
+    "layer-06-mlp": "b65ecb28dd444e40aaa66b8337820a6ff47b9645bf0558a5b5845408a2643acf",
+    "layer-07-mlp": "651c12d352df557d58749237cfa839567b74eb11e2d437f351802346d0982d83",
+    "layer-08-mlp": "fd23ea74b00cffa987ce7c5ea3fc7ed1f478a96f11361f6c7f9250d16c49a6aa",
+    "layer-09-mlp": "fb93f6ecb288a62421fed6f7619854a80aa9eeb6d0c56a3926ab22a694e54711",
+    "layer-10-mlp": "f5f9b6b9ae6cb9f02a85863a5e7c3e2251ec794d95635b880bbb4e6b877fc707",
+    "layer-11-mlp": "bcb6289ee600f0c429e5e0516b1350db2d23d0b5bc3ee11fd86eefb147cc8954",
+    "operator-a": "b55fd4173ebce8e238685b7efdd1df71c1771ea9e3ca2741a60b3d554d3b96b7",
+    "operator-fc1_weight": "a37c9af0a013eccfa845331b3247a4ddf218d267c1a5542d3177190055605f26",
+    "operator-fc2_weight": "eb5547e69c73ea7c9309d48e1528eea7da89b614b4593a2084b2ec67171c088d",
+    "operator-gelu": "4e32dfec18cacf08cf4eb843f7bd243ffe114991dd735727af3d28ec87d937d0",
+    "operator-k": "a825113b0507532838f03a43908aef0dfcd6d5204cfa19229df17b96f3ee17b2",
+    "operator-ln1": "2c471c8bcd786343658688c51302e046b320e48986da5f6074d178f3be1994fa",
+    "operator-ln2": "df99161815c48c94e44f2b51720f6a15b76bd90a7803541774c2b64cbc60d33b",
+    "operator-mlp_residual": "a578edee0f85570a3a0e3b7fa376b55af35ab2216c8b68d87731af26a35ced2f",
+    "operator-q": "6b924dc9bbb762d4a1809a9ec8e7fb1d46489d526ae4d6531d156fe224a1d1c4",
+    "operator-softmax": "800cc776ac361e735a9907e90a4e032fe311d9b9603fea259d562b22f80a948a",
+    "operator-v": "8981a8c0dcbe991a5fdfde64544496cb13036ee480fedd869a48fb8fcd9a704b"
+  }
+}

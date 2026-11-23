@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FF-ViT IoT Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="masthead">
+    <div>
+      <p class="eyebrow">ZCU102 · Physical evidence console</p>
+      <h1>FF-ViT IoT Dashboard</h1>
+      <p class="subtitle">Board connectivity, inference, cloud uploads and INA226 / SysMon monitoring</p>
+    </div>
+    <div class="status-cluster" aria-live="polite">
+      <span id="collector-badge" class="badge badge-waiting">WAITING</span>
+      <span id="phase-badge" class="badge badge-phase">NO EVIDENCE</span>
+      <span id="stale-badge" class="badge badge-error is-hidden">STALE</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="identity-panel panel" aria-labelledby="identity-heading">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Evidence identity</p>
+          <h2 id="identity-heading">Board and model</h2>
+        </div>
+        <p id="latest-update" class="timestamp">No collected evidence</p>
+      </div>
+      <dl class="identity-grid">
+        <div><dt>Model</dt><dd id="model">—</dd></div>
+        <div><dt>Board endpoint</dt><dd id="endpoint">—</dd></div>
+        <div><dt>Firmware SHA-256</dt><dd id="firmware" class="digest">—</dd></div>
+        <div><dt>Session</dt><dd id="session-id" class="digest">—</dd></div>
+      </dl>
+      <div>
+        <h3>Artifact identities</h3>
+        <dl id="artifacts" class="artifact-list"><div><dt>Status</dt><dd>No session</dd></div></dl>
+      </div>
+    </section>
+
+    <section class="metrics-grid" aria-label="Latest metrics">
+      <article class="metric-card"><p id="sample-label">Inference count</p><strong id="sample-count">—</strong><small>completed evidence</small></article>
+      <article class="metric-card"><p id="latency-label">Mean board latency</p><strong id="latency">—</strong><small id="latency-unit">PS timer ticks; DMA + PL</small></article>
+      <article class="metric-card"><p>Cloud result throughput</p><strong id="fps">—</strong><small>host arrival FPS; includes evidence recording</small></article>
+      <article class="metric-card"><p>Uplink reduction / frame</p><strong id="reduction">—</strong><small>mean full vs compact application bytes/frame</small></article>
+      <article class="metric-card"><p>Monitored power</p><strong id="power">—</strong><small>sum of valid INA226 rails</small></article>
+      <article class="metric-card"><p>Monitored energy</p><strong id="energy">—</strong><small>valid adjacent samples only</small></article>
+      <article class="metric-card"><p>Temperature</p><strong id="temperature">—</strong><small>SysMon on-chip</small></article>
+    </section>
+
+    <section class="panel transfer-panel" aria-labelledby="transfer-heading">
+      <div class="section-heading"><div><p class="section-kicker">Application protocol</p><h2 id="transfer-heading">Received bytes</h2></div></div>
+      <dl class="transfer-grid">
+        <div><dt>Full payload</dt><dd id="full-bytes">—</dd></div>
+        <div><dt>Compact result</dt><dd id="compact-bytes">—</dd></div>
+        <div><dt>Completed frames</dt><dd id="completed-frames">—</dd></div>
+      </dl>
+    </section>
+
+    <section class="charts-grid" aria-label="Time-series charts">
+      <article class="chart-card"><h2>Latency / throughput</h2><div id="latency-chart" class="chart" role="img" aria-label="Latency and throughput time series"></div></article>
+      <article class="chart-card"><h2>Response traffic / reduction</h2><div id="bytes-chart" class="chart" role="img" aria-label="Application response traffic time series"></div></article>
+      <article class="chart-card"><h2>Power / energy</h2><div id="power-chart" class="chart" role="img" aria-label="Monitored power and energy time series"></div></article>
+      <article class="chart-card"><h2>Temperature</h2><div id="temperature-chart" class="chart" role="img" aria-label="Temperature time series"></div></article>
+    </section>
+
+    <section class="panel" aria-labelledby="measurements-heading">
+      <div class="section-heading"><div><p class="section-kicker">Sustained cloud ingress</p>
+        <h2 id="measurements-heading">Full upload vs compact inference result</h2></div>
+        <span id="measurement-status" class="badge badge-phase">NOT RUN</span></div>
+      <p id="measurement-source">No timed measurement evidence</p>
+      <div style="overflow-x:auto"><table id="measurement-table" style="width:100%;text-align:left">
+        <thead><tr><th>Trial</th><th>Streams</th><th>Load</th><th>Target FPS/stream</th><th>Mode</th><th>Received / sent</th><th>Bytes/frame</th>
+          <th>Response bytes</th><th>Input payload Mbps</th><th>Response Mbps</th><th>FPS</th><th>P95 response (ms)</th><th>Missing</th><th>Byte saving</th></tr></thead>
+        <tbody id="measurement-rows"></tbody>
+      </table></div>
+      <p id="measurement-limits" class="timestamp">Socket bytes exclude network headers and TCP retransmissions.</p>
+    </section>
+
+    <section class="panel" aria-labelledby="errors-heading">
+      <div class="section-heading"><div><p class="section-kicker">Diagnostics</p><h2 id="errors-heading">Recent errors</h2></div><span id="error-count" class="count">0</span></div>
+      <ul id="errors" class="error-list"><li>No errors</li></ul>
+    </section>
+
+    <p id="poll-message" class="poll-message" role="status" aria-live="polite">Waiting for a board session…</p>
+  </main>
+
+  <script src="{{ url_for('static', filename='plotly.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+{
+  "schema": "fvit-e07-v25-offline-verification-v1",
+  "release": "V2.5",
+  "date_local": "2026-10-07",
+  "offline_status": "PASS",
+  "physical_status": "NOT_RUN",
+  "qualification": "Offline-verified bounded GEM recovery candidate. The observed physical descriptor state and physical recovery are not yet verified.",
+  "trigger_evidence": {
+    "origin": "User-provided V2.4 Quick collector and serial logs, request 784",
+    "previous_firmware": "e52bbc9222dcb3eafc4c00c8cca8cb03c01971fd7e3de03da4f4d10c08ab2de0",
+    "previous_physical_result": "FAIL: saturation Full timed out with 77 response bytes missing",
+    "observed_state": "offset=602112 total=602112 unsent=0 unacked=77 ref=2 nrtx=0 rtime=4..116 tcp_ticks=67..179 wnd=cwnd=65535",
+    "confirmed_software_mechanism": "Shipped lwIP tcp_rexmit_rto_prepare rejects unacked segments whose first pbuf ref is not 1. This prevents RTO progress despite advancing timers.",
+    "unknown": "No physical GEM BD/register snapshot exists for that V2.4 stall. Missing TX start versus completed-but-unreclaimed ownership remains unresolved."
+  },
+  "changes": [
+    "Every 100ms, native foreground network poll services the GEM TX ring before the TCP timer.",
+    "Use the vendor completion reclaimer under SYS_ARCH saved/restored IRQ protection; never force pbuf refs or descriptor ownership.",
+    "For remaining head USED=0, TXEN=1 and TXGO=0, issue dsb then STARTTX without resetting TXEN, queue base, descriptors or TCP.",
+    "Rate-limited GEM_TX_RECOVERY reports pre-recovery HW/free counts, descriptor status, TXSR/NWCTRL and kick decision outside the critical section.",
+    "Vitis explicitly compiles the new source. Collector and Windows freeze select the matching V2.5 manifest.",
+    "Retain ACK drain, monotonic TCP timers, 32KiB receive window, batch payload verification, -O2, live GUI binding and removal of the unmeasured Top-1 card."
+  ],
+  "tests": {
+    "full_suite": {
+      "command": "python -m unittest discover -s Cloud_test/tests -v",
+      "tests_run": 160,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "elapsed_s": 22.839,
+      "log": "e07_v25_regression.log",
+      "log_sha256": "da97a9ca3d8bc71820c9a3409d7801766a593e6e940f7a321b22a7388c7a4c0f"
+    },
+    "tail_suite": {
+      "command": "python -m unittest Cloud_test.tests.test_e07_tail_recovery -v",
+      "tests_run": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "elapsed_s": 5.896,
+      "log": "e07_v25_tail.log",
+      "log_sha256": "18916c3c21f5c08ccf135eb99d07d430d093635a29eaae1b5f20917194876fd5"
+    },
+    "held_dma_reference": {
+      "command": "python -m unittest Cloud_test.tests.test_e07_gem_recovery -v",
+      "unittest_methods": 1,
+      "cases": 12,
+      "matrix": "-O0/-O2 x 77/555/1044-byte tail x stopped-DMA/completed-unreaped",
+      "tcp_implementation": "Shipped lwIP 2.2.0 core, real pbuf refs, tcp_tmr, tcp_write, tcp_output and RTO logic",
+      "fault": "Hardware boundary retains an extra pbuf reference after output returns ERR_OK; timers advance but RTO remains blocked at ref=2.",
+      "assertions": [
+        "nrtx=0 and tcp_rexmit_rto_prepare=ERR_VAL while the reference is held",
+        "No forced reference release for in-flight DMA, no kick while TXGO is active or TXEN is disabled",
+        "Completed descriptors release the modeled driver reference; pending idle work receives a guarded STARTTX",
+        "Payload bytes match, ref returns to 1, real TCP RTO then retransmits successfully",
+        "IRQ state is restored, empty/wrong-adapter/null paths are safe, tight polls do not exceed the cadence",
+        "Recovery serial diagnostic renders the descriptor snapshot and kick decision"
+      ],
+      "red_green": "With an inert recovery function, the same harness failed at the missing-kick and unreleased-reference assertions. With production recovery, all 12 cases pass.",
+      "result": "PASS",
+      "log": "e07_v25_gem.log",
+      "log_sha256": "afd1618f100cc5cd9083ff6622c49e17f84bb4740d2fb79e7a43f9f1663b1b41",
+      "limits": "GEM MMIO, IRQ state, descriptor completion and vendor reclaimer boundary are modeled. Physical DMA and the vendor reclaimer are not executed on a board in this regression; multi-descriptor chains and ring wrap are not modeled."
+    },
+    "retained_regressions": "PASS: real-lwIP 100-frame temporary-tail-pressure integration at -O0/-O2, lost1044-byte RTO recovery, fake-boundary ACK drain/sequence wrap, live GUI headless browser, unmeasured accuracy DOM removal, current release packaging/identity binding.",
+    "review": "Independent read-only source review: no Critical/Important issues; confirmed actual BSP IRQ save/restore and vendor completion semantics. Minor limitation: modeled reclaimer uses one descriptor."
+  },
+  "build": {
+    "status": "PASS",
+    "tools": "Vitis 2025.1 and Bootgen 2025.1",
+    "profile": {"tcp_wnd": 32768, "batch_verify": 1, "ps_optimization": "-O2"},
+    "firmware_advertised_sha256": "81b8ae128824273298a970e01f4418ce477088f0eec5423c6cf0c6ba735f7b03",
+    "elf_bytes": 1589520,
+    "elf_sha256": "0d277c9045c63fb9fb9cad37bcfe03701bb1725fd5c5b960867f46ecdb795a9b",
+    "boot_bytes": 27063008,
+    "boot_sha256": "260baade4c86d740feceabbf45507efa7b26f1b22a28154d86542777b54657a4",
+    "identity_checks": "Canonical/source/ELF/BOOT checks pass through release-input/package validation. AArch64 disassembly confirms e06_network_poll calls e07_gem_tx_poll before platform_poll_network_timer.",
+    "log": "e07_v25_build_FINAL.log",
+    "log_sha256": "4f2349b390e72418d5d7b1ab349b30828ee42b0079412df16050c6c673a8614a",
+    "warnings": "Vendor BSP/FSBL compiler warnings are retained in the log; no warning-free BSP claim."
+  },
+  "preservation": {
+    "unchanged_inputs": ["PL bitstream", "XSA", "weights.bin", "input.bin", "output.bin"],
+    "v24_boot_sha256": "8aaecab750fccfda4b4e7b1d6e13f9b1f4db71e10c50e5b5e8b7cad689a41c52",
+    "v24_zip_sha256": "a7d30400c23281e9743cc47f5bc3640929d8ae04d5fe1d953fd0e59a6f4c43cc",
+    "v22_boot_sha256": "d118ca5f5f31a628912bcec6f81685118688f6a2d03f5cba5b63e349166e592c",
+    "v23_zip_sha256": "35dd36f9e9c7e1651087ac9af2a076a740335c9251c914886a28b6b2db7a7d90"
+  },
+  "unverified": [
+    "Physical GEM state during the observed 77-byte stall and physical effectiveness of STARTTX recovery.",
+    "New firmware Quick/Paper qualification, sustained maximum throughput, power and energy efficiency.",
+    "Native Windows PyInstaller executable build/run; source and build scripts supplied.",
+    "Dataset accuracy, real camera acquisition, WAN deployment and cloud model execution."
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "xsa": {
+    "source_path": "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/results/candidate05/board_release/e07_300mhz_wrapper.xsa",
+    "copied_path": "/home/user/Desktop/ff_vit_re/Cloud_test/e07/vendor/e07_base/e07_300mhz_wrapper.xsa",
+    "bytes": 9368171,
+    "sha256": "b46ed4b26f11340c9eb9fed1a55822f4a30c7f81627287e9c556a0a5416a5df1"
+  },
+  "bitstream": {
+    "source_path": "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/board_300mhz/deploy_power/design_1_wrapper.bit",
+    "copied_path": "/home/user/Desktop/ff_vit_re/Cloud_test/e07/vendor/e07_base/design_1_wrapper.bit",
+    "bytes": 26510953,
+    "sha256": "2fedb6d70a0916fc9aebfdf3141008690685c0dbd1b5bab0ae58821564ef1037"
+  },
+  "fsbl": {
+    "source_path": "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/board_300mhz/deploy_power/fsbl.elf",
+    "copied_path": "/home/user/Desktop/ff_vit_re/Cloud_test/e07/vendor/e07_base/fsbl.elf",
+    "bytes": 675568,
+    "sha256": "bf9ec44a54ba9b0433b9dcef754055b349437921d37b5dcbd28dcaecc7f88c40"
+  },
+  "pmufw": {
+    "source_path": "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/board_300mhz/deploy_power/pmufw.elf",
+    "copied_path": "/home/user/Desktop/ff_vit_re/Cloud_test/e07/vendor/e07_base/pmufw.elf",
+    "bytes": 907668,
+    "sha256": "daea9ebd9b30a3819abe6530c55ad8da697ae86952b0aee24a59b6485f2c1a08"
+  },
+  "weights": {
+    "source_path": "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/board_300mhz/deploy_power/weights.bin",
+    "copied_path": "/home/user/Desktop/ff_vit_re/Cloud_test/e07/vendor/e07_base/weights.bin",
+    "bytes": 2772096,
+    "sha256": "0fac7e4cd09ae8367e5c8dfd5cb469473780055feccf9569a8376419028e2cd7"
+  },
+  "input": {
+    "source_path": "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/board_300mhz/deploy_power/input.bin",
+    "copied_path": "/home/user/Desktop/ff_vit_re/Cloud_test/e07/vendor/e07_base/input.bin",
+    "bytes": 602112,
+    "sha256": "f7fa33c31113271173effc4fb684c432378b85c2f15a6681aa682aacf2ba3a2c"
+  },
+  "output": {
+    "source_path": "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/board_300mhz/deploy_power/output.bin",
+    "copied_path": "/home/user/Desktop/ff_vit_re/Cloud_test/e07/vendor/e07_base/output.bin",
+    "bytes": 4000,
+    "sha256": "f2da31d910ab48a49c5a803f836478e2b54e0cd9fdd1081cc2eabc1d36afe842"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "build_directory": "/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/candidate_diagnostic16_dfoeinzg",
+  "firmware_sha256": "704806d25cb5ede70d7f9653ea82512117c5b8f463b04c7e519df13054893887",
+  "BOOT_sha256": "0257d5535a2fc14952adab761149783fbeac2fc04391bdd6bb3a7a9c04f632c9",
+  "physical_status": "NOT_RUN"
+}

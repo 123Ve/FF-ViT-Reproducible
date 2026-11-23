@@ -1,0 +1,39 @@
+{
+  "service": {
+    "begin": 1048576,
+    "end": 12671168,
+    "segments": [
+      [
+        1048576,
+        1301312
+      ],
+      [
+        2097152,
+        12671168
+      ]
+    ],
+    "allowed": [
+      1048576,
+      536870912
+    ]
+  },
+  "sampler": {
+    "begin": 536870912,
+    "end": 536962304,
+    "segments": [
+      [
+        536870912,
+        536962304
+      ]
+    ],
+    "allowed": [
+      536870912,
+      553648128
+    ]
+  },
+  "shared": {
+    "begin": 805306368,
+    "end": 872415232,
+    "attributes": "normal noncacheable inner-shareable XN; 2MiB blocks"
+  }
+}

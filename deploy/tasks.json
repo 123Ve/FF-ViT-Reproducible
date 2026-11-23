@@ -1,0 +1,41 @@
+{
+  "plantvillage": {
+    "scope": "one S16 input + complete 1000-logit reference; not a full dataset",
+    "status": "TIMING_FAILED_EXPERIMENTAL",
+    "data_type": "input int16 little-endian, output int32 containing signed S19 codes",
+    "weights_bytes": 2772096,
+    "files": {
+      "deploy/plantvillage/weights.bin": "0e586b3ddd944720b1ff45ca950f8d0a9ee7cb54caa0b16c2e4d224802d4da98",
+      "deploy/plantvillage/input.bin": "4c5a48a4597ec983e1e217ba998ab3ef414d62a95184f1ff46047e35f37fabe3",
+      "deploy/plantvillage/output.bin": "25795c96c38c5cfe365351ae52d1e1a9cff8bc15539ace605a82bafbe850c293",
+      "deploy/plantvillage/fixed_patch_head_rom.h": "d122c89d654de2703416ccd989bab211fb4be6623ef95218ff369a41c74202a6"
+    },
+    "input_layout": "DMA [98,768,2]"
+  },
+  "nwpu": {
+    "scope": "one S16 input + complete 1000-logit reference; not a full dataset",
+    "status": "timing-qualified existing U3 build; physical test not run here",
+    "data_type": "input int16 little-endian, output int32 containing signed S19 codes",
+    "weights_bytes": 2772096,
+    "files": {
+      "deploy/nwpu/weights.bin": "8e14829a3078ca2cc4178cf6f8be55a361a394a90ec0da581c5d5ff0193e346f",
+      "deploy/nwpu/input.bin": "31ad27548143719276ed6b03e27473e2588c881579c78b1fc11c43ba470540c5",
+      "deploy/nwpu/output.bin": "48e263e2b8b16f04c0d4f0eeb48e16584522a946ed43471f6aa18ff7ab3f7288",
+      "deploy/nwpu/fixed_patch_head_rom.h": "f2b9c5f2d8ed46cc6d289b4ce3bd163428c4f035c223295afda0e090a76f4cd5"
+    },
+    "input_layout": "DMA [98,768,2]"
+  },
+  "imagenet": {
+    "scope": "one S16 input + complete 1000-logit reference; not a full dataset",
+    "status": "exact integer/HLS fixture; no matching new board image asserted",
+    "data_type": "input int16 little-endian, output int32 containing signed S19 codes",
+    "weights_bytes": 2772096,
+    "files": {
+      "deploy/imagenet/weights.bin": "0be30ecdae94b0b6270af6e12b85ccedeb3f6610bfae7e2bfa41d4f95e4b9785",
+      "deploy/imagenet/input.bin": "5703c813728a953b36519cf4abacc8a534ea4c5aab5f2ccf0cd079f5492c6ada",
+      "deploy/imagenet/output.bin": "2c776a49b849ae71b9b7387ade2164dd9ee84620475db5799d36c78b7b170276",
+      "deploy/imagenet/fixed_patch_head_rom.h": "950041a3c4fcbbbd85f7396c419cc312d5bd5bcdfce151244cb2a2140112cc88"
+    },
+    "input_layout": "logical [196,768], reordered by HLS testbench to DMA [98,768,2]"
+  }
+}

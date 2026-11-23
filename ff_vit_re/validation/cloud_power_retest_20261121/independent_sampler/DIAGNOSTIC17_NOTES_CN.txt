@@ -1,0 +1,61 @@
+E07 双核 PS 测量镜像　2026-11-22
+
+strict18 默认积分全部18轨。diagnostic17 固定排除编号7（VCCOPS），结果名称为
+17-rail diagnostic。两套镜像均读取、配置和保存全部18轨，PL、模型与冻结数据相同。
+每次更换模式均需复制对应目录的全部5个文件、核对新收据、重新上电并完成匹配的实物验收。
+
+选用 strict18 时，复制 SD_CARD 中的文件到已备份的 SD 卡根目录。选用 diagnostic17 时，
+复制 SD_CARD_DIAG17 中的文件到卡根目录，包括该目录自己的 BOOT.BIN 和 FIRMWARE_IDENTITY.json。
+请在包外保存收据、controls.json、验收、正式结果和分析。下面假定已进入新解压目录，
+$ctl 和 $board 分别指向已填好实物条件的 controls.json 和板卡实际标签。先确认 E:\ 是目标卡。
+Formal 默认执行全部条件。仅测 Target120 时加 -Target120Only，默认每条件120秒、五轮。
+
+  $board = '实际板卡标签'
+  $ctl = 'D:\E07 results\controls.json'
+  python -B -S .\package.py --check-only
+  .\Run-PowerRetest.ps1 -CheckOnly
+  .\Run-PowerRetest.ps1 -PrepareSD -SDRoot E:\ -SDReceipt 'D:\E07 results\strict-card.json'
+  .\Run-PowerRetest.ps1 -Acceptance -SDReceipt 'D:\E07 results\strict-card.json' -Controls $ctl -BoardId $board -Output 'D:\E07 results\strict-accept'
+  .\Run-PowerRetest.ps1 -Formal -SDReceipt 'D:\E07 results\strict-card.json' -Controls $ctl -BoardId $board -AcceptanceSession 'D:\E07 results\strict-accept\session.json' -Output 'D:\E07 results\strict-formal'
+  .\Run-PowerRetest.ps1 -Analyze -Session 'D:\E07 results\strict-formal' -AcceptanceSession 'D:\E07 results\strict-accept\session.json' -Output 'D:\E07 results\strict-analysis'
+
+  .\Run-PowerRetest.ps1 -CheckOnly -Diagnostic17
+  .\Run-PowerRetest.ps1 -PrepareSD -Diagnostic17 -SDRoot E:\ -SDReceipt 'D:\E07 results\diag-card.json'
+  .\Run-PowerRetest.ps1 -Acceptance -Diagnostic17 -SDReceipt 'D:\E07 results\diag-card.json' -Controls $ctl -BoardId $board -Output 'D:\E07 results\diag-accept'
+  .\Run-PowerRetest.ps1 -Formal -Diagnostic17 -SDReceipt 'D:\E07 results\diag-card.json' -Controls $ctl -BoardId $board -AcceptanceSession 'D:\E07 results\diag-accept\session.json' -Output 'D:\E07 results\diag-formal'
+  .\Run-PowerRetest.ps1 -Analyze -Diagnostic17 -Session 'D:\E07 results\diag-formal' -AcceptanceSession 'D:\E07 results\diag-accept\session.json' -Output 'D:\E07 results\diag-analysis'
+
+Python 等效参数为 --diagnostic17，可用于 host/collect.py 或 host/analyze.py。先启动采集器，
+待出现 Listening 后再给装有对应卡的板上电。功耗条件、网络和回传目录详见下文。
+如需保存终端输出，可在包外用 Start-Transcript -Path 'D:\E07 results\run1.txt' 记录，
+运行结束用 Stop-Transcript 停止记录。返回完整验收、正式目录、收据、控制文件和终端日志。
+
+Rail7 在两种模式下均保留原始 shunt/current/Power、CVRF、时戳、flags。诊断模式中，
+该轨已观察到及时的真实转换，且唯一异常为 NEGATIVE（256或258）时，累计
+excluded_negative_samples。该次记录的 power_uW 为 INT64_MIN，VALID 位为0。
+Rail7 的正值同样不积分。原始数据在 exports/rails-*.bin、rails-records.json，
+逐条对应的 Rail7 副本在 exports/rail7-records.json。Rail7 的 I2C、溢出、饱和、时钟、
+过期、缺测及组合错误，或其余17轨的任何错误，仍会阻止有效结果。没有设置噪声阈值。
+两个镜像均要求18轨完成配置和及时的首次转换观察；诊断模式要求 included_mask=262015
+覆盖的17轨取得合格功率。每一轨的后续 CVRF 新鲜度与真实数据覆盖继续验证。
+
+报告中的 measurement_profile、scope、included_mask、included_count、excluded_rails
+标明计量范围。诊断模式能量取17轨同一板端窗口积分之和，P17mean_W=E/T，
+实际 FPS=N_ok/T，mJ/完成帧=1000E/N_ok。Idle 或零完成帧时该项为空。
+Rail7 的积分能量、均值、每帧能量均为空。诊断指标仅描述这17轨，不能代表完整18轨或外部输入功率。
+
+r7 分析前逐条核对 session.json 中的阶段摘要与所选计量模式，COMPLETE 会话的摘要数必须等于计划阶段数。
+缺少或多出摘要均拒绝；未完成会话仍支持部分诊断。r7 仅运行该项定向回归，结果见 r7-green.log。
+包内 full-suite.log 的 111 项完整测试对应 r5。
+
+校验更新（r5）：验收授权与离线分析共用完整阶段复核，重验板端时钟、全部输出/错误事件、
+主机已验证响应和 ACK 完成数。诊断 Rail7 的累计告警从预热、ARM 前、ARM 回执至冻结结束必须单调；
+ARM 前到结束的增量至少涵盖导出的负值告警行，可包含额外未导出的扫描。嵌套的档位/身份冲突会中止分析。
+阶段或会话门失败时，逐轨有效性为 false，完整能量、平均功率和每帧能耗为空；partial_energy_J
+及覆盖率用于故障复核。两种时钟分别报告：dropped_frames 按独立主机半开窗口内产生、最终被淘汰的帧计数；
+missed_slots 按同一主机窗口内的计划时刻计数。whole_run_evicted_frames 与 whole_run_missed_slots
+保留含预热/排空的全程计数。未建立主机与板卡时钟映射，board_window_dropped_frames 为空。
+
+实物 ZCU102、Windows PowerShell、实际 SD 卡、本次两套镜像实物验收及正式 Target120 均为 NOT_RUN。
+离线夹具中的数值只验证计算；历史失败记录保持原判定。两个独立构建的依赖分别见
+BUILD_DEPENDENCIES.json 和 BUILD_DEPENDENCIES_DIAG17.json。DIAGNOSTIC17.diff 以 r2 ZIP 源码为基线。

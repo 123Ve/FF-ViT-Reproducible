@@ -1,0 +1,61 @@
+{
+  "sources": {
+    "/home/user/Desktop/ff_vit_re/quantization_final/checkpoints/stage4j_attention_qat/best_attention_qat.pth": "87590f2548dc8045805710f5783c85b6b08bb16020edb3600392fe42a69661fa",
+    "/home/user/Desktop/ff_vit_re/quantization_final/deployment/weights.bin": "07063ceedeac0bab1dc82eba354e70c26c1f638ba8a4f33b07765dd981a7b9a3",
+    "/home/user/Desktop/ff_vit_re/quantization_final/deployment/fixed_patch_head_rom.h": "d92bf33e863b28eb7e7650d8d1809bd3dcc1328b2a40fdd26b90746b241f853f",
+    "/home/user/Desktop/ff_vit_re/validation/e07_u3_qat_20261010/train.py": "2da0b6c9b56e7a820250437c235fd4a5859331575e2c5f4e3288eb5d0e920a2a",
+    "/home/user/Desktop/ff_vit_re/validation/e07_u3_qat_20261010/runtime.py": "e7a535b6e0cf440cebe3af16836cf55c9def369700b598055b96bf7a29361925",
+    "/home/user/Desktop/ff_vit_re/validation/e07_u3_qat_20261010/finalize.py": "c76f6ca9c3663fedf1528fa1137cb1c22e3ef71e070a563c4703d77b07c14072",
+    "/home/user/Desktop/ff_vit_re/image1k_hls_s3_original/src/exact.py": "0db3f95903ba72ebff90c18bf74c85b10994de259eaa79453d2b22f39fd5c02a",
+    "/home/user/Desktop/ff_vit_re/validation/softmax_u3_hls_20261010/u3_validation.py": "e43c1233fc2fde7d5489306851a0d252fa06e24cbbbc5042ef74dd43ac5d49fc",
+    "/home/user/Desktop/ff_vit_re/validation/softmax_u3_hls_20261010/run_experiment.py": "7590a498643b2f232568a85497d87b0f6ab755cb8dd2d9d399944472965944b0",
+    "/home/user/Desktop/ff_vit_re/validation/softmax_u3_hls_20261010/summarize.py": "8e210f592cdaf294894e77e322567c0ba124bfe0297e2f6966e24dc463751c01",
+    "/home/user/Desktop/ff_vit_re/validation/lut_float_accuracy_20261010/lut_accuracy.py": "eff87f133d9b4f3fa08934aec93e8393c337e77e00ab64839f12d4ee9a084cab",
+    "/home/user/Desktop/ff_vit_re/validation/ln_iotj_20261008/ln_numeric.py": "528364be9bc9ed145769009b89ddde6b62234d6722cf64e05d39d3a28d25ba78",
+    "/home/user/Desktop/ff_vit_re/quantization_final/calibration/calib_manifest.json": "a2ccb974b73e3c320584f2afcbb5a9b648691b48e0011f41104cc44eb717044f",
+    "/home/user/Desktop/ff_vit_re/quantization_final/reports/stage4f_exact_gelu/report.json": "5ba686afbb11c1be6cec3a6870f61ea3dd190a734201a4baacc1ea596b340eb4",
+    "/home/user/Desktop/ff_vit_re/quantization_final/reports/stage4l_exact_softmax_aq/report.json": "649754f8ec03018ebcfbe7ed23965c13472f008e2ef5c0929c7a5506c95de4af",
+    "/home/user/Desktop/ff_vit_re/quantization_final/reports/stage4o2_head_safe/report.json": "fe23df268cf3eaa976e0f9e6d46abd6c55a990614cf059c50b504b023f2ab298",
+    "/home/user/Desktop/ff_vit_re/validation/ln_iotj_20261008/outputs/final128/plantvillage/summary.json": "bc8bc79753f14034b7814f6c717db35ab1f42107655e680d3a4c97e976eaef64",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src/block0.cpp": "ae9aba847cb8fdffdba289915acd5bc3347a6fd5e9426679e708fbd6cf88a06a",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src/fused_flash_attn.h": "8f0d451389d87350260cf662f727cce050917f4a80d2d6963f6a9fc74daeef5b",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src/layernorm.h": "6f12ab6fbad2419b1bf15069b3f0fd825b3de40f24e6272431db469437385791",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src/quant.h": "4ee96011f992d8d7ccf1636c749d2bd540bc14e7945cf5c337eed42530cb935f",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src/mlp.h": "7d245d36b92b6aedf8f60523cf55c8e4db3b76a260dbf9fe4bd7a92bcb36b14e",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src/matmul.h": "71697a79fe79dc0fe202e4226c33e093a8fbcbd146ca6547657d68845e96064f"
+  },
+  "E07": "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src",
+  "head": {
+    "sum": "U15",
+    "mean_product": "U30",
+    "mean": "U7",
+    "variance": "U24",
+    "cursor": "U6",
+    "rsqrt": "U11",
+    "affine": "S36",
+    "shift": "S9",
+    "output": "S8",
+    "weight": "S8",
+    "MAC": "S19"
+  },
+  "encoder": {
+    "weight": "S3",
+    "LN_Q_K_V_AQ": "S3",
+    "softmax": "U3",
+    "GELU": "U3",
+    "Q_MAC": "S12",
+    "K_V_M1_A_MAC": "S11",
+    "O_M2_FM": "S13",
+    "attention_residual": "S15",
+    "LN_variance": "S36",
+    "LN_affine": "S40"
+  },
+  "signed_head_fix": false,
+  "post_MAC_requant_added": false,
+  "states": {
+    "software": "PENDING",
+    "HLS_full_C_sim": "NOT_MEASURED",
+    "RTL_cosim": "NOT_MEASURED",
+    "FPGA": "NOT_MEASURED"
+  }
+}

@@ -1,0 +1,293 @@
+--- /dev/null
++++ r9/CLOCK_HANDSHAKE_NOTES_CN.txt
+@@ -0,0 +1,24 @@
++r9 时钟握手修复
++
++用户r8真实日志：配置、adc_observed_mask、conversion_ready_mask均为262143；
++Core1心跳/扫描前进，I2C/无效/陈旧/溢出/采样超时/温度错误均0，included_negative为0。
++clock_checks在0、1、0之间，未达到3，因而5秒启动等待超时。这次不是负值锁存故障。
++
++源码两处时序问题：
++1.Core1每次循环改写同一个ping编号的ping_tick，使应答时间不是首次观察时间。
++2.Core0在读共享状态前采now，再用它比较读到的新应答；读取期间更新的真实时戳可能大于旧now。
++
++修复：Core1按ping_seq锁存首次实际观察时间，heartbeat继续独立前进；Core0从真实平台时钟
++在一致性状态读取完成后取得接收时刻，再检查 sent <= sampler <= received 和RTT<=250ms。
++三次连续有效握手、心跳、配置、温度、数据覆盖及其他传感器/推理故障规则均保留。
++新增的clock_rejections记录历史拒绝，last_clock三时刻和flags用于解释最后一次握手，
++不用于伪造通过。活动阶段的无效握手仍置故障。
++
++针对性原生C检查覆盖首次应答锁存、心跳继续、同一应答不重复计数、读取期间更新的合法应答、
++真正未来/发送前/超过250ms/接收时钟倒退的拒绝，以及strict18/diagnostic17/diagnostic16。
++实际PS固件使用既有Vitis2025.1和BSP重新构建，不重新综合PL，不改变模型/量化/数据。
++当前r9检查日志见execution/clock_handshake_20261122。其他full-suite日志为历史结果，不冒称本次全套回归。
++
++操作：复制本包SD_CARD_DIAG16全部5文件到实际SD根目录，重新生成r9收据，然后按原命令运行
++-Acceptance -Diagnostic16，输出到新目录acceptance_diag16_r9。保留r8失败目录。
++实物SD、Windows PowerShell、ZCU102 r9启动/验收/Target120正式测量尚未执行。
+--- r8/README_CN.txt
++++ r9/README_CN.txt
+@@ -1,4 +1,19 @@
+ E07 双核 PS 测量镜像　2026-11-22
++
++当前交付 r9：修复 r8 的 startup readiness deadline expired / clock_checks反复0、1。
++Core1固定同一ping编号的首次观察时戳，心跳独立更新；Core0在读完一致性快照后才记录接收时刻，
++避免把快照读取期间的真实应答误判为“未来”。仍须三次有效时钟握手，仍保留250ms时限、
++真实时钟倒退/应答早于发送/晚于接收的拒绝，不降低时钟标准。新增last_clock_sent、
++last_clock_sampler、last_clock_received、last_clock_flags、clock_rejections供故障解释。
++启动加载期间可能出现历史拒绝计数；就绪仍以之后三次有效握手及所有其他条件为准。
++
++本次继续用 SD_CARD_DIAG16 / -Diagnostic16。必须复制新镜像的全部5个文件，不能只换主机脚本。
++重新生成card_diag16_r9.json收据，并使用新的acceptance_diag16_r9结果目录，不覆盖r8失败日志。
++将下方示例中r8/旧输出目录换成r9即可；r8的16路负值采满、质量独立判断规则全部保留。
++三套PS固件重新编译，PL/模型/输入/权重不变。仅做本次针对性回归及必要构建/打包。
++CLOCK_HANDSHAKE_NOTES_CN.txt / CLOCK_HANDSHAKE.diff为本次说明和改动，实物r9验收尚未执行。
++
++----- r8采集模式与通用命令 -----
+ 
+ 当前版本 r8：先完整采集，再分别判断采集完整性和功率质量。
+ 推荐本次使用 16 路诊断：排除 Rail7(VCCOPS)、Rail15(VADJ_FMC)。复制
+--- r8/firmware/common/monitor.h
++++ r9/firmware/common/monitor.h
+@@ -121,6 +121,10 @@
+     uint32_t completed_continuous, clock_checks, heartbeat_advances, last_pong;
+     uint32_t start_logged, end_logged, pending_ack, pending_id, pending_mode, pending_end_seq;
+     uint64_t pending_begin, pending_end, continuous_begin, continuous_end;
++    /* Core0's platform clock is sampled after a coherent status read. */
++    uint64_t (*clock_ticks)(void);
++    uint64_t last_clock_sent,last_clock_sampler,last_clock_received;
++    uint32_t last_clock_flags,clock_rejections;
+ } m_service;
+ int m_configure(m_io *, unsigned, m_config_record *);
+ int m_sample(m_io *, unsigned, uint64_t, uint64_t *, m_rail_record *);
+--- r8/firmware/common/phase.c
++++ r9/firmware/common/phase.c
+@@ -92,7 +92,22 @@
+ int m_service_ready(const m_service *s,uint64_t now) {
+     m_status t;
+     if(!s->shared||!s->hz||s->shared->control.core!=0||m_status_read(s->shared,&t))return 0;
++    if(s->clock_ticks) {
++        uint64_t received=s->clock_ticks();
++        if(received<now)return 0;
++        now=received;
++    }
+     return ready_snapshot(s,t,now);
++}
++static void clock_observation(m_service *s,const m_status *t,uint64_t received,int valid) {
++    s->last_clock_sent=s->ping_sent;s->last_clock_sampler=t->ping_tick;
++    s->last_clock_received=received;s->last_clock_flags=valid?M_VALID:M_CLOCK_ERROR;
++    s->clock_checks=valid?s->clock_checks+1:0;
++    if(!valid)++s->clock_rejections;
++    m_event e={.type=M_EVENT_CLOCK,.flags=s->last_clock_flags,
++        .begin=s->ping_sent,.end=received,.tick=t->ping_tick,.aux=t->ping_seq};
++    m_event_add(s,e);
++    if(!valid)m_fail(s,M_FAULT_HANDSHAKE,0,received);
+ }
+ void m_service_poll(m_service *s,uint64_t now) {
+     m_status t;
+@@ -101,14 +116,19 @@
+         if(now-s->last_heartbeat>s->hz/4)m_fail(s,M_FAULT_HANDSHAKE,0,now);
+         return;
+     }
++    /* A sampler publication can occur between poll entry and status receipt.
++       Comparing it with the entry tick incorrectly calls a real reply "future". */
++    if(s->clock_ticks) {
++        uint64_t received=s->clock_ticks();
++        if(received<now) {clock_observation(s,&t,received,0);return;}
++        now=received;
++    }
+     if(t.core==1&&t.hz==s->hz&&t.epoch==s->epoch) {
+         if(t.heartbeat>s->last_heartbeat){++s->heartbeat_advances;s->last_heartbeat=t.heartbeat;}
+         if(t.ping_seq==s->shared->control.ping_seq&&t.ping_seq!=s->last_pong) {
+             int valid=t.ping_tick>=s->ping_sent&&t.ping_tick<=now&&now-s->ping_sent<=s->hz/4;
+-            s->clock_checks=valid?s->clock_checks+1:0;s->last_pong=t.ping_seq;
+-            m_event e={.type=M_EVENT_CLOCK,.flags=valid?M_VALID:M_CLOCK_ERROR,
+-                .begin=s->ping_sent,.end=now,.tick=t.ping_tick,.aux=t.ping_seq};m_event_add(s,e);
+-            if(!valid)m_fail(s,M_FAULT_HANDSHAKE,0,now);
++            s->last_pong=t.ping_seq;
++            clock_observation(s,&t,now,valid);
+         }
+     } else {s->clock_checks=0;s->heartbeat_advances=0;}
+     if(now-s->ping_sent>=s->hz/10 && s->last_pong==s->shared->control.ping_seq) {
+--- r8/firmware/sampler/sampler.c
++++ r9/firmware/sampler/sampler.c
+@@ -102,9 +102,13 @@
+         ++st->scan_count;s->next_scan=now+step;
+         if(s->io.ticks(s->io.ctx)>s->next_scan)++st->scan_overruns;
+     }
+-    st->ping_seq=__atomic_load_n(&c->ping_seq,__ATOMIC_ACQUIRE);
+-    st->ping_tick=s->io.ticks(s->io.ctx);
+-    st->heartbeat=st->ping_tick;
++    uint32_t ping=__atomic_load_n(&c->ping_seq,__ATOMIC_ACQUIRE);
++    uint64_t heartbeat=s->io.ticks(s->io.ctx);
++    if(ping!=st->ping_seq) {
++        st->ping_seq=ping;
++        st->ping_tick=heartbeat; /* First actual observation, fixed for this request. */
++    }
++    st->heartbeat=heartbeat; /* Liveness continues without rewriting the pong. */
+     if(st->heartbeat-s->published_tick>=st->hz/1000) {
+         m_status_publish(s->shared,st);s->published_tick=st->heartbeat;
+     }
+--- r8/firmware/service/e06_network.c
++++ r9/firmware/service/e06_network.c
+@@ -473,13 +473,14 @@
+ 
+ static err_t monitor_status(e06_connection_t *state,uint32_t id,uint8_t kind) {
+     m_status s={0};int snapshot=m_status_read(m_runtime.shared,&s)==0;
+-    char json[2300];uint64_t now=network_ticks();m_control *c=&m_runtime.shared->control;
++    char json[2600];uint64_t now=network_ticks();m_control *c=&m_runtime.shared->control;
+     int n=snprintf(json,sizeof(json),
+         "{" M_PROFILE_JSON "\"schema\":1,\"physical_status\":\"NOT_RUN\",\"ready\":%s,\"snapshot_valid\":%s,"
+         "\"phase_id\":%u,\"state\":%u,\"faults\":%u,\"sampler_faults\":%u,"
+         "\"service_core\":%u,\"sampler_core\":%u,\"epoch\":%llu,\"sampler_epoch\":%llu,"
+         "\"timer_hz\":%llu,\"sampler_hz\":%llu,\"now_ticks\":%llu,\"sampler_heartbeat\":%llu,"
+         "\"clock_checks\":%u,\"heartbeat_advances\":%u,\"configured_mask\":%u,\"configured_tick\":%llu,"
++        "\"clock_rejections\":%u,\"last_clock_flags\":%u,\"last_clock_sent\":%llu,\"last_clock_sampler\":%llu,\"last_clock_received\":%llu,"
+         "\"conversion_ready_mask\":%u,\"initializing_samples\":%u,\"observed_mask\":%u,\"excluded_negative_samples\":%u,\"sampler_profile_rails\":%u,"
+         "\"adc_observed_mask\":%u,\"power_qualified_mask\":%u,\"included_negative_samples\":%u,"
+         "\"mode\":%u,\"sampling_enabled\":%u,\"scan_ms\":%u,\"offset_ms\":%u,"
+@@ -495,6 +496,8 @@
+         (unsigned long long)c->epoch,(unsigned long long)s.epoch,
+         (unsigned long long)c->hz,(unsigned long long)s.hz,(unsigned long long)now,(unsigned long long)s.heartbeat,
+         m_runtime.clock_checks,m_runtime.heartbeat_advances,s.configured,(unsigned long long)s.configured_tick,
++        m_runtime.clock_rejections,m_runtime.last_clock_flags,(unsigned long long)m_runtime.last_clock_sent,
++        (unsigned long long)m_runtime.last_clock_sampler,(unsigned long long)m_runtime.last_clock_received,
+         s.conversion_ready,s.initializing_samples,s.observed_mask,s.excluded_negative_samples,s.profile_rails,
+         s.observed_mask,s.conversion_ready,s.included_negative_samples,
+         c->mode,c->enabled,c->scan_ms,c->offset_ms,(unsigned long long)m_runtime.t0,(unsigned long long)m_runtime.t1,
+--- r8/firmware/service/main.c
++++ r9/firmware/service/main.c
+@@ -8,6 +8,7 @@
+ int main(void){
+     m_map_shared();
+     m_service_init(&m_runtime,(m_shared *)(uintptr_t)M_SHARED_BASE,m_frequency(),m_core_id(),m_ticks());
++    m_runtime.clock_ticks=m_ticks;
+     init_platform();
+     xil_printf("E07_INDEPENDENT_POWER_V1 CANDIDATE physical_status=NOT_RUN\r\n");
+     xil_printf("FIRMWARE_SHA256=%s CORE=%u\r\n",E06_FIRMWARE_SHA256,m_core_id());
+--- r8/package.py
++++ r9/package.py
+@@ -92,7 +92,8 @@
+                  'REPAIR_NOTES_CN.txt','REPAIR.diff','DIAGNOSTIC17_NOTES_CN.txt','DIAGNOSTIC17.diff',
+                  'FIRMWARE_IDENTITY_DIAG17.json','SHA256SUMS_DIAG17.json',
+                  'FIRMWARE_IDENTITY_DIAG16.json','SHA256SUMS_DIAG16.json',
+-                 'RECORD_COMPLETE_NOTES_CN.txt','RECORD_COMPLETE.diff'):
++                 'RECORD_COMPLETE_NOTES_CN.txt','RECORD_COMPLETE.diff',
++                 'CLOCK_HANDSHAKE_NOTES_CN.txt','CLOCK_HANDSHAKE.diff'):
+         paths.add(root/name)
+     for directory in ('host','firmware','tests','SD_CARD','SD_CARD_DIAG17','SD_CARD_DIAG16'):
+         paths.update(p for p in (root/directory).rglob('*') if p.is_file() and '__pycache__' not in p.parts)
+@@ -107,6 +108,8 @@
+         paths.add(audit/name)
+     for name in ('README.txt','red.log','adc-quality-red.log','focused.log','build-strict18.log','build-diagnostic17.log','build-diagnostic16.log'):
+         paths.add(root/'execution/record_complete_20261122'/name)
++    for name in ('EVIDENCE.txt','red.log','focused.log','build-strict18.log','build-diagnostic17.log','build-diagnostic16.log'):
++        paths.add(root/'execution/clock_handshake_20261122'/name)
+     provenance=collect.read_json(root/identity['build_directory']/'provenance.json')
+     for name in provenance['sampler_startup_inputs']:paths.add(root/name)
+     for path in paths:
+--- /dev/null
++++ r9/tests/test_clock_handshake.py
+@@ -0,0 +1,26 @@
++"""Focused native regression for the reported0/1/0 readiness clock checks."""
++import pathlib
++import subprocess
++import tempfile
++import unittest
++ROOT=pathlib.Path(__file__).resolve().parents[1]
++class ClockHandshakeTests(unittest.TestCase):
++    def compile_run(self,test,sources,profile):
++        with tempfile.TemporaryDirectory() as d:
++            exe=pathlib.Path(d)/'clock'
++            cmd=['cc','-std=c11','-O2','-Wall','-Wextra','-Werror',
++                f'-DE07_PROFILE_RAILS={profile}','-I'+str(ROOT/'firmware/common'),
++                '-I'+str(ROOT/'firmware/sampler'),str(ROOT/'tests'/test)]
++            cmd += [str(ROOT/n) for n in sources]
++            built=subprocess.run(cmd+['-o',str(exe)],text=True,capture_output=True)
++            self.assertEqual(built.returncode,0,built.stdout+built.stderr)
++            run=subprocess.run([str(exe)],text=True,capture_output=True)
++            self.assertEqual(run.returncode,0,run.stdout+run.stderr)
++    def test_first_observation_is_latched_while_heartbeat_advances(self):
++        self.compile_run('test_clock_latch.c',['firmware/common/phase.c',
++            'firmware/sampler/sampler.c','firmware/common/sensor.c'],16)
++    def test_actual_receive_clock_and_original_rejection_bounds(self):
++        for profile in (18,17,16):
++            with self.subTest(profile=profile):
++                self.compile_run('test_clock_receive.c',['firmware/common/phase.c'],profile)
++if __name__=='__main__':unittest.main(verbosity=2)
+--- /dev/null
++++ r9/tests/test_clock_latch.c
+@@ -0,0 +1,23 @@
++/* The narrow I/O fixture provides real sampler time, not fabricated CVRF flags. */
++#define main retained_first_conversion_main
++#include "test_first_conversion.c"
++#undef main
++int main(void) {
++    fake f;init(&f);f.tick=1000000;
++    m_shared *p=calloc(1,sizeof(*p));assert(p);m_service service;m_sampler sampler;
++    m_service_init(&service,p,1000000,0,1);
++    assert(!m_sampler_init(&sampler,p,io_for(&f),1,1000000,temperature));
++    for(unsigned rail=0;rail<18;rail++)f.regs[rail][6]=8;
++    f.tick+=40000;m_sampler_step(&sampler);
++    uint64_t first=sampler.status.ping_tick,heartbeat=sampler.status.heartbeat;
++    uint32_t sequence=sampler.status.ping_seq;
++    f.tick+=20000;m_sampler_step(&sampler);
++    assert(sampler.status.ping_seq==sequence);
++    assert(sampler.status.ping_tick==first); /* old code overwrote this on every iteration */
++    assert(sampler.status.heartbeat>heartbeat);
++    ++p->control.ping_seq;f.tick+=20000;m_sampler_step(&sampler);
++    assert(sampler.status.ping_seq==sequence+1&&sampler.status.ping_tick>first);
++    first=sampler.status.ping_tick;f.tick+=20000;m_sampler_step(&sampler);
++    assert(sampler.status.ping_tick==first&&sampler.status.heartbeat>first);
++    free(p);puts("FIRST_PING_OBSERVATION_LATCHED_HEARTBEAT_STILL_ADVANCES");return 0;
++}
+--- /dev/null
++++ r9/tests/test_clock_receive.c
+@@ -0,0 +1,47 @@
++#include "monitor.h"
++#include <assert.h>
++#include <stdlib.h>
++#include <stdio.h>
++static uint64_t receive_tick;
++static uint64_t clock_ticks(void){return receive_tick;}
++static void publish(m_service *s,m_status *t,uint64_t entry,uint64_t sample,uint64_t received) {
++    t->ping_seq=s->shared->control.ping_seq;t->ping_tick=sample;
++    t->heartbeat=sample;t->temperature_tick=sample;receive_tick=received;
++    m_status_publish(s->shared,t);m_service_poll(s,entry);
++}
++int main(void) {
++    m_shared *p=calloc(1,sizeof(*p));assert(p);m_service s;
++    m_service_init(&s,p,1000000,0,1000000);s.clock_ticks=clock_ticks;
++    m_status t={.core=1,.hz=1000000,.epoch=1000000,.enabled=1,
++        .configured=M_ALL_RAILS,.observed_mask=M_ALL_RAILS,.conversion_ready=M_ALL_RAILS,
++        .profile_rails=E07_PROFILE_RAILS,.configured_tick=1000000,.temperature_valid=1};
++    /* The boot request can legitimately expire while Core0 loads SD/network. */
++    publish(&s,&t,2500000,2499990,2500010);
++    assert(!s.clock_checks&&s.clock_rejections==1&&!s.faults);
++    for(unsigned i=1;i<=3;i++) {
++        uint64_t sent=s.ping_sent,entry=sent+10000;
++        /* Core1 observed the request after poll entry, before coherent receipt. */
++        publish(&s,&t,entry,entry+5,entry+10);
++        assert(s.clock_checks==i);
++        assert(s.last_clock_sent==sent&&s.last_clock_sampler==entry+5&&s.last_clock_received==entry+10);
++        assert(s.last_clock_flags==M_VALID);
++        if(i==3)assert(m_service_ready(&s,entry));
++        /* Re-reading one pong must not increment the handshake count. */
++        receive_tick=entry+20;m_service_poll(&s,entry+15);assert(s.clock_checks==i);
++        receive_tick=sent+100010;m_service_poll(&s,sent+100000);
++    }
++    uint64_t sent=s.ping_sent;unsigned rejected=s.clock_rejections;
++    publish(&s,&t,sent+10000,sent-1,sent+10010); /* before request */
++    assert(!s.clock_checks&&s.clock_rejections==++rejected);
++    receive_tick=sent+100010;m_service_poll(&s,sent+100000);sent=s.ping_sent;
++    publish(&s,&t,sent+10000,sent+10050,sent+10010); /* genuinely after receipt */
++    assert(!s.clock_checks&&s.clock_rejections==++rejected);
++    receive_tick=sent+100010;m_service_poll(&s,sent+100000);sent=s.ping_sent;
++    publish(&s,&t,sent+260000,sent+100,sent+260010); /* original250ms limit */
++    assert(!s.clock_checks&&s.clock_rejections==++rejected);
++    /* A backwards Core0 clock remains a genuine handshake fault during a phase. */
++    sent=s.ping_sent;s.state=M_ACTIVE;
++    publish(&s,&t,sent+10000,sent+100,sent+9999);
++    assert(!s.clock_checks&&s.clock_rejections==++rejected&&(s.faults&M_FAULT_HANDSHAKE));
++    free(p);puts("COHERENT_RECEIPT_CLOCK_THREE_PINGS_AND_REAL_FAULTS_OK");return 0;
++}

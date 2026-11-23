@@ -1,0 +1,10 @@
+{
+  "cpu": "psu_cortexa53_1",
+  "domain": "sampler_a53_1",
+  "os": "standalone",
+  "architecture": "64-bit",
+  "exception_level": "EL3",
+  "USE_AMP": 1,
+  "workspace": "/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/build/platform_workspace",
+  "physical_status": "NOT_RUN"
+}

@@ -1,0 +1,18 @@
+test_actual_three_profile_samplers_keep_adc_observation_separate (test_record_complete.RecordCompleteTests.test_actual_three_profile_samplers_keep_adc_observation_separate) ... ok
+test_included_negative_completes_capture_but_cannot_be_power_pass (test_record_complete.RecordCompleteTests.test_included_negative_completes_capture_but_cannot_be_power_pass) ... FAIL
+test_readiness_and_cli_select_explicit_sixteen_scope (test_record_complete.RecordCompleteTests.test_readiness_and_cli_select_explicit_sixteen_scope) ... ok
+test_sixteen_scope_sums_only_included_rails_and_preserves_raw (test_record_complete.RecordCompleteTests.test_sixteen_scope_sums_only_included_rails_and_preserves_raw) ... ok
+
+======================================================================
+FAIL: test_included_negative_completes_capture_but_cannot_be_power_pass (test_record_complete.RecordCompleteTests.test_included_negative_completes_capture_but_cannot_be_power_pass)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_record_complete.py", line 71, in test_included_negative_completes_capture_but_cannot_be_power_pass
+    self.assertEqual(result['rails'][6]['observed_CVRF'],33)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 33
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.711s
+
+FAILED (failures=1)

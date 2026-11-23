@@ -1,0 +1,4736 @@
+{
+  "arrays_sha256": "c3eed03b1a13dd65202e034efda4e796dda5bb8a5e0ef3903b9438e2fbce3664",
+  "metadata": {
+    "blocks": [
+      {
+        "a_lut_mse": 0.012816552402210885,
+        "fit_image_indices": [
+          0,
+          64,
+          128,
+          193,
+          257,
+          322,
+          386,
+          451,
+          515,
+          580,
+          644,
+          709,
+          773,
+          838,
+          902,
+          967,
+          1031,
+          1096,
+          1160,
+          1225,
+          1289,
+          1354,
+          1418,
+          1483,
+          1547,
+          1612,
+          1676,
+          1741,
+          1805,
+          1870,
+          1934,
+          1999
+        ],
+        "fit_images": 32,
+        "gelu_lut_mse": 0.009834549053996599,
+        "input_scale": 0.007122583727198322,
+        "k_lut_mse": 0.024878261851615645,
+        "ln1": {
+          "affine_code_mse": 0.08444525271045919,
+          "affine_max_abs_code_error": 2,
+          "affine_mismatch_rate": 0.08416374362244898,
+          "centered_wrap_row_count": 0,
+          "centered_wrap_row_rate": 0.0,
+          "centered_wrap_value_count": 0,
+          "centered_wrap_value_rate": 0.0,
+          "diff_max": 1875,
+          "diff_min": -1116,
+          "diff_pre_max": 1875,
+          "diff_pre_min": -1116,
+          "input_max": 1874,
+          "input_min": -1109,
+          "rsqrt_rel_p999": 0.023048973530545077,
+          "var_max": 20352574,
+          "var_min": 3028175
+        },
+        "ln2": {
+          "affine_code_mse": 0.07261273650085034,
+          "affine_max_abs_code_error": 2,
+          "affine_mismatch_rate": 0.07099841889880952,
+          "centered_wrap_row_count": 0,
+          "centered_wrap_row_rate": 0.0,
+          "centered_wrap_value_count": 0,
+          "centered_wrap_value_rate": 0.0,
+          "diff_max": 2725,
+          "diff_min": -1485,
+          "diff_pre_max": 2725,
+          "diff_pre_min": -1485,
+          "input_max": 2725,
+          "input_min": -1476,
+          "rsqrt_rel_p999": 0.05097981537276163,
+          "var_max": 29862218,
+          "var_min": 963671
+        },
+        "m1_wrap_rate": 0.0,
+        "m2_wrap_rate": 0.0,
+        "o_wrap_rate": 0.0,
+        "output_scale": 0.009363956497439041,
+        "physical_m1_scale": 0.025012639511763135,
+        "physical_m2_scale": 0.009363956497439041,
+        "physical_o_scale": 0.005418734360745636,
+        "q_lut_mse": 0.029280266794217687,
+        "softmax_mse": 0.04064567721619898,
+        "surrogate_m1_scale": 0.0074762869626283646,
+        "surrogate_m2_scale": 0.0013781829038634896,
+        "v_lut_mse": 0.016421363467261904
+      },
+      {
+        "a_lut_mse": 0.02629078975340136,
+        "fit_image_indices": [
+          0,
+          64,
+          128,
+          193,
+          257,
+          322,
+          386,
+          451,
+          515,
+          580,
+          644,
+          709,
+          773,
+          838,
+          902,
+          967,
+          1031,
+          1096,
+          1160,
+          1225,
+          1289,
+          1354,
+          1418,
+          1483,
+          1547,
+          1612,
+          1676,
+          1741,
+          1805,
+          1870,
+          1934,
+          1999
+        ],
+        "fit_images": 32,
+        "gelu_lut_mse": 0.014982677641369048,
+        "input_scale": 0.009363956497439041,
+        "k_lut_mse": 0.03005171795280612,
+        "ln1": {
+          "affine_code_mse": 0.04293304235756803,
+          "affine_max_abs_code_error": 2,
+          "affine_mismatch_rate": 0.04284335804634354,
+          "centered_wrap_row_count": 0,
+          "centered_wrap_row_rate": 0.0,
+          "centered_wrap_value_count": 0,
+          "centered_wrap_value_rate": 0.0,
+          "diff_max": 1847,
+          "diff_min": -750,
+          "diff_pre_max": 1847,
+          "diff_pre_min": -750,
+          "input_max": 1848,
+          "input_min": -749,
+          "rsqrt_rel_p999": 0.019432863403596692,
+          "var_max": 6885474,
+          "var_min": 707677
+        },
+        "ln2": {
+          "affine_code_mse": 0.06417908960459184,
+          "affine_max_abs_code_error": 2,
+          "affine_mismatch_rate": 0.06333207110969388,
+          "centered_wrap_row_count": 0,
+          "centered_wrap_row_rate": 0.0,
+          "centered_wrap_value_count": 0,
+          "centered_wrap_value_rate": 0.0,
+          "diff_max": 3662,
+          "diff_min": -1469,
+          "diff_pre_max": 3662,
+          "diff_pre_min": -1469,
+          "input_max": 3663,
+          "input_min": -1468,
+          "rsqrt_rel_p999": 0.03841691559562188,
+          "var_max": 26075616,
+          "var_min": 1286926
+        },
+        "m1_wrap_rate": 0.0,
+        "m2_wrap_rate": 0.0,
+        "o_wrap_rate": 0.0,
+        "output_scale": 0.005465787803301481,
+        "physical_m1_scale": 0.01764398428979641,
+        "physical_m2_scale": 0.005465787803301481,
+        "physical_o_scale": 0.00464881700576758,
+        "q_lut_mse": 0.02616124574829932,
+        "softmax_mse": 0.0152587890625,
+        "surrogate_m1_scale": 0.005899529904127121,
+        "surrogate_m2_scale": 0.0005638741422444582,
+        "v_lut_mse": 0.037320299213435375
+      },
+      {
+        "a_lut_mse": 0.036176824245323126,
+        "fit_image_indices": [
+          0,
+          64,
+          128,
+          193,
+          257,
+          322,
+          386,
+          451,
+          515,
+          580,
+          644,
+          709,
+          773,
+          838,
+          902,
+          967,
+          1031,
+          1096,
+          1160,
+          1225,
+          1289,
+          1354,
+          1418,
+          1483,
+          1547,
+          1612,
+          1676,
+          1741,
+          1805,
+          1870,
+          1934,
+          1999
+        ],
+        "fit_images": 32,
+        "gelu_lut_mse": 0.014206866828762755,
+        "input_scale": 0.005465787803301481,
+        "k_lut_mse": 0.029103389402636053,
+        "ln1": {
+          "affine_code_mse": 0.036808766475340135,
+          "affine_max_abs_code_error": 2,
+          "affine_mismatch_rate": 0.0364300993835034,
+          "centered_wrap_row_count": 0,
+          "centered_wrap_row_rate": 0.0,
+          "centered_wrap_value_count": 0,
+          "centered_wrap_value_rate": 0.0,
+          "diff_max": 3103,
+          "diff_min": -1125,
+          "diff_pre_max": 3103,
+          "diff_pre_min": -1125,
+          "input_max": 3104,
+          "input_min": -1126,
+          "rsqrt_rel_p999": 0.02262013430835582,
+          "var_max": 14678049,
+          "var_min": 1256134
+        },
+        "ln2": {
+          "affine_code_mse": 0.06075281675170068,
+          "affine_max_abs_code_error": 1,
+          "affine_mismatch_rate": 0.06075281675170068,
+          "centered_wrap_row_count": 0,
+          "centered_wrap_row_rate": 0.0,
+          "centered_wrap_value_count": 0,
+          "centered_wrap_value_rate": 0.0,
+          "diff_max": 4244,
+          "diff_min": -1588,
+          "diff_pre_max": 4244,
+          "diff_pre_min": -1588,
+          "input_max": 4244,
+          "input_min": -1587,
+          "rsqrt_rel_p999": 0.03231577936586271,
+          "var_max": 25412617,
+          "var_min": 1611190
+        },
+        "m1_wrap_rate": 0.0,
+        "m2_wrap_rate": 0.0,
+        "o_wrap_rate": 0.0,
+        "output_scale": 0.004991135862148027,
+        "physical_m1_scale": 0.016189347730148573,
+        "physical_m2_scale": 0.004991135862148027,
+        "physical_o_scale": 0.004067727029728269,
+        "q_lut_mse": 0.023504763233418366,
+        "softmax_mse": 0.009444256218112245,
+        "surrogate_m1_scale": 0.005283495411276817,
+        "surrogate_m2_scale": 0.0004326689231675118,
+        "v_lut_mse": 0.034472822332057826
+      },
+      {
+        "a_lut_mse": 0.03279124149659864,
+        "fit_image_indices": [
+          0,
+          64,
+          128,
+          193,
+          257,
+          322,
+          386,
+          451,
+          515,
+          580,
+          644,
+          709,
+          773,
+          838,
+          902,
+          967,
+          1031,
+          1096,
+          1160,
+          1225,
+          1289,
+          1354,
+          1418,
+          1483,
+          1547,
+          1612,
+          1676,
+          1741,
+          1805,
+          1870,
+          1934,
+          1999
+        ],
+        "fit_images": 32,
+        "gelu_lut_mse": 0.0077811520115858845,
+        "input_scale": 0.004991135862148027,
+        "k_lut_mse": 0.0278586043792517,
+        "ln1": {
+          "affine_code_mse": 0.039876302083333336,
+          "affine_max_abs_code_error": 1,
+          "affine_mismatch_rate": 0.039876302083333336,
+          "centered_wrap_row_count": 0,
+          "centered_wrap_row_rate": 0.0,
+          "centered_wrap_value_count": 0,
+          "centered_wrap_value_rate": 0.0,
+          "diff_max": 3417,
+          "diff_min": -1135,
+          "diff_pre_max": 3417,
+          "diff_pre_min": -1135,
+          "input_max": 3415,
+          "input_min": -1134,
+          "rsqrt_rel_p999": 0.025622245549326402,
+          "var_max": 13727736,
+          "var_min": 1190790
+        },
+        "ln2": {
+          "affine_code_mse": 0.06513157020620748,
+          "affine_max_abs_code_error": 2,
+          "affine_mismatch_rate": 0.06496465773809523,
+          "centered_wrap_row_count": 0,
+          "centered_wrap_row_rate": 0.0,
+          "centered_wrap_value_count": 0,
+          "centered_wrap_value_rate": 0.0,
+          "diff_max": 4184,
+          "diff_min": -1369,
+          "diff_pre_max": 4184,
+          "diff_pre_min": -1369,
+          "input_max": 4182,
+          "input_min": -1368,
+          "rsqrt_rel_p999": 0.03638497766260369,
+          "var_max": 20439650,
+          "var_min": 1601114
+        },
+        "m1_wrap_rate": 0.0,
+        "m2_wrap_rate": 0.0,
+        "o_wrap_rate": 0.0,
+        "output_scale": 0.0047524051509135745,
+        "physical_m1_scale": 0.015820824646239018,
+        "physical_m2_scale": 0.0047524051509135745,
+        "physical_o_scale": 0.004163221017979418,
+        "q_lut_mse": 0.03427684550382653,
+        "softmax_mse": 0.03356061662946429,
+        "surrogate_m1_scale": 0.005248704459518194,
+        "surrogate_m2_scale": 0.00037584634264931083,
+        "v_lut_mse": 0.03628726881377551
+      },
+      {
+        "a_lut_mse": 0.01682328204719388,
+        "fit_image_indices": [
+          0,
+          64,
+          128,
+          193,
+          257,
+          322,
+          386,
+          451,
+          515,
+          580,
+          644,
+          709,
+          773,
+          838,
+          902,
+          967,
+          1031,
+          1096,
+          1160,
+          1225,
+          1289,
+          1354,
+          1418,
+          1483,
+          1547,
+          1612,
+          1676,
+          1741,
+          1805,
+          1870,
+          1934,
+          1999
+        ],
+        "fit_images": 32,
+        "gelu_lut_mse": 0.00907721487032313,
+        "input_scale": 0.0047524051509135745,
+        "k_lut_mse": 0.023791254783163265,
+        "ln1": {
+          "affine_code_mse": 0.04377092633928571,
+          "affine_max_abs_code_error": 1,
+          "affine_mismatch_rate": 0.04377092633928571,
+          "centered_wrap_row_count": 0,
+          "centered_wrap_row_rate": 0.0,
+          "centered_wrap_value_count": 0,
+          "centered_wrap_value_rate": 0.0,
+          "diff_max": 3582,
+          "diff_min": -1061,
+          "diff_pre_max": 3582,
+          "diff_pre_min": -1061,
+          "input_max": 3581,
+          "input_min": -1063,
+          "rsqrt_rel_p999": 0.026505321753431097,
+          "var_max": 15158088,
+          "var_min": 1053072
+        },
+        "ln2": {
+          "affine_code_mse": 0.07072023145195579,
+          "affine_max_abs_code_error": 2,
+          "affine_mismatch_rate": 0.06936500186011904,
+          "centered_wrap_row_count": 0,
+          "centered_wrap_row_rate": 0.0,
+          "centered_wrap_value_count": 0,
+          "centered_wrap_value_rate": 0.0,
+          "diff_max": 4423,
+          "diff_min": -1360,
+          "diff_pre_max": 4423,
+          "diff_pre_min": -1360,
+          "input_max": 4417,
+          "input_min": -1362,
+          "rsqrt_rel_p999": 0.030537761049047565,
+          "var_max": 22465237,
+          "var_min": 1849944
+        },
+        "m1_wrap_rate": 0.0,
+        "m2_wrap_rate": 0.0,
+        "o_wrap_rate": 0.0,
+        "output_scale": 0.004722379752500755,
+        "physical_m1_scale": 0.015575026876069487,
+        "physical_m2_scale": 0.004722379752500755,
+        "physical_o_scale": 0.004032481463040971,
+        "q_lut_mse": 0.026322345344387755,
+        "softmax_mse": 0.018316774952168366,
+        "surrogate_m1_scale": 0.006111667491495609,
+        "surrogate_m2_scale": 0.000390190863981843,
+        "v_lut_mse": 0.03694412335246599
+      },
+      {
+        "a_lut_mse": 0.016030240221088437,
+        "fit_image_indices": [
+          0,
+          64,
+          128,
+          193,
+          257,
+          322,
+          386,
+          451,
+          515,
+          580,
+          644,
+          709,
+          773,
+          838,
+          902,
+          967,
+          1031,
+          1096,
+          1160,
+          1225,
+          1289,
+          1354,
+          1418,
+          1483,
+          1547,
+          1612,
+          1676,
+          1741,
+          1805,
+          1870,
+          1934,
+          1999
+        ],
+        "fit_images": 32,
+        "gelu_lut_mse": 0.009114998538477892,
+        "input_scale": 0.004722379752500755,
+        "k_lut_mse": 0.02711289593962585,
+        "ln1": {
+          "affine_code_mse": 0.03940379862882653,
+          "affine_max_abs_code_error": 1,
+          "affine_mismatch_rate": 0.03940379862882653,
+          "centered_wrap_row_count": 0,
+          "centered_wrap_row_rate": 0.0,
+          "centered_wrap_value_count": 0,
+          "centered_wrap_value_rate": 0.0,
+          "diff_max": 3611,
+          "diff_min": -1003,
+          "diff_pre_max": 3611,
+          "diff_pre_min": -1003,
+          "input_max": 3606,
+          "input_min": -1004,
+          "rsqrt_rel_p999": 0.02571211515524705,
+          "var_max": 15022788,
+          "var_min": 1081109
+        },
+        "ln2": {
+          "affine_code_mse": 0.08413883131377552,
+          "affine_max_abs_code_error": 2,
+          "affine_mismatch_rate": 0.07857840401785714,
+          "centered_wrap_row_count": 0,
+          "centered_wrap_row_rate": 0.0,
+          "centered_wrap_value_count": 0,
+          "centered_wrap_value_rate": 0.0,
+          "diff_max": 5196,
+          "diff_min": -1428,
+          "diff_pre_max": 5196,
+          "diff_pre_min": -1428,
+          "input_max": 5189,
+          "input_min": -1429,
+          "rsqrt_rel_p999": 0.02375577832552399,
+          "var_max": 31241703,
+          "var_min": 2338975
+        },
+        "m1_wrap_rate": 0.0,
+        "m2_wrap_rate": 0.0,
+        "o_wrap_rate": 0.0,
+        "output_scale": 0.005262796342989262,
+        "physical_m1_scale": 0.015466008484521954,
+        "physical_m2_scale": 0.005262796342989262,
+        "physical_o_scale": 0.003434727764121681,
+        "q_lut_mse": 0.02783950494260204,
+        "softmax_mse": 0.026617556202168366,
+        "surrogate_m1_scale": 0.005587670020759106,
+        "surrogate_m2_scale": 0.00039666329394094646,
+        "v_lut_mse": 0.019757952008928572
+      },
+      {
+        "a_lut_mse": 0.02619114051870748,
+        "fit_image_indices": [
+          0,
+          64,
+          128,
+          193,
+          257,
+          322,
+          386,
+          451,
+          515,
+          580,
+          644,
+          709,
+          773,
+          838,
+          902,
+          967,
+          1031,
+          1096,
+          1160,
+          1225,
+          1289,
+          1354,
+          1418,
+          1483,
+          1547,
+          1612,
+          1676,
+          1741,
+          1805,
+          1870,
+          1934,
+          1999
+        ],
+        "fit_images": 32,
+        "gelu_lut_mse": 0.0030922403140943877,
+        "input_scale": 0.005262796342989262,
+        "k_lut_mse": 0.023775476987670068,
+        "ln1": {
+          "affine_code_mse": 0.04316306600765306,
+          "affine_max_abs_code_error": 1,
+          "affine_mismatch_rate": 0.04316306600765306,
+          "centered_wrap_row_count": 0,
+          "centered_wrap_row_rate": 0.0,
+          "centered_wrap_value_count": 0,
+          "centered_wrap_value_rate": 0.0,
+          "diff_max": 3266,
+          "diff_min": -860,
+          "diff_pre_max": 3266,
+          "diff_pre_min": -860,
+          "input_max": 3262,
+          "input_min": -875,
+          "rsqrt_rel_p999": 0.03580254758182754,
+          "var_max": 12313216,
+          "var_min": 747556
+        },
+        "ln2": {
+          "affine_code_mse": 0.11148424213435375,
+          "affine_max_abs_code_error": 3,
+          "affine_mismatch_rate": 0.10253823208971088,
+          "centered_wrap_row_count": 0,
+          "centered_wrap_row_rate": 0.0,
+          "centered_wrap_value_count": 0,
+          "centered_wrap_value_rate": 0.0,
+          "diff_max": 4481,
+          "diff_min": -1138,
+          "diff_pre_max": 4481,
+          "diff_pre_min": -1138,
+          "input_max": 4481,
+          "input_min": -1143,
+          "rsqrt_rel_p999": 0.030132344055553532,
+          "var_max": 23453104,
+          "var_min": 1877238
+        },
+        "m1_wrap_rate": 0.0,
+        "m2_wrap_rate": 0.0,
+        "o_wrap_rate": 0.0,
+        "output_scale": 0.005920390840599837,
+        "physical_m1_scale": 0.014120572962560418,
+        "physical_m2_scale": 0.005920390840599837,
+        "physical_o_scale": 0.004093015283847007,
+        "q_lut_mse": 0.03525922087585034,
+        "softmax_mse": 0.0242496412627551,
+        "surrogate_m1_scale": 0.006133765447884798,
+        "surrogate_m2_scale": 0.00045121286530047655,
+        "v_lut_mse": 0.037966358418367346
+      },
+      {
+        "a_lut_mse": 0.016604884141156462,
+        "fit_image_indices": [
+          0,
+          64,
+          128,
+          193,
+          257,
+          322,
+          386,
+          451,
+          515,
+          580,
+          644,
+          709,
+          773,
+          838,
+          902,
+          967,
+          1031,
+          1096,
+          1160,
+          1225,
+          1289,
+          1354,
+          1418,
+          1483,
+          1547,
+          1612,
+          1676,
+          1741,
+          1805,
+          1870,
+          1934,
+          1999
+        ],
+        "fit_images": 32,
+        "gelu_lut_mse": 0.005860620615433673,
+        "input_scale": 0.005920390840599837,
+        "k_lut_mse": 0.022719195099914966,
+        "ln1": {
+          "affine_code_mse": 0.0508767471832483,
+          "affine_max_abs_code_error": 2,
+          "affine_mismatch_rate": 0.05077709794855442,
+          "centered_wrap_row_count": 0,
+          "centered_wrap_row_rate": 0.0,
+          "centered_wrap_value_count": 0,
+          "centered_wrap_value_rate": 0.0,
+          "diff_max": 3045,
+          "diff_min": -913,
+          "diff_pre_max": 3045,
+          "diff_pre_min": -913,
+          "input_max": 3045,
+          "input_min": -918,
+          "rsqrt_rel_p999": 0.04148898522090562,
+          "var_max": 10675961,
+          "var_min": 689848
+        },
+        "ln2": {
+          "affine_code_mse": 0.13596058540603742,
+          "affine_max_abs_code_error": 6,
+          "affine_mismatch_rate": 0.1094970703125,
+          "centered_wrap_row_count": 0,
+          "centered_wrap_row_rate": 0.0,
+          "centered_wrap_value_count": 0,
+          "centered_wrap_value_rate": 0.0,
+          "diff_max": 5123,
+          "diff_min": -1527,
+          "diff_pre_max": 5123,
+          "diff_pre_min": -1527,
+          "input_max": 5123,
+          "input_min": -1535,
+          "rsqrt_rel_p999": 0.023928838046281917,
+          "var_max": 30632073,
+          "var_min": 2356911
+        },
+        "m1_wrap_rate": 0.0,
+        "m2_wrap_rate": 0.0,
+        "o_wrap_rate": 0.0,
+        "output_scale": 0.0082866195664133,
+        "physical_m1_scale": 0.016822123282642876,
+        "physical_m2_scale": 0.0082866195664133,
+        "physical_o_scale": 0.0036680001471590673,
+        "q_lut_mse": 0.019511320153061226,
+        "softmax_mse": 0.02086654974489796,
+        "surrogate_m1_scale": 0.007792788092046976,
+        "surrogate_m2_scale": 0.0005322882789187133,
+        "v_lut_mse": 0.03621917517006803
+      },
+      {
+        "a_lut_mse": 0.02288610756802721,
+        "fit_image_indices": [
+          0,
+          64,
+          128,
+          193,
+          257,
+          322,
+          386,
+          451,
+          515,
+          580,
+          644,
+          709,
+          773,
+          838,
+          902,
+          967,
+          1031,
+          1096,
+          1160,
+          1225,
+          1289,
+          1354,
+          1418,
+          1483,
+          1547,
+          1612,
+          1676,
+          1741,
+          1805,
+          1870,
+          1934,
+          1999
+        ],
+        "fit_images": 32,
+        "gelu_lut_mse": 0.003035357209289966,
+        "input_scale": 0.0082866195664133,
+        "k_lut_mse": 0.022686809098639456,
+        "ln1": {
+          "affine_code_mse": 0.050769624255952384,
+          "affine_max_abs_code_error": 2,
+          "affine_mismatch_rate": 0.05027885177508504,
+          "centered_wrap_row_count": 0,
+          "centered_wrap_row_rate": 0.0,
+          "centered_wrap_value_count": 0,
+          "centered_wrap_value_rate": 0.0,
+          "diff_max": 2220,
+          "diff_min": -789,
+          "diff_pre_max": 2220,
+          "diff_pre_min": -789,
+          "input_max": 2221,
+          "input_min": -792,
+          "rsqrt_rel_p999": 0.030722766457171275,
+          "var_max": 5638120,
+          "var_min": 404965
+        },
+        "ln2": {
+          "affine_code_mse": 0.11861165364583333,
+          "affine_max_abs_code_error": 6,
+          "affine_mismatch_rate": 0.09116742400085034,
+          "centered_wrap_row_count": 0,
+          "centered_wrap_row_rate": 0.0,
+          "centered_wrap_value_count": 0,
+          "centered_wrap_value_rate": 0.0,
+          "diff_max": 4247,
+          "diff_min": -1539,
+          "diff_pre_max": 4247,
+          "diff_pre_min": -1539,
+          "input_max": 4249,
+          "input_min": -1544,
+          "rsqrt_rel_p999": 0.03104466933239783,
+          "var_max": 21068112,
+          "var_min": 1732631
+        },
+        "m1_wrap_rate": 0.0,
+        "m2_wrap_rate": 0.0,
+        "o_wrap_rate": 0.0,
+        "output_scale": 0.015430701411309755,
+        "physical_m1_scale": 0.027797778277363072,
+        "physical_m2_scale": 0.015430701411309755,
+        "physical_o_scale": 0.00435439192587686,
+        "q_lut_mse": 0.03105734481292517,
+        "softmax_mse": 0.03133096500318878,
+        "surrogate_m1_scale": 0.0110506322234869,
+        "surrogate_m2_scale": 0.0005779397906735539,
+        "v_lut_mse": 0.030526712638180274
+      },
+      {
+        "a_lut_mse": 0.02036249069940476,
+        "fit_image_indices": [
+          0,
+          64,
+          128,
+          193,
+          257,
+          322,
+          386,
+          451,
+          515,
+          580,
+          644,
+          709,
+          773,
+          838,
+          902,
+          967,
+          1031,
+          1096,
+          1160,
+          1225,
+          1289,
+          1354,
+          1418,
+          1483,
+          1547,
+          1612,
+          1676,
+          1741,
+          1805,
+          1870,
+          1934,
+          1999
+        ],
+        "fit_images": 32,
+        "gelu_lut_mse": 0.002539394664115646,
+        "input_scale": 0.015430701411309755,
+        "k_lut_mse": 0.025614835778061226,
+        "ln1": {
+          "affine_code_mse": 0.04125561357355442,
+          "affine_max_abs_code_error": 2,
+          "affine_mismatch_rate": 0.04121326264880952,
+          "centered_wrap_row_count": 0,
+          "centered_wrap_row_rate": 0.0,
+          "centered_wrap_value_count": 0,
+          "centered_wrap_value_rate": 0.0,
+          "diff_max": 1119,
+          "diff_min": -498,
+          "diff_pre_max": 1119,
+          "diff_pre_min": -498,
+          "input_max": 1120,
+          "input_min": -499,
+          "rsqrt_rel_p999": 0.01851413069763112,
+          "var_max": 1472855,
+          "var_min": 155607
+        },
+        "ln2": {
+          "affine_code_mse": 0.1113439027954932,
+          "affine_max_abs_code_error": 4,
+          "affine_mismatch_rate": 0.1024327699829932,
+          "centered_wrap_row_count": 0,
+          "centered_wrap_row_rate": 0.0,
+          "centered_wrap_value_count": 0,
+          "centered_wrap_value_rate": 0.0,
+          "diff_max": 3205,
+          "diff_min": -1435,
+          "diff_pre_max": 3205,
+          "diff_pre_min": -1435,
+          "input_max": 3210,
+          "input_min": -1444,
+          "rsqrt_rel_p999": 0.016403761398839593,
+          "var_max": 12788613,
+          "var_min": 1442754
+        },
+        "m1_wrap_rate": 0.0,
+        "m2_wrap_rate": 0.0,
+        "o_wrap_rate": 0.0,
+        "output_scale": 0.014758613795243791,
+        "physical_m1_scale": 0.02516390647558797,
+        "physical_m2_scale": 0.014758613795243791,
+        "physical_o_scale": 0.005300231997984406,
+        "q_lut_mse": 0.01911106239370748,
+        "softmax_mse": 0.03746811224489796,
+        "surrogate_m1_scale": 0.009389333426952362,
+        "surrogate_m2_scale": 0.0008979449048638344,
+        "v_lut_mse": 0.03024271231930272
+      },
+      {
+        "a_lut_mse": 0.027297247023809524,
+        "fit_image_indices": [
+          0,
+          64,
+          128,
+          193,
+          257,
+          322,
+          386,
+          451,
+          515,
+          580,
+          644,
+          709,
+          773,
+          838,
+          902,
+          967,
+          1031,
+          1096,
+          1160,
+          1225,
+          1289,
+          1354,
+          1418,
+          1483,
+          1547,
+          1612,
+          1676,
+          1741,
+          1805,
+          1870,
+          1934,
+          1999
+        ],
+        "fit_images": 32,
+        "gelu_lut_mse": 0.0004002577593537415,
+        "input_scale": 0.014758613795243791,
+        "k_lut_mse": 0.02187549824617347,
+        "ln1": {
+          "affine_code_mse": 0.032591943027210885,
+          "affine_max_abs_code_error": 2,
+          "affine_mismatch_rate": 0.03256204825680272,
+          "centered_wrap_row_count": 0,
+          "centered_wrap_row_rate": 0.0,
+          "centered_wrap_value_count": 0,
+          "centered_wrap_value_rate": 0.0,
+          "diff_max": 952,
+          "diff_min": -612,
+          "diff_pre_max": 952,
+          "diff_pre_min": -612,
+          "input_max": 954,
+          "input_min": -614,
+          "rsqrt_rel_p999": 0.01196573723127164,
+          "var_max": 1589022,
+          "var_min": 234079
+        },
+        "ln2": {
+          "affine_code_mse": 0.048290849542942174,
+          "affine_max_abs_code_error": 4,
+          "affine_mismatch_rate": 0.045680039593962586,
+          "centered_wrap_row_count": 0,
+          "centered_wrap_row_rate": 0.0,
+          "centered_wrap_value_count": 0,
+          "centered_wrap_value_rate": 0.0,
+          "diff_max": 2151,
+          "diff_min": -1453,
+          "diff_pre_max": 2151,
+          "diff_pre_min": -1453,
+          "input_max": 2155,
+          "input_min": -1458,
+          "rsqrt_rel_p999": 0.007984785810436431,
+          "var_max": 8833186,
+          "var_min": 1442211
+        },
+        "m1_wrap_rate": 0.0,
+        "m2_wrap_rate": 0.0,
+        "o_wrap_rate": 0.0,
+        "output_scale": 0.018616792971573926,
+        "physical_m1_scale": 0.025923658367057234,
+        "physical_m2_scale": 0.018616792971573926,
+        "physical_o_scale": 0.006204589739676303,
+        "q_lut_mse": 0.0362391050170068,
+        "softmax_mse": 0.022700095663265307,
+        "surrogate_m1_scale": 0.007763987872749567,
+        "surrogate_m2_scale": 0.0006556955631822348,
+        "v_lut_mse": 0.03146922831632653
+      },
+      {
+        "a_lut_mse": 0.029847437021683673,
+        "fit_image_indices": [
+          0,
+          64,
+          128,
+          193,
+          257,
+          322,
+          386,
+          451,
+          515,
+          580,
+          644,
+          709,
+          773,
+          838,
+          902,
+          967,
+          1031,
+          1096,
+          1160,
+          1225,
+          1289,
+          1354,
+          1418,
+          1483,
+          1547,
+          1612,
+          1676,
+          1741,
+          1805,
+          1870,
+          1934,
+          1999
+        ],
+        "fit_images": 32,
+        "gelu_lut_mse": 0.0008414132254464286,
+        "input_scale": 0.018616792971573926,
+        "k_lut_mse": 0.03873282711522109,
+        "ln1": {
+          "affine_code_mse": 0.03018209236819728,
+          "affine_max_abs_code_error": 2,
+          "affine_mismatch_rate": 0.029736162042942178,
+          "centered_wrap_row_count": 0,
+          "centered_wrap_row_rate": 0.0,
+          "centered_wrap_value_count": 0,
+          "centered_wrap_value_rate": 0.0,
+          "diff_max": 753,
+          "diff_min": -495,
+          "diff_pre_max": 753,
+          "diff_pre_min": -495,
+          "input_max": 755,
+          "input_min": -497,
+          "rsqrt_rel_p999": 0.008577565110518093,
+          "var_max": 1113237,
+          "var_min": 171082
+        },
+        "ln2": {
+          "affine_code_mse": 0.042025403911564625,
+          "affine_max_abs_code_error": 3,
+          "affine_mismatch_rate": 0.040543951955782316,
+          "centered_wrap_row_count": 0,
+          "centered_wrap_row_rate": 0.0,
+          "centered_wrap_value_count": 0,
+          "centered_wrap_value_rate": 0.0,
+          "diff_max": 2549,
+          "diff_min": -1450,
+          "diff_pre_max": 2549,
+          "diff_pre_min": -1450,
+          "input_max": 2555,
+          "input_min": -1454,
+          "rsqrt_rel_p999": 0.016137798165210875,
+          "var_max": 11601983,
+          "var_min": 1550494
+        },
+        "m1_wrap_rate": 0.0,
+        "m2_wrap_rate": 0.0,
+        "o_wrap_rate": 0.0,
+        "output_scale": 0.018580527405285263,
+        "physical_m1_scale": 0.02622358497235311,
+        "physical_m2_scale": 0.018580527405285263,
+        "physical_o_scale": 0.006072494287151953,
+        "q_lut_mse": 0.03572092899659864,
+        "softmax_mse": 0.03245451012436224,
+        "surrogate_m1_scale": 0.007200916297733784,
+        "surrogate_m2_scale": 0.0005795625038444996,
+        "v_lut_mse": 0.028169177827380952
+      }
+    ],
+    "calibration_count": 2000,
+    "calibration_ids": [
+      "n01440764/n01440764_13895.JPEG",
+      "n01440764/n01440764_3259.JPEG",
+      "n01443537/n01443537_1298.JPEG",
+      "n01443537/n01443537_2625.JPEG",
+      "n01484850/n01484850_23155.JPEG",
+      "n01484850/n01484850_5127.JPEG",
+      "n01491361/n01491361_176.JPEG",
+      "n01491361/n01491361_430.JPEG",
+      "n01494475/n01494475_15767.JPEG",
+      "n01494475/n01494475_21867.JPEG",
+      "n01496331/n01496331_35864.JPEG",
+      "n01496331/n01496331_3916.JPEG",
+      "n01498041/n01498041_11581.JPEG",
+      "n01498041/n01498041_8788.JPEG",
+      "n01514668/n01514668_28113.JPEG",
+      "n01514668/n01514668_4654.JPEG",
+      "n01514859/n01514859_12029.JPEG",
+      "n01514859/n01514859_1623.JPEG",
+      "n01518878/n01518878_118.JPEG",
+      "n01518878/n01518878_2880.JPEG",
+      "n01530575/n01530575_1726.JPEG",
+      "n01530575/n01530575_9329.JPEG",
+      "n01531178/n01531178_19945.JPEG",
+      "n01531178/n01531178_3882.JPEG",
+      "n01532829/n01532829_2760.JPEG",
+      "n01532829/n01532829_978.JPEG",
+      "n01534433/n01534433_3612.JPEG",
+      "n01534433/n01534433_8916.JPEG",
+      "n01537544/n01537544_2754.JPEG",
+      "n01537544/n01537544_3676.JPEG",
+      "n01558993/n01558993_12826.JPEG",
+      "n01558993/n01558993_5049.JPEG",
+      "n01560419/n01560419_4595.JPEG",
+      "n01560419/n01560419_4873.JPEG",
+      "n01580077/n01580077_2166.JPEG",
+      "n01580077/n01580077_262.JPEG",
+      "n01582220/n01582220_23.JPEG",
+      "n01582220/n01582220_5793.JPEG",
+      "n01592084/n01592084_5298.JPEG",
+      "n01592084/n01592084_8100.JPEG",
+      "n01601694/n01601694_17973.JPEG",
+      "n01601694/n01601694_18206.JPEG",
+      "n01608432/n01608432_21536.JPEG",
+      "n01608432/n01608432_2751.JPEG",
+      "n01614925/n01614925_1821.JPEG",
+      "n01614925/n01614925_253.JPEG",
+      "n01616318/n01616318_2175.JPEG",
+      "n01616318/n01616318_4911.JPEG",
+      "n01622779/n01622779_3683.JPEG",
+      "n01622779/n01622779_6558.JPEG",
+      "n01629819/n01629819_5860.JPEG",
+      "n01629819/n01629819_9522.JPEG",
+      "n01630670/n01630670_6021.JPEG",
+      "n01630670/n01630670_659.JPEG",
+      "n01631663/n01631663_20623.JPEG",
+      "n01631663/n01631663_3869.JPEG",
+      "n01632458/n01632458_6854.JPEG",
+      "n01632458/n01632458_969.JPEG",
+      "n01632777/n01632777_26286.JPEG",
+      "n01632777/n01632777_4765.JPEG",
+      "n01641577/n01641577_20708.JPEG",
+      "n01641577/n01641577_8239.JPEG",
+      "n01644373/n01644373_4281.JPEG",
+      "n01644373/n01644373_9799.JPEG",
+      "n01644900/n01644900_21064.JPEG",
+      "n01644900/n01644900_5568.JPEG",
+      "n01664065/n01664065_4316.JPEG",
+      "n01664065/n01664065_4870.JPEG",
+      "n01665541/n01665541_19922.JPEG",
+      "n01665541/n01665541_44044.JPEG",
+      "n01667114/n01667114_4520.JPEG",
+      "n01667114/n01667114_4912.JPEG",
+      "n01667778/n01667778_21336.JPEG",
+      "n01667778/n01667778_2860.JPEG",
+      "n01669191/n01669191_8067.JPEG",
+      "n01669191/n01669191_9194.JPEG",
+      "n01675722/n01675722_150.JPEG",
+      "n01675722/n01675722_1698.JPEG",
+      "n01677366/n01677366_14617.JPEG",
+      "n01677366/n01677366_45288.JPEG",
+      "n01682714/n01682714_149.JPEG",
+      "n01682714/n01682714_4390.JPEG",
+      "n01685808/n01685808_7100.JPEG",
+      "n01685808/n01685808_8280.JPEG",
+      "n01687978/n01687978_4236.JPEG",
+      "n01687978/n01687978_9247.JPEG",
+      "n01688243/n01688243_2807.JPEG",
+      "n01688243/n01688243_4570.JPEG",
+      "n01689811/n01689811_2565.JPEG",
+      "n01689811/n01689811_8377.JPEG",
+      "n01692333/n01692333_14.JPEG",
+      "n01692333/n01692333_2056.JPEG",
+      "n01693334/n01693334_4185.JPEG",
+      "n01693334/n01693334_7440.JPEG",
+      "n01694178/n01694178_1791.JPEG",
+      "n01694178/n01694178_552.JPEG",
+      "n01695060/n01695060_19459.JPEG",
+      "n01695060/n01695060_20781.JPEG",
+      "n01697457/n01697457_1945.JPEG",
+      "n01697457/n01697457_2987.JPEG",
+      "n01698640/n01698640_24548.JPEG",
+      "n01698640/n01698640_2777.JPEG",
+      "n01704323/n01704323_2840.JPEG",
+      "n01704323/n01704323_9112.JPEG",
+      "n01728572/n01728572_4661.JPEG",
+      "n01728572/n01728572_6625.JPEG",
+      "n01728920/n01728920_4279.JPEG",
+      "n01728920/n01728920_9925.JPEG",
+      "n01729322/n01729322_6260.JPEG",
+      "n01729322/n01729322_9792.JPEG",
+      "n01729977/n01729977_16337.JPEG",
+      "n01729977/n01729977_9025.JPEG",
+      "n01734418/n01734418_10648.JPEG",
+      "n01734418/n01734418_11268.JPEG",
+      "n01735189/n01735189_14818.JPEG",
+      "n01735189/n01735189_6498.JPEG",
+      "n01737021/n01737021_11215.JPEG",
+      "n01737021/n01737021_9837.JPEG",
+      "n01739381/n01739381_1312.JPEG",
+      "n01739381/n01739381_7193.JPEG",
+      "n01740131/n01740131_11005.JPEG",
+      "n01740131/n01740131_7663.JPEG",
+      "n01742172/n01742172_1181.JPEG",
+      "n01742172/n01742172_3564.JPEG",
+      "n01744401/n01744401_1081.JPEG",
+      "n01744401/n01744401_13519.JPEG",
+      "n01748264/n01748264_12043.JPEG",
+      "n01748264/n01748264_9778.JPEG",
+      "n01749939/n01749939_7197.JPEG",
+      "n01749939/n01749939_8068.JPEG",
+      "n01751748/n01751748_8496.JPEG",
+      "n01751748/n01751748_8955.JPEG",
+      "n01753488/n01753488_3381.JPEG",
+      "n01753488/n01753488_9852.JPEG",
+      "n01755581/n01755581_16218.JPEG",
+      "n01755581/n01755581_1714.JPEG",
+      "n01756291/n01756291_12973.JPEG",
+      "n01756291/n01756291_18517.JPEG",
+      "n01768244/n01768244_2028.JPEG",
+      "n01768244/n01768244_6349.JPEG",
+      "n01770081/n01770081_1374.JPEG",
+      "n01770081/n01770081_19663.JPEG",
+      "n01770393/n01770393_10659.JPEG",
+      "n01770393/n01770393_27764.JPEG",
+      "n01773157/n01773157_1765.JPEG",
+      "n01773157/n01773157_3273.JPEG",
+      "n01773549/n01773549_1160.JPEG",
+      "n01773549/n01773549_2497.JPEG",
+      "n01773797/n01773797_4374.JPEG",
+      "n01773797/n01773797_4954.JPEG",
+      "n01774384/n01774384_14351.JPEG",
+      "n01774384/n01774384_15358.JPEG",
+      "n01774750/n01774750_11838.JPEG",
+      "n01774750/n01774750_7293.JPEG",
+      "n01775062/n01775062_5078.JPEG",
+      "n01775062/n01775062_6150.JPEG",
+      "n01776313/n01776313_34836.JPEG",
+      "n01776313/n01776313_9131.JPEG",
+      "n01784675/n01784675_14320.JPEG",
+      "n01784675/n01784675_7676.JPEG",
+      "n01795545/n01795545_17414.JPEG",
+      "n01795545/n01795545_6470.JPEG",
+      "n01796340/n01796340_1266.JPEG",
+      "n01796340/n01796340_39.JPEG",
+      "n01797886/n01797886_21323.JPEG",
+      "n01797886/n01797886_3708.JPEG",
+      "n01798484/n01798484_24200.JPEG",
+      "n01798484/n01798484_6199.JPEG",
+      "n01806143/n01806143_48145.JPEG",
+      "n01806143/n01806143_9664.JPEG",
+      "n01806567/n01806567_18369.JPEG",
+      "n01806567/n01806567_3061.JPEG",
+      "n01807496/n01807496_23541.JPEG",
+      "n01807496/n01807496_5461.JPEG",
+      "n01817953/n01817953_10346.JPEG",
+      "n01817953/n01817953_2690.JPEG",
+      "n01818515/n01818515_44120.JPEG",
+      "n01818515/n01818515_8585.JPEG",
+      "n01819313/n01819313_3135.JPEG",
+      "n01819313/n01819313_3407.JPEG",
+      "n01820546/n01820546_1323.JPEG",
+      "n01820546/n01820546_4296.JPEG",
+      "n01824575/n01824575_1481.JPEG",
+      "n01824575/n01824575_5285.JPEG",
+      "n01828970/n01828970_4969.JPEG",
+      "n01828970/n01828970_9953.JPEG",
+      "n01829413/n01829413_5776.JPEG",
+      "n01829413/n01829413_7274.JPEG",
+      "n01833805/n01833805_12552.JPEG",
+      "n01833805/n01833805_4079.JPEG",
+      "n01843065/n01843065_1867.JPEG",
+      "n01843065/n01843065_2665.JPEG",
+      "n01843383/n01843383_11937.JPEG",
+      "n01843383/n01843383_7314.JPEG",
+      "n01847000/n01847000_11981.JPEG",
+      "n01847000/n01847000_15718.JPEG",
+      "n01855032/n01855032_1432.JPEG",
+      "n01855032/n01855032_281.JPEG",
+      "n01855672/n01855672_10424.JPEG",
+      "n01855672/n01855672_5080.JPEG",
+      "n01860187/n01860187_20081.JPEG",
+      "n01860187/n01860187_2172.JPEG",
+      "n01871265/n01871265_13549.JPEG",
+      "n01871265/n01871265_5813.JPEG",
+      "n01872401/n01872401_4478.JPEG",
+      "n01872401/n01872401_8617.JPEG",
+      "n01873310/n01873310_24244.JPEG",
+      "n01873310/n01873310_5397.JPEG",
+      "n01877812/n01877812_11959.JPEG",
+      "n01877812/n01877812_5878.JPEG",
+      "n01882714/n01882714_16692.JPEG",
+      "n01882714/n01882714_8692.JPEG",
+      "n01883070/n01883070_20269.JPEG",
+      "n01883070/n01883070_258.JPEG",
+      "n01910747/n01910747_3399.JPEG",
+      "n01910747/n01910747_4704.JPEG",
+      "n01914609/n01914609_1980.JPEG",
+      "n01914609/n01914609_8144.JPEG",
+      "n01917289/n01917289_3524.JPEG",
+      "n01917289/n01917289_5007.JPEG",
+      "n01924916/n01924916_1113.JPEG",
+      "n01924916/n01924916_5490.JPEG",
+      "n01930112/n01930112_11166.JPEG",
+      "n01930112/n01930112_16998.JPEG",
+      "n01943899/n01943899_30966.JPEG",
+      "n01943899/n01943899_4540.JPEG",
+      "n01944390/n01944390_1228.JPEG",
+      "n01944390/n01944390_12577.JPEG",
+      "n01945685/n01945685_13753.JPEG",
+      "n01945685/n01945685_8876.JPEG",
+      "n01950731/n01950731_14149.JPEG",
+      "n01950731/n01950731_9232.JPEG",
+      "n01955084/n01955084_3995.JPEG",
+      "n01955084/n01955084_947.JPEG",
+      "n01968897/n01968897_16992.JPEG",
+      "n01968897/n01968897_25826.JPEG",
+      "n01978287/n01978287_5222.JPEG",
+      "n01978287/n01978287_6225.JPEG",
+      "n01978455/n01978455_4735.JPEG",
+      "n01978455/n01978455_7622.JPEG",
+      "n01980166/n01980166_195.JPEG",
+      "n01980166/n01980166_3083.JPEG",
+      "n01981276/n01981276_4946.JPEG",
+      "n01981276/n01981276_7873.JPEG",
+      "n01983481/n01983481_18699.JPEG",
+      "n01983481/n01983481_5385.JPEG",
+      "n01984695/n01984695_22202.JPEG",
+      "n01984695/n01984695_76245.JPEG",
+      "n01985128/n01985128_12455.JPEG",
+      "n01985128/n01985128_19997.JPEG",
+      "n01986214/n01986214_1015.JPEG",
+      "n01986214/n01986214_3811.JPEG",
+      "n01990800/n01990800_10656.JPEG",
+      "n01990800/n01990800_4224.JPEG",
+      "n02002556/n02002556_2427.JPEG",
+      "n02002556/n02002556_9209.JPEG",
+      "n02002724/n02002724_2227.JPEG",
+      "n02002724/n02002724_6210.JPEG",
+      "n02006656/n02006656_23028.JPEG",
+      "n02006656/n02006656_4243.JPEG",
+      "n02007558/n02007558_37147.JPEG",
+      "n02007558/n02007558_7285.JPEG",
+      "n02009229/n02009229_14963.JPEG",
+      "n02009229/n02009229_16155.JPEG",
+      "n02009912/n02009912_2178.JPEG",
+      "n02009912/n02009912_4138.JPEG",
+      "n02011460/n02011460_2640.JPEG",
+      "n02011460/n02011460_5904.JPEG",
+      "n02012849/n02012849_1085.JPEG",
+      "n02012849/n02012849_9408.JPEG",
+      "n02013706/n02013706_10801.JPEG",
+      "n02013706/n02013706_1544.JPEG",
+      "n02017213/n02017213_12819.JPEG",
+      "n02017213/n02017213_90.JPEG",
+      "n02018207/n02018207_20315.JPEG",
+      "n02018207/n02018207_634.JPEG",
+      "n02018795/n02018795_12695.JPEG",
+      "n02018795/n02018795_509.JPEG",
+      "n02025239/n02025239_16474.JPEG",
+      "n02025239/n02025239_5229.JPEG",
+      "n02027492/n02027492_12064.JPEG",
+      "n02027492/n02027492_2538.JPEG",
+      "n02028035/n02028035_5615.JPEG",
+      "n02028035/n02028035_9612.JPEG",
+      "n02033041/n02033041_5471.JPEG",
+      "n02033041/n02033041_6517.JPEG",
+      "n02037110/n02037110_14364.JPEG",
+      "n02037110/n02037110_8939.JPEG",
+      "n02051845/n02051845_21669.JPEG",
+      "n02051845/n02051845_39364.JPEG",
+      "n02056570/n02056570_15798.JPEG",
+      "n02056570/n02056570_19893.JPEG",
+      "n02058221/n02058221_2285.JPEG",
+      "n02058221/n02058221_23437.JPEG",
+      "n02066245/n02066245_2363.JPEG",
+      "n02066245/n02066245_7012.JPEG",
+      "n02071294/n02071294_3275.JPEG",
+      "n02071294/n02071294_72185.JPEG",
+      "n02074367/n02074367_6405.JPEG",
+      "n02074367/n02074367_682.JPEG",
+      "n02077923/n02077923_13269.JPEG",
+      "n02077923/n02077923_307.JPEG",
+      "n02085620/n02085620_27480.JPEG",
+      "n02085620/n02085620_5635.JPEG",
+      "n02085782/n02085782_10898.JPEG",
+      "n02085782/n02085782_6479.JPEG",
+      "n02085936/n02085936_2989.JPEG",
+      "n02085936/n02085936_7054.JPEG",
+      "n02086079/n02086079_37078.JPEG",
+      "n02086079/n02086079_39042.JPEG",
+      "n02086240/n02086240_2770.JPEG",
+      "n02086240/n02086240_6344.JPEG",
+      "n02086646/n02086646_4405.JPEG",
+      "n02086646/n02086646_5887.JPEG",
+      "n02086910/n02086910_1498.JPEG",
+      "n02086910/n02086910_597.JPEG",
+      "n02087046/n02087046_2233.JPEG",
+      "n02087046/n02087046_9763.JPEG",
+      "n02087394/n02087394_5991.JPEG",
+      "n02087394/n02087394_7045.JPEG",
+      "n02088094/n02088094_12302.JPEG",
+      "n02088094/n02088094_879.JPEG",
+      "n02088238/n02088238_3925.JPEG",
+      "n02088238/n02088238_989.JPEG",
+      "n02088364/n02088364_6092.JPEG",
+      "n02088364/n02088364_6964.JPEG",
+      "n02088466/n02088466_7717.JPEG",
+      "n02088466/n02088466_9909.JPEG",
+      "n02088632/n02088632_5196.JPEG",
+      "n02088632/n02088632_7846.JPEG",
+      "n02089078/n02089078_7803.JPEG",
+      "n02089078/n02089078_7866.JPEG",
+      "n02089867/n02089867_8478.JPEG",
+      "n02089867/n02089867_8693.JPEG",
+      "n02089973/n02089973_432.JPEG",
+      "n02089973/n02089973_533.JPEG",
+      "n02090379/n02090379_830.JPEG",
+      "n02090379/n02090379_832.JPEG",
+      "n02090622/n02090622_2120.JPEG",
+      "n02090622/n02090622_433.JPEG",
+      "n02090721/n02090721_4358.JPEG",
+      "n02090721/n02090721_4779.JPEG",
+      "n02091032/n02091032_1214.JPEG",
+      "n02091032/n02091032_7929.JPEG",
+      "n02091134/n02091134_7021.JPEG",
+      "n02091134/n02091134_8991.JPEG",
+      "n02091244/n02091244_10250.JPEG",
+      "n02091244/n02091244_6207.JPEG",
+      "n02091467/n02091467_11966.JPEG",
+      "n02091467/n02091467_9264.JPEG",
+      "n02091635/n02091635_10551.JPEG",
+      "n02091635/n02091635_3822.JPEG",
+      "n02091831/n02091831_4858.JPEG",
+      "n02091831/n02091831_9256.JPEG",
+      "n02092002/n02092002_1742.JPEG",
+      "n02092002/n02092002_5758.JPEG",
+      "n02092339/n02092339_1128.JPEG",
+      "n02092339/n02092339_5048.JPEG",
+      "n02093256/n02093256_386.JPEG",
+      "n02093256/n02093256_3910.JPEG",
+      "n02093428/n02093428_14049.JPEG",
+      "n02093428/n02093428_3094.JPEG",
+      "n02093647/n02093647_2428.JPEG",
+      "n02093647/n02093647_3209.JPEG",
+      "n02093754/n02093754_1377.JPEG",
+      "n02093754/n02093754_5973.JPEG",
+      "n02093859/n02093859_2989.JPEG",
+      "n02093859/n02093859_536.JPEG",
+      "n02093991/n02093991_1145.JPEG",
+      "n02093991/n02093991_1758.JPEG",
+      "n02094114/n02094114_4587.JPEG",
+      "n02094114/n02094114_7540.JPEG",
+      "n02094258/n02094258_312.JPEG",
+      "n02094258/n02094258_6221.JPEG",
+      "n02094433/n02094433_795.JPEG",
+      "n02094433/n02094433_9252.JPEG",
+      "n02095314/n02095314_3220.JPEG",
+      "n02095314/n02095314_6400.JPEG",
+      "n02095570/n02095570_5038.JPEG",
+      "n02095570/n02095570_9417.JPEG",
+      "n02095889/n02095889_5718.JPEG",
+      "n02095889/n02095889_7774.JPEG",
+      "n02096051/n02096051_3825.JPEG",
+      "n02096051/n02096051_6657.JPEG",
+      "n02096177/n02096177_2006.JPEG",
+      "n02096177/n02096177_7294.JPEG",
+      "n02096294/n02096294_10741.JPEG",
+      "n02096294/n02096294_10879.JPEG",
+      "n02096437/n02096437_1641.JPEG",
+      "n02096437/n02096437_2337.JPEG",
+      "n02096585/n02096585_1415.JPEG",
+      "n02096585/n02096585_3093.JPEG",
+      "n02097047/n02097047_2891.JPEG",
+      "n02097047/n02097047_546.JPEG",
+      "n02097130/n02097130_1980.JPEG",
+      "n02097130/n02097130_4577.JPEG",
+      "n02097209/n02097209_2976.JPEG",
+      "n02097209/n02097209_591.JPEG",
+      "n02097298/n02097298_2826.JPEG",
+      "n02097298/n02097298_5179.JPEG",
+      "n02097474/n02097474_6651.JPEG",
+      "n02097474/n02097474_7415.JPEG",
+      "n02097658/n02097658_3349.JPEG",
+      "n02097658/n02097658_759.JPEG",
+      "n02098105/n02098105_1204.JPEG",
+      "n02098105/n02098105_309.JPEG",
+      "n02098286/n02098286_2058.JPEG",
+      "n02098286/n02098286_3531.JPEG",
+      "n02098413/n02098413_16181.JPEG",
+      "n02098413/n02098413_21209.JPEG",
+      "n02099267/n02099267_18195.JPEG",
+      "n02099267/n02099267_3588.JPEG",
+      "n02099429/n02099429_2875.JPEG",
+      "n02099429/n02099429_5293.JPEG",
+      "n02099601/n02099601_1735.JPEG",
+      "n02099601/n02099601_29211.JPEG",
+      "n02099712/n02099712_1509.JPEG",
+      "n02099712/n02099712_6423.JPEG",
+      "n02099849/n02099849_411.JPEG",
+      "n02099849/n02099849_4406.JPEG",
+      "n02100236/n02100236_2594.JPEG",
+      "n02100236/n02100236_9951.JPEG",
+      "n02100583/n02100583_18112.JPEG",
+      "n02100583/n02100583_22960.JPEG",
+      "n02100735/n02100735_4172.JPEG",
+      "n02100735/n02100735_5054.JPEG",
+      "n02100877/n02100877_12897.JPEG",
+      "n02100877/n02100877_25281.JPEG",
+      "n02101006/n02101006_1249.JPEG",
+      "n02101006/n02101006_956.JPEG",
+      "n02101388/n02101388_4276.JPEG",
+      "n02101388/n02101388_6701.JPEG",
+      "n02101556/n02101556_44.JPEG",
+      "n02101556/n02101556_5831.JPEG",
+      "n02102040/n02102040_1720.JPEG",
+      "n02102040/n02102040_609.JPEG",
+      "n02102177/n02102177_2595.JPEG",
+      "n02102177/n02102177_7813.JPEG",
+      "n02102318/n02102318_6391.JPEG",
+      "n02102318/n02102318_959.JPEG",
+      "n02102480/n02102480_10681.JPEG",
+      "n02102480/n02102480_11207.JPEG",
+      "n02102973/n02102973_1448.JPEG",
+      "n02102973/n02102973_4490.JPEG",
+      "n02104029/n02104029_2723.JPEG",
+      "n02104029/n02104029_8084.JPEG",
+      "n02104365/n02104365_240.JPEG",
+      "n02104365/n02104365_424.JPEG",
+      "n02105056/n02105056_14914.JPEG",
+      "n02105056/n02105056_683.JPEG",
+      "n02105162/n02105162_1046.JPEG",
+      "n02105162/n02105162_1111.JPEG",
+      "n02105251/n02105251_15426.JPEG",
+      "n02105251/n02105251_2799.JPEG",
+      "n02105412/n02105412_3386.JPEG",
+      "n02105412/n02105412_7499.JPEG",
+      "n02105505/n02105505_6663.JPEG",
+      "n02105505/n02105505_862.JPEG",
+      "n02105641/n02105641_10266.JPEG",
+      "n02105641/n02105641_6483.JPEG",
+      "n02105855/n02105855_5144.JPEG",
+      "n02105855/n02105855_7927.JPEG",
+      "n02106030/n02106030_10523.JPEG",
+      "n02106030/n02106030_4317.JPEG",
+      "n02106166/n02106166_16430.JPEG",
+      "n02106166/n02106166_21563.JPEG",
+      "n02106382/n02106382_12459.JPEG",
+      "n02106382/n02106382_5488.JPEG",
+      "n02106550/n02106550_491.JPEG",
+      "n02106550/n02106550_5768.JPEG",
+      "n02106662/n02106662_1494.JPEG",
+      "n02106662/n02106662_61574.JPEG",
+      "n02107142/n02107142_14378.JPEG",
+      "n02107142/n02107142_49005.JPEG",
+      "n02107312/n02107312_4945.JPEG",
+      "n02107312/n02107312_847.JPEG",
+      "n02107574/n02107574_4269.JPEG",
+      "n02107574/n02107574_6196.JPEG",
+      "n02107683/n02107683_2812.JPEG",
+      "n02107683/n02107683_3659.JPEG",
+      "n02107908/n02107908_11486.JPEG",
+      "n02107908/n02107908_2813.JPEG",
+      "n02108000/n02108000_348.JPEG",
+      "n02108000/n02108000_6040.JPEG",
+      "n02108089/n02108089_25.JPEG",
+      "n02108089/n02108089_461.JPEG",
+      "n02108422/n02108422_5177.JPEG",
+      "n02108422/n02108422_8568.JPEG",
+      "n02108551/n02108551_5721.JPEG",
+      "n02108551/n02108551_715.JPEG",
+      "n02108915/n02108915_5096.JPEG",
+      "n02108915/n02108915_841.JPEG",
+      "n02109047/n02109047_345.JPEG",
+      "n02109047/n02109047_4286.JPEG",
+      "n02109525/n02109525_16552.JPEG",
+      "n02109525/n02109525_8372.JPEG",
+      "n02109961/n02109961_2637.JPEG",
+      "n02109961/n02109961_44553.JPEG",
+      "n02110063/n02110063_18996.JPEG",
+      "n02110063/n02110063_6208.JPEG",
+      "n02110185/n02110185_13451.JPEG",
+      "n02110185/n02110185_6486.JPEG",
+      "n02110341/n02110341_16543.JPEG",
+      "n02110341/n02110341_9674.JPEG",
+      "n02110627/n02110627_19417.JPEG",
+      "n02110627/n02110627_21145.JPEG",
+      "n02110806/n02110806_15977.JPEG",
+      "n02110806/n02110806_4188.JPEG",
+      "n02110958/n02110958_107.JPEG",
+      "n02110958/n02110958_7038.JPEG",
+      "n02111129/n02111129_5675.JPEG",
+      "n02111129/n02111129_6653.JPEG",
+      "n02111277/n02111277_13622.JPEG",
+      "n02111277/n02111277_3458.JPEG",
+      "n02111500/n02111500_7672.JPEG",
+      "n02111500/n02111500_9003.JPEG",
+      "n02111889/n02111889_10166.JPEG",
+      "n02111889/n02111889_4310.JPEG",
+      "n02112018/n02112018_2665.JPEG",
+      "n02112018/n02112018_598.JPEG",
+      "n02112137/n02112137_11352.JPEG",
+      "n02112137/n02112137_17315.JPEG",
+      "n02112350/n02112350_310.JPEG",
+      "n02112350/n02112350_6693.JPEG",
+      "n02112706/n02112706_4240.JPEG",
+      "n02112706/n02112706_5276.JPEG",
+      "n02113023/n02113023_1901.JPEG",
+      "n02113023/n02113023_9208.JPEG",
+      "n02113186/n02113186_12291.JPEG",
+      "n02113186/n02113186_13032.JPEG",
+      "n02113624/n02113624_2609.JPEG",
+      "n02113624/n02113624_510.JPEG",
+      "n02113712/n02113712_12622.JPEG",
+      "n02113712/n02113712_4463.JPEG",
+      "n02113799/n02113799_12571.JPEG",
+      "n02113799/n02113799_15610.JPEG",
+      "n02113978/n02113978_310.JPEG",
+      "n02113978/n02113978_3640.JPEG",
+      "n02114367/n02114367_14988.JPEG",
+      "n02114367/n02114367_18537.JPEG",
+      "n02114548/n02114548_3553.JPEG",
+      "n02114548/n02114548_9260.JPEG",
+      "n02114712/n02114712_19475.JPEG",
+      "n02114712/n02114712_717.JPEG",
+      "n02114855/n02114855_11394.JPEG",
+      "n02114855/n02114855_11593.JPEG",
+      "n02115641/n02115641_10724.JPEG",
+      "n02115641/n02115641_12168.JPEG",
+      "n02115913/n02115913_1047.JPEG",
+      "n02115913/n02115913_10971.JPEG",
+      "n02116738/n02116738_2078.JPEG",
+      "n02116738/n02116738_5708.JPEG",
+      "n02117135/n02117135_11112.JPEG",
+      "n02117135/n02117135_15225.JPEG",
+      "n02119022/n02119022_12840.JPEG",
+      "n02119022/n02119022_9093.JPEG",
+      "n02119789/n02119789_2791.JPEG",
+      "n02119789/n02119789_7591.JPEG",
+      "n02120079/n02120079_14548.JPEG",
+      "n02120079/n02120079_2915.JPEG",
+      "n02120505/n02120505_12974.JPEG",
+      "n02120505/n02120505_2598.JPEG",
+      "n02123045/n02123045_6504.JPEG",
+      "n02123045/n02123045_9468.JPEG",
+      "n02123159/n02123159_1354.JPEG",
+      "n02123159/n02123159_2482.JPEG",
+      "n02123394/n02123394_5724.JPEG",
+      "n02123394/n02123394_7365.JPEG",
+      "n02123597/n02123597_4040.JPEG",
+      "n02123597/n02123597_7642.JPEG",
+      "n02124075/n02124075_10660.JPEG",
+      "n02124075/n02124075_7196.JPEG",
+      "n02125311/n02125311_27578.JPEG",
+      "n02125311/n02125311_9244.JPEG",
+      "n02127052/n02127052_4527.JPEG",
+      "n02127052/n02127052_7401.JPEG",
+      "n02128385/n02128385_6029.JPEG",
+      "n02128385/n02128385_7968.JPEG",
+      "n02128757/n02128757_12915.JPEG",
+      "n02128757/n02128757_6838.JPEG",
+      "n02128925/n02128925_10153.JPEG",
+      "n02128925/n02128925_20618.JPEG",
+      "n02129165/n02129165_4749.JPEG",
+      "n02129165/n02129165_479.JPEG",
+      "n02129604/n02129604_14367.JPEG",
+      "n02129604/n02129604_8258.JPEG",
+      "n02130308/n02130308_22370.JPEG",
+      "n02130308/n02130308_7274.JPEG",
+      "n02132136/n02132136_3452.JPEG",
+      "n02132136/n02132136_7647.JPEG",
+      "n02133161/n02133161_4230.JPEG",
+      "n02133161/n02133161_9960.JPEG",
+      "n02134084/n02134084_19589.JPEG",
+      "n02134084/n02134084_4726.JPEG",
+      "n02134418/n02134418_1019.JPEG",
+      "n02134418/n02134418_12172.JPEG",
+      "n02137549/n02137549_716.JPEG",
+      "n02137549/n02137549_7188.JPEG",
+      "n02138441/n02138441_163.JPEG",
+      "n02138441/n02138441_6995.JPEG",
+      "n02165105/n02165105_10372.JPEG",
+      "n02165105/n02165105_2508.JPEG",
+      "n02165456/n02165456_13321.JPEG",
+      "n02165456/n02165456_4715.JPEG",
+      "n02167151/n02167151_11792.JPEG",
+      "n02167151/n02167151_5857.JPEG",
+      "n02168699/n02168699_7304.JPEG",
+      "n02168699/n02168699_9903.JPEG",
+      "n02169497/n02169497_2447.JPEG",
+      "n02169497/n02169497_7522.JPEG",
+      "n02172182/n02172182_10730.JPEG",
+      "n02172182/n02172182_3802.JPEG",
+      "n02174001/n02174001_2574.JPEG",
+      "n02174001/n02174001_3929.JPEG",
+      "n02177972/n02177972_143.JPEG",
+      "n02177972/n02177972_6621.JPEG",
+      "n02190166/n02190166_6189.JPEG",
+      "n02190166/n02190166_7170.JPEG",
+      "n02206856/n02206856_1115.JPEG",
+      "n02206856/n02206856_98.JPEG",
+      "n02219486/n02219486_22262.JPEG",
+      "n02219486/n02219486_27357.JPEG",
+      "n02226429/n02226429_16441.JPEG",
+      "n02226429/n02226429_17021.JPEG",
+      "n02229544/n02229544_15544.JPEG",
+      "n02229544/n02229544_5087.JPEG",
+      "n02231487/n02231487_210.JPEG",
+      "n02231487/n02231487_3948.JPEG",
+      "n02233338/n02233338_9234.JPEG",
+      "n02233338/n02233338_9643.JPEG",
+      "n02236044/n02236044_15039.JPEG",
+      "n02236044/n02236044_5014.JPEG",
+      "n02256656/n02256656_5865.JPEG",
+      "n02256656/n02256656_6509.JPEG",
+      "n02259212/n02259212_3535.JPEG",
+      "n02259212/n02259212_5250.JPEG",
+      "n02264363/n02264363_12548.JPEG",
+      "n02264363/n02264363_9076.JPEG",
+      "n02268443/n02268443_30092.JPEG",
+      "n02268443/n02268443_46819.JPEG",
+      "n02268853/n02268853_340.JPEG",
+      "n02268853/n02268853_7500.JPEG",
+      "n02276258/n02276258_3708.JPEG",
+      "n02276258/n02276258_7748.JPEG",
+      "n02277742/n02277742_16766.JPEG",
+      "n02277742/n02277742_54632.JPEG",
+      "n02279972/n02279972_1102.JPEG",
+      "n02279972/n02279972_335.JPEG",
+      "n02280649/n02280649_2410.JPEG",
+      "n02280649/n02280649_7997.JPEG",
+      "n02281406/n02281406_10027.JPEG",
+      "n02281406/n02281406_6961.JPEG",
+      "n02281787/n02281787_3086.JPEG",
+      "n02281787/n02281787_5309.JPEG",
+      "n02317335/n02317335_22113.JPEG",
+      "n02317335/n02317335_25348.JPEG",
+      "n02319095/n02319095_3553.JPEG",
+      "n02319095/n02319095_3666.JPEG",
+      "n02321529/n02321529_10043.JPEG",
+      "n02321529/n02321529_3674.JPEG",
+      "n02325366/n02325366_2387.JPEG",
+      "n02325366/n02325366_7873.JPEG",
+      "n02326432/n02326432_25080.JPEG",
+      "n02326432/n02326432_9992.JPEG",
+      "n02328150/n02328150_1977.JPEG",
+      "n02328150/n02328150_679.JPEG",
+      "n02342885/n02342885_13849.JPEG",
+      "n02342885/n02342885_2274.JPEG",
+      "n02346627/n02346627_10795.JPEG",
+      "n02346627/n02346627_9966.JPEG",
+      "n02356798/n02356798_3371.JPEG",
+      "n02356798/n02356798_3497.JPEG",
+      "n02361337/n02361337_2592.JPEG",
+      "n02361337/n02361337_805.JPEG",
+      "n02363005/n02363005_19909.JPEG",
+      "n02363005/n02363005_26908.JPEG",
+      "n02364673/n02364673_111.JPEG",
+      "n02364673/n02364673_3281.JPEG",
+      "n02389026/n02389026_15566.JPEG",
+      "n02389026/n02389026_4569.JPEG",
+      "n02391049/n02391049_1025.JPEG",
+      "n02391049/n02391049_1516.JPEG",
+      "n02395406/n02395406_28030.JPEG",
+      "n02395406/n02395406_35795.JPEG",
+      "n02396427/n02396427_1410.JPEG",
+      "n02396427/n02396427_39077.JPEG",
+      "n02397096/n02397096_21221.JPEG",
+      "n02397096/n02397096_3105.JPEG",
+      "n02398521/n02398521_18728.JPEG",
+      "n02398521/n02398521_35247.JPEG",
+      "n02403003/n02403003_1574.JPEG",
+      "n02403003/n02403003_6250.JPEG",
+      "n02408429/n02408429_15055.JPEG",
+      "n02408429/n02408429_6067.JPEG",
+      "n02410509/n02410509_10006.JPEG",
+      "n02410509/n02410509_1751.JPEG",
+      "n02412080/n02412080_16015.JPEG",
+      "n02412080/n02412080_7098.JPEG",
+      "n02415577/n02415577_3897.JPEG",
+      "n02415577/n02415577_6111.JPEG",
+      "n02417914/n02417914_13456.JPEG",
+      "n02417914/n02417914_3817.JPEG",
+      "n02422106/n02422106_11335.JPEG",
+      "n02422106/n02422106_4725.JPEG",
+      "n02422699/n02422699_12697.JPEG",
+      "n02422699/n02422699_5652.JPEG",
+      "n02423022/n02423022_2895.JPEG",
+      "n02423022/n02423022_9566.JPEG",
+      "n02437312/n02437312_11657.JPEG",
+      "n02437312/n02437312_9772.JPEG",
+      "n02437616/n02437616_13007.JPEG",
+      "n02437616/n02437616_373.JPEG",
+      "n02441942/n02441942_18195.JPEG",
+      "n02441942/n02441942_6087.JPEG",
+      "n02442845/n02442845_16612.JPEG",
+      "n02442845/n02442845_30954.JPEG",
+      "n02443114/n02443114_6827.JPEG",
+      "n02443114/n02443114_9159.JPEG",
+      "n02443484/n02443484_3025.JPEG",
+      "n02443484/n02443484_9553.JPEG",
+      "n02444819/n02444819_113.JPEG",
+      "n02444819/n02444819_255.JPEG",
+      "n02445715/n02445715_15137.JPEG",
+      "n02445715/n02445715_5388.JPEG",
+      "n02447366/n02447366_114.JPEG",
+      "n02447366/n02447366_15651.JPEG",
+      "n02454379/n02454379_2754.JPEG",
+      "n02454379/n02454379_7137.JPEG",
+      "n02457408/n02457408_11293.JPEG",
+      "n02457408/n02457408_23731.JPEG",
+      "n02480495/n02480495_3252.JPEG",
+      "n02480495/n02480495_9515.JPEG",
+      "n02480855/n02480855_12332.JPEG",
+      "n02480855/n02480855_7896.JPEG",
+      "n02481823/n02481823_11584.JPEG",
+      "n02481823/n02481823_395.JPEG",
+      "n02483362/n02483362_4373.JPEG",
+      "n02483362/n02483362_9387.JPEG",
+      "n02483708/n02483708_2701.JPEG",
+      "n02483708/n02483708_2846.JPEG",
+      "n02484975/n02484975_3875.JPEG",
+      "n02484975/n02484975_7488.JPEG",
+      "n02486261/n02486261_16113.JPEG",
+      "n02486261/n02486261_2083.JPEG",
+      "n02486410/n02486410_1891.JPEG",
+      "n02486410/n02486410_2384.JPEG",
+      "n02487347/n02487347_1081.JPEG",
+      "n02487347/n02487347_10843.JPEG",
+      "n02488291/n02488291_4113.JPEG",
+      "n02488291/n02488291_5097.JPEG",
+      "n02488702/n02488702_6135.JPEG",
+      "n02488702/n02488702_99.JPEG",
+      "n02489166/n02489166_356.JPEG",
+      "n02489166/n02489166_3887.JPEG",
+      "n02490219/n02490219_10501.JPEG",
+      "n02490219/n02490219_6048.JPEG",
+      "n02492035/n02492035_12696.JPEG",
+      "n02492035/n02492035_13857.JPEG",
+      "n02492660/n02492660_324.JPEG",
+      "n02492660/n02492660_6575.JPEG",
+      "n02493509/n02493509_15391.JPEG",
+      "n02493509/n02493509_15808.JPEG",
+      "n02493793/n02493793_1000.JPEG",
+      "n02493793/n02493793_9970.JPEG",
+      "n02494079/n02494079_14064.JPEG",
+      "n02494079/n02494079_4018.JPEG",
+      "n02497673/n02497673_51.JPEG",
+      "n02497673/n02497673_7465.JPEG",
+      "n02500267/n02500267_1167.JPEG",
+      "n02500267/n02500267_1444.JPEG",
+      "n02504013/n02504013_2832.JPEG",
+      "n02504013/n02504013_2988.JPEG",
+      "n02504458/n02504458_1204.JPEG",
+      "n02504458/n02504458_1323.JPEG",
+      "n02509815/n02509815_1064.JPEG",
+      "n02509815/n02509815_683.JPEG",
+      "n02510455/n02510455_3343.JPEG",
+      "n02510455/n02510455_4722.JPEG",
+      "n02514041/n02514041_8468.JPEG",
+      "n02514041/n02514041_8845.JPEG",
+      "n02526121/n02526121_3896.JPEG",
+      "n02526121/n02526121_5465.JPEG",
+      "n02536864/n02536864_38603.JPEG",
+      "n02536864/n02536864_9977.JPEG",
+      "n02606052/n02606052_16793.JPEG",
+      "n02606052/n02606052_21595.JPEG",
+      "n02607072/n02607072_1631.JPEG",
+      "n02607072/n02607072_5663.JPEG",
+      "n02640242/n02640242_2441.JPEG",
+      "n02640242/n02640242_41888.JPEG",
+      "n02641379/n02641379_29270.JPEG",
+      "n02641379/n02641379_35551.JPEG",
+      "n02643566/n02643566_3862.JPEG",
+      "n02643566/n02643566_4000.JPEG",
+      "n02655020/n02655020_12757.JPEG",
+      "n02655020/n02655020_939.JPEG",
+      "n02666196/n02666196_18035.JPEG",
+      "n02666196/n02666196_19888.JPEG",
+      "n02667093/n02667093_10231.JPEG",
+      "n02667093/n02667093_9258.JPEG",
+      "n02669723/n02669723_3345.JPEG",
+      "n02669723/n02669723_8957.JPEG",
+      "n02672831/n02672831_11228.JPEG",
+      "n02672831/n02672831_18375.JPEG",
+      "n02676566/n02676566_6597.JPEG",
+      "n02676566/n02676566_9874.JPEG",
+      "n02687172/n02687172_47631.JPEG",
+      "n02687172/n02687172_78012.JPEG",
+      "n02690373/n02690373_2381.JPEG",
+      "n02690373/n02690373_6856.JPEG",
+      "n02692877/n02692877_21307.JPEG",
+      "n02692877/n02692877_997.JPEG",
+      "n02699494/n02699494_529.JPEG",
+      "n02699494/n02699494_9822.JPEG",
+      "n02701002/n02701002_3268.JPEG",
+      "n02701002/n02701002_4500.JPEG",
+      "n02704792/n02704792_12148.JPEG",
+      "n02704792/n02704792_27157.JPEG",
+      "n02708093/n02708093_1640.JPEG",
+      "n02708093/n02708093_6428.JPEG",
+      "n02727426/n02727426_24463.JPEG",
+      "n02727426/n02727426_32912.JPEG",
+      "n02730930/n02730930_1965.JPEG",
+      "n02730930/n02730930_2239.JPEG",
+      "n02747177/n02747177_25389.JPEG",
+      "n02747177/n02747177_4917.JPEG",
+      "n02749479/n02749479_2741.JPEG",
+      "n02749479/n02749479_3433.JPEG",
+      "n02769748/n02769748_27881.JPEG",
+      "n02769748/n02769748_43194.JPEG",
+      "n02776631/n02776631_34663.JPEG",
+      "n02776631/n02776631_46573.JPEG",
+      "n02777292/n02777292_11565.JPEG",
+      "n02777292/n02777292_16945.JPEG",
+      "n02782093/n02782093_353.JPEG",
+      "n02782093/n02782093_3995.JPEG",
+      "n02783161/n02783161_19427.JPEG",
+      "n02783161/n02783161_5517.JPEG",
+      "n02786058/n02786058_8512.JPEG",
+      "n02786058/n02786058_8999.JPEG",
+      "n02787622/n02787622_315.JPEG",
+      "n02787622/n02787622_7844.JPEG",
+      "n02788148/n02788148_7217.JPEG",
+      "n02788148/n02788148_98554.JPEG",
+      "n02790996/n02790996_10855.JPEG",
+      "n02790996/n02790996_9604.JPEG",
+      "n02791124/n02791124_3657.JPEG",
+      "n02791124/n02791124_9690.JPEG",
+      "n02791270/n02791270_28327.JPEG",
+      "n02791270/n02791270_5121.JPEG",
+      "n02793495/n02793495_12859.JPEG",
+      "n02793495/n02793495_9512.JPEG",
+      "n02794156/n02794156_5499.JPEG",
+      "n02794156/n02794156_7728.JPEG",
+      "n02795169/n02795169_10821.JPEG",
+      "n02795169/n02795169_14116.JPEG",
+      "n02797295/n02797295_18203.JPEG",
+      "n02797295/n02797295_7848.JPEG",
+      "n02799071/n02799071_673.JPEG",
+      "n02799071/n02799071_6896.JPEG",
+      "n02802426/n02802426_19536.JPEG",
+      "n02802426/n02802426_21701.JPEG",
+      "n02804414/n02804414_2976.JPEG",
+      "n02804414/n02804414_4376.JPEG",
+      "n02804610/n02804610_18827.JPEG",
+      "n02804610/n02804610_22870.JPEG",
+      "n02807133/n02807133_14753.JPEG",
+      "n02807133/n02807133_2369.JPEG",
+      "n02808304/n02808304_3847.JPEG",
+      "n02808304/n02808304_5777.JPEG",
+      "n02808440/n02808440_3719.JPEG",
+      "n02808440/n02808440_77347.JPEG",
+      "n02814533/n02814533_36330.JPEG",
+      "n02814533/n02814533_45853.JPEG",
+      "n02814860/n02814860_24652.JPEG",
+      "n02814860/n02814860_33006.JPEG",
+      "n02815834/n02815834_1959.JPEG",
+      "n02815834/n02815834_5291.JPEG",
+      "n02817516/n02817516_31853.JPEG",
+      "n02817516/n02817516_45426.JPEG",
+      "n02823428/n02823428_641.JPEG",
+      "n02823428/n02823428_7791.JPEG",
+      "n02823750/n02823750_14809.JPEG",
+      "n02823750/n02823750_4125.JPEG",
+      "n02825657/n02825657_11946.JPEG",
+      "n02825657/n02825657_8639.JPEG",
+      "n02834397/n02834397_2802.JPEG",
+      "n02834397/n02834397_6332.JPEG",
+      "n02835271/n02835271_15691.JPEG",
+      "n02835271/n02835271_21371.JPEG",
+      "n02837789/n02837789_13794.JPEG",
+      "n02837789/n02837789_3298.JPEG",
+      "n02840245/n02840245_1882.JPEG",
+      "n02840245/n02840245_8802.JPEG",
+      "n02841315/n02841315_41.JPEG",
+      "n02841315/n02841315_6269.JPEG",
+      "n02843684/n02843684_1031.JPEG",
+      "n02843684/n02843684_21916.JPEG",
+      "n02859443/n02859443_9372.JPEG",
+      "n02859443/n02859443_9951.JPEG",
+      "n02860847/n02860847_11631.JPEG",
+      "n02860847/n02860847_4732.JPEG",
+      "n02865351/n02865351_15518.JPEG",
+      "n02865351/n02865351_25055.JPEG",
+      "n02869837/n02869837_39627.JPEG",
+      "n02869837/n02869837_9945.JPEG",
+      "n02870880/n02870880_3900.JPEG",
+      "n02870880/n02870880_5765.JPEG",
+      "n02871525/n02871525_12175.JPEG",
+      "n02871525/n02871525_33516.JPEG",
+      "n02877765/n02877765_5585.JPEG",
+      "n02877765/n02877765_6924.JPEG",
+      "n02879718/n02879718_15993.JPEG",
+      "n02879718/n02879718_21774.JPEG",
+      "n02883205/n02883205_11831.JPEG",
+      "n02883205/n02883205_9439.JPEG",
+      "n02892201/n02892201_11738.JPEG",
+      "n02892201/n02892201_16480.JPEG",
+      "n02892767/n02892767_1407.JPEG",
+      "n02892767/n02892767_25915.JPEG",
+      "n02894605/n02894605_22798.JPEG",
+      "n02894605/n02894605_8695.JPEG",
+      "n02895154/n02895154_28700.JPEG",
+      "n02895154/n02895154_40925.JPEG",
+      "n02906734/n02906734_20507.JPEG",
+      "n02906734/n02906734_794.JPEG",
+      "n02909870/n02909870_53332.JPEG",
+      "n02909870/n02909870_73001.JPEG",
+      "n02910353/n02910353_2504.JPEG",
+      "n02910353/n02910353_298.JPEG",
+      "n02916936/n02916936_11165.JPEG",
+      "n02916936/n02916936_4379.JPEG",
+      "n02917067/n02917067_13402.JPEG",
+      "n02917067/n02917067_21875.JPEG",
+      "n02927161/n02927161_13465.JPEG",
+      "n02927161/n02927161_4513.JPEG",
+      "n02930766/n02930766_13320.JPEG",
+      "n02930766/n02930766_36568.JPEG",
+      "n02939185/n02939185_39007.JPEG",
+      "n02939185/n02939185_9172.JPEG",
+      "n02948072/n02948072_1632.JPEG",
+      "n02948072/n02948072_43109.JPEG",
+      "n02950826/n02950826_14668.JPEG",
+      "n02950826/n02950826_15346.JPEG",
+      "n02951358/n02951358_23692.JPEG",
+      "n02951358/n02951358_9958.JPEG",
+      "n02951585/n02951585_19055.JPEG",
+      "n02951585/n02951585_7313.JPEG",
+      "n02963159/n02963159_14875.JPEG",
+      "n02963159/n02963159_1637.JPEG",
+      "n02965783/n02965783_2743.JPEG",
+      "n02965783/n02965783_4773.JPEG",
+      "n02966193/n02966193_19980.JPEG",
+      "n02966193/n02966193_41482.JPEG",
+      "n02966687/n02966687_18071.JPEG",
+      "n02966687/n02966687_7004.JPEG",
+      "n02971356/n02971356_29167.JPEG",
+      "n02971356/n02971356_3967.JPEG",
+      "n02974003/n02974003_10144.JPEG",
+      "n02974003/n02974003_5735.JPEG",
+      "n02977058/n02977058_20262.JPEG",
+      "n02977058/n02977058_27717.JPEG",
+      "n02978881/n02978881_2045.JPEG",
+      "n02978881/n02978881_33568.JPEG",
+      "n02979186/n02979186_10496.JPEG",
+      "n02979186/n02979186_5903.JPEG",
+      "n02980441/n02980441_10413.JPEG",
+      "n02980441/n02980441_3642.JPEG",
+      "n02981792/n02981792_5515.JPEG",
+      "n02981792/n02981792_8393.JPEG",
+      "n02988304/n02988304_21601.JPEG",
+      "n02988304/n02988304_850.JPEG",
+      "n02992211/n02992211_30028.JPEG",
+      "n02992211/n02992211_37261.JPEG",
+      "n02992529/n02992529_22332.JPEG",
+      "n02992529/n02992529_7262.JPEG",
+      "n02999410/n02999410_16665.JPEG",
+      "n02999410/n02999410_5555.JPEG",
+      "n03000134/n03000134_1354.JPEG",
+      "n03000134/n03000134_1490.JPEG",
+      "n03000247/n03000247_13928.JPEG",
+      "n03000247/n03000247_52294.JPEG",
+      "n03000684/n03000684_27203.JPEG",
+      "n03000684/n03000684_365.JPEG",
+      "n03014705/n03014705_3575.JPEG",
+      "n03014705/n03014705_8374.JPEG",
+      "n03016953/n03016953_11673.JPEG",
+      "n03016953/n03016953_43839.JPEG",
+      "n03017168/n03017168_19181.JPEG",
+      "n03017168/n03017168_62071.JPEG",
+      "n03018349/n03018349_2291.JPEG",
+      "n03018349/n03018349_2303.JPEG",
+      "n03026506/n03026506_2191.JPEG",
+      "n03026506/n03026506_5528.JPEG",
+      "n03028079/n03028079_23987.JPEG",
+      "n03028079/n03028079_26859.JPEG",
+      "n03032252/n03032252_27767.JPEG",
+      "n03032252/n03032252_46474.JPEG",
+      "n03041632/n03041632_11787.JPEG",
+      "n03041632/n03041632_45090.JPEG",
+      "n03042490/n03042490_1146.JPEG",
+      "n03042490/n03042490_14215.JPEG",
+      "n03045698/n03045698_4200.JPEG",
+      "n03045698/n03045698_6674.JPEG",
+      "n03047690/n03047690_13217.JPEG",
+      "n03047690/n03047690_4717.JPEG",
+      "n03062245/n03062245_5354.JPEG",
+      "n03062245/n03062245_7383.JPEG",
+      "n03063599/n03063599_1456.JPEG",
+      "n03063599/n03063599_4267.JPEG",
+      "n03063689/n03063689_2444.JPEG",
+      "n03063689/n03063689_3726.JPEG",
+      "n03065424/n03065424_3616.JPEG",
+      "n03065424/n03065424_46992.JPEG",
+      "n03075370/n03075370_5692.JPEG",
+      "n03075370/n03075370_6553.JPEG",
+      "n03085013/n03085013_20359.JPEG",
+      "n03085013/n03085013_21199.JPEG",
+      "n03089624/n03089624_16651.JPEG",
+      "n03089624/n03089624_64703.JPEG",
+      "n03095699/n03095699_6960.JPEG",
+      "n03095699/n03095699_8764.JPEG",
+      "n03100240/n03100240_2331.JPEG",
+      "n03100240/n03100240_2562.JPEG",
+      "n03109150/n03109150_11843.JPEG",
+      "n03109150/n03109150_6167.JPEG",
+      "n03110669/n03110669_56797.JPEG",
+      "n03110669/n03110669_88221.JPEG",
+      "n03124043/n03124043_546.JPEG",
+      "n03124043/n03124043_6419.JPEG",
+      "n03124170/n03124170_6489.JPEG",
+      "n03124170/n03124170_7698.JPEG",
+      "n03125729/n03125729_14572.JPEG",
+      "n03125729/n03125729_16134.JPEG",
+      "n03126707/n03126707_14725.JPEG",
+      "n03126707/n03126707_17534.JPEG",
+      "n03127747/n03127747_1060.JPEG",
+      "n03127747/n03127747_17606.JPEG",
+      "n03127925/n03127925_1772.JPEG",
+      "n03127925/n03127925_386.JPEG",
+      "n03131574/n03131574_15616.JPEG",
+      "n03131574/n03131574_20124.JPEG",
+      "n03133878/n03133878_7323.JPEG",
+      "n03133878/n03133878_8095.JPEG",
+      "n03134739/n03134739_11367.JPEG",
+      "n03134739/n03134739_5801.JPEG",
+      "n03141823/n03141823_16700.JPEG",
+      "n03141823/n03141823_8196.JPEG",
+      "n03146219/n03146219_5107.JPEG",
+      "n03146219/n03146219_7131.JPEG",
+      "n03160309/n03160309_15426.JPEG",
+      "n03160309/n03160309_88985.JPEG",
+      "n03179701/n03179701_10272.JPEG",
+      "n03179701/n03179701_15430.JPEG",
+      "n03180011/n03180011_1650.JPEG",
+      "n03180011/n03180011_4423.JPEG",
+      "n03187595/n03187595_9336.JPEG",
+      "n03187595/n03187595_996.JPEG",
+      "n03188531/n03188531_10419.JPEG",
+      "n03188531/n03188531_28521.JPEG",
+      "n03196217/n03196217_4864.JPEG",
+      "n03196217/n03196217_8680.JPEG",
+      "n03197337/n03197337_3812.JPEG",
+      "n03197337/n03197337_616.JPEG",
+      "n03201208/n03201208_197.JPEG",
+      "n03201208/n03201208_39055.JPEG",
+      "n03207743/n03207743_11952.JPEG",
+      "n03207743/n03207743_12725.JPEG",
+      "n03207941/n03207941_4952.JPEG",
+      "n03207941/n03207941_8824.JPEG",
+      "n03208938/n03208938_10731.JPEG",
+      "n03208938/n03208938_17203.JPEG",
+      "n03216828/n03216828_37360.JPEG",
+      "n03216828/n03216828_7085.JPEG",
+      "n03218198/n03218198_4192.JPEG",
+      "n03218198/n03218198_5499.JPEG",
+      "n03220513/n03220513_10293.JPEG",
+      "n03220513/n03220513_26881.JPEG",
+      "n03223299/n03223299_13570.JPEG",
+      "n03223299/n03223299_6710.JPEG",
+      "n03240683/n03240683_10746.JPEG",
+      "n03240683/n03240683_13989.JPEG",
+      "n03249569/n03249569_38679.JPEG",
+      "n03249569/n03249569_77911.JPEG",
+      "n03250847/n03250847_20597.JPEG",
+      "n03250847/n03250847_4117.JPEG",
+      "n03255030/n03255030_1495.JPEG",
+      "n03255030/n03255030_6312.JPEG",
+      "n03259280/n03259280_10061.JPEG",
+      "n03259280/n03259280_10352.JPEG",
+      "n03271574/n03271574_28014.JPEG",
+      "n03271574/n03271574_3829.JPEG",
+      "n03272010/n03272010_116.JPEG",
+      "n03272010/n03272010_423.JPEG",
+      "n03272562/n03272562_3846.JPEG",
+      "n03272562/n03272562_9758.JPEG",
+      "n03290653/n03290653_3053.JPEG",
+      "n03290653/n03290653_5676.JPEG",
+      "n03291819/n03291819_10327.JPEG",
+      "n03291819/n03291819_29077.JPEG",
+      "n03297495/n03297495_2739.JPEG",
+      "n03297495/n03297495_824.JPEG",
+      "n03314780/n03314780_3199.JPEG",
+      "n03314780/n03314780_8204.JPEG",
+      "n03325584/n03325584_14390.JPEG",
+      "n03325584/n03325584_17271.JPEG",
+      "n03337140/n03337140_17788.JPEG",
+      "n03337140/n03337140_83585.JPEG",
+      "n03344393/n03344393_5821.JPEG",
+      "n03344393/n03344393_669.JPEG",
+      "n03345487/n03345487_2794.JPEG",
+      "n03345487/n03345487_6178.JPEG",
+      "n03347037/n03347037_10608.JPEG",
+      "n03347037/n03347037_16153.JPEG",
+      "n03355925/n03355925_13743.JPEG",
+      "n03355925/n03355925_8867.JPEG",
+      "n03372029/n03372029_27513.JPEG",
+      "n03372029/n03372029_50249.JPEG",
+      "n03376595/n03376595_1661.JPEG",
+      "n03376595/n03376595_6460.JPEG",
+      "n03379051/n03379051_1385.JPEG",
+      "n03379051/n03379051_859.JPEG",
+      "n03384352/n03384352_15473.JPEG",
+      "n03384352/n03384352_21183.JPEG",
+      "n03388043/n03388043_2862.JPEG",
+      "n03388043/n03388043_2895.JPEG",
+      "n03388183/n03388183_1598.JPEG",
+      "n03388183/n03388183_22325.JPEG",
+      "n03388549/n03388549_12647.JPEG",
+      "n03388549/n03388549_4444.JPEG",
+      "n03393912/n03393912_2774.JPEG",
+      "n03393912/n03393912_3456.JPEG",
+      "n03394916/n03394916_33283.JPEG",
+      "n03394916/n03394916_7620.JPEG",
+      "n03400231/n03400231_13973.JPEG",
+      "n03400231/n03400231_17030.JPEG",
+      "n03404251/n03404251_15135.JPEG",
+      "n03404251/n03404251_7914.JPEG",
+      "n03417042/n03417042_176.JPEG",
+      "n03417042/n03417042_19203.JPEG",
+      "n03424325/n03424325_1632.JPEG",
+      "n03424325/n03424325_6534.JPEG",
+      "n03425413/n03425413_18430.JPEG",
+      "n03425413/n03425413_20680.JPEG",
+      "n03443371/n03443371_19965.JPEG",
+      "n03443371/n03443371_3816.JPEG",
+      "n03444034/n03444034_1307.JPEG",
+      "n03444034/n03444034_16465.JPEG",
+      "n03445777/n03445777_3275.JPEG",
+      "n03445777/n03445777_9157.JPEG",
+      "n03445924/n03445924_13752.JPEG",
+      "n03445924/n03445924_9996.JPEG",
+      "n03447447/n03447447_307.JPEG",
+      "n03447447/n03447447_8414.JPEG",
+      "n03447721/n03447721_30914.JPEG",
+      "n03447721/n03447721_43240.JPEG",
+      "n03450230/n03450230_38945.JPEG",
+      "n03450230/n03450230_6970.JPEG",
+      "n03452741/n03452741_1760.JPEG",
+      "n03452741/n03452741_1985.JPEG",
+      "n03457902/n03457902_32065.JPEG",
+      "n03457902/n03457902_33453.JPEG",
+      "n03459775/n03459775_877.JPEG",
+      "n03459775/n03459775_9901.JPEG",
+      "n03461385/n03461385_25977.JPEG",
+      "n03461385/n03461385_28276.JPEG",
+      "n03467068/n03467068_13442.JPEG",
+      "n03467068/n03467068_6511.JPEG",
+      "n03476684/n03476684_2152.JPEG",
+      "n03476684/n03476684_6746.JPEG",
+      "n03476991/n03476991_13265.JPEG",
+      "n03476991/n03476991_239.JPEG",
+      "n03478589/n03478589_14563.JPEG",
+      "n03478589/n03478589_7857.JPEG",
+      "n03481172/n03481172_2465.JPEG",
+      "n03481172/n03481172_27616.JPEG",
+      "n03482405/n03482405_12124.JPEG",
+      "n03482405/n03482405_26290.JPEG",
+      "n03483316/n03483316_20015.JPEG",
+      "n03483316/n03483316_750.JPEG",
+      "n03485407/n03485407_3528.JPEG",
+      "n03485407/n03485407_5725.JPEG",
+      "n03485794/n03485794_34895.JPEG",
+      "n03485794/n03485794_51453.JPEG",
+      "n03492542/n03492542_14537.JPEG",
+      "n03492542/n03492542_51923.JPEG",
+      "n03494278/n03494278_3409.JPEG",
+      "n03494278/n03494278_41142.JPEG",
+      "n03495258/n03495258_14621.JPEG",
+      "n03495258/n03495258_376.JPEG",
+      "n03496892/n03496892_14254.JPEG",
+      "n03496892/n03496892_15270.JPEG",
+      "n03498962/n03498962_17267.JPEG",
+      "n03498962/n03498962_54236.JPEG",
+      "n03527444/n03527444_18236.JPEG",
+      "n03527444/n03527444_2774.JPEG",
+      "n03529860/n03529860_5195.JPEG",
+      "n03529860/n03529860_5822.JPEG",
+      "n03530642/n03530642_12470.JPEG",
+      "n03530642/n03530642_27079.JPEG",
+      "n03532672/n03532672_30353.JPEG",
+      "n03532672/n03532672_33340.JPEG",
+      "n03534580/n03534580_11673.JPEG",
+      "n03534580/n03534580_618.JPEG",
+      "n03535780/n03535780_12876.JPEG",
+      "n03535780/n03535780_4168.JPEG",
+      "n03538406/n03538406_10259.JPEG",
+      "n03538406/n03538406_4921.JPEG",
+      "n03544143/n03544143_7108.JPEG",
+      "n03544143/n03544143_8733.JPEG",
+      "n03584254/n03584254_1906.JPEG",
+      "n03584254/n03584254_537.JPEG",
+      "n03584829/n03584829_1779.JPEG",
+      "n03584829/n03584829_35232.JPEG",
+      "n03590841/n03590841_3392.JPEG",
+      "n03590841/n03590841_5324.JPEG",
+      "n03594734/n03594734_29875.JPEG",
+      "n03594734/n03594734_3738.JPEG",
+      "n03594945/n03594945_22918.JPEG",
+      "n03594945/n03594945_31572.JPEG",
+      "n03595614/n03595614_16477.JPEG",
+      "n03595614/n03595614_47316.JPEG",
+      "n03598930/n03598930_3825.JPEG",
+      "n03598930/n03598930_7342.JPEG",
+      "n03599486/n03599486_17326.JPEG",
+      "n03599486/n03599486_921.JPEG",
+      "n03602883/n03602883_14601.JPEG",
+      "n03602883/n03602883_5472.JPEG",
+      "n03617480/n03617480_18112.JPEG",
+      "n03617480/n03617480_7567.JPEG",
+      "n03623198/n03623198_10478.JPEG",
+      "n03623198/n03623198_2526.JPEG",
+      "n03627232/n03627232_24252.JPEG",
+      "n03627232/n03627232_40966.JPEG",
+      "n03630383/n03630383_1045.JPEG",
+      "n03630383/n03630383_7552.JPEG",
+      "n03633091/n03633091_12297.JPEG",
+      "n03633091/n03633091_5175.JPEG",
+      "n03637318/n03637318_17067.JPEG",
+      "n03637318/n03637318_7359.JPEG",
+      "n03642806/n03642806_18928.JPEG",
+      "n03642806/n03642806_3653.JPEG",
+      "n03649909/n03649909_43549.JPEG",
+      "n03649909/n03649909_46470.JPEG",
+      "n03657121/n03657121_17354.JPEG",
+      "n03657121/n03657121_5690.JPEG",
+      "n03658185/n03658185_1751.JPEG",
+      "n03658185/n03658185_46364.JPEG",
+      "n03661043/n03661043_3664.JPEG",
+      "n03661043/n03661043_44990.JPEG",
+      "n03662601/n03662601_16092.JPEG",
+      "n03662601/n03662601_9360.JPEG",
+      "n03666591/n03666591_32928.JPEG",
+      "n03666591/n03666591_3664.JPEG",
+      "n03670208/n03670208_1931.JPEG",
+      "n03670208/n03670208_41316.JPEG",
+      "n03673027/n03673027_15735.JPEG",
+      "n03673027/n03673027_17914.JPEG",
+      "n03676483/n03676483_27979.JPEG",
+      "n03676483/n03676483_29039.JPEG",
+      "n03680355/n03680355_1901.JPEG",
+      "n03680355/n03680355_3618.JPEG",
+      "n03690938/n03690938_12356.JPEG",
+      "n03690938/n03690938_8072.JPEG",
+      "n03691459/n03691459_103.JPEG",
+      "n03691459/n03691459_65785.JPEG",
+      "n03692522/n03692522_29186.JPEG",
+      "n03692522/n03692522_30518.JPEG",
+      "n03697007/n03697007_10279.JPEG",
+      "n03697007/n03697007_5424.JPEG",
+      "n03706229/n03706229_10101.JPEG",
+      "n03706229/n03706229_3699.JPEG",
+      "n03709823/n03709823_204.JPEG",
+      "n03709823/n03709823_6800.JPEG",
+      "n03710193/n03710193_18717.JPEG",
+      "n03710193/n03710193_5484.JPEG",
+      "n03710637/n03710637_21857.JPEG",
+      "n03710637/n03710637_9880.JPEG",
+      "n03710721/n03710721_2940.JPEG",
+      "n03710721/n03710721_8547.JPEG",
+      "n03717622/n03717622_8753.JPEG",
+      "n03717622/n03717622_9067.JPEG",
+      "n03720891/n03720891_1606.JPEG",
+      "n03720891/n03720891_8052.JPEG",
+      "n03721384/n03721384_16416.JPEG",
+      "n03721384/n03721384_23581.JPEG",
+      "n03724870/n03724870_15881.JPEG",
+      "n03724870/n03724870_6238.JPEG",
+      "n03729826/n03729826_19807.JPEG",
+      "n03729826/n03729826_9802.JPEG",
+      "n03733131/n03733131_10221.JPEG",
+      "n03733131/n03733131_7142.JPEG",
+      "n03733281/n03733281_23415.JPEG",
+      "n03733281/n03733281_43148.JPEG",
+      "n03733805/n03733805_18019.JPEG",
+      "n03733805/n03733805_8507.JPEG",
+      "n03742115/n03742115_15808.JPEG",
+      "n03742115/n03742115_20201.JPEG",
+      "n03743016/n03743016_19858.JPEG",
+      "n03743016/n03743016_5464.JPEG",
+      "n03759954/n03759954_11939.JPEG",
+      "n03759954/n03759954_24607.JPEG",
+      "n03761084/n03761084_16044.JPEG",
+      "n03761084/n03761084_49354.JPEG",
+      "n03763968/n03763968_14558.JPEG",
+      "n03763968/n03763968_2350.JPEG",
+      "n03764736/n03764736_26631.JPEG",
+      "n03764736/n03764736_7238.JPEG",
+      "n03769881/n03769881_8481.JPEG",
+      "n03769881/n03769881_9794.JPEG",
+      "n03770439/n03770439_14350.JPEG",
+      "n03770439/n03770439_17581.JPEG",
+      "n03770679/n03770679_20812.JPEG",
+      "n03770679/n03770679_21256.JPEG",
+      "n03773504/n03773504_14942.JPEG",
+      "n03773504/n03773504_23103.JPEG",
+      "n03775071/n03775071_10019.JPEG",
+      "n03775071/n03775071_30610.JPEG",
+      "n03775546/n03775546_10429.JPEG",
+      "n03775546/n03775546_6319.JPEG",
+      "n03776460/n03776460_2175.JPEG",
+      "n03776460/n03776460_898.JPEG",
+      "n03777568/n03777568_12467.JPEG",
+      "n03777568/n03777568_13020.JPEG",
+      "n03777754/n03777754_3167.JPEG",
+      "n03777754/n03777754_4738.JPEG",
+      "n03781244/n03781244_12522.JPEG",
+      "n03781244/n03781244_130968.JPEG",
+      "n03782006/n03782006_11716.JPEG",
+      "n03782006/n03782006_4845.JPEG",
+      "n03785016/n03785016_37752.JPEG",
+      "n03785016/n03785016_53455.JPEG",
+      "n03786901/n03786901_10897.JPEG",
+      "n03786901/n03786901_9028.JPEG",
+      "n03787032/n03787032_1369.JPEG",
+      "n03787032/n03787032_9877.JPEG",
+      "n03788195/n03788195_14027.JPEG",
+      "n03788195/n03788195_8026.JPEG",
+      "n03788365/n03788365_2663.JPEG",
+      "n03788365/n03788365_7618.JPEG",
+      "n03791053/n03791053_26802.JPEG",
+      "n03791053/n03791053_7674.JPEG",
+      "n03792782/n03792782_16896.JPEG",
+      "n03792782/n03792782_23084.JPEG",
+      "n03792972/n03792972_5026.JPEG",
+      "n03792972/n03792972_897.JPEG",
+      "n03793489/n03793489_11182.JPEG",
+      "n03793489/n03793489_5670.JPEG",
+      "n03794056/n03794056_25239.JPEG",
+      "n03794056/n03794056_5589.JPEG",
+      "n03796401/n03796401_24013.JPEG",
+      "n03796401/n03796401_361.JPEG",
+      "n03803284/n03803284_21354.JPEG",
+      "n03803284/n03803284_6981.JPEG",
+      "n03804744/n03804744_10239.JPEG",
+      "n03804744/n03804744_4765.JPEG",
+      "n03814639/n03814639_3134.JPEG",
+      "n03814639/n03814639_5026.JPEG",
+      "n03814906/n03814906_1981.JPEG",
+      "n03814906/n03814906_36020.JPEG",
+      "n03825788/n03825788_41567.JPEG",
+      "n03825788/n03825788_47790.JPEG",
+      "n03832673/n03832673_10730.JPEG",
+      "n03832673/n03832673_6536.JPEG",
+      "n03837869/n03837869_4104.JPEG",
+      "n03837869/n03837869_5598.JPEG",
+      "n03838899/n03838899_32629.JPEG",
+      "n03838899/n03838899_34598.JPEG",
+      "n03840681/n03840681_3450.JPEG",
+      "n03840681/n03840681_4825.JPEG",
+      "n03841143/n03841143_15931.JPEG",
+      "n03841143/n03841143_8714.JPEG",
+      "n03843555/n03843555_1344.JPEG",
+      "n03843555/n03843555_1884.JPEG",
+      "n03854065/n03854065_11357.JPEG",
+      "n03854065/n03854065_4465.JPEG",
+      "n03857828/n03857828_50348.JPEG",
+      "n03857828/n03857828_61410.JPEG",
+      "n03866082/n03866082_1758.JPEG",
+      "n03866082/n03866082_6516.JPEG",
+      "n03868242/n03868242_7518.JPEG",
+      "n03868242/n03868242_9548.JPEG",
+      "n03868863/n03868863_15299.JPEG",
+      "n03868863/n03868863_342.JPEG",
+      "n03871628/n03871628_23545.JPEG",
+      "n03871628/n03871628_2576.JPEG",
+      "n03873416/n03873416_15634.JPEG",
+      "n03873416/n03873416_8098.JPEG",
+      "n03874293/n03874293_8330.JPEG",
+      "n03874293/n03874293_9936.JPEG",
+      "n03874599/n03874599_10369.JPEG",
+      "n03874599/n03874599_5308.JPEG",
+      "n03876231/n03876231_5795.JPEG",
+      "n03876231/n03876231_734.JPEG",
+      "n03877472/n03877472_13107.JPEG",
+      "n03877472/n03877472_21028.JPEG",
+      "n03877845/n03877845_12211.JPEG",
+      "n03877845/n03877845_1354.JPEG",
+      "n03884397/n03884397_22730.JPEG",
+      "n03884397/n03884397_2487.JPEG",
+      "n03887697/n03887697_13618.JPEG",
+      "n03887697/n03887697_4705.JPEG",
+      "n03888257/n03888257_36631.JPEG",
+      "n03888257/n03888257_37776.JPEG",
+      "n03888605/n03888605_1244.JPEG",
+      "n03888605/n03888605_4766.JPEG",
+      "n03891251/n03891251_3399.JPEG",
+      "n03891251/n03891251_3659.JPEG",
+      "n03891332/n03891332_5414.JPEG",
+      "n03891332/n03891332_6263.JPEG",
+      "n03895866/n03895866_22417.JPEG",
+      "n03895866/n03895866_46631.JPEG",
+      "n03899768/n03899768_39314.JPEG",
+      "n03899768/n03899768_47810.JPEG",
+      "n03902125/n03902125_11931.JPEG",
+      "n03902125/n03902125_2635.JPEG",
+      "n03903868/n03903868_47664.JPEG",
+      "n03903868/n03903868_59341.JPEG",
+      "n03908618/n03908618_12771.JPEG",
+      "n03908618/n03908618_17487.JPEG",
+      "n03908714/n03908714_1009.JPEG",
+      "n03908714/n03908714_2334.JPEG",
+      "n03916031/n03916031_17672.JPEG",
+      "n03916031/n03916031_55130.JPEG",
+      "n03920288/n03920288_314.JPEG",
+      "n03920288/n03920288_520.JPEG",
+      "n03924679/n03924679_10628.JPEG",
+      "n03924679/n03924679_14718.JPEG",
+      "n03929660/n03929660_13905.JPEG",
+      "n03929660/n03929660_7880.JPEG",
+      "n03929855/n03929855_8100.JPEG",
+      "n03929855/n03929855_9331.JPEG",
+      "n03930313/n03930313_1503.JPEG",
+      "n03930313/n03930313_22353.JPEG",
+      "n03930630/n03930630_1138.JPEG",
+      "n03930630/n03930630_11816.JPEG",
+      "n03933933/n03933933_2179.JPEG",
+      "n03933933/n03933933_45837.JPEG",
+      "n03935335/n03935335_20663.JPEG",
+      "n03935335/n03935335_8974.JPEG",
+      "n03937543/n03937543_6233.JPEG",
+      "n03937543/n03937543_7148.JPEG",
+      "n03938244/n03938244_15243.JPEG",
+      "n03938244/n03938244_15285.JPEG",
+      "n03942813/n03942813_12489.JPEG",
+      "n03942813/n03942813_5115.JPEG",
+      "n03944341/n03944341_7602.JPEG",
+      "n03944341/n03944341_7736.JPEG",
+      "n03947888/n03947888_11947.JPEG",
+      "n03947888/n03947888_22288.JPEG",
+      "n03950228/n03950228_1064.JPEG",
+      "n03950228/n03950228_35553.JPEG",
+      "n03954731/n03954731_3069.JPEG",
+      "n03954731/n03954731_4449.JPEG",
+      "n03956157/n03956157_14832.JPEG",
+      "n03956157/n03956157_29888.JPEG",
+      "n03958227/n03958227_2093.JPEG",
+      "n03958227/n03958227_8337.JPEG",
+      "n03961711/n03961711_1119.JPEG",
+      "n03961711/n03961711_6468.JPEG",
+      "n03967562/n03967562_24781.JPEG",
+      "n03967562/n03967562_31544.JPEG",
+      "n03970156/n03970156_17243.JPEG",
+      "n03970156/n03970156_299.JPEG",
+      "n03976467/n03976467_2336.JPEG",
+      "n03976467/n03976467_2922.JPEG",
+      "n03976657/n03976657_23672.JPEG",
+      "n03976657/n03976657_54788.JPEG",
+      "n03977966/n03977966_17435.JPEG",
+      "n03977966/n03977966_47952.JPEG",
+      "n03980874/n03980874_21162.JPEG",
+      "n03980874/n03980874_5360.JPEG",
+      "n03982430/n03982430_21485.JPEG",
+      "n03982430/n03982430_39974.JPEG",
+      "n03983396/n03983396_11028.JPEG",
+      "n03983396/n03983396_9997.JPEG",
+      "n03991062/n03991062_19831.JPEG",
+      "n03991062/n03991062_2064.JPEG",
+      "n03992509/n03992509_4821.JPEG",
+      "n03992509/n03992509_5706.JPEG",
+      "n03995372/n03995372_18312.JPEG",
+      "n03995372/n03995372_19816.JPEG",
+      "n03998194/n03998194_6587.JPEG",
+      "n03998194/n03998194_7611.JPEG",
+      "n04004767/n04004767_8749.JPEG",
+      "n04004767/n04004767_9064.JPEG",
+      "n04005630/n04005630_42994.JPEG",
+      "n04005630/n04005630_57849.JPEG",
+      "n04008634/n04008634_13956.JPEG",
+      "n04008634/n04008634_25336.JPEG",
+      "n04009552/n04009552_15603.JPEG",
+      "n04009552/n04009552_6836.JPEG",
+      "n04019541/n04019541_15441.JPEG",
+      "n04019541/n04019541_58713.JPEG",
+      "n04023962/n04023962_13249.JPEG",
+      "n04023962/n04023962_7535.JPEG",
+      "n04026417/n04026417_204.JPEG",
+      "n04026417/n04026417_24871.JPEG",
+      "n04033901/n04033901_10081.JPEG",
+      "n04033901/n04033901_37891.JPEG",
+      "n04033995/n04033995_34862.JPEG",
+      "n04033995/n04033995_7156.JPEG",
+      "n04037443/n04037443_2587.JPEG",
+      "n04037443/n04037443_47649.JPEG",
+      "n04039381/n04039381_21805.JPEG",
+      "n04039381/n04039381_3554.JPEG",
+      "n04040759/n04040759_7019.JPEG",
+      "n04040759/n04040759_9028.JPEG",
+      "n04041544/n04041544_31028.JPEG",
+      "n04041544/n04041544_61651.JPEG",
+      "n04044716/n04044716_10810.JPEG",
+      "n04044716/n04044716_12971.JPEG",
+      "n04049303/n04049303_7240.JPEG",
+      "n04049303/n04049303_9220.JPEG",
+      "n04065272/n04065272_3100.JPEG",
+      "n04065272/n04065272_3972.JPEG",
+      "n04067472/n04067472_3419.JPEG",
+      "n04067472/n04067472_8572.JPEG",
+      "n04069434/n04069434_21147.JPEG",
+      "n04069434/n04069434_21423.JPEG",
+      "n04070727/n04070727_18299.JPEG",
+      "n04070727/n04070727_31912.JPEG",
+      "n04074963/n04074963_1193.JPEG",
+      "n04074963/n04074963_4886.JPEG",
+      "n04081281/n04081281_31529.JPEG",
+      "n04081281/n04081281_9635.JPEG",
+      "n04086273/n04086273_2940.JPEG",
+      "n04086273/n04086273_3987.JPEG",
+      "n04090263/n04090263_4708.JPEG",
+      "n04090263/n04090263_6141.JPEG",
+      "n04099969/n04099969_4577.JPEG",
+      "n04099969/n04099969_6421.JPEG",
+      "n04111531/n04111531_20511.JPEG",
+      "n04111531/n04111531_550.JPEG",
+      "n04116512/n04116512_15093.JPEG",
+      "n04116512/n04116512_24187.JPEG",
+      "n04118538/n04118538_6035.JPEG",
+      "n04118538/n04118538_7198.JPEG",
+      "n04118776/n04118776_19690.JPEG",
+      "n04118776/n04118776_42511.JPEG",
+      "n04120489/n04120489_2529.JPEG",
+      "n04120489/n04120489_6573.JPEG",
+      "n04125021/n04125021_27861.JPEG",
+      "n04125021/n04125021_828.JPEG",
+      "n04127249/n04127249_4599.JPEG",
+      "n04127249/n04127249_9317.JPEG",
+      "n04131690/n04131690_15991.JPEG",
+      "n04131690/n04131690_3456.JPEG",
+      "n04133789/n04133789_16656.JPEG",
+      "n04133789/n04133789_1896.JPEG",
+      "n04136333/n04136333_14427.JPEG",
+      "n04136333/n04136333_7963.JPEG",
+      "n04141076/n04141076_41390.JPEG",
+      "n04141076/n04141076_81800.JPEG",
+      "n04141327/n04141327_1192.JPEG",
+      "n04141327/n04141327_1853.JPEG",
+      "n04141975/n04141975_12375.JPEG",
+      "n04141975/n04141975_22872.JPEG",
+      "n04146614/n04146614_1264.JPEG",
+      "n04146614/n04146614_27.JPEG",
+      "n04147183/n04147183_19664.JPEG",
+      "n04147183/n04147183_35082.JPEG",
+      "n04149813/n04149813_24813.JPEG",
+      "n04149813/n04149813_4409.JPEG",
+      "n04152593/n04152593_13988.JPEG",
+      "n04152593/n04152593_22642.JPEG",
+      "n04153751/n04153751_10872.JPEG",
+      "n04153751/n04153751_22592.JPEG",
+      "n04154565/n04154565_11337.JPEG",
+      "n04154565/n04154565_1213.JPEG",
+      "n04162706/n04162706_13792.JPEG",
+      "n04162706/n04162706_1825.JPEG",
+      "n04179913/n04179913_10602.JPEG",
+      "n04179913/n04179913_15537.JPEG",
+      "n04192698/n04192698_12866.JPEG",
+      "n04192698/n04192698_8645.JPEG",
+      "n04200800/n04200800_24256.JPEG",
+      "n04200800/n04200800_37788.JPEG",
+      "n04201297/n04201297_13664.JPEG",
+      "n04201297/n04201297_6703.JPEG",
+      "n04204238/n04204238_13576.JPEG",
+      "n04204238/n04204238_2849.JPEG",
+      "n04204347/n04204347_12312.JPEG",
+      "n04204347/n04204347_2298.JPEG",
+      "n04208210/n04208210_20259.JPEG",
+      "n04208210/n04208210_6953.JPEG",
+      "n04209133/n04209133_3703.JPEG",
+      "n04209133/n04209133_809.JPEG",
+      "n04209239/n04209239_12309.JPEG",
+      "n04209239/n04209239_632.JPEG",
+      "n04228054/n04228054_16629.JPEG",
+      "n04228054/n04228054_17861.JPEG",
+      "n04229816/n04229816_15865.JPEG",
+      "n04229816/n04229816_8853.JPEG",
+      "n04235860/n04235860_11297.JPEG",
+      "n04235860/n04235860_6077.JPEG",
+      "n04238763/n04238763_7347.JPEG",
+      "n04238763/n04238763_7714.JPEG",
+      "n04239074/n04239074_29029.JPEG",
+      "n04239074/n04239074_9225.JPEG",
+      "n04243546/n04243546_4301.JPEG",
+      "n04243546/n04243546_8162.JPEG",
+      "n04251144/n04251144_14361.JPEG",
+      "n04251144/n04251144_5124.JPEG",
+      "n04252077/n04252077_15460.JPEG",
+      "n04252077/n04252077_1557.JPEG",
+      "n04252225/n04252225_23902.JPEG",
+      "n04252225/n04252225_3528.JPEG",
+      "n04254120/n04254120_2238.JPEG",
+      "n04254120/n04254120_969.JPEG",
+      "n04254680/n04254680_13599.JPEG",
+      "n04254680/n04254680_562.JPEG",
+      "n04254777/n04254777_10726.JPEG",
+      "n04254777/n04254777_13154.JPEG",
+      "n04258138/n04258138_1273.JPEG",
+      "n04258138/n04258138_3455.JPEG",
+      "n04259630/n04259630_24471.JPEG",
+      "n04259630/n04259630_5410.JPEG",
+      "n04263257/n04263257_6534.JPEG",
+      "n04263257/n04263257_7072.JPEG",
+      "n04264628/n04264628_10203.JPEG",
+      "n04264628/n04264628_8506.JPEG",
+      "n04265275/n04265275_3566.JPEG",
+      "n04265275/n04265275_5031.JPEG",
+      "n04266014/n04266014_4554.JPEG",
+      "n04266014/n04266014_7573.JPEG",
+      "n04270147/n04270147_4558.JPEG",
+      "n04270147/n04270147_7772.JPEG",
+      "n04273569/n04273569_12756.JPEG",
+      "n04273569/n04273569_23578.JPEG",
+      "n04275548/n04275548_10018.JPEG",
+      "n04275548/n04275548_7750.JPEG",
+      "n04277352/n04277352_1049.JPEG",
+      "n04277352/n04277352_9446.JPEG",
+      "n04285008/n04285008_13391.JPEG",
+      "n04285008/n04285008_1530.JPEG",
+      "n04286575/n04286575_24766.JPEG",
+      "n04286575/n04286575_27448.JPEG",
+      "n04296562/n04296562_10117.JPEG",
+      "n04296562/n04296562_37349.JPEG",
+      "n04310018/n04310018_1809.JPEG",
+      "n04310018/n04310018_18993.JPEG",
+      "n04311004/n04311004_1976.JPEG",
+      "n04311004/n04311004_568.JPEG",
+      "n04311174/n04311174_1088.JPEG",
+      "n04311174/n04311174_1207.JPEG",
+      "n04317175/n04317175_5655.JPEG",
+      "n04317175/n04317175_7044.JPEG",
+      "n04325704/n04325704_10081.JPEG",
+      "n04325704/n04325704_8491.JPEG",
+      "n04326547/n04326547_16335.JPEG",
+      "n04326547/n04326547_2648.JPEG",
+      "n04328186/n04328186_13143.JPEG",
+      "n04328186/n04328186_21130.JPEG",
+      "n04330267/n04330267_16566.JPEG",
+      "n04330267/n04330267_20505.JPEG",
+      "n04332243/n04332243_10399.JPEG",
+      "n04332243/n04332243_13511.JPEG",
+      "n04335435/n04335435_12498.JPEG",
+      "n04335435/n04335435_8633.JPEG",
+      "n04336792/n04336792_12405.JPEG",
+      "n04336792/n04336792_8240.JPEG",
+      "n04344873/n04344873_7666.JPEG",
+      "n04344873/n04344873_8129.JPEG",
+      "n04346328/n04346328_2778.JPEG",
+      "n04346328/n04346328_8430.JPEG",
+      "n04347754/n04347754_44595.JPEG",
+      "n04347754/n04347754_47702.JPEG",
+      "n04350905/n04350905_5798.JPEG",
+      "n04350905/n04350905_7076.JPEG",
+      "n04355338/n04355338_1213.JPEG",
+      "n04355338/n04355338_6592.JPEG",
+      "n04355933/n04355933_1938.JPEG",
+      "n04355933/n04355933_6547.JPEG",
+      "n04356056/n04356056_2602.JPEG",
+      "n04356056/n04356056_56676.JPEG",
+      "n04357314/n04357314_22457.JPEG",
+      "n04357314/n04357314_2535.JPEG",
+      "n04366367/n04366367_1618.JPEG",
+      "n04366367/n04366367_456.JPEG",
+      "n04367480/n04367480_15881.JPEG",
+      "n04367480/n04367480_9087.JPEG",
+      "n04370456/n04370456_10076.JPEG",
+      "n04370456/n04370456_219.JPEG",
+      "n04371430/n04371430_17875.JPEG",
+      "n04371430/n04371430_6714.JPEG",
+      "n04371774/n04371774_13012.JPEG",
+      "n04371774/n04371774_6084.JPEG",
+      "n04372370/n04372370_11431.JPEG",
+      "n04372370/n04372370_38888.JPEG",
+      "n04376876/n04376876_3914.JPEG",
+      "n04376876/n04376876_8270.JPEG",
+      "n04380533/n04380533_1965.JPEG",
+      "n04380533/n04380533_5730.JPEG",
+      "n04389033/n04389033_14209.JPEG",
+      "n04389033/n04389033_17763.JPEG",
+      "n04392985/n04392985_3223.JPEG",
+      "n04392985/n04392985_6630.JPEG",
+      "n04398044/n04398044_16765.JPEG",
+      "n04398044/n04398044_796.JPEG",
+      "n04399382/n04399382_12971.JPEG",
+      "n04399382/n04399382_908.JPEG",
+      "n04404412/n04404412_23377.JPEG",
+      "n04404412/n04404412_25745.JPEG",
+      "n04409515/n04409515_14007.JPEG",
+      "n04409515/n04409515_7951.JPEG",
+      "n04417672/n04417672_13459.JPEG",
+      "n04417672/n04417672_626.JPEG",
+      "n04418357/n04418357_4478.JPEG",
+      "n04418357/n04418357_6271.JPEG",
+      "n04423845/n04423845_44634.JPEG",
+      "n04423845/n04423845_7949.JPEG",
+      "n04428191/n04428191_22305.JPEG",
+      "n04428191/n04428191_8922.JPEG",
+      "n04429376/n04429376_28121.JPEG",
+      "n04429376/n04429376_29289.JPEG",
+      "n04435653/n04435653_1731.JPEG",
+      "n04435653/n04435653_9220.JPEG",
+      "n04442312/n04442312_1437.JPEG",
+      "n04442312/n04442312_1870.JPEG",
+      "n04443257/n04443257_11992.JPEG",
+      "n04443257/n04443257_31360.JPEG",
+      "n04447861/n04447861_5958.JPEG",
+      "n04447861/n04447861_6345.JPEG",
+      "n04456115/n04456115_11983.JPEG",
+      "n04456115/n04456115_36420.JPEG",
+      "n04458633/n04458633_1223.JPEG",
+      "n04458633/n04458633_4035.JPEG",
+      "n04461696/n04461696_1810.JPEG",
+      "n04461696/n04461696_21368.JPEG",
+      "n04462240/n04462240_21837.JPEG",
+      "n04462240/n04462240_7187.JPEG",
+      "n04465501/n04465501_1929.JPEG",
+      "n04465501/n04465501_2052.JPEG",
+      "n04467665/n04467665_28988.JPEG",
+      "n04467665/n04467665_72647.JPEG",
+      "n04476259/n04476259_17251.JPEG",
+      "n04476259/n04476259_8402.JPEG",
+      "n04479046/n04479046_25144.JPEG",
+      "n04479046/n04479046_5611.JPEG",
+      "n04482393/n04482393_22756.JPEG",
+      "n04482393/n04482393_25147.JPEG",
+      "n04483307/n04483307_11191.JPEG",
+      "n04483307/n04483307_9611.JPEG",
+      "n04485082/n04485082_14560.JPEG",
+      "n04485082/n04485082_20330.JPEG",
+      "n04486054/n04486054_11310.JPEG",
+      "n04486054/n04486054_19660.JPEG",
+      "n04487081/n04487081_5446.JPEG",
+      "n04487081/n04487081_9432.JPEG",
+      "n04487394/n04487394_17743.JPEG",
+      "n04487394/n04487394_25250.JPEG",
+      "n04493381/n04493381_7269.JPEG",
+      "n04493381/n04493381_9471.JPEG",
+      "n04501370/n04501370_1464.JPEG",
+      "n04501370/n04501370_6724.JPEG",
+      "n04505470/n04505470_4247.JPEG",
+      "n04505470/n04505470_8018.JPEG",
+      "n04507155/n04507155_8021.JPEG",
+      "n04507155/n04507155_9978.JPEG",
+      "n04509417/n04509417_13998.JPEG",
+      "n04509417/n04509417_5199.JPEG",
+      "n04515003/n04515003_246.JPEG",
+      "n04515003/n04515003_851.JPEG",
+      "n04517823/n04517823_20882.JPEG",
+      "n04517823/n04517823_954.JPEG",
+      "n04522168/n04522168_22099.JPEG",
+      "n04522168/n04522168_7509.JPEG",
+      "n04523525/n04523525_37161.JPEG",
+      "n04523525/n04523525_38449.JPEG",
+      "n04525038/n04525038_17480.JPEG",
+      "n04525038/n04525038_3931.JPEG",
+      "n04525305/n04525305_10655.JPEG",
+      "n04525305/n04525305_16500.JPEG",
+      "n04532106/n04532106_17179.JPEG",
+      "n04532106/n04532106_17358.JPEG",
+      "n04532670/n04532670_1070.JPEG",
+      "n04532670/n04532670_2728.JPEG",
+      "n04536866/n04536866_40267.JPEG",
+      "n04536866/n04536866_7506.JPEG",
+      "n04540053/n04540053_17241.JPEG",
+      "n04540053/n04540053_222.JPEG",
+      "n04542943/n04542943_3800.JPEG",
+      "n04542943/n04542943_6810.JPEG",
+      "n04548280/n04548280_607.JPEG",
+      "n04548280/n04548280_6865.JPEG",
+      "n04548362/n04548362_14277.JPEG",
+      "n04548362/n04548362_5285.JPEG",
+      "n04550184/n04550184_14285.JPEG",
+      "n04550184/n04550184_37673.JPEG",
+      "n04552348/n04552348_11568.JPEG",
+      "n04552348/n04552348_5563.JPEG",
+      "n04553703/n04553703_10064.JPEG",
+      "n04553703/n04553703_17300.JPEG",
+      "n04554684/n04554684_12072.JPEG",
+      "n04554684/n04554684_33739.JPEG",
+      "n04557648/n04557648_1107.JPEG",
+      "n04557648/n04557648_2407.JPEG",
+      "n04560804/n04560804_14781.JPEG",
+      "n04560804/n04560804_7460.JPEG",
+      "n04562935/n04562935_1067.JPEG",
+      "n04562935/n04562935_3075.JPEG",
+      "n04579145/n04579145_1883.JPEG",
+      "n04579145/n04579145_6637.JPEG",
+      "n04579432/n04579432_27931.JPEG",
+      "n04579432/n04579432_4132.JPEG",
+      "n04584207/n04584207_21584.JPEG",
+      "n04584207/n04584207_2805.JPEG",
+      "n04589890/n04589890_360.JPEG",
+      "n04589890/n04589890_4209.JPEG",
+      "n04590129/n04590129_22292.JPEG",
+      "n04590129/n04590129_6090.JPEG",
+      "n04591157/n04591157_6661.JPEG",
+      "n04591157/n04591157_883.JPEG",
+      "n04591713/n04591713_5366.JPEG",
+      "n04591713/n04591713_727.JPEG",
+      "n04592741/n04592741_18085.JPEG",
+      "n04592741/n04592741_6149.JPEG",
+      "n04596742/n04596742_13547.JPEG",
+      "n04596742/n04596742_3879.JPEG",
+      "n04597913/n04597913_10602.JPEG",
+      "n04597913/n04597913_1431.JPEG",
+      "n04599235/n04599235_2019.JPEG",
+      "n04599235/n04599235_20354.JPEG",
+      "n04604644/n04604644_1761.JPEG",
+      "n04604644/n04604644_18860.JPEG",
+      "n04606251/n04606251_3925.JPEG",
+      "n04606251/n04606251_8481.JPEG",
+      "n04612504/n04612504_3244.JPEG",
+      "n04612504/n04612504_9558.JPEG",
+      "n04613696/n04613696_4732.JPEG",
+      "n04613696/n04613696_5182.JPEG",
+      "n06359193/n06359193_2827.JPEG",
+      "n06359193/n06359193_45276.JPEG",
+      "n06596364/n06596364_17248.JPEG",
+      "n06596364/n06596364_5523.JPEG",
+      "n06785654/n06785654_12513.JPEG",
+      "n06785654/n06785654_14703.JPEG",
+      "n06794110/n06794110_2156.JPEG",
+      "n06794110/n06794110_6501.JPEG",
+      "n06874185/n06874185_11152.JPEG",
+      "n06874185/n06874185_532.JPEG",
+      "n07248320/n07248320_3491.JPEG",
+      "n07248320/n07248320_56530.JPEG",
+      "n07565083/n07565083_11996.JPEG",
+      "n07565083/n07565083_2256.JPEG",
+      "n07579787/n07579787_13057.JPEG",
+      "n07579787/n07579787_3001.JPEG",
+      "n07583066/n07583066_3908.JPEG",
+      "n07583066/n07583066_9604.JPEG",
+      "n07584110/n07584110_3750.JPEG",
+      "n07584110/n07584110_7719.JPEG",
+      "n07590611/n07590611_7734.JPEG",
+      "n07590611/n07590611_8413.JPEG",
+      "n07613480/n07613480_1707.JPEG",
+      "n07613480/n07613480_5216.JPEG",
+      "n07614500/n07614500_58335.JPEG",
+      "n07614500/n07614500_64774.JPEG",
+      "n07615774/n07615774_20125.JPEG",
+      "n07615774/n07615774_27963.JPEG",
+      "n07684084/n07684084_492.JPEG",
+      "n07684084/n07684084_6447.JPEG",
+      "n07693725/n07693725_13690.JPEG",
+      "n07693725/n07693725_26298.JPEG",
+      "n07695742/n07695742_23314.JPEG",
+      "n07695742/n07695742_6155.JPEG",
+      "n07697313/n07697313_10826.JPEG",
+      "n07697313/n07697313_5336.JPEG",
+      "n07697537/n07697537_19494.JPEG",
+      "n07697537/n07697537_4140.JPEG",
+      "n07711569/n07711569_3079.JPEG",
+      "n07711569/n07711569_3983.JPEG",
+      "n07714571/n07714571_13416.JPEG",
+      "n07714571/n07714571_3105.JPEG",
+      "n07714990/n07714990_14952.JPEG",
+      "n07714990/n07714990_4545.JPEG",
+      "n07715103/n07715103_7880.JPEG",
+      "n07715103/n07715103_9620.JPEG",
+      "n07716358/n07716358_23253.JPEG",
+      "n07716358/n07716358_24384.JPEG",
+      "n07716906/n07716906_7229.JPEG",
+      "n07716906/n07716906_7868.JPEG",
+      "n07717410/n07717410_3317.JPEG",
+      "n07717410/n07717410_4464.JPEG",
+      "n07717556/n07717556_1568.JPEG",
+      "n07717556/n07717556_8788.JPEG",
+      "n07718472/n07718472_33627.JPEG",
+      "n07718472/n07718472_41926.JPEG",
+      "n07718747/n07718747_19645.JPEG",
+      "n07718747/n07718747_23553.JPEG",
+      "n07720875/n07720875_10745.JPEG",
+      "n07720875/n07720875_9282.JPEG",
+      "n07730033/n07730033_4067.JPEG",
+      "n07730033/n07730033_5608.JPEG",
+      "n07734744/n07734744_13261.JPEG",
+      "n07734744/n07734744_17119.JPEG",
+      "n07742313/n07742313_2460.JPEG",
+      "n07742313/n07742313_9958.JPEG",
+      "n07745940/n07745940_7860.JPEG",
+      "n07745940/n07745940_9963.JPEG",
+      "n07747607/n07747607_16552.JPEG",
+      "n07747607/n07747607_7984.JPEG",
+      "n07749582/n07749582_1950.JPEG",
+      "n07749582/n07749582_25729.JPEG",
+      "n07753113/n07753113_14757.JPEG",
+      "n07753113/n07753113_236.JPEG",
+      "n07753275/n07753275_19573.JPEG",
+      "n07753275/n07753275_48904.JPEG",
+      "n07753592/n07753592_16528.JPEG",
+      "n07753592/n07753592_2218.JPEG",
+      "n07754684/n07754684_20989.JPEG",
+      "n07754684/n07754684_32011.JPEG",
+      "n07760859/n07760859_2123.JPEG",
+      "n07760859/n07760859_2230.JPEG",
+      "n07768694/n07768694_15010.JPEG",
+      "n07768694/n07768694_2679.JPEG",
+      "n07802026/n07802026_17427.JPEG",
+      "n07802026/n07802026_509.JPEG",
+      "n07831146/n07831146_1696.JPEG",
+      "n07831146/n07831146_412.JPEG",
+      "n07836838/n07836838_11790.JPEG",
+      "n07836838/n07836838_7395.JPEG",
+      "n07860988/n07860988_12028.JPEG",
+      "n07860988/n07860988_14435.JPEG",
+      "n07871810/n07871810_10084.JPEG",
+      "n07871810/n07871810_13549.JPEG",
+      "n07873807/n07873807_1768.JPEG",
+      "n07873807/n07873807_8960.JPEG",
+      "n07875152/n07875152_2542.JPEG",
+      "n07875152/n07875152_3798.JPEG",
+      "n07880968/n07880968_4639.JPEG",
+      "n07880968/n07880968_7706.JPEG",
+      "n07892512/n07892512_2380.JPEG",
+      "n07892512/n07892512_34121.JPEG",
+      "n07920052/n07920052_12598.JPEG",
+      "n07920052/n07920052_7925.JPEG",
+      "n07930864/n07930864_25308.JPEG",
+      "n07930864/n07930864_9433.JPEG",
+      "n07932039/n07932039_4206.JPEG",
+      "n07932039/n07932039_4784.JPEG",
+      "n09193705/n09193705_12613.JPEG",
+      "n09193705/n09193705_49708.JPEG",
+      "n09229709/n09229709_106739.JPEG",
+      "n09229709/n09229709_68059.JPEG",
+      "n09246464/n09246464_38862.JPEG",
+      "n09246464/n09246464_43300.JPEG",
+      "n09256479/n09256479_1136.JPEG",
+      "n09256479/n09256479_4463.JPEG",
+      "n09288635/n09288635_1245.JPEG",
+      "n09288635/n09288635_1708.JPEG",
+      "n09332890/n09332890_51488.JPEG",
+      "n09332890/n09332890_7507.JPEG",
+      "n09399592/n09399592_32011.JPEG",
+      "n09399592/n09399592_34703.JPEG",
+      "n09421951/n09421951_29157.JPEG",
+      "n09421951/n09421951_6724.JPEG",
+      "n09428293/n09428293_65391.JPEG",
+      "n09428293/n09428293_90315.JPEG",
+      "n09468604/n09468604_7567.JPEG",
+      "n09468604/n09468604_90200.JPEG",
+      "n09472597/n09472597_1607.JPEG",
+      "n09472597/n09472597_52937.JPEG",
+      "n09835506/n09835506_6132.JPEG",
+      "n09835506/n09835506_6328.JPEG",
+      "n10148035/n10148035_24453.JPEG",
+      "n10148035/n10148035_26161.JPEG",
+      "n10565667/n10565667_13672.JPEG",
+      "n10565667/n10565667_20062.JPEG",
+      "n11879895/n11879895_13435.JPEG",
+      "n11879895/n11879895_3629.JPEG",
+      "n11939491/n11939491_41212.JPEG",
+      "n11939491/n11939491_53285.JPEG",
+      "n12057211/n12057211_2103.JPEG",
+      "n12057211/n12057211_2888.JPEG",
+      "n12144580/n12144580_1137.JPEG",
+      "n12144580/n12144580_1842.JPEG",
+      "n12267677/n12267677_14966.JPEG",
+      "n12267677/n12267677_2198.JPEG",
+      "n12620546/n12620546_10253.JPEG",
+      "n12620546/n12620546_29806.JPEG",
+      "n12768682/n12768682_14917.JPEG",
+      "n12768682/n12768682_37059.JPEG",
+      "n12985857/n12985857_4776.JPEG",
+      "n12985857/n12985857_524.JPEG",
+      "n12998815/n12998815_22695.JPEG",
+      "n12998815/n12998815_5929.JPEG",
+      "n13037406/n13037406_2943.JPEG",
+      "n13037406/n13037406_3851.JPEG",
+      "n13040303/n13040303_10955.JPEG",
+      "n13040303/n13040303_4994.JPEG",
+      "n13044778/n13044778_3162.JPEG",
+      "n13044778/n13044778_4987.JPEG",
+      "n13052670/n13052670_1436.JPEG",
+      "n13052670/n13052670_9858.JPEG",
+      "n13054560/n13054560_8133.JPEG",
+      "n13054560/n13054560_9307.JPEG",
+      "n13133613/n13133613_25896.JPEG",
+      "n13133613/n13133613_58959.JPEG",
+      "n15075141/n15075141_1638.JPEG",
+      "n15075141/n15075141_1814.JPEG"
+    ],
+    "checkpoint_sha256": "bf40fc4e40a27943f7b4e27b4b6e9dc9b45320c03b13ba181fb91fd81371fad3",
+    "fit_tokens": 6272,
+    "formal_accuracy_measured": false,
+    "head_scale": 6.72334480681351e-05,
+    "head_top1_agreement": 0.994,
+    "source_binding": {
+      "execution": {
+        "attention": "attn.h -> fused_flash_attn.h",
+        "head": "block0.cpp fixed_head_layernorm selected fixed-ROM path",
+        "mac_scales": "activation scale multiplied by W3 scale; no independent FC/O output requant",
+        "probability": "int rq_val; exported clamp_bits=3 enforces0..7; u3 typedef inactive",
+        "score": "int S_buf; long long dot product; s10 typedef inactive"
+      },
+      "policy": "Original HLS source unchanged. Parameters only. Exact accuracy requires separate full50k measurement.",
+      "schema": "original_hls_s3.source_binding.v1",
+      "sources": {
+        "/home/user/Desktop/FF_Vit/flash_vit_2/src/adapter.h": "a8aeaf5b8c6c4a492025f926048da4137db59479a230a10fd567bc70fcdf27ac",
+        "/home/user/Desktop/FF_Vit/flash_vit_2/src/attn.h": "f1ac8e75d4d1e9b0715ca163202d247f0da05a7a6d4b6e735e4f9b6981d44098",
+        "/home/user/Desktop/FF_Vit/flash_vit_2/src/block0.cpp": "14a7797d5a28b43e169f5e1939564192acc36e2427be51a44921b5e8a19692e8",
+        "/home/user/Desktop/FF_Vit/flash_vit_2/src/common.h": "17d751c68dd62aa254cd662ca19e1f292ab1249ed31efd9fb9044bbb28c01a3c",
+        "/home/user/Desktop/FF_Vit/flash_vit_2/src/dataflow.h": "3f6b7842522c8bfe49ab6f8fdfdc833dc2b0430931266364f3d4effba8189bb9",
+        "/home/user/Desktop/FF_Vit/flash_vit_2/src/fixed_patch_head_rom (Copy).h": "ce2b8271c0a173cb7a23e45036e64f7c6d79a437cd12912b66d53435a2516521",
+        "/home/user/Desktop/FF_Vit/flash_vit_2/src/fixed_patch_head_rom.h": "6d69487b4f8af02f1ee32f8e86d9c6f094a4a9a77da2cb85b71eed2d8223a119",
+        "/home/user/Desktop/FF_Vit/flash_vit_2/src/fused_flash_attn.h": "2e381a91ef224c3270fc1a15b2c96f9d91b4c2cee4cb9ec3188b8b092580bcd9",
+        "/home/user/Desktop/FF_Vit/flash_vit_2/src/fused_flash_attn_v3.h": "453a5ff3a8bf83737f99a1920790ae163efbc5b22b686f80464a50c621a24fac",
+        "/home/user/Desktop/FF_Vit/flash_vit_2/src/fused_flash_attn_v3_fixed.h": "c94cc3c84b7a1e64131aa70fff6e24a11698a72cc900a7f31d5d5e32017ae60a",
+        "/home/user/Desktop/FF_Vit/flash_vit_2/src/gelu.h": "d32f38e16f2d77114430ee4330ea9047e5ccda766a41ff4e6c7503c1ef794858",
+        "/home/user/Desktop/FF_Vit/flash_vit_2/src/head.h": "6e00655e2e4878e53d125b3377d121155e65558026ff225c09b5d1057bf25b14",
+        "/home/user/Desktop/FF_Vit/flash_vit_2/src/head_split.h": "6ebad7664e9e02aaf75a6c79d731793e48c2c01f773556cc36775fbfd90645f2",
+        "/home/user/Desktop/FF_Vit/flash_vit_2/src/layernorm.h": "e0be1b8066479adaaf5059b151ab76d4a020cdc03ca6f8d323ceb5bb6bdddb03",
+        "/home/user/Desktop/FF_Vit/flash_vit_2/src/matmul.h": "1223e944d79f9f3962ee7f9420d923b2ebedbd5d5f2c3b58a4b928d98ce6240b",
+        "/home/user/Desktop/FF_Vit/flash_vit_2/src/mlp.h": "dea09412ece516097571077b3bcb984e20e542a5793e3b9a297223feb9753172",
+        "/home/user/Desktop/FF_Vit/flash_vit_2/src/patch_embed.h": "a10d0ddf93c6b4fdbb6924428b89679e500d94d3657ece0a10cb8e87f6592617",
+        "/home/user/Desktop/FF_Vit/flash_vit_2/src/quant.h": "4ee96011f992d8d7ccf1636c749d2bd540bc14e7945cf5c337eed42530cb935f",
+        "/home/user/Desktop/FF_Vit/flash_vit_2/src/reshaper.h": "af953450fe1d37ec5459fed662be73f22b684e13c7e8ed11dc1d128a30643717",
+        "/home/user/Desktop/FF_Vit/flash_vit_2/src/softmax.h": "edfd494c27e8ebef8f5df145a4f9b3afdf3cfd98d2d7657826a0158aca5d6d6c",
+        "/home/user/Desktop/FF_Vit/flash_vit_2/src/utils.h": "cf1ec1a0c4397ad1c88e2cabc9fe9f042ea61b40bcb534ee6a2bf8f90fcf4cdb",
+        "/home/user/Desktop/FF_Vit/flash_vit_2/src/wrapper.h": "f59376ea297726cc5cc6486d50e72de2e8a28956f6f96c058503328b9678ad59",
+        "/home/user/Desktop/ff_vit_re/image1k_hls_s3_original/checkpoints/attention/main/best.pth": "bf40fc4e40a27943f7b4e27b4b6e9dc9b45320c03b13ba181fb91fd81371fad3",
+        "/home/user/Desktop/ff_vit_re/image1k_hls_s3_original/config/original_hls_s3.yaml": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+        "/home/user/Desktop/ff_vit_re/image1k_hls_s3_original/metadata/calibration_manifest.jsonl": "f967ebdb8bd614dcf335c2195895e746a9b02029ea022df21c7c1e6e58680609",
+        "/home/user/Desktop/ff_vit_re/image1k_hls_s3_original/metadata/selection_manifest.jsonl": "5f6ffb0b16323328d0ad3984ce6be5f4c62ec43c63a42259dfbe6df3e2b596b8",
+        "/home/user/Desktop/ff_vit_re/image1k_hls_s3_original/scripts/build_exact.py": "b468f89475e450fece05254ec3637acbaec884f3e7d81c115fdb9e92090ae4a4",
+        "/home/user/Desktop/ff_vit_re/image1k_hls_s3_original/src/exact.py": "0db3f95903ba72ebff90c18bf74c85b10994de259eaa79453d2b22f39fd5c02a",
+        "/home/user/Desktop/ff_vit_re/image1k_hls_s3_original/src/exact_fit.py": "96ed7b8eb5d6d233775c3ae9296cc760eb1d6dc03e3eef102a99c8da2eb844e0",
+        "/home/user/Desktop/ff_vit_re/image1k_hls_s3_original/src/exact_head_fit.py": "9a822ab4296c5f372dee45cd5918ada78e40ef269def1c5d35b29135b7b4d62f",
+        "/home/user/Desktop/ff_vit_re/image_lianghu/scripts/build_exact_integer_artifacts.py": "c5359322a124d3ed198520c6a242adbef4266540d45583440c212fa7e4233927",
+        "/home/user/Desktop/ff_vit_re/image_lianghu/src/hls_s3_abi.py": "783b1adbf3eef100537c609c83aeac9f941605b01d470dee24207a0a9ea0554d",
+        "/home/user/Desktop/ff_vit_re/image_lianghu/src/legacy_s3_lut.py": "e78a1ecc097066c034e2590f0ec12580cf7cd15f1f8f8bb9fe9ecb30f0529399",
+        "/home/user/Desktop/ff_vit_re/image_lianghu/src/s3_exact_head.py": "44509088b5b60bc8646b6d1ff2a2054350561571a7a5de035110b9f86e03b834",
+        "/home/user/Desktop/ff_vit_re/quantization_final/scripts/stage4o_exact_head_signedfix.py": "7d14428674bc4ab6fb33514228819effddeefa1b1a059a828e2b8ce7b2355d3c"
+      }
+    },
+    "stage": "exact_integer_artifacts"
+  },
+  "schema": "original_hls_s3.exact.v1",
+  "tree": {
+    "blocks": [
+      {
+        "a_lut": {
+          "scalars": {
+            "__array__": "array_00000"
+          },
+          "table": {
+            "__array__": "array_00001"
+          }
+        },
+        "attn_residual": {
+          "__array__": "array_00002"
+        },
+        "gelu_lut": {
+          "scalars": {
+            "__array__": "array_00003"
+          },
+          "table": {
+            "__array__": "array_00004"
+          }
+        },
+        "k_b": {
+          "__array__": "array_00005"
+        },
+        "k_lut": {
+          "scalars": {
+            "__array__": "array_00006"
+          },
+          "table": {
+            "__array__": "array_00007"
+          }
+        },
+        "k_w": {
+          "__array__": "array_00008"
+        },
+        "ln1": {
+          "lnb": {
+            "__array__": "array_00009"
+          },
+          "lnw": {
+            "__array__": "array_00010"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00011"
+          },
+          "scalars": {
+            "__array__": "array_00012"
+          }
+        },
+        "ln2": {
+          "lnb": {
+            "__array__": "array_00013"
+          },
+          "lnw": {
+            "__array__": "array_00014"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00015"
+          },
+          "scalars": {
+            "__array__": "array_00016"
+          }
+        },
+        "m1_b": {
+          "__array__": "array_00017"
+        },
+        "m1_w": {
+          "__array__": "array_00018"
+        },
+        "m2_b": {
+          "__array__": "array_00019"
+        },
+        "m2_w": {
+          "__array__": "array_00020"
+        },
+        "mlp_residual": {
+          "__array__": "array_00021"
+        },
+        "o_b": {
+          "__array__": "array_00022"
+        },
+        "o_w": {
+          "__array__": "array_00023"
+        },
+        "q_b": {
+          "__array__": "array_00024"
+        },
+        "q_lut": {
+          "scalars": {
+            "__array__": "array_00025"
+          },
+          "table": {
+            "__array__": "array_00026"
+          }
+        },
+        "q_w": {
+          "__array__": "array_00027"
+        },
+        "softmax": {
+          "exp": {
+            "__array__": "array_00028"
+          },
+          "exp_mse": 1107.0199265930862,
+          "mse": 0.04064567721619898,
+          "output_scale": 0.008553204126656055,
+          "recip1": {
+            "__array__": "array_00029"
+          },
+          "recip2": {
+            "__array__": "array_00030"
+          },
+          "scalars": {
+            "__array__": "array_00031"
+          }
+        },
+        "v_b": {
+          "__array__": "array_00032"
+        },
+        "v_lut": {
+          "scalars": {
+            "__array__": "array_00033"
+          },
+          "table": {
+            "__array__": "array_00034"
+          }
+        },
+        "v_w": {
+          "__array__": "array_00035"
+        }
+      },
+      {
+        "a_lut": {
+          "scalars": {
+            "__array__": "array_00036"
+          },
+          "table": {
+            "__array__": "array_00037"
+          }
+        },
+        "attn_residual": {
+          "__array__": "array_00038"
+        },
+        "gelu_lut": {
+          "scalars": {
+            "__array__": "array_00039"
+          },
+          "table": {
+            "__array__": "array_00040"
+          }
+        },
+        "k_b": {
+          "__array__": "array_00041"
+        },
+        "k_lut": {
+          "scalars": {
+            "__array__": "array_00042"
+          },
+          "table": {
+            "__array__": "array_00043"
+          }
+        },
+        "k_w": {
+          "__array__": "array_00044"
+        },
+        "ln1": {
+          "lnb": {
+            "__array__": "array_00045"
+          },
+          "lnw": {
+            "__array__": "array_00046"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00047"
+          },
+          "scalars": {
+            "__array__": "array_00048"
+          }
+        },
+        "ln2": {
+          "lnb": {
+            "__array__": "array_00049"
+          },
+          "lnw": {
+            "__array__": "array_00050"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00051"
+          },
+          "scalars": {
+            "__array__": "array_00052"
+          }
+        },
+        "m1_b": {
+          "__array__": "array_00053"
+        },
+        "m1_w": {
+          "__array__": "array_00054"
+        },
+        "m2_b": {
+          "__array__": "array_00055"
+        },
+        "m2_w": {
+          "__array__": "array_00056"
+        },
+        "mlp_residual": {
+          "__array__": "array_00057"
+        },
+        "o_b": {
+          "__array__": "array_00058"
+        },
+        "o_w": {
+          "__array__": "array_00059"
+        },
+        "q_b": {
+          "__array__": "array_00060"
+        },
+        "q_lut": {
+          "scalars": {
+            "__array__": "array_00061"
+          },
+          "table": {
+            "__array__": "array_00062"
+          }
+        },
+        "q_w": {
+          "__array__": "array_00063"
+        },
+        "softmax": {
+          "exp": {
+            "__array__": "array_00064"
+          },
+          "exp_mse": 872.2180146293211,
+          "mse": 0.0152587890625,
+          "output_scale": 0.014769227243959904,
+          "recip1": {
+            "__array__": "array_00065"
+          },
+          "recip2": {
+            "__array__": "array_00066"
+          },
+          "scalars": {
+            "__array__": "array_00067"
+          }
+        },
+        "v_b": {
+          "__array__": "array_00068"
+        },
+        "v_lut": {
+          "scalars": {
+            "__array__": "array_00069"
+          },
+          "table": {
+            "__array__": "array_00070"
+          }
+        },
+        "v_w": {
+          "__array__": "array_00071"
+        }
+      },
+      {
+        "a_lut": {
+          "scalars": {
+            "__array__": "array_00072"
+          },
+          "table": {
+            "__array__": "array_00073"
+          }
+        },
+        "attn_residual": {
+          "__array__": "array_00074"
+        },
+        "gelu_lut": {
+          "scalars": {
+            "__array__": "array_00075"
+          },
+          "table": {
+            "__array__": "array_00076"
+          }
+        },
+        "k_b": {
+          "__array__": "array_00077"
+        },
+        "k_lut": {
+          "scalars": {
+            "__array__": "array_00078"
+          },
+          "table": {
+            "__array__": "array_00079"
+          }
+        },
+        "k_w": {
+          "__array__": "array_00080"
+        },
+        "ln1": {
+          "lnb": {
+            "__array__": "array_00081"
+          },
+          "lnw": {
+            "__array__": "array_00082"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00083"
+          },
+          "scalars": {
+            "__array__": "array_00084"
+          }
+        },
+        "ln2": {
+          "lnb": {
+            "__array__": "array_00085"
+          },
+          "lnw": {
+            "__array__": "array_00086"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00087"
+          },
+          "scalars": {
+            "__array__": "array_00088"
+          }
+        },
+        "m1_b": {
+          "__array__": "array_00089"
+        },
+        "m1_w": {
+          "__array__": "array_00090"
+        },
+        "m2_b": {
+          "__array__": "array_00091"
+        },
+        "m2_w": {
+          "__array__": "array_00092"
+        },
+        "mlp_residual": {
+          "__array__": "array_00093"
+        },
+        "o_b": {
+          "__array__": "array_00094"
+        },
+        "o_w": {
+          "__array__": "array_00095"
+        },
+        "q_b": {
+          "__array__": "array_00096"
+        },
+        "q_lut": {
+          "scalars": {
+            "__array__": "array_00097"
+          },
+          "table": {
+            "__array__": "array_00098"
+          }
+        },
+        "q_w": {
+          "__array__": "array_00099"
+        },
+        "softmax": {
+          "exp": {
+            "__array__": "array_00100"
+          },
+          "exp_mse": 922.4424195539185,
+          "mse": 0.009444256218112245,
+          "output_scale": 0.027831127867102623,
+          "recip1": {
+            "__array__": "array_00101"
+          },
+          "recip2": {
+            "__array__": "array_00102"
+          },
+          "scalars": {
+            "__array__": "array_00103"
+          }
+        },
+        "v_b": {
+          "__array__": "array_00104"
+        },
+        "v_lut": {
+          "scalars": {
+            "__array__": "array_00105"
+          },
+          "table": {
+            "__array__": "array_00106"
+          }
+        },
+        "v_w": {
+          "__array__": "array_00107"
+        }
+      },
+      {
+        "a_lut": {
+          "scalars": {
+            "__array__": "array_00108"
+          },
+          "table": {
+            "__array__": "array_00109"
+          }
+        },
+        "attn_residual": {
+          "__array__": "array_00110"
+        },
+        "gelu_lut": {
+          "scalars": {
+            "__array__": "array_00111"
+          },
+          "table": {
+            "__array__": "array_00112"
+          }
+        },
+        "k_b": {
+          "__array__": "array_00113"
+        },
+        "k_lut": {
+          "scalars": {
+            "__array__": "array_00114"
+          },
+          "table": {
+            "__array__": "array_00115"
+          }
+        },
+        "k_w": {
+          "__array__": "array_00116"
+        },
+        "ln1": {
+          "lnb": {
+            "__array__": "array_00117"
+          },
+          "lnw": {
+            "__array__": "array_00118"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00119"
+          },
+          "scalars": {
+            "__array__": "array_00120"
+          }
+        },
+        "ln2": {
+          "lnb": {
+            "__array__": "array_00121"
+          },
+          "lnw": {
+            "__array__": "array_00122"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00123"
+          },
+          "scalars": {
+            "__array__": "array_00124"
+          }
+        },
+        "m1_b": {
+          "__array__": "array_00125"
+        },
+        "m1_w": {
+          "__array__": "array_00126"
+        },
+        "m2_b": {
+          "__array__": "array_00127"
+        },
+        "m2_w": {
+          "__array__": "array_00128"
+        },
+        "mlp_residual": {
+          "__array__": "array_00129"
+        },
+        "o_b": {
+          "__array__": "array_00130"
+        },
+        "o_w": {
+          "__array__": "array_00131"
+        },
+        "q_b": {
+          "__array__": "array_00132"
+        },
+        "q_lut": {
+          "scalars": {
+            "__array__": "array_00133"
+          },
+          "table": {
+            "__array__": "array_00134"
+          }
+        },
+        "q_w": {
+          "__array__": "array_00135"
+        },
+        "softmax": {
+          "exp": {
+            "__array__": "array_00136"
+          },
+          "exp_mse": 1759.9333036148132,
+          "mse": 0.03356061662946429,
+          "output_scale": 0.013620136305689812,
+          "recip1": {
+            "__array__": "array_00137"
+          },
+          "recip2": {
+            "__array__": "array_00138"
+          },
+          "scalars": {
+            "__array__": "array_00139"
+          }
+        },
+        "v_b": {
+          "__array__": "array_00140"
+        },
+        "v_lut": {
+          "scalars": {
+            "__array__": "array_00141"
+          },
+          "table": {
+            "__array__": "array_00142"
+          }
+        },
+        "v_w": {
+          "__array__": "array_00143"
+        }
+      },
+      {
+        "a_lut": {
+          "scalars": {
+            "__array__": "array_00144"
+          },
+          "table": {
+            "__array__": "array_00145"
+          }
+        },
+        "attn_residual": {
+          "__array__": "array_00146"
+        },
+        "gelu_lut": {
+          "scalars": {
+            "__array__": "array_00147"
+          },
+          "table": {
+            "__array__": "array_00148"
+          }
+        },
+        "k_b": {
+          "__array__": "array_00149"
+        },
+        "k_lut": {
+          "scalars": {
+            "__array__": "array_00150"
+          },
+          "table": {
+            "__array__": "array_00151"
+          }
+        },
+        "k_w": {
+          "__array__": "array_00152"
+        },
+        "ln1": {
+          "lnb": {
+            "__array__": "array_00153"
+          },
+          "lnw": {
+            "__array__": "array_00154"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00155"
+          },
+          "scalars": {
+            "__array__": "array_00156"
+          }
+        },
+        "ln2": {
+          "lnb": {
+            "__array__": "array_00157"
+          },
+          "lnw": {
+            "__array__": "array_00158"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00159"
+          },
+          "scalars": {
+            "__array__": "array_00160"
+          }
+        },
+        "m1_b": {
+          "__array__": "array_00161"
+        },
+        "m1_w": {
+          "__array__": "array_00162"
+        },
+        "m2_b": {
+          "__array__": "array_00163"
+        },
+        "m2_w": {
+          "__array__": "array_00164"
+        },
+        "mlp_residual": {
+          "__array__": "array_00165"
+        },
+        "o_b": {
+          "__array__": "array_00166"
+        },
+        "o_w": {
+          "__array__": "array_00167"
+        },
+        "q_b": {
+          "__array__": "array_00168"
+        },
+        "q_lut": {
+          "scalars": {
+            "__array__": "array_00169"
+          },
+          "table": {
+            "__array__": "array_00170"
+          }
+        },
+        "q_w": {
+          "__array__": "array_00171"
+        },
+        "softmax": {
+          "exp": {
+            "__array__": "array_00172"
+          },
+          "exp_mse": 981.4704574591316,
+          "mse": 0.018316774952168366,
+          "output_scale": 0.011902078986167908,
+          "recip1": {
+            "__array__": "array_00173"
+          },
+          "recip2": {
+            "__array__": "array_00174"
+          },
+          "scalars": {
+            "__array__": "array_00175"
+          }
+        },
+        "v_b": {
+          "__array__": "array_00176"
+        },
+        "v_lut": {
+          "scalars": {
+            "__array__": "array_00177"
+          },
+          "table": {
+            "__array__": "array_00178"
+          }
+        },
+        "v_w": {
+          "__array__": "array_00179"
+        }
+      },
+      {
+        "a_lut": {
+          "scalars": {
+            "__array__": "array_00180"
+          },
+          "table": {
+            "__array__": "array_00181"
+          }
+        },
+        "attn_residual": {
+          "__array__": "array_00182"
+        },
+        "gelu_lut": {
+          "scalars": {
+            "__array__": "array_00183"
+          },
+          "table": {
+            "__array__": "array_00184"
+          }
+        },
+        "k_b": {
+          "__array__": "array_00185"
+        },
+        "k_lut": {
+          "scalars": {
+            "__array__": "array_00186"
+          },
+          "table": {
+            "__array__": "array_00187"
+          }
+        },
+        "k_w": {
+          "__array__": "array_00188"
+        },
+        "ln1": {
+          "lnb": {
+            "__array__": "array_00189"
+          },
+          "lnw": {
+            "__array__": "array_00190"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00191"
+          },
+          "scalars": {
+            "__array__": "array_00192"
+          }
+        },
+        "ln2": {
+          "lnb": {
+            "__array__": "array_00193"
+          },
+          "lnw": {
+            "__array__": "array_00194"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00195"
+          },
+          "scalars": {
+            "__array__": "array_00196"
+          }
+        },
+        "m1_b": {
+          "__array__": "array_00197"
+        },
+        "m1_w": {
+          "__array__": "array_00198"
+        },
+        "m2_b": {
+          "__array__": "array_00199"
+        },
+        "m2_w": {
+          "__array__": "array_00200"
+        },
+        "mlp_residual": {
+          "__array__": "array_00201"
+        },
+        "o_b": {
+          "__array__": "array_00202"
+        },
+        "o_w": {
+          "__array__": "array_00203"
+        },
+        "q_b": {
+          "__array__": "array_00204"
+        },
+        "q_lut": {
+          "scalars": {
+            "__array__": "array_00205"
+          },
+          "table": {
+            "__array__": "array_00206"
+          }
+        },
+        "q_w": {
+          "__array__": "array_00207"
+        },
+        "softmax": {
+          "exp": {
+            "__array__": "array_00208"
+          },
+          "exp_mse": 1148.6881746320978,
+          "mse": 0.026617556202168366,
+          "output_scale": 0.010118884965777397,
+          "recip1": {
+            "__array__": "array_00209"
+          },
+          "recip2": {
+            "__array__": "array_00210"
+          },
+          "scalars": {
+            "__array__": "array_00211"
+          }
+        },
+        "v_b": {
+          "__array__": "array_00212"
+        },
+        "v_lut": {
+          "scalars": {
+            "__array__": "array_00213"
+          },
+          "table": {
+            "__array__": "array_00214"
+          }
+        },
+        "v_w": {
+          "__array__": "array_00215"
+        }
+      },
+      {
+        "a_lut": {
+          "scalars": {
+            "__array__": "array_00216"
+          },
+          "table": {
+            "__array__": "array_00217"
+          }
+        },
+        "attn_residual": {
+          "__array__": "array_00218"
+        },
+        "gelu_lut": {
+          "scalars": {
+            "__array__": "array_00219"
+          },
+          "table": {
+            "__array__": "array_00220"
+          }
+        },
+        "k_b": {
+          "__array__": "array_00221"
+        },
+        "k_lut": {
+          "scalars": {
+            "__array__": "array_00222"
+          },
+          "table": {
+            "__array__": "array_00223"
+          }
+        },
+        "k_w": {
+          "__array__": "array_00224"
+        },
+        "ln1": {
+          "lnb": {
+            "__array__": "array_00225"
+          },
+          "lnw": {
+            "__array__": "array_00226"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00227"
+          },
+          "scalars": {
+            "__array__": "array_00228"
+          }
+        },
+        "ln2": {
+          "lnb": {
+            "__array__": "array_00229"
+          },
+          "lnw": {
+            "__array__": "array_00230"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00231"
+          },
+          "scalars": {
+            "__array__": "array_00232"
+          }
+        },
+        "m1_b": {
+          "__array__": "array_00233"
+        },
+        "m1_w": {
+          "__array__": "array_00234"
+        },
+        "m2_b": {
+          "__array__": "array_00235"
+        },
+        "m2_w": {
+          "__array__": "array_00236"
+        },
+        "mlp_residual": {
+          "__array__": "array_00237"
+        },
+        "o_b": {
+          "__array__": "array_00238"
+        },
+        "o_w": {
+          "__array__": "array_00239"
+        },
+        "q_b": {
+          "__array__": "array_00240"
+        },
+        "q_lut": {
+          "scalars": {
+            "__array__": "array_00241"
+          },
+          "table": {
+            "__array__": "array_00242"
+          }
+        },
+        "q_w": {
+          "__array__": "array_00243"
+        },
+        "softmax": {
+          "exp": {
+            "__array__": "array_00244"
+          },
+          "exp_mse": 1466.9549577324551,
+          "mse": 0.0242496412627551,
+          "output_scale": 0.010735531337559223,
+          "recip1": {
+            "__array__": "array_00245"
+          },
+          "recip2": {
+            "__array__": "array_00246"
+          },
+          "scalars": {
+            "__array__": "array_00247"
+          }
+        },
+        "v_b": {
+          "__array__": "array_00248"
+        },
+        "v_lut": {
+          "scalars": {
+            "__array__": "array_00249"
+          },
+          "table": {
+            "__array__": "array_00250"
+          }
+        },
+        "v_w": {
+          "__array__": "array_00251"
+        }
+      },
+      {
+        "a_lut": {
+          "scalars": {
+            "__array__": "array_00252"
+          },
+          "table": {
+            "__array__": "array_00253"
+          }
+        },
+        "attn_residual": {
+          "__array__": "array_00254"
+        },
+        "gelu_lut": {
+          "scalars": {
+            "__array__": "array_00255"
+          },
+          "table": {
+            "__array__": "array_00256"
+          }
+        },
+        "k_b": {
+          "__array__": "array_00257"
+        },
+        "k_lut": {
+          "scalars": {
+            "__array__": "array_00258"
+          },
+          "table": {
+            "__array__": "array_00259"
+          }
+        },
+        "k_w": {
+          "__array__": "array_00260"
+        },
+        "ln1": {
+          "lnb": {
+            "__array__": "array_00261"
+          },
+          "lnw": {
+            "__array__": "array_00262"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00263"
+          },
+          "scalars": {
+            "__array__": "array_00264"
+          }
+        },
+        "ln2": {
+          "lnb": {
+            "__array__": "array_00265"
+          },
+          "lnw": {
+            "__array__": "array_00266"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00267"
+          },
+          "scalars": {
+            "__array__": "array_00268"
+          }
+        },
+        "m1_b": {
+          "__array__": "array_00269"
+        },
+        "m1_w": {
+          "__array__": "array_00270"
+        },
+        "m2_b": {
+          "__array__": "array_00271"
+        },
+        "m2_w": {
+          "__array__": "array_00272"
+        },
+        "mlp_residual": {
+          "__array__": "array_00273"
+        },
+        "o_b": {
+          "__array__": "array_00274"
+        },
+        "o_w": {
+          "__array__": "array_00275"
+        },
+        "q_b": {
+          "__array__": "array_00276"
+        },
+        "q_lut": {
+          "scalars": {
+            "__array__": "array_00277"
+          },
+          "table": {
+            "__array__": "array_00278"
+          }
+        },
+        "q_w": {
+          "__array__": "array_00279"
+        },
+        "softmax": {
+          "exp": {
+            "__array__": "array_00280"
+          },
+          "exp_mse": 1122.7883509909066,
+          "mse": 0.02086654974489796,
+          "output_scale": 0.011825639754533768,
+          "recip1": {
+            "__array__": "array_00281"
+          },
+          "recip2": {
+            "__array__": "array_00282"
+          },
+          "scalars": {
+            "__array__": "array_00283"
+          }
+        },
+        "v_b": {
+          "__array__": "array_00284"
+        },
+        "v_lut": {
+          "scalars": {
+            "__array__": "array_00285"
+          },
+          "table": {
+            "__array__": "array_00286"
+          }
+        },
+        "v_w": {
+          "__array__": "array_00287"
+        }
+      },
+      {
+        "a_lut": {
+          "scalars": {
+            "__array__": "array_00288"
+          },
+          "table": {
+            "__array__": "array_00289"
+          }
+        },
+        "attn_residual": {
+          "__array__": "array_00290"
+        },
+        "gelu_lut": {
+          "scalars": {
+            "__array__": "array_00291"
+          },
+          "table": {
+            "__array__": "array_00292"
+          }
+        },
+        "k_b": {
+          "__array__": "array_00293"
+        },
+        "k_lut": {
+          "scalars": {
+            "__array__": "array_00294"
+          },
+          "table": {
+            "__array__": "array_00295"
+          }
+        },
+        "k_w": {
+          "__array__": "array_00296"
+        },
+        "ln1": {
+          "lnb": {
+            "__array__": "array_00297"
+          },
+          "lnw": {
+            "__array__": "array_00298"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00299"
+          },
+          "scalars": {
+            "__array__": "array_00300"
+          }
+        },
+        "ln2": {
+          "lnb": {
+            "__array__": "array_00301"
+          },
+          "lnw": {
+            "__array__": "array_00302"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00303"
+          },
+          "scalars": {
+            "__array__": "array_00304"
+          }
+        },
+        "m1_b": {
+          "__array__": "array_00305"
+        },
+        "m1_w": {
+          "__array__": "array_00306"
+        },
+        "m2_b": {
+          "__array__": "array_00307"
+        },
+        "m2_w": {
+          "__array__": "array_00308"
+        },
+        "mlp_residual": {
+          "__array__": "array_00309"
+        },
+        "o_b": {
+          "__array__": "array_00310"
+        },
+        "o_w": {
+          "__array__": "array_00311"
+        },
+        "q_b": {
+          "__array__": "array_00312"
+        },
+        "q_lut": {
+          "scalars": {
+            "__array__": "array_00313"
+          },
+          "table": {
+            "__array__": "array_00314"
+          }
+        },
+        "q_w": {
+          "__array__": "array_00315"
+        },
+        "softmax": {
+          "exp": {
+            "__array__": "array_00316"
+          },
+          "exp_mse": 940.9224015818062,
+          "mse": 0.03133096500318878,
+          "output_scale": 0.009991715662181377,
+          "recip1": {
+            "__array__": "array_00317"
+          },
+          "recip2": {
+            "__array__": "array_00318"
+          },
+          "scalars": {
+            "__array__": "array_00319"
+          }
+        },
+        "v_b": {
+          "__array__": "array_00320"
+        },
+        "v_lut": {
+          "scalars": {
+            "__array__": "array_00321"
+          },
+          "table": {
+            "__array__": "array_00322"
+          }
+        },
+        "v_w": {
+          "__array__": "array_00323"
+        }
+      },
+      {
+        "a_lut": {
+          "scalars": {
+            "__array__": "array_00324"
+          },
+          "table": {
+            "__array__": "array_00325"
+          }
+        },
+        "attn_residual": {
+          "__array__": "array_00326"
+        },
+        "gelu_lut": {
+          "scalars": {
+            "__array__": "array_00327"
+          },
+          "table": {
+            "__array__": "array_00328"
+          }
+        },
+        "k_b": {
+          "__array__": "array_00329"
+        },
+        "k_lut": {
+          "scalars": {
+            "__array__": "array_00330"
+          },
+          "table": {
+            "__array__": "array_00331"
+          }
+        },
+        "k_w": {
+          "__array__": "array_00332"
+        },
+        "ln1": {
+          "lnb": {
+            "__array__": "array_00333"
+          },
+          "lnw": {
+            "__array__": "array_00334"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00335"
+          },
+          "scalars": {
+            "__array__": "array_00336"
+          }
+        },
+        "ln2": {
+          "lnb": {
+            "__array__": "array_00337"
+          },
+          "lnw": {
+            "__array__": "array_00338"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00339"
+          },
+          "scalars": {
+            "__array__": "array_00340"
+          }
+        },
+        "m1_b": {
+          "__array__": "array_00341"
+        },
+        "m1_w": {
+          "__array__": "array_00342"
+        },
+        "m2_b": {
+          "__array__": "array_00343"
+        },
+        "m2_w": {
+          "__array__": "array_00344"
+        },
+        "mlp_residual": {
+          "__array__": "array_00345"
+        },
+        "o_b": {
+          "__array__": "array_00346"
+        },
+        "o_w": {
+          "__array__": "array_00347"
+        },
+        "q_b": {
+          "__array__": "array_00348"
+        },
+        "q_lut": {
+          "scalars": {
+            "__array__": "array_00349"
+          },
+          "table": {
+            "__array__": "array_00350"
+          }
+        },
+        "q_w": {
+          "__array__": "array_00351"
+        },
+        "softmax": {
+          "exp": {
+            "__array__": "array_00352"
+          },
+          "exp_mse": 325.78171340283563,
+          "mse": 0.03746811224489796,
+          "output_scale": 0.009004463441669941,
+          "recip1": {
+            "__array__": "array_00353"
+          },
+          "recip2": {
+            "__array__": "array_00354"
+          },
+          "scalars": {
+            "__array__": "array_00355"
+          }
+        },
+        "v_b": {
+          "__array__": "array_00356"
+        },
+        "v_lut": {
+          "scalars": {
+            "__array__": "array_00357"
+          },
+          "table": {
+            "__array__": "array_00358"
+          }
+        },
+        "v_w": {
+          "__array__": "array_00359"
+        }
+      },
+      {
+        "a_lut": {
+          "scalars": {
+            "__array__": "array_00360"
+          },
+          "table": {
+            "__array__": "array_00361"
+          }
+        },
+        "attn_residual": {
+          "__array__": "array_00362"
+        },
+        "gelu_lut": {
+          "scalars": {
+            "__array__": "array_00363"
+          },
+          "table": {
+            "__array__": "array_00364"
+          }
+        },
+        "k_b": {
+          "__array__": "array_00365"
+        },
+        "k_lut": {
+          "scalars": {
+            "__array__": "array_00366"
+          },
+          "table": {
+            "__array__": "array_00367"
+          }
+        },
+        "k_w": {
+          "__array__": "array_00368"
+        },
+        "ln1": {
+          "lnb": {
+            "__array__": "array_00369"
+          },
+          "lnw": {
+            "__array__": "array_00370"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00371"
+          },
+          "scalars": {
+            "__array__": "array_00372"
+          }
+        },
+        "ln2": {
+          "lnb": {
+            "__array__": "array_00373"
+          },
+          "lnw": {
+            "__array__": "array_00374"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00375"
+          },
+          "scalars": {
+            "__array__": "array_00376"
+          }
+        },
+        "m1_b": {
+          "__array__": "array_00377"
+        },
+        "m1_w": {
+          "__array__": "array_00378"
+        },
+        "m2_b": {
+          "__array__": "array_00379"
+        },
+        "m2_w": {
+          "__array__": "array_00380"
+        },
+        "mlp_residual": {
+          "__array__": "array_00381"
+        },
+        "o_b": {
+          "__array__": "array_00382"
+        },
+        "o_w": {
+          "__array__": "array_00383"
+        },
+        "q_b": {
+          "__array__": "array_00384"
+        },
+        "q_lut": {
+          "scalars": {
+            "__array__": "array_00385"
+          },
+          "table": {
+            "__array__": "array_00386"
+          }
+        },
+        "q_w": {
+          "__array__": "array_00387"
+        },
+        "softmax": {
+          "exp": {
+            "__array__": "array_00388"
+          },
+          "exp_mse": 629.9526602413924,
+          "mse": 0.022700095663265307,
+          "output_scale": 0.010449893772602081,
+          "recip1": {
+            "__array__": "array_00389"
+          },
+          "recip2": {
+            "__array__": "array_00390"
+          },
+          "scalars": {
+            "__array__": "array_00391"
+          }
+        },
+        "v_b": {
+          "__array__": "array_00392"
+        },
+        "v_lut": {
+          "scalars": {
+            "__array__": "array_00393"
+          },
+          "table": {
+            "__array__": "array_00394"
+          }
+        },
+        "v_w": {
+          "__array__": "array_00395"
+        }
+      },
+      {
+        "a_lut": {
+          "scalars": {
+            "__array__": "array_00396"
+          },
+          "table": {
+            "__array__": "array_00397"
+          }
+        },
+        "attn_residual": {
+          "__array__": "array_00398"
+        },
+        "gelu_lut": {
+          "scalars": {
+            "__array__": "array_00399"
+          },
+          "table": {
+            "__array__": "array_00400"
+          }
+        },
+        "k_b": {
+          "__array__": "array_00401"
+        },
+        "k_lut": {
+          "scalars": {
+            "__array__": "array_00402"
+          },
+          "table": {
+            "__array__": "array_00403"
+          }
+        },
+        "k_w": {
+          "__array__": "array_00404"
+        },
+        "ln1": {
+          "lnb": {
+            "__array__": "array_00405"
+          },
+          "lnw": {
+            "__array__": "array_00406"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00407"
+          },
+          "scalars": {
+            "__array__": "array_00408"
+          }
+        },
+        "ln2": {
+          "lnb": {
+            "__array__": "array_00409"
+          },
+          "lnw": {
+            "__array__": "array_00410"
+          },
+          "rsqrt_table": {
+            "__array__": "array_00411"
+          },
+          "scalars": {
+            "__array__": "array_00412"
+          }
+        },
+        "m1_b": {
+          "__array__": "array_00413"
+        },
+        "m1_w": {
+          "__array__": "array_00414"
+        },
+        "m2_b": {
+          "__array__": "array_00415"
+        },
+        "m2_w": {
+          "__array__": "array_00416"
+        },
+        "mlp_residual": {
+          "__array__": "array_00417"
+        },
+        "o_b": {
+          "__array__": "array_00418"
+        },
+        "o_w": {
+          "__array__": "array_00419"
+        },
+        "q_b": {
+          "__array__": "array_00420"
+        },
+        "q_lut": {
+          "scalars": {
+            "__array__": "array_00421"
+          },
+          "table": {
+            "__array__": "array_00422"
+          }
+        },
+        "q_w": {
+          "__array__": "array_00423"
+        },
+        "softmax": {
+          "exp": {
+            "__array__": "array_00424"
+          },
+          "exp_mse": 701.7863962389803,
+          "mse": 0.03245451012436224,
+          "output_scale": 0.01051073707640171,
+          "recip1": {
+            "__array__": "array_00425"
+          },
+          "recip2": {
+            "__array__": "array_00426"
+          },
+          "scalars": {
+            "__array__": "array_00427"
+          }
+        },
+        "v_b": {
+          "__array__": "array_00428"
+        },
+        "v_lut": {
+          "scalars": {
+            "__array__": "array_00429"
+          },
+          "table": {
+            "__array__": "array_00430"
+          }
+        },
+        "v_w": {
+          "__array__": "array_00431"
+        }
+      }
+    ],
+    "final_encoder_scale": 0.018580527405285263,
+    "head": {
+      "head_bias": {
+        "__array__": "array_00432"
+      },
+      "head_ln_scalars": {
+        "__array__": "array_00433"
+      },
+      "head_lnb": {
+        "__array__": "array_00434"
+      },
+      "head_lnw": {
+        "__array__": "array_00435"
+      },
+      "head_rsqrt": {
+        "__array__": "array_00436"
+      },
+      "head_weight": {
+        "__array__": "array_00437"
+      }
+    },
+    "patch": {
+      "bias_bank": {
+        "__array__": "array_00438"
+      },
+      "bias_raw": {
+        "__array__": "array_00439"
+      },
+      "cls_bank": {
+        "__array__": "array_00440"
+      },
+      "cls_raw": {
+        "__array__": "array_00441"
+      },
+      "input_scale": 0.015625,
+      "output_scale": 0.007122583727198322,
+      "raw_scale": 2.7822592684368447e-05,
+      "scalars": {
+        "__array__": "array_00442"
+      },
+      "shift": 8,
+      "weight_bank": {
+        "__array__": "array_00443"
+      },
+      "weight_code": {
+        "__array__": "array_00444"
+      },
+      "weight_mse": 3.124656871023035e-07,
+      "weight_saturation_rate": 7.459852349711582e-05,
+      "weight_scale": 0.0017806459317995806
+    }
+  }
+}

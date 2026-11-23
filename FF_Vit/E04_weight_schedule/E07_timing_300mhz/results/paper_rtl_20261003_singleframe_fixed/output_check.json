@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "mismatches": [],
+  "hashes": {
+    "data_V": {
+      "reference_sha256": "92049ea2e2d4a54c1a0c4e7688bcdcecde816ec63d3f3f1034fe49f68d0c2926",
+      "observed_sha256": "92049ea2e2d4a54c1a0c4e7688bcdcecde816ec63d3f3f1034fe49f68d0c2926"
+    },
+    "keep_V": {
+      "reference_sha256": "4a5f9f1c4da0de239933ee6c96fb507a80bb3e7c4f1efc791b59ce2a076a6ccb",
+      "observed_sha256": "4a5f9f1c4da0de239933ee6c96fb507a80bb3e7c4f1efc791b59ce2a076a6ccb"
+    },
+    "strb_V": {
+      "reference_sha256": "4a5f9f1c4da0de239933ee6c96fb507a80bb3e7c4f1efc791b59ce2a076a6ccb",
+      "observed_sha256": "4a5f9f1c4da0de239933ee6c96fb507a80bb3e7c4f1efc791b59ce2a076a6ccb"
+    },
+    "last_V": {
+      "reference_sha256": "0c5b58a4a5bf5fc52f2ac885b2ab11a9eabb402af51c1b0e42799ed86008424e",
+      "observed_sha256": "0c5b58a4a5bf5fc52f2ac885b2ab11a9eabb402af51c1b0e42799ed86008424e"
+    }
+  }
+}

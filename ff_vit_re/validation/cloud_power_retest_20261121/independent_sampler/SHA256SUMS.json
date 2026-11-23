@@ -1,0 +1,22 @@
+{
+  "SD_CARD/BOOT.BIN": {
+    "bytes": 27124592,
+    "sha256": "044add2b75a0102fb94d06a18e99194674740071ef34711de2774f84cf58fe13"
+  },
+  "SD_CARD/FIRMWARE_IDENTITY.json": {
+    "bytes": 92823,
+    "sha256": "1c99af1e8bef495acf5cd7a2044f8f849be90e404cd7027993a813ad17adefe3"
+  },
+  "SD_CARD/input.bin": {
+    "bytes": 602112,
+    "sha256": "f7fa33c31113271173effc4fb684c432378b85c2f15a6681aa682aacf2ba3a2c"
+  },
+  "SD_CARD/output.bin": {
+    "bytes": 4000,
+    "sha256": "f2da31d910ab48a49c5a803f836478e2b54e0cd9fdd1081cc2eabc1d36afe842"
+  },
+  "SD_CARD/weights.bin": {
+    "bytes": 2772096,
+    "sha256": "0fac7e4cd09ae8367e5c8dfd5cb469473780055feccf9569a8376419028e2cd7"
+  }
+}

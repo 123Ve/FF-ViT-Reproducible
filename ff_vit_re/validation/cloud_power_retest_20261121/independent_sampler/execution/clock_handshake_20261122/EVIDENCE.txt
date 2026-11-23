@@ -1,0 +1,11 @@
+Transcribed user-supplied r8 physical stdout, not fabricated board data:
+diagnostic16, includedmask229247, excluded[7,15], configured/observed/ADCmask262143.
+conversion_ready262143. faults/sampler_faults/I2C/invalid/stale/overruns/temperature_errors0.
+Core0/1, Hz both99990005, epoch both217249728, temp26806mC valid.
+Latest now1146632974, heartbeat1146592887, heartbeat_advances1505, scans464.
+Readiness tail:
+ now1125438968 heartbeat1124794696 scans453 clock_checks0 excluded_negative168
+ now1135615838 heartbeat1134793899 scans458 clock_checks1 excluded_negative170
+ now1145889348 heartbeat1144792997 scans463 clock_checks0 excluded_negative173
+No included negatives; excluded negatives handled without fatal faults.
+Blocking predicate is clock_checks>=3. No r9 hardware result exists.

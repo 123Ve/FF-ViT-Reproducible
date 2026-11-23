@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "candidate": "checkpoints/attention/main/candidate_epoch03.pth",
+  "checkpoint_sha256": "30c2e5057d744526872274ec2c191846c6ed07ce5e759d587a23eb6b073ba766",
+  "full_progressive_epochs": 4,
+  "optimizer_images_per_epoch": 1277128,
+  "global_step": 39912,
+  "changed_model_tensors": 96,
+  "only_attention_and_norm1_changed": true,
+  "inherited_mlp_scales_unchanged": true,
+  "all_13_boundary_masks_cover_all_12_blocks": true,
+  "formal_sample_count": 50000,
+  "formal_top1": 0.64244,
+  "formal_top5": 0.86294,
+  "formal_report": "reports/attention_qat_formal_epoch03.json"
+}

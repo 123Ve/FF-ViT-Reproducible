@@ -1,0 +1,11 @@
+"role","path","bytes","sha256"
+"ImageNet 原始预训练文件","image_1k/deit_tiny_patch16_224-a1311bcf.pth","22917895","a1311bcf4f24e3c95adaa75535db67bc4412d95535b98f7c1dfd1164dda41c97"
+"ImageNet HLS196 FP32","image_lianghu/checkpoints/fp32_hls196.pth","22915663","9e474c8b05c1fa62841e4aa2b230eac8e72561387b99f65a11ec4efc4069a065"
+"ImageNet W3 QAT 父模型","image_lianghu/checkpoints/w3_qat_500k_headrefit/best.pth","29853643","b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab"
+"ImageNet 严格 S3 MLP","image1k_hls_s3_original/checkpoints/mlp/main/best.pth","91864372","ecc26c2d04c2e8952324cbc1e1806866b63a418018169a5cfc40af50d44f0e02"
+"ImageNet 严格 S3 Attention","image1k_hls_s3_original/checkpoints/attention/main/best.pth","91891212","bf40fc4e40a27943f7b4e27b4b6e9dc9b45320c03b13ba181fb91fd81371fad3"
+"PlantVillage 最新 U3 Attention","validation/e07_u3_progressive_qat_20261010/outputs/plantvillage/attention/best.pth","36715928","baf8a8768174ff6fabef334f5a8fdf57943d2ea8a9230e23f643a083466f56e5"
+"NWPU 最新 U3 Attention","validation/e07_u3_progressive_qat_20261010/outputs/nwpu/attention/best.pth","36718936","10a5d0a7e55dde178af2919b80fd1ec6f3fe0dee4fefe059f55e2a045b16a9c5"
+"PlantVillage 任务 FP32","quantization_final/checkpoints/plantvillage_hls196/best.pth","22176501","631eefe327df18c5a43814f8a043f9b63bd1942271bbf6698a92cdfbf76f7097"
+"NWPU 任务 FP32","archive/nwpu_resisc45_ffvit/runs/nwpu_seed20260923/hls196/best.pth","22178639","0464e45f5147d12f1cdf4c733e43a3a6a5baf37c9d681f50cca7e4e5387fa243"
+

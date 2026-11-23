@@ -1,0 +1,3219 @@
+{
+  "dataset": "nwpu",
+  "stage": "attention",
+  "seed": 20260923,
+  "epochs": 10,
+  "batch": 32,
+  "lr": 1e-05,
+  "scale_lr": 0.0005,
+  "optimizer": "AdamW",
+  "model_weight_decay": 0.02,
+  "scale_weight_decay": 0,
+  "alpha": 0.5,
+  "T": 2,
+  "gradient_clip": 1,
+  "scheduler": "CosineAnnealingLR",
+  "precision": "FP32, AMP disabled",
+  "progressive_active_blocks": [
+    [
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ]
+  ],
+  "validation": "all12 enabled, full validation only, test never used for selection",
+  "numeric_mode": "FAKE_QUANT_SURROGATE_NOT_BIT_ACCURATE",
+  "softmax": "U3 learned per-block scale, non-fused attention",
+  "differences_from_original": [
+    "U3 Softmax in Attention",
+    "Q12/K11/V11 and A11 raw-MAC boundaries",
+    "int15 residual at physical A*W_O domain",
+    "frozen calibration256 excluded",
+    "FP32 instead of AMP"
+  ],
+  "sources": {
+    "/home/user/Desktop/ff_vit_re/archive/nwpu_resisc45_ffvit/runs/nwpu_seed20260923/hls196/best.pth": "0464e45f5147d12f1cdf4c733e43a3a6a5baf37c9d681f50cca7e4e5387fa243",
+    "/home/user/Desktop/ff_vit_re/archive/nwpu_resisc45_ffvit/runs/nwpu_seed20260923/qat_weight3_hls196/best_qat_state.pth": "9884a9d9b1b17bacf56d8f36f887103befeb7385cac6e4723f820be46816875f",
+    "/home/user/Desktop/ff_vit_re/archive/nwpu_resisc45_ffvit/runs/nwpu_seed20260923/stage3_patch_hls/report.json": "e69387379a845325c2c6373f7ce7a37ed7ec5a32812cfd55ccd6d58809e61c4e",
+    "/home/user/Desktop/ff_vit_re/archive/nwpu_resisc45_ffvit/runs/nwpu_seed20260923/stage4a_ranges/activation_ranges.json": "6cf758470bc2a5b2f9efc7be87c9e46dc9e23f43fd70c092f04ef9db130c62e9",
+    "/home/user/Desktop/ff_vit_re/archive/nwpu_resisc45_ffvit/runs/nwpu_seed20260923/stage4h_exact_layernorm_roundfix/ln_input_scales.npy": "a3b0b8c1c0326f3b7b23ae921750c4016da1b2afe568365ced9d50564843a525",
+    "/home/user/Desktop/ff_vit_re/archive/nwpu_resisc45_ffvit/deployment/nwpu_seed20260923/fixed_patch_head_rom.h": "0cb13ae111e12d870b53265ba7817a4d97118149266525226403674158b0775e",
+    "/home/user/Desktop/ff_vit_re/archive/nwpu_resisc45_ffvit/deployment/nwpu_seed20260923/weights.bin": "ce8460c497ae4387d9a9daefd9527f61dc4207040f2dfd9aaa55c3018e946276",
+    "/home/user/Desktop/ff_vit_re/archive/nwpu_resisc45_ffvit/metadata/calibration.json": "3d2732f4a4e39b73004fda2030a3b875a90d05ac8ba6d4c06f222492a8642a35",
+    "/home/user/Desktop/ff_vit_re/validation/e07_u3_progressive_qat_20261010/progressive.py": "1d9cb56108f4bc1e6da3c8e57665f6b8adeef11cd16af0ebc90873885a611228",
+    "/home/user/Desktop/ff_vit_re/validation/e07_u3_qat_20261010/outputs/nwpu/initial_u3/u3_artifact/manifest.json": "3053c4b128eb25c35cf6b6970bb4019f7ac274eb77230a0dc2b16080e7c7f32d",
+    "/home/user/Desktop/ff_vit_re/validation/e07_u3_qat_20261010/outputs/nwpu/initial_u3/u3_artifact/arrays.npz": "2690ea1c6516500936bd1ddd598862d1bdc933d1e1b4f27496f36eb3b8bf48ce",
+    "/home/user/Desktop/ff_vit_re/stage4d_mlp_activation_qat.py": "2927d15f7f0c1ab41001b5b315e621b31959ddac7d86eb6522b6a9e4802d2580",
+    "/home/user/Desktop/ff_vit_re/stage4j_attention_activation_qat.py": "5016d6c313070c278e5a7a558385cb303fbe7149ff5a99253b77e11c2af4bc0c",
+    "/home/user/Desktop/ff_vit_re/qat_weight3_hls196.py": "38cc7f0dabd9da1b7e3d58d45720e753e1e2d92424173e551a11d74a9d885a61",
+    "/home/user/Desktop/ff_vit_re/validation/e07_u3_qat_20261010/train.py": "2da0b6c9b56e7a820250437c235fd4a5859331575e2c5f4e3288eb5d0e920a2a",
+    "/home/user/Desktop/ff_vit_re/validation/softmax_u3_hls_20261010/u3_validation.py": "e43c1233fc2fde7d5489306851a0d252fa06e24cbbbc5042ef74dd43ac5d49fc",
+    "/home/user/Desktop/ff_vit_re/image1k_hls_s3_original/src/exact.py": "0db3f95903ba72ebff90c18bf74c85b10994de259eaa79453d2b22f39fd5c02a",
+    "/home/user/Desktop/ff_vit_re/validation/e07_u3_qat_20261010/runtime.py": "e7a535b6e0cf440cebe3af16836cf55c9def369700b598055b96bf7a29361925",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src/block0.cpp": "ae9aba847cb8fdffdba289915acd5bc3347a6fd5e9426679e708fbd6cf88a06a",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src/layernorm.h": "6f12ab6fbad2419b1bf15069b3f0fd825b3de40f24e6272431db469437385791",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src/fused_flash_attn.h": "8f0d451389d87350260cf662f727cce050917f4a80d2d6963f6a9fc74daeef5b",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src/quant.h": "4ee96011f992d8d7ccf1636c749d2bd540bc14e7945cf5c337eed42530cb935f",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src/mlp.h": "7d245d36b92b6aedf8f60523cf55c8e4db3b76a260dbf9fe4bd7a92bcb36b14e",
+    "/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/src/matmul.h": "71697a79fe79dc0fe202e4226c33e093a8fbcbd146ca6547657d68845e96064f"
+  },
+  "dataset_identity": {
+    "transform": "Compose(\n    Resize(size=256, interpolation=bilinear, max_size=None, antialias=True)\n    CenterCrop(size=(224, 224))\n    ToTensor()\n    Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))\n)",
+    "classes": [
+      "airplane",
+      "airport",
+      "baseball_diamond",
+      "basketball_court",
+      "beach",
+      "bridge",
+      "chaparral",
+      "church",
+      "circular_farmland",
+      "cloud",
+      "commercial_area",
+      "dense_residential",
+      "desert",
+      "forest",
+      "freeway",
+      "golf_course",
+      "ground_track_field",
+      "harbor",
+      "industrial_area",
+      "intersection",
+      "island",
+      "lake",
+      "meadow",
+      "medium_residential",
+      "mobile_home_park",
+      "mountain",
+      "overpass",
+      "palace",
+      "parking_lot",
+      "railway",
+      "railway_station",
+      "rectangular_farmland",
+      "river",
+      "roundabout",
+      "runway",
+      "sea_ice",
+      "ship",
+      "snowberg",
+      "sparse_residential",
+      "stadium",
+      "storage_tank",
+      "tennis_court",
+      "terrace",
+      "thermal_power_station",
+      "wetland"
+    ],
+    "test_count": 4500,
+    "val_count": 2700,
+    "natural_indices": [
+      0,
+      35,
+      70,
+      106,
+      141,
+      177,
+      212,
+      247,
+      283,
+      318,
+      354,
+      389,
+      425,
+      460,
+      495,
+      531,
+      566,
+      602,
+      637,
+      673,
+      708,
+      743,
+      779,
+      814,
+      850,
+      885,
+      921,
+      956,
+      991,
+      1027,
+      1062,
+      1098,
+      1133,
+      1169,
+      1204,
+      1239,
+      1275,
+      1310,
+      1346,
+      1381,
+      1417,
+      1452,
+      1487,
+      1523,
+      1558,
+      1594,
+      1629,
+      1664,
+      1700,
+      1735,
+      1771,
+      1806,
+      1842,
+      1877,
+      1912,
+      1948,
+      1983,
+      2019,
+      2054,
+      2090,
+      2125,
+      2160,
+      2196,
+      2231,
+      2267,
+      2302,
+      2338,
+      2373,
+      2408,
+      2444,
+      2479,
+      2515,
+      2550,
+      2586,
+      2621,
+      2656,
+      2692,
+      2727,
+      2763,
+      2798,
+      2834,
+      2869,
+      2904,
+      2940,
+      2975,
+      3011,
+      3046,
+      3081,
+      3117,
+      3152,
+      3188,
+      3223,
+      3259,
+      3294,
+      3329,
+      3365,
+      3400,
+      3436,
+      3471,
+      3507,
+      3542,
+      3577,
+      3613,
+      3648,
+      3684,
+      3719,
+      3755,
+      3790,
+      3825,
+      3861,
+      3896,
+      3932,
+      3967,
+      4003,
+      4038,
+      4073,
+      4109,
+      4144,
+      4180,
+      4215,
+      4251,
+      4286,
+      4321,
+      4357,
+      4392,
+      4428,
+      4463,
+      4499
+    ],
+    "natural_samples": [
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/airplane/airplane_604.jpg",
+        "index": 0,
+        "label": 0,
+        "manifest_image_sha256": "e275309c1b257985b1cfa050d63eb5cd22abc6ad4b4d1e0a83435ebbd4da0afd",
+        "source_image_sha256": "e275309c1b257985b1cfa050d63eb5cd22abc6ad4b4d1e0a83435ebbd4da0afd",
+        "transformed_fp32_sha256": "104f0b88424d71b49c16a255869b029810184974873affeb7c96eeb6ce021d39"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/airplane/airplane_160.jpg",
+        "index": 35,
+        "label": 0,
+        "manifest_image_sha256": "f3c1827280ce5fd55d5c1ca652b6b7f7a1e05ae99204aba2dbf75c1ce6afc5c8",
+        "source_image_sha256": "f3c1827280ce5fd55d5c1ca652b6b7f7a1e05ae99204aba2dbf75c1ce6afc5c8",
+        "transformed_fp32_sha256": "479ddfeb44b50bce2367dfacc8860e3983b9a9c8b0e43d89f7033a6c3cc4a2e6"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/airplane/airplane_415.jpg",
+        "index": 70,
+        "label": 0,
+        "manifest_image_sha256": "545536ff724ddf334b1fa585fea1d7cd217f8f32ed3ea361df51edf147e8420e",
+        "source_image_sha256": "545536ff724ddf334b1fa585fea1d7cd217f8f32ed3ea361df51edf147e8420e",
+        "transformed_fp32_sha256": "010ecceb575b54c8f3f296699e855627bf579d5e2c4a4951caaefb5e78d05780"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/airport/airport_697.jpg",
+        "index": 106,
+        "label": 1,
+        "manifest_image_sha256": "2268ddd6862f5ddbcbdaad01240f6bd18c8feafaf9b900d53a017d960c7da4bc",
+        "source_image_sha256": "2268ddd6862f5ddbcbdaad01240f6bd18c8feafaf9b900d53a017d960c7da4bc",
+        "transformed_fp32_sha256": "a8737939d7f28de104d64aa7670bbec969929bf21b3aa088fd68628768d248fa"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/airport/airport_255.jpg",
+        "index": 141,
+        "label": 1,
+        "manifest_image_sha256": "f3cf243d0d45491eddf22d3524c384d0ef202fdf60fd1158931943fb47bd554c",
+        "source_image_sha256": "f3cf243d0d45491eddf22d3524c384d0ef202fdf60fd1158931943fb47bd554c",
+        "transformed_fp32_sha256": "a238be1eef3db254fa51d2c54c33d9a8b3157bf729df79d00b1f7230216d2125"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/airport/airport_485.jpg",
+        "index": 177,
+        "label": 1,
+        "manifest_image_sha256": "f2ccbc0584aed39106dbacb5c816eb89df2f67df4f51bc050a79430feb5737e9",
+        "source_image_sha256": "f2ccbc0584aed39106dbacb5c816eb89df2f67df4f51bc050a79430feb5737e9",
+        "transformed_fp32_sha256": "f05b5d30d3fc99bc41d5a7a2a8763361084bc8068c0d3a4ef6aa509a687aef87"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/baseball_diamond/baseball_diamond_662.jpg",
+        "index": 212,
+        "label": 2,
+        "manifest_image_sha256": "9f2e2108b3619728dbfce980c39f4debabee456ad8866efee04915ba85ec1fa0",
+        "source_image_sha256": "9f2e2108b3619728dbfce980c39f4debabee456ad8866efee04915ba85ec1fa0",
+        "transformed_fp32_sha256": "7d67e8008ccaae7944bf1de5a33d64ec5fe648f7abe1c965ed3b90f04f297e81"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/baseball_diamond/baseball_diamond_205.jpg",
+        "index": 247,
+        "label": 2,
+        "manifest_image_sha256": "8e838d94fa87b7f0d5d3b411b799c09188a8ae769981ca1c7106cf0aa89a48e4",
+        "source_image_sha256": "8e838d94fa87b7f0d5d3b411b799c09188a8ae769981ca1c7106cf0aa89a48e4",
+        "transformed_fp32_sha256": "7408da693b3d845f1e56f5a138ce33e900055120d15992f7bfbbaf20fe9c1fce"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/baseball_diamond/baseball_diamond_499.jpg",
+        "index": 283,
+        "label": 2,
+        "manifest_image_sha256": "12eda72bfc601d10567d4ae9143101272157fd2e6d723d77e8d723e6dbd6952a",
+        "source_image_sha256": "12eda72bfc601d10567d4ae9143101272157fd2e6d723d77e8d723e6dbd6952a",
+        "transformed_fp32_sha256": "431ada03e8b99a03e5c53aead855dab8159df3b1e122470b06b613d1106e2427"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/basketball_court/basketball_court_058.jpg",
+        "index": 318,
+        "label": 3,
+        "manifest_image_sha256": "c1957de8d18e0099cb57892f9012b5b3d046451756186876544dfc68362388ff",
+        "source_image_sha256": "c1957de8d18e0099cb57892f9012b5b3d046451756186876544dfc68362388ff",
+        "transformed_fp32_sha256": "8b56ce307452ab74e730808cf05be1d876a4ba3cf437802c493f95e4d9dfef36"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/basketball_court/basketball_court_339.jpg",
+        "index": 354,
+        "label": 3,
+        "manifest_image_sha256": "0e68c36607ce8bb60479fd2f0142dcbdb03a7713257b4aa085a64ab243f3d412",
+        "source_image_sha256": "0e68c36607ce8bb60479fd2f0142dcbdb03a7713257b4aa085a64ab243f3d412",
+        "transformed_fp32_sha256": "01b898d7d224a9bcd4ba2a9a18a3d1afa343af9ff97fc71869bfd741b2cadffd"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/basketball_court/basketball_court_553.jpg",
+        "index": 389,
+        "label": 3,
+        "manifest_image_sha256": "3c4cd224d28441f3909ec62d60306a042723383421082ed2303f33d834171675",
+        "source_image_sha256": "3c4cd224d28441f3909ec62d60306a042723383421082ed2303f33d834171675",
+        "transformed_fp32_sha256": "72163ef621d3fcb07d4c2b6ec231805df12a207ea99052ffd9da498b5c1d18d9"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/beach/beach_110.jpg",
+        "index": 425,
+        "label": 4,
+        "manifest_image_sha256": "92ed563e50cf5dd5a4768756d4ce5faaac48d46cbe2b131b679bcc7717b0ad76",
+        "source_image_sha256": "92ed563e50cf5dd5a4768756d4ce5faaac48d46cbe2b131b679bcc7717b0ad76",
+        "transformed_fp32_sha256": "b1cef9c32e0a54f1be96687b3f4244c8d77c4d69bd3298df08a5a94b9d2a2534"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/beach/beach_324.jpg",
+        "index": 460,
+        "label": 4,
+        "manifest_image_sha256": "5ba1ff8a0b43269f7ddbfb5cce0a5f70839fee6a51202a796c36080de9f9d0ad",
+        "source_image_sha256": "5ba1ff8a0b43269f7ddbfb5cce0a5f70839fee6a51202a796c36080de9f9d0ad",
+        "transformed_fp32_sha256": "850140fb9be90d2e5f956c1b144a51ccd8c72f285d4e240d794d78ff691c421c"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/beach/beach_579.jpg",
+        "index": 495,
+        "label": 4,
+        "manifest_image_sha256": "38dcc2caa687a7373bcf91a83cb1960bdd1d347762ba5f7b9fa2ca6cb2558eea",
+        "source_image_sha256": "38dcc2caa687a7373bcf91a83cb1960bdd1d347762ba5f7b9fa2ca6cb2558eea",
+        "transformed_fp32_sha256": "7ee7a5dffe285507f532f26e642614434a9470ef2cb70497b1b1f7bd260a9e49"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/bridge/bridge_164.jpg",
+        "index": 531,
+        "label": 5,
+        "manifest_image_sha256": "bea00c0091660e5b5dd281b4c0f911a9b09c930230762fe94eb566da0d68e257",
+        "source_image_sha256": "bea00c0091660e5b5dd281b4c0f911a9b09c930230762fe94eb566da0d68e257",
+        "transformed_fp32_sha256": "2f9d5c88c0793141654526b055bec206bb5a947cccd518b12bb91d9b31db012f"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/bridge/bridge_399.jpg",
+        "index": 566,
+        "label": 5,
+        "manifest_image_sha256": "b1a0dd1beda2df02d1e0e58613509d99f3dc665f94d0e21a320b6532789873b8",
+        "source_image_sha256": "b1a0dd1beda2df02d1e0e58613509d99f3dc665f94d0e21a320b6532789873b8",
+        "transformed_fp32_sha256": "74ab5efb5037e806b4376fd4b2026ff2fc8fb525e3706d0cf06b92dcfdf876a7"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/chaparral/chaparral_617.jpg",
+        "index": 602,
+        "label": 6,
+        "manifest_image_sha256": "f410cb15ff6b94ba395856fc1997375a0e92052aedd91f08353d2d029bcd439b",
+        "source_image_sha256": "f410cb15ff6b94ba395856fc1997375a0e92052aedd91f08353d2d029bcd439b",
+        "transformed_fp32_sha256": "af72a6e48d401cc56221b60d01968ecb1462756380d3c9ad18f63de89e0000c8"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/chaparral/chaparral_164.jpg",
+        "index": 637,
+        "label": 6,
+        "manifest_image_sha256": "ad71a0cdad1fe3458e7664602869e2cda430b3f4ecc475c9c12ed31b8393d56c",
+        "source_image_sha256": "ad71a0cdad1fe3458e7664602869e2cda430b3f4ecc475c9c12ed31b8393d56c",
+        "transformed_fp32_sha256": "22902463a4eb233547638a04add2a2b63c98753e91ab744947bcbec756584645"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/chaparral/chaparral_404.jpg",
+        "index": 673,
+        "label": 6,
+        "manifest_image_sha256": "d23726106bda962c4210318ac98c5b453c45f6fb23e1b65d0829aa029afcfbec",
+        "source_image_sha256": "d23726106bda962c4210318ac98c5b453c45f6fb23e1b65d0829aa029afcfbec",
+        "transformed_fp32_sha256": "8278cbd46b66fbc4d1a5d21cd523ee72be7a5fda6bd4555da4dc966e4e65c3d6"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/church/church_667.jpg",
+        "index": 708,
+        "label": 7,
+        "manifest_image_sha256": "151c69fb0b63da512613269933796f3029f4766efa8417bfed345e88ce2dcccc",
+        "source_image_sha256": "151c69fb0b63da512613269933796f3029f4766efa8417bfed345e88ce2dcccc",
+        "transformed_fp32_sha256": "4b1f63dee40a67d75b0d3e6128855e1a1369ba11fa3e897a4d9c124346d15bde"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/church/church_190.jpg",
+        "index": 743,
+        "label": 7,
+        "manifest_image_sha256": "cc7299da5202d2d943aece0d2f85c36fb32c5e717fd3ba88b28500c3a094b821",
+        "source_image_sha256": "cc7299da5202d2d943aece0d2f85c36fb32c5e717fd3ba88b28500c3a094b821",
+        "transformed_fp32_sha256": "6506714c827f6254ff8ab35a67bd99226f9e77f60dca7bfe5b645103c0bf2f1a"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/church/church_460.jpg",
+        "index": 779,
+        "label": 7,
+        "manifest_image_sha256": "cd4626ecd9a0b13e32f6abff5259edf41619d788208319fecb611d6041b2d160",
+        "source_image_sha256": "cd4626ecd9a0b13e32f6abff5259edf41619d788208319fecb611d6041b2d160",
+        "transformed_fp32_sha256": "2acd050af2e15185dce8cd5b226191d4b830de9fa073d66ac09415df5c18d03a"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/circular_farmland/circular_farmland_659.jpg",
+        "index": 814,
+        "label": 8,
+        "manifest_image_sha256": "54d8d0963d1200ccae8c38ae18030119bce67e8a8c7c7351d05d4bf059d3e105",
+        "source_image_sha256": "54d8d0963d1200ccae8c38ae18030119bce67e8a8c7c7351d05d4bf059d3e105",
+        "transformed_fp32_sha256": "9d331ee68423a5e3504b3bc7f933449f16caa283bede84dab07251aee63cfbe6"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/circular_farmland/circular_farmland_268.jpg",
+        "index": 850,
+        "label": 8,
+        "manifest_image_sha256": "e22e5fa44eccf44f4e58eb6c86c69d9b18724c86bf51aa58f6361099ea88d8d4",
+        "source_image_sha256": "e22e5fa44eccf44f4e58eb6c86c69d9b18724c86bf51aa58f6361099ea88d8d4",
+        "transformed_fp32_sha256": "91a420e5051bcba541a0119d665d23d8130fe75b428a8af84965fc0866059b4b"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/circular_farmland/circular_farmland_472.jpg",
+        "index": 885,
+        "label": 8,
+        "manifest_image_sha256": "f38fb9f57c3e92fd0123129123cd3db34d47d469c162bc3baad5eb937247d53b",
+        "source_image_sha256": "f38fb9f57c3e92fd0123129123cd3db34d47d469c162bc3baad5eb937247d53b",
+        "transformed_fp32_sha256": "6806450b8efc353bf69f9d88dcf111e532baa877541c04984986982090c96375"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/cloud/cloud_037.jpg",
+        "index": 921,
+        "label": 9,
+        "manifest_image_sha256": "e01ea196b94ce481684d83ed49bae37c8eab8e02b1e50689bf2f853ac5729c00",
+        "source_image_sha256": "e01ea196b94ce481684d83ed49bae37c8eab8e02b1e50689bf2f853ac5729c00",
+        "transformed_fp32_sha256": "5e8368cc4a974691ddfb1bd00dc7962a3ba2460c9c7b9cbefc6fa105a4ac3e7d"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/cloud/cloud_311.jpg",
+        "index": 956,
+        "label": 9,
+        "manifest_image_sha256": "5c53a50a813bb0961400fc9fb9c6685a69b0b3b1244120bc8265a141324e8eb2",
+        "source_image_sha256": "5c53a50a813bb0961400fc9fb9c6685a69b0b3b1244120bc8265a141324e8eb2",
+        "transformed_fp32_sha256": "9790fe8e6eca0c68ab92ea407da96213d05a2cd10ce46bd4fac6f343808b894e"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/cloud/cloud_558.jpg",
+        "index": 991,
+        "label": 9,
+        "manifest_image_sha256": "edbd1743c6c34be7d92ad334e896b510ea8c9dcf86d10f1aca2d477e25eb46c3",
+        "source_image_sha256": "edbd1743c6c34be7d92ad334e896b510ea8c9dcf86d10f1aca2d477e25eb46c3",
+        "transformed_fp32_sha256": "f11c9af52b5893efffbad360e0482d65217bade60a2cf0d2700da8557e25ed7e"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/commercial_area/commercial_area_089.jpg",
+        "index": 1027,
+        "label": 10,
+        "manifest_image_sha256": "057973183608ee5ae2a60a6813f132190aed74f10516c963887b63aa3571c227",
+        "source_image_sha256": "057973183608ee5ae2a60a6813f132190aed74f10516c963887b63aa3571c227",
+        "transformed_fp32_sha256": "1428b95d75673a5896aa01265273f12f92b15b3b893664ebe1521b9ae4627285"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/commercial_area/commercial_area_301.jpg",
+        "index": 1062,
+        "label": 10,
+        "manifest_image_sha256": "e159b624225dee3f2658cd163289f9569c057e6153ebd36c56b0fc01e5932121",
+        "source_image_sha256": "e159b624225dee3f2658cd163289f9569c057e6153ebd36c56b0fc01e5932121",
+        "transformed_fp32_sha256": "7ae3c5f8837cd8f91ccf277fc25051953013175a4554869b3f058e56e5cfd140"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/commercial_area/commercial_area_596.jpg",
+        "index": 1098,
+        "label": 10,
+        "manifest_image_sha256": "14afd630d1816beb4347d5c53c487382977315fe44cf34bf4d2c3d5196fa4091",
+        "source_image_sha256": "14afd630d1816beb4347d5c53c487382977315fe44cf34bf4d2c3d5196fa4091",
+        "transformed_fp32_sha256": "38f55080b7667c0fae709b4074fdb5caf1f8dced3d1762b16686ce8554355cb0"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/dense_residential/dense_residential_129.jpg",
+        "index": 1133,
+        "label": 11,
+        "manifest_image_sha256": "6a128e6106547d9b11c3365a1234f996750d8f3104fb7c2d28100d79fd43c3e5",
+        "source_image_sha256": "6a128e6106547d9b11c3365a1234f996750d8f3104fb7c2d28100d79fd43c3e5",
+        "transformed_fp32_sha256": "95d1abd4dbf881461b3a26622a6bd4e846a4b20a5dd6a94db6c009842f83d2f5"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/dense_residential/dense_residential_384.jpg",
+        "index": 1169,
+        "label": 11,
+        "manifest_image_sha256": "ba57a804ab23d45526800d36fd7b0eb22dd6fe08bd811a30398950f9aed0eda6",
+        "source_image_sha256": "ba57a804ab23d45526800d36fd7b0eb22dd6fe08bd811a30398950f9aed0eda6",
+        "transformed_fp32_sha256": "dca176238679b55069d7b8fb56de6c8ae33d30bb958c414a30e4a228dbff6160"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/desert/desert_637.jpg",
+        "index": 1204,
+        "label": 12,
+        "manifest_image_sha256": "6cd7db09566d503960a582504abae310f5bbe382b8551a39640f388879bbb951",
+        "source_image_sha256": "6cd7db09566d503960a582504abae310f5bbe382b8551a39640f388879bbb951",
+        "transformed_fp32_sha256": "b26f47d5ef3823959c4e1ccf3d05a95c1395e931e8883911ba887817448538a0"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/desert/desert_141.jpg",
+        "index": 1239,
+        "label": 12,
+        "manifest_image_sha256": "6ba62a93a2cf77d347be8e0a12cc49fc365d7e4f2b8ed20f35c08246f9a0ae49",
+        "source_image_sha256": "6ba62a93a2cf77d347be8e0a12cc49fc365d7e4f2b8ed20f35c08246f9a0ae49",
+        "transformed_fp32_sha256": "ea09f6bba08b85039853a7a45f670f357f67ea5eca86f8b81e5459284a8b92f3"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/desert/desert_439.jpg",
+        "index": 1275,
+        "label": 12,
+        "manifest_image_sha256": "42ce03e1328e8e6f08a58a22b1b0b236ffb8870a3e625511368b547c16427e23",
+        "source_image_sha256": "42ce03e1328e8e6f08a58a22b1b0b236ffb8870a3e625511368b547c16427e23",
+        "transformed_fp32_sha256": "c7abe2c45ff025b5148352fc5a87357dfe0c8e077a6534319e68873c1c58aa7a"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/forest/forest_676.jpg",
+        "index": 1310,
+        "label": 13,
+        "manifest_image_sha256": "ca3d068d0a7b3e6a2239fb1cd3f116b2f94c1b8c4454e33ec76ede641ad33adc",
+        "source_image_sha256": "ca3d068d0a7b3e6a2239fb1cd3f116b2f94c1b8c4454e33ec76ede641ad33adc",
+        "transformed_fp32_sha256": "f114e5c27fd0400b8c5b93d5b65a93b89a4294efec2acb5ec18e395534d05402"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/forest/forest_257.jpg",
+        "index": 1346,
+        "label": 13,
+        "manifest_image_sha256": "98504410a14a9b110f6bd5fb33739745b7cd3fb6a209e4c072cf91e4a67021c9",
+        "source_image_sha256": "98504410a14a9b110f6bd5fb33739745b7cd3fb6a209e4c072cf91e4a67021c9",
+        "transformed_fp32_sha256": "3cbba7bffc60147bff8d6cc8337ab8abb7e92020c639db9c10e5bec64387fcb8"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/forest/forest_491.jpg",
+        "index": 1381,
+        "label": 13,
+        "manifest_image_sha256": "3977a940a084d9eab4ee7fa0785b0baa1980cf17f81d7100b4ae3b387f430ef1",
+        "source_image_sha256": "3977a940a084d9eab4ee7fa0785b0baa1980cf17f81d7100b4ae3b387f430ef1",
+        "transformed_fp32_sha256": "8d313a45b62387cfc9689ab093fa12a53bd2feee53e5a23609d9cad5fa861fae"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/freeway/freeway_043.jpg",
+        "index": 1417,
+        "label": 14,
+        "manifest_image_sha256": "6e33c33d215d84ae363eb6f49e2b9063b0c53d34ed22cc431a6b27d7ee707d07",
+        "source_image_sha256": "6e33c33d215d84ae363eb6f49e2b9063b0c53d34ed22cc431a6b27d7ee707d07",
+        "transformed_fp32_sha256": "0e3d6b79a52b8c70dfa411080d446e1480c0a0ae63730c3a8c002ed7d1a9cacd"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/freeway/freeway_285.jpg",
+        "index": 1452,
+        "label": 14,
+        "manifest_image_sha256": "10126a5cd68fc07c6dc8006177d385aee2ad4674b3ff61fe83e39b476a5b8f2e",
+        "source_image_sha256": "10126a5cd68fc07c6dc8006177d385aee2ad4674b3ff61fe83e39b476a5b8f2e",
+        "transformed_fp32_sha256": "c919525c652bf7c31266cd8059dabe2333f33fcb2e37759475cc0612714cba6b"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/freeway/freeway_540.jpg",
+        "index": 1487,
+        "label": 14,
+        "manifest_image_sha256": "1d3b7e6d77da401e5131f19c8bce16df2a0e46dc1087990c184549f3cfc5d686",
+        "source_image_sha256": "1d3b7e6d77da401e5131f19c8bce16df2a0e46dc1087990c184549f3cfc5d686",
+        "transformed_fp32_sha256": "2b4e63ba1720507e6bbd4580d7aad930624286d6317ee4673525fd4414a219d9"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/golf_course/golf_course_064.jpg",
+        "index": 1523,
+        "label": 15,
+        "manifest_image_sha256": "a15cbcfbc0cda906b468ecc7fbc672f4b52118f81e2d3f1df66465038c5375a5",
+        "source_image_sha256": "a15cbcfbc0cda906b468ecc7fbc672f4b52118f81e2d3f1df66465038c5375a5",
+        "transformed_fp32_sha256": "a6cf4b0ef3d4adf27b03440a468469aaf7190e8be96b662c471a122f10f24e8b"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/golf_course/golf_course_248.jpg",
+        "index": 1558,
+        "label": 15,
+        "manifest_image_sha256": "70483eb4ede40ea094e5e5ab43aec87d6579dd640159b09c5980c00e50a5c989",
+        "source_image_sha256": "70483eb4ede40ea094e5e5ab43aec87d6579dd640159b09c5980c00e50a5c989",
+        "transformed_fp32_sha256": "5125596626265d2dff65941b652cf67d90ff551fc961152b2bfc4c2f48b25821"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/golf_course/golf_course_521.jpg",
+        "index": 1594,
+        "label": 15,
+        "manifest_image_sha256": "36c08e33e774524110e2490330fda19bedcc84891abfcdea64d61f0365459bf5",
+        "source_image_sha256": "36c08e33e774524110e2490330fda19bedcc84891abfcdea64d61f0365459bf5",
+        "transformed_fp32_sha256": "4ae9833629cca2c32e6bd4205819f1e9e0463c538029c8048dcab564f13aa0f8"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/ground_track_field/ground_track_field_150.jpg",
+        "index": 1629,
+        "label": 16,
+        "manifest_image_sha256": "04cb5a52e510230364750e1f7378228b6ffcca129bf657f22ac601d9496d9d50",
+        "source_image_sha256": "04cb5a52e510230364750e1f7378228b6ffcca129bf657f22ac601d9496d9d50",
+        "transformed_fp32_sha256": "f22d354cee29700c92249c310ea7474e6e3b9a5410f38c66595965953d75d0af"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/ground_track_field/ground_track_field_428.jpg",
+        "index": 1664,
+        "label": 16,
+        "manifest_image_sha256": "bc5663b24890292a14ee5d0929b238f8e256a784fdc673fbd7e36b387bd5a1a8",
+        "source_image_sha256": "bc5663b24890292a14ee5d0929b238f8e256a784fdc673fbd7e36b387bd5a1a8",
+        "transformed_fp32_sha256": "10c89d130918923794bc515d35551ee4f0a7c4fd6415e944b1032c5c60005710"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/harbor/harbor_603.jpg",
+        "index": 1700,
+        "label": 17,
+        "manifest_image_sha256": "bdb34a92f7ec586f10301c03aa70a6357fa5370cb1d15fe21667c6e11fae1592",
+        "source_image_sha256": "bdb34a92f7ec586f10301c03aa70a6357fa5370cb1d15fe21667c6e11fae1592",
+        "transformed_fp32_sha256": "782996f226747142ac30c69ac80c60498995b78ff33e54bf911fef70143efdfc"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/harbor/harbor_225.jpg",
+        "index": 1735,
+        "label": 17,
+        "manifest_image_sha256": "6d48b747436b56f58f42b8532b4b840962e4f15e8cddd7941c3419526b2e0f3d",
+        "source_image_sha256": "6d48b747436b56f58f42b8532b4b840962e4f15e8cddd7941c3419526b2e0f3d",
+        "transformed_fp32_sha256": "d13673d9dc6c91ef0ab36f2db7e32b2ce213fab0e7827157aac30d653f768fda"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/harbor/harbor_421.jpg",
+        "index": 1771,
+        "label": 17,
+        "manifest_image_sha256": "3bf875e654b475fd199fe661e815062a1c24fdc28a7ab82d268a3a88439a74c9",
+        "source_image_sha256": "3bf875e654b475fd199fe661e815062a1c24fdc28a7ab82d268a3a88439a74c9",
+        "transformed_fp32_sha256": "49c3bf449a3a6be6311eeab9891baf76fd6b11c7e930431e4bffe14c7f159b67"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/industrial_area/industrial_area_637.jpg",
+        "index": 1806,
+        "label": 18,
+        "manifest_image_sha256": "f5635ea17e5536f6e0b4d0a85dacabcacc4cc410ca6ae189308087bc71d522da",
+        "source_image_sha256": "f5635ea17e5536f6e0b4d0a85dacabcacc4cc410ca6ae189308087bc71d522da",
+        "transformed_fp32_sha256": "7b69d5b9eef2a39d1f91706b6b06a38ec04b6d0c3088231e6b84b89f1ae8a982"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/industrial_area/industrial_area_224.jpg",
+        "index": 1842,
+        "label": 18,
+        "manifest_image_sha256": "c5febd192be7309b850fbaacd35fbf35a0abfe3e7e7a76258cfe2fb232065075",
+        "source_image_sha256": "c5febd192be7309b850fbaacd35fbf35a0abfe3e7e7a76258cfe2fb232065075",
+        "transformed_fp32_sha256": "242f7b68db494e7a369c4b170b6fde7c26e731fb52fb8ff1a20e961683f30341"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/industrial_area/industrial_area_480.jpg",
+        "index": 1877,
+        "label": 18,
+        "manifest_image_sha256": "8468723776e4bfab1202d7a28175420a0a1cad20191096ea79bd32671943d001",
+        "source_image_sha256": "8468723776e4bfab1202d7a28175420a0a1cad20191096ea79bd32671943d001",
+        "transformed_fp32_sha256": "f04f5bdb839af5e1bd40fecc84817aa736ebcb43ac4281e220c0de83722bd5d4"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/intersection/intersection_665.jpg",
+        "index": 1912,
+        "label": 19,
+        "manifest_image_sha256": "13f5407f34952ec9a089c7a65e5af5d81eb51ff9185ae46df16fb57e8ab1b0f9",
+        "source_image_sha256": "13f5407f34952ec9a089c7a65e5af5d81eb51ff9185ae46df16fb57e8ab1b0f9",
+        "transformed_fp32_sha256": "e6dbff1b411a31f822bcff5dd126a76608ee3e6b0bb5c781bb4a5299af716782"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/intersection/intersection_211.jpg",
+        "index": 1948,
+        "label": 19,
+        "manifest_image_sha256": "92e85d1456aa64be60bd7ab94edea4cb3251e70ea12bd17fa478df386e29871e",
+        "source_image_sha256": "92e85d1456aa64be60bd7ab94edea4cb3251e70ea12bd17fa478df386e29871e",
+        "transformed_fp32_sha256": "a5f39c28cf6836ee25ef39a0c0027ae18673e8f3da1fe3482cee8e3ac185c9c0"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/intersection/intersection_462.jpg",
+        "index": 1983,
+        "label": 19,
+        "manifest_image_sha256": "bb4f3873d02a38df370ce9649757f599d30f1b792ce8b606974bd860d9c7885d",
+        "source_image_sha256": "bb4f3873d02a38df370ce9649757f599d30f1b792ce8b606974bd860d9c7885d",
+        "transformed_fp32_sha256": "0f614e33f31c287522d82a7fadae659b52ddf83183b1941a9df092ca85589c3c"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/island/island_028.jpg",
+        "index": 2019,
+        "label": 20,
+        "manifest_image_sha256": "309883e017e1b32e8e4dedb1826720e834acafb8037aeec2de3894af5830231b",
+        "source_image_sha256": "309883e017e1b32e8e4dedb1826720e834acafb8037aeec2de3894af5830231b",
+        "transformed_fp32_sha256": "c70e696a4ee9a6302455f4488a9d5cfc6148f839eaff4cfa18cb8b9a3722353c"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/island/island_275.jpg",
+        "index": 2054,
+        "label": 20,
+        "manifest_image_sha256": "1320273e69829405b2fd67de1b168997a040d600893425c097c359a89f7abb89",
+        "source_image_sha256": "1320273e69829405b2fd67de1b168997a040d600893425c097c359a89f7abb89",
+        "transformed_fp32_sha256": "7b37364f0cebbdbfeeef63b46faf0ffb5da209838af19f05f0a6e234b8aa3b40"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/island/island_554.jpg",
+        "index": 2090,
+        "label": 20,
+        "manifest_image_sha256": "c2f1d24778c4452db31fe63a3efe90e8232f220782092dcec4102a5fd4f142eb",
+        "source_image_sha256": "c2f1d24778c4452db31fe63a3efe90e8232f220782092dcec4102a5fd4f142eb",
+        "transformed_fp32_sha256": "963b77074ee47953074043fd0345333302956a4f7c807450a14be375b35bbc57"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/lake/lake_074.jpg",
+        "index": 2125,
+        "label": 21,
+        "manifest_image_sha256": "e0dae914ba7a7bad05b32784fc60d17951eaeff2c411fe86c6624bcc6ddf9796",
+        "source_image_sha256": "e0dae914ba7a7bad05b32784fc60d17951eaeff2c411fe86c6624bcc6ddf9796",
+        "transformed_fp32_sha256": "f9876774f685a80e901e6ec35c8922e901173d5a36251549971b97a2d53a1e92"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/lake/lake_305.jpg",
+        "index": 2160,
+        "label": 21,
+        "manifest_image_sha256": "fe94ee857499fcba7f9354eaf01dc6614c8eb7ea334d7b6da8e10d131efd4741",
+        "source_image_sha256": "fe94ee857499fcba7f9354eaf01dc6614c8eb7ea334d7b6da8e10d131efd4741",
+        "transformed_fp32_sha256": "9e63421dbd997dcd880c9517b83852871fa801b4ddf85fd00b456c3b2a05c3eb"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/lake/lake_551.jpg",
+        "index": 2196,
+        "label": 21,
+        "manifest_image_sha256": "7b63aa5ad11dee273019dd8761be25f1d669cd9c3c2274d262bfbfc0117feeaa",
+        "source_image_sha256": "7b63aa5ad11dee273019dd8761be25f1d669cd9c3c2274d262bfbfc0117feeaa",
+        "transformed_fp32_sha256": "58e0fc0ad801875eec97395c1f9ecb67e000b15068ae74e74c20cc47895b7547"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/meadow/meadow_176.jpg",
+        "index": 2231,
+        "label": 22,
+        "manifest_image_sha256": "2b8f195f98dec45706cc8dda80d4acac4dc070119bf29a0a2c26c4b1af8b4ae0",
+        "source_image_sha256": "2b8f195f98dec45706cc8dda80d4acac4dc070119bf29a0a2c26c4b1af8b4ae0",
+        "transformed_fp32_sha256": "6d1cab1ba08ddaa36eed3b14158d6405c66282032a3bf20f6db4506de3268fa1"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/meadow/meadow_428.jpg",
+        "index": 2267,
+        "label": 22,
+        "manifest_image_sha256": "b2243e8321c1734bf36b8a2374aafae5037b98ac0d49ee8e0282624bd53352b6",
+        "source_image_sha256": "b2243e8321c1734bf36b8a2374aafae5037b98ac0d49ee8e0282624bd53352b6",
+        "transformed_fp32_sha256": "05b73d39c859ec1890a9786821d56b1b56a3ae2ea1c3f2eb9c8665ed0d68182b"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/medium_residential/medium_residential_625.jpg",
+        "index": 2302,
+        "label": 23,
+        "manifest_image_sha256": "113a9cb09778b2c8ed7a32e425fd8176374ff1219f0ee8d9917db141471e1934",
+        "source_image_sha256": "113a9cb09778b2c8ed7a32e425fd8176374ff1219f0ee8d9917db141471e1934",
+        "transformed_fp32_sha256": "06675b94cd727429d40cee02af5139580e90751efaf24460ae32e8b762eac2ed"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/medium_residential/medium_residential_229.jpg",
+        "index": 2338,
+        "label": 23,
+        "manifest_image_sha256": "f52c63ca71a4ffff10cc4955e24502b394135a1701527cb41d58d128b160c7e8",
+        "source_image_sha256": "f52c63ca71a4ffff10cc4955e24502b394135a1701527cb41d58d128b160c7e8",
+        "transformed_fp32_sha256": "2f66ded0e3c0a8975fc13c97bf8aaad21b291e01c8773b3b2687298b13ee7086"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/medium_residential/medium_residential_424.jpg",
+        "index": 2373,
+        "label": 23,
+        "manifest_image_sha256": "33267e18a12ea8c29e14854e7823cd20c3687ef3f7c29b735745c93900bb4516",
+        "source_image_sha256": "33267e18a12ea8c29e14854e7823cd20c3687ef3f7c29b735745c93900bb4516",
+        "transformed_fp32_sha256": "1a5673d2a1e16cfeb10ae266ac1d6137aab17882f68a9cdf5822601548630b77"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/mobile_home_park/mobile_home_park_665.jpg",
+        "index": 2408,
+        "label": 24,
+        "manifest_image_sha256": "6e98e15fb87b4cedf3f9312483813af2fc4e3434905c7709cede64c7e8436025",
+        "source_image_sha256": "6e98e15fb87b4cedf3f9312483813af2fc4e3434905c7709cede64c7e8436025",
+        "transformed_fp32_sha256": "3aaf2457446edf5dbbfd90f115b1463a859057ec8df9df065eb9cffe47140aa8"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/mobile_home_park/mobile_home_park_204.jpg",
+        "index": 2444,
+        "label": 24,
+        "manifest_image_sha256": "8e4e0be43f3a172fbedf9b2c73d68c4851cca8cf9eef7ec9cce72c716066a562",
+        "source_image_sha256": "8e4e0be43f3a172fbedf9b2c73d68c4851cca8cf9eef7ec9cce72c716066a562",
+        "transformed_fp32_sha256": "17f5ab77a372766cbbd1d9dedd72fdd4722f181f2bf07fe878b8a768fe3ba58d"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/mobile_home_park/mobile_home_park_428.jpg",
+        "index": 2479,
+        "label": 24,
+        "manifest_image_sha256": "0b27489ac20549c734564ef35d766b2ed755409e2e7ab1ec9dec219e06110ac6",
+        "source_image_sha256": "0b27489ac20549c734564ef35d766b2ed755409e2e7ab1ec9dec219e06110ac6",
+        "transformed_fp32_sha256": "7d8f70dbddf603ff2de7c264453f21bf011a42d5c49af392d16a6c9d8e716149"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/mountain/mountain_005.jpg",
+        "index": 2515,
+        "label": 25,
+        "manifest_image_sha256": "ffd7e6c49d023b2c87934750a8f91b533a3d5c1633eeab271c5cce3feddadc3e",
+        "source_image_sha256": "ffd7e6c49d023b2c87934750a8f91b533a3d5c1633eeab271c5cce3feddadc3e",
+        "transformed_fp32_sha256": "beb74fa0c1bd4707d4b0e27285aca06f522c948dc663d581317abe55c6ff5d1c"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/mountain/mountain_255.jpg",
+        "index": 2550,
+        "label": 25,
+        "manifest_image_sha256": "fb4f761297d7751d318192806ae110d56b6dc1c23a592adaffd9723f672d6df3",
+        "source_image_sha256": "fb4f761297d7751d318192806ae110d56b6dc1c23a592adaffd9723f672d6df3",
+        "transformed_fp32_sha256": "93b56fe9e4ebc4f9bb6c850875b6857c03f143fb67ca9332bcbb741b09ad1872"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/mountain/mountain_509.jpg",
+        "index": 2586,
+        "label": 25,
+        "manifest_image_sha256": "13940a946020024eec44c0ab2757377c2949d47a52702097f62fb23459b336b1",
+        "source_image_sha256": "13940a946020024eec44c0ab2757377c2949d47a52702097f62fb23459b336b1",
+        "transformed_fp32_sha256": "582e102e0e2ddcdeafcca5edea13d0efa188350b7611a415ad0444c45b1e1804"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/overpass/overpass_015.jpg",
+        "index": 2621,
+        "label": 26,
+        "manifest_image_sha256": "81e456fff8b57aaa1ec93611c8a78f6e15da6d38696a86d7444f1e92e0a96975",
+        "source_image_sha256": "81e456fff8b57aaa1ec93611c8a78f6e15da6d38696a86d7444f1e92e0a96975",
+        "transformed_fp32_sha256": "7ca0c9d6fd8ccfb0e590de13058ca3d1f1b6ff27415427d07f56df48ea1dcb51"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/overpass/overpass_341.jpg",
+        "index": 2656,
+        "label": 26,
+        "manifest_image_sha256": "cc0b6dac21bc4f9a892a9f398b5ed260e8450d17ff372394f2b29fa27528c89a",
+        "source_image_sha256": "cc0b6dac21bc4f9a892a9f398b5ed260e8450d17ff372394f2b29fa27528c89a",
+        "transformed_fp32_sha256": "e644319c735e60b0591a9b5369df334cafe0a28dfc238587eb52ec3084cf1cfb"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/overpass/overpass_529.jpg",
+        "index": 2692,
+        "label": 26,
+        "manifest_image_sha256": "b9f0e0c87d36d31ba0e41215247ebe75aa0f71281a38d0a026d1d85151b49450",
+        "source_image_sha256": "b9f0e0c87d36d31ba0e41215247ebe75aa0f71281a38d0a026d1d85151b49450",
+        "transformed_fp32_sha256": "2fdbc2fc64fdc941ae5c01b76f885ba9f21e907f2b7169972158aa058d70ba8b"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/palace/palace_049.jpg",
+        "index": 2727,
+        "label": 27,
+        "manifest_image_sha256": "f6407136325e716ca6c4bd0f2659bc05d4f817fbed69a2bd511064f811e8bc02",
+        "source_image_sha256": "f6407136325e716ca6c4bd0f2659bc05d4f817fbed69a2bd511064f811e8bc02",
+        "transformed_fp32_sha256": "96c4a5c350749791e2787204d5b642a09ab98affbc19a7f9716d06caf2fa82dd"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/palace/palace_369.jpg",
+        "index": 2763,
+        "label": 27,
+        "manifest_image_sha256": "5704c07e832b159f76704396d9ea2fc904e81345736b5091b00e33b07bc17785",
+        "source_image_sha256": "5704c07e832b159f76704396d9ea2fc904e81345736b5091b00e33b07bc17785",
+        "transformed_fp32_sha256": "a30c84825332315bc16f41cbe3963bcdf5d3e64664baac2e24bbf367646c26da"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/palace/palace_593.jpg",
+        "index": 2798,
+        "label": 27,
+        "manifest_image_sha256": "d2e4390f58d94d32fee79446ce28e4256ca1287e936d20b223d46b55ef20f35e",
+        "source_image_sha256": "d2e4390f58d94d32fee79446ce28e4256ca1287e936d20b223d46b55ef20f35e",
+        "transformed_fp32_sha256": "d0d4244f4eafb8b1f7c42cd2202b4c096b0976e0d64e0d3157db7ad781f03be6"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/parking_lot/parking_lot_169.jpg",
+        "index": 2834,
+        "label": 28,
+        "manifest_image_sha256": "021d38cf663a452a17ff51a1e2dbe07caada752e0944eb284ecde1ada0617af4",
+        "source_image_sha256": "021d38cf663a452a17ff51a1e2dbe07caada752e0944eb284ecde1ada0617af4",
+        "transformed_fp32_sha256": "cedf63ffd32f7d4dbad57c5d403837c0999fd1526484de57b1e296e3ea5e0210"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/parking_lot/parking_lot_371.jpg",
+        "index": 2869,
+        "label": 28,
+        "manifest_image_sha256": "f1928d6aed20f41c09624647664e33439cb153b4050d65cec60c3eb0d793e25f",
+        "source_image_sha256": "f1928d6aed20f41c09624647664e33439cb153b4050d65cec60c3eb0d793e25f",
+        "transformed_fp32_sha256": "6128d8d90bf633122c966d09bc7efb1e7ad4738d7280fcd9865c34428280c1f2"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/railway/railway_657.jpg",
+        "index": 2904,
+        "label": 29,
+        "manifest_image_sha256": "9d73137b341ffb9c3f89809644b7f675b250ce6ef711a5d0cfacc06bcd9b6b0a",
+        "source_image_sha256": "9d73137b341ffb9c3f89809644b7f675b250ce6ef711a5d0cfacc06bcd9b6b0a",
+        "transformed_fp32_sha256": "c6dc53d7d77e0ae6d61137c6ff171e5bad50227176c53247be5d2877a617f8d2"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/railway/railway_233.jpg",
+        "index": 2940,
+        "label": 29,
+        "manifest_image_sha256": "d122105ae2533fcce42123a6d805dc052819c8b012d8477ee46ebeb80081c88e",
+        "source_image_sha256": "d122105ae2533fcce42123a6d805dc052819c8b012d8477ee46ebeb80081c88e",
+        "transformed_fp32_sha256": "d2b83fea53e4e7e6b30e0b979e4c0df61981a88cfff5231899054431836fe05f"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/railway/railway_465.jpg",
+        "index": 2975,
+        "label": 29,
+        "manifest_image_sha256": "b5135e3ca0a3cccce6cc0e0d769ff7a3187dad8ba73e0d392c5c24b90007e0c2",
+        "source_image_sha256": "b5135e3ca0a3cccce6cc0e0d769ff7a3187dad8ba73e0d392c5c24b90007e0c2",
+        "transformed_fp32_sha256": "0a2ea9d58b486e97103d860cb3a950ad3432949275b47a31be22f4a50b894875"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/railway_station/railway_station_677.jpg",
+        "index": 3011,
+        "label": 30,
+        "manifest_image_sha256": "b79ea84c908d15c3303ae252f917042c9f04b38b4e849c014cd1c0ca73905f4f",
+        "source_image_sha256": "b79ea84c908d15c3303ae252f917042c9f04b38b4e849c014cd1c0ca73905f4f",
+        "transformed_fp32_sha256": "75ef5cbc66587fc95650b7bc426b9d41f3f648d77c600c61441ec661075f6ea7"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/railway_station/railway_station_225.jpg",
+        "index": 3046,
+        "label": 30,
+        "manifest_image_sha256": "2606b72c917cc3ba30cecaefbd8816272cb0be0db9ba04f9abfa841b892e9832",
+        "source_image_sha256": "2606b72c917cc3ba30cecaefbd8816272cb0be0db9ba04f9abfa841b892e9832",
+        "transformed_fp32_sha256": "f439b07102baa3a9a31d1eccea8abfb8d9a78b861ae92daf9cfcf57739aa3752"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/railway_station/railway_station_514.jpg",
+        "index": 3081,
+        "label": 30,
+        "manifest_image_sha256": "08099ba971227aca53ce11ff12a86556a8ba6853128e771257d76d8c256a7bde",
+        "source_image_sha256": "08099ba971227aca53ce11ff12a86556a8ba6853128e771257d76d8c256a7bde",
+        "transformed_fp32_sha256": "6f42ff24ad2d4b86f4391dfe4d343b1c3bdd256e3b8c4bcf5c9354092efd3fd8"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/rectangular_farmland/rectangular_farmland_033.jpg",
+        "index": 3117,
+        "label": 31,
+        "manifest_image_sha256": "ff1d8de5c65a9af5ee725e7e68eb508babb9fb44cfe5bf51cd28b55de372d4b5",
+        "source_image_sha256": "ff1d8de5c65a9af5ee725e7e68eb508babb9fb44cfe5bf51cd28b55de372d4b5",
+        "transformed_fp32_sha256": "842347631a24509f29e8522b8857393aa2067af939ee14b071f9b1155f4cd082"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/rectangular_farmland/rectangular_farmland_293.jpg",
+        "index": 3152,
+        "label": 31,
+        "manifest_image_sha256": "70482745991e615cecb900eaec0055da849b53f93b47e16026807162ab3bab7f",
+        "source_image_sha256": "70482745991e615cecb900eaec0055da849b53f93b47e16026807162ab3bab7f",
+        "transformed_fp32_sha256": "5649d3f68b6859d3e1365ae4fb2e1291ef56e348094b0d7e1465b399c6f2d8c8"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/rectangular_farmland/rectangular_farmland_535.jpg",
+        "index": 3188,
+        "label": 31,
+        "manifest_image_sha256": "691faeddc9a5205aa3a464fc40ef1d577d0fa55f671f7e0de14d26e7fdee696a",
+        "source_image_sha256": "691faeddc9a5205aa3a464fc40ef1d577d0fa55f671f7e0de14d26e7fdee696a",
+        "transformed_fp32_sha256": "05d27a85b1656747d177c79d7149f3d879f24f1674954bffe3a8b5bc8ba4bc8c"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/river/river_062.jpg",
+        "index": 3223,
+        "label": 32,
+        "manifest_image_sha256": "ba22d43feb4d568154a2da9e0f47816fdb77b0d8bd4a605f5defb6b555c3d21c",
+        "source_image_sha256": "ba22d43feb4d568154a2da9e0f47816fdb77b0d8bd4a605f5defb6b555c3d21c",
+        "transformed_fp32_sha256": "7139f1d1e3f1a8e79f47c91d48873d8e6124061ad9e1ee154d5eac3b45233f18"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/river/river_342.jpg",
+        "index": 3259,
+        "label": 32,
+        "manifest_image_sha256": "ec07b357469fb22db5e6f4d44f05bc55a4d5bac9148211f8ce5bd4ab121898ea",
+        "source_image_sha256": "ec07b357469fb22db5e6f4d44f05bc55a4d5bac9148211f8ce5bd4ab121898ea",
+        "transformed_fp32_sha256": "823358366e1fc7f967a1211b194435a7e99440a98bef59f4d0fe7da06197c2f2"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/river/river_563.jpg",
+        "index": 3294,
+        "label": 32,
+        "manifest_image_sha256": "9eb3ebc21a2eae616bbdad72e95e3d4e0bb697697c9b608a25ee692ee6fdb5c5",
+        "source_image_sha256": "9eb3ebc21a2eae616bbdad72e95e3d4e0bb697697c9b608a25ee692ee6fdb5c5",
+        "transformed_fp32_sha256": "efc0fc0076cc25295b1c0dea8edca0835ab0e516d7a2378fc00380f88757161d"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/roundabout/roundabout_096.jpg",
+        "index": 3329,
+        "label": 33,
+        "manifest_image_sha256": "033668d747072432e97f31dcad01d041fb3a960ba6d0cbc04576db6769fd11ea",
+        "source_image_sha256": "033668d747072432e97f31dcad01d041fb3a960ba6d0cbc04576db6769fd11ea",
+        "transformed_fp32_sha256": "f3c4d0a4ba59c11acd3dd23a1d0152c5035a69fd3a9f246d74c4af1231a30652"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/roundabout/roundabout_344.jpg",
+        "index": 3365,
+        "label": 33,
+        "manifest_image_sha256": "7099fa0dfdda5d203d6e54ab1458898f9d56b926876e1b320f82a0749bc4df45",
+        "source_image_sha256": "7099fa0dfdda5d203d6e54ab1458898f9d56b926876e1b320f82a0749bc4df45",
+        "transformed_fp32_sha256": "541c9c4030a2b7345e9d1cf3517b6e48888702301118421dc11c34b3344694f8"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/runway/runway_601.jpg",
+        "index": 3400,
+        "label": 34,
+        "manifest_image_sha256": "6b1cb375e4aa62961036d562a8989cf4efb1826330934c792b135a0eacc69fb7",
+        "source_image_sha256": "6b1cb375e4aa62961036d562a8989cf4efb1826330934c792b135a0eacc69fb7",
+        "transformed_fp32_sha256": "bb8b0f4acb67b3566febb8f4410c5246b7e5404dd238562abb3c8827d6464d3c"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/runway/runway_146.jpg",
+        "index": 3436,
+        "label": 34,
+        "manifest_image_sha256": "50a0e4482f2905045f0f056de8bcf8bdd540414ad248c1b6961f864dcdc613e8",
+        "source_image_sha256": "50a0e4482f2905045f0f056de8bcf8bdd540414ad248c1b6961f864dcdc613e8",
+        "transformed_fp32_sha256": "81a9999ef3008d09f8617836548eb864501e04c3dd51932c9b8ae2a524aa387d"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/runway/runway_407.jpg",
+        "index": 3471,
+        "label": 34,
+        "manifest_image_sha256": "7131f01071f09b2adb65233ea749aa83158443224dd6848518f15c45377076b9",
+        "source_image_sha256": "7131f01071f09b2adb65233ea749aa83158443224dd6848518f15c45377076b9",
+        "transformed_fp32_sha256": "ce372a08d286f8e732fade3b616cf421714f4c8285b4a0105803060b5a6cf110"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/sea_ice/sea_ice_644.jpg",
+        "index": 3507,
+        "label": 35,
+        "manifest_image_sha256": "5f30d8fbb1d587ce3534c0c2b17c903a8ab6e5efbdc001a5d54fc9ed1aa16b71",
+        "source_image_sha256": "5f30d8fbb1d587ce3534c0c2b17c903a8ab6e5efbdc001a5d54fc9ed1aa16b71",
+        "transformed_fp32_sha256": "cf56b548114dd37e08050f0d2ec3193fceb0d8aacd62207931dbd09ac1a3665c"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/sea_ice/sea_ice_161.jpg",
+        "index": 3542,
+        "label": 35,
+        "manifest_image_sha256": "bfdeec05bbead44a580ba803f4148137bdedd33cc369f75d2262bb2d020e8ed6",
+        "source_image_sha256": "bfdeec05bbead44a580ba803f4148137bdedd33cc369f75d2262bb2d020e8ed6",
+        "transformed_fp32_sha256": "fbe257445676e1a6d51fae43a87822ed4242cba50e2dd1274f5c8bcfdf47d673"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/sea_ice/sea_ice_412.jpg",
+        "index": 3577,
+        "label": 35,
+        "manifest_image_sha256": "ab96a1b26b14f1bfae056220200325a647f022490c6216bc61de55020e9c6184",
+        "source_image_sha256": "ab96a1b26b14f1bfae056220200325a647f022490c6216bc61de55020e9c6184",
+        "transformed_fp32_sha256": "9cc5c3ec504399d352190d8acedbc79ae4e3150ceafcb07da2e193cc0e5de2b4"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/ship/ship_684.jpg",
+        "index": 3613,
+        "label": 36,
+        "manifest_image_sha256": "0c1ac80a7b487048dc4b7f9c22bc2e8b0e182ea65710a4c172ecda9c66618ce5",
+        "source_image_sha256": "0c1ac80a7b487048dc4b7f9c22bc2e8b0e182ea65710a4c172ecda9c66618ce5",
+        "transformed_fp32_sha256": "e5a1f58728344b8d66283cfd43ead7661260a0a44900bc040eba68bc9d07a0e6"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/ship/ship_223.jpg",
+        "index": 3648,
+        "label": 36,
+        "manifest_image_sha256": "4d8e24ee35cf1f1c465725ce3af3fd9db6f3f23d32cd0e40e24c2cf819919fed",
+        "source_image_sha256": "4d8e24ee35cf1f1c465725ce3af3fd9db6f3f23d32cd0e40e24c2cf819919fed",
+        "transformed_fp32_sha256": "23ee5c1b104f0c592e98fd1ace2579496913f477c02479fdaab5b08ccd9adb4e"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/ship/ship_482.jpg",
+        "index": 3684,
+        "label": 36,
+        "manifest_image_sha256": "63e53bce416188d134da8515b7898f4d44730ff3f2da90c74a11b1db890a63e1",
+        "source_image_sha256": "63e53bce416188d134da8515b7898f4d44730ff3f2da90c74a11b1db890a63e1",
+        "transformed_fp32_sha256": "03652c47b1820c3169e0c29b0a912a4d7e5b2f9d06eebdbe6a1524b6311c402b"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/snowberg/snowberg_055.jpg",
+        "index": 3719,
+        "label": 37,
+        "manifest_image_sha256": "b68b06705bc84ea86ef3cfd351c06aa0ac74e931b34389ea6b27f7967073dd07",
+        "source_image_sha256": "b68b06705bc84ea86ef3cfd351c06aa0ac74e931b34389ea6b27f7967073dd07",
+        "transformed_fp32_sha256": "ea261d2a13c2f76eb9a5f31cd94757fcc4fa49911b7d745d40ef80ef2706a8fa"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/snowberg/snowberg_259.jpg",
+        "index": 3755,
+        "label": 37,
+        "manifest_image_sha256": "8576877a56a4e728b7aa37a79bc871555c4063597bfaa77f16837c013dc42201",
+        "source_image_sha256": "8576877a56a4e728b7aa37a79bc871555c4063597bfaa77f16837c013dc42201",
+        "transformed_fp32_sha256": "bc2b2f6a2ffe62619bf3ae33e327b29d4912243214d8d793429101c06e7ca8df"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/snowberg/snowberg_511.jpg",
+        "index": 3790,
+        "label": 37,
+        "manifest_image_sha256": "65269cd4395dc5689a1b805557d78b7371d384e296fa9a0b655f02ac8f668b9a",
+        "source_image_sha256": "65269cd4395dc5689a1b805557d78b7371d384e296fa9a0b655f02ac8f668b9a",
+        "transformed_fp32_sha256": "bc9ed3e0fbd638634e502048e302d28bbeb99a9bfed0ec8c16a70d47656ebf48"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/sparse_residential/sparse_residential_083.jpg",
+        "index": 3825,
+        "label": 38,
+        "manifest_image_sha256": "7bf8032337c37a419b52992da2cbb361b194dd51b8a9a2b3a21df1a56f08ae35",
+        "source_image_sha256": "7bf8032337c37a419b52992da2cbb361b194dd51b8a9a2b3a21df1a56f08ae35",
+        "transformed_fp32_sha256": "b49efa20eccb8a697dba0862d9fd1854b22a62af7183693da47e6394656dcc6e"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/sparse_residential/sparse_residential_344.jpg",
+        "index": 3861,
+        "label": 38,
+        "manifest_image_sha256": "2485de9d7697a9ec07b4172e8b4d6160d23a9a1df4eab6fcf2e776cc53795c95",
+        "source_image_sha256": "2485de9d7697a9ec07b4172e8b4d6160d23a9a1df4eab6fcf2e776cc53795c95",
+        "transformed_fp32_sha256": "f7c1afc5ec099666ac3e2cd539452102e34df6110f82a8b97e2a586ac962ca6e"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/sparse_residential/sparse_residential_576.jpg",
+        "index": 3896,
+        "label": 38,
+        "manifest_image_sha256": "3d2d86b63ff518ebc1660785a6fe101936a6b50b3143f5c6f0c1ab8ec7931dec",
+        "source_image_sha256": "3d2d86b63ff518ebc1660785a6fe101936a6b50b3143f5c6f0c1ab8ec7931dec",
+        "transformed_fp32_sha256": "2d5bd886f6cfa4538194000ff94e2f0be05bc2b0b047be5bae3bb58a228ebf87"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/stadium/stadium_150.jpg",
+        "index": 3932,
+        "label": 39,
+        "manifest_image_sha256": "222f2b6ec759a6d603b61a8a67e74ac08bd50880b69a1dbd59a1f9ceb4c0ffdf",
+        "source_image_sha256": "222f2b6ec759a6d603b61a8a67e74ac08bd50880b69a1dbd59a1f9ceb4c0ffdf",
+        "transformed_fp32_sha256": "8199781737eaf669544e3c651a4af198ef01a7cd9ec692e87b90259e77ce0872"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/stadium/stadium_350.jpg",
+        "index": 3967,
+        "label": 39,
+        "manifest_image_sha256": "a3f6b3b6566a0b48e720b49daf875496c3e0488570a9c4611b96a9e2600905a1",
+        "source_image_sha256": "a3f6b3b6566a0b48e720b49daf875496c3e0488570a9c4611b96a9e2600905a1",
+        "transformed_fp32_sha256": "74ad6ee57c189185c70c3159714bf3c6669dc185447c7086f45c65670ab0ef65"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/storage_tank/storage_tank_634.jpg",
+        "index": 4003,
+        "label": 40,
+        "manifest_image_sha256": "9266bed12d7ef651fe5e7b0272e23d24d15c56fdae48835049c031ce9e7f92b8",
+        "source_image_sha256": "9266bed12d7ef651fe5e7b0272e23d24d15c56fdae48835049c031ce9e7f92b8",
+        "transformed_fp32_sha256": "36624427f813ded7303336be6275a1e086186d7aa890d90bc03870bdd70a3217"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/storage_tank/storage_tank_158.jpg",
+        "index": 4038,
+        "label": 40,
+        "manifest_image_sha256": "fa976423266bfe0250979c2ec5e40a31f5f085be03744d2a6af827aec09f4c8f",
+        "source_image_sha256": "fa976423266bfe0250979c2ec5e40a31f5f085be03744d2a6af827aec09f4c8f",
+        "transformed_fp32_sha256": "d976938f7b22986fe1680f2ab4792c2f2351d5ce3b6775b4e9f3800587647f3b"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/storage_tank/storage_tank_394.jpg",
+        "index": 4073,
+        "label": 40,
+        "manifest_image_sha256": "4badeeb82dcf0ddc729e26a96c4ed9ce2e790e0e4e07e8de74e359e0b0ee1e7f",
+        "source_image_sha256": "4badeeb82dcf0ddc729e26a96c4ed9ce2e790e0e4e07e8de74e359e0b0ee1e7f",
+        "transformed_fp32_sha256": "2795d47b4d2c1172aa8c89d9fe47b4535f75f40e3ec8b705429023b131be4c36"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/tennis_court/tennis_court_660.jpg",
+        "index": 4109,
+        "label": 41,
+        "manifest_image_sha256": "089e41c5577d92a389879ed4d1712538d2e2cc5b45df638d64a8356b6a0953e5",
+        "source_image_sha256": "089e41c5577d92a389879ed4d1712538d2e2cc5b45df638d64a8356b6a0953e5",
+        "transformed_fp32_sha256": "66bbbc29790e1c213e7ff2f5f995d2090c062fc90a3a1b62ee1716982121113b"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/tennis_court/tennis_court_141.jpg",
+        "index": 4144,
+        "label": 41,
+        "manifest_image_sha256": "ed5bc31292d5e6332c2f8eeb925d4ed15bda53f1bd342d8d63d3d2840fbe9ad4",
+        "source_image_sha256": "ed5bc31292d5e6332c2f8eeb925d4ed15bda53f1bd342d8d63d3d2840fbe9ad4",
+        "transformed_fp32_sha256": "046f38ffd84425e02992f29498b325f997c1882eddd9af95b3070a7680393cec"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/tennis_court/tennis_court_463.jpg",
+        "index": 4180,
+        "label": 41,
+        "manifest_image_sha256": "25ca4b4b873aac5b10fe63eba4ff3290f5e58472ab3529388dda127ea9f44a88",
+        "source_image_sha256": "25ca4b4b873aac5b10fe63eba4ff3290f5e58472ab3529388dda127ea9f44a88",
+        "transformed_fp32_sha256": "62d0f196e6bbe686c291c596dbc7faba420e7ce8caf24d92e8277136301879ee"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/terrace/terrace_051.jpg",
+        "index": 4215,
+        "label": 42,
+        "manifest_image_sha256": "2eab806f572ae7f4a3806d2a16e33cf126679090476300a4044b68720765217b",
+        "source_image_sha256": "2eab806f572ae7f4a3806d2a16e33cf126679090476300a4044b68720765217b",
+        "transformed_fp32_sha256": "5fdbe1534ff62ebb504e8742efef4078b255b4b93ab8469da9806c1ef2795dd4"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/terrace/terrace_269.jpg",
+        "index": 4251,
+        "label": 42,
+        "manifest_image_sha256": "253680b8f3405b3fcde1e1347f2032698d2d7f8f8d3d49359e2484e8652f5837",
+        "source_image_sha256": "253680b8f3405b3fcde1e1347f2032698d2d7f8f8d3d49359e2484e8652f5837",
+        "transformed_fp32_sha256": "06510a102804d1abb21822968d44186932c122b3d8abfc2a370674eb7cb01212"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/terrace/terrace_481.jpg",
+        "index": 4286,
+        "label": 42,
+        "manifest_image_sha256": "5140cbcf2bbba1f6fa82757ac104c7a7296345917b912548201c4935e96c8323",
+        "source_image_sha256": "5140cbcf2bbba1f6fa82757ac104c7a7296345917b912548201c4935e96c8323",
+        "transformed_fp32_sha256": "a51d4effb6acc2dda5378cd536923d7836214fc00c9775808ca69af770ecef8a"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/thermal_power_station/thermal_power_station_083.jpg",
+        "index": 4321,
+        "label": 43,
+        "manifest_image_sha256": "e1eafc05da729a9073ab62338ba099cafe9bab3f07fb845f4e11feb7600c27f8",
+        "source_image_sha256": "e1eafc05da729a9073ab62338ba099cafe9bab3f07fb845f4e11feb7600c27f8",
+        "transformed_fp32_sha256": "cd88f9ad59ab791f2ddbf4011b7479999f716373e67c4d74bf6cc9cb1a415881"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/thermal_power_station/thermal_power_station_348.jpg",
+        "index": 4357,
+        "label": 43,
+        "manifest_image_sha256": "97684484d764525d14c6ac6ad53df3f0650f762fa0c48195692b2b9b14540051",
+        "source_image_sha256": "97684484d764525d14c6ac6ad53df3f0650f762fa0c48195692b2b9b14540051",
+        "transformed_fp32_sha256": "b0503210b73587eaae5d747e8aa1b56d64f6be381464e2013fcbb3d7622bb684"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/thermal_power_station/thermal_power_station_544.jpg",
+        "index": 4392,
+        "label": 43,
+        "manifest_image_sha256": "c883ce9d21c3a732b59f21502f06afaab7ad4daded75555eff9d45b4ded65b8f",
+        "source_image_sha256": "c883ce9d21c3a732b59f21502f06afaab7ad4daded75555eff9d45b4ded65b8f",
+        "transformed_fp32_sha256": "7ba7d01d34107235040a2c24b6ec22724f893f795b2dfaf40addbeecb792ad0e"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/wetland/wetland_093.jpg",
+        "index": 4428,
+        "label": 44,
+        "manifest_image_sha256": "54c232d70d678ea102801dca2badef8eeccf4705a89c0168628d5d63643c1194",
+        "source_image_sha256": "54c232d70d678ea102801dca2badef8eeccf4705a89c0168628d5d63643c1194",
+        "transformed_fp32_sha256": "7d545bdb570f2a39f256b34a67f077998345fabbd6a5b65cfc6c7d6e2d74bcc0"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/wetland/wetland_306.jpg",
+        "index": 4463,
+        "label": 44,
+        "manifest_image_sha256": "f52a92fbfafb772163cf0f3857a0fb8018ae7a514eda15421f7037530fdf52c2",
+        "source_image_sha256": "f52a92fbfafb772163cf0f3857a0fb8018ae7a514eda15421f7037530fdf52c2",
+        "transformed_fp32_sha256": "9a962795e98747fc59522ee38be6beaf71b990f09c4b40a8bccbcd3a8e4d7fb3"
+      },
+      {
+        "identity": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/wetland/wetland_596.jpg",
+        "index": 4499,
+        "label": 44,
+        "manifest_image_sha256": "e97aa61dd10ba6b658e3218b9428cfe46b951ce7400b04b82d3e203c4389a0de",
+        "source_image_sha256": "e97aa61dd10ba6b658e3218b9428cfe46b951ce7400b04b82d3e203c4389a0de",
+        "transformed_fp32_sha256": "623086b40e6af411b027c48eb14d043572d2327d62d867073cd280e2d41a7e71"
+      }
+    ],
+    "calibration_manifest": "/home/user/Desktop/ff_vit_re/archive/nwpu_resisc45_ffvit/metadata/calibration.json",
+    "calibration_manifest_sha256": "3d2732f4a4e39b73004fda2030a3b875a90d05ac8ba6d4c06f222492a8642a35",
+    "source_calibration_count": 1440,
+    "eligible_calibration_count": 1440,
+    "selected_calibration_count": 256,
+    "calibration_selection": "256 uniform indices in original train calibration manifest, excluding test/val identical bytes",
+    "calibration_indices": [
+      0,
+      5,
+      11,
+      16,
+      22,
+      28,
+      33,
+      39,
+      45,
+      50,
+      56,
+      62,
+      67,
+      73,
+      79,
+      84,
+      90,
+      95,
+      101,
+      107,
+      112,
+      118,
+      124,
+      129,
+      135,
+      141,
+      146,
+      152,
+      158,
+      163,
+      169,
+      174,
+      180,
+      186,
+      191,
+      197,
+      203,
+      208,
+      214,
+      220,
+      225,
+      231,
+      237,
+      242,
+      248,
+      253,
+      259,
+      265,
+      270,
+      276,
+      282,
+      287,
+      293,
+      299,
+      304,
+      310,
+      316,
+      321,
+      327,
+      332,
+      338,
+      344,
+      349,
+      355,
+      361,
+      366,
+      372,
+      378,
+      383,
+      389,
+      395,
+      400,
+      406,
+      411,
+      417,
+      423,
+      428,
+      434,
+      440,
+      445,
+      451,
+      457,
+      462,
+      468,
+      474,
+      479,
+      485,
+      490,
+      496,
+      502,
+      507,
+      513,
+      519,
+      524,
+      530,
+      536,
+      541,
+      547,
+      553,
+      558,
+      564,
+      569,
+      575,
+      581,
+      586,
+      592,
+      598,
+      603,
+      609,
+      615,
+      620,
+      626,
+      632,
+      637,
+      643,
+      648,
+      654,
+      660,
+      665,
+      671,
+      677,
+      682,
+      688,
+      694,
+      699,
+      705,
+      711,
+      716,
+      722,
+      727,
+      733,
+      739,
+      744,
+      750,
+      756,
+      761,
+      767,
+      773,
+      778,
+      784,
+      790,
+      795,
+      801,
+      806,
+      812,
+      818,
+      823,
+      829,
+      835,
+      840,
+      846,
+      852,
+      857,
+      863,
+      869,
+      874,
+      880,
+      885,
+      891,
+      897,
+      902,
+      908,
+      914,
+      919,
+      925,
+      931,
+      936,
+      942,
+      948,
+      953,
+      959,
+      964,
+      970,
+      976,
+      981,
+      987,
+      993,
+      998,
+      1004,
+      1010,
+      1015,
+      1021,
+      1027,
+      1032,
+      1038,
+      1043,
+      1049,
+      1055,
+      1060,
+      1066,
+      1072,
+      1077,
+      1083,
+      1089,
+      1094,
+      1100,
+      1106,
+      1111,
+      1117,
+      1122,
+      1128,
+      1134,
+      1139,
+      1145,
+      1151,
+      1156,
+      1162,
+      1168,
+      1173,
+      1179,
+      1185,
+      1190,
+      1196,
+      1201,
+      1207,
+      1213,
+      1218,
+      1224,
+      1230,
+      1235,
+      1241,
+      1247,
+      1252,
+      1258,
+      1264,
+      1269,
+      1275,
+      1280,
+      1286,
+      1292,
+      1297,
+      1303,
+      1309,
+      1314,
+      1320,
+      1326,
+      1331,
+      1337,
+      1343,
+      1348,
+      1354,
+      1359,
+      1365,
+      1371,
+      1376,
+      1382,
+      1388,
+      1393,
+      1399,
+      1405,
+      1410,
+      1416,
+      1422,
+      1427,
+      1433,
+      1439
+    ],
+    "selected_calibration_test_sha256_overlap": 0,
+    "selected_calibration_val_sha256_overlap": 0,
+    "calibration_samples": [
+      {
+        "index": 0,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/airplane/airplane_623.jpg",
+        "label": 0,
+        "sha256": "351f221d1af4d0fd6fad3eb1a4aa6f4495d15ef9ebea1225639ffc2f24e8618c"
+      },
+      {
+        "index": 5,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/airplane/airplane_132.jpg",
+        "label": 0,
+        "sha256": "95efb6b55f0120d299642bbb247ad6582b8adf1e2ae755773b5b779328eee276"
+      },
+      {
+        "index": 11,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/airplane/airplane_245.jpg",
+        "label": 0,
+        "sha256": "959ce6fa342fed34f0c257b20dcd38d0e1875c0f9d5f46610ea125557090d933"
+      },
+      {
+        "index": 16,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/airplane/airplane_327.jpg",
+        "label": 0,
+        "sha256": "8c77abfe27cdd494defd4d8b983f3d880b866873beafc60edd4b9a8a2c105774"
+      },
+      {
+        "index": 22,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/airplane/airplane_394.jpg",
+        "label": 0,
+        "sha256": "30ea5be05157695accbc9caf88926e6bd56648dd180f2764313ef46bd51a4e70"
+      },
+      {
+        "index": 28,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/airplane/airplane_505.jpg",
+        "label": 0,
+        "sha256": "aa991db3c6611f49f4b5005b3f77707b7ed5cc5b88acb2ad8de3f8d71fe18732"
+      },
+      {
+        "index": 33,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/airport/airport_642.jpg",
+        "label": 1,
+        "sha256": "e609ffbb6d46c4488085c51e14f9b28fe31d103e2d95ddd6cd6d477347839bb2"
+      },
+      {
+        "index": 39,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/airport/airport_080.jpg",
+        "label": 1,
+        "sha256": "1a57cabfb7dd5a94c519f80c9bc306a7e067f0df4143ab438c2134c22fb388f0"
+      },
+      {
+        "index": 45,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/airport/airport_226.jpg",
+        "label": 1,
+        "sha256": "88f047819db6b8e43abf1681333e53b60e9e97aa677cf27ffaa7315b92fc07bc"
+      },
+      {
+        "index": 50,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/airport/airport_355.jpg",
+        "label": 1,
+        "sha256": "214dc1e328b485630607ac61de73617fcab0d9a6be9965a051ca6359b1a032b9"
+      },
+      {
+        "index": 56,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/airport/airport_460.jpg",
+        "label": 1,
+        "sha256": "00cd671c6f9f3a90aec05e6726fef89eb34cb9fff4561c7fecc21ff8bff57bb3"
+      },
+      {
+        "index": 62,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/airport/airport_559.jpg",
+        "label": 1,
+        "sha256": "75121d8eecb10c4fe3af3f9837ef36253e0c1e6eb8a360d0ffb8a5f58042154d"
+      },
+      {
+        "index": 67,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/baseball_diamond/baseball_diamond_047.jpg",
+        "label": 2,
+        "sha256": "d4890edcc7e142b428f8cf987fa5093b8926b680541b89c2ae87387f51618b47"
+      },
+      {
+        "index": 73,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/baseball_diamond/baseball_diamond_195.jpg",
+        "label": 2,
+        "sha256": "84d5dd393bd04adbc00a5cc0458479a9537ef50e1b2c11aee0fd6e773171df6a"
+      },
+      {
+        "index": 79,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/baseball_diamond/baseball_diamond_304.jpg",
+        "label": 2,
+        "sha256": "0f640dad8759fe9c8450b614c2131da13901f002cb415543dfd33888b2b89c5c"
+      },
+      {
+        "index": 84,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/baseball_diamond/baseball_diamond_370.jpg",
+        "label": 2,
+        "sha256": "427e9cec305af031b32b2de55f2e284024cf4249bfd6f20dead323b6d73ffc6d"
+      },
+      {
+        "index": 90,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/baseball_diamond/baseball_diamond_505.jpg",
+        "label": 2,
+        "sha256": "05f95b86b31062dcd1c707b659e909f1c37950a179d4265e5c1bf3694960a1e7"
+      },
+      {
+        "index": 95,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/baseball_diamond/baseball_diamond_561.jpg",
+        "label": 2,
+        "sha256": "58cbbc9c881cab314ad277779c20d6e33dbf0bc7861951aa6136a07b9822adf6"
+      },
+      {
+        "index": 101,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/basketball_court/basketball_court_186.jpg",
+        "label": 3,
+        "sha256": "a255b73a9beab06426233beb31fe2788516ec205bcdcfd707e718a1dbeab5043"
+      },
+      {
+        "index": 107,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/basketball_court/basketball_court_294.jpg",
+        "label": 3,
+        "sha256": "6331dbdb92f51e514222067fd8b882d977d2dd4242a2f2e4f97dc7e81ce90032"
+      },
+      {
+        "index": 112,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/basketball_court/basketball_court_344.jpg",
+        "label": 3,
+        "sha256": "d94eac846860f914466708144ba52894f82b26f2e9948f979c022467341f4ee0"
+      },
+      {
+        "index": 118,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/basketball_court/basketball_court_395.jpg",
+        "label": 3,
+        "sha256": "fd11966d0bac7719f4f3ba77103bdc83414c7b9114a72513cef07e7b4d8cc3b5"
+      },
+      {
+        "index": 124,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/basketball_court/basketball_court_440.jpg",
+        "label": 3,
+        "sha256": "9308f36109cef8e3ca42fb5276c62f93b88a0c25ab7c5c4ead6c8625fb5cd5e1"
+      },
+      {
+        "index": 129,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/beach/beach_631.jpg",
+        "label": 4,
+        "sha256": "78c52d47aa0e49c89d8ff6536e6837bf80ca90dba8ee444a13dfce8e86a3c6bd"
+      },
+      {
+        "index": 135,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/beach/beach_080.jpg",
+        "label": 4,
+        "sha256": "5c52b419ec22edab3ee31318ecdd088a0c7168cc2678a359ea80aaee317d5f49"
+      },
+      {
+        "index": 141,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/beach/beach_247.jpg",
+        "label": 4,
+        "sha256": "739d0e6330422adb29106610dc0495519e832834f64812dcfe4acb2749eafcd2"
+      },
+      {
+        "index": 146,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/beach/beach_297.jpg",
+        "label": 4,
+        "sha256": "618b0bdcd5e27262e38b6ce28d3baf459543d7baa077cb8cdb6122369844289e"
+      },
+      {
+        "index": 152,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/beach/beach_429.jpg",
+        "label": 4,
+        "sha256": "98e3f3911a750d08e54a76b8ecc1c7103a30696c84d2330c3b1b740090a584a6"
+      },
+      {
+        "index": 158,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/beach/beach_475.jpg",
+        "label": 4,
+        "sha256": "c9756e0b3ce3e5fd4e46728d64e3e39d2b71e95d058534ecd707a272de596c18"
+      },
+      {
+        "index": 163,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/bridge/bridge_653.jpg",
+        "label": 5,
+        "sha256": "d54d7f750115025e681aa0b956c353384cbe1090fd16c1d84f227babbf59f2cb"
+      },
+      {
+        "index": 169,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/bridge/bridge_044.jpg",
+        "label": 5,
+        "sha256": "f836b07df34a1a14309612dc2b1d97bce246a5347893caa22c5b1eefb7f891a5"
+      },
+      {
+        "index": 174,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/bridge/bridge_125.jpg",
+        "label": 5,
+        "sha256": "a68de566399911c6e961d139eb98f3d5fa167c702ec180ad60f37879424fc5c3"
+      },
+      {
+        "index": 180,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/bridge/bridge_253.jpg",
+        "label": 5,
+        "sha256": "e187f8eb64b7cefb1aab4235dce5ee1d77544c3881bc25421f3cf758f77fbcc1"
+      },
+      {
+        "index": 186,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/bridge/bridge_412.jpg",
+        "label": 5,
+        "sha256": "4d42f138334f34b59843934b30f3c92a52e24c11e9d231ba5e6283f18f62d452"
+      },
+      {
+        "index": 191,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/bridge/bridge_537.jpg",
+        "label": 5,
+        "sha256": "960bb3b7937153fee2e6dec657523b4f223e08830bf267b8aa9ba573d34c0103"
+      },
+      {
+        "index": 197,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/chaparral/chaparral_038.jpg",
+        "label": 6,
+        "sha256": "b74bd45d9db7481e00f26238a581c81282f520eb33155ead91bf0b6b559d69c5"
+      },
+      {
+        "index": 203,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/chaparral/chaparral_258.jpg",
+        "label": 6,
+        "sha256": "0ccdd26192deef01d193e9e36e9c710d87043ea11febb7f0f91e913dbbb2c746"
+      },
+      {
+        "index": 208,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/chaparral/chaparral_386.jpg",
+        "label": 6,
+        "sha256": "a8f60f55aaf55b08835fd4388a280ef311322ffed950d8aa4135b0df0cf900de"
+      },
+      {
+        "index": 214,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/chaparral/chaparral_456.jpg",
+        "label": 6,
+        "sha256": "b392be761b286768747639223ea6af3ef34509130bdf3152aa9850ac31bce1a0"
+      },
+      {
+        "index": 220,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/chaparral/chaparral_558.jpg",
+        "label": 6,
+        "sha256": "ffd6c0ea459e69b12cb32d6926ca7d64a440876715b33fe647a000909bb79147"
+      },
+      {
+        "index": 225,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/church/church_638.jpg",
+        "label": 7,
+        "sha256": "8f60ac0c55e0861f6f368d12e189f0ab763af563c80d7729ecda726630be0316"
+      },
+      {
+        "index": 231,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/church/church_064.jpg",
+        "label": 7,
+        "sha256": "07b0863f79c2f8f8e77d408c6a14f8676d88ce125085a9446c1e030980a05679"
+      },
+      {
+        "index": 237,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/church/church_198.jpg",
+        "label": 7,
+        "sha256": "47ecf8282fd1cf954d4429f0932b9453c5b3ed6eaf703affc2f45e24a5547780"
+      },
+      {
+        "index": 242,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/church/church_292.jpg",
+        "label": 7,
+        "sha256": "fa9e05c235ffa78e847080542621dc1abf1ae809d81bcee9eac9c917f7cfad78"
+      },
+      {
+        "index": 248,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/church/church_463.jpg",
+        "label": 7,
+        "sha256": "0507804a17717acb1e234cada4aa4f31491c0cfb14a2e3d9ee21b62372edc468"
+      },
+      {
+        "index": 253,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/church/church_524.jpg",
+        "label": 7,
+        "sha256": "c86115f3192c135b2c4aa4b50110a577ce6fcc1852bdc4999affe8bee662f1be"
+      },
+      {
+        "index": 259,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/circular_farmland/circular_farmland_008.jpg",
+        "label": 8,
+        "sha256": "da5d2242c53e2c04b8daf142f53fe115418e7abec024d80c7ee2e2651ff510d2"
+      },
+      {
+        "index": 265,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/circular_farmland/circular_farmland_058.jpg",
+        "label": 8,
+        "sha256": "668da3ae032d9acdbed20e6b4ab5ff9804fbfa75ba1be4ecabd89c771fe6514f"
+      },
+      {
+        "index": 270,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/circular_farmland/circular_farmland_128.jpg",
+        "label": 8,
+        "sha256": "7dd74c2a60ea20c726d14d228d615d787d79cd04047e6c9706c5e5cef9a5fe4f"
+      },
+      {
+        "index": 276,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/circular_farmland/circular_farmland_366.jpg",
+        "label": 8,
+        "sha256": "1ad12fade6662177f24fd49886ec2d4c2c4776af2b6651ad03176b0552c9e766"
+      },
+      {
+        "index": 282,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/circular_farmland/circular_farmland_487.jpg",
+        "label": 8,
+        "sha256": "2c7fe3e35854c54bb87778066f7f44b8e048b3e8d6e6f1a4f99969918c5a6e78"
+      },
+      {
+        "index": 287,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/circular_farmland/circular_farmland_600.jpg",
+        "label": 8,
+        "sha256": "e8e79bcbd603e72f8d9189a96b042915781f2e6c564033dba4918b5e2e41145e"
+      },
+      {
+        "index": 293,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/cloud/cloud_660.jpg",
+        "label": 9,
+        "sha256": "da5ed239f1f66d0919bbe7002d31685e36c1781e32bedd98244a12c5a65ede10"
+      },
+      {
+        "index": 299,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/cloud/cloud_105.jpg",
+        "label": 9,
+        "sha256": "4d3348d9b29f64c369736505b7b49dc5762b999bd4867065a297161615bf04e5"
+      },
+      {
+        "index": 304,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/cloud/cloud_207.jpg",
+        "label": 9,
+        "sha256": "1eb1216cfd76700b6e7b01deac5aa46063f23a53a456b564e2c05212b565c2d0"
+      },
+      {
+        "index": 310,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/cloud/cloud_333.jpg",
+        "label": 9,
+        "sha256": "f0f9bb948fe66296d86396fac2fc48ae86eb60195651bbfbb929a158656e267b"
+      },
+      {
+        "index": 316,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/cloud/cloud_471.jpg",
+        "label": 9,
+        "sha256": "a414bb7a7f824373d2bbb6888d7a8feaf09d46d0ac3d2da160907cbcaa372c46"
+      },
+      {
+        "index": 321,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/commercial_area/commercial_area_629.jpg",
+        "label": 10,
+        "sha256": "96a6d329421574566eb8eee9187b270952c6673033edca2424c500c6e775aecf"
+      },
+      {
+        "index": 327,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/commercial_area/commercial_area_131.jpg",
+        "label": 10,
+        "sha256": "eeca19cac6584470d742a6d6ba90d524876ef4664a1318d5c026a0acdf99b374"
+      },
+      {
+        "index": 332,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/commercial_area/commercial_area_278.jpg",
+        "label": 10,
+        "sha256": "310086addb4dfc5b640452a3c3c63d772ac02e5e91b9ece3f1c9c4dc2718108d"
+      },
+      {
+        "index": 338,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/commercial_area/commercial_area_357.jpg",
+        "label": 10,
+        "sha256": "ea87e98525b78c533787fbbb4faf59123bf629ea7bfdf78dcc42f4ca4eff93ee"
+      },
+      {
+        "index": 344,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/commercial_area/commercial_area_476.jpg",
+        "label": 10,
+        "sha256": "66f64547b21be915ad70dca2dad494f987ada96f5332d2a9dd0837325a54347f"
+      },
+      {
+        "index": 349,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/commercial_area/commercial_area_536.jpg",
+        "label": 10,
+        "sha256": "c9aa71c59786c972f6177182ce583286dd8da6fe3be44c095abc469576658f41"
+      },
+      {
+        "index": 355,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/dense_residential/dense_residential_681.jpg",
+        "label": 11,
+        "sha256": "21596a82d0419b4e577ed44f0fb7e6a0e800db2a8c2682ddd590497a79cc76f9"
+      },
+      {
+        "index": 361,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/dense_residential/dense_residential_144.jpg",
+        "label": 11,
+        "sha256": "66579f85ad2f43b19017c2d3ce2da09d4153bc16a95bd22e6f7a7f4dd94652c5"
+      },
+      {
+        "index": 366,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/dense_residential/dense_residential_195.jpg",
+        "label": 11,
+        "sha256": "e1d1af36e22bccb883ed223cbdfbbdc5f48584184d72f23a91db765b4a6970e1"
+      },
+      {
+        "index": 372,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/dense_residential/dense_residential_274.jpg",
+        "label": 11,
+        "sha256": "757894e006a9c530eeef427d4290e9575bc453fc3c7e15a44c26fd2753d76fdb"
+      },
+      {
+        "index": 378,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/dense_residential/dense_residential_392.jpg",
+        "label": 11,
+        "sha256": "bd53ffc6e89a5affe93f234905705fa1dbc469ac086c9588926a18aba69fe233"
+      },
+      {
+        "index": 383,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/dense_residential/dense_residential_586.jpg",
+        "label": 11,
+        "sha256": "6998db28ea3146df2ec9ec20b7bd865db7b6f998e68945abc2cd829c7a43d179"
+      },
+      {
+        "index": 389,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/desert/desert_078.jpg",
+        "label": 12,
+        "sha256": "29ffb85191ff6c701cce2ec9021166b224f9b39435f2d9e60822d3ae5968ac11"
+      },
+      {
+        "index": 395,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/desert/desert_224.jpg",
+        "label": 12,
+        "sha256": "e899ff234771f7b563d5821205a8f5f174eb78e02e42cb1ccb41a81a73555d28"
+      },
+      {
+        "index": 400,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/desert/desert_304.jpg",
+        "label": 12,
+        "sha256": "2c98dfeb7fb19eb05fed18ee18e65754bbbc5c53b50b0df8d87f911de2ecbfd1"
+      },
+      {
+        "index": 406,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/desert/desert_413.jpg",
+        "label": 12,
+        "sha256": "e15202256981ac3bfde291f24f385f8f7c4fced9d52b9b95868b4a49a36d1c01"
+      },
+      {
+        "index": 411,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/desert/desert_455.jpg",
+        "label": 12,
+        "sha256": "fde6bddb57822b6d6e287326cd32aad8c91393c9278236099086446f1113c642"
+      },
+      {
+        "index": 417,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/forest/forest_658.jpg",
+        "label": 13,
+        "sha256": "62e4aa0a51dae8fafa2e56a222919d03d8a15876c4ef5098b55129b8c9f94f70"
+      },
+      {
+        "index": 423,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/forest/forest_047.jpg",
+        "label": 13,
+        "sha256": "91150dff7e82b74e2b6ea0167efd0c302369c4aded39cf73a518af391c3115fe"
+      },
+      {
+        "index": 428,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/forest/forest_187.jpg",
+        "label": 13,
+        "sha256": "9a1bf7629d73ebaa1faccfcb593c80e0e2046e83218bd0320a91ac7ec528c665"
+      },
+      {
+        "index": 434,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/forest/forest_300.jpg",
+        "label": 13,
+        "sha256": "0465561095414498622134d3a9465c71c75e61d12cf7bf73a555c39784f04e9c"
+      },
+      {
+        "index": 440,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/forest/forest_440.jpg",
+        "label": 13,
+        "sha256": "decf4cac05fd07d411a74bd2f8261bfa73b06964f5fd70ffa37f12879224fb82"
+      },
+      {
+        "index": 445,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/forest/forest_510.jpg",
+        "label": 13,
+        "sha256": "93a6ef4640bb97e3ea0ec4583f6af97f2b953818b93713113b59f65e1105dd50"
+      },
+      {
+        "index": 451,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/freeway/freeway_668.jpg",
+        "label": 14,
+        "sha256": "5a1abb5fb558b23a8d3c4133feff16f722c1287c0ab17d8d72b47accb6ec57e6"
+      },
+      {
+        "index": 457,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/freeway/freeway_123.jpg",
+        "label": 14,
+        "sha256": "aceb4d6d92e2cc2fcf490968555839b55ac659e2d633446405854858ede191d9"
+      },
+      {
+        "index": 462,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/freeway/freeway_248.jpg",
+        "label": 14,
+        "sha256": "35a66bd2492fa2e98969af69503059bff6efc63389239d5175330f6cababc71e"
+      },
+      {
+        "index": 468,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/freeway/freeway_317.jpg",
+        "label": 14,
+        "sha256": "76a5b0260588996888a937637f3229076fd75dd37cc40d9edc819f3584dc0774"
+      },
+      {
+        "index": 474,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/freeway/freeway_479.jpg",
+        "label": 14,
+        "sha256": "0554057b3bbce2de04f57043f55b300ea19e498a44c035e018d47dd3fbe8a847"
+      },
+      {
+        "index": 479,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/freeway/freeway_581.jpg",
+        "label": 14,
+        "sha256": "90514300d21fae5959fda00fdeeaea254bd22cff1b084f74994f91e1aaa3ffa0"
+      },
+      {
+        "index": 485,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/golf_course/golf_course_010.jpg",
+        "label": 15,
+        "sha256": "8e718278b5f287a00c8b8b22b81145ad5a650b3f4562902bbe210755b149ef0e"
+      },
+      {
+        "index": 490,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/golf_course/golf_course_085.jpg",
+        "label": 15,
+        "sha256": "58e1a609e401ed962337cbb935c54f4d56cebe820683d996580bedb1e7f1ff01"
+      },
+      {
+        "index": 496,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/golf_course/golf_course_209.jpg",
+        "label": 15,
+        "sha256": "d9c0c1c248d60de27d8754d6fc91f22da150da6da99c198ea11836127863847d"
+      },
+      {
+        "index": 502,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/golf_course/golf_course_378.jpg",
+        "label": 15,
+        "sha256": "16f65c393d83e6dfcc5497d73f27c4da53f610a3743fed432990bd564dfc8548"
+      },
+      {
+        "index": 507,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/golf_course/golf_course_503.jpg",
+        "label": 15,
+        "sha256": "54aff2507f73c36656c24262c2f9e2bf1a54218ad83e2b6934d74287b6029f57"
+      },
+      {
+        "index": 513,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/ground_track_field/ground_track_field_603.jpg",
+        "label": 16,
+        "sha256": "0d4baad9b425b93800f72db1b3f14f474d3cfa50fc486e61dc2e4890422b0201"
+      },
+      {
+        "index": 519,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/ground_track_field/ground_track_field_024.jpg",
+        "label": 16,
+        "sha256": "6885e2d69d289f1feff62d37d3287fecaf780fe693611abc7576215287de8e4c"
+      },
+      {
+        "index": 524,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/ground_track_field/ground_track_field_208.jpg",
+        "label": 16,
+        "sha256": "a6d04c51b44e76abea1a5dec60ebced8543f2c521b444c4b237967e6b768a7c5"
+      },
+      {
+        "index": 530,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/ground_track_field/ground_track_field_353.jpg",
+        "label": 16,
+        "sha256": "a2e6971a213b6211520055876c622b3a1d0d78519177b657aea40c18f1791b5f"
+      },
+      {
+        "index": 536,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/ground_track_field/ground_track_field_508.jpg",
+        "label": 16,
+        "sha256": "4766b035bc747a8245f3110b7bc2b47c51f81339ca257f90b880fdb98d5514f9"
+      },
+      {
+        "index": 541,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/ground_track_field/ground_track_field_544.jpg",
+        "label": 16,
+        "sha256": "497faac62be707298d99d60752b6026c09631155d05f015d46d19fac993d9123"
+      },
+      {
+        "index": 547,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/harbor/harbor_698.jpg",
+        "label": 17,
+        "sha256": "5b07f3adcc2073da5f9c170eab630a4fe2664c8c61e820a89666fd939aec17c2"
+      },
+      {
+        "index": 553,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/harbor/harbor_077.jpg",
+        "label": 17,
+        "sha256": "0096d57a9d0298f73527e3a1d29657f779cde6bd9dbda40037d08e9f0161bbe7"
+      },
+      {
+        "index": 558,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/harbor/harbor_205.jpg",
+        "label": 17,
+        "sha256": "88187e419f4955a2e0901ab7c891af0b4e433ca804c19934b543bef76e307e5f"
+      },
+      {
+        "index": 564,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/harbor/harbor_374.jpg",
+        "label": 17,
+        "sha256": "fe5e4f60a2e4be0f428c72b3ec83b643ac9650c904be1b9323af57a548b88b9c"
+      },
+      {
+        "index": 569,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/harbor/harbor_429.jpg",
+        "label": 17,
+        "sha256": "3e65284e1987c5556c103016c09b183fd8270a197fb9cb742804b7dd9523fdc6"
+      },
+      {
+        "index": 575,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/harbor/harbor_596.jpg",
+        "label": 17,
+        "sha256": "1b25382eb0419d7a6918c3637f58647b6357edda8748e8f4f2a26b2734efe918"
+      },
+      {
+        "index": 581,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/industrial_area/industrial_area_691.jpg",
+        "label": 18,
+        "sha256": "f086827b9c2ac1ad24364189d9c0f9c7290f8e0fe0d15b75a63a9439a16e6253"
+      },
+      {
+        "index": 586,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/industrial_area/industrial_area_068.jpg",
+        "label": 18,
+        "sha256": "6a5ce2600053c0f1ad8f16e6708e9557d89bd5a84870be7395239cb5c18641d8"
+      },
+      {
+        "index": 592,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/industrial_area/industrial_area_154.jpg",
+        "label": 18,
+        "sha256": "5facef2edb040ca04363e1d887f24bbd4159d40ad259fa239736085337d59cd8"
+      },
+      {
+        "index": 598,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/industrial_area/industrial_area_277.jpg",
+        "label": 18,
+        "sha256": "696de44fb1eab34bd77864f53c5aa8fafbdb7cafe956d05342df7a7e544ac7ca"
+      },
+      {
+        "index": 603,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/industrial_area/industrial_area_401.jpg",
+        "label": 18,
+        "sha256": "512f2a2d6994ef63a2defbe335dc6debafe0b07666c80bdd5766111e6dbb4cfe"
+      },
+      {
+        "index": 609,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/intersection/intersection_608.jpg",
+        "label": 19,
+        "sha256": "29738d2ded82a58c4b9366eb866335f7b22597cdf2892c45bcf0edb1b5b1ce23"
+      },
+      {
+        "index": 615,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/intersection/intersection_036.jpg",
+        "label": 19,
+        "sha256": "18b2afd6a3f65f980760fe8d569f73d9b67b76267aae5577453df449d93ea2f5"
+      },
+      {
+        "index": 620,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/intersection/intersection_187.jpg",
+        "label": 19,
+        "sha256": "bfe72870a0e742177142fdbf3326d1b87e22726106ea5c93093234b8eb7d4a40"
+      },
+      {
+        "index": 626,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/intersection/intersection_264.jpg",
+        "label": 19,
+        "sha256": "0b7f29d00b95ea74601166cf509ea47d669fe033b2ba001595bfb20f9bc1a4fd"
+      },
+      {
+        "index": 632,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/intersection/intersection_449.jpg",
+        "label": 19,
+        "sha256": "797bc2a7058cd1c9ea6d12d7add933946635b4be1feb591cd9c953b74a1c0a5d"
+      },
+      {
+        "index": 637,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/intersection/intersection_552.jpg",
+        "label": 19,
+        "sha256": "9641ed10a94aaebaea9696e803649135c6fa0b835e520497e8ba233ae2afe53f"
+      },
+      {
+        "index": 643,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/island/island_085.jpg",
+        "label": 20,
+        "sha256": "6fb9fcb6d9d1f37965880f2534944be08d1836a4792f3546779a025a96c98d43"
+      },
+      {
+        "index": 648,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/island/island_202.jpg",
+        "label": 20,
+        "sha256": "422bf721abc8102589a8879fdc424bb6a23ed3c7ce1f82b59f6a7b285eae4298"
+      },
+      {
+        "index": 654,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/island/island_317.jpg",
+        "label": 20,
+        "sha256": "1d88782d73f2ac71107788a6be1ffe97571528dee3ceea78333e70411755d8c3"
+      },
+      {
+        "index": 660,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/island/island_398.jpg",
+        "label": 20,
+        "sha256": "23686b86885c2e38947da0289136b0147b65956bfbd1643bf26e035fd8f46515"
+      },
+      {
+        "index": 665,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/island/island_518.jpg",
+        "label": 20,
+        "sha256": "62e86c457ddb2d1e182b9493a89798f0746ee1f1b160adc7dea459c82341a52a"
+      },
+      {
+        "index": 671,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/island/island_598.jpg",
+        "label": 20,
+        "sha256": "d2078bcd5fa121d39f7241e50cf5c0d97122331c1f234f7c32e885f7b83774ec"
+      },
+      {
+        "index": 677,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/lake/lake_019.jpg",
+        "label": 21,
+        "sha256": "d33cef26d62aeb5bda2b28fa5f9959cc5f58a7af8a3542b9754404a98e2a6469"
+      },
+      {
+        "index": 682,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/lake/lake_155.jpg",
+        "label": 21,
+        "sha256": "c731d39c4420478376adabd258bc0e2e6014c9703f631f7ffbf4b3cef8877098"
+      },
+      {
+        "index": 688,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/lake/lake_331.jpg",
+        "label": 21,
+        "sha256": "7fe48953ebdc7ad6e95a0e53195f7e3f91c974aa60604b9eee2c99e515039bbb"
+      },
+      {
+        "index": 694,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/lake/lake_464.jpg",
+        "label": 21,
+        "sha256": "52b9ec118ca49f8dd96ff6ad5d6ea2ba5456ffb3870e563ff2b1f80ad0a011c4"
+      },
+      {
+        "index": 699,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/lake/lake_519.jpg",
+        "label": 21,
+        "sha256": "2e64d14e840f71709cbb6b250535669c7911d924782c6855f1bb37ac2f2fd0df"
+      },
+      {
+        "index": 705,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/meadow/meadow_607.jpg",
+        "label": 22,
+        "sha256": "d9c03b8fd7d32134439cbc1e076947e97816a1bfa38e4752a8ad6648cb5294a0"
+      },
+      {
+        "index": 711,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/meadow/meadow_670.jpg",
+        "label": 22,
+        "sha256": "06b40dd8ea899d42168816bd59bb812f3142d07a735fdadac1e7091924d0d94d"
+      },
+      {
+        "index": 716,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/meadow/meadow_077.jpg",
+        "label": 22,
+        "sha256": "3031029741cfcdeff96f5e350f4707f282f72275b5540d2738e5d64c846ccec4"
+      },
+      {
+        "index": 722,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/meadow/meadow_225.jpg",
+        "label": 22,
+        "sha256": "450ac209da8f80c147dbc7694beb778e93dcaf0f1d39f58e117142bfbe968351"
+      },
+      {
+        "index": 727,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/meadow/meadow_437.jpg",
+        "label": 22,
+        "sha256": "fc45167a86d0af5ab9ce6c4731f85b2d76e7d121b777395d974aaf551d12c618"
+      },
+      {
+        "index": 733,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/meadow/meadow_543.jpg",
+        "label": 22,
+        "sha256": "9fdef6bbff6e42a5088ae252bc59063d3d4ba6ad86d327fa7d9661ee06f78029"
+      },
+      {
+        "index": 739,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/medium_residential/medium_residential_011.jpg",
+        "label": 23,
+        "sha256": "0355c7743b59d215f08482aaf7222b5c164bb4d44fec5ad64c2c2fe7ef7a9968"
+      },
+      {
+        "index": 744,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/medium_residential/medium_residential_092.jpg",
+        "label": 23,
+        "sha256": "23e1fd54bf7a497308fd6fb6cdda1e71980196195c16baaa4d86e2ddb4aa1b19"
+      },
+      {
+        "index": 750,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/medium_residential/medium_residential_234.jpg",
+        "label": 23,
+        "sha256": "ca9356099317c14dc405ec7ef641f8bb952d46a4e5444edf2041ad53b598a10f"
+      },
+      {
+        "index": 756,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/medium_residential/medium_residential_375.jpg",
+        "label": 23,
+        "sha256": "01ac570f4f5788c61957818ddc95f1d76d5bfa807b6f1756283df9b2e90d28d3"
+      },
+      {
+        "index": 761,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/medium_residential/medium_residential_456.jpg",
+        "label": 23,
+        "sha256": "8556b767d8d3415856f421e8a9fabf38ac9c07daf7279aabfbbd423824a62ab7"
+      },
+      {
+        "index": 767,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/medium_residential/medium_residential_596.jpg",
+        "label": 23,
+        "sha256": "56e2ddc07f616f2fa2333bfc5cd92d2af8b8adc8115abefaf9fa8afebb47aef7"
+      },
+      {
+        "index": 773,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/mobile_home_park/mobile_home_park_670.jpg",
+        "label": 24,
+        "sha256": "ed77a1da74242aebeec9a82dc7fb1ee9abc92d620d178a12aeeb1084c9c19969"
+      },
+      {
+        "index": 778,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/mobile_home_park/mobile_home_park_124.jpg",
+        "label": 24,
+        "sha256": "32a08c6a0a8a274726f7fa34a86a602e6b0c152f26b3c87b06f80c670bd15a81"
+      },
+      {
+        "index": 784,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/mobile_home_park/mobile_home_park_283.jpg",
+        "label": 24,
+        "sha256": "f016bf3ee1ea4c8ed5cc5c7f48f1cd8206474f565750e700dfd9ac17f05bf418"
+      },
+      {
+        "index": 790,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/mobile_home_park/mobile_home_park_376.jpg",
+        "label": 24,
+        "sha256": "fd18885e55aef13443eba8b4d5611f5a22d796cbb773ba6632ee735f06233ef2"
+      },
+      {
+        "index": 795,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/mobile_home_park/mobile_home_park_475.jpg",
+        "label": 24,
+        "sha256": "75f674c195b9d9f8a05a3c263d5951593d38ffede4b7f70bdb811803d82f731b"
+      },
+      {
+        "index": 801,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/mountain/mountain_674.jpg",
+        "label": 25,
+        "sha256": "9e1e009030c7614ce3483bf225cebfba5fe8b963491e7ae6f6b4b10e94d9c847"
+      },
+      {
+        "index": 806,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/mountain/mountain_081.jpg",
+        "label": 25,
+        "sha256": "0f0c8606984f95f51eab03dadb8d74ca4f1f97eff54f83dacf6d4ce285d284d8"
+      },
+      {
+        "index": 812,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/mountain/mountain_174.jpg",
+        "label": 25,
+        "sha256": "c9cef42250b14f40b08744e11ba4e024e85881d0e318347e18d5f0d4c85e38f3"
+      },
+      {
+        "index": 818,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/mountain/mountain_298.jpg",
+        "label": 25,
+        "sha256": "300378d15c22df7b4c42a9b941837b39bc173db33877b80262f1647b21ced2f4"
+      },
+      {
+        "index": 823,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/mountain/mountain_376.jpg",
+        "label": 25,
+        "sha256": "f73dd9245679a4f030d34e3e8c87547b738f8f06ecfa23e2ae998303ff877cbd"
+      },
+      {
+        "index": 829,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/mountain/mountain_462.jpg",
+        "label": 25,
+        "sha256": "78ee5bd50108168f1adad03e4cc0f4ff81180dc7dd943e07081fdd18b172a2bb"
+      },
+      {
+        "index": 835,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/overpass/overpass_670.jpg",
+        "label": 26,
+        "sha256": "73fe56d7890508f00489cbb6dc1217cceb3b4060fbeb26092500a6303500224a"
+      },
+      {
+        "index": 840,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/overpass/overpass_110.jpg",
+        "label": 26,
+        "sha256": "26fae1bd0f775e89accce6ba2f25154675b35f340baab7f72ab4ff7d2dc27235"
+      },
+      {
+        "index": 846,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/overpass/overpass_273.jpg",
+        "label": 26,
+        "sha256": "dd2c3ad3c3f09d0e6db4403cf8efed7e8437b56cc2fd8afa8b8de3cbb6d2bfbc"
+      },
+      {
+        "index": 852,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/overpass/overpass_399.jpg",
+        "label": 26,
+        "sha256": "6b048e8c50e7b5c720214b0229f7d06b412b4d64f52d50d1ff9a2e57fa565203"
+      },
+      {
+        "index": 857,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/overpass/overpass_483.jpg",
+        "label": 26,
+        "sha256": "16d7871fab62e0e6b6be51557cebd8e11bd1c650eba1c7f1235e12c99ae0e569"
+      },
+      {
+        "index": 863,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/overpass/overpass_597.jpg",
+        "label": 26,
+        "sha256": "cde92e6cc799de49070bd4d96309ea7f53823a09d31c7913d2e2f86f11be126a"
+      },
+      {
+        "index": 869,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/palace/palace_002.jpg",
+        "label": 27,
+        "sha256": "174c7ff4fe997290455b03b4d8dfb3c14920805b2e2513c33ef015ac5dd0f128"
+      },
+      {
+        "index": 874,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/palace/palace_070.jpg",
+        "label": 27,
+        "sha256": "81897fd53f14f865273a3faf1fe45570848fb002cb4a34d66e82ceb11f266009"
+      },
+      {
+        "index": 880,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/palace/palace_261.jpg",
+        "label": 27,
+        "sha256": "0dbc7a841d7bc02c443efa743bca523be495fed3d54dd737ee018cd60b51a905"
+      },
+      {
+        "index": 885,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/palace/palace_393.jpg",
+        "label": 27,
+        "sha256": "736eaaa4b779e7e56b311be1f7a47e66d2d7cc15622b6ce8d02ab8abd1359fb6"
+      },
+      {
+        "index": 891,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/palace/palace_559.jpg",
+        "label": 27,
+        "sha256": "9ea50d7d1a58f4526467438da27b8860639add293f4f0931f0336f4709a85911"
+      },
+      {
+        "index": 897,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/parking_lot/parking_lot_662.jpg",
+        "label": 28,
+        "sha256": "74656a44a7e804a788cde3438bde0c2f4e33d9d1c709081849693bd621fa149b"
+      },
+      {
+        "index": 902,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/parking_lot/parking_lot_016.jpg",
+        "label": 28,
+        "sha256": "9d1e57546c22def4aa7bad7954dc23117eba7b35fd58c81f34a55feadc82e94d"
+      },
+      {
+        "index": 908,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/parking_lot/parking_lot_060.jpg",
+        "label": 28,
+        "sha256": "6b0e41d3561603e13755907aa4eea60a7d96a392ed26a1868e52f690aac0150a"
+      },
+      {
+        "index": 914,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/parking_lot/parking_lot_409.jpg",
+        "label": 28,
+        "sha256": "ba68c66f19efca23df9fd3bc177db199ea78d49ad7e58475b01004eac3e7b633"
+      },
+      {
+        "index": 919,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/parking_lot/parking_lot_485.jpg",
+        "label": 28,
+        "sha256": "3fb2f1074281351def4842e093a12528053db89b01c185394b895eca5b43d6f0"
+      },
+      {
+        "index": 925,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/parking_lot/parking_lot_585.jpg",
+        "label": 28,
+        "sha256": "fe9e695a477ad2494d2658098b95c8a2674563eccff39cee1cfa4b2f41f6effc"
+      },
+      {
+        "index": 931,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/railway/railway_634.jpg",
+        "label": 29,
+        "sha256": "fd362847c21a103b0d258116c23626f5d0cdf522eb0750520aae599a4fc2db69"
+      },
+      {
+        "index": 936,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/railway/railway_016.jpg",
+        "label": 29,
+        "sha256": "0277c3b3109d22b672671a5437f6102346841ec154b249e696a8d865ce0fc623"
+      },
+      {
+        "index": 942,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/railway/railway_235.jpg",
+        "label": 29,
+        "sha256": "32cd29cae9ce62878708f3e88b0831e02d94170f6bf4ed8115d531ca7b637e30"
+      },
+      {
+        "index": 948,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/railway/railway_377.jpg",
+        "label": 29,
+        "sha256": "d955b1e4ed806c409d8873fa069f30dd4704d2a988b439b5cf10d4c2c8a5b5f3"
+      },
+      {
+        "index": 953,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/railway/railway_502.jpg",
+        "label": 29,
+        "sha256": "56fe60cbe132eee61c1c80f11b9a62ea2ca1a29a906c61bcc0ba0cb321beb5f8"
+      },
+      {
+        "index": 959,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/railway/railway_588.jpg",
+        "label": 29,
+        "sha256": "a063e55c3f91a5fccaa089b834682caad2b2241dde6bb419f86d32316eec9f1a"
+      },
+      {
+        "index": 964,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/railway_station/railway_station_046.jpg",
+        "label": 30,
+        "sha256": "918ac3dd05c3ce185b2b653f7ce0c51c0d18e381cc0e6dfec0c95b0736acb168"
+      },
+      {
+        "index": 970,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/railway_station/railway_station_103.jpg",
+        "label": 30,
+        "sha256": "0e62010a4e75f01f5f7effcc9c02928060fe8fefa3a53278474ac91bf58cbf61"
+      },
+      {
+        "index": 976,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/railway_station/railway_station_232.jpg",
+        "label": 30,
+        "sha256": "f550dc55da7212ca13676376e3ec24652ce2cdfaf6795cc63708a871c010e074"
+      },
+      {
+        "index": 981,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/railway_station/railway_station_320.jpg",
+        "label": 30,
+        "sha256": "f34d33c7320abc8b97f2e3124861ce7d57f3a0fc1d4ceb6e07c6045256c73339"
+      },
+      {
+        "index": 987,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/railway_station/railway_station_511.jpg",
+        "label": 30,
+        "sha256": "dffd33266ce1ba38fabea4a2625281c76f8b294f2046151d30d0a3bb158fac12"
+      },
+      {
+        "index": 993,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/rectangular_farmland/rectangular_farmland_621.jpg",
+        "label": 31,
+        "sha256": "212dfc4e0fa4376de68c697762b642616fc3d37ba28ac440054af2303f5253d7"
+      },
+      {
+        "index": 998,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/rectangular_farmland/rectangular_farmland_083.jpg",
+        "label": 31,
+        "sha256": "42e1aad37bc7bb05d64cfdc79f732ec9671531f69ef6aa816ddde540250b9a89"
+      },
+      {
+        "index": 1004,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/rectangular_farmland/rectangular_farmland_215.jpg",
+        "label": 31,
+        "sha256": "4642de3f0024aee61f6ac8c87a2d1eff280bd98c87214f97ad21e8bdf40b4a97"
+      },
+      {
+        "index": 1010,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/rectangular_farmland/rectangular_farmland_308.jpg",
+        "label": 31,
+        "sha256": "c7c910870229978fff67ecf34d379912ae8f15249e053ec2f0bbd47845cd0f90"
+      },
+      {
+        "index": 1015,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/rectangular_farmland/rectangular_farmland_392.jpg",
+        "label": 31,
+        "sha256": "10f1d927f280c7292c0a4aa525124f7696bfe10b0c1f34de2013d7a04865a8ce"
+      },
+      {
+        "index": 1021,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/rectangular_farmland/rectangular_farmland_501.jpg",
+        "label": 31,
+        "sha256": "55ef0a81404e9519fc8a0dfaf462f1f637757f560b98469d3f17038da0f8b648"
+      },
+      {
+        "index": 1027,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/river/river_634.jpg",
+        "label": 32,
+        "sha256": "e0f9a2fbfc74d504754da9bf046524ce656938976f94b423fab4fbee77b66fd9"
+      },
+      {
+        "index": 1032,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/river/river_049.jpg",
+        "label": 32,
+        "sha256": "4e52f8e72bc9fb5bca117ed2ee903fba5d049143cb21d4975051046b8cecd67b"
+      },
+      {
+        "index": 1038,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/river/river_165.jpg",
+        "label": 32,
+        "sha256": "ee5c33c9f4d27f44fc36974336837014a72b02e5d52bcf87c57daa15054c24bd"
+      },
+      {
+        "index": 1043,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/river/river_332.jpg",
+        "label": 32,
+        "sha256": "6a3b80bd7a04beb6650ea20f4c313b6f2f4dd73988d480ece6b553ff1de19c1c"
+      },
+      {
+        "index": 1049,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/river/river_499.jpg",
+        "label": 32,
+        "sha256": "d1c861cdee35313b0e9a68220c26757d90072615518c5f699d2490076c519754"
+      },
+      {
+        "index": 1055,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/river/river_600.jpg",
+        "label": 32,
+        "sha256": "f5eb7901314349f9697c618fba8476da1bb15c164d79956b78235d920b7f40c6"
+      },
+      {
+        "index": 1060,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/roundabout/roundabout_035.jpg",
+        "label": 33,
+        "sha256": "ad3ffb1ebbf43bcf4ca10e9038177dd042896c1a5e4921a6f721df9a8afb61ba"
+      },
+      {
+        "index": 1066,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/roundabout/roundabout_179.jpg",
+        "label": 33,
+        "sha256": "3018c92e61eda7ac46560d8cf2a2d27a795cafa4b8b250024b9ce3fa86a98a0f"
+      },
+      {
+        "index": 1072,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/roundabout/roundabout_274.jpg",
+        "label": 33,
+        "sha256": "a60256b3670b76668f0bccc1c1bd6663a3e0c0be1da9caff4610710843e3228b"
+      },
+      {
+        "index": 1077,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/roundabout/roundabout_389.jpg",
+        "label": 33,
+        "sha256": "0ba3638c5204195c3f6620b60ccec3b6735295f49ae2b9cd8325669453fce599"
+      },
+      {
+        "index": 1083,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/roundabout/roundabout_517.jpg",
+        "label": 33,
+        "sha256": "0facf60b8c68ce5e45dfe4dacd74799dde7498abf128792dd0abb20810bf6eff"
+      },
+      {
+        "index": 1089,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/runway/runway_637.jpg",
+        "label": 34,
+        "sha256": "01f392b119020ef1ccc58f43bfe13f746103bae20e927b1fb76bf2578ff4e2c1"
+      },
+      {
+        "index": 1094,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/runway/runway_686.jpg",
+        "label": 34,
+        "sha256": "d6bf2d5dd68471b85339c4509500d702eb8c1e77b84ed938de3a0502b6d2b169"
+      },
+      {
+        "index": 1100,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/runway/runway_113.jpg",
+        "label": 34,
+        "sha256": "f07b3d3bf02c2fa366caa577d886a8d200544bf602c31dc20de0881377f80b78"
+      },
+      {
+        "index": 1106,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/runway/runway_218.jpg",
+        "label": 34,
+        "sha256": "7c9c94cb9b0e98614baf6bacf91191a63d8d1ae22b802fa20fe5b1e5900a3341"
+      },
+      {
+        "index": 1111,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/runway/runway_350.jpg",
+        "label": 34,
+        "sha256": "eb6a6f50ce25a303b56a696bb6135f9188461e4d84e8606448d6d0245b292b8a"
+      },
+      {
+        "index": 1117,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/runway/runway_513.jpg",
+        "label": 34,
+        "sha256": "9b67ace73542ed03a3b158b153df86754538c23ecb0fd11654ddaa0e8646986d"
+      },
+      {
+        "index": 1122,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/sea_ice/sea_ice_637.jpg",
+        "label": 35,
+        "sha256": "6ff0152cc35b264e5d1a452723a185e3d4788fc79c840c2b1b27491867ee7eae"
+      },
+      {
+        "index": 1128,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/sea_ice/sea_ice_142.jpg",
+        "label": 35,
+        "sha256": "1fe71711a12464adfbb787c40a0f8c84adb9f31f999d8dc31562e963cb92d090"
+      },
+      {
+        "index": 1134,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/sea_ice/sea_ice_203.jpg",
+        "label": 35,
+        "sha256": "ff77bc913223cfebd40fb3baf22ed2f6c12cb32055a11493a4ee2deb4f8af5ed"
+      },
+      {
+        "index": 1139,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/sea_ice/sea_ice_271.jpg",
+        "label": 35,
+        "sha256": "161049b8ec958ac4aea461d85357bb263843ad9b9cba865edc909af129c9a94b"
+      },
+      {
+        "index": 1145,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/sea_ice/sea_ice_401.jpg",
+        "label": 35,
+        "sha256": "44aa0f7d4c4ff26d7991510d6dba32538fa1f9423cd96c26d615e1a07f92e426"
+      },
+      {
+        "index": 1151,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/sea_ice/sea_ice_586.jpg",
+        "label": 35,
+        "sha256": "24d71efc33c8be42e4eba4dff6c5dbbc26d28a4a13cb44eb9de48cabbd99fb47"
+      },
+      {
+        "index": 1156,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/ship/ship_695.jpg",
+        "label": 36,
+        "sha256": "9193e6dd070739fa9e83af71b709729305ba7c60f31167113ab13c2908d7ad87"
+      },
+      {
+        "index": 1162,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/ship/ship_106.jpg",
+        "label": 36,
+        "sha256": "8bf7ef0b80cb6b95b80124ebe82564eb8c0eb2d10ffdba7bea81c1f08ffb02f0"
+      },
+      {
+        "index": 1168,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/ship/ship_227.jpg",
+        "label": 36,
+        "sha256": "1275a1971029229836a650ae22b35bed9990f6373d38863ba44fb032d9760ccb"
+      },
+      {
+        "index": 1173,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/ship/ship_360.jpg",
+        "label": 36,
+        "sha256": "2bb9afd033cdd0255dff0be9f7b349a3fa0de2cdad79aec03064f723edfa8cd8"
+      },
+      {
+        "index": 1179,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/ship/ship_456.jpg",
+        "label": 36,
+        "sha256": "31a913c00f17f4ddd335baf43f222339f2ee4ae3201c096ff7f0bd5aeaa32343"
+      },
+      {
+        "index": 1185,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/snowberg/snowberg_632.jpg",
+        "label": 37,
+        "sha256": "cbcd69b03085b3c094bbd788d2411088d38b72ac8740b7608127ba9943953f20"
+      },
+      {
+        "index": 1190,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/snowberg/snowberg_101.jpg",
+        "label": 37,
+        "sha256": "6411eec4c814f1d6c01b218db6aeba33368cf845cf4fcf27aa8198b3b62f558b"
+      },
+      {
+        "index": 1196,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/snowberg/snowberg_193.jpg",
+        "label": 37,
+        "sha256": "cae713fad452956a867d201a4ad6c983e51253e1345b7ca9701f0c2ed939f835"
+      },
+      {
+        "index": 1201,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/snowberg/snowberg_338.jpg",
+        "label": 37,
+        "sha256": "10d570dd7c65cbc16b08c063af63b2b8717d259550642655952929cf8605e18d"
+      },
+      {
+        "index": 1207,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/snowberg/snowberg_522.jpg",
+        "label": 37,
+        "sha256": "078a719c8146f9840217f65569f1cde420b8fd998b965efa3b51b5c53a454864"
+      },
+      {
+        "index": 1213,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/snowberg/snowberg_578.jpg",
+        "label": 37,
+        "sha256": "5b5edbaaa18cf255a3ba95565a3e0430a943b07234b6384fa0e4e4a646749407"
+      },
+      {
+        "index": 1218,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/sparse_residential/sparse_residential_655.jpg",
+        "label": 38,
+        "sha256": "62bbc8dfce290adc236e5beff87b3aca1232f66e7822c8339f3699390d6dd458"
+      },
+      {
+        "index": 1224,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/sparse_residential/sparse_residential_686.jpg",
+        "label": 38,
+        "sha256": "4c7453e849b43cf0e2f1b33e188eeb19226f1e06e84204bf175314213683232b"
+      },
+      {
+        "index": 1230,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/sparse_residential/sparse_residential_210.jpg",
+        "label": 38,
+        "sha256": "2fbddce396c5b1e831a6497c7ee2c52b00225349015c7ec8b3e2d6761d21aa5e"
+      },
+      {
+        "index": 1235,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/sparse_residential/sparse_residential_327.jpg",
+        "label": 38,
+        "sha256": "2c4ba769553efa9195fb782cc19ea3c1eaad985110d7414401c504fbbc2e2183"
+      },
+      {
+        "index": 1241,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/sparse_residential/sparse_residential_462.jpg",
+        "label": 38,
+        "sha256": "7c692eb6f9cdc505e8ed4328d5efd95ee44295bbe68e00cedf4e550a6219bb31"
+      },
+      {
+        "index": 1247,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/sparse_residential/sparse_residential_522.jpg",
+        "label": 38,
+        "sha256": "ab22d6f305acb6c5e9257ecf34c2f3a3de3c0641b7888d66869b6ebe9d807d79"
+      },
+      {
+        "index": 1252,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/stadium/stadium_036.jpg",
+        "label": 39,
+        "sha256": "54241367d25d84f09125d0fa2a32a88920ad18f018492e3cb5b38ae8474a7161"
+      },
+      {
+        "index": 1258,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/stadium/stadium_188.jpg",
+        "label": 39,
+        "sha256": "3bfd576abb53b4ed9ddba9d33fb159ee52f0b4c0952fdaa519eba01f8ac11430"
+      },
+      {
+        "index": 1264,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/stadium/stadium_263.jpg",
+        "label": 39,
+        "sha256": "61eaa5390889a935e38a6ebc0e937c2b16f19e5facd99646ee256267d9924c25"
+      },
+      {
+        "index": 1269,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/stadium/stadium_374.jpg",
+        "label": 39,
+        "sha256": "e6d6b142201596d7936588f66c279f1dbf962fdfd2b8d9f07f7dc30bc5fe9ba0"
+      },
+      {
+        "index": 1275,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/stadium/stadium_477.jpg",
+        "label": 39,
+        "sha256": "dff9787bb588d2336170e7ec0084fbd33de69262c5263a348afab8635a9b9570"
+      },
+      {
+        "index": 1280,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/storage_tank/storage_tank_613.jpg",
+        "label": 40,
+        "sha256": "3c333d6fd1c29de88c55447db8416001dfa1028db0aa5fa45b993343f05fbeba"
+      },
+      {
+        "index": 1286,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/storage_tank/storage_tank_048.jpg",
+        "label": 40,
+        "sha256": "fbbabd7c3bd9efe3b7ee2e98ac75bfce090912721b20e2477c4630bd49ec06eb"
+      },
+      {
+        "index": 1292,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/storage_tank/storage_tank_142.jpg",
+        "label": 40,
+        "sha256": "43004fae44a25e2e94949daeb31f6b9eb6ae3dd4941b6e7ac4bc71b0ad6780c1"
+      },
+      {
+        "index": 1297,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/storage_tank/storage_tank_233.jpg",
+        "label": 40,
+        "sha256": "5e87d5e6139dee179633cc454fd742825d2a434354c765dfdbdb947cf0c1c3a2"
+      },
+      {
+        "index": 1303,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/storage_tank/storage_tank_410.jpg",
+        "label": 40,
+        "sha256": "a15707249d4cdf5387d26561cfcdb712cccac8be87d8e8603d068182e8bd5912"
+      },
+      {
+        "index": 1309,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/storage_tank/storage_tank_574.jpg",
+        "label": 40,
+        "sha256": "b3eb3d9e4542d723bb491a33f67ca2ce6d689a5ec6713e460dfd348bc75dfcad"
+      },
+      {
+        "index": 1314,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/tennis_court/tennis_court_656.jpg",
+        "label": 41,
+        "sha256": "01cac936ab9857217f70f74f62b19eb98b641c0dec180a10b32f4a03a35d3b97"
+      },
+      {
+        "index": 1320,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/tennis_court/tennis_court_139.jpg",
+        "label": 41,
+        "sha256": "17881711f1577dd75df5047d16d4e31864773ee49d3599b5dd8d9304b237875d"
+      },
+      {
+        "index": 1326,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/tennis_court/tennis_court_256.jpg",
+        "label": 41,
+        "sha256": "8a944cf3277343e6ba87700d1cda7e64c0411a7356b784ebc0fa94d82533f309"
+      },
+      {
+        "index": 1331,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/tennis_court/tennis_court_337.jpg",
+        "label": 41,
+        "sha256": "7aa718ffdce021c046ff023eaad4254b9ce9629fbf36465dea06bfe7f7601b95"
+      },
+      {
+        "index": 1337,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/tennis_court/tennis_court_469.jpg",
+        "label": 41,
+        "sha256": "f1d85460829118afca6f2850c24ce268c3364704110c23e920fa4d9acd87564b"
+      },
+      {
+        "index": 1343,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/tennis_court/tennis_court_544.jpg",
+        "label": 41,
+        "sha256": "1dd55a3a2da242b9219ab2897d7f245c88b2c92a61d59810d28e14047f68624c"
+      },
+      {
+        "index": 1348,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/terrace/terrace_659.jpg",
+        "label": 42,
+        "sha256": "57ba93b7288084e1cfe509ad3b2afc189c107ae436b53cf07c7c317c99354e72"
+      },
+      {
+        "index": 1354,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/terrace/terrace_170.jpg",
+        "label": 42,
+        "sha256": "789863f7c73c6d9fbc1984fe2d55a49564e7df42f27f24e53e39f75a4026fe39"
+      },
+      {
+        "index": 1359,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/terrace/terrace_333.jpg",
+        "label": 42,
+        "sha256": "9eb70362d4c8c3546a2f178ba60660b01258467a7195507d93cb6e153fdad512"
+      },
+      {
+        "index": 1365,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/terrace/terrace_420.jpg",
+        "label": 42,
+        "sha256": "b8c76ec861f177125d3f2da8770095524666958d5c8a5f3d835abc5d978fcb20"
+      },
+      {
+        "index": 1371,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/terrace/terrace_532.jpg",
+        "label": 42,
+        "sha256": "0a5c0a23e06c2a071ca8a02e80f755b117a91cbf5e6e6a85e03ab39e73662cef"
+      },
+      {
+        "index": 1376,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/thermal_power_station/thermal_power_station_601.jpg",
+        "label": 43,
+        "sha256": "3004852dafeabbd735be610b8cd57570b48e5de996ea12ee6b4d74ac64be116d"
+      },
+      {
+        "index": 1382,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/thermal_power_station/thermal_power_station_699.jpg",
+        "label": 43,
+        "sha256": "278305266f37e3d61d29dadf207bb71f2c4633ac4bd070bf92c294421305fde9"
+      },
+      {
+        "index": 1388,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/thermal_power_station/thermal_power_station_141.jpg",
+        "label": 43,
+        "sha256": "ee37ac76240343ca6ec2229044e30277b382d4478a1d2d1e0569c16068a300a6"
+      },
+      {
+        "index": 1393,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/thermal_power_station/thermal_power_station_314.jpg",
+        "label": 43,
+        "sha256": "0621c05ce29ed4eb612ac4a04d076eaaf6943a822572b46003f79e8ac19ff113"
+      },
+      {
+        "index": 1399,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/thermal_power_station/thermal_power_station_410.jpg",
+        "label": 43,
+        "sha256": "1667f8070db2235d25e303e435293a7e94e12420c1a09777efd1bbc7ac6ae541"
+      },
+      {
+        "index": 1405,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/thermal_power_station/thermal_power_station_553.jpg",
+        "label": 43,
+        "sha256": "07366ee771f4e81831146c0c0a728d8ffc059cc7be5ecdbe546bb250d0b12909"
+      },
+      {
+        "index": 1410,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/test/test/wetland/wetland_665.jpg",
+        "label": 44,
+        "sha256": "83691812d9e43e8476600139a4f7872e9b5e5a4602053a522ab75b98a98368f5"
+      },
+      {
+        "index": 1416,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/wetland/wetland_085.jpg",
+        "label": 44,
+        "sha256": "7c0b46f6112aba99ddad9b1db66fba5d40e21de9f7af29f9591b26bec91c82bd"
+      },
+      {
+        "index": 1422,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/wetland/wetland_213.jpg",
+        "label": 44,
+        "sha256": "aa23a608de75f988bf13a15c7fd7eaeaa92b72b893899f7a6385435a2ac25a88"
+      },
+      {
+        "index": 1427,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/wetland/wetland_296.jpg",
+        "label": 44,
+        "sha256": "f37e78b1ff23e0986776ec53fb3659f7a3b14a086ff17bae64f31e89b957f605"
+      },
+      {
+        "index": 1433,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/wetland/wetland_420.jpg",
+        "label": 44,
+        "sha256": "caad1d6c5863e97b8258af27f1fed4991a08551c29f05011aabab56814a80ed2"
+      },
+      {
+        "index": 1439,
+        "path": "/home/user/Desktop/ff_vit_re/archive/Dataset/train/train/wetland/wetland_574.jpg",
+        "label": 44,
+        "sha256": "b62fae563a2449f8fc6c20ceacf5f71421a55469e3aa5724cadb612f02a8b417"
+      }
+    ],
+    "full_split_identity": {
+      "val": {
+        "count": 2700,
+        "ordered_membership_sha256": "68fa0fb74f31204fccf9bfcfabc77e2f9e54ae4d6a12b8a48441ff7a79540dc1"
+      },
+      "test": {
+        "count": 4500,
+        "ordered_membership_sha256": "308a2bacfe97baa18a500ad19a768b569af90681399713d18d4f890b225fa0a6"
+      }
+    }
+  },
+  "training_identity": {
+    "source_count": 24300,
+    "train_count": 24044,
+    "excluded": 256,
+    "selected_calibration_overlap": 0,
+    "val_test_content_overlap": 0,
+    "transform": "Compose(\n    RandomResizedCrop(size=(224, 224), scale=(0.8, 1.0), ratio=(0.75, 1.3333), interpolation=bilinear, antialias=True)\n    RandomHorizontalFlip(p=0.5)\n    ToTensor()\n    Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))\n)",
+    "membership_sha256": "c9da4ff710cec2265b21a687e58bafd124b2ec63f0b7e994d30d47382533c178"
+  },
+  "source_code_sha256": "1d9cb56108f4bc1e6da3c8e57665f6b8adeef11cd16af0ebc90873885a611228",
+  "parent_mlp_sha256": "ec71e275b39f2d209c4a71323f2547372a998c0c17dc3534b3d0a989a6a95fae"
+}

@@ -1,0 +1,12 @@
+{
+  "calibration_count": 2000,
+  "calibration_manifest_sha256": "f967ebdb8bd614dcf335c2195895e746a9b02029ea022df21c7c1e6e58680609",
+  "class_mapping_sha256": "ced7b16ce0b0735763be6ae584bfb388279a2b0f732768a147ca5afb45caf137",
+  "formal_validation_role": "/home/user/Desktop/ff_vit_re/imagenet_val/data",
+  "per_class_per_role": 2,
+  "schema_version": 1,
+  "seed": 20260923,
+  "selection_count": 2000,
+  "selection_manifest_sha256": "5f6ffb0b16323328d0ad3984ce6be5f4c62ec43c63a42259dfbe6df3e2b596b8",
+  "train_root": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train"
+}

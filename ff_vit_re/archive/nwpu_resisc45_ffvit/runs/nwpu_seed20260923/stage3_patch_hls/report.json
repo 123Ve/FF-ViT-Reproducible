@@ -1,0 +1,78 @@
+{
+  "baseline_w3_qat_plus_input16_top1": 94.15555555555555,
+  "input_stream": {
+    "bytes_per_image": 301056,
+    "dtype": "signed int16",
+    "logical_shape": [
+      196,
+      768
+    ],
+    "ordering": "[tt][ci][tp], token pair interleaved",
+    "physical_stream_shape": [
+      98,
+      768,
+      2
+    ],
+    "scale": 0.015625
+  },
+  "patch_bias": {
+    "hls_bank_shape": [
+      2,
+      12,
+      98,
+      16
+    ],
+    "meaning": "patch_embed.bias + positional embedding",
+    "raw_max": 189145,
+    "raw_min": -197393,
+    "raw_scale": 2.8267081892924512e-05
+  },
+  "patch_cls": {
+    "hls_bank_shape": [
+      12,
+      16
+    ],
+    "meaning": "CLS token + CLS positional embedding",
+    "raw_max": 480806,
+    "raw_min": -75934
+  },
+  "patch_output": {
+    "hls_type": "ap_int<13>",
+    "overflow_count": 0,
+    "overflow_rate": 0.0,
+    "prewrap_max": 1878,
+    "prewrap_min": -1740,
+    "real_scale": 0.007236372964588675,
+    "round_bias": 128,
+    "shift": 8,
+    "total_values": 169344000
+  },
+  "patch_quant_drop_pp": -0.08888888888888857,
+  "patch_weight": {
+    "hls_bank_shape": [
+      12,
+      24,
+      16,
+      32
+    ],
+    "logical_shape": [
+      192,
+      768
+    ],
+    "logical_type": "signed int8",
+    "mse": 3.202393941137416e-07,
+    "range": [
+      -128,
+      127
+    ],
+    "saturation_rate": 8.816189074423164e-05,
+    "scale": 0.0018090932411471688
+  },
+  "sample0": {
+    "input_bin": "/home/user/Desktop/ff_vit_re/archive/nwpu_resisc45_ffvit/runs/nwpu_seed20260923/stage3_patch_hls/sample0_input_hls_stream_int16.bin",
+    "label_index": 0,
+    "label_name": "airplane",
+    "patch_output_bin": "/home/user/Desktop/ff_vit_re/archive/nwpu_resisc45_ffvit/runs/nwpu_seed20260923/stage3_patch_hls/sample0_patch_output_stream_int13.bin"
+  },
+  "stage3_hls_patch_top1": 94.24444444444444
+}

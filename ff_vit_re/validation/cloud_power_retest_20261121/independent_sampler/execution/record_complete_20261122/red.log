@@ -1,0 +1,146 @@
+test_actual_three_profile_samplers_keep_adc_observation_separate (test_record_complete.RecordCompleteTests.test_actual_three_profile_samplers_keep_adc_observation_separate) ... 
+  test_actual_three_profile_samplers_keep_adc_observation_separate (test_record_complete.RecordCompleteTests.test_actual_three_profile_samplers_keep_adc_observation_separate) (profile=18) ... FAIL
+  test_actual_three_profile_samplers_keep_adc_observation_separate (test_record_complete.RecordCompleteTests.test_actual_three_profile_samplers_keep_adc_observation_separate) (profile=17) ... FAIL
+  test_actual_three_profile_samplers_keep_adc_observation_separate (test_record_complete.RecordCompleteTests.test_actual_three_profile_samplers_keep_adc_observation_separate) (profile=16) ... FAIL
+test_included_negative_completes_capture_but_cannot_be_power_pass (test_record_complete.RecordCompleteTests.test_included_negative_completes_capture_but_cannot_be_power_pass) ... ERROR
+test_readiness_and_cli_select_explicit_sixteen_scope (test_record_complete.RecordCompleteTests.test_readiness_and_cli_select_explicit_sixteen_scope) ... ERROR
+test_sixteen_scope_sums_only_included_rails_and_preserves_raw (test_record_complete.RecordCompleteTests.test_sixteen_scope_sums_only_included_rails_and_preserves_raw) ... FAIL
+
+======================================================================
+ERROR: test_included_negative_completes_capture_but_cannot_be_power_pass (test_record_complete.RecordCompleteTests.test_included_negative_completes_capture_but_cannot_be_power_pass)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/host/collect.py", line 341, in assess_phase
+    try:result=analyze.evaluate_phase(directory,False,input_sha256,profile)
+               ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/host/analyze.py", line 249, in evaluate_phase
+    policy=profiles.metadata(profile)
+  File "/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/host/profiles.py", line 10, in metadata
+    raise ValueError('unknown measurement profile '+str(profile))
+ValueError: unknown measurement profile diagnostic16
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_record_complete.py", line 64, in test_included_negative_completes_capture_but_cannot_be_power_pass
+    evidence=collect.assess_phase(f.directory,'diagnostic16')
+  File "/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/host/collect.py", line 343, in assess_phase
+    except (analyze.AnalysisError,KeyError,TypeError,ValueError) as exc:raise GateError(str(exc)) from exc
+                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+host.collect.GateError: unknown measurement profile diagnostic16
+
+======================================================================
+ERROR: test_readiness_and_cli_select_explicit_sixteen_scope (test_record_complete.RecordCompleteTests.test_readiness_and_cli_select_explicit_sixteen_scope)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_record_complete.py", line 78, in test_readiness_and_cli_select_explicit_sixteen_scope
+    collect.validate_status(status,profile='diagnostic16')
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/host/collect.py", line 154, in validate_status
+    require_profile(s,profile,sampler=True)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/host/collect.py", line 42, in require_profile
+    if not profiles.matches(record,profile) or (sampler and record.get('sampler_profile_rails')!=profiles.metadata(profile)['included_count']):
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/host/profiles.py", line 20, in matches
+    for key, expected in metadata(profile).items())
+                         ~~~~~~~~^^^^^^^^^
+  File "/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/host/profiles.py", line 10, in metadata
+    raise ValueError('unknown measurement profile '+str(profile))
+ValueError: unknown measurement profile diagnostic16
+
+======================================================================
+FAIL: test_actual_three_profile_samplers_keep_adc_observation_separate (test_record_complete.RecordCompleteTests.test_actual_three_profile_samplers_keep_adc_observation_separate) (profile=18)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_record_complete.py", line 27, in test_actual_three_profile_samplers_keep_adc_observation_separate
+    self.assertEqual(p.returncode,0,p.stdout+p.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : In file included from /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_first_conversion.c:3,
+                 from /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_record_complete.c:3:
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_record_complete.c: In function ‘main’:
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_record_complete.c:37:31: error: ‘m_status’ has no member named ‘included_negative_samples’; did you mean ‘excluded_negative_samples’?
+   37 |         assert(sampler.status.included_negative_samples>0);
+      |                               ^~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+======================================================================
+FAIL: test_actual_three_profile_samplers_keep_adc_observation_separate (test_record_complete.RecordCompleteTests.test_actual_three_profile_samplers_keep_adc_observation_separate) (profile=17)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_record_complete.py", line 27, in test_actual_three_profile_samplers_keep_adc_observation_separate
+    self.assertEqual(p.returncode,0,p.stdout+p.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : In file included from /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_first_conversion.c:3,
+                 from /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_record_complete.c:3:
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_record_complete.c: In function ‘main’:
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_record_complete.c:37:31: error: ‘m_status’ has no member named ‘included_negative_samples’; did you mean ‘excluded_negative_samples’?
+   37 |         assert(sampler.status.included_negative_samples>0);
+      |                               ^~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+======================================================================
+FAIL: test_actual_three_profile_samplers_keep_adc_observation_separate (test_record_complete.RecordCompleteTests.test_actual_three_profile_samplers_keep_adc_observation_separate) (profile=16)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_record_complete.py", line 27, in test_actual_three_profile_samplers_keep_adc_observation_separate
+    self.assertEqual(p.returncode,0,p.stdout+p.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : In file included from /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/firmware/sampler/sampler.h:3,
+                 from /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_first_conversion.c:2,
+                 from /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_record_complete.c:3:
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/firmware/common/monitor.h:22:2: error: #error Unsupported measurement profile
+   22 | #error Unsupported measurement profile
+      |  ^~~~~
+In file included from /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_first_conversion.c:3:
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_record_complete.c: In function ‘main’:
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_record_complete.c:37:31: error: ‘m_status’ has no member named ‘included_negative_samples’; did you mean ‘excluded_negative_samples’?
+   37 |         assert(sampler.status.included_negative_samples>0);
+      |                               ^~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/firmware/common/sensor.c:1:
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/firmware/common/monitor.h:22:2: error: #error Unsupported measurement profile
+   22 | #error Unsupported measurement profile
+      |  ^~~~~
+In file included from /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/firmware/sampler/sampler.h:3,
+                 from /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/firmware/sampler/sampler.c:1:
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/firmware/common/monitor.h:22:2: error: #error Unsupported measurement profile
+   22 | #error Unsupported measurement profile
+      |  ^~~~~
+In file included from /home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/firmware/common/phase.c:1:
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/firmware/common/monitor.h:22:2: error: #error Unsupported measurement profile
+   22 | #error Unsupported measurement profile
+      |  ^~~~~
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/firmware/common/phase.c: In function ‘ready_snapshot’:
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/firmware/common/phase.c:86:29: error: ‘M_REQUIRED_RAILS’ undeclared (first use in this function)
+   86 |         (t.conversion_ready&M_REQUIRED_RAILS)==M_REQUIRED_RAILS&&
+      |                             ^~~~~~~~~~~~~~~~
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/firmware/common/phase.c:86:29: note: each undeclared identifier is reported only once for each function it appears in
+/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/firmware/common/phase.c:91:1: error: control reaches end of non-void function [-Werror=return-type]
+   91 | }
+      | ^
+cc1: all warnings being treated as errors
+
+
+======================================================================
+FAIL: test_sixteen_scope_sums_only_included_rails_and_preserves_raw (test_record_complete.RecordCompleteTests.test_sixteen_scope_sums_only_included_rails_and_preserves_raw)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_record_complete.py", line 46, in test_sixteen_scope_sums_only_included_rails_and_preserves_raw
+    try:policy=profiles.metadata('diagnostic16')
+               ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/host/profiles.py", line 10, in metadata
+    raise ValueError('unknown measurement profile '+str(profile))
+ValueError: unknown measurement profile diagnostic16
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_record_complete.py", line 47, in test_sixteen_scope_sums_only_included_rails_and_preserves_raw
+    except ValueError:self.fail('diagnostic16 is missing')
+                      ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: diagnostic16 is missing
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.342s
+
+FAILED (failures=4, errors=2)

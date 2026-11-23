@@ -1,0 +1,6 @@
+source,bytes,reason
+/home/user/Desktop/ff_vit_re/image_lianghu/metadata/qat_subset1000_seed20260923.jsonl,327970209,metadata_over_8_MiB_source_builders_retained
+/home/user/Desktop/ff_vit_re/image_lianghu/metadata/qat_subset100_seed20260923.jsonl,32203817,metadata_over_8_MiB_source_builders_retained
+/home/user/Desktop/ff_vit_re/image_lianghu/metadata/qat_subset300_seed20260923.jsonl,97872446,metadata_over_8_MiB_source_builders_retained
+/home/user/Desktop/ff_vit_re/image_lianghu/metadata/qat_subset500_seed20260923.jsonl,163540985,metadata_over_8_MiB_source_builders_retained
+/home/user/Desktop/ff_vit_re/image_lianghu/metadata/qat_subset700_seed20260923.jsonl,229210595,metadata_over_8_MiB_source_builders_retained

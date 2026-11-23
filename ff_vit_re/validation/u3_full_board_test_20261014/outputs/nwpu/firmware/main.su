@@ -1,0 +1,14 @@
+/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/board_300mhz/workspace/e07_platform/export/e07_platform/sw/standalone_psu_cortexa53_0/include/xil_io.h:135:19:Xil_In32	16	static
+/home/user/Desktop/FF_Vit/E04_weight_schedule/E07_timing_300mhz/board_300mhz/workspace/e07_platform/export/e07_platform/sw/standalone_psu_cortexa53_0/include/xil_io.h:209:20:Xil_Out32	32	static
+/home/user/Desktop/ff_vit_re/validation/u3_full_board_test_20261014/outputs/nwpu/firmware/accuracy_math.h:5:23:e07_decode_s19	16	static
+/home/user/Desktop/ff_vit_re/validation/u3_full_board_test_20261014/outputs/nwpu/firmware/accuracy_math.h:9:20:e07_top5	96	static
+/home/user/Desktop/ff_vit_re/validation/u3_full_board_test_20261014/outputs/nwpu/firmware/accuracy_math.h:20:24:e07_crc32	48	static
+/home/user/Desktop/ff_vit_re/validation/u3_full_board_test_20261014/outputs/nwpu/firmware/accuracy_math.h:34:19:e07_valid_header	32	static
+/home/user/Desktop/ff_vit_re/validation/u3_full_board_test_20261014/outputs/nwpu/firmware/main.c:28:12:read_exact	64	static
+/home/user/Desktop/ff_vit_re/validation/u3_full_board_test_20261014/outputs/nwpu/firmware/main.c:39:12:load_file	704	static
+/home/user/Desktop/ff_vit_re/validation/u3_full_board_test_20261014/outputs/nwpu/firmware/main.c:47:12:write_exact	64	static
+/home/user/Desktop/ff_vit_re/validation/u3_full_board_test_20261014/outputs/nwpu/firmware/main.c:52:12:initialize_hardware	48	static
+/home/user/Desktop/ff_vit_re/validation/u3_full_board_test_20261014/outputs/nwpu/firmware/main.c:62:12:run_one_frame	48	static
+/home/user/Desktop/ff_vit_re/validation/u3_full_board_test_20261014/outputs/nwpu/firmware/main.c:90:12:baseline_check	32	static
+/home/user/Desktop/ff_vit_re/validation/u3_full_board_test_20261014/outputs/nwpu/firmware/main.c:108:12:evaluate	5952	static
+/home/user/Desktop/ff_vit_re/validation/u3_full_board_test_20261014/outputs/nwpu/firmware/main.c:264:5:main	16	static

@@ -1,0 +1,9 @@
+{
+  "source": "/home/user/Desktop/FF_Vit/论文修改 (1).docx",
+  "source_sha256": "de1bb40a5cb30e300686918b59358f17990757b51c3eff65d9008dd7daa61ac1",
+  "output": "论文修改 (1)_E07_待RTL补测.docx",
+  "output_sha256": "cca8faa6bda88557a96839c255ea87b77ef3ddda9ee6a80cc26964e042fdca25",
+  "rtl_included": false,
+  "editable_tables": 11,
+  "preserved_accuracy_section": true
+}

@@ -1,0 +1,2408 @@
+--- /dev/null
++++ diagnostic17/DIAGNOSTIC17_NOTES_CN.txt
+@@ -0,0 +1,61 @@
++E07 双核 PS 测量镜像　2026-11-22
++
++strict18 默认积分全部18轨。diagnostic17 固定排除编号7（VCCOPS），结果名称为
++17-rail diagnostic。两套镜像均读取、配置和保存全部18轨，PL、模型与冻结数据相同。
++每次更换模式均需复制对应目录的全部5个文件、核对新收据、重新上电并完成匹配的实物验收。
++
++选用 strict18 时，复制 SD_CARD 中的文件到已备份的 SD 卡根目录。选用 diagnostic17 时，
++复制 SD_CARD_DIAG17 中的文件到卡根目录，包括该目录自己的 BOOT.BIN 和 FIRMWARE_IDENTITY.json。
++请在包外保存收据、controls.json、验收、正式结果和分析。下面假定已进入新解压目录，
++$ctl 和 $board 分别指向已填好实物条件的 controls.json 和板卡实际标签。先确认 E:\ 是目标卡。
++Formal 默认执行全部条件。仅测 Target120 时加 -Target120Only，默认每条件120秒、五轮。
++
++  $board = '实际板卡标签'
++  $ctl = 'D:\E07 results\controls.json'
++  python -B -S .\package.py --check-only
++  .\Run-PowerRetest.ps1 -CheckOnly
++  .\Run-PowerRetest.ps1 -PrepareSD -SDRoot E:\ -SDReceipt 'D:\E07 results\strict-card.json'
++  .\Run-PowerRetest.ps1 -Acceptance -SDReceipt 'D:\E07 results\strict-card.json' -Controls $ctl -BoardId $board -Output 'D:\E07 results\strict-accept'
++  .\Run-PowerRetest.ps1 -Formal -SDReceipt 'D:\E07 results\strict-card.json' -Controls $ctl -BoardId $board -AcceptanceSession 'D:\E07 results\strict-accept\session.json' -Output 'D:\E07 results\strict-formal'
++  .\Run-PowerRetest.ps1 -Analyze -Session 'D:\E07 results\strict-formal' -AcceptanceSession 'D:\E07 results\strict-accept\session.json' -Output 'D:\E07 results\strict-analysis'
++
++  .\Run-PowerRetest.ps1 -CheckOnly -Diagnostic17
++  .\Run-PowerRetest.ps1 -PrepareSD -Diagnostic17 -SDRoot E:\ -SDReceipt 'D:\E07 results\diag-card.json'
++  .\Run-PowerRetest.ps1 -Acceptance -Diagnostic17 -SDReceipt 'D:\E07 results\diag-card.json' -Controls $ctl -BoardId $board -Output 'D:\E07 results\diag-accept'
++  .\Run-PowerRetest.ps1 -Formal -Diagnostic17 -SDReceipt 'D:\E07 results\diag-card.json' -Controls $ctl -BoardId $board -AcceptanceSession 'D:\E07 results\diag-accept\session.json' -Output 'D:\E07 results\diag-formal'
++  .\Run-PowerRetest.ps1 -Analyze -Diagnostic17 -Session 'D:\E07 results\diag-formal' -AcceptanceSession 'D:\E07 results\diag-accept\session.json' -Output 'D:\E07 results\diag-analysis'
++
++Python 等效参数为 --diagnostic17，可用于 host/collect.py 或 host/analyze.py。先启动采集器，
++待出现 Listening 后再给装有对应卡的板上电。功耗条件、网络和回传目录详见下文。
++如需保存终端输出，可在包外用 Start-Transcript -Path 'D:\E07 results\run1.txt' 记录，
++运行结束用 Stop-Transcript 停止记录。返回完整验收、正式目录、收据、控制文件和终端日志。
++
++Rail7 在两种模式下均保留原始 shunt/current/Power、CVRF、时戳、flags。诊断模式中，
++该轨已观察到及时的真实转换，且唯一异常为 NEGATIVE（256或258）时，累计
++excluded_negative_samples。该次记录的 power_uW 为 INT64_MIN，VALID 位为0。
++Rail7 的正值同样不积分。原始数据在 exports/rails-*.bin、rails-records.json，
++逐条对应的 Rail7 副本在 exports/rail7-records.json。Rail7 的 I2C、溢出、饱和、时钟、
++过期、缺测及组合错误，或其余17轨的任何错误，仍会阻止有效结果。没有设置噪声阈值。
++两个镜像均要求18轨完成配置和及时的首次转换观察；诊断模式要求 included_mask=262015
++覆盖的17轨取得合格功率。每一轨的后续 CVRF 新鲜度与真实数据覆盖继续验证。
++
++报告中的 measurement_profile、scope、included_mask、included_count、excluded_rails
++标明计量范围。诊断模式能量取17轨同一板端窗口积分之和，P17mean_W=E/T，
++实际 FPS=N_ok/T，mJ/完成帧=1000E/N_ok。Idle 或零完成帧时该项为空。
++Rail7 的积分能量、均值、每帧能量均为空。诊断指标仅描述这17轨，不能代表完整18轨或外部输入功率。
++
++r7 分析前逐条核对 session.json 中的阶段摘要与所选计量模式，COMPLETE 会话的摘要数必须等于计划阶段数。
++缺少或多出摘要均拒绝；未完成会话仍支持部分诊断。r7 仅运行该项定向回归，结果见 r7-green.log。
++包内 full-suite.log 的 111 项完整测试对应 r5。
++
++校验更新（r5）：验收授权与离线分析共用完整阶段复核，重验板端时钟、全部输出/错误事件、
++主机已验证响应和 ACK 完成数。诊断 Rail7 的累计告警从预热、ARM 前、ARM 回执至冻结结束必须单调；
++ARM 前到结束的增量至少涵盖导出的负值告警行，可包含额外未导出的扫描。嵌套的档位/身份冲突会中止分析。
++阶段或会话门失败时，逐轨有效性为 false，完整能量、平均功率和每帧能耗为空；partial_energy_J
++及覆盖率用于故障复核。两种时钟分别报告：dropped_frames 按独立主机半开窗口内产生、最终被淘汰的帧计数；
++missed_slots 按同一主机窗口内的计划时刻计数。whole_run_evicted_frames 与 whole_run_missed_slots
++保留含预热/排空的全程计数。未建立主机与板卡时钟映射，board_window_dropped_frames 为空。
++
++实物 ZCU102、Windows PowerShell、实际 SD 卡、本次两套镜像实物验收及正式 Target120 均为 NOT_RUN。
++离线夹具中的数值只验证计算；历史失败记录保持原判定。两个独立构建的依赖分别见
++BUILD_DEPENDENCIES.json 和 BUILD_DEPENDENCIES_DIAG17.json。DIAGNOSTIC17.diff 以 r2 ZIP 源码为基线。
+--- r2/PROTOCOL.md
++++ diagnostic17/PROTOCOL.md
+@@ -24,19 +24,26 @@
+ greeting uses ID 0. Use distinct nonzero request IDs, including every business
+ frame, and persist their stream/sequence/phase association on the host.
+ 
+-The greeting's exact fields are:
++The service and sampler use shared ABI version 3 and compare their compiled rail count and firmware identity before sampling can qualify. Both images emit the following fields in the greeting, status, control replies and export metadata. The host binds the same fields to SD receipts, plans, sessions, acceptance and derived CSV rows.
++
++| measurement_profile | scope | included_mask | included_count | excluded_rails |
++| --- | --- | ---: | ---: | --- |
++| strict18 | 18 monitored supply rails; not external whole-board input power | 262143 | 18 | [] |
++| diagnostic17 | 17-rail diagnostic | 262015 | 17 | [7] |
++
++The strict18 greeting contains these exact fields.
+ 
+ ```json
+-{"artifact_hashes":{"bitstream":"64 hex","input":"64 hex","output":"64 hex","weights":"64 hex","xsa":"64 hex"},"board_ip":"192.168.10.2","firmware_sha256":"64 hex","model":"E07","phase":"E07_INDEPENDENT_CANDIDATE","tcp_port":5001,"candidate":"E07_INDEPENDENT_POWER_V1","protocol_schema":1,"physical_status":"NOT_RUN","sampler_cpu":"a53-1","service_cpu":"a53-0"}
++{"measurement_profile":"strict18","scope":"18 monitored supply rails; not external whole-board input power","included_mask":262143,"included_count":18,"excluded_rails":[],"artifact_hashes":{"bitstream":"64 hex","input":"64 hex","output":"64 hex","weights":"64 hex","xsa":"64 hex"},"board_ip":"192.168.10.2","firmware_sha256":"64 hex","model":"E07","phase":"E07_INDEPENDENT_CANDIDATE","tcp_port":5001,"candidate":"E07_INDEPENDENT_POWER_V1","protocol_schema":1,"physical_status":"NOT_RUN","sampler_cpu":"a53-1","service_cpu":"a53-0"}
+ ```
+ 
+-`firmware_sha256` must equal `FIRMWARE_IDENTITY.json.firmware_sha256` in the
++`firmware_sha256` must equal the selected root identity’s `firmware_sha256` in the
+ delivered package. It is the SHA-256 of `canonical_payload` encoded by Python
+ `json.dumps(payload,sort_keys=True,separators=(',',':')).encode()`; it binds both
+ cores' source, linker scripts, build scripts, BSP libraries, compiler options,
+ frozen artifacts and bootloader/PMU images. It is not an ELF or BOOT file hash.
+ Validate those separately against the manifest. Reject old E07_PHYSICAL or
+-diagnostic firmware, a different candidate/schema, or any identity/hash mismatch.
++legacy diagnostic firmware, a different measurement profile, a different candidate/schema, or any identity/hash mismatch.
+ 
+ Frozen SHA-256 values:
+ 
+@@ -79,7 +86,7 @@
+ | power_finish | {} | kind 4 status | Requires now>=t1+timer_hz, sampler DONE and no business ACK pending; freezes export |
+ | power_release | {} | kind 4 status | DONE only; explicitly relinquishes previous logs and permits another phase |
+ | power_export_config | count=record offset | kind 1 | IDLE or DONE only; 18 configuration records |
+-| power_export_latest | count=record offset | kind 1 | IDLE or DONE only; coherent cached 18-rail scan; first invalid scan is frozen until reboot |
++| power_export_latest | count=record offset | kind 1 | IDLE or DONE only; coherent cached 18-rail scan; first fatal scan is frozen until reboot |
+ | power_export_rails | count=record offset | kind 1 | DONE only; rail records |
+ | power_export_events | count=record offset | kind 1 | DONE only; business-core events |
+ | power_export_temperatures | count=record offset | kind 1 | DONE only; one-second temperature observations |
+@@ -125,7 +132,8 @@
+ | now_ticks, sampler_heartbeat | current service observation and sampler publication tick |
+ | clock_checks, heartbeat_advances | successful bracketed clock observations and heartbeat advances |
+ | configured_mask, configured_tick | must be 262143 (all 18 bits); configuration-complete tick |
+-| conversion_ready_mask | must be262143 before arm; each bit requires an actual post-configuration CVRF observation followed by a valid payload |
++| conversion_ready_mask | must contain all included_mask bits before arm. Each set bit requires an actual post-configuration CVRF observation followed by a valid payload |
++| observed_mask, sampler_profile_rails, excluded_negative_samples | all 18 timely physical observations (262143), compiled sampler count, cumulative diagnostic Rail7 negative-only rows |
+ | initializing_samples | cumulative unqualified startup reads before first conversion; not invalid samples or independent ADC conversions |
+ | mode, sampling_enabled, scan_ms, offset_ms | selected configuration; mode values above |
+ | t0, t1 | formal half-open board window [t0,t1) |
+@@ -194,7 +202,7 @@
+ 
+ ## Export metadata and little-endian records
+ 
+-Each export has JSON fields `schema:1`, `record_type`, `phase_id`, `first`,
++Each export carries the five profile fields and JSON fields `schema:1`, `record_type`, `phase_id`, `first`,
+ `count`, `total`, `record_bytes`, `next`, `done` (boolean). `first` is a record
+ index, not a byte offset. `count=min(256,total-first)`, `next=first+count`.
+ `first==total` returns a zero-length payload with done=true; `first>total` fails.
+@@ -229,7 +237,7 @@
+ 
+ `power_export_latest` uses the same128-byte rail format but seq is the rail
+ index0..17. It is a diagnostic snapshot, not a phase log: before the first fault
+-it is the latest complete scan; the first scan containing any invalid reading
++it is the latest complete scan; the first scan containing a fatal sensor reading
+ is frozen until reboot, preserving pre-arm raw failure evidence even if later
+ reads recover. A separate seqlock protects the complete18-rail publication, and
+ the service copies a coherent snapshot into its own stable transmit buffer.
+@@ -258,13 +266,13 @@
+ per-rail integration independently enforce this same transaction ordering.
+ transport/overflow/clock errors still fault immediately. Formal logging cannot
+ admit unqualified startup reads. Any faulty sample latches a sampler fault.
+-The shared-memory ABI version is2; wire record sizes/schema remain unchanged.
++The shared-memory ABI version is3; wire record sizes/schema remain unchanged.
+ Use only matching newly built firmware/host identities, never mixed core images.
+ 
+ A small negative signed reading is not labeled ADC saturation. It can reflect
+ offset/noise or reverse current. Because the primary Power register is unsigned
+ and this candidate has no validated reverse-current interpretation, flag256
+-fails closed without clipping or substituting a different power estimate.
++invalidates the rail power. Under diagnostic17 only, rail 7 with exactly flags 256 or 258 after a timely CVRF increments excluded_negative_samples and does not latch a sensor fault. The record retains INT64_MIN and every raw register. Positive rail 7 also contributes no energy. The metric integrates rails 0–6 and 8–17. The readiness gate still checks physical observations and continued freshness on all 18 rails.
+ Historical board diagnostics have shown rail15 shunt=-1/-2; this policy may
+ prevent arm on that board. Preserve the frozen diagnostic scan and resolve the
+ measurement interpretation before formal testing. Compilation does not qualify
+@@ -313,6 +321,12 @@
+ type6/mode3 inside that window. Cross-check against status completed counters.
+ Inference intervals and rail read intervals permit temporal overlap checks;
+ they do not prove ADC conversion windows overlap PL activity.
++
++## Acceptance replay and drop accounting
++
++Live authorization and offline analysis evaluate each phase against the same binary records, coherent statuses, board markers and error events, verified host responses, and matched completion IDs. Excluded-negative counters must be monotonic through warmup, the pre-arm status, arm ACK, subsequent observations, and frozen end. The pre-arm-to-end delta must cover every exported Rail7 warning. Additional unexported warnings may occur. An invalid parent phase/session clears complete rail metrics. Identity and profile contradictions in linked acceptance stop analysis before derived files are created.
++
++Stage `dropped_frames` counts eventual evictions of frames produced in the half-open host monotonic window. `missed_slots` counts skipped scheduled deadlines in that window, including the appropriate part of a missed block that straddles a boundary. Producers persist the schedule origin. Whole-run totals retain warmup, guards and drain. The host window is recorded separately from board [t0,t1), so `board_window_dropped_frames` is null.
+ 
+ ## Rail table, memory and manifest contract
+ 
+@@ -365,7 +379,7 @@
+ `FIRMWARE_IDENTITY.json` top-level fields: schema, candidate, firmware_sha256,
+ advertised_sha256, canonical_payload, artifact_hashes, physical_status,
+ PL_rebuilt, protocol_schema, ELF, BOOT, build_directory, memory_map, capacity,
+-checks. ELF has service/sampler entries, each path/bytes/sha256. BOOT has
++checks plus the five profile fields above. The diagnostic package uses FIRMWARE_IDENTITY_DIAG17.json, SHA256SUMS_DIAG17.json and SD_CARD_DIAG17. ELF has service/sampler entries, each path/bytes/sha256. BOOT has
+ path/bytes/sha256. memory_map has service/sampler begin/end/segments/allowed and
+ shared begin/end/attributes. capacity has rail_records,rail_record_bytes,
+ event_records,event_record_bytes,temperature_records,temperature_record_bytes,
+@@ -373,7 +387,7 @@
+ capacity_checked_seconds. checks has frozen_inputs,
+ native_tests,ELF_regions,BOOT_cpu_partitions,physical_startup,power_acceptance.
+ `SHA256SUMS.json` maps candidate SD_CARD relative paths to bytes/sha256.
+-`build/provenance.json` records copied-source origin and SHA-256; each build
++Each selected build directory contains its own provenance.json with copied-source origin and SHA-256. Each build
+ attempt retains commands.json, native_tests.log, compiler/link logs, both maps,
+ disassemblies, memory_map_check.json, independent.bif, bootgen.log and
+ boot_partition_headers.log. These are offline evidence, not board validation.
+--- r2/README_CN.txt
++++ diagnostic17/README_CN.txt
+@@ -1,5 +1,66 @@
+-E07 双核独立采样候选包 / Windows 操作说明
+-版本：2026-11-22 首次转换修复版，E07_INDEPENDENT_POWER_V1
++E07 双核 PS 测量镜像　2026-11-22
++
++strict18 默认积分全部18轨。diagnostic17 固定排除编号7（VCCOPS），结果名称为
++17-rail diagnostic。两套镜像均读取、配置和保存全部18轨，PL、模型与冻结数据相同。
++每次更换模式均需复制对应目录的全部5个文件、核对新收据、重新上电并完成匹配的实物验收。
++
++选用 strict18 时，复制 SD_CARD 中的文件到已备份的 SD 卡根目录。选用 diagnostic17 时，
++复制 SD_CARD_DIAG17 中的文件到卡根目录，包括该目录自己的 BOOT.BIN 和 FIRMWARE_IDENTITY.json。
++请在包外保存收据、controls.json、验收、正式结果和分析。下面假定已进入新解压目录，
++$ctl 和 $board 分别指向已填好实物条件的 controls.json 和板卡实际标签。先确认 E:\ 是目标卡。
++Formal 默认执行全部条件。仅测 Target120 时加 -Target120Only，默认每条件120秒、五轮。
++
++  $board = '实际板卡标签'
++  $ctl = 'D:\E07 results\controls.json'
++  python -B -S .\package.py --check-only
++  .\Run-PowerRetest.ps1 -CheckOnly
++  .\Run-PowerRetest.ps1 -PrepareSD -SDRoot E:\ -SDReceipt 'D:\E07 results\strict-card.json'
++  .\Run-PowerRetest.ps1 -Acceptance -SDReceipt 'D:\E07 results\strict-card.json' -Controls $ctl -BoardId $board -Output 'D:\E07 results\strict-accept'
++  .\Run-PowerRetest.ps1 -Formal -SDReceipt 'D:\E07 results\strict-card.json' -Controls $ctl -BoardId $board -AcceptanceSession 'D:\E07 results\strict-accept\session.json' -Output 'D:\E07 results\strict-formal'
++  .\Run-PowerRetest.ps1 -Analyze -Session 'D:\E07 results\strict-formal' -AcceptanceSession 'D:\E07 results\strict-accept\session.json' -Output 'D:\E07 results\strict-analysis'
++
++  .\Run-PowerRetest.ps1 -CheckOnly -Diagnostic17
++  .\Run-PowerRetest.ps1 -PrepareSD -Diagnostic17 -SDRoot E:\ -SDReceipt 'D:\E07 results\diag-card.json'
++  .\Run-PowerRetest.ps1 -Acceptance -Diagnostic17 -SDReceipt 'D:\E07 results\diag-card.json' -Controls $ctl -BoardId $board -Output 'D:\E07 results\diag-accept'
++  .\Run-PowerRetest.ps1 -Formal -Diagnostic17 -SDReceipt 'D:\E07 results\diag-card.json' -Controls $ctl -BoardId $board -AcceptanceSession 'D:\E07 results\diag-accept\session.json' -Output 'D:\E07 results\diag-formal'
++  .\Run-PowerRetest.ps1 -Analyze -Diagnostic17 -Session 'D:\E07 results\diag-formal' -AcceptanceSession 'D:\E07 results\diag-accept\session.json' -Output 'D:\E07 results\diag-analysis'
++
++Python 等效参数为 --diagnostic17，可用于 host/collect.py 或 host/analyze.py。先启动采集器，
++待出现 Listening 后再给装有对应卡的板上电。功耗条件、网络和回传目录详见下文。
++如需保存终端输出，可在包外用 Start-Transcript -Path 'D:\E07 results\run1.txt' 记录，
++运行结束用 Stop-Transcript 停止记录。返回完整验收、正式目录、收据、控制文件和终端日志。
++
++Rail7 在两种模式下均保留原始 shunt/current/Power、CVRF、时戳、flags。诊断模式中，
++该轨已观察到及时的真实转换，且唯一异常为 NEGATIVE（256或258）时，累计
++excluded_negative_samples。该次记录的 power_uW 为 INT64_MIN，VALID 位为0。
++Rail7 的正值同样不积分。原始数据在 exports/rails-*.bin、rails-records.json，
++逐条对应的 Rail7 副本在 exports/rail7-records.json。Rail7 的 I2C、溢出、饱和、时钟、
++过期、缺测及组合错误，或其余17轨的任何错误，仍会阻止有效结果。没有设置噪声阈值。
++两个镜像均要求18轨完成配置和及时的首次转换观察；诊断模式要求 included_mask=262015
++覆盖的17轨取得合格功率。每一轨的后续 CVRF 新鲜度与真实数据覆盖继续验证。
++
++报告中的 measurement_profile、scope、included_mask、included_count、excluded_rails
++标明计量范围。诊断模式能量取17轨同一板端窗口积分之和，P17mean_W=E/T，
++实际 FPS=N_ok/T，mJ/完成帧=1000E/N_ok。Idle 或零完成帧时该项为空。
++Rail7 的积分能量、均值、每帧能量均为空。诊断指标仅描述这17轨，不能代表完整18轨或外部输入功率。
++
++实物 ZCU102、Windows PowerShell、实际 SD 卡、本次两套镜像实物验收及正式 Target120 均为 NOT_RUN。
++离线夹具中的数值只验证计算；历史失败记录保持原判定。两个独立构建的依赖分别见
++BUILD_DEPENDENCIES.json 和 BUILD_DEPENDENCIES_DIAG17.json。DIAGNOSTIC17.diff 以 r2 ZIP 源码为基线。
++
++r7 分析前逐条核对 session.json 中的阶段摘要与所选计量模式，COMPLETE 会话的摘要数必须等于计划阶段数。
++缺少或多出摘要均拒绝；未完成会话仍支持部分诊断。r7 仅运行该项定向回归，结果见 r7-green.log。
++包内 full-suite.log 的 111 项完整测试对应 r5。
++
++校验更新（r5）：验收授权与离线分析共用完整阶段复核，重验板端时钟、全部输出/错误事件、
++主机已验证响应和 ACK 完成数。诊断 Rail7 的累计告警从预热、ARM 前、ARM 回执至冻结结束必须单调；
++ARM 前到结束的增量至少涵盖导出的负值告警行，可包含额外未导出的扫描。嵌套的档位/身份冲突会中止分析。
++阶段或会话门失败时，逐轨有效性为 false，完整能量、平均功率和每帧能耗为空；partial_energy_J
++及覆盖率用于故障复核。两种时钟分别报告：dropped_frames 按独立主机半开窗口内产生、最终被淘汰的帧计数；
++missed_slots 按同一主机窗口内的计划时刻计数。whole_run_evicted_frames 与 whole_run_missed_slots
++保留含预热/排空的全程计数。未建立主机与板卡时钟映射，board_window_dropped_frames 为空。
++
++补充说明（strict18 的详细示例和共用操作）
+ 
+ 本次修复：先观察真实CVRF再读取数据；每轨首次转换完成前不标有效、不积分。
+ configured_mask只证明配置读回；conversion_ready_mask=262143才证明18轨均有过
+@@ -124,7 +185,7 @@
+ 旧清单反斜杠仅在内存比较时规范化，拒绝绝对路径、盘符、遍历及规范化冲突；
+ 不会重写原 inventory.json，验收绑定仍校验其原始文件字节哈希。
+ 输出 analysis.json、per-stage.csv（逐阶段/逐重复）、per-repeat.csv（条件均值及样本SD）。
+-仅当18轨均完整覆盖且所有语义/验收门通过，使用板端实际[t0,t1)积分：逐轨Power
++两种模式均要求18轨原始数据完整覆盖且所有语义/验收门通过，使用板端实际[t0,t1)积分：逐轨Power
+ 实际读取区间中点、有效相邻样本梯形积分；边界只插值，不外推。>150ms逐轨间隙、
+ 无效记录、缺轨或无边界任一项使整阶段功率/能量为空；部分覆盖另列诊断。
+ 总能量E先逐轨积分后求和，平均功率E/T；FPS=N_ok/T；完成帧能耗1000E/N_ok。
+@@ -147,11 +208,11 @@
+ 及原service BSP，安装 AMD Vitis2025.1（Linux /opt/vivado/2025.1/Vitis）。
+ sampler BSP须用 build_platform.py 的明确64位EL3/USE_AMP配置在新工作区生成。
+ 浅层解压可导入纯固件地址验证器；实际重新构建仍必须具备上述原工程布局及依赖。
+-然后运行 build_firmware.py；检查新身份的每个BSP库/头、完整commands与原身份的差异。
++严格模式运行 python -B build_firmware.py，诊断模式运行 python -B build_firmware.py --diagnostic17；检查新身份的每个BSP库/头、完整commands与原身份的差异。
+ 工具版本/依赖不同导致新身份时，不能仍把它冒认为本包固件；重新生成收据与上板验收。
+ 本包没有独立解释器或GUI构建依赖；普通采集/分析无需Vitis，仅重新编译才需要它。
+ 离线Python测试：python -B -S -m unittest discover -s '...\tests' -p test_host.py -v
+ 分析测试：python -B -S -m unittest discover -s '...\tests' -p test_analysis.py -v
+ 固件测试含C/AArch64编译器依赖，仅在上述Linux工具环境运行；Windows未运行。
+ package.py --build 创建新命名ZIP，不覆盖既有包；PACKAGE_SHA256SUMS不含自身。
+-最终ZIP哈希/离线测试报告保留在ZIP外，避免自引用清单。最终资格仍以实物验收为准。
++包内 execution/diagnostic17_20261122/full-suite.log 保存完整离线测试输出。最终ZIP哈希及交付核对报告保留在ZIP外，避免自引用清单。最终资格仍以实物验收为准。
+--- r2/Run-PowerRetest.ps1
++++ diagnostic17/Run-PowerRetest.ps1
+@@ -5,6 +5,9 @@
+     [switch]$Acceptance,
+     [switch]$Formal,
+     [switch]$Target120Only,
++    [switch]$Diagnostic17,
++    [switch]$Analyze,
++    [string]$Session,
+     [string]$SDRoot,
+     [string]$SDReceipt,
+     [string]$AcceptanceSession,
+@@ -40,8 +43,19 @@
+ $cli = @('-B', '-S', (Join-Path $PSScriptRoot 'host/collect.py'))
+ if ($Help) { $cli += '--help' }
+ else {
+-    $actions = @($CheckOnly, $PrepareSD, $Acceptance, $Formal) | Where-Object { $_ }
+-    if ($actions.Count -ne 1) { throw 'Choose exactly one: -CheckOnly, -PrepareSD, -Acceptance, -Formal. Use -Help.' }
++    $actions = @($CheckOnly, $PrepareSD, $Acceptance, $Formal, $Analyze) | Where-Object { $_ }
++    if ($actions.Count -ne 1) { throw 'Choose exactly one: -CheckOnly, -PrepareSD, -Acceptance, -Formal, -Analyze. Use -Help.' }
++    if ($Analyze) {
++        if (-not $Session -or -not $Output -or $Target120Only) { throw 'Analysis requires -Session and -Output.' }
++        $cli = @('-B', '-S', (Join-Path $PSScriptRoot 'host/analyze.py'), $Session, '--output', $Output)
++        if ($Diagnostic17) { $cli += '--diagnostic17' }
++        if ($AcceptanceSession) { $cli += @('--acceptance-session', $AcceptanceSession) }
++        $program = $chosen[0]
++        $prefix = @($chosen | Select-Object -Skip 1)
++        & $program @prefix @cli
++        exit $LASTEXITCODE
++    }
++    if ($Diagnostic17) { $cli += '--diagnostic17' }
+     if ($CheckOnly) { $cli += '--check-only' }
+     if ($PrepareSD) { $cli += '--prepare-sd' }
+     if ($Acceptance) { $cli += '--acceptance' }
+--- r2/build_firmware.py
++++ diagnostic17/build_firmware.py
+@@ -5,6 +5,7 @@
+ updated, and each previous generated BOOT remains in its build attempt.
+ """
+ from pathlib import Path
++import argparse
+ import hashlib
+ import json
+ import shlex
+@@ -70,8 +71,14 @@
+     VENDOR=ROOT/'Cloud_test/e07/vendor/e07_base'
+     if not VENDOR.is_dir():
+         raise FileNotFoundError('Rebuild requires repository layout with frozen inputs at '+str(VENDOR))
++    from host import profiles
++    parser=argparse.ArgumentParser(description=__doc__)
++    parser.add_argument('--diagnostic17',action='store_true')
++    profile=profiles.DIAGNOSTIC if parser.parse_args().diagnostic17 else profiles.STRICT
++    policy=profiles.metadata(profile)
++    identity_name,sums_name,sd_name=profiles.paths(profile)
+     build=HERE/'build';build.mkdir(exist_ok=True)
+-    run_dir=Path(tempfile.mkdtemp(prefix='candidate_',dir=build))
++    run_dir=Path(tempfile.mkdtemp(prefix='candidate_'+profile+'_',dir=build))
+     commands=[]
+     def run(command,log):
+         commands.append([str(x) for x in command])
+@@ -93,18 +100,19 @@
+         if not (path/'lib/libxilstandalone.a').exists():raise FileNotFoundError('Missing generated BSP '+str(path))
+     sources={str(p.relative_to(HERE)):sha(p) for p in sorted((HERE/'firmware').rglob('*')) if p.is_file()}
+     sources.update({p.name:sha(p) for p in (HERE/'build_firmware.py',HERE/'build_platform.py')})
++    sources['host/profiles.py']=sha(HERE/'host/profiles.py')
+     libraries={name:{p.name:sha(p) for p in sorted((path/'lib').glob('*.a'))} for name,path in bsp.items()}
+     headers={name:{str(p.relative_to(path)):sha(p) for p in sorted((path/'include').rglob('*.h'))}
+              for name,path in bsp.items()}
+     for name,path in bsp.items():headers[name]['Xilinx.spec']=sha(path/'Xilinx.spec')
+-    payload={'schema':'e07-independent-build-v1','candidate':'E07_INDEPENDENT_POWER_V1',
++    payload={**policy,'schema':'e07-independent-build-v1','candidate':'E07_INDEPENDENT_POWER_V1',
+         'sources':sources,'artifact_hashes':inputs,'bsp_libraries':libraries,'bsp_headers':headers,
+         'compiler':str(GCC),'compiler_version':run([str(GCC),'--version'],'compiler_version.log').splitlines()[0],
+-        'options':['-DSDT','-DE07_BATCH_VERIFY=1','-O2','-g','-Wall','-Wextra','-Werror'],
++        'options':['-DE07_PROFILE_RAILS='+str(policy['included_count']),'-include','firmware_build_identity.h','-DSDT','-DE07_BATCH_VERIFY=1','-O2','-g','-Wall','-Wextra','-Werror'],
+         'sampler_bsp_cpu':'psu_cortexa53_1','sampler_USE_AMP':1,'regions':REGIONS,
+         'fsbl_sha256':sha(VENDOR/'fsbl.elf'),'pmufw_sha256':sha(VENDOR/'pmufw.elf')}
+     identity=hashlib.sha256(json.dumps(payload,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+-    (run_dir/'firmware_build_identity.h').write_text('#define E06_FIRMWARE_SHA256 "'+identity+'"\n')
++    (run_dir/'firmware_build_identity.h').write_text('#define E06_FIRMWARE_SHA256 "'+identity+'"\n#define M_BUILD_ID E06_FIRMWARE_SHA256\n')
+     elfs={}
+     for core in ('service','sampler'):
+         src=HERE/'firmware'/core
+@@ -170,17 +178,17 @@
+         upstream=ROOT/'Cloud_test/firmware/e06_net/tests/fake_lwip'/p.name
+         provenance[str(p.relative_to(HERE))]={'upstream':str(upstream.relative_to(ROOT)),
+             'upstream_sha256':sha(upstream),'candidate_sha256':sha(p),'unchanged':sha(upstream)==sha(p)}
+-    (build/'provenance.json').write_text(json.dumps(provenance,indent=2)+'\n')
++    (run_dir/'provenance.json').write_text(json.dumps(provenance,indent=2)+'\n')
+     for name,(filename,expected) in FROZEN.items():
+         if sha(VENDOR/filename)!=expected:raise ValueError('immutable input changed during build')
+-    sd=HERE/'SD_CARD';sd.mkdir(exist_ok=True)
++    sd=HERE/sd_name;sd.mkdir(exist_ok=True)
+     shutil.copy2(boot,sd/'BOOT.BIN')
+     for name in ('input.bin','weights.bin','output.bin'):shutil.copy2(VENDOR/name,sd/name)
+-    manifest={'schema':'e07-independent-firmware-v1','candidate':'E07_INDEPENDENT_POWER_V1',
++    manifest={**policy,'schema':'e07-independent-firmware-v1','candidate':'E07_INDEPENDENT_POWER_V1',
+         'firmware_sha256':identity,'advertised_sha256':identity,'canonical_payload':payload,
+         'artifact_hashes':inputs,'physical_status':'NOT_RUN','PL_rebuilt':False,
+         'protocol_schema':1,'ELF':{n:{'path':str(p.relative_to(HERE)),'bytes':p.stat().st_size,'sha256':sha(p)} for n,p in elfs.items()},
+-        'BOOT':{'path':'SD_CARD/BOOT.BIN','bytes':boot.stat().st_size,'sha256':sha(boot)},
++        'BOOT':{'path':sd_name+'/BOOT.BIN','bytes':boot.stat().st_size,'sha256':sha(boot)},
+         'build_directory':str(run_dir.relative_to(HERE)),'memory_map':memory,
+         'capacity':{'rail_records':180000,'rail_record_bytes':128,'event_records':262144,
+                     'event_record_bytes':64,'temperature_records':1024,'temperature_record_bytes':32,
+@@ -188,11 +196,11 @@
+                     'arm_lead_ms':1250,'capacity_checked_seconds':153},
+         'checks':{'frozen_inputs':'PASS','native_tests':'PASS','ELF_regions':'PASS','BOOT_cpu_partitions':'PASS',
+                   'physical_startup':'NOT_RUN','power_acceptance':'NOT_RUN'}}
+-    (HERE/'FIRMWARE_IDENTITY.json').write_text(json.dumps(manifest,indent=2)+'\n')
++    (HERE/identity_name).write_text(json.dumps(manifest,indent=2)+'\n')
+     (sd/'FIRMWARE_IDENTITY.json').write_text(json.dumps(manifest,indent=2)+'\n')
+     sums={str(p.relative_to(HERE)):{'bytes':p.stat().st_size,'sha256':sha(p)}
+           for p in sorted(sd.iterdir()) if p.is_file()}
+-    (HERE/'SHA256SUMS.json').write_text(json.dumps(sums,indent=2)+'\n')
++    (HERE/sums_name).write_text(json.dumps(sums,indent=2)+'\n')
+     print(json.dumps({'build_directory':str(run_dir),'firmware_sha256':identity,
+                       'BOOT_sha256':sha(boot),'physical_status':'NOT_RUN'},indent=2))
+ 
+--- r2/firmware/common/monitor.h
++++ diagnostic17/firmware/common/monitor.h
+@@ -3,9 +3,24 @@
+ #include <stdint.h>
+ #include <stddef.h>
+ #define M_MAGIC 0x314d5049u
+-#define M_VERSION 2u
++#define M_VERSION 3u
+ #define M_RAILS 18u
+ #define M_ALL_RAILS 0x3ffffu
++#ifndef E07_PROFILE_RAILS
++#define E07_PROFILE_RAILS 18
++#endif
++#ifndef M_BUILD_ID
++#define M_BUILD_ID "native-test"
++#endif
++#if E07_PROFILE_RAILS == 17
++#define M_REQUIRED_RAILS 0x3ff7fu
++#define M_PROFILE_JSON "\"measurement_profile\":\"diagnostic17\",\"scope\":\"17-rail diagnostic\",\"included_mask\":262015,\"included_count\":17,\"excluded_rails\":[7],"
++#elif E07_PROFILE_RAILS == 18
++#define M_REQUIRED_RAILS M_ALL_RAILS
++#define M_PROFILE_JSON "\"measurement_profile\":\"strict18\",\"scope\":\"18 monitored supply rails; not external whole-board input power\",\"included_mask\":262143,\"included_count\":18,\"excluded_rails\":[],"
++#else
++#error Unsupported measurement profile
++#endif
+ #define M_CONFIG ((1u<<14)|(2u<<9)|(4u<<6)|(4u<<3)|7u)
+ #define M_CAL 2048u
+ #define M_RAIL_CAP 180000u
+@@ -70,14 +85,15 @@
+ } m_temperature;
+ typedef struct {
+     uint32_t magic, version, core, enabled, mode, scan_ms, offset_ms, command;
+-    uint32_t phase, command_seq, ping_seq, reserved;
++    uint32_t phase, command_seq, ping_seq, profile_rails;
++    char build_identity[65];
+     uint64_t epoch, hz, heartbeat, ping_tick, t0, t1;
+ } m_control;
+ typedef struct {
+     uint32_t core, configured, faults, phase, state, rail_count, temp_count, scan_count;
+     uint32_t i2c_errors, invalid_samples, stale_samples, scan_overruns, overflows;
+     uint32_t temp_errors, ping_seq, enabled;
+-    uint32_t conversion_ready, initializing_samples;
++    uint32_t conversion_ready, initializing_samples, observed_mask, excluded_negative_samples, profile_rails;
+     uint64_t epoch, hz, heartbeat, ping_tick, configured_tick, scan_start;
+     int32_t temperature_mC;
+     uint32_t temperature_valid;
+--- r2/firmware/common/phase.c
++++ diagnostic17/firmware/common/phase.c
+@@ -61,6 +61,7 @@
+     memset(s,0,sizeof(*s));s->shared=p;s->hz=hz;s->epoch=epoch;
+     __atomic_store_n(&p->control.magic,0,__ATOMIC_RELEASE);
+     m_control c={0};c.version=M_VERSION;c.core=core;c.hz=hz;c.epoch=epoch;
++    c.profile_rails=E07_PROFILE_RAILS;memcpy(c.build_identity,M_BUILD_ID,sizeof(M_BUILD_ID));
+     c.enabled=1;c.scan_ms=20;c.heartbeat=epoch;c.ping_tick=epoch;c.ping_seq=1;
+     copy_to_shared(&p->control,&c,sizeof(c));s->ping_sent=epoch;
+     __atomic_store_n(&p->control.magic,M_MAGIC,__ATOMIC_RELEASE);
+@@ -81,7 +82,8 @@
+ }
+ static int ready_snapshot(const m_service *s,m_status t,uint64_t now) {
+     return t.core==1&&t.epoch==s->epoch&&t.hz==s->hz&&t.configured==M_ALL_RAILS&&
+-        t.conversion_ready==M_ALL_RAILS&&
++        t.profile_rails==E07_PROFILE_RAILS&&t.observed_mask==M_ALL_RAILS&&
++        (t.conversion_ready&M_REQUIRED_RAILS)==M_REQUIRED_RAILS&&
+         t.enabled&&s->shared->control.enabled&&!t.faults&&s->clock_checks>=3&&
+         s->heartbeat_advances>=3&&now>=t.heartbeat&&now-t.heartbeat<=s->hz/4&&
+         now>=t.configured_tick&&now-t.configured_tick>=s->hz&&t.temperature_valid&&
+--- r2/firmware/sampler/sampler.c
++++ diagnostic17/firmware/sampler/sampler.c
+@@ -3,7 +3,9 @@
+ int m_sampler_init(m_sampler *s,m_shared *p,m_io io,unsigned core,uint64_t hz,int (*temp)(uint32_t *,int32_t *)) {
+     memset(s,0,sizeof(*s));s->shared=p;s->io=io;s->temperature=temp;
+     s->status.core=core;s->status.hz=hz;s->status.epoch=p->control.epoch;
+-    if(core!=1||p->control.core!=0||p->control.hz!=hz||p->control.version!=M_VERSION)
++    s->status.profile_rails=E07_PROFILE_RAILS;
++    if(p->control.profile_rails!=E07_PROFILE_RAILS||
++       memcmp(p->control.build_identity,M_BUILD_ID,sizeof(M_BUILD_ID))||core!=1||p->control.core!=0||p->control.hz!=hz||p->control.version!=M_VERSION)
+         s->status.faults|=M_FAULT_HANDSHAKE;
+     for(unsigned rail=0;rail<M_RAILS;rail++) {
+         m_config_record record;
+@@ -55,7 +57,7 @@
+         m_rail_record latest[M_RAILS];int invalid=0;
+         for(unsigned rail=0;rail<M_RAILS;rail++) {
+             m_rail_record r;
+-            int unqualified=!(st->conversion_ready&(1u<<rail));
++            int unqualified=!(st->observed_mask&(1u<<rail));
+             int result=m_sample(&s->io,rail,st->hz,&s->fresh[rail],&r);
+             uint64_t configured=s->shared->configuration[rail].end;
+             if(unqualified) {
+@@ -72,12 +74,20 @@
+                     r.flags|=M_STALE;result=-1;
+                 } else ++st->initializing_samples;
+             }
+-            if(result<0) {
++            int excluded_negative=E07_PROFILE_RAILS==17&&rail==7&&
++                (r.flags==M_NEGATIVE||r.flags==(M_NEGATIVE|M_FRESH))&&
++                (!unqualified||(r.flags&M_FRESH));
++            if(result<0&&excluded_negative) {
++                ++st->excluded_negative_samples;
++                st->observed_mask|=1u<<rail;
++            } else if(result<0) {
+                 invalid=1;
+                 ++st->invalid_samples;st->faults|=M_FAULT_SENSOR;
+                 if(r.flags&M_I2C_ERROR)++st->i2c_errors;
+                 if(r.flags&M_STALE)++st->stale_samples;
+-            } else if(!result&&(r.flags&M_FRESH))st->conversion_ready|=1u<<rail;
++            } else if(!result&&(r.flags&M_FRESH)) {
++                st->observed_mask|=1u<<rail;st->conversion_ready|=1u<<rail;
++            }
+             if(first_phase_scan&&(s->t0<st->hz||r.end[3]>s->t0-st->hz))
+                 st->faults|=M_FAULT_HANDSHAKE;
+             r.phase=st->phase;r.scan=st->scan_count;r.scan_start=now;
+--- r2/firmware/service/e06_network.c
++++ diagnostic17/firmware/service/e06_network.c
+@@ -475,12 +475,12 @@
+     m_status s={0};int snapshot=m_status_read(m_runtime.shared,&s)==0;
+     char json[1900];uint64_t now=network_ticks();m_control *c=&m_runtime.shared->control;
+     int n=snprintf(json,sizeof(json),
+-        "{\"schema\":1,\"physical_status\":\"NOT_RUN\",\"ready\":%s,\"snapshot_valid\":%s,"
++        "{" M_PROFILE_JSON "\"schema\":1,\"physical_status\":\"NOT_RUN\",\"ready\":%s,\"snapshot_valid\":%s,"
+         "\"phase_id\":%u,\"state\":%u,\"faults\":%u,\"sampler_faults\":%u,"
+         "\"service_core\":%u,\"sampler_core\":%u,\"epoch\":%llu,\"sampler_epoch\":%llu,"
+         "\"timer_hz\":%llu,\"sampler_hz\":%llu,\"now_ticks\":%llu,\"sampler_heartbeat\":%llu,"
+         "\"clock_checks\":%u,\"heartbeat_advances\":%u,\"configured_mask\":%u,\"configured_tick\":%llu,"
+-        "\"conversion_ready_mask\":%u,\"initializing_samples\":%u,"
++        "\"conversion_ready_mask\":%u,\"initializing_samples\":%u,\"observed_mask\":%u,\"excluded_negative_samples\":%u,\"sampler_profile_rails\":%u,"
+         "\"mode\":%u,\"sampling_enabled\":%u,\"scan_ms\":%u,\"offset_ms\":%u,"
+         "\"t0\":%llu,\"t1\":%llu,\"sampler_phase\":%u,\"sampler_state\":%u,"
+         "\"rail_records\":%u,\"event_records\":%u,\"temperature_records\":%u,\"scan_count\":%u,"
+@@ -494,7 +494,7 @@
+         (unsigned long long)c->epoch,(unsigned long long)s.epoch,
+         (unsigned long long)c->hz,(unsigned long long)s.hz,(unsigned long long)now,(unsigned long long)s.heartbeat,
+         m_runtime.clock_checks,m_runtime.heartbeat_advances,s.configured,(unsigned long long)s.configured_tick,
+-        s.conversion_ready,s.initializing_samples,
++        s.conversion_ready,s.initializing_samples,s.observed_mask,s.excluded_negative_samples,s.profile_rails,
+         c->mode,c->enabled,c->scan_ms,c->offset_ms,(unsigned long long)m_runtime.t0,(unsigned long long)m_runtime.t1,
+         s.phase,s.state,s.rail_count,m_runtime.event_count,s.temp_count,s.scan_count,
+         m_runtime.completed_full,m_runtime.completed_compact,m_runtime.completed_continuous,
+@@ -524,8 +524,8 @@
+     }
+     if(first>total)return send_error(state,id,"invalid_offset","record offset exceeds count");
+     uint32_t count=total-first;if(count>256)count=256;
+-    char json[256];int n=snprintf(json,sizeof(json),
+-        "{\"schema\":1,\"record_type\":\"%s\",\"phase_id\":%u,\"first\":%u,\"count\":%u,\"total\":%u,\"record_bytes\":%u,\"next\":%u,\"done\":%s}",
++    char json[512];int n=snprintf(json,sizeof(json),
++        "{" M_PROFILE_JSON "\"schema\":1,\"record_type\":\"%s\",\"phase_id\":%u,\"first\":%u,\"count\":%u,\"total\":%u,\"record_bytes\":%u,\"next\":%u,\"done\":%s}",
+         type,m_runtime.phase,first,count,total,(unsigned)size,first+count,first+count==total?"true":"false");
+     if(n<0||(size_t)n>=sizeof(json))return abort_connection(state,"export metadata overflow");
+     fvit_header_t h={1,id,(uint32_t)n,(uint32_t)(count*size)};
+@@ -765,7 +765,7 @@
+ static err_t connected_callback(void *argument, struct tcp_pcb *pcb, err_t error)
+ {
+     static const char hello[] =
+-        "{\"artifact_hashes\":{\"bitstream\":\"" E06_BITSTREAM_SHA256 "\","
++        "{" M_PROFILE_JSON "\"artifact_hashes\":{\"bitstream\":\"" E06_BITSTREAM_SHA256 "\","
+         "\"input\":\"" E06_INPUT_SHA256 "\",\"output\":\"" E06_OUTPUT_SHA256 "\","
+         "\"weights\":\"" E06_WEIGHTS_SHA256 "\",\"xsa\":\"" E06_XSA_SHA256 "\"},"
+         "\"board_ip\":\"" E06_BOARD_IP_TEXT "\",\"firmware_sha256\":\"" E06_FIRMWARE_SHA256 "\","
+--- r2/host/analyze.py
++++ diagnostic17/host/analyze.py
+@@ -17,13 +17,12 @@
+ sys.dont_write_bytecode=True
+ 
+ if __package__:
+-    from . import collect, wire
++    from . import collect, wire, profiles, load
+ else:
+     sys.path.insert(0,str(pathlib.Path(__file__).resolve().parents[1]))
+-    from host import collect, wire
++    from host import collect, wire, profiles, load
+ 
+ ROOT=pathlib.Path(__file__).resolve().parents[1]
+-SCOPE='18 monitored supply rails; not external whole-board input power'
+ QUALIFICATIONS=[
+     '35.2 ms nominal bus+shunt ADC averaging interval; read midpoint is an observation-time convention.',
+     'Power read begin/end are preserved; ADC update phase and boundary uncertainty remain unresolved.',
+@@ -40,6 +39,10 @@
+ 
+ class AnalysisError(RuntimeError):
+     """Corrupt, inconsistent, or missing evidence; no derived report is written."""
++
++
++class IdentityError(AnalysisError,collect.IdentityError):
++    """A binding mismatch prevents derived output."""
+ 
+ 
+ def unique_pairs(items):
+@@ -74,7 +77,7 @@
+     except (OSError,ValueError,UnicodeError) as exc:raise AnalysisError(f'{path}: {exc}') from exc
+ 
+ 
+-def exports(directory,kind,phase):
++def exports(directory,kind,phase,profile=profiles.STRICT):
+     """Decode original bytes and require exact metadata/decoded-copy agreement."""
+     directory=pathlib.Path(directory)
+     paths=sorted(directory.glob(kind+'-*.bin'))
+@@ -87,8 +90,9 @@
+         if saved['payload_sha256']!=wire.digest(data):raise AnalysisError('raw chunk SHA mismatch: '+str(path))
+         if total is None:total=meta['total']
+         first=len(rows);count=min(256,total-first)
+-        expected=dict(schema=1,record_type=kind,phase_id=phase,first=first,count=count,total=total,
++        expected=dict(**profiles.metadata(profile),schema=1,record_type=kind,phase_id=phase,first=first,count=count,total=total,
+                       record_bytes=size,next=first+count,done=first+count==total)
++        if not profiles.matches(meta,profile):raise IdentityError('raw export measurement profile mismatch')
+         if (type(total) is not int or total<0 or meta!=expected or
+             path.name!=f'{kind}-{first:06d}.bin' or len(data)!=count*size):
+             raise AnalysisError('invalid export metadata/length/order: '+str(path))
+@@ -105,7 +109,7 @@
+     return rows
+ 
+ 
+-def integrate_rail(rows,t0,t1,hz):
++def integrate_rail(rows,t0,t1,hz,excluded=False):
+     """Trapezoids only between adjacent valid records; never bridge bad data.
+ 
+     Subtract the integer window origin before float conversion to retain timing
+@@ -120,9 +124,10 @@
+         ordered=collect.register_order_valid(r)
+         valid=(r['flags']&1 and not r['flags']&~3 and ordered and end>=begin and
+                r['power_uW']!=-(2**63) and r['power_uW']>=0)
++        if excluded:valid=ordered and profiles.raw_power_ok(r,profiles.DIAGNOSTIC)
+         if not valid:reasons.append('invalid sample interrupts interpolation')
+         if not ordered:reasons.append('invalid register observation order')
+-        points.append((x,r['power_uW']/1e6,valid))
++        points.append((x,None if excluded else r['power_uW']/1e6,valid))
+         read_widths.append((end-begin)/hz)
+         if valid and r['flags']&2:updates.append(x)
+     monotonic=all(b[0]>a[0] for a,b in zip(points,points[1:]))
+@@ -142,14 +147,16 @@
+         if gap>.150000000001:
+             reasons.append('Power read gap exceeds 150 ms');gaps.append(gap)
+         if not monotonic or not ok0 or not ok1 or gap<=0 or gap>.150000000001:continue
+-        left=p0+(p1-p0)*(lo-x0)/gap;right=p0+(p1-p0)*(hi-x0)/gap
+-        partial+=(left+right)*(hi-lo)/2;coverage+=hi-lo
++        coverage+=hi-lo
++        if not excluded:
++            left=p0+(p1-p0)*(lo-x0)/gap;right=p0+(p1-p0)*(hi-x0)/gap
++            partial+=(left+right)*(hi-lo)/2
+     if abs(coverage-duration)>1e-8:reasons.append('incomplete valid temporal coverage')
+     reasons=list(dict.fromkeys(reasons));valid=not reasons
+     periods=[b[0]-a[0] for a,b in zip(points,points[1:])]
+     scans=list(dict.fromkeys(r['scan_start'] for r in rows))
+-    return dict(valid=valid,invalid_reasons=reasons,energy_J=partial if valid else None,
+-        mean_W=partial/duration if valid else None,partial_energy_J=partial,
++    return dict(valid=valid,invalid_reasons=reasons,energy_J=partial if valid and not excluded else None,
++        mean_W=partial/duration if valid and not excluded else None,partial_energy_J=None if excluded else partial,
+         partial_coverage_seconds=coverage,coverage_fraction=coverage/duration,
+         records=len(rows),observed_CVRF=len(updates),held_reads=sum(not r['flags']&2 for r in rows),
+         max_gap_seconds=max(periods,default=None),read_interval_seconds=dict(
+@@ -162,12 +169,13 @@
+ 
+ def host_accounting(directory,p,input_sha256=None):
+     counts=read_json(directory/'host-counts.json');logs=read_lines(directory/'frame-events.jsonl')
+-    frames={};missed=0;request_ids=set();reasons=[];e2e=[]
++    frames={};missed=[];request_ids=set();reasons=[];e2e=[]
+     for e in logs:
+         kind=e['event']
+         if kind=='missed_slots':
+             if type(e['count']) is not int or e['count']<=0:raise AnalysisError('invalid missed slot record')
+-            missed+=e['count'];continue
++            if e.get('phase')!=p['name']:reasons.append('missed-slot phase mismatch')
++            missed.append(e);continue
+         if kind not in ('produced','submitted','evicted','completed','failed'):
+             raise AnalysisError('unknown host frame event')
+         key=(e['stream'],e['sequence'])
+@@ -191,17 +199,31 @@
+             if (e['received_monotonic']<f['submitted_monotonic'] or
+                 f['submitted_monotonic']<f['produced_monotonic']):reasons.append('host clock moved backwards')
+             if kind=='completed' and e.get('verified') is not True:reasons.append('host output verification failed')
+-            if e.get('board_response',{}).get('mismatch_count',0):reasons.append('host inference/output mismatch')
++            if kind=='completed':
++                try:wire.validate_business_metadata(e.get('board_response'),{1:'replay_full',2:'replay_compact'}.get(p['mode']),p['timer_hz'])
++                except wire.ProtocolError as exc:reasons.append('host inference/output mismatch: '+str(exc))
+             f.update(e,state=kind)
+             if kind=='completed':e2e.append(e['received_monotonic']-f['produced_monotonic'])
+     states=[f['state'] for f in frames.values()]
+     actual=dict(produced=len(frames),submitted=sum('request_id' in f for f in frames.values()),
+         completed=states.count('completed'),failed=states.count('failed'),evicted=states.count('evicted'),
+-        remaining=states.count('queued'),in_flight=states.count('submitted'),missed_slots=missed,
++        remaining=states.count('queued'),in_flight=states.count('submitted'),missed_slots=sum(e['count'] for e in missed),
+         timeouts=sum(f.get('failure_type') in ('TimeoutError','timeout') for f in frames.values()))
+-    actual['scheduled_slots']=actual['produced']+missed
++    actual['scheduled_slots']=actual['produced']+actual['missed_slots']
+     lo,hi=p['host_window_monotonic']
+     if hi<=lo:raise AnalysisError('invalid host window')
++    actual['window_evicted']=sum(f['state']=='evicted' and lo<=f['produced_monotonic']<hi for f in frames.values())
++    actual['window_missed_slots']=0
++    for e in missed:
++        if not p['fps']:raise AnalysisError('missed scheduled slot in unscheduled load')
++        if 'schedule_start_monotonic' not in e:
++            # Schema-1 journals prior to explicit schedule-origin logging contain the next issued slot.
++            next_slot=e['first_sequence']+e['count']
++            following=frames.get((e['stream'],next_slot))
++            if not following or following.get('planned_monotonic') is None:
++                raise AnalysisError('missing schedule origin for missed slots')
++            e=dict(e,schedule_start_monotonic=following['planned_monotonic']-next_slot/p['fps'])
++        actual['window_missed_slots']+=load.missed_in_window(e,p['fps'],(lo,hi))
+     completed=[f for f in frames.values() if f['state']=='completed']
+     actual.update(completed_window=sum(lo<=f['received_monotonic']<hi for f in completed),
+         completed_drain=sum(f['received_monotonic']>=hi for f in completed),
+@@ -221,18 +243,23 @@
+     return actual,reasons
+ 
+ 
+-def analyze_phase(directory,synthetic=False,input_sha256=None):
++def evaluate_phase(directory,synthetic=False,input_sha256=None,profile=profiles.STRICT):
+     directory=pathlib.Path(directory);p=read_json(directory/'phase.json')
+     s=read_json(directory/'end-status.json');phase=p['board_phase_id']
+-    raw={kind:exports(directory/'exports',kind,phase) for kind in ('config','rails','events','temperatures')}
++    policy=profiles.metadata(profile)
++    if not profiles.matches(p,profile):raise IdentityError('phase measurement profile mismatch')
++    warm=read_json(directory/'warmup-temperatures.json');start=read_json(directory/'start-status.json')
++    observed=[r['status'] for r in read_lines(directory/'phase-status.jsonl')]
++    snapshots=(warm,start,p['arm_status'],observed)
++    for status in [*warm,start,p['arm_status'],*observed,s]:
++        if not profiles.matches(status,profile) or status.get('sampler_profile_rails')!=policy['included_count']:
++            raise IdentityError('persisted status measurement profile mismatch')
++    raw={kind:exports(directory/'exports',kind,phase,profile) for kind in ('config','rails','events','temperatures')}
+     reasons=[]
+-    try:assessment=collect.assess_phase(directory)
++    try:assessment=collect.assess_coverage(directory,p,s,profile,raw,snapshots)
++    except collect.IdentityError as exc:raise IdentityError(str(exc)) from exc
+     except (collect.GateError,KeyError,TypeError,ValueError) as exc:
+         assessment={};reasons.append(str(exc))
+-    observed=[r['status'] for r in read_lines(directory/'phase-status.jsonl')]
+-    for status in [read_json(directory/'start-status.json'),p['arm_status'],s]+observed:
+-        try:collect.validate_status(status,require_ready=False)
+-        except collect.GateError as exc:reasons.append('phase status clock/identity gate: '+str(exc))
+     hz=s['timer_hz'];t0=s['t0'];t1=s['t1'];mode=p['mode']
+     if hz<=0 or t1<=t0:raise AnalysisError('invalid board phase window')
+     if (p['board_t0']!=t0 or p['board_t1']!=t1 or p['timer_hz']!=hz or
+@@ -256,7 +283,8 @@
+     rails=[]
+     for rail in range(18):
+         rows=[r for r in raw['rails'] if r['rail']==rail]
+-        r=integrate_rail(rows,t0,t1,hz);r.update(rail=rail,group='PS' if rail<10 else 'PL',
++        excluded=rail in policy['excluded_rails']
++        r=integrate_rail(rows,t0,t1,hz,excluded);r.update(**policy,included=not excluded,rail=rail,group='PS' if rail<10 else 'PL',
+             Power_LSB_W=.03125 if rail==10 else .0125)
+         rails.append(r)
+         reasons.extend(f'rail{rail}: {why}' for why in r['invalid_reasons'])
+@@ -300,15 +328,22 @@
+     host,host_reasons=host_accounting(directory,p,input_sha256);reasons.extend(host_reasons)
+     if ids-set(host['submitted_request_ids']):reasons.append('board ACK without matching host submission')
+     reasons=list(dict.fromkeys(reasons));valid=not reasons;duration=(t1-t0)/hz
+-    energy=sum(r['energy_J'] for r in rails) if valid else None
++    energy=sum(r['energy_J'] for r in rails if r['included']) if valid else None
++    for r in rails:
++        r['energy_mJ_per_completed_frame']=1000*r['energy_J']/n if valid and r['included'] and mode and n else None
++    if not valid:invalidate_rails(rails,'parent phase failed validation')
+     match=re.match(r'r(\d+)-(.+)',p['name'])
+     temps=[r['temperature_mC']/1000 for r in raw['temperatures'] if r['flags']==1]
+-    return dict(condition=match[2] if match else p['name'],repetition=int(match[1]) if match else None,
++    return dict(**policy,condition=match[2] if match else p['name'],repetition=int(match[1]) if match else None,
+         phase_name=p['name'],board_phase_id=phase,mode=mode,valid=valid,invalid_reasons=reasons,
+         measurement_origin='SYNTHETIC_NOT_PHYSICAL' if synthetic else 'PHYSICAL_ORIGIN_REQUIRES_SESSION_VALIDATION',
+-        scope=SCOPE,units=dict(energy='J',mean_power='W',energy_per_frame='mJ/completed frame',time='s'),
++        units=dict(energy='J',mean_power='W',energy_per_frame='mJ/completed frame',time='s'),
+         board_window_ticks=[t0,t1],timer_hz=hz,duration_seconds=duration,energy_J=energy,
+-        mean_W=energy/duration if valid else None,completed_board=n,
++        mean_W=energy/duration if valid else None,P17mean_W=energy/duration if valid and profile==profiles.DIAGNOSTIC else None,
++        completed_board=n,dropped_frames=host['window_evicted'],missed_slots=host['window_missed_slots'],
++        whole_run_evicted_frames=host['evicted'],whole_run_missed_slots=host['missed_slots'],
++        host_window_monotonic=host['window_monotonic'],board_window_dropped_frames=None,
++        drop_scope='host monotonic [start,end): evictions by frame production time, missed slots by scheduled deadline',
+         board_completed_fps=n/duration if valid else None,
+         pre_window_board=sum(e['tick']<t0 for e in successful),drain_board=sum(e['tick']>=t1 for e in successful),
+         energy_mJ_per_completed_frame=1000*energy/n if valid and n and mode else None,
+@@ -319,17 +354,31 @@
+         temperature_C=dict(minimum=min(temps,default=None),maximum=max(temps,default=None),
+             first=temps[0] if temps else None,last=temps[-1] if temps else None,
+             endpoint_drift=temps[-1]-temps[0] if temps else None),
+-        sensor_config=raw['config'],qualifications=QUALIFICATIONS,
+-        raw_hashes={collect.relative_key(f,directory):dict(bytes=f.stat().st_size,sha256=collect.file_hash(f))
+-            for f in sorted(directory.rglob('*')) if f.is_file()})
++        sensor_config=raw['config'],qualifications=QUALIFICATIONS)
++
++
++def invalidate_rails(rails,reason):
++    for rail in rails:
++        rail.update(valid=False,energy_J=None,mean_W=None,energy_mJ_per_completed_frame=None)
++        rail['invalid_reasons'].append(reason)
++
++
++def analyze_phase(directory,synthetic=False,input_sha256=None,profile=profiles.STRICT):
++    directory=pathlib.Path(directory)
++    result=evaluate_phase(directory,synthetic,input_sha256,profile)
++    result['raw_hashes']={collect.relative_key(f,directory):dict(bytes=f.stat().st_size,sha256=collect.file_hash(f))
++                          for f in sorted(directory.rglob('*')) if f.is_file()}
++    return result
+ 
+ 
+ def aggregate(stages):
+     groups={}
+-    for stage in stages:groups.setdefault(stage['condition'],[]).append(stage)
++    for stage in stages:
++        if not profiles.matches(stage,stages[0]['measurement_profile']):raise AnalysisError('mixed measurement profiles')
++        groups.setdefault(stage['condition'],[]).append(stage)
+     result=[]
+     for name,values in groups.items():
+-        row=dict(condition=name,repetitions_total=len(values),repetitions_valid=sum(s['valid'] for s in values),
++        row=dict(**profiles.metadata(values[0]['measurement_profile']),condition=name,repetitions_total=len(values),repetitions_valid=sum(s['valid'] for s in values),
+             interpretation='Repeated phases of this setup; not asserted independent restarts or instrument accuracy.')
+         for metric in ('mean_W','energy_J','board_completed_fps','energy_mJ_per_completed_frame'):
+             data=[s[metric] for s in values if s['valid'] and s.get(metric) is not None]
+@@ -339,26 +388,41 @@
+     return result
+ 
+ 
+-def analyze_session(path,synthetic=False,acceptance_session=None):
++def analyze_session(path,synthetic=False,acceptance_session=None,profile=profiles.STRICT):
+     path=pathlib.Path(path).resolve();session=read_json(path/'session.json')
+     recorded=read_json(path/'inventory.json')
+     try:
+         if collect.normalize_inventory(recorded)!=collect.inventory(path):
+             raise AnalysisError('session raw evidence inventory mismatch')
+     except collect.GateError as exc:raise AnalysisError(str(exc)) from exc
+-    info=collect.preflight(ROOT);identity=info['identity'];reasons=[]
+-    if (session.get('schema')!='e07-host-session-v1' or session.get('identity')!=identity or
++    info=collect.preflight(ROOT,profile);identity=info['identity'];reasons=[]
++    if (not profiles.matches(session,profile) or session.get('schema')!='e07-host-session-v1' or session.get('identity')!=identity or
+         read_json(path/'firmware-identity.json')!=identity or session.get('source_hashes')!=collect.source_hashes(ROOT) or
+         session.get('manifest')!=info['manifest'] or read_json(path/'manifest.json')!=info['manifest']):
+         raise AnalysisError('wrong firmware/source/manifest identity')
++    summaries=session.get('phases',[])
++    if not isinstance(summaries,list):
++        raise IdentityError('malformed phase summary list')
++    if session.get('status')=='COMPLETE' and len(summaries)!=len(session['plan']):
++        raise IdentityError('complete session phase summary count differs from plan')
++    if any(not isinstance(row,dict) or not profiles.matches(row,profile) for row in summaries):
++        raise IdentityError('saved phase summary measurement profile mismatch')
+     hello=read_json(path/'hello.json')
+-    expected_hello=dict(model='E07',phase='E07_INDEPENDENT_CANDIDATE',candidate='E07_INDEPENDENT_POWER_V1',
+-        protocol_schema=1,physical_status='NOT_RUN',service_cpu='a53-0',sampler_cpu='a53-1',
+-        firmware_sha256=identity['firmware_sha256'],artifact_hashes=identity['artifact_hashes'],
+-        board_ip='192.168.10.2',tcp_port=5001)
++    expected_hello=wire.expected_greeting(identity)
++    try:collect.validate_receipt_value(ROOT,session.get('sd_receipt',{}),profile)
++    except collect.GateError as exc:raise AnalysisError('session SD receipt mismatch') from exc
++    try:collect.validate_status(read_json(path/'startup-status.json'),profile=profile)
++    except collect.GateError as exc:raise AnalysisError('startup status identity/readiness mismatch') from exc
+     if hello!=expected_hello:
+         raise AnalysisError('wrong board firmware greeting identity')
+     if session.get('status')!='COMPLETE':reasons.append('session incomplete')
++    binding=session.get('acceptance_binding')
++    candidate=None
++    if not synthetic and session.get('kind')=='formal' and isinstance(binding,dict):
++        if not profiles.matches(binding,profile):raise AnalysisError('acceptance profile binding mismatch')
++        candidate=pathlib.Path(acceptance_session or binding['path']).resolve()
++        if candidate.is_file() and not profiles.matches(read_json(candidate),profile):
++            raise AnalysisError('acceptance dataset measurement profile mismatch')
+     if not synthetic:
+         if session.get('physical') is not True or session.get('peer_ip')!='192.168.10.2':
+             reasons.append('physical-origin session evidence absent')
+@@ -366,32 +430,34 @@
+             if session['kind']=='acceptance':
+                 collect.validate_acceptance(path/'session.json',identity,session['board_id'],session['controls'])
+             elif session['kind']=='formal':
+-                binding=session['acceptance_binding'];candidate=pathlib.Path(acceptance_session or binding['path']).resolve()
+-                if not candidate.is_file():raise AnalysisError('acceptance raw session unavailable; return it alongside formal data')
++                if candidate is None or not candidate.is_file():raise AnalysisError('acceptance raw session unavailable; return it alongside formal data')
+                 actual=collect.validate_acceptance(candidate,identity,session['board_id'],session['controls'])
+                 if any(actual[k]!=binding[k] for k in ('sha256','inventory_sha256')):
+-                    raise AnalysisError('physical acceptance binding mismatch')
++                    raise IdentityError('physical acceptance binding mismatch')
+             else:raise AnalysisError('unknown session kind')
++        except collect.IdentityError as exc:raise IdentityError(str(exc)) from exc
+         except (collect.GateError,KeyError,OSError,AnalysisError) as exc:reasons.append('acceptance gate: '+str(exc))
+     stages=[]
+     for index,plan in enumerate(session['plan']):
++        if not profiles.matches(plan,profile):raise AnalysisError('session plan measurement profile mismatch')
+         try:relative=collect.phase_relative_path(session,index,plan)
+         except collect.GateError as exc:raise AnalysisError(str(exc)) from exc
+         directory=path/relative
+         if not (directory/'phase.json').is_file():
+-            stages.append(dict(condition=plan['name'],repetition=None,phase_name=plan['name'],valid=False,
++            stages.append(dict(**profiles.metadata(profile),condition=plan['name'],repetition=None,phase_name=plan['name'],valid=False,
+                 invalid_reasons=['missing/incomplete phase evidence'],energy_J=None,mean_W=None,
+                 board_completed_fps=None,energy_mJ_per_completed_frame=None));continue
+         saved=read_json(directory/'phase.json')
+         if any(saved.get(k)!=v for k,v in plan.items()):raise AnalysisError('phase differs from session plan')
+-        stage=analyze_phase(directory,synthetic,identity['artifact_hashes']['input'])
++        stage=analyze_phase(directory,synthetic,identity['artifact_hashes']['input'],profile)
+         stage['phase_path']=relative
+         if reasons:
+             stage['valid']=False;stage['invalid_reasons'].extend(reasons)
+-            for key in ('energy_J','mean_W','board_completed_fps','energy_mJ_per_completed_frame'):stage[key]=None
++            invalidate_rails(stage['rails'],'parent session failed validation')
++            for key in ('energy_J','mean_W','P17mean_W','board_completed_fps','energy_mJ_per_completed_frame'):stage[key]=None
+         elif not synthetic:stage['measurement_origin']='PHYSICAL_USER_SESSION'
+         stages.append(stage)
+-    return dict(schema='e07-independent-analysis-v1',measurement_origin='SYNTHETIC_NOT_PHYSICAL' if synthetic else 'USER_SESSION',
++    return dict(**profiles.metadata(profile),schema='e07-independent-analysis-v1',measurement_origin='SYNTHETIC_NOT_PHYSICAL' if synthetic else 'USER_SESSION',
+         valid=bool(stages) and all(s['valid'] for s in stages),session_invalid_reasons=reasons,
+         firmware_sha256=identity['firmware_sha256'],delivered_candidate_physical_status=identity['physical_status'],
+         controls=session.get('controls'),board_id=session.get('board_id'),stages=stages,aggregates=aggregate(stages),
+@@ -402,25 +468,28 @@
+ def write_results(output,result):
+     output=pathlib.Path(output);output.mkdir(parents=True,exist_ok=False)
+     wire.save_json(output/'analysis.json',result)
+-    fields=['condition','repetition','phase_name','valid','invalid_reasons','measurement_origin',
+-        'scope','duration_seconds','energy_J','mean_W','completed_board','board_completed_fps',
++    profile_fields=list(profiles.metadata(result['measurement_profile']))
++    fields=profile_fields+['condition','repetition','phase_name','valid','invalid_reasons','measurement_origin',
++        'duration_seconds','drop_scope','host_window_monotonic','dropped_frames','missed_slots',
++        'whole_run_evicted_frames','whole_run_missed_slots','board_window_dropped_frames','P17mean_W','energy_J','mean_W','completed_board','board_completed_fps',
+         'energy_mJ_per_completed_frame','offered_input_fps','drain_board']
+     with (output/'per-stage.csv').open('x',encoding='utf-8-sig',newline='') as stream:
+         writer=csv.DictWriter(stream,fields);writer.writeheader()
+         for stage in result['stages']:
+             row={k:stage.get(k) for k in fields};row['invalid_reasons']=' | '.join(stage['invalid_reasons']);writer.writerow(row)
+     with (output/'per-repeat.csv').open('x',encoding='utf-8-sig',newline='') as stream:
+-        writer=csv.writer(stream);writer.writerow(['condition','repetitions_total','repetitions_valid','metric','unit','n','mean','sample_SD'])
++        writer=csv.writer(stream);writer.writerow(profile_fields+['condition','repetitions_total','repetitions_valid','metric','unit','n','mean','sample_SD'])
+         for group in result['aggregates']:
+             for metric,unit in [('mean_W','W'),('energy_J','J'),('board_completed_fps','frames/s'),
+                                 ('energy_mJ_per_completed_frame','mJ/completed frame')]:
+-                m=group[metric];writer.writerow([group['condition'],group['repetitions_total'],group['repetitions_valid'],metric,unit,m['n'],m['mean'],m['sample_SD']])
++                m=group[metric];writer.writerow([group[k] for k in profile_fields]+[group['condition'],group['repetitions_total'],group['repetitions_valid'],metric,unit,m['n'],m['mean'],m['sample_SD']])
+ 
+ 
+ def main(argv=None):
+     parser=argparse.ArgumentParser(description=__doc__)
+     parser.add_argument('session',type=pathlib.Path,help='raw session directory')
+     parser.add_argument('--output',required=True,type=pathlib.Path,help='new derived-only directory outside the raw session')
++    parser.add_argument('--diagnostic17',action='store_true',help='require diagnostic17 session and identity')
+     parser.add_argument('--synthetic',action='store_true',help='label every output SYNTHETIC_NOT_PHYSICAL; cannot qualify acceptance')
+     parser.add_argument('--acceptance-session',type=pathlib.Path,help='relocated raw acceptance session.json; exact original hashes still required')
+     args=parser.parse_args(argv)
+@@ -428,8 +497,10 @@
+     raw=args.session.resolve();out=args.output.resolve()
+     if out.is_relative_to(ROOT.resolve()):raise AnalysisError('derived output must be outside immutable package')
+     if out==raw or raw in out.parents:raise AnalysisError('derived output must be outside immutable raw session')
+-    result=analyze_session(raw,args.synthetic,args.acceptance_session);write_results(out,result)
+-    print(json.dumps(dict(status='VALID' if result['valid'] else 'INVALID',output=str(out),measurement_origin=result['measurement_origin'])))
++    collect.verify_delivery(ROOT)
++    profile=profiles.DIAGNOSTIC if args.diagnostic17 else profiles.STRICT
++    result=analyze_session(raw,args.synthetic,args.acceptance_session,profile);write_results(out,result)
++    print(json.dumps(dict(**profiles.metadata(profile),status='VALID' if result['valid'] else 'INVALID',output=str(out),measurement_origin=result['measurement_origin'])))
+     return 0 if result['valid'] else 1
+ 
+ 
+--- r2/host/collect.py
++++ diagnostic17/host/collect.py
+@@ -21,10 +21,10 @@
+ sys.dont_write_bytecode=True
+ 
+ if __package__:
+-    from . import wire, load
++    from . import wire, load, profiles
+ else:
+     sys.path.insert(0,str(pathlib.Path(__file__).resolve().parents[1]))
+-    from host import wire, load
++    from host import wire, load, profiles
+ 
+ ROOT=pathlib.Path(__file__).resolve().parents[1]
+ COUNTERS=('i2c_errors','invalid_samples','stale_samples','scan_overruns','overflows','temperature_errors')
+@@ -32,6 +32,15 @@
+ 
+ class GateError(RuntimeError):
+     pass
++
++
++class IdentityError(GateError):
++    """Mismatched measurement, source, image, or evidence binding requires hard refusal."""
++
++
++def require_profile(record,profile,sampler=False):
++    if not profiles.matches(record,profile) or (sampler and record.get('sampler_profile_rails')!=profiles.metadata(profile)['included_count']):
++        raise IdentityError('measurement profile/compiled sampler mismatch')
+ 
+ 
+ def utcnow():
+@@ -60,43 +69,53 @@
+ 
+ 
+ def source_hashes(root=ROOT):
+-    paths=('host/wire.py','host/load.py','host/collect.py','Run-PowerRetest.ps1','PROTOCOL.md')
++    paths=('host/wire.py','host/profiles.py','host/analyze.py','host/load.py','host/collect.py','Run-PowerRetest.ps1','PROTOCOL.md')
+     return {name:file_hash(root/name) for name in paths}
+ 
+ 
+-def preflight(root=ROOT):
++def preflight(root=ROOT,profile=profiles.STRICT):
+     root=pathlib.Path(root).resolve()
+-    identity=read_json(root/'FIRMWARE_IDENTITY.json')
+-    manifest=read_json(root/'SHA256SUMS.json')
++    identity_name,sums_name,sd=profiles.paths(profile)
++    identity=read_json(root/identity_name)
++    manifest=read_json(root/sums_name)
+     h=wire.digest(canonical(identity['canonical_payload']))
+-    if (h!=identity['firmware_sha256'] or h!=identity['advertised_sha256'] or
++    if (not profiles.matches(identity,profile) or not profiles.matches(identity['canonical_payload'],profile) or
++        '-DE07_PROFILE_RAILS='+str(identity['included_count']) not in identity['canonical_payload']['options'] or
++        h!=identity['firmware_sha256'] or h!=identity['advertised_sha256'] or
+         identity['candidate']!='E07_INDEPENDENT_POWER_V1' or identity['protocol_schema']!=1 or
+         identity['artifact_hashes']!=identity['canonical_payload']['artifact_hashes']):
+         raise GateError('firmware identity canonical hash/schema mismatch')
+-    required={'SD_CARD/BOOT.BIN','SD_CARD/FIRMWARE_IDENTITY.json','SD_CARD/input.bin',
+-              'SD_CARD/output.bin','SD_CARD/weights.bin'}
++    required={sd+'/'+name for name in ('BOOT.BIN','FIRMWARE_IDENTITY.json','input.bin','output.bin','weights.bin')}
+     if set(manifest)!=required:raise GateError('unexpected/incomplete SD manifest')
+     for name,entry in manifest.items():check_file(root/name,entry)
+-    if read_json(root/'SD_CARD/FIRMWARE_IDENTITY.json')!=identity:
++    if read_json(root/sd/'FIRMWARE_IDENTITY.json')!=identity:
+         raise GateError('SD identity differs from package identity')
+-    if manifest['SD_CARD/BOOT.BIN']['sha256']!=identity['BOOT']['sha256']:
++    if identity['BOOT']!=dict(manifest[sd+'/BOOT.BIN'],path=sd+'/BOOT.BIN'):
+         raise GateError('BOOT identity differs from SD manifest')
+     for key in ('input','output','weights'):
+-        if manifest[f'SD_CARD/{key}.bin']['sha256']!=identity['artifact_hashes'][key]:
++        if manifest[f'{sd}/{key}.bin']['sha256']!=identity['artifact_hashes'][key]:
+             raise GateError('frozen data identity mismatch')
+     # ELF locations are bound by the identity. Verify actual delivered ELF files.
+-    for entry in identity['ELF'].values():check_file(root/entry['path'],entry)
+-    return dict(identity=identity,manifest=manifest,manifest_sha256=file_hash(root/'SHA256SUMS.json'),
+-                identity_sha256=file_hash(root/'FIRMWARE_IDENTITY.json'))
+-
+-
+-def verify_sd(root,sd_root,receipt_path):
+-    info=preflight(root)
++    if set(identity['ELF'])!={'service','sampler'}:raise GateError('missing expected CPUs')
++    for core,entry in identity['ELF'].items():
++        if entry['path']!=identity['build_directory']+'/'+core+'.elf' or not (root/entry['path']).resolve().is_relative_to(root):
++            raise GateError('ELF path does not match build')
++        check_file(root/entry['path'],entry)
++        if h.encode() not in (root/entry['path']).read_bytes():raise GateError('ELF does not embed firmware identity')
++    for name,expected in identity['canonical_payload']['sources'].items():
++        if not (root/name).resolve().is_relative_to(root) or file_hash(root/name)!=expected:
++            raise GateError('firmware source hash mismatch: '+name)
++    return dict(identity=identity,manifest=manifest,manifest_sha256=file_hash(root/sums_name),
++                identity_sha256=file_hash(root/identity_name))
++
++
++def verify_sd(root,sd_root,receipt_path,profile=profiles.STRICT):
++    info=preflight(root,profile)
+     sd_root=pathlib.Path(sd_root).resolve()
+     for name,expected in info['manifest'].items():check_file(sd_root/pathlib.Path(name).name,expected)
+     if read_json(sd_root/'FIRMWARE_IDENTITY.json')!=info['identity']:
+         raise GateError('copied SD firmware identity mismatch')
+-    receipt=dict(schema='e07-sd-copy-verification-v1',tool='host/collect.py',verified_utc=utcnow(),
++    receipt=dict(**profiles.metadata(profile),schema='e07-sd-copy-verification-v1',tool='host/collect.py',verified_utc=utcnow(),
+         sd_root=str(sd_root),firmware_sha256=info['identity']['firmware_sha256'],
+         identity_sha256=info['identity_sha256'],manifest_sha256=info['manifest_sha256'],
+         files=info['manifest'],source_hashes=source_hashes(pathlib.Path(root)),
+@@ -106,18 +125,21 @@
+     return receipt
+ 
+ 
+-def validate_receipt(root,path):
+-    info=preflight(root)
+-    value=read_json(path)
++def validate_receipt(root,path,profile=profiles.STRICT):
++    return validate_receipt_value(root,read_json(path),profile)
++
++
++def validate_receipt_value(root,value,profile):
++    info=preflight(root,profile)
+     unsigned={k:v for k,v in value.items() if k!='receipt_sha256'}
+-    if (value.get('schema')!='e07-sd-copy-verification-v1' or value.get('tool')!='host/collect.py' or
++    if (not profiles.matches(value,profile) or value.get('schema')!='e07-sd-copy-verification-v1' or value.get('tool')!='host/collect.py' or
+         value.get('receipt_sha256')!=wire.digest(canonical(unsigned)) or
+         value.get('files')!=info['manifest'] or value.get('firmware_sha256')!=info['identity']['firmware_sha256'] or
+         value.get('identity_sha256')!=info['identity_sha256'] or
+         value.get('manifest_sha256')!=info['manifest_sha256'] or
+         value.get('source_hashes')!=source_hashes(pathlib.Path(root)) or
+         not value.get('sd_root') or not value.get('assumption')):
+-        raise GateError('missing/mismatching tool-generated SD copy-verification receipt')
++        raise IdentityError('missing/mismatching tool-generated SD copy-verification receipt')
+     try:datetime.datetime.fromisoformat(value['verified_utc'])
+     except (KeyError,ValueError):raise GateError('receipt lacks valid verification time')
+     return value
+@@ -128,16 +150,17 @@
+     return not (ip.is_loopback or ip.is_unspecified or ip.is_multicast)
+ 
+ 
+-def validate_status(s,require_ready=True):
++def validate_status(s,require_ready=True,profile=profiles.STRICT):
++    require_profile(s,profile,sampler=True)
+     try:
+         hz=s['timer_hz'];now=s['now_ticks']
+         checks=(s['schema']==1,s['snapshot_valid'] is True,s['service_core']==0,s['sampler_core']==1,
+             hz>0,hz==s['sampler_hz'],s['epoch']==s['sampler_epoch'],s['configured_mask']==262143,
+-            s['conversion_ready_mask']==262143,
++            profiles.qualified(s,profile),
+             s['clock_checks']>=3,s['heartbeat_advances']>=3,
+             0<=now-s['sampler_heartbeat']<=hz/4,now-s['configured_tick']>=hz,
+             s['temperature_valid']==1,0<=now-s['temperature_tick']<=2*hz,
+-            s['faults']==0,s['sampler_faults']==0,s['sampling_enabled']==1,
++            s['faults']==0,s['sampler_faults']==0,not any(s[k] for k in COUNTERS),s['sampling_enabled']==1,
+             not require_ready or s['ready'] is True)
+         if not all(checks):raise GateError('sampler readiness/clock/configuration/fault gate failed')
+     except (KeyError,TypeError):raise GateError('incomplete/malformed power_status')
+@@ -158,6 +181,7 @@
+     These fields are service control echoes; sampler operation is separately
+     observed through readiness, advancing heartbeats, scans and exported data.
+     """
++    require_profile(status,plan.get('measurement_profile',profiles.STRICT),sampler=True)
+     expected={key:plan[key] for key in ('mode','scan_ms','offset_ms')}
+     expected['sampling_enabled']=sampling_enabled
+     for key,wanted in expected.items():
+@@ -180,7 +204,7 @@
+             s=client.status();host_now=time.monotonic()
+             log(dict(host_monotonic=host_now,status=s))
+             hz=s['timer_hz'];heartbeat=s['sampler_heartbeat']
+-            if (not s['snapshot_valid'] or hz<=0 or s['sampler_hz']!=hz or
++            if (not profiles.qualified(s,client.profile) or not s['snapshot_valid'] or hz<=0 or s['sampler_hz']!=hz or
+                 s['faults'] or s['sampler_faults'] or s['scan_overruns'] or
+                 any(s[k]!=baseline[k] for k in COUNTERS) or
+                 not 0<=s['now_ticks']-heartbeat<=hz/4):
+@@ -252,10 +276,10 @@
+             if (s['schema']!=1 or s['physical_status']!='NOT_RUN' or s['service_core']!=0 or s['timer_hz']<=0 or
+                 s['faults'] or s['sampler_faults'] or any(s[k] for k in COUNTERS) or s['sampling_enabled']!=1 or
+                 not 0<=s['configured_mask']<=262143 or s['sampler_core'] not in (0,1) or
+-                not unpublished and (s['sampler_core']!=1 or s['sampler_hz']!=s['timer_hz'] or s['sampler_epoch']!=s['epoch'])):
++                not unpublished and (s.get('sampler_profile_rails')!=profiles.metadata(client.profile)['included_count'] or s['sampler_core']!=1 or s['sampler_hz']!=s['timer_hz'] or s['sampler_epoch']!=s['epoch'])):
+                 raise GateError('fatal readiness identity/configuration/sensor fault')
+             if s['ready'] is True:
+-                validate_status(s)
++                validate_status(s,profile=client.profile)
+                 if previous and (s['sampler_heartbeat']<=previous['sampler_heartbeat'] or
+                                  s['now_ticks']<=previous['now_ticks']):
+                     raise GateError('heartbeat/service clock did not advance')
+@@ -311,41 +335,51 @@
+             all(end[a]<=begin[b] for a,b in zip(order,order[1:])))
+ 
+ 
+-def assess_phase(directory):
+-    """Recompute acceptance evidence from exported records; never trust a PASS flag."""
+-    directory=pathlib.Path(directory)
+-    p=read_json(directory/'phase.json');s=read_json(directory/'end-status.json')
+-    rails=read_json(directory/'exports/rails-records.json')
+-    events=read_json(directory/'exports/events-records.json')
+-    temps=read_json(directory/'exports/temperatures-records.json')
+-    validate_config(read_json(directory/'exports/config-records.json'))
++def assess_phase(directory,profile=profiles.STRICT,input_sha256=None):
++    """Authorization and offline analysis use the same full phase evaluation."""
++    from host import analyze
++    try:result=analyze.evaluate_phase(directory,False,input_sha256,profile)
++    except IdentityError:raise
++    except (analyze.AnalysisError,KeyError,TypeError,ValueError) as exc:raise GateError(str(exc)) from exc
++    if not result['valid']:raise GateError('invalid phase evidence: '+' | '.join(result['invalid_reasons']))
++    return result['phase_assessment']
++
++
++def assess_coverage(directory,p,s,profile,raw,snapshots):
++    """Validate physical coverage, clock and sampler health before interpreting energy."""
++    rails,events,temps=raw['rails'],raw['events'],raw['temperatures']
++    validate_config(raw['config'])
++    if any(r['rail']!=i%18 or r['scan']!=rails[0]['scan']+i//18 or
++           r['scan_start']!=rails[i-i%18]['scan_start'] for i,r in enumerate(rails)) or len(rails)%18:
++        raise GateError('missing, extra or disordered physical rail')
++    if [r for r in rails if r['rail']==7]!=read_json(directory/'exports/rail7-records.json'):
++        raise GateError('Rail7 decoded subset differs from raw export')
+     if s['faults'] or s['sampler_faults']:raise GateError('phase/latched sampler fault')
+     if s['state']!=4 or s['sampler_state']!=4:raise GateError('phase not frozen DONE')
+     if s['t0']>=s['t1'] or s['timer_hz']<=0:raise GateError('bad board measurement window')
+     if (s['t1']-s['t0'])!=p['seconds']*s['timer_hz']:raise GateError('board window duration mismatch')
+     if s['phase_id']!=p['board_phase_id']:raise GateError('board phase identity mismatch')
+-    start=read_json(directory/'start-status.json')
+-    validate_condition(start,p)
+-    validate_condition(p['arm_status'],p)
+-    validate_condition(s,p)
+-    observations=[json.loads(line) for line in (directory/'phase-status.jsonl').read_text().splitlines()]
+-    if not observations:raise GateError('missing measured-phase configuration observations')
+-    for observation in observations:validate_condition(observation['status'],p)
+-    warm=read_json(directory/'warmup-temperatures.json')
+-    for status in warm:validate_condition(status,p)
+-    for status in [start,p['arm_status'],s]+[o['status'] for o in observations]+warm:
+-        if status.get('conversion_ready_mask')!=262143:
+-            raise GateError('first valid conversion not established on all eighteen rails')
+-    if any(s[k]!=start[k] for k in COUNTERS):raise GateError('sampler errors/overruns during phase')
++    warm,start,arm,observed=snapshots
++    if not observed:raise GateError('missing measured-phase configuration observations')
++    counters=[]
++    for status in [*warm,start,arm,*observed,s]:
++        validate_condition(status,p)
++        validate_status(status,require_ready=False,profile=profile)
++        if (status['timer_hz'],status['epoch'])!=(s['timer_hz'],s['epoch']):
++            raise GateError('phase clock/boot epoch changed')
++        counters.append(status['excluded_negative_samples'])
++    warnings=sum(r['rail']==7 and r['flags'] in (256,258) for r in rails)
++    if (any(b<a for a,b in zip(counters,counters[1:])) or
++        s['excluded_negative_samples']-start['excluded_negative_samples']<warnings):
++        raise GateError('excluded-negative counter rolled back or missed exported warnings')
+     if not thermal_stable(warm):
+         raise GateError('warmup thermal evidence failed')
+     hz=s['timer_hz'];coverage=[];overlap=0
+     intervals=sorted((e['begin'],e['end']) for e in events if e['type']==6 and e['flags']==1)
+     for rail in range(18):
+         rows=[r for r in rails if r['rail']==rail]
+-        if any(not r['flags']&1 or r['flags']&~3 or r['power_uW']==-(2**63) or
+-               r['config']!=0x4527 or r['calibration']!=2048 or not register_order_valid(r) for r in rows):
+-            raise GateError('invalid rail sample (including negative signed flag256)')
++        if any(not profiles.raw_power_ok(r,profile) or not register_order_valid(r) for r in rows):
++            raise GateError('invalid raw rail power, flags, or register read order')
+         ticks=[(r['begin'][3]+r['end'][3])/2 for r in rows]
+         # The sampler stops scheduling at the postguard deadline. The final
+         # scan can precede that deadline by one scan period; require boundary
+@@ -372,11 +406,12 @@
+     counts=read_json(directory/'host-counts.json')
+     if not counts.get('conserved') or counts.get('failed',0) or counts.get('in_flight',0):
+         raise GateError('host frame failure/accounting loss')
+-    return dict(coverage=coverage,inference_read_overlap_rails=overlap,**c,
++    return dict(**profiles.metadata(profile),exported_excluded_negative_rows=warnings,
++                prearm_to_end_excluded_negative_delta=s['excluded_negative_samples']-start['excluded_negative_samples'],coverage=coverage,inference_read_overlap_rails=overlap,**c,
+                 metrology_claim='Read/inference overlap is timing evidence only; ADC windows, bias and absolute accuracy remain unqualified.')
+ 
+ 
+-def acceptance_plan():
++def acceptance_plan(profile=profiles.STRICT):
+     plan=[dict(name='startup-idle',mode=0,fps=None,seconds=10,scan_ms=20,offset_ms=0),
+           dict(name='startup-full40',mode=1,fps=10,seconds=10,scan_ms=20,offset_ms=0),
+           dict(name='startup-compact120',mode=2,fps=30,seconds=10,scan_ms=20,offset_ms=0),
+@@ -386,10 +421,10 @@
+             for mode in (2,3):
+                 plan.append(dict(name=f'scan{scan}-offset{offset}-mode{mode}',mode=mode,
+                     fps=30 if mode==2 else None,seconds=60,scan_ms=scan,offset_ms=offset))
+-    return plan
+-
+-
+-def formal_plan(seconds=120,repetitions=5):
++    return [dict(p,**profiles.metadata(profile)) for p in plan]
++
++
++def formal_plan(seconds=120,repetitions=5,profile=profiles.STRICT):
+     plan=[]
+     for repetition in range(repetitions):
+         plan.append(dict(name=f'r{repetition+1}-Idle',mode=0,fps=None))
+@@ -397,11 +432,11 @@
+             for mode in ((1,2) if repetition%2==0 else (2,1)):
+                 plan.append(dict(name=f'r{repetition+1}-{label}-'+('Full' if mode==1 else 'Compact'),mode=mode,fps=fps))
+         plan.append(dict(name=f'r{repetition+1}-PLContinuous',mode=3,fps=None))
+-    return [dict(p,seconds=seconds,scan_ms=20,offset_ms=0) for p in plan]
+-
+-
+-def selected_formal_plan(seconds=120,repetitions=5,target120_only=False):
+-    plan=formal_plan(seconds,repetitions)
++    return [dict(p,**profiles.metadata(profile),seconds=seconds,scan_ms=20,offset_ms=0) for p in plan]
++
++
++def selected_formal_plan(seconds=120,repetitions=5,target120_only=False,profile=profiles.STRICT):
++    plan=formal_plan(seconds,repetitions,profile)
+     return [p for p in plan if '-Target120-' in p['name']] if target120_only else plan
+ 
+ 
+@@ -465,7 +500,7 @@
+     except (OSError,ValueError) as exc:raise GateError('missing/malformed raw evidence: '+str(path)) from exc
+ 
+ 
+-def validate_toggle_evidence(directory,comparison,input_sha256):
++def validate_toggle_evidence(directory,comparison,input_sha256,profile=profiles.STRICT):
+     """Reassess required raw records; a matching aggregate/inventory is insufficient."""
+     directory=pathlib.Path(directory);request_ids=set()
+     def host_tick(value):
+@@ -473,6 +508,9 @@
+         return value
+     try:
+         for enabled,run in enumerate(comparison):
++            require_profile(run,profile)
++            require_profile(run['setting_status'],profile,sampler=True)
++            require_profile(run['observed_status'],profile,sampler=True)
+             setting=run['setting_status'];hz=setting['timer_hz']
+             if (setting['mode']!=2 or setting['scan_ms'] not in (17,20,23) or
+                 not 0<=setting['offset_ms']<setting['scan_ms']):raise GateError('invalid toggle settings')
+@@ -485,7 +523,7 @@
+                     s['service_core']!=0 or s['sampler_core']!=1 or type(hz) is not int or hz<=0 or
+                     s['timer_hz']!=hz or s['sampler_hz']!=hz or s['epoch']!=setting['epoch'] or
+                     s['sampler_epoch']!=s['epoch'] or s['configured_mask']!=262143 or
+-                    s.get('conversion_ready_mask')!=262143 or
++                    not profiles.qualified(s,profile) or
+                     now-s['configured_tick']<hz or s['clock_checks']<3 or s['heartbeat_advances']<3 or
+                     s['faults'] or s['sampler_faults'] or any(s[k] for k in COUNTERS) or
+                     not 0<=now-heartbeat<=hz/4 or s['temperature_valid']!=1 or
+@@ -537,13 +575,8 @@
+                         abs(frame['e2e_seconds']-(received-pending[1]))>1e-9 or
+                         abs(frame['transaction_seconds']-(received-submitted[1]))>1e-9):
+                         raise GateError('unverified/inconsistent raw throughput completion')
+-                    fields=('edge_rx_start_ticks','edge_rx_end_ticks','inference_start_ticks',
+-                        'inference_end_ticks','result_queue_ticks','timer_frequency_hz','mismatch_count','predicted_class','total_ticks')
+-                    if (any(type(meta[k]) is not int or meta[k]<0 for k in fields) or
+-                        meta['fixture']!='E07_FIXED_INPUT' or meta['mode']!='replay_compact' or
+-                        meta['mismatch_count']!=0 or meta['timer_frequency_hz']!=hz or
+-                        not meta['edge_rx_start_ticks']<=meta['edge_rx_end_ticks']<=meta['inference_start_ticks']<=meta['inference_end_ticks']<=meta['result_queue_ticks']):
+-                        raise GateError('raw throughput inference/output verification mismatch')
++                    try:wire.validate_business_metadata(meta,'replay_compact',hz)
++                    except wire.ProtocolError as exc:raise GateError('raw throughput inference/output verification mismatch') from exc
+                     completed+=1;last_received=received;pending=None;submitted=None
+                 else:raise GateError('failure/unexpected raw throughput event')
+             if pending or submitted or completed<=0 or run['completed']!=completed or run['failed']!=0:
+@@ -554,31 +587,45 @@
+ 
+ def validate_acceptance(path,identity,board_id,controls):
+     path=pathlib.Path(path).resolve()
+-    s=read_json(path)
++    s=read_json(path);profile=identity['measurement_profile']
++    require_profile(s,profile)
++    if s.get('identity')!=identity or s.get('source_hashes')!=source_hashes():
++        raise IdentityError('acceptance firmware/source identity mismatch')
++    for plan_row in s.get('plan',[]):require_profile(plan_row,profile)
++    for phase_row in s.get('phases',[]):require_profile(phase_row,profile)
+     if (s.get('schema')!='e07-host-session-v1' or s.get('kind')!='acceptance' or
+         s.get('status')!='COMPLETE' or s.get('physical') is not True or
+-        not physical_peer(s.get('peer_ip','127.0.0.1')) or s.get('board_id')!=board_id or
+-        s.get('controls')!=controls or s.get('identity')!=identity or
+-        s.get('source_hashes')!=source_hashes() or s.get('plan')!=acceptance_plan()):
++        s.get('peer_ip')!='192.168.10.2' or s.get('board_id')!=board_id or
++        s.get('controls')!=controls or s.get('plan')!=acceptance_plan(profile)):
+         raise GateError('formal run requires matching successful physical short-acceptance dataset')
+     recorded=read_json(path.parent/'inventory.json')
+-    if normalize_inventory(recorded)!=inventory(path.parent):raise GateError('acceptance raw evidence inventory mismatch')
+-    if s.get('sd_receipt',{}).get('files')!=read_json(ROOT/'SHA256SUMS.json'):
+-        raise GateError('acceptance SD data/BOOT hash binding mismatch')
+-    if s.get('throughput_comparison')!=read_json(path.parent/'throughput-comparison.json'):
++    if normalize_inventory(recorded)!=inventory(path.parent):raise IdentityError('acceptance raw evidence inventory mismatch')
++    validate_receipt_value(ROOT,s.get('sd_receipt',{}),profile)
++    validate_status(read_json(path.parent/'startup-status.json'),profile=profile)
++    if read_json(path.parent/'hello.json')!=wire.expected_greeting(identity):
++        raise IdentityError('acceptance firmware greeting mismatch')
++    if s.get('manifest')!=read_json(path.parent/'manifest.json') or s['manifest']!=s['sd_receipt']['files'] or read_json(path.parent/'firmware-identity.json')!=identity:
++        raise IdentityError('acceptance manifest/identity mismatch')
++    comparison=read_json(path.parent/'throughput-comparison.json')
++    for run in [*comparison,*s['throughput_comparison']]:
++        require_profile(run,profile)
++        require_profile(run['setting_status'],profile,sampler=True)
++        require_profile(run['observed_status'],profile,sampler=True)
++    if s.get('throughput_comparison')!=comparison:
+         raise GateError('missing raw sampler on/off throughput evidence')
+     for run in s['throughput_comparison']:
+         if run.get('completed',0)<=0 or run.get('failed') or run.get('elapsed_seconds',0)<5:
+             raise GateError('sampler on/off acceptance failed')
+     if [r.get('sampling_enabled') for r in s['throughput_comparison']]!=[0,1]:
+         raise GateError('sampler throughput comparison incomplete')
+-    validate_toggle_evidence(path.parent,s['throughput_comparison'],identity['artifact_hashes']['input'])
+-    for index,p in enumerate(acceptance_plan()):
++    validate_toggle_evidence(path.parent,s['throughput_comparison'],identity['artifact_hashes']['input'],profile)
++    for index,p in enumerate(acceptance_plan(profile)):
+         phase_dir=path.parent/phase_relative_path(s,index,p)
+         saved=read_json(phase_dir/'phase.json')
++        require_profile(saved,profile)
+         if any(saved.get(k)!=v for k,v in p.items()):raise GateError('acceptance condition mismatch')
+-        assess_phase(phase_dir)
+-    return dict(path=str(path),sha256=file_hash(path),inventory_sha256=file_hash(path.parent/'inventory.json'))
++        assess_phase(phase_dir,profile,identity['artifact_hashes']['input'])
++    return dict(**profiles.metadata(profile),path=str(path),sha256=file_hash(path),inventory_sha256=file_hash(path.parent/'inventory.json'))
+ 
+ 
+ class Journal:
+@@ -639,10 +686,10 @@
+                     self.serve_frame(None,2,log,'throughput-comparison');completed+=1
+                 end=time.monotonic()
+                 log(dict(event='interval_end',host_monotonic=end,sampling_enabled=enabled))
+-                results.append(dict(sampling_enabled=enabled,completed=completed,failed=0,
++                results.append(dict(**profiles.metadata(self.client.profile),sampling_enabled=enabled,completed=completed,failed=0,
+                     setting_status=setting,observed_status=observed,
+                     observation_kind='inferred_off_from_stable_scan_count' if not enabled else 'ready_and_scan_progress',
+-                    elapsed_seconds=end-start,interval_monotonic=[start,end],scope='closed-loop host throughput only'))
++                    elapsed_seconds=end-start,interval_monotonic=[start,end],throughput_scope='closed-loop host throughput only'))
+             finally:log.close()
+         self.client.request('power_sampling',1)
+         self.client.request('power_load',0)
+@@ -705,6 +752,7 @@
+         return result
+ 
+     def phase(self,index,p):
++        if not profiles.matches(p,self.client.profile):raise GateError("phase plan profile mismatch")
+         directory=self.output/'phases'/f'{index:03d}-{p["name"]}'
+         directory.mkdir(parents=True,exist_ok=False)
+         journal=Journal(directory/'frame-events.jsonl')
+@@ -731,7 +779,7 @@
+                 now=time.monotonic()
+                 if now-last_status>=1:
+                     status=self.client.status();temperatures(dict(host_monotonic=now,status=status))
+-                    validate_status(status)
++                    validate_status(status,profile=self.client.profile)
+                     validate_condition(status,p)
+                     warm.append(status);last_status=now
+                     if now-warm_start>=30 and thermal_stable(warm):break
+@@ -804,7 +852,7 @@
+             phase_info['status']='EXPORTED'
+             wire.save_json(directory/'host-counts.json',counts)
+             wire.save_json(directory/'phase.json',phase_info)
+-            evidence=assess_phase(directory)
++            evidence=assess_phase(directory,self.client.profile,self.input_sha256)
+             wire.save_json(directory/'acceptance-evidence.json',evidence)
+             self.client.request('power_release')
+             for n in range(100):
+@@ -838,6 +886,7 @@
+     action.add_argument('--prepare-sd',action='store_true',help='verify actual mounted SD contents and save receipt; no board')
+     action.add_argument('--acceptance',action='store_true',help='physical short/startup + 17/23 ms, two-offset, 60-second checks')
+     action.add_argument('--formal',action='store_true',help='paired formal suite; requires raw physical acceptance dataset')
++    p.add_argument('--diagnostic17',action='store_true',help='use the diagnostic17 BOOT, card and evidence')
+     p.add_argument('--target120-only',action='store_true',help='with --formal only: paired Target120 Full/Compact; default remains full suite')
+     p.add_argument('--sd-root',type=pathlib.Path,help='actual copied SD root while mounted on host')
+     p.add_argument('--sd-receipt',type=pathlib.Path,help='tool-generated verification receipt to write/consume')
+@@ -853,6 +902,15 @@
+     return p
+ 
+ 
++def verify_delivery(root):
++    from package import verify_package,PackageError
++    development=(len(root.parents)>2 and (root.parents[2]/'Cloud_test/e07/vendor/e07_base').is_dir()
++                 and (root/'execution/original_hashes.json').is_file())
++    if (root/'PACKAGE_SHA256SUMS.json').exists() or not development:
++        try:verify_package(root)
++        except PackageError as exc:raise GateError(str(exc)) from exc
++
++
+ def main(argv=None):
+     args=parser().parse_args(argv)
+     if sys.version_info<(3,11):raise GateError('Python 3.11+ required')
+@@ -862,22 +920,26 @@
+         for label,path in (('output',args.output),('SD receipt',args.sd_receipt),('controls',args.controls)):
+             if path is not None and path.resolve().is_relative_to(root):
+                 raise GateError(label+' must be outside the immutable package directory')
+-    info=preflight(root)
++    profile=profiles.DIAGNOSTIC if args.diagnostic17 else profiles.STRICT
++    verify_delivery(root)
++    if root!=ROOT and source_hashes(root)!=source_hashes(ROOT):
++        raise GateError('running host differs from selected package source')
++    info=preflight(root,profile)
+     if args.check_only:
+-        print(json.dumps(dict(status='PACKAGE_PREFLIGHT_PASS',firmware_sha256=info['identity']['firmware_sha256'],
++        print(json.dumps(dict(**profiles.metadata(profile),status='PACKAGE_PREFLIGHT_PASS',firmware_sha256=info['identity']['firmware_sha256'],
+             copied_SD='NOT_CHECKED' if not args.sd_root else 'CHECK_REQUIRED_VIA_PREPARE_SD',
+             physical_startup='NOT_RUN',power_acceptance='NOT_RUN')))
+         return 0
+     if args.prepare_sd:
+         if not args.sd_root or not args.sd_receipt:raise GateError('--prepare-sd requires --sd-root and --sd-receipt')
+-        receipt=verify_sd(root,args.sd_root,args.sd_receipt)
+-        print(json.dumps(dict(status='SD_COPY_VERIFIED',receipt=str(args.sd_receipt),assumption=receipt['assumption'])))
++        receipt=verify_sd(root,args.sd_root,args.sd_receipt,profile)
++        print(json.dumps(dict(**profiles.metadata(profile),status='SD_COPY_VERIFIED',receipt=str(args.sd_receipt),assumption=receipt['assumption'])))
+         return 0
+     if args.sd_root:
+         if not args.sd_receipt:raise GateError('--sd-root requires --sd-receipt destination')
+-        verify_sd(root,args.sd_root,args.sd_receipt)
++        verify_sd(root,args.sd_root,args.sd_receipt,profile)
+     if not args.sd_receipt:raise GateError('verify mounted SD first with --prepare-sd; --sd-receipt required')
+-    receipt=validate_receipt(root,args.sd_receipt)
++    receipt=validate_receipt(root,args.sd_receipt,profile)
+     if not args.output or not args.board_id or not args.controls:
+         raise GateError('physical runs require --output, --board-id and --controls')
+     controls=read_json(args.controls)
+@@ -889,9 +951,9 @@
+     if args.formal:
+         if not args.acceptance_session:raise GateError('--formal requires --acceptance-session raw dataset')
+         acceptance=validate_acceptance(args.acceptance_session,info['identity'],args.board_id,controls)
+-    plan=acceptance_plan() if args.acceptance else selected_formal_plan(args.seconds,args.repetitions,args.target120_only)
++    plan=acceptance_plan(profile) if args.acceptance else selected_formal_plan(args.seconds,args.repetitions,args.target120_only,profile)
+     out=args.output.resolve();out.mkdir(parents=True,exist_ok=False)
+-    session=dict(schema='e07-host-session-v1',kind='acceptance' if args.acceptance else 'formal',
++    session=dict(**profiles.metadata(profile),schema='e07-host-session-v1',kind='acceptance' if args.acceptance else 'formal',
+         status='INCOMPLETE',started_utc=utcnow(),identity=info['identity'],manifest=info['manifest'],
+         package_manifest_sha256=info['manifest_sha256'],sd_receipt=receipt,source_hashes=source_hashes(root),
+         os=platform.platform(),python=sys.version,board_id=args.board_id,controls=controls,
+@@ -919,7 +981,7 @@
+         startup=ensure_ready(client,out)
+         wire.save_json(out/'startup-status.json',startup)
+         config=client.export('config',out/'startup-exports');validate_config(config)
+-        runner=Runner(client,out,(root/'SD_CARD/input.bin').read_bytes(),info['identity']['artifact_hashes']['input'])
++        runner=Runner(client,out,(root/profiles.paths(profile)[2]/'input.bin').read_bytes(),info['identity']['artifact_hashes']['input'])
+         if args.acceptance:session['throughput_comparison']=runner.comparison()
+         for index,p in enumerate(plan):session['phases'].append(runner.phase(index,p))
+         session['status']='COMPLETE'
+--- r2/host/load.py
++++ diagnostic17/host/load.py
+@@ -1,8 +1,17 @@
+ """Independent absolute schedules; producer threads never access the socket."""
++from bisect import bisect_left
+ import collections
+ import math
+ import threading
+ import time
++
++
++def missed_in_window(event,fps,window):
++    """Count scheduled deadlines in the half-open host window, even across a long stall."""
++    if window is None:return 0
++    slots=range(event['first_sequence'],event['first_sequence']+event['count'])
++    def deadline(slot):return event['schedule_start_monotonic']+slot/fps
++    return bisect_left(slots,window[1],key=deadline)-bisect_left(slots,window[0],key=deadline)
+ 
+ 
+ class OfferedLoad:
+@@ -31,7 +40,7 @@
+             if due<previous:return
+             if due>previous:
+                 event=dict(event='missed_slots',stream=stream,first_sequence=previous,
+-                           count=due-previous,phase=self.phase,host_monotonic=now)
++                           count=due-previous,phase=self.phase,host_monotonic=now,schedule_start_monotonic=self.start_at)
+                 self.missed.append(event);self.record(event)
+             f=dict(event='produced',stream=stream,sequence=due,phase=self.phase,
+                    input_sha256=self.input_sha256,planned_monotonic=self.start_at+due/self.fps,
+@@ -98,6 +107,7 @@
+             submitted_window=[f for f in self.frames if in_window(f.get('submitted_monotonic',float('-inf'))) ]
+             return dict(missed_slots=sum(e['count'] for e in self.missed),produced=len(self.frames),
+                 scheduled_slots=sum(self.next_slots),
++                window_missed_slots=sum(missed_in_window(e,self.fps,window) for e in self.missed),
+                 window_produced=len(produced_window),window_submitted=len(submitted_window),
+                 window_evicted=sum(f['state']=='evicted' for f in produced_window),
+                 window_failed=sum(f['state']=='failed' for f in produced_window),
+--- /dev/null
++++ diagnostic17/host/profiles.py
+@@ -0,0 +1,50 @@
++"""Measurement contracts shared by the builder, collector and analyzer."""
++STRICT = 'strict18'
++DIAGNOSTIC = 'diagnostic17'
++ALL = (1 << 18) - 1
++SENTINEL = -(1 << 63)
++
++
++def metadata(profile):
++    if profile not in (STRICT, DIAGNOSTIC):
++        raise ValueError('unknown measurement profile '+str(profile))
++    diagnostic = profile == DIAGNOSTIC
++    return dict(measurement_profile=profile, included_mask=ALL ^ (1 << 7) if diagnostic else ALL,
++                included_count=17 if diagnostic else 18, excluded_rails=[7] if diagnostic else [],
++                scope='17-rail diagnostic' if diagnostic else
++                      '18 monitored supply rails; not external whole-board input power')
++
++
++def matches(value, profile):
++    return all(type(value.get(key)) is type(expected) and value[key] == expected
++               for key, expected in metadata(profile).items())
++
++
++def paths(profile):
++    metadata(profile)
++    suffix = '_DIAG17' if profile == DIAGNOSTIC else ''
++    return 'FIRMWARE_IDENTITY'+suffix+'.json', 'SHA256SUMS'+suffix+'.json', 'SD_CARD'+suffix
++
++
++def qualified(status, profile):
++    expected = metadata(profile)
++    ready = status.get('conversion_ready_mask')
++    warnings = status.get('excluded_negative_samples')
++    return (matches(status, profile) and status.get('sampler_profile_rails') == expected['included_count'] and
++            status.get('configured_mask') == ALL and status.get('observed_mask') == ALL and
++            type(ready) is int and 0 <= ready <= ALL and ready & expected['included_mask'] == expected['included_mask'] and
++            type(warnings) is int and warnings >= 0 and (profile == DIAGNOSTIC or warnings == 0))
++
++
++def raw_power_ok(row, profile):
++    flags = row['flags']
++    signed = row['shunt'] >= 32768 or row['current'] >= 32768
++    if (row['rail'] not in range(18) or row['config'] != 0x4527 or row['calibration'] != 2048 or
++        bool(flags & 2) != bool(row['mask'] & 8) or row['mask'] & 4 or
++        row['shunt'] in (32767,32768) or row['current'] in (32767,32768) or
++        row['bus'] >= 32767 or row['power'] == 65535):
++        return False
++    if profile == DIAGNOSTIC and row['rail'] == 7 and flags in (256,258):
++        return signed and row['power_uW'] == SENTINEL
++    return (flags in (1,3) and not signed and
++            row['power_uW'] == row['power'] * (31250 if row['rail'] == 10 else 12500))
+--- r2/host/wire.py
++++ diagnostic17/host/wire.py
+@@ -4,6 +4,7 @@
+ firmware mismatch_count and SHA-256 of every persisted chunk are the available
+ integrity evidence. Local hashes do not authenticate a malicious peer.
+ """
++from . import profiles
+ import dataclasses
+ import hashlib
+ import json
+@@ -73,8 +74,27 @@
+     received_monotonic: float
+ 
+ 
++def validate_business_metadata(m,mode,hz=None):
++    fields=('edge_rx_start_ticks','edge_rx_end_ticks','inference_start_ticks','inference_end_ticks',
++            'result_queue_ticks','timer_frequency_hz','mismatch_count','predicted_class','total_ticks')
++    if not isinstance(m,dict) or any(type(m.get(k)) is not int or m[k]<0 for k in fields):
++        raise ProtocolError('missing/invalid business verification or timing data')
++    if (m.get('fixture')!='E07_FIXED_INPUT' or m.get('mode')!=mode or m['mismatch_count']!=0 or
++        m['timer_frequency_hz']<=0 or (hz is not None and m['timer_frequency_hz']!=hz) or
++        not m['edge_rx_start_ticks']<=m['edge_rx_end_ticks']<=m['inference_start_ticks']<=m['inference_end_ticks']<=m['result_queue_ticks']):
++        raise ProtocolError('business output reference or clock verification failed')
++
++
++def expected_greeting(identity):
++    return dict(**profiles.metadata(identity['measurement_profile']),model='E07',phase='E07_INDEPENDENT_CANDIDATE',
++                candidate='E07_INDEPENDENT_POWER_V1',protocol_schema=1,physical_status='NOT_RUN',
++                service_cpu='a53-0',sampler_cpu='a53-1',firmware_sha256=identity['firmware_sha256'],
++                artifact_hashes=identity['artifact_hashes'],board_ip='192.168.10.2',tcp_port=5001)
++
++
+ class Client:
+     def __init__(self, sock, identity, record=None, raw_dir=None):
++        self.profile = identity['measurement_profile']
+         self.sock = sock
+         self.owner = threading.get_ident()
+         self.record = record or (lambda event: None)
+@@ -85,11 +105,7 @@
+         self.hello = self._receive()
+         try:
+             h = self.hello
+-            expected = dict(model='E07', phase='E07_INDEPENDENT_CANDIDATE',
+-                candidate='E07_INDEPENDENT_POWER_V1', protocol_schema=1,
+-                physical_status='NOT_RUN', service_cpu='a53-0', sampler_cpu='a53-1',
+-                firmware_sha256=identity['firmware_sha256'], artifact_hashes=identity['artifact_hashes'],
+-                board_ip='192.168.10.2', tcp_port=5001)
++            expected = expected_greeting(identity)
+             if h.kind != 5 or h.request_id != 0 or h.payload or h.metadata != expected:
+                 raise ProtocolError('wrong/legacy firmware greeting or manifest identity')
+         except Exception as exc:
+@@ -151,6 +167,8 @@
+             if r.request_id!=rid:raise ProtocolError('response request ID mismatch')
+             if r.kind==255:raise BoardError(r.metadata)
+             if r.kind!=expected:raise ProtocolError('response kind mismatch')
++            if expected in (4,6) and name.startswith('power_') and not profiles.matches(r.metadata,self.profile):
++                raise ProtocolError('control/status measurement profile mismatch')
+             if expected in (4,6) and r.payload:raise ProtocolError('unexpected control/status payload')
+             return r
+         except Exception as exc:
+@@ -164,14 +182,7 @@
+         try:
+             r=self.request(mode,payload=fixture,expected=1 if mode=='replay_full' else 2)
+             m=r.metadata
+-            fields=['edge_rx_start_ticks','edge_rx_end_ticks','inference_start_ticks',
+-                    'inference_end_ticks','result_queue_ticks','timer_frequency_hz',
+-                    'mismatch_count','predicted_class','total_ticks']
+-            if any(type(m.get(k)) is not int or m[k]<0 for k in fields):
+-                raise ProtocolError('missing/invalid business verification or timing data')
+-            if (m.get('fixture')!='E07_FIXED_INPUT' or m.get('mode')!=mode or
+-                m['mismatch_count']!=0 or m['timer_frequency_hz']<=0):
+-                raise ProtocolError('business output reference verification failed')
++            validate_business_metadata(m,mode)
+             if mode=='replay_full' and r.payload!=fixture:
+                 raise ProtocolError('Full payload differs from fixed input')
+             if mode=='replay_compact' and (r.payload or m['inference_end_ticks']<m['inference_start_ticks']):
+@@ -202,7 +213,7 @@
+             size=struct.calcsize(FORMATS[kind])
+             if export_phase is None:export_phase=m.get('phase_id')
+             if total is None:total=m.get('total')
+-            if (m.get('schema')!=1 or m.get('record_type')!=kind or m.get('phase_id')!=export_phase or
++            if (not profiles.matches(m,self.profile) or m.get('schema')!=1 or m.get('record_type')!=kind or m.get('phase_id')!=export_phase or
+                 type(total) is not int or total<0 or m.get('total')!=total or m.get('first')!=first or
+                 m.get('record_bytes')!=size or m.get('count')!=min(256,total-first) or
+                 m.get('next')!=first+m.get('count',-1) or type(m.get('done')) is not bool or
+@@ -221,4 +232,5 @@
+             first=m['next']
+         if kind in ('config','latest') and len(rows)!=18:raise ProtocolError('missing diagnostic/config rails')
+         save_json(destination/f'{kind}-records.json',rows)
++        if kind=='rails':save_json(destination/'rail7-records.json',[r for r in rows if r['rail']==7])
+         return rows
+--- r2/package.py
++++ diagnostic17/package.py
+@@ -49,7 +49,7 @@
+     return name
+ 
+ 
+-def verify_package(root=ROOT):
++def verify_package(root=ROOT,profile='strict18'):
+     require_python();root=pathlib.Path(root).resolve()
+     # Do not import unverified runtime code to parse/check its own manifest.
+     def unique_pairs(items):
+@@ -73,27 +73,37 @@
+         if path.stat().st_size!=expected['bytes'] or file_hash(path)!=expected['sha256']:
+             raise PackageError('package size/SHA mismatch: '+name)
+     from host import collect
+-    info=collect.preflight(root)
+-    return dict(status='WHOLE_PACKAGE_PREFLIGHT_PASS',file_count=len(manifest)+1,
++    infos={name:collect.preflight(root,name) for name in ('strict18','diagnostic17')}
++    info=infos[profile]
++    if infos['strict18']['identity']['artifact_hashes']!=infos['diagnostic17']['identity']['artifact_hashes']:
++        raise PackageError('profiles disagree on frozen artifacts')
++    return dict(**collect.profiles.metadata(profile),status='WHOLE_PACKAGE_PREFLIGHT_PASS',file_count=len(manifest)+1,
+         firmware_sha256=info['identity']['firmware_sha256'],physical_startup='NOT_RUN',
+         power_acceptance='NOT_RUN',copied_SD='NOT_CHECKED')
+ 
+ 
+ def selected_files(root):
+     from host import collect
+-    info=collect.preflight(root);identity=info['identity']
++    identities=[collect.preflight(root,profile)['identity'] for profile in ('strict18','diagnostic17')]
++    identity=identities[0]
+     paths=set()
+     for name in ('FIRMWARE_IDENTITY.json','SHA256SUMS.json','README_CN.txt','PROTOCOL.md',
+                  'Run-PowerRetest.ps1','package.py','build_firmware.py','build_platform.py',
+-                 'REPAIR_NOTES_CN.txt','REPAIR.diff'):
++                 'REPAIR_NOTES_CN.txt','REPAIR.diff','DIAGNOSTIC17_NOTES_CN.txt','DIAGNOSTIC17.diff',
++                 'FIRMWARE_IDENTITY_DIAG17.json','SHA256SUMS_DIAG17.json'):
+         paths.add(root/name)
+-    for directory in ('host','firmware','tests','SD_CARD'):
++    for directory in ('host','firmware','tests','SD_CARD','SD_CARD_DIAG17'):
+         paths.update(p for p in (root/directory).rglob('*') if p.is_file() and '__pycache__' not in p.parts)
+-    build=root/identity['build_directory']
+-    paths.update(p for p in build.iterdir() if p.is_file() and p.suffix!='.o')
+-    for name in ('provenance.json','platform_configuration.json'):
+-        paths.add(root/'build'/name)
+-    provenance=collect.read_json(root/'build/provenance.json')
++    for current in identities:
++        build=root/current['build_directory']
++        paths.update(p for p in build.iterdir() if p.is_file() and p.suffix!='.o')
++    paths.add(root/'build/platform_configuration.json')
++    audit=root/'execution/diagnostic17_20261122'
++    for name in ('red-firmware.log','green-firmware.log','red-host-analysis.log','green-host-analysis.log',
++                 'build-strict18.log','build-diagnostic17.log','red-package.log','red-package-cli.log','red-replay.log',
++                 'fix1-red.log','fix1-red-load.log','fix1-red-response.log','fix1-green.log','r6-red.log','r6-green.log','r7-green.log','full-suite.log'):
++        paths.add(audit/name)
++    provenance=collect.read_json(root/identity['build_directory']/'provenance.json')
+     for name in provenance['sampler_startup_inputs']:paths.add(root/name)
+     for path in paths:
+         if not path.is_file() or path.is_symlink():raise PackageError('missing/unsafe selected file: '+str(path))
+@@ -103,7 +113,7 @@
+ 
+ def dependencies(identity):
+     payload=identity['canonical_payload']
+-    return dict(schema='e07-build-dependencies-v1',physical_status='NOT_RUN',
++    return dict(measurement_profile=identity['measurement_profile'],schema='e07-build-dependencies-v1',physical_status='NOT_RUN',
+         instructions='Rebuild in a separate repository copy preserving validation/cloud_power_retest_20261121/independent_sampler layout. See README_CN.txt. No PL synthesis is required.',
+         compiler=payload['compiler'],compiler_version=payload['compiler_version'],
+         toolchain='AMD Vitis/Bootgen 2025.1 Linux installation; Python vitis module for build_platform.py; host cc for native C tests',
+@@ -126,6 +136,8 @@
+     files,identity=selected_files(root)
+     data={p.relative_to(root).as_posix():p.read_bytes() for p in files}
+     data['BUILD_DEPENDENCIES.json']=json_bytes(dependencies(identity))
++    diagnostic=json.loads(data['FIRMWARE_IDENTITY_DIAG17.json'])
++    data['BUILD_DEPENDENCIES_DIAG17.json']=json_bytes(dependencies(diagnostic))
+     manifest={name:dict(bytes=len(value),sha256=digest(value)) for name,value in sorted(data.items())}
+     data[MANIFEST]=json_bytes(manifest)
+     archive.parent.mkdir(parents=True,exist_ok=True)
+@@ -148,10 +160,11 @@
+     action=parser.add_mutually_exclusive_group(required=True)
+     action.add_argument('--check-only',action='store_true',help='verify whole extracted package before collector use')
+     action.add_argument('--build',action='store_true',help='create uniquely named new ZIP; never overwrite')
++    parser.add_argument('--diagnostic17',action='store_true',help='display diagnostic17 identity during verification')
+     parser.add_argument('--root',type=pathlib.Path,default=ROOT)
+     parser.add_argument('--output-zip',type=pathlib.Path)
+     args=parser.parse_args(argv);require_python()
+-    if args.check_only:result=verify_package(args.root)
++    if args.check_only:result=verify_package(args.root,"diagnostic17" if args.diagnostic17 else "strict18")
+     else:
+         stamp=datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%SZ')
+         archive=args.output_zip or args.root/'archives'/f'E07_Independent_Power_v1_{stamp}_{uuid.uuid4().hex[:8]}.zip'
+--- r2/tests/test_analysis.py
++++ diagnostic17/tests/test_analysis.py
+@@ -28,13 +28,18 @@
+     package = None
+ 
+ 
++STRICT=dict(measurement_profile='strict18',included_mask=262143,included_count=18,excluded_rails=[],
++            scope='18 monitored supply rails; not external whole-board input power')
++DIAG=dict(measurement_profile='diagnostic17',included_mask=262015,included_count=17,excluded_rails=[7],
++          scope='17-rail diagnostic')
++
+ def write_json(path, value):
+     path.parent.mkdir(parents=True, exist_ok=True)
+     path.write_text(json.dumps(value), encoding='utf-8')
+ 
+ 
+ def fixture_status(**changes):
+-    value = dict(schema=1, physical_status='NOT_RUN', ready=True, snapshot_valid=True,
++    value = dict(**STRICT,observed_mask=262143,excluded_negative_samples=0,sampler_profile_rails=18,schema=1, physical_status='NOT_RUN', ready=True, snapshot_valid=True,
+         phase_id=1, state=4, faults=0, sampler_faults=0, service_core=0, sampler_core=1,
+         epoch=7, sampler_epoch=7, timer_hz=8000, sampler_hz=8000, now_ticks=104100,
+         sampler_heartbeat=104000, clock_checks=4, heartbeat_advances=4, configured_mask=262143,
+@@ -87,11 +92,11 @@
+                          temperature_mC=45000,reserved=0) for i in range(5)]
+         self.end=fixture_status()
+         self.start=fixture_status(phase_id=0,state=0,sampler_state=0,t0=0,t1=0)
+-        self.phase=dict(name='r1-Target120-Full',mode=1,fps=30,seconds=2,scan_ms=20,
++        self.phase=dict(**STRICT,name='r1-Target120-Full',mode=1,fps=30,seconds=2,scan_ms=20,
+             offset_ms=0,board_phase_id=1,board_t0=80000,board_t1=96000,timer_hz=8000,
+             arm_status=fixture_status(state=1,sampler_state=1),
+             host_window_monotonic=[1000.0,1002.0],status='EXPORTED')
+-        self.warm=[fixture_status(now_ticks=(i+40)*8000,temperature_tick=(i+40)*8000)
++        self.warm=[fixture_status(now_ticks=(i+40)*8000,sampler_heartbeat=(i+40)*8000-1,temperature_tick=(i+40)*8000)
+                    for i in range(31)]
+         self.host=dict(produced=240,submitted=240,completed=240,failed=0,remaining=0,in_flight=0,
+             evicted=0,missed_slots=0,scheduled_slots=240,timeouts=0,completed_window=1,
+@@ -105,7 +110,9 @@
+             self.frames.append(dict(base,event='produced'))
+             self.frames.append(dict(base,event='submitted',request_id=i+1,submitted_monotonic=produced))
+             self.frames.append(dict(base,event='completed',request_id=i+1,submitted_monotonic=produced,
+-                received_monotonic=received,verified=True,e2e_seconds=received-produced,
++                received_monotonic=received,verified=True,board_response=dict(fixture='E07_FIXED_INPUT',mode='replay_full',
++                    edge_rx_start_ticks=100,edge_rx_end_ticks=101,inference_start_ticks=102,inference_end_ticks=103,
++                    result_queue_ticks=104,timer_frequency_hz=8000,mismatch_count=0,predicted_class=0,total_ticks=1),e2e_seconds=received-produced,
+                 transaction_seconds=received-produced))
+ 
+     def save(self):
+@@ -134,10 +141,11 @@
+                 prefix.parent.mkdir(parents=True,exist_ok=True)
+                 prefix.with_suffix('.bin').write_bytes(data)
+                 write_json(prefix.with_suffix('.json'),dict(request_id=100+first,
+-                    payload_sha256=hashlib.sha256(data).hexdigest(),metadata=dict(schema=1,record_type=kind,
++                    payload_sha256=hashlib.sha256(data).hexdigest(),metadata=dict(**(DIAG if self.phase['measurement_profile']=='diagnostic17' else STRICT),schema=1,record_type=kind,
+                     phase_id=1,first=first,count=len(chunk),total=len(rows),record_bytes=struct.calcsize(wire.FORMATS[kind]),
+                     next=first+len(chunk),done=first+len(chunk)==len(rows))))
+             write_json(self.directory/'exports'/f'{kind}-records.json',rows)
++        write_json(self.directory/'exports/rail7-records.json',[r for r in self.rails if r['rail']==7])
+         write_json(self.directory/'phase.json',self.phase)
+         write_json(self.directory/'end-status.json',self.end)
+         write_json(self.directory/'start-status.json',self.start)
+@@ -166,6 +174,41 @@
+         self.assertIsNone(result['energy_mJ_per_completed_frame'])
+         if fragment:self.assertIn(fragment,' '.join(result['invalid_reasons']))
+         return result
++
++    def test_diagnostic_hand_fixture_exclusion_and_scope(self):
++        f=self.fixture
++        f.phase.update(DIAG)
++        for s in [f.end,f.start,f.phase['arm_status']]+f.warm:
++            s.update(DIAG,conversion_ready_mask=262015,observed_mask=262143,
++                     sampler_profile_rails=17,excluded_negative_samples=0)
++        f.end['excluded_negative_samples']=33
++        f.events=[e for e in f.events if e['type']!=5 or e['request_id']<=200]
++        f.end['completed_full']=200
++        for r in f.rails:
++            r.update(power_uW=2000000,power=64 if r['rail']==10 else 160)
++            if r['rail']==7:r.update(flags=258,shunt=65534,power_uW=-(2**63))
++        for positive in (False,True):
++            if positive:
++                for r in f.rails:
++                    if r['rail']==7:r.update(flags=3,shunt=1,power=16000,power_uW=200000000)
++            f.save()
++            result=analyze.analyze_phase(f.directory,True,profile='diagnostic17')
++            self.assertTrue(result['valid'],result['invalid_reasons'])
++            self.assertEqual((result['energy_J'],result['mean_W'],result['board_completed_fps'],
++                              result['energy_mJ_per_completed_frame']),(68.,34.,100.,340.))
++            self.assertEqual(result['scope'],'17-rail diagnostic')
++            self.assertIsNone(result['rails'][7]['energy_J']);self.assertIsNone(result['rails'][7]['mean_W'])
++        out=f.directory.parent/'csv'
++        analyze.write_results(out,dict(**DIAG,stages=[result],aggregates=analyze.aggregate([result])))
++        for name in ('per-stage.csv','per-repeat.csv'):
++            self.assertIn('17-rail diagnostic',(out/name).read_text(encoding='utf-8-sig'))
++        for rail,flags in ((7,262),(7,266),(7,274),(7,290),(7,386),(7,259),(6,258)):
++            original=f.rails[rail].copy()
++            f.rails[rail].update(flags=flags,power_uW=-(2**63),shunt=65534);f.save()
++            invalid=analyze.analyze_phase(f.directory,True,profile='diagnostic17')
++            self.assertFalse(invalid['valid']);self.assertIsNone(invalid['energy_J'])
++            f.rails[rail]=original
++        with self.assertRaises(analyze.AnalysisError):analyze.analyze_phase(f.directory,True)
+ 
+     def test_hand_derived_100ms_linear_integral(self):
+         r=analyze.integrate_rail(math_rows(),0,20000,10000)
+@@ -360,8 +403,11 @@
+         self.assertEqual(groups[0]['mean_W']['mean'],55.)
+         self.assertAlmostEqual(groups[0]['mean_W']['sample_SD'],2**.5)
+ 
+-    def session(self):
+-        from host import collect
++    def session(self,policy=STRICT):
++        from host import collect
++        self.fixture.phase.update(policy)
++        for s in [self.fixture.start,self.fixture.end,self.fixture.phase['arm_status']]+self.fixture.warm:
++            s.update(policy,conversion_ready_mask=policy['included_mask'],sampler_profile_rails=policy['included_count'])
+         self.fixture.save()
+         root=self.fixture.directory.parent
+         target=root/'phases'/'000-r1-Target120-Full'
+@@ -369,26 +415,81 @@
+         self.fixture.directory=target
+         identity=json.loads((ROOT/'FIRMWARE_IDENTITY.json').read_text())
+         manifest=json.loads((ROOT/'SHA256SUMS.json').read_text())
++        if policy==DIAG:
++            identity=json.loads((ROOT/'FIRMWARE_IDENTITY_DIAG17.json').read_text())
++            manifest=json.loads((ROOT/'SHA256SUMS_DIAG17.json').read_text())
+         for e in self.fixture.frames:
+             if 'input_sha256' in e:e['input_sha256']=identity['artifact_hashes']['input']
+         self.fixture.save()
+         plan={k:self.fixture.phase[k] for k in ('name','mode','fps','seconds','scan_ms','offset_ms')}
+-        session=dict(schema='e07-host-session-v1',identity=identity,manifest=manifest,status='COMPLETE',
+-            source_hashes=collect.source_hashes(ROOT),kind='formal',physical=False,peer_ip='127.0.0.1',plan=[plan],
+-            phases=[dict(path='phases/000-r1-Target120-Full',status='COMPLETE')])
++        session=dict(**policy,schema='e07-host-session-v1',identity=identity,manifest=manifest,status='COMPLETE',
++            source_hashes=collect.source_hashes(ROOT),kind='formal',physical=False,peer_ip='127.0.0.1',plan=[dict(plan,**policy)],
++            sd_receipt=collect.verify_sd(ROOT,ROOT/('SD_CARD_DIAG17' if policy==DIAG else 'SD_CARD'),root/'receipt.json',policy['measurement_profile']),
++            phases=[dict(**policy,path='phases/000-r1-Target120-Full',status='COMPLETE')])
+         write_json(root/'session.json',session)
++        write_json(root/'startup-status.json',fixture_status(**policy,sampler_profile_rails=policy['included_count']))
+         write_json(root/'firmware-identity.json',identity);write_json(root/'manifest.json',manifest)
+-        write_json(root/'hello.json',dict(firmware_sha256=identity['firmware_sha256'],artifact_hashes=identity['artifact_hashes'],
++        write_json(root/'hello.json',dict(**policy,firmware_sha256=identity['firmware_sha256'],artifact_hashes=identity['artifact_hashes'],
+             model='E07',phase='E07_INDEPENDENT_CANDIDATE',candidate='E07_INDEPENDENT_POWER_V1',protocol_schema=1,
+             physical_status='NOT_RUN',service_cpu='a53-0',sampler_cpu='a53-1',board_ip='192.168.10.2',tcp_port=5001))
+         write_json(root/'inventory.json',collect.inventory(root))
+         return root,session
+ 
++    def test_formal_phase_summary_must_match_selected_measurement_profile(self):
++        from host import collect
++        root,session=self.session(DIAG)
++        acceptance=root/'linked acceptance'
++        a=self.acceptance_fixture(acceptance,DIAG)
++        session.update(physical=True,peer_ip='192.168.10.2',board_id=a['board_id'],controls=a['controls'],
++            acceptance_binding=dict(DIAG,path=str(acceptance/'session.json'),sha256=collect.file_hash(acceptance/'session.json'),
++                                    inventory_sha256=collect.file_hash(acceptance/'inventory.json')))
++        write_json(root/'inventory.json',collect.inventory(root))
++        write_json(root/'session.json',session)
++        self.assertTrue(analyze.analyze_session(root,profile='diagnostic17')['valid'])
++        saved=session['phases'][0]
++        for invalid in ([dict(saved,**STRICT)],[],[saved,saved]):
++            with self.subTest(summaries=invalid):
++                session['phases']=invalid
++                write_json(root/'session.json',session)
++                with self.assertRaises(analyze.IdentityError):analyze.analyze_session(root,profile='diagnostic17')
++
++    def test_analysis_cli_explicit_diagnostic_session_and_cross_profile_refusal(self):
++        root,_=self.session(DIAG)
++        out=root.parent/(root.name+' derived diagnostic')
++        self.addCleanup(lambda:shutil.rmtree(out,ignore_errors=True))
++        args=[sys.executable,'-B','-S',str(ROOT/'host/analyze.py'),str(root),'--synthetic','--output',str(out)]
++        strict=subprocess.run(args,capture_output=True,text=True)
++        self.assertEqual(strict.returncode,2);self.assertFalse(out.exists())
++        result=subprocess.run(args+['--diagnostic17'],capture_output=True,text=True)
++        self.assertEqual(result.returncode,0,result.stderr)
++        analysis=json.loads((out/'analysis.json').read_text())
++        self.assertEqual((analysis['included_count'],analysis['stages'][0]['energy_J']),(17,102.))
+     def test_session_simulation_can_never_be_physical_result(self):
+         root,_=self.session()
+         r=analyze.analyze_session(root)
+         self.assertFalse(r['valid'])
+         self.assertIsNone(r['stages'][0]['mean_W'])
++        for rail in r['stages'][0]['rails']:
++            self.assertFalse(rail['valid'])
++            for key in ('energy_J','mean_W','energy_mJ_per_completed_frame'):self.assertIsNone(rail[key])
++            self.assertGreater(rail['partial_energy_J'],0)
++
++    def test_window_drops_exclude_warmup_and_count_boundary_cohorts(self):
++        f=self.fixture
++        f.phase['fps']=2
++        for sequence,tick in enumerate((999.5,1000.,1002.)):
++            frame=dict(stream=3,sequence=sequence,phase=f.phase['name'],input_sha256='a'*64,
++                       planned_monotonic=tick,produced_monotonic=tick)
++            f.frames.extend([dict(frame,event='produced'),dict(frame,event='evicted',host_monotonic=tick+1)])
++        f.frames.append(dict(event='missed_slots',stream=2,first_sequence=0,count=9,phase=f.phase['name'],
++                             host_monotonic=1003.5,schedule_start_monotonic=999.))
++        f.host.update(produced=243,evicted=3,missed_slots=9,scheduled_slots=252)
++        result=self.result()
++        self.assertTrue(result['valid'],result['invalid_reasons'])
++        self.assertEqual((result['dropped_frames'],result['missed_slots']),(1,4))
++        self.assertEqual((result['whole_run_evicted_frames'],result['whole_run_missed_slots']),(3,9))
++        self.assertEqual(result['host_window_monotonic'],[1000.,1002.])
++        self.assertIsNone(result['board_window_dropped_frames'])
+ 
+     def test_synthetic_session_outputs_and_csv_are_explicit(self):
+         root,_=self.session();r=analyze.analyze_session(root,synthetic=True)
+@@ -401,6 +502,20 @@
+         self.assertTrue((out/'per-repeat.csv').is_file())
+         with self.assertRaises(FileExistsError):analyze.write_results(out,r)
+ 
++    def test_cross_profile_status_and_formal_binding_abort_before_results(self):
++        from host import collect
++        root,session=self.session(DIAG)
++        directory=self.fixture.directory
++        stage=directory/'end-status.json';original=stage.read_bytes()
++        write_json(stage,dict(json.loads(original),**STRICT))
++        write_json(root/'inventory.json',collect.inventory(root))
++        with self.assertRaises(analyze.AnalysisError):
++            analyze.analyze_session(root,synthetic=True,profile='diagnostic17')
++        stage.write_bytes(original);write_json(root/'inventory.json',collect.inventory(root))
++        session.update(physical=True,peer_ip='192.168.10.2',acceptance_binding=dict(STRICT,path='wrong'))
++        write_json(root/'session.json',session)
++        with self.assertRaises(analyze.AnalysisError):
++            analyze.analyze_session(root,profile='diagnostic17')
+     def test_wrong_firmware_session_is_rejected_before_output(self):
+         root,s=self.session();s['identity']=dict(s['identity'],firmware_sha256='0'*64)
+         write_json(root/'session.json',s)
+@@ -465,12 +580,16 @@
+         write_json(root/'session.json',s)
+         with self.assertRaises(analyze.AnalysisError):analyze.analyze_session(root,synthetic=True)
+ 
+-    def acceptance_fixture(self,root):
++    def acceptance_fixture(self,root,policy=STRICT):
+         """Synthetic complete collector-gate evidence; never a board result."""
+         from host import collect
+         identity=json.loads((ROOT/'FIRMWARE_IDENTITY.json').read_text())
+         manifest=json.loads((ROOT/'SHA256SUMS.json').read_text())
+-        plan=collect.acceptance_plan()
++        if policy==DIAG:
++            identity=json.loads((ROOT/'FIRMWARE_IDENTITY_DIAG17.json').read_text())
++            manifest=json.loads((ROOT/'SHA256SUMS_DIAG17.json').read_text())
++        profile=policy['measurement_profile']
++        plan=collect.acceptance_plan(profile);warning_count=0
+         for index,p in enumerate(plan):
+             f=RawFixture(root/'phases'/f'{index:03d}-{p["name"]}')
+             t1=80000+p['seconds']*8000
+@@ -480,10 +599,15 @@
+                     r=copy.deepcopy(row);r.update(scan=scan,power=96 if r['rail']==10 else 240,
+                         power_uW=3000000,begin=[tick-8,tick-6,tick-4,tick-1,tick-10],
+                         end=[tick-7,tick-5,tick-3,tick+1,tick-9],scan_start=tick-11)
++                    if policy==DIAG and r['rail']==7:r.update(flags=258,shunt=65534,power_uW=-(2**63))
+                     f.rails.append(r)
+             f.phase.update(p,board_t1=t1)
+             for s in [f.start,f.end,f.phase['arm_status']]+f.warm:
++                s.update(policy,sampler_profile_rails=policy['included_count'],conversion_ready_mask=policy['included_mask'])
+                 s.update({k:p[k] for k in ('mode','scan_ms','offset_ms')})
++            for s in [*f.warm,f.start,f.phase['arm_status']]:s['excluded_negative_samples']=warning_count
++            warning_count+=sum(r['rail']==7 and r['flags']==258 for r in f.rails)
++            f.end['excluded_negative_samples']=warning_count
+             for s in (f.end,f.phase['arm_status']):
+                 s.update(t1=t1,now_ticks=t1+8100,sampler_heartbeat=t1+8000,temperature_tick=t1+8000)
+             f.events[0]['end']=t1;f.events[-2]['tick']=t1;f.events[-1]['tick']=t1+8001
+@@ -500,13 +624,16 @@
+                 completed_compact=240 if p['mode']==2 else 0,completed_continuous=1 if p['mode']==3 else 0)
+             f.temps=[dict(seq=i,phase=1,flags=1,raw=30000,tick=tick,temperature_mC=45000,reserved=0)
+                      for i,tick in enumerate(range(72000,t1+8001,8000))]
+-            for e in f.frames:e['phase']=p['name'];e['input_sha256']=identity['artifact_hashes']['input']
++            for e in f.frames:
++                e['phase']=p['name'];e['input_sha256']=identity['artifact_hashes']['input']
++                if e['event']=='completed':e['board_response']['mode']='replay_full' if p['mode']==1 else 'replay_compact'
+             f.save()
+         comparison=[]
+         for enabled in (0,1):
+             base=160000+enabled*80000;host=10.+enabled*10
+             setting=fixture_status(mode=2,sampling_enabled=enabled,ready=bool(enabled),scan_count=10,
+                 now_ticks=base,sampler_heartbeat=base-1,temperature_tick=base)
++            setting.update(policy,conversion_ready_mask=policy['included_mask'],sampler_profile_rails=policy['included_count'])
+             observations=[]
+             for i in range(3 if not enabled else 1):
+                 now=base+200*(i+1)
+@@ -525,26 +652,107 @@
+                      received_monotonic=end-.1,verified=True,e2e_seconds=4.8,transaction_seconds=4.7,board_response=response),
+                 dict(event='interval_end',host_monotonic=end,sampling_enabled=enabled)]
+             (root/f'throughput-sampling{enabled}.jsonl').write_text(''.join(json.dumps(r)+'\n' for r in frames))
+-            comparison.append(dict(sampling_enabled=enabled,completed=1,failed=0,elapsed_seconds=5,
++            comparison.append(dict(**policy,sampling_enabled=enabled,completed=1,failed=0,elapsed_seconds=5,
+                 interval_monotonic=[start,end],setting_status=setting,observed_status=observations[-1]['status'],
+                 observation_kind='ready_and_scan_progress' if enabled else 'inferred_off_from_stable_scan_count',
+                 test_data_kind='SYNTHETIC_NOT_PHYSICAL'))
+         controls={k:'SYNTHETIC_FIXTURE' for k in ('cpu_clock','pl_clock','power_supply','fan','network','environment')}
+-        session=dict(schema='e07-host-session-v1',kind='acceptance',status='COMPLETE',physical=True,
++        session=dict(**policy,schema='e07-host-session-v1',manifest=manifest,kind='acceptance',status='COMPLETE',physical=True,
+             peer_ip='192.168.10.2',identity=identity,board_id='SYNTHETIC_BOARD_FIXTURE',controls=controls,
+-            source_hashes=collect.source_hashes(ROOT),plan=plan,sd_receipt=dict(files=manifest),
++            source_hashes=collect.source_hashes(ROOT),plan=plan,sd_receipt=collect.verify_sd(ROOT,ROOT/('SD_CARD_DIAG17' if policy==DIAG else 'SD_CARD'),root/'receipt.json',profile),
+             throughput_comparison=comparison)
++        from host import wire
++        write_json(root/'manifest.json',manifest);write_json(root/'firmware-identity.json',identity)
++        write_json(root/'startup-status.json',fixture_status(**policy,conversion_ready_mask=policy['included_mask'],sampler_profile_rails=policy['included_count']))
++        write_json(root/'hello.json',wire.expected_greeting(identity))
+         write_json(root/'throughput-comparison.json',comparison);write_json(root/'session.json',session)
+         write_json(root/'inventory.json',{str(pathlib.PureWindowsPath(k)):v for k,v in collect.inventory(root).items()})
+         return session
+ 
++    def test_reconstructed_acceptance_rejects_phase_clock_and_failed_output(self):
++        from host import collect
++        root=pathlib.Path(self.temp.name)/'acceptance';session=self.acceptance_fixture(root)
++        directory=root/'phases/000-startup-idle'
++        p=directory/'phase.json';original=p.read_bytes()
++        for case in ('clock','output'):
++            with self.subTest(case=case):
++                p.write_bytes(original)
++                if case=='clock':
++                    phase=json.loads(original);phase['arm_status']['sampler_hz']=7999;write_json(p,phase)
++                else:
++                    e=directory/'exports/events-000000.bin'
++                    data=bytearray(e.read_bytes())
++                    struct.pack_into('<I',data,24,1)  # ARM mismatch_count outside ACK family.
++                    e.write_bytes(data);side=json.loads(e.with_suffix('.json').read_bytes())
++                    side['payload_sha256']=__import__('hashlib').sha256(data).hexdigest();write_json(e.with_suffix('.json'),side)
++                    decoded=e.parent/'events-records.json';rows=json.loads(decoded.read_bytes());rows[0]['mismatch_count']=1
++                    write_json(decoded,rows)
++                write_json(root/'inventory.json',collect.inventory(root))
++                with self.assertRaises(collect.GateError):
++                    collect.validate_acceptance(root/'session.json',session['identity'],session['board_id'],session['controls'])
++                p.write_bytes(original)
++
++    def test_replayed_completed_frame_requires_matching_verified_board_response(self):
++        from host import collect
++        f=self.fixture
++        f.frames[2]['board_response']=dict(mode='replay_compact',fixture='E07_FIXED_INPUT',mismatch_count=0)
++        f.save()
++        with self.assertRaises(collect.GateError):collect.assess_phase(f.directory)
++    def test_diagnostic_warning_counter_covers_rows_and_cannot_roll_back(self):
++        from host import collect
++        f=self.fixture;f.phase.update(DIAG)
++        for s in [*f.warm,f.start,f.phase['arm_status'],f.end]:
++            s.update(DIAG,conversion_ready_mask=262015,sampler_profile_rails=17,excluded_negative_samples=10)
++        for r in f.rails:
++            if r['rail']==7:r.update(flags=258,shunt=65534,power_uW=-(2**63))
++        for arm,end,expected in ((15,45,True),(15,42,False),(55,45,False)):
++            with self.subTest(arm=arm,end=end):
++                f.phase['arm_status']['excluded_negative_samples']=arm;f.end['excluded_negative_samples']=end
++                f.save()
++                if expected:
++                    collect.assess_phase(f.directory,'diagnostic17')
++                else:
++                    with self.assertRaises(collect.GateError):collect.assess_phase(f.directory,'diagnostic17')
++
++    def test_nested_wrong_profile_refuses_formal_analysis_before_output(self):
++        from host import collect
++        root,session=self.session(DIAG)
++        accepts=root/'acceptance';a=self.acceptance_fixture(accepts,DIAG)
++        wrong=accepts/'phases/000-startup-idle'/'start-status.json'
++        write_json(wrong,dict(json.loads(wrong.read_bytes()),**STRICT))
++        write_json(accepts/'inventory.json',collect.inventory(accepts))
++        session.update(physical=True,peer_ip='192.168.10.2',board_id=a['board_id'],controls=a['controls'],
++            acceptance_binding=dict(DIAG,path=str(accepts/'session.json'),sha256=collect.file_hash(accepts/'session.json'),
++                                    inventory_sha256=collect.file_hash(accepts/'inventory.json')))
++        write_json(root/'session.json',session);write_json(root/'inventory.json',collect.inventory(root))
++        out=root.parent/(root.name+' invalid analysis')
++        self.addCleanup(lambda:shutil.rmtree(out,ignore_errors=True))
++        result=subprocess.run([sys.executable,'-B','-S',str(ROOT/'host/analyze.py'),str(root),'--diagnostic17','--output',str(out)],
++                              capture_output=True,text=True)
++        self.assertEqual(result.returncode,2,result.stderr)
++        self.assertFalse(out.exists())
++
++    def test_diagnostic_acceptance_requires_matching_replayed_profile(self):
++        from host import collect
++        root=pathlib.Path(self.temp.name)/'diagnostic synthetic acceptance'
++        session=self.acceptance_fixture(root,DIAG);identity=session['identity']
++        args=(session['board_id'],session['controls'])
++        check=lambda identity:collect.validate_acceptance(root/'session.json',identity,*args)
++        self.assertEqual(check(identity)['measurement_profile'],'diagnostic17')
++        with self.assertRaises(collect.GateError):check(collect.read_json(ROOT/'FIRMWARE_IDENTITY.json'))
++        path=root/'sampling0-observations.jsonl'
++        saved=[json.loads(line) for line in path.read_text().splitlines()]
++        saved[0]['status'].update(STRICT)
++        path.write_text(''.join(json.dumps(r)+'\n' for r in saved))
++        write_json(root/'inventory.json',collect.inventory(root))
++        with self.assertRaises(collect.GateError):check(identity)
+     def test_windows_inventory_relocated_acceptance_keeps_original_binding(self):
+         from host import collect
+         root,s=self.session()
+         acceptance=root/'acceptance original'
+         accepted=self.acceptance_fixture(acceptance)
+         raw_inventory=(acceptance/'inventory.json').read_bytes()
+-        binding=dict(path='D:\\old Windows results\\acceptance1\\session.json',
++        binding=dict(**STRICT,path='D:\\old Windows results\\acceptance1\\session.json',
+             sha256=collect.file_hash(acceptance/'session.json'),inventory_sha256=collect.file_hash(acceptance/'inventory.json'))
+         relocated=root/'relocated acceptance with spaces';shutil.move(str(acceptance),relocated)
+         checked=collect.validate_acceptance(relocated/'session.json',accepted['identity'],accepted['board_id'],accepted['controls'])
+@@ -642,6 +850,12 @@
+             base=pathlib.Path(d);archive=base/'portable candidate.zip'
+             info=package.build_archive(ROOT,archive)
+             self.assertGreater(info['file_count'],40)
++            with zipfile.ZipFile(archive) as z:
++                for sd,root_id in [('SD_CARD','FIRMWARE_IDENTITY.json'),('SD_CARD_DIAG17','FIRMWARE_IDENTITY_DIAG17.json')]:
++                    self.assertIn(sd+'/BOOT.BIN',z.namelist())
++                    identity=json.loads(z.read(root_id))
++                    for cpu in ('sampler','service'):self.assertIn(identity['ELF'][cpu]['path'],z.namelist())
++                self.assertIn('DIAGNOSTIC17.diff',z.namelist())
+             with self.assertRaises(FileExistsError):package.build_archive(ROOT,archive)
+             with zipfile.ZipFile(archive) as z:
+                 self.assertIsNone(z.testzip());z.extractall(base/'extracted package')
+@@ -670,6 +884,11 @@
+                 text=True,capture_output=True,cwd='/tmp')
+             self.assertEqual(r.returncode,2)
+             self.assertEqual(list(extracted.glob('results*')),[])
++            rejected=subprocess.run([sys.executable,'-B','-S',str(extracted/'host/collect.py'),'--check-only',
++                                     '--diagnostic17'],text=True,capture_output=True)
++            self.assertEqual(rejected.returncode,2,rejected.stderr)
++            self.assertIn('FAILED:',rejected.stderr)
++            self.assertIn('SD_CARD/input.bin',rejected.stderr)
+ 
+     def test_manifest_cannot_escape_package_or_ignore_added_file(self):
+         with tempfile.TemporaryDirectory() as d:
+--- r2/tests/test_firmware.py
++++ diagnostic17/tests/test_firmware.py
+@@ -69,6 +69,18 @@
+                 self.compile_run('first-conversion',['tests/test_first_conversion.c',
+                     'firmware/common/sensor.c','firmware/sampler/sampler.c','firmware/common/phase.c'],
+                     ['-I'+str(HERE/'firmware/sampler')],[case])
++    def test_compiled_profile_first_negative_held_and_first_fault(self):
++        for rails in (18,17):
++            with self.subTest(rails=rails):
++                self.compile_run('profile',['tests/test_first_conversion.c','firmware/common/sensor.c',
++                    'firmware/sampler/sampler.c','firmware/common/phase.c'],
++                    ['-I'+str(HERE/'firmware/sampler'),f'-DE07_PROFILE_RAILS={rails}'],['profile'])
++    def test_diag_other_rail_combined_errors_and_late_first_refused(self):
++        for case in ('profile-i2c','profile-other','profile-stale','timeout','late-negative'):
++            with self.subTest(case=case):
++                self.compile_run('diagnostic',['tests/test_first_conversion.c','firmware/common/sensor.c',
++                    'firmware/sampler/sampler.c','firmware/common/phase.c'],
++                    ['-I'+str(HERE/'firmware/sampler'),'-DE07_PROFILE_RAILS=17'],[case])
+     def test_sensor_configuration_calibration_raw_and_invalid_samples(self):
+         self.compile_run('sensor',['tests/test_sensor.c','firmware/common/sensor.c'])
+     def test_publication_phase_ack_request_ids_and_faults(self):
+--- r2/tests/test_first_conversion.c
++++ diagnostic17/tests/test_first_conversion.c
+@@ -5,7 +5,7 @@
+ #include <stdlib.h>
+ #include <string.h>
+ typedef struct { uint16_t regs[18][256]; unsigned domain; uint64_t tick;
+-    int fail_rail, ready_on_power, backward;unsigned calls; } fake;
++    int fail_bus, fail_rail, ready_on_power, backward;unsigned calls; } fake;
+ static uint64_t tick(void *v){
+     fake *f=v;++f->calls;
+     if(f->backward&&f->calls==3)f->tick-=100;
+@@ -18,7 +18,7 @@
+     abort();
+ }
+ static int read_reg(void *v,uint8_t a,uint8_t r,uint16_t *value){
+-    fake *f=v;unsigned i=rail_for(f,a);if((int)i==f->fail_rail)return -1;
++    fake *f=v;unsigned i=rail_for(f,a);if((int)i==f->fail_rail||(i==7&&r==2&&f->fail_bus))return -1;
+     *value=f->regs[i][r];
+     if(r==6)f->regs[i][6]&=(uint16_t)~8u; /* Real CVRF read-to-clear behavior. */
+     if(r==3&&f->ready_on_power){
+@@ -73,7 +73,43 @@
+     m_service service;m_sampler sampler;m_service_init(&service,p,1000000,0,1);
+     assert(m_sampler_init(&sampler,p,io,1,1000000,temperature)==0);
+     uint64_t base=f.tick;m_rail_record rows[18];
+-    if(!strcmp(name,"late-first")||!strcmp(name,"late-negative")){
++    if(!strcmp(name,"profile-i2c")||!strcmp(name,"profile-other")||!strcmp(name,"profile-stale")){
++        for(unsigned i=0;i<18;i++)f.regs[i][6]=8;
++        int rail=!strcmp(name,"profile-other")?6:7;f.regs[rail][4]=65534;
++        f.tick=base+10000;m_sampler_step(&sampler);
++        if(rail==6){
++            assert(sampler.status.faults==M_FAULT_SENSOR&&sampler.status.invalid_samples==1);
++        }else{
++            assert(!sampler.status.faults);
++            if(!strcmp(name,"profile-i2c"))f.fail_bus=1;
++            for(unsigned i=0;i<18;i++)if(i!=7)f.regs[i][6]=8;
++            f.tick=base+(!strcmp(name,"profile-i2c")?40000:180000);m_sampler_step(&sampler);
++            assert(sampler.status.invalid_samples==1&&!m_latest_read(p,rows));
++            assert(rows[7].flags==(!strcmp(name,"profile-i2c")?260u:288u));
++        }
++    }else if(!strcmp(name,"profile")){
++        for(unsigned i=0;i<18;i++)f.regs[i][6]=8;
++        f.regs[7][1]=65534;f.regs[7][4]=65533;f.regs[7][3]=0;
++        f.tick=base+120000;m_sampler_step(&sampler);
++        assert(!m_latest_read(p,rows)&&rows[7].flags==258&&rows[7].power_uW==INT64_MIN);
++        assert(rows[7].shunt==65534&&rows[7].current==65533);
++        assert(sampler.status.conversion_ready==262015);
++        #ifndef E07_PROFILE_RAILS
++#define E07_PROFILE_RAILS 18
++#endif
++        if(E07_PROFILE_RAILS==17){
++            assert(sampler.status.profile_rails==17);
++            assert(sampler.status.observed_mask==262143&&sampler.status.excluded_negative_samples==1);
++            assert(!sampler.status.faults&&!sampler.status.invalid_samples&&!sampler.diagnostic_frozen);
++            f.tick=base+165000;m_sampler_step(&sampler);
++            assert(!m_latest_read(p,rows)&&rows[7].flags==256&&!sampler.status.faults);
++            f.regs[7][6]=12;f.tick=base+190000;m_sampler_step(&sampler);
++            assert(!m_latest_read(p,rows)&&rows[7].flags==266&&sampler.diagnostic_frozen);
++            assert(sampler.status.invalid_samples==1&&sampler.status.faults==M_FAULT_SENSOR);
++            f.regs[7][6]=8;f.tick=base+220000;m_sampler_step(&sampler);
++            assert(!m_latest_read(p,rows)&&rows[7].flags==266);
++        }else assert(sampler.status.faults==M_FAULT_SENSOR&&sampler.diagnostic_frozen);
++    }else if(!strcmp(name,"late-first")||!strcmp(name,"late-negative")){
+         f.tick=base+140000;m_sampler_step(&sampler);assert(!sampler.status.faults);
+         for(unsigned i=0;i<18;i++)f.regs[i][6]=8;
+         if(!strcmp(name,"late-negative")){f.regs[7][1]=65534;f.regs[7][4]=65534;}
+--- r2/tests/test_host.py
++++ diagnostic17/tests/test_host.py
+@@ -24,8 +24,13 @@
+     wire = load = collect = None
+ 
+ 
++STRICT=dict(measurement_profile='strict18',included_mask=262143,included_count=18,excluded_rails=[],
++            scope='18 monitored supply rails; not external whole-board input power')
++DIAG=dict(measurement_profile='diagnostic17',included_mask=262015,included_count=17,excluded_rails=[7],
++          scope='17-rail diagnostic')
++
+ def status(**changes):
+-    value = dict(schema=1, physical_status='NOT_RUN', ready=True, snapshot_valid=True,
++    value = dict(**STRICT,observed_mask=262143,excluded_negative_samples=0,sampler_profile_rails=18,schema=1, physical_status='NOT_RUN', ready=True, snapshot_valid=True,
+         phase_id=0, state=0, faults=0, sampler_faults=0, service_core=0, sampler_core=1,
+         epoch=7, sampler_epoch=7, timer_hz=1000, sampler_hz=1000, now_ticks=10000,
+         sampler_heartbeat=9990, clock_checks=4, heartbeat_advances=4, configured_mask=262143,
+@@ -42,7 +47,7 @@
+ 
+ 
+ def greeting(identity):
+-    return dict(artifact_hashes=identity['artifact_hashes'], board_ip='192.168.10.2',
++    return dict(**(DIAG if identity["measurement_profile"]=="diagnostic17" else STRICT),artifact_hashes=identity['artifact_hashes'], board_ip='192.168.10.2',
+         firmware_sha256=identity['firmware_sha256'], model='E07', phase='E07_INDEPENDENT_CANDIDATE',
+         tcp_port=5001, candidate='E07_INDEPENDENT_POWER_V1', protocol_schema=1,
+         physical_status='NOT_RUN', sampler_cpu='a53-1', service_cpu='a53-0')
+@@ -110,6 +115,31 @@
+         self.assertIsNotNone(wire, 'portable host implementation is missing')
+         self.identity = json.loads((ROOT/'FIRMWARE_IDENTITY.json').read_text())
+ 
++    def test_diagnostic_framing_status_and_wrong_boot(self):
++        identity=dict(self.identity,**DIAG)
++        hello=dict(greeting(self.identity),**DIAG)
++        s=status(**DIAG,conversion_ready_mask=262015,sampler_profile_rails=17,observed_mask=262143,
++                 excluded_negative_samples=9)
++        with server(identity,lambda n,a,b,r:packet(6,r,s),hello) as sock:
++            c=wire.Client(sock,identity)
++            collect.validate_status(c.status(),profile='diagnostic17')
++            with self.assertRaises(collect.GateError):collect.validate_status(s)
++            for changes in (dict(observed_mask=262015),dict(configured_mask=262015),
++                            dict(conversion_ready_mask=262014),dict(sampler_profile_rails=18)):
++                with self.assertRaises(collect.GateError):
++                    collect.validate_status(dict(s,**changes),profile='diagnostic17')
++        with server(self.identity,lambda *a:self.fail('request sent'),hello) as sock:
++            with self.assertRaises(wire.ProtocolError):wire.Client(sock,self.identity)
++
++    def test_cross_profile_card_receipt_is_refused(self):
++        with tempfile.TemporaryDirectory() as tmp:
++            destination=pathlib.Path(tmp)/'receipt.json'
++            with self.assertRaises(collect.GateError):
++                collect.verify_sd(ROOT,ROOT/'SD_CARD',destination,'diagnostic17')
++            collect.verify_sd(ROOT,ROOT/'SD_CARD_DIAG17',destination,'diagnostic17')
++            self.assertEqual(collect.validate_receipt(ROOT,destination,'diagnostic17')['included_count'],17)
++            with self.assertRaises(collect.GateError):collect.validate_receipt(ROOT,destination)
++
+     def test_configuration_readback_alone_cannot_establish_first_conversion(self):
+         with self.assertRaises(collect.GateError):
+             collect.validate_status(status(conversion_ready_mask=0,initializing_samples=18))
+@@ -234,7 +264,7 @@
+     def test_export_phase_and_raw_records(self):
+         event=struct.pack('<8I4Q',0,3,5,9,2,1,0,0,100,110,150,200)
+         def handle(name,args,body,rid):
+-            return packet(1,rid,dict(schema=1,record_type='events',phase_id=3,first=0,
++            return packet(1,rid,dict(**STRICT,schema=1,record_type='events',phase_id=3,first=0,
+                 count=1,total=1,record_bytes=64,next=1,done=True),event)
+         with tempfile.TemporaryDirectory() as tmp, server(self.identity,handle) as sock:
+             c=wire.Client(sock,self.identity)
+@@ -247,7 +277,7 @@
+         for early in (True,False):
+             def handle(name,args,body,rid):
+                 if early:return packet(255,rid,dict(code='phase_state',detail='DONE only',phase='E07_INDEPENDENT_CANDIDATE'))
+-                return packet(1,rid,dict(schema=1,record_type='events',phase_id=3,first=1,
++                return packet(1,rid,dict(**STRICT,schema=1,record_type='events',phase_id=3,first=1,
+                     count=0,total=1,record_bytes=64,next=1,done=True))
+             with tempfile.TemporaryDirectory() as tmp,server(self.identity,handle) as sock:
+                 c=wire.Client(sock,self.identity)
+@@ -262,7 +292,7 @@
+             if name=='power_status':return packet(6,rid,status(ready=False,sampler_faults=2,invalid_samples=1))
+             self.assertIn(name,['power_export_config','power_export_latest'])
+             typ=name[13:];data=configs if typ=='config' else rails
+-            return packet(1,rid,dict(schema=1,record_type=typ,phase_id=0,first=0,
++            return packet(1,rid,dict(**STRICT,schema=1,record_type=typ,phase_id=0,first=0,
+                 count=18,total=18,record_bytes=32 if typ=='config' else 128,next=18,done=True),data)
+         with tempfile.TemporaryDirectory() as tmp,server(self.identity,handle) as sock:
+             c=wire.Client(sock,self.identity)
+@@ -288,7 +318,7 @@
+         def handle(name,args,body,rid):
+             if name=='power_status':return packet(6,rid,status())
+             typ=name[13:];data=configs if typ=='config' else rails
+-            return packet(1,rid,dict(schema=1,record_type=typ,phase_id=0,first=0,count=18,total=18,
++            return packet(1,rid,dict(**STRICT,schema=1,record_type=typ,phase_id=0,first=0,count=18,total=18,
+                 record_bytes=32 if typ=='config' else 128,next=18,done=True),data)
+         with tempfile.TemporaryDirectory() as tmp,server(self.identity,handle) as sock:
+             collect.diagnostics(wire.Client(sock,self.identity),tmp)
+@@ -304,7 +334,7 @@
+             ('rail','flags','manufacturer','die','config','calibration','begin','end'))) for r in records)
+         def handle(name,args,body,rid):
+             self.assertEqual(name,'power_export_config')
+-            return packet(1,rid,dict(schema=1,record_type='config',phase_id=0,first=0,count=18,
++            return packet(1,rid,dict(**STRICT,schema=1,record_type='config',phase_id=0,first=0,count=18,
+                 total=18,record_bytes=32,next=18,done=True),raw)
+         with tempfile.TemporaryDirectory() as tmp,server(self.identity,handle) as sock:
+             c=wire.Client(sock,self.identity)
+@@ -331,6 +361,13 @@
+         samples[-1]['temperature_mC']=46500
+         self.assertFalse(collect.thermal_stable(samples))
+ 
++    def test_missed_deadline_block_straddles_both_host_window_edges(self):
++        events=[]
++        q=load.OfferedLoad(2,events.append,phase='slot-test');q.start_at=999.;q.window=(1000.,1002.)
++        q.produce_due(0,1003.5)
++        self.assertEqual(q.counts()['missed_slots'],9)
++        self.assertEqual(q.counts().get('window_missed_slots'),4)
++        self.assertEqual(events[0]['schedule_start_monotonic'],999.)
+     def test_absolute_deadline_missed_slots_and_oldest_eviction(self):
+         events=[]
+         q=load.OfferedLoad(10,events.append,clock=lambda:0)
+@@ -420,6 +457,9 @@
+                 phase_id=board['phase'],sampler_phase=board['phase'],state=4 if board['done'] else state,
+                 sampler_state=sampler_state,t0=board['t0'],t1=board['t1'],
+                 **{k:board[k] for k in ('mode','scan_ms','offset_ms','sampling_enabled')})
++            if board['done'] and not board['released']:
++                value.update(rail_records=18*len(range(board['t0']-1020,board['t1']+981,20)),
++                             event_records=4,temperature_records=1)
+             if stalled and active:value['sampler_heartbeat']=board['t0']-1250
+             if mutate and wrong_stage and ((wrong_stage[0]=='prearm' and not active) or
+                                 (wrong_stage[0]=='during' and active and not board['done']) or
+@@ -444,7 +484,8 @@
+                 typ=name[13:]
+                 if typ=='config':data=configs
+                 elif typ=='events':
+-                    data=b''.join(struct.pack('<8I4Q',i,1,t,0,0,0,0,0,0,0,tick,0)
++                    data=b''.join(struct.pack('<8I4Q',i,1,t,0,0,0,0,0,board['t0'] if t==1 else 0,
++                        board['t1'] if t==1 else 0,tick,0)
+                         for i,(t,tick) in enumerate([(1,board['t0']-1250),(2,board['t0']),(3,board['t1']),(4,board['t1']+1000)]))
+                 elif typ=='temperatures':
+                     data=struct.pack('<4IQiI',0,1,1,30000,board['t0'],45000,0)
+@@ -458,11 +499,11 @@
+                             records.append(struct.pack('<4I8H5Q5QqQ',len(records),1,(tick-board['t0']+1100)//20,3,
+                                 rail,0x4527,2048,1,1,1,1,8,
+                                 tick-6,tick-4,tick-2,tick,tick-8,
+-                                tick-5,tick-3,tick-1,tick+1,tick-7,12500,tick-9))
++                                tick-5,tick-3,tick-1,tick+1,tick-7,31250 if rail==10 else 12500,tick-9))
+                     data=b''.join(records)
+                 size=struct.calcsize(wire.FORMATS[typ]);total=len(data)//size;first=args['count']
+                 count=min(256,total-first)
+-                return packet(1,rid,dict(schema=1,record_type=typ,phase_id=board['phase'],first=first,
++                return packet(1,rid,dict(**STRICT,schema=1,record_type=typ,phase_id=board['phase'],first=first,
+                     count=count,total=total,record_bytes=size,next=first+count,done=first+count==total),data[first*size:(first+count)*size])
+             return packet(4,rid,current())
+         with tempfile.TemporaryDirectory() as tmp,server(self.identity,handle) as sock:
+@@ -481,7 +522,7 @@
+             with mock.patch.object(collect,'time',virtual):
+                 if wrong_stage or interrupt_state:
+                     with self.assertRaises(KeyboardInterrupt if interrupt_state else collect.GateError):
+-                        runner.phase(0,dict(name='idle',mode=0,fps=None,seconds=1,scan_ms=20,offset_ms=0))
++                        runner.phase(0,dict(**STRICT,name='idle',mode=0,fps=None,seconds=1,scan_ms=20,offset_ms=0))
+                     if wrong_stage and wrong_stage[0]=='prearm':self.assertNotIn('power_arm',commands)
+                     if interrupt_state:
+                         self.assertNotIn('power_release',commands)
+@@ -493,7 +534,7 @@
+                             self.assertTrue((directory/'recovery-exports/rails-records.json').exists())
+                             self.assertGreaterEqual(recovery['final_status']['now_ticks'],board['t1']+1000)
+                     return
+-                result=runner.phase(0,dict(name='idle',mode=0,fps=None,seconds=1,scan_ms=20,offset_ms=0))
++                result=runner.phase(0,dict(**STRICT,name='idle',mode=0,fps=None,seconds=1,scan_ms=20,offset_ms=0))
+             self.assertEqual(result['status'],'COMPLETE')
+             self.assertLess(commands.index('power_finish'),commands.index('power_export_rails'))
+             self.assertLess(commands.index('power_export_temperatures'),commands.index('power_release'))
+--- r2/tests/test_phase.c
++++ diagnostic17/tests/test_phase.c
+@@ -42,7 +42,7 @@
+     m_service s={0};m_service_init(&s,p,1000,0,99);
+     assert(m_arm(&s,120,100)!=0); /* no sampler cannot arm */
+     memset(&st,0,sizeof(st));st.core=1;st.hz=1000;st.epoch=99;
+-    st.configured=M_ALL_RAILS;st.conversion_ready=M_ALL_RAILS;st.configured_tick=1;st.enabled=1;
++    st.profile_rails=18;st.observed_mask=262143;st.configured=M_ALL_RAILS;st.conversion_ready=M_ALL_RAILS;st.configured_tick=1;st.enabled=1;
+     st.temperature_valid=1;st.temperature_tick=1100;
+     reply(&s,&st,1100);reply(&s,&st,1200);reply(&s,&st,1300);reply(&s,&st,1400);
+     assert(m_service_ready(&s,1403));

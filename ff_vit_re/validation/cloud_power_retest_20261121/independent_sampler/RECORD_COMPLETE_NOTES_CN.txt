@@ -1,0 +1,26 @@
+r8：诊断负值不再中断采集
+
+strict18：默认。仍严格要求18轨合格功率，负值和其他故障仍拒绝。
+diagnostic17：SD_CARD_DIAG17 / -Diagnostic17，只排除Rail7，17-rail diagnostic。
+diagnostic16：SD_CARD_DIAG16 / -Diagnostic16，排除Rail7和Rail15，16-rail diagnostic。
+所有模式均配置、读取、保存全部18轨；二进制记录仍为128字节，原始数据不改。
+
+原问题：ADC转换观察与功率质量在后续就绪/验收门混在一起。即使CVRF已到，
+未排除轨的一条负值仍会锁存全局故障，使记录不能完成。
+本次修复：真实及时的CVRF独立置 observed_mask；负值保留NEGATIVE、原码和时间戳。
+诊断模式下，仅NEGATIVE的样本分别计入included/excluded_negative_samples，不设传感器致命故障，
+不占用首次真实故障冻结槽。负值不是噪声已被证实，也不代表功率为零。
+未出现CVRF/超时、I2C、溢出、饱和、时钟、配置、缺轨/覆盖和推理错误仍拒绝。
+
+采集与计量分开：诊断验收仅授权 capture integrity，不授权完整18路功率。
+若负值只在排除轨，可形成选定16/17路指标；若在未排除轨，也采满并导出原始数据，
+但完整能量、平均功率和每帧能耗为空，power_quality_valid=false，不桥接无效样本。
+capture_valid=true不代表power_quality_valid=true。实际完成帧数/FPS独立保留。
+Rail7/Rail15另有逐条一致的decoded子集，但完整rails二进制始终是权威数据。
+
+PL、XSA、模型、量化和输入/权重不改；使用既有Vitis2025.1/BSP重新构建PS固件。
+新旧文件、模式、收据、验收不可混用。完整命令见README_CN.txt顶部。
+当前仅做针对性软件检查和必要构建/打包，不重复执行多轮整套验证。
+旧 full-suite.log 仅代表历史r5结果，不能解释为本次完整回归。
+本次 focused.log 为模拟数据和原生C验证，不是板测功耗。
+Windows PowerShell、实际SD、ZCU102实物验收和Target120正式测量均未执行。

@@ -1,0 +1,15 @@
+test_replayed_completed_frame_requires_matching_verified_board_response (test_analysis.AnalysisTests.test_replayed_completed_frame_requires_matching_verified_board_response) ... FAIL
+
+======================================================================
+FAIL: test_replayed_completed_frame_requires_matching_verified_board_response (test_analysis.AnalysisTests.test_replayed_completed_frame_requires_matching_verified_board_response)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_analysis.py", line 678, in test_replayed_completed_frame_requires_matching_verified_board_response
+    with self.assertRaises(collect.GateError):collect.assess_phase(f.directory)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+AssertionError: GateError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 0.014s
+
+FAILED (failures=1)

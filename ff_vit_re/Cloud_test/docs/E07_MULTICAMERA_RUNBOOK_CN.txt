@@ -1,0 +1,94 @@
+E07 多虚拟摄像头独立并发采集测试（主机扩展 MC_V1）
+
+一、安装与运行
+将补丁 ZIP 内的 Cloud_test 文件夹合并到已有 V2_5 源码根目录。
+这是新增主机模块，不是独立安装包；保留原有 Cloud_test 文件和依赖。
+不修改 SD_CARD、BOOT.BIN、固件、权重、HLS 或 PL，不需要重编译 EXE。
+使用 Python 3.10 或更高版本。脚本优先使用已有 windows/.venv-build-win。
+
+在 PowerShell 中：
+Set-Location 'C:\Users\Administrator\Desktop\E07_Cloud_GUI_Win11_Source_V2_5'
+.\Cloud_test\windows\Run-E07-MultiCamera.ps1 -Duration 20 -Streams 1,2,4
+
+关闭原 GUI/EXE 采集器及其他 TCP5001 监听程序。
+出现 E07_COLLECTOR_LISTENING=192.168.10.1:5001 后，再给 V2.5 板卡断电重启。
+全程只重启这一次；各个条件共用一条连接。
+默认每路 30 FPS、队列容量 3、溢出丢最旧等待帧；1/2/4 路各测 20 秒。
+有效采集共 60 秒，加上握手和每条件最多 5 秒排空、导出时间。
+三次重复用于检查波动：
+.\Cloud_test\windows\Run-E07-MultiCamera.ps1 -Duration 20 -Streams 1,2,4 -Repeats 3
+
+仅验证 PC 软件、不用板卡：
+.\Cloud_test\windows\Run-E07-MultiCamera.ps1 -Simulate -Duration 3 -Streams 1,2,4 -SimServiceMs 12
+模拟结果明确标为 HOST_SIMULATION，字节计数为零，不能作为板级论文数据。
+
+不使用 PowerShell 包装脚本时，可直接运行：
+.\Cloud_test\windows\.venv-build-win\Scripts\python.exe -m Cloud_test.run_e07_multicamera --duration 20 --fps 30 --streams 1 2 4 --queue-size 3
+
+二、如果再次连接失败
+新入口由 python.exe 监听，不是 E07_Cloud_GUI.exe；旧 EXE 专用防火墙规则可能不适用。
+先确认以太网 IP=192.168.10.1、监听程序唯一、板卡 IP=192.168.10.2。
+需要修改防火墙时，在管理员 PowerShell 中显式运行已有工具：
+.\Cloud_test\windows\Allow-E07-Collector.ps1 -Program '.\Cloud_test\windows\.venv-build-win\Scripts\python.exe'
+如果报告该程序存在 Block 规则，先检查它显示的规则，再由你决定是否加 -DisableAppBlock。
+该脚本不关闭系统防火墙，新增测试启动器也不会自动更改规则。
+如果指定 -Python 自定义解释器，防火墙规则也要匹配该解释器的真实路径。
+
+三、导出文件
+目录：Cloud_test/results/multicamera_measurements/<UTC 时间戳>/
+report.json：配置、主机环境、固件身份、测试状态、每条件/每路统计、证据 SHA256。
+summary.csv：每条件总吞吐、丢帧、时延分位数、双向应用层字节率。
+streams.csv：每路独立 FPS、queue/service/E2E 时延均值与 P50/P95/P99、drop rate。
+frames.csv：每个实际生成帧的序号、时刻、状态、request ID、字节数和逐帧时延。
+events.jsonl：捕获、丢帧、调度、完成和失败诊断；异步批量写入。
+CSV 使用 UTF-8 BOM，可用 Excel 打开。空时延表示无有效样本，不是 0 ms。
+E07_MC_STATUS=COMPLETE 表示软件流程完成；不表示零丢帧或达到目标 FPS。
+失败会返回非零退出码，并尽可能保留已完成条件和当前条件的部分证据。
+写盘失败/日志队列溢出也判 FAIL，不允许静默丢失证据。
+
+四、统计定义与论文表述边界
+每路一个独立线程按主机单调时钟的绝对时刻产帧，不等待 FPGA 响应。
+四路总目标输入为 4*30=120 FPS；queue 只保存帧描述符，不复制大张量。
+每路独立 FIFO，容量 3；round-robin 跳过空队列，单连接最多一个请求在途。
+FPGA 仍为单引擎串行推理；没有改成四个 PL 引擎或并行推理。
+所有虚拟摄像头使用同一个经 SHA256 验证的 SD 固定输入张量。
+当前固件会验证上传张量并运行 SD 固定输入；本测试不证明不同图像内容的分类效果。
+Compact 模式执行推理并返回紧凑结果；不增加 Full 返回原始张量的测试。
+
+fps = 有效测量窗口内接收并验证的完成帧数 / 窗口秒数。
+queue_ms = 调度时刻 - 实际产帧时刻。
+service_ms = 完整响应接收时刻 - 请求发送开始时刻。
+e2e_ms = 完整响应接收时刻 - 实际产帧时刻，包含排队和调度开销。
+所有时延由同一主机单调时钟计算，不用板端时间减主机时间估计单向网络时延。
+时延均值/分位数只统计有效窗口内验证完成帧；失败与丢帧另行报告。
+drop_rate = 队列溢出淘汰数 / 实际生成帧数。
+source_missed_slots = 主机调度过慢错过的计划捕获槽，与已生成帧的溢出丢弃分开报告。
+end_window_backlog = 采集结束瞬间尚未完成的已生成帧数，含在途响应。
+completed_drain = 停产后排空完成帧数，不计入有效窗口 FPS 与带宽。
+pending_at_stop = 排空截止仍在等待的帧数。
+produced = completed_total + dropped_oldest + failed + pending_at_stop。
+unserved_fraction = (溢出淘汰 + 请求失败 + 截止等待) / produced。
+
+request_application_mbit_s：主机到边缘的请求应用层带宽。
+response_application_mbit_s：边缘到主机（云端接收端）的结果应用层带宽。
+bidirectional_application_mbit_s：两者相加。
+它们按有效窗口内验证完成事务的完整 FVIT 字节数归因；不是网卡线上采样。
+不含以太网/IP/TCP 头、重传、HELLO、预热和排空流量。
+失败 sendall 的部分发送量未知，不能用失败帧的 socket_sent_bytes=0 推断没有上网。
+JSONL 来自多个线程，写入顺序不保证等同发生顺序；按单调时刻和帧键还原事件。
+
+可以描述为：“在主机模拟独立多摄像头采集的直连千兆以太网测试床上，
+采用单 FPGA 引擎的轮询时间复用推理，评价输入负载、排队、时延、丢帧和结果上传带宽。”
+不能描述为真实摄像头、真实公网云或真实多内容 PlantVillage 精度测试。
+本扩展不采集功耗、能效或分类精度；也不把旧版本结果写入新报告。
+
+五、优化与显示
+固定请求报文只构造一次，每帧更新 request ID，避免逐帧拷贝 602112 字节张量。
+日志由独立线程批量写入；分位数和 CSV 在条件结束后计算，不占逐帧网络关键路径。
+保留响应类型、请求 ID、时间字段、fixture 与 mismatch_count 校验。
+实际总体 FPS 是否提高要与同负载/同固件的板级实测比较，不能由模拟结果保证。
+30 FPS 是每路采集目标，不是 FPGA 强制限速；实际总输出受串行服务能力限制。
+这不是“最大吞吐无上限”测试；如 120 FPS 被完全满足，需另设更高输入负载才能测饱和。
+
+本扩展为独立控制台/CSV/JSON 工具，原 GUI 不显示新队列指标，旧测量入口保持不变。
+每个条件打印 E07_MC_STAGE 和 E07_MC_RESULT；不要同时运行旧 GUI 的采集器。

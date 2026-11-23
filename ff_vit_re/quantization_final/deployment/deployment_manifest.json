@@ -1,0 +1,171 @@
+{
+  "contract": {
+    "cpp_packing_equal": true,
+    "mlp_internal_padding_bytes": 4,
+    "signed_weight_range": [
+      -4,
+      3
+    ],
+    "tokens": 196,
+    "weights_bytes": 2772096
+  },
+  "inputs": {
+    "artifacts/stage3_patch_hls/patch_bias_raw_int32.pt": {
+      "sha256": "9138474175d624ed783f3975995e3ca6be5b0180cb35d369be024e568c7fa72e",
+      "size_bytes": 302724
+    },
+    "artifacts/stage3_patch_hls/patch_cls_raw_int32.pt": {
+      "sha256": "6db7c0db921a368a78ca3ad8bfd514eafe4a14f48901433625fd81581ee9237c",
+      "size_bytes": 3197
+    },
+    "artifacts/stage3_patch_hls/patch_rom_banks.npz": {
+      "sha256": "a307d8a585fabd0e65077d251f01f839296f1fe0c0998b780b7ed6d0afd6abb2",
+      "size_bytes": 222776
+    },
+    "artifacts/stage3_patch_hls/patch_weight_int8.pt": {
+      "sha256": "4c8cf08f27e1b80f9d331c2c783650f5a97391254a725e72274405253f96c0f3",
+      "size_bytes": 149103
+    },
+    "artifacts/stage4f_exact_gelu/ge_scalars.npy": {
+      "sha256": "6d2fbc74b03bd821a4f168ba7c2c43b391848848aa7c44a73425259eb2f4d3df",
+      "size_bytes": 320
+    },
+    "artifacts/stage4f_exact_gelu/ge_table.npy": {
+      "sha256": "9b0ee5914abd7745a2a2705bb19b0422be3dfe9661f810808d6318955d8ef2c9",
+      "size_bytes": 896
+    },
+    "artifacts/stage4k2_refined_qkv/kq_scalars.npy": {
+      "sha256": "a0c9565fb7671bfffdcfb96836adc653308f452813ef23cf44e874c02778d1dd",
+      "size_bytes": 320
+    },
+    "artifacts/stage4k2_refined_qkv/kq_table.npy": {
+      "sha256": "f95486fa6b043cb98fecfe7bff2f1c19f5fb32c9de93b6cf208feeb879a89de4",
+      "size_bytes": 896
+    },
+    "artifacts/stage4k2_refined_qkv/qq_scalars.npy": {
+      "sha256": "1090e405ad927081fe229b478cdc595176e7504495bad78b05a2eefd37dd162a",
+      "size_bytes": 320
+    },
+    "artifacts/stage4k2_refined_qkv/qq_table.npy": {
+      "sha256": "46b0d664cfa665016ebc3712eaa9e8d228031ac0dd4c6ca6d3d215ab77cc2da5",
+      "size_bytes": 896
+    },
+    "artifacts/stage4k2_refined_qkv/vq_scalars.npy": {
+      "sha256": "38549e00c5b8d69ec5b0f33da6bfc87b0c9c1ac18eee3ba734f8bd0ce8aa08d2",
+      "size_bytes": 320
+    },
+    "artifacts/stage4k2_refined_qkv/vq_table.npy": {
+      "sha256": "1b0b413cb4814f4aa1cc7e5cbea2511125e5a3d53615628b61bd831de569c6aa",
+      "size_bytes": 896
+    },
+    "artifacts/stage4k_exact_attn_outer/ln1_lnb.npy": {
+      "sha256": "414ea1df84d43f187ee10521d5674a09c4a4c5d3a607035c4fa86b2eed4c52a3",
+      "size_bytes": 18560
+    },
+    "artifacts/stage4k_exact_attn_outer/ln1_lnw.npy": {
+      "sha256": "d4f28ec9f24ed059e9ec83c40821e9c904a88b2fa6640577fe412a96f1ab4747",
+      "size_bytes": 9344
+    },
+    "artifacts/stage4k_exact_attn_outer/ln1_rsqrt_table.npy": {
+      "sha256": "6ddaefd38ff3f4cb62156d53d8e3f257338ac58875e3c4a2c833c698bd364e11",
+      "size_bytes": 6272
+    },
+    "artifacts/stage4k_exact_attn_outer/ln1_scalars.npy": {
+      "sha256": "51562e2d8df2a6c5c1662a47744efbb751f6cd2f94b769603e9f60f9e98e02cd",
+      "size_bytes": 464
+    },
+    "artifacts/stage4l_exact_softmax_aq/aq_scalars.npy": {
+      "sha256": "e4095f03b2e432318560d57fa860fcbb5a384c3ec8d15e666d83df0ecf7fe3c8",
+      "size_bytes": 320
+    },
+    "artifacts/stage4l_exact_softmax_aq/aq_table.npy": {
+      "sha256": "a2ec036254a010bfb2c609c8f8b7a1400fb254ff327436e513f8054bd6f6e1c7",
+      "size_bytes": 896
+    },
+    "artifacts/stage4l_exact_softmax_aq/softmax_exp_table.npy": {
+      "sha256": "e5be3836f87a4ecd989e95cd2e9898ebcb4ecb8d7c281abb1db8c44b18f12652",
+      "size_bytes": 896
+    },
+    "artifacts/stage4l_exact_softmax_aq/softmax_recip_table_one.npy": {
+      "sha256": "67ddb706a7cfe1528e167f6a16aa72bfc2a7edfff05a093827c920b400867f6e",
+      "size_bytes": 896
+    },
+    "artifacts/stage4l_exact_softmax_aq/softmax_recip_table_two_int8.npy": {
+      "sha256": "e7de2447a2d5d4ad8bf15a3a974a19f6273d4f21b281e55a97844c0ffdbe2937",
+      "size_bytes": 896
+    },
+    "artifacts/stage4l_exact_softmax_aq/softmax_scalars.npy": {
+      "sha256": "d31294c2ac666dd6df827eba3651e31e044656840390fe7da7f55c0379f43336",
+      "size_bytes": 800
+    },
+    "artifacts/stage4m_exact_encoder/attn_scalars.npy": {
+      "sha256": "a711d1e4ebe2fa69db77de88f21bbeb2d84bd2b9e0c92e6fe896dc456d3a27b4",
+      "size_bytes": 272
+    },
+    "artifacts/stage4m_exact_encoder/ln2_lnb.npy": {
+      "sha256": "4f1cef6b4ca1a7d6b27e6d60c1f563e4b4111f35b22ad5018a02669a92a870a4",
+      "size_bytes": 18560
+    },
+    "artifacts/stage4m_exact_encoder/ln2_lnw.npy": {
+      "sha256": "6b37dec71e1f9701d70a50103813ec3a681e3de1d1f20af3d80feb022f133731",
+      "size_bytes": 9344
+    },
+    "artifacts/stage4m_exact_encoder/ln2_rsqrt_table.npy": {
+      "sha256": "72810534d6bd7ebcf4cde509db14bd3a7e933eb9f852501012ff45e76d79f971",
+      "size_bytes": 6272
+    },
+    "artifacts/stage4m_exact_encoder/ln2_scalars.npy": {
+      "sha256": "f6b2a82c6c4fc64eae16ee7938eef20829498232017579fb29192e69d14afffb",
+      "size_bytes": 464
+    },
+    "artifacts/stage4m_exact_encoder/mlp_scalars.npy": {
+      "sha256": "af1cb599d9d50364c47dca2ac322bcda642cbe26e9dc5ec59e7e0f09e0083294",
+      "size_bytes": 224
+    },
+    "artifacts/stage4o2_head_safe/generated_head_rom_safe.h": {
+      "sha256": "2de58c48c60b4014919fe50a9bccdf5e8df335cd37fa6ca1bcc601f0f2ffad93",
+      "size_bytes": 605196
+    },
+    "checkpoints/stage4j_attention_qat/best_attention_qat.pth": {
+      "sha256": "87590f2548dc8045805710f5783c85b6b08bb16020edb3600392fe42a69661fa",
+      "size_bytes": 23034988
+    },
+    "deployment/active/src/block0.cpp": {
+      "sha256": "14a7797d5a28b43e169f5e1939564192acc36e2427be51a44921b5e8a19692e8",
+      "size_bytes": 37983
+    },
+    "deployment/active/src/fixed_patch_head_rom.h": {
+      "sha256": "6d69487b4f8af02f1ee32f8e86d9c6f094a4a9a77da2cb85b71eed2d8223a119",
+      "size_bytes": 2444915
+    }
+  },
+  "outputs": {
+    "block0.cpp": {
+      "sha256": "14a7797d5a28b43e169f5e1939564192acc36e2427be51a44921b5e8a19692e8",
+      "size_bytes": 37983
+    },
+    "fixed_patch_head_rom.h": {
+      "sha256": "d92bf33e863b28eb7e7650d8d1809bd3dcc1328b2a40fdd26b90746b241f853f",
+      "size_bytes": 2422471
+    },
+    "weights.bin": {
+      "sha256": "07063ceedeac0bab1dc82eba354e70c26c1f638ba8a4f33b07765dd981a7b9a3",
+      "size_bytes": 2772096
+    },
+    "weights_fields.bin": {
+      "sha256": "e84f75661447c8607f000ce0efb4c66e1d710e3c716974c7b80d2aeddfa3e35f",
+      "size_bytes": 5426160
+    },
+    "weights_hls.bin": {
+      "sha256": "07063ceedeac0bab1dc82eba354e70c26c1f638ba8a4f33b07765dd981a7b9a3",
+      "size_bytes": 2772096
+    }
+  },
+  "rom_policy": {
+    "head_source": "artifacts/stage4o2_head_safe/generated_head_rom_safe.h",
+    "patch_source": "artifacts/stage3_patch_hls",
+    "template_is_parameter_authority": false,
+    "whole_file_comparison": "All seven Patch arrays are replaced from Stage3, then all six Head arrays from Stage4O2. The audited active ROM still has stale raw PATCH_WEIGHT, PATCH_BIAS, and PATCH_CLS arrays; its whole-file hash is not canonical. Compare active banked Patch/scalars and Head arrays element-for-element."
+  },
+  "schema_version": 1
+}

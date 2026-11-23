@@ -1,0 +1,31 @@
+{
+  "inputs": {
+    "fp32_checkpoint": {
+      "kind": "file",
+      "mtime_ns": 1608657435000000000,
+      "path": "/home/user/Desktop/ff_vit_re/image_1k/deit_tiny_patch16_224-a1311bcf.pth",
+      "sha256": "a1311bcf4f24e3c95adaa75535db67bc4412d95535b98f7c1dfd1164dda41c97",
+      "size_bytes": 22917895
+    },
+    "train_root": {
+      "file_count": 1281167,
+      "kind": "directory",
+      "logical_size_bytes": 146907888532,
+      "path": "/home/user/Desktop/ff_vit_re/image_train/ILSVRC2012_img_train",
+      "tree_digest_algorithm": "sha256(sorted(relative_path\\0size_bytes\\0mtime_ns\\n))",
+      "tree_digest_is_content_hash": false,
+      "tree_digest_sha256": "355d1fab5400d813274062147c4291bb8065b68b29c57c2446bdf0a17cd88402"
+    },
+    "validation_root": {
+      "file_count": 14,
+      "kind": "directory",
+      "logical_size_bytes": 6697340544,
+      "path": "/home/user/Desktop/ff_vit_re/imagenet_val/data",
+      "tree_digest_algorithm": "sha256(sorted(relative_path\\0size_bytes\\0mtime_ns\\n))",
+      "tree_digest_is_content_hash": false,
+      "tree_digest_sha256": "1c73ed82a6251f134435b6851357e190ae8a8da48dee4ed85966db7c83ef5fe4"
+    }
+  },
+  "schema": "imagenet1k.input_manifest.v1",
+  "tree_digest_limitation": "Directory tree digests cover sorted relative path, byte size, and mtime_ns; they are deterministic metadata digests, not file-content hashes."
+}

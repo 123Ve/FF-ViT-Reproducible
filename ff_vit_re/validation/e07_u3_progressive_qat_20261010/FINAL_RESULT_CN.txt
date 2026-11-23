@@ -1,0 +1,38 @@
+E07 U3 原方法渐进QAT：两个数据集完整结束，2026-10-10。
+
+完整测试集Top-1，非训练集/验证集数字：
+                        MLP fake-quant   Attention U3 fake-quant  E07整数/LUT软件
+PlantVillage（5459张）   99.450449%       99.047445%               98.571167%
+NWPU（4500张）          93.622222%       89.644444%               88.822222%
+对应正确样本数分别：PlantVillage5429/5407/5381；NWPU4213/4034/3997。
+阶段最佳epoch：PlantVillage MLP10/Attention8；NWPU MLP9/Attention10。仅按完整验证集选择。
+MLP阶段Softmax仍是浮点；Attention阶段加入U3概率。不能把MLP结果称为全U3部署结果。
+最终相对Attention fake-quant再下降0.476278/0.822222个百分点；这是总实现差异，不是单独LUT损失。
+W3复用已有父checkpoint，不是本轮重新训练的W3 QAT；FP32/PTQ未重测。
+
+本轮非线性误差：同历史128张图像，新模型真实整数输入，参考先量化到同一输出码域。
+Dataset      Unit       MAE_LSB    RMSE_LSB   MaxAE_LSB  Exact_%    Within1LSB_%
+PlantVillage Softmax    0.016807   0.129748   4          98.320558  99.998812
+PlantVillage LayerNorm  0.018205   0.135226   5          98.183194  99.996637
+PlantVillage GELU       0.001229   0.035326   2          99.878031  99.999059
+NWPU         Softmax    0.015619   0.125136   7          98.440032  99.998175
+NWPU         LayerNorm  0.018597   0.136474   4          98.141635  99.998777
+NWPU         GELU       0.002217   0.047080   1          99.778349  100.000000
+源：outputs/<dataset>/final/nonlinear_error.csv；逐Block/LN见unit_accuracy.csv和rsqrt_accuracy.csv。
+Softmax最终输出与概率浮点参考比较；LN还包含均值/方差/仿射有限位宽误差，不能全归于rsqrt LUT。
+EXP/倒数内部诊断也在nonlinear_error.csv，单位与最终概率不同，不混合相加。
+注意尾部：NWPU EXP最大实值误差约1，最终Softmax最大7LSB；不能只报低MAE掩盖最坏误差。
+新PlantVillage GELU最大2LSB，不是旧模型的1LSB。
+2048个S11整数输入码×12Block穷举：PlantVillage MaxAE2LSB，±1覆盖96.142578%；NWPU MaxAE1LSB，±1覆盖100%。
+自然分布和穷举分布不同，不可互换统计数字。
+
+验证：14项单元/身份测试通过；完整预测CSV正确数/数量/SHA256复核；全部12块Softmax参数bits=3。
+绑定训练/拟合源码、最佳checkpoint、校准数据、完整验证/测试集身份均核验；导出参数BIN每套2772096字节。
+每套导出/重载2000整数logits无差异；24个LN与独立有限位宽软件比较无差异。只证明相应软件比较。
+HLS C-sim、RTL cosim、FPGA板测准确率、FPS、功耗全部NOT_MEASURED；没有生成或改动bitstream。
+weights_e07_u3.bin是12Block参数数据，不是BOOT.bin。未来上板需同步head_parameters.npz中的Head ROM并构建对应实现。
+完整整数工件为final/artifact/manifest.json及arrays.npz，误差和精度CSV/JSON及逐图预测一并保留。
+训练best.pth/last.pth在outputs/<dataset>/<stage>/，本地保留；证据ZIP不含大体积训练checkpoint。
+
+原工程、历史实验和ImageNet约68%版本未改写。汇总修复前输出保留，未删除任何训练或测量数据。
+分阶段总表：accuracy_stages.csv；完整精度和来源哈希：outputs/<dataset>/final/summary.json。

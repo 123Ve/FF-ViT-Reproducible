@@ -1,0 +1,16 @@
+test_window_drops_exclude_warmup_and_count_boundary_cohorts (test_analysis.AnalysisTests.test_window_drops_exclude_warmup_and_count_boundary_cohorts) ... ok
+test_reconstructed_acceptance_rejects_phase_clock_and_failed_output (test_analysis.AnalysisTests.test_reconstructed_acceptance_rejects_phase_clock_and_failed_output) ... ok
+test_diagnostic_warning_counter_covers_rows_and_cannot_roll_back (test_analysis.AnalysisTests.test_diagnostic_warning_counter_covers_rows_and_cannot_roll_back) ... ok
+test_session_simulation_can_never_be_physical_result (test_analysis.AnalysisTests.test_session_simulation_can_never_be_physical_result) ... ok
+test_nested_wrong_profile_refuses_formal_analysis_before_output (test_analysis.AnalysisTests.test_nested_wrong_profile_refuses_formal_analysis_before_output) ... ok
+test_missed_deadline_block_straddles_both_host_window_edges (test_host.HostTests.test_missed_deadline_block_straddles_both_host_window_edges) ... ok
+test_diagnostic_acceptance_requires_matching_replayed_profile (test_analysis.AnalysisTests.test_diagnostic_acceptance_requires_matching_replayed_profile) ... ok
+test_diagnostic_hand_fixture_exclusion_and_scope (test_analysis.AnalysisTests.test_diagnostic_hand_fixture_exclusion_and_scope) ... ok
+test_windows_inventory_relocated_acceptance_keeps_original_binding (test_analysis.AnalysisTests.test_windows_inventory_relocated_acceptance_keeps_original_binding) ... ok
+test_replayed_completed_frame_requires_matching_verified_board_response (test_analysis.AnalysisTests.test_replayed_completed_frame_requires_matching_verified_board_response) ... ok
+test_acceptance_reassessment_rejects_changed_actual_configuration (test_host.HostTests.test_acceptance_reassessment_rejects_changed_actual_configuration) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 6.407s
+
+OK

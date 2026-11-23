@@ -1,0 +1,471 @@
+{
+  "artifact_count": 87,
+  "artifacts": {
+    "checkpoints/attention/main/base_best.pth": {
+      "mtime_ns": "1790832967048150248",
+      "sha256": "bf40fc4e40a27943f7b4e27b4b6e9dc9b45320c03b13ba181fb91fd81371fad3",
+      "size": 91891212
+    },
+    "checkpoints/attention/main/best.pth": {
+      "mtime_ns": "1790832967048150248",
+      "sha256": "bf40fc4e40a27943f7b4e27b4b6e9dc9b45320c03b13ba181fb91fd81371fad3",
+      "size": 91891212
+    },
+    "checkpoints/attention/main/candidate_epoch03.pth": {
+      "mtime_ns": "1790817840728370279",
+      "sha256": "30c2e5057d744526872274ec2c191846c6ed07ce5e759d587a23eb6b073ba766",
+      "size": 60311223
+    },
+    "checkpoints/attention/main/candidate_epoch04.pth": {
+      "mtime_ns": "1790819353279325417",
+      "sha256": "24dae248f28fe3db094f3269c87b84193066f8b0245afcf1e82d5f04045686f6",
+      "size": 91881484
+    },
+    "checkpoints/attention/main/candidate_epoch05.pth": {
+      "mtime_ns": "1790820866084140420",
+      "sha256": "018c79d28cfaa076059c20c490b713db0607010689c8ca1302ea35572a150980",
+      "size": 91882572
+    },
+    "checkpoints/attention/main/candidate_epoch06.pth": {
+      "mtime_ns": "1790822378306922771",
+      "sha256": "c2b9ec93a9e8efca6b77ad5c574c3aa64b5f4081d8b1d4c987d22abeeeadc1fa",
+      "size": 91883660
+    },
+    "checkpoints/attention/main/candidate_epoch07.pth": {
+      "mtime_ns": "1790823890178717432",
+      "sha256": "9fc6b184f1e8f7b735780987d4946a8d7cf6c23eee9077101d3e66ea08893a14",
+      "size": 91884748
+    },
+    "checkpoints/attention/main/candidate_epoch08.pth": {
+      "mtime_ns": "1790825402754694568",
+      "sha256": "272845b266af91225949c1812b668a21368cb293f883f312bb18ddec48ffc426",
+      "size": 91885836
+    },
+    "checkpoints/attention/main/candidate_epoch09.pth": {
+      "mtime_ns": "1790826915920612459",
+      "sha256": "99b6efdaf987314491547f3d3c9a7366b4d4547f5c314db06a3a3ea6de6c927e",
+      "size": 91886860
+    },
+    "checkpoints/attention/main/candidate_epoch10.pth": {
+      "mtime_ns": "1790828428602746601",
+      "sha256": "2210718078ae2e4656b402134e752d6ebbf4790346a2459cd729ceadc5f85e6b",
+      "size": 91887948
+    },
+    "checkpoints/attention/main/candidate_epoch11.pth": {
+      "mtime_ns": "1790829941416136789",
+      "sha256": "50ee9c1fd604cae6058c8de6835f72ed7252be389a8e3012f0263101d9b91f4d",
+      "size": 91889036
+    },
+    "checkpoints/attention/main/candidate_epoch12.pth": {
+      "mtime_ns": "1790831454513416329",
+      "sha256": "1c235285152813fb99074ef279dec9171c3d05a14d38b34bf737653d1374184d",
+      "size": 91890124
+    },
+    "checkpoints/attention/main/candidate_epoch13.pth": {
+      "mtime_ns": "1790832967048150248",
+      "sha256": "bf40fc4e40a27943f7b4e27b4b6e9dc9b45320c03b13ba181fb91fd81371fad3",
+      "size": 91891212
+    },
+    "checkpoints/attention/main/candidate_epoch14.pth": {
+      "mtime_ns": "1790834482605281596",
+      "sha256": "633535b1db3cf1bc3081fb0e7c5a42bce82eada5c42b54d4441e0974dac8183a",
+      "size": 91892364
+    },
+    "checkpoints/attention/main/candidate_epoch15.pth": {
+      "mtime_ns": "1790835998121138670",
+      "sha256": "6f33a070402cc3c3feebc8f7e3358d17f550c1949fc87a6b217af94a05d7261e",
+      "size": 91893452
+    },
+    "checkpoints/attention/main/candidate_epoch16.pth": {
+      "mtime_ns": "1790837514747744141",
+      "sha256": "a6b5f11c0291b1bb984cb3f3ad31ef37280fd66adbbb99efc8585f753a4d0061",
+      "size": 91894540
+    },
+    "checkpoints/attention/main/candidate_epoch17.pth": {
+      "mtime_ns": "1790839031940835106",
+      "sha256": "338c3b15bd5feae0b9e197b6a7a4e45ab485c6ddc83cd3a2c2294623fec22587",
+      "size": 91895564
+    },
+    "checkpoints/attention/main/candidate_epoch18.pth": {
+      "mtime_ns": "1790840549013532686",
+      "sha256": "e4ff2831dda2e8e872ed082740cd9da64d846701a63b5d4e750f97a2df1c7611",
+      "size": 91896652
+    },
+    "checkpoints/attention/main/candidate_epoch19.pth": {
+      "mtime_ns": "1790842065670160919",
+      "sha256": "2f93907a320200cd16fffdeeec95992d99a4950a22effa0cc6c762c4b81ae9d3",
+      "size": 91897740
+    },
+    "checkpoints/attention/main/latest.pth": {
+      "mtime_ns": "1790842091309281942",
+      "sha256": "66904026bf4f169badac7fbe8b173e663ed0a86d3569e3962e917d2426bc72ce",
+      "size": 91898060
+    },
+    "checkpoints/attention/main/progress.json": {
+      "mtime_ns": "1790842091324220892",
+      "sha256": "f93dcb0f4b83a834c0410477ffff4cc0b1823a0fb7073cdf766c81b46bc65a8f",
+      "size": 2253
+    },
+    "checkpoints/attention/main/recipe.json": {
+      "mtime_ns": "1790813848862042449",
+      "sha256": "9b0cefae1c11af37b5d72f2a850f668e90d7c808b221fc1ef56d5343d23c5fc4",
+      "size": 14713
+    },
+    "checkpoints/joint/main/.base_best.pth.new": {
+      "mtime_ns": "1790832967048150248",
+      "sha256": "bf40fc4e40a27943f7b4e27b4b6e9dc9b45320c03b13ba181fb91fd81371fad3",
+      "size": 91891212
+    },
+    "checkpoints/joint/main/.best.pth.new": {
+      "mtime_ns": "1790832967048150248",
+      "sha256": "bf40fc4e40a27943f7b4e27b4b6e9dc9b45320c03b13ba181fb91fd81371fad3",
+      "size": 91891212
+    },
+    "checkpoints/joint/main/base_best.pth": {
+      "mtime_ns": "1790832967048150248",
+      "sha256": "bf40fc4e40a27943f7b4e27b4b6e9dc9b45320c03b13ba181fb91fd81371fad3",
+      "size": 91891212
+    },
+    "checkpoints/joint/main/best.pth": {
+      "mtime_ns": "1790832967048150248",
+      "sha256": "bf40fc4e40a27943f7b4e27b4b6e9dc9b45320c03b13ba181fb91fd81371fad3",
+      "size": 91891212
+    },
+    "checkpoints/joint/main/candidate_epoch04.pth": {
+      "mtime_ns": "1790819353279325417",
+      "sha256": "24dae248f28fe3db094f3269c87b84193066f8b0245afcf1e82d5f04045686f6",
+      "size": 91881484
+    },
+    "checkpoints/joint/main/candidate_epoch05.pth": {
+      "mtime_ns": "1790820866084140420",
+      "sha256": "018c79d28cfaa076059c20c490b713db0607010689c8ca1302ea35572a150980",
+      "size": 91882572
+    },
+    "checkpoints/joint/main/candidate_epoch06.pth": {
+      "mtime_ns": "1790822378306922771",
+      "sha256": "c2b9ec93a9e8efca6b77ad5c574c3aa64b5f4081d8b1d4c987d22abeeeadc1fa",
+      "size": 91883660
+    },
+    "checkpoints/joint/main/candidate_epoch07.pth": {
+      "mtime_ns": "1790823890178717432",
+      "sha256": "9fc6b184f1e8f7b735780987d4946a8d7cf6c23eee9077101d3e66ea08893a14",
+      "size": 91884748
+    },
+    "checkpoints/joint/main/candidate_epoch08.pth": {
+      "mtime_ns": "1790825402754694568",
+      "sha256": "272845b266af91225949c1812b668a21368cb293f883f312bb18ddec48ffc426",
+      "size": 91885836
+    },
+    "checkpoints/joint/main/candidate_epoch09.pth": {
+      "mtime_ns": "1790826915920612459",
+      "sha256": "99b6efdaf987314491547f3d3c9a7366b4d4547f5c314db06a3a3ea6de6c927e",
+      "size": 91886860
+    },
+    "checkpoints/joint/main/candidate_epoch10.pth": {
+      "mtime_ns": "1790828428602746601",
+      "sha256": "2210718078ae2e4656b402134e752d6ebbf4790346a2459cd729ceadc5f85e6b",
+      "size": 91887948
+    },
+    "checkpoints/joint/main/candidate_epoch11.pth": {
+      "mtime_ns": "1790829941416136789",
+      "sha256": "50ee9c1fd604cae6058c8de6835f72ed7252be389a8e3012f0263101d9b91f4d",
+      "size": 91889036
+    },
+    "checkpoints/joint/main/candidate_epoch12.pth": {
+      "mtime_ns": "1790831454513416329",
+      "sha256": "1c235285152813fb99074ef279dec9171c3d05a14d38b34bf737653d1374184d",
+      "size": 91890124
+    },
+    "checkpoints/joint/main/candidate_epoch13.pth": {
+      "mtime_ns": "1790832967048150248",
+      "sha256": "bf40fc4e40a27943f7b4e27b4b6e9dc9b45320c03b13ba181fb91fd81371fad3",
+      "size": 91891212
+    },
+    "checkpoints/joint/main/candidate_epoch14.pth": {
+      "mtime_ns": "1790834482605281596",
+      "sha256": "633535b1db3cf1bc3081fb0e7c5a42bce82eada5c42b54d4441e0974dac8183a",
+      "size": 91892364
+    },
+    "checkpoints/joint/main/candidate_epoch15.pth": {
+      "mtime_ns": "1790835998121138670",
+      "sha256": "6f33a070402cc3c3feebc8f7e3358d17f550c1949fc87a6b217af94a05d7261e",
+      "size": 91893452
+    },
+    "checkpoints/joint/main/candidate_epoch16.pth": {
+      "mtime_ns": "1790837514747744141",
+      "sha256": "a6b5f11c0291b1bb984cb3f3ad31ef37280fd66adbbb99efc8585f753a4d0061",
+      "size": 91894540
+    },
+    "checkpoints/joint/main/candidate_epoch17.pth": {
+      "mtime_ns": "1790839031940835106",
+      "sha256": "338c3b15bd5feae0b9e197b6a7a4e45ab485c6ddc83cd3a2c2294623fec22587",
+      "size": 91895564
+    },
+    "checkpoints/joint/main/candidate_epoch18.pth": {
+      "mtime_ns": "1790840549013532686",
+      "sha256": "e4ff2831dda2e8e872ed082740cd9da64d846701a63b5d4e750f97a2df1c7611",
+      "size": 91896652
+    },
+    "checkpoints/joint/main/candidate_epoch19.pth": {
+      "mtime_ns": "1790842065670160919",
+      "sha256": "2f93907a320200cd16fffdeeec95992d99a4950a22effa0cc6c762c4b81ae9d3",
+      "size": 91897740
+    },
+    "checkpoints/joint/main/latest.pth": {
+      "mtime_ns": "1790842091309281942",
+      "sha256": "66904026bf4f169badac7fbe8b173e663ed0a86d3569e3962e917d2426bc72ce",
+      "size": 91898060
+    },
+    "checkpoints/joint/main/progress.json": {
+      "mtime_ns": "1790842091330281110",
+      "sha256": "f93dcb0f4b83a834c0410477ffff4cc0b1823a0fb7073cdf766c81b46bc65a8f",
+      "size": 2253
+    },
+    "checkpoints/joint/main/recipe.json": {
+      "mtime_ns": "1790842091331052125",
+      "sha256": "9b0cefae1c11af37b5d72f2a850f668e90d7c808b221fc1ef56d5343d23c5fc4",
+      "size": 14713
+    },
+    "reports/attention_qat_diagnostic_v0_conservative.json": {
+      "mtime_ns": "1790813581012695670",
+      "sha256": "84011bcbdcd4c66aa7203634ccb3b38628b4dbabd0c5354c15d4d176d4b5d15b",
+      "size": 18339
+    },
+    "reports/attention_qat_diagnostic_v0_main.json": {
+      "mtime_ns": "1790813446856681502",
+      "sha256": "dcba503ac81b7ac0f995343de55a9b57215a26f88969f4cbc5449fc506852782",
+      "size": 18333
+    },
+    "reports/attention_qat_formal_epoch03.json": {
+      "mtime_ns": "1790817865737858145",
+      "sha256": "80ad9eb4cffa82f2d318d149c526d8bb7eefb3ac4cef443039e272854abf0b19",
+      "size": 2278
+    },
+    "reports/attention_qat_formal_epoch04.json": {
+      "mtime_ns": "1790819378100085263",
+      "sha256": "2f7ae45baf15264cb0bed3c51be0cf90c8b971c886a8332beebdf8bbe7f9bf5c",
+      "size": 2279
+    },
+    "reports/attention_qat_formal_epoch05.json": {
+      "mtime_ns": "1790820890954811065",
+      "sha256": "fa1bf43a87355bc837ad4f0d42c98c24c206bc493a199698be7cc40039ee0619",
+      "size": 2282
+    },
+    "reports/attention_qat_formal_epoch06.json": {
+      "mtime_ns": "1790822402817721208",
+      "sha256": "43df26b6096cf59bddfa157eeffaaa2bd9a447a8f6d6f52896e2cf286ea1944e",
+      "size": 2281
+    },
+    "reports/attention_qat_formal_epoch07.json": {
+      "mtime_ns": "1790823914907761632",
+      "sha256": "de3b93cf1df3e98aadf76ce1ceca7d8a8faf0760a904df8cfe4b0b3370d34026",
+      "size": 2282
+    },
+    "reports/attention_qat_formal_epoch08.json": {
+      "mtime_ns": "1790825427644805917",
+      "sha256": "99f420a4e94dd50e8adea3f5d5826b7668d8730753b8c0f9ebf55880887a9a3c",
+      "size": 2281
+    },
+    "reports/attention_qat_formal_epoch09.json": {
+      "mtime_ns": "1790826940659830812",
+      "sha256": "3eb1fb5d48a985c55dd08fa58f919e48b3c4f81cde7188b73c80583c7b96ba15",
+      "size": 2280
+    },
+    "reports/attention_qat_formal_epoch10.json": {
+      "mtime_ns": "1790828453235222519",
+      "sha256": "00906441ebacd744e2100567f597c333c388c130acd326695b3541d021e3a663",
+      "size": 2281
+    },
+    "reports/attention_qat_formal_epoch11.json": {
+      "mtime_ns": "1790829966562133811",
+      "sha256": "0b15e309556f6c2cd92fbd65ea4e8975cfc7a460b95520e56e2383caed997b51",
+      "size": 2282
+    },
+    "reports/attention_qat_formal_epoch12.json": {
+      "mtime_ns": "1790831479073940954",
+      "sha256": "7dd0f97a8fb5153a060263a070eacea14981df8e8c309b566cf95c6b0946113a",
+      "size": 2283
+    },
+    "reports/attention_qat_formal_epoch13.json": {
+      "mtime_ns": "1790832992124652750",
+      "sha256": "875a58b76c0c42f90215a42b70042feae089f43532e2e68f0b1f9dae43a4a005",
+      "size": 2281
+    },
+    "reports/attention_qat_formal_epoch14.json": {
+      "mtime_ns": "1790834507546579385",
+      "sha256": "f63b196be7d8e25217aa34b724b1ed6db2dcf6802adba2acf71a6d6987059134",
+      "size": 2280
+    },
+    "reports/attention_qat_formal_epoch15.json": {
+      "mtime_ns": "1790836023001819276",
+      "sha256": "0e79538ffacac5e54b0d11fa568c276465468bc2df596a24f91cab4f8c91cc39",
+      "size": 2283
+    },
+    "reports/attention_qat_formal_epoch16.json": {
+      "mtime_ns": "1790837540215646725",
+      "sha256": "406a89d69b457473e74a4dcfabdcb2bf5ffa6f1ccac03f062b861fd87d61f1d5",
+      "size": 2283
+    },
+    "reports/attention_qat_formal_epoch17.json": {
+      "mtime_ns": "1790839057040271230",
+      "sha256": "aa0d2935c313461b6ec6fc4e268e48671d75e6c14ea5e88b7f61521eba765fb8",
+      "size": 2280
+    },
+    "reports/attention_qat_formal_epoch18.json": {
+      "mtime_ns": "1790840574003952333",
+      "sha256": "c656998aad10ff58c92f0ed5b9da99fd6b563ec7985751a8b80c4c783ab9664b",
+      "size": 2281
+    },
+    "reports/attention_qat_formal_epoch19.json": {
+      "mtime_ns": "1790842091069564937",
+      "sha256": "2938ba50023d94fd2cd21f7753914989bcc5793eb21f1290210293d76acab698",
+      "size": 2282
+    },
+    "reports/attention_qat_probe_b128_main_isolated.json": {
+      "mtime_ns": "1790813796512758509",
+      "sha256": "27eac0a4e14b53f01ae46329b3d3709e953842cacff6988f1b296ff94d20e59d",
+      "size": 17944
+    },
+    "reports/attention_qat_probe_joint_b128_conservative_isolated.json": {
+      "mtime_ns": "1790813741941304480",
+      "sha256": "48e4b91b97b904a3200ec3e9ce94fc642ef02040fa66adb89c3a6d5fc70cbc8d",
+      "size": 18796
+    },
+    "reports/attention_qat_probe_joint_b128_main_isolated.json": {
+      "mtime_ns": "1790813678532846662",
+      "sha256": "dae6e76bac90f6845657f7bcbe0c94ecaece7a5472a0875f7dc2ae11a221b298",
+      "size": 18814
+    },
+    "reports/attention_qat_probe_selection.json": {
+      "mtime_ns": "1790813777023203911",
+      "sha256": "ba22a3caeceb65952dc0a926f0fc40236f3ca18b051d06b9cf6aa3da23f4a08e",
+      "size": 1395
+    },
+    "reports/attention_qat_progressive_audit.json": {
+      "mtime_ns": "1790818040240505901",
+      "sha256": "cfa98e09e488e7d354118df8d65574e03ccc591f29c1ea10db8651e42690745f",
+      "size": 599
+    },
+    "reports/attention_qat_training.json": {
+      "mtime_ns": "1790842091326697602",
+      "sha256": "ed387c8035e9b4ca0f8a0cf275f94ffe1c8356b68848c68722d6712f43952391",
+      "size": 143166
+    },
+    "reports/joint_qat_formal_epoch04.json": {
+      "mtime_ns": "1790819378103658029",
+      "sha256": "2f7ae45baf15264cb0bed3c51be0cf90c8b971c886a8332beebdf8bbe7f9bf5c",
+      "size": 2279
+    },
+    "reports/joint_qat_formal_epoch05.json": {
+      "mtime_ns": "1790820890958382998",
+      "sha256": "fa1bf43a87355bc837ad4f0d42c98c24c206bc493a199698be7cc40039ee0619",
+      "size": 2282
+    },
+    "reports/joint_qat_formal_epoch06.json": {
+      "mtime_ns": "1790822402829328990",
+      "sha256": "43df26b6096cf59bddfa157eeffaaa2bd9a447a8f6d6f52896e2cf286ea1944e",
+      "size": 2281
+    },
+    "reports/joint_qat_formal_epoch07.json": {
+      "mtime_ns": "1790823914911086052",
+      "sha256": "de3b93cf1df3e98aadf76ce1ceca7d8a8faf0760a904df8cfe4b0b3370d34026",
+      "size": 2282
+    },
+    "reports/joint_qat_formal_epoch08.json": {
+      "mtime_ns": "1790825427649090468",
+      "sha256": "99f420a4e94dd50e8adea3f5d5826b7668d8730753b8c0f9ebf55880887a9a3c",
+      "size": 2281
+    },
+    "reports/joint_qat_formal_epoch09.json": {
+      "mtime_ns": "1790826940660528033",
+      "sha256": "3eb1fb5d48a985c55dd08fa58f919e48b3c4f81cde7188b73c80583c7b96ba15",
+      "size": 2280
+    },
+    "reports/joint_qat_formal_epoch10.json": {
+      "mtime_ns": "1790828453235889370",
+      "sha256": "00906441ebacd744e2100567f597c333c388c130acd326695b3541d021e3a663",
+      "size": 2281
+    },
+    "reports/joint_qat_formal_epoch11.json": {
+      "mtime_ns": "1790829966566057374",
+      "sha256": "0b15e309556f6c2cd92fbd65ea4e8975cfc7a460b95520e56e2383caed997b51",
+      "size": 2282
+    },
+    "reports/joint_qat_formal_epoch12.json": {
+      "mtime_ns": "1790831479077503516",
+      "sha256": "7dd0f97a8fb5153a060263a070eacea14981df8e8c309b566cf95c6b0946113a",
+      "size": 2283
+    },
+    "reports/joint_qat_formal_epoch13.json": {
+      "mtime_ns": "1790832992127967554",
+      "sha256": "875a58b76c0c42f90215a42b70042feae089f43532e2e68f0b1f9dae43a4a005",
+      "size": 2281
+    },
+    "reports/joint_qat_formal_epoch14.json": {
+      "mtime_ns": "1790834507550046830",
+      "sha256": "f63b196be7d8e25217aa34b724b1ed6db2dcf6802adba2acf71a6d6987059134",
+      "size": 2280
+    },
+    "reports/joint_qat_formal_epoch15.json": {
+      "mtime_ns": "1790836023005560176",
+      "sha256": "0e79538ffacac5e54b0d11fa568c276465468bc2df596a24f91cab4f8c91cc39",
+      "size": 2283
+    },
+    "reports/joint_qat_formal_epoch16.json": {
+      "mtime_ns": "1790837540219128945",
+      "sha256": "406a89d69b457473e74a4dcfabdcb2bf5ffa6f1ccac03f062b861fd87d61f1d5",
+      "size": 2283
+    },
+    "reports/joint_qat_formal_epoch17.json": {
+      "mtime_ns": "1790839057043925031",
+      "sha256": "aa0d2935c313461b6ec6fc4e268e48671d75e6c14ea5e88b7f61521eba765fb8",
+      "size": 2280
+    },
+    "reports/joint_qat_formal_epoch18.json": {
+      "mtime_ns": "1790840574007473227",
+      "sha256": "c656998aad10ff58c92f0ed5b9da99fd6b563ec7985751a8b80c4c783ab9664b",
+      "size": 2281
+    },
+    "reports/joint_qat_formal_epoch19.json": {
+      "mtime_ns": "1790842091073405427",
+      "sha256": "2938ba50023d94fd2cd21f7753914989bcc5793eb21f1290210293d76acab698",
+      "size": 2282
+    },
+    "reports/joint_qat_training.json": {
+      "mtime_ns": "1790842091333301307",
+      "sha256": "ed387c8035e9b4ca0f8a0cf275f94ffe1c8356b68848c68722d6712f43952391",
+      "size": 143166
+    }
+  },
+  "excluded_generated_audits": [
+    "/home/user/Desktop/ff_vit_re/image1k_hls_s3_original/reports/attention_qat_final_audit.json",
+    "/home/user/Desktop/ff_vit_re/image1k_hls_s3_original/reports/attention_qat_terminal_resume_audit.json"
+  ],
+  "generator": "scripts/audit_attention_terminal_resume.py",
+  "generator_sha256": "be096ecbb6f0ee0d69a830380b40dd3915f876f60f31e7e584dacff7a4dfe70c",
+  "hashes_sizes_and_mtimes_unchanged": true,
+  "mtime_ns_encoding": "decimal_string",
+  "runs": [
+    {
+      "exit_code": 0,
+      "result": {
+        "action": "already_complete",
+        "global_step": 199560,
+        "status": "budget_exhausted"
+      },
+      "runner": "scripts/train_strict_attention.py",
+      "stderr": ""
+    },
+    {
+      "exit_code": 0,
+      "result": {
+        "action": "already_complete",
+        "global_step": 199560,
+        "status": "budget_exhausted"
+      },
+      "runner": "scripts/train_strict_joint.py",
+      "stderr": ""
+    }
+  ],
+  "snapshot_sha256": "29b46a39b41d2025ce52897f2b303dc274dd42a3fbbc15354693c41d8b779766"
+}

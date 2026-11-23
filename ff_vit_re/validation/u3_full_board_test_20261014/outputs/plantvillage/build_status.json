@@ -1,0 +1,9 @@
+{
+  "dataset": "plantvillage",
+  "stage": "BOOT_PUBLICATION_BLOCKED_SETUP_TIMING_FAILED",
+  "wns_ns": -0.115,
+  "setup_failing_endpoints": 781,
+  "full_dataset_frames_ready": 5459,
+  "board_measured": false,
+  "updated_unix": 1791967575.1565392
+}

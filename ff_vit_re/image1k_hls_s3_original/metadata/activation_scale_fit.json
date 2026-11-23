@@ -1,0 +1,1571 @@
+{
+  "audits": {
+    "0:a": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.01937442037724189,
+      "observed_max": 6.8434038162231445,
+      "observed_min": -6.666327476501465
+    },
+    "0:attention_residual": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 0.0023345313234647215,
+      "observed_max": 15.039705276489258,
+      "observed_min": -9.993976593017578
+    },
+    "0:fc1": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 301056000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 6.511390272105344e-05,
+      "observed_max": 13.856973648071289,
+      "observed_min": -15.617582321166992
+    },
+    "0:fc2": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 2.2020894848363783e-05,
+      "observed_max": 8.008529663085938,
+      "observed_min": -8.725248336791992
+    },
+    "0:gelu": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 301056000,
+      "histogram_max": 64.0,
+      "histogram_min": -1.0,
+      "mse_estimate": 0.018249968042307236,
+      "observed_max": 13.856973648071289,
+      "observed_min": -0.16997122764587402
+    },
+    "0:k": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.03994043071644026,
+      "observed_max": 6.925802230834961,
+      "observed_min": -7.475011348724365
+    },
+    "0:ln1": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 16.0,
+      "histogram_min": -16.0,
+      "mse_estimate": 0.03569353642400007,
+      "observed_max": 10.399630546569824,
+      "observed_min": -6.886874198913574
+    },
+    "0:ln2": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.10724277357364972,
+      "observed_max": 16.881446838378906,
+      "observed_min": -16.644458770751953
+    },
+    "0:mlp_residual": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 0.002597950297865729,
+      "observed_max": 15.906494140625,
+      "observed_min": -8.305760383605957
+    },
+    "0:o": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 7.978077233487758e-08,
+      "observed_max": 4.111758708953857,
+      "observed_min": -4.200830459594727
+    },
+    "0:q": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.05994145511778012,
+      "observed_max": 6.692699432373047,
+      "observed_min": -6.779582977294922
+    },
+    "0:softmax": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 230496000,
+      "histogram_max": 1.0,
+      "histogram_min": 0.0,
+      "mse_estimate": 8.005416443599252e-05,
+      "observed_max": 0.999962329864502,
+      "observed_min": 6.131867149455905e-12
+    },
+    "0:v": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.04960361643836759,
+      "observed_max": 7.134180545806885,
+      "observed_min": -7.044803142547607
+    },
+    "10:a": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.003858005623930251,
+      "observed_max": 2.2983672618865967,
+      "observed_min": -2.403674602508545
+    },
+    "10:attention_residual": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 0.0001267078441118562,
+      "observed_max": 15.510820388793945,
+      "observed_min": -14.295703887939453
+    },
+    "10:fc1": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 301056000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 5.8558132046853716e-06,
+      "observed_max": 6.448234558105469,
+      "observed_min": -10.352641105651855
+    },
+    "10:fc2": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 0.0005016532951466719,
+      "observed_max": 4.061678409576416,
+      "observed_min": -1.8951482772827148
+    },
+    "10:gelu": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 301056000,
+      "histogram_max": 64.0,
+      "histogram_min": -1.0,
+      "mse_estimate": 0.0083636369263569,
+      "observed_max": 6.448234558105469,
+      "observed_min": -0.16997122764587402
+    },
+    "10:k": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.03905564797869393,
+      "observed_max": 4.712650299072266,
+      "observed_min": -4.432898044586182
+    },
+    "10:ln1": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 16.0,
+      "histogram_min": -16.0,
+      "mse_estimate": 0.051847462207571735,
+      "observed_max": 6.062864303588867,
+      "observed_min": -7.689651012420654
+    },
+    "10:ln2": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.17555517879499663,
+      "observed_max": 17.172393798828125,
+      "observed_min": -12.241927146911621
+    },
+    "10:mlp_residual": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 0.0002107564841425492,
+      "observed_max": 18.844768524169922,
+      "observed_min": -15.135499000549316
+    },
+    "10:o": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 2.672920297770104e-07,
+      "observed_max": 1.994422435760498,
+      "observed_min": -2.4756741523742676
+    },
+    "10:q": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.035601602501407634,
+      "observed_max": 4.5191521644592285,
+      "observed_min": -4.189386367797852
+    },
+    "10:softmax": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 230496000,
+      "histogram_max": 1.0,
+      "histogram_min": 0.0,
+      "mse_estimate": 4.011672785267261e-05,
+      "observed_max": 0.8427059650421143,
+      "observed_min": 7.566810040771088e-07
+    },
+    "10:v": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.029417773044118085,
+      "observed_max": 5.077720642089844,
+      "observed_min": -5.318830966949463
+    },
+    "11:a": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.004041401512959303,
+      "observed_max": 1.804007887840271,
+      "observed_min": -2.596214771270752
+    },
+    "11:attention_residual": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 0.0009508856313457818,
+      "observed_max": 21.672937393188477,
+      "observed_min": -14.918685913085938
+    },
+    "11:fc1": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 301056000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 5.209497815302868e-06,
+      "observed_max": 5.514771461486816,
+      "observed_min": -9.427862167358398
+    },
+    "11:fc2": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 6.762977838652142e-07,
+      "observed_max": 1.9521256685256958,
+      "observed_min": -1.6403589248657227
+    },
+    "11:gelu": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 301056000,
+      "histogram_max": 64.0,
+      "histogram_min": -1.0,
+      "mse_estimate": 0.009280962950734042,
+      "observed_max": 5.514771461486816,
+      "observed_min": -0.16997122764587402
+    },
+    "11:k": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.040504359842288944,
+      "observed_max": 4.695304870605469,
+      "observed_min": -4.5704474449157715
+    },
+    "11:ln1": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 16.0,
+      "histogram_min": -16.0,
+      "mse_estimate": 0.05210261076189453,
+      "observed_max": 6.56464147567749,
+      "observed_min": -7.6640238761901855
+    },
+    "11:ln2": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.09467014831736426,
+      "observed_max": 9.464959144592285,
+      "observed_min": -9.792750358581543
+    },
+    "11:mlp_residual": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 0.0011138032910086844,
+      "observed_max": 21.401960372924805,
+      "observed_min": -14.48069953918457
+    },
+    "11:o": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 1.2955898414156513e-05,
+      "observed_max": 4.703557014465332,
+      "observed_min": -3.1400437355041504
+    },
+    "11:q": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.02843231397381107,
+      "observed_max": 4.96176815032959,
+      "observed_min": -4.87313985824585
+    },
+    "11:softmax": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 230496000,
+      "histogram_max": 1.0,
+      "histogram_min": 0.0,
+      "mse_estimate": 3.1075280966360613e-05,
+      "observed_max": 0.8580511212348938,
+      "observed_min": 1.8434838011671673e-07
+    },
+    "11:v": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.02742562844585921,
+      "observed_max": 5.410287857055664,
+      "observed_min": -5.01092004776001
+    },
+    "1:a": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.012266352899269767,
+      "observed_max": 3.9524686336517334,
+      "observed_min": -4.103073596954346
+    },
+    "1:attention_residual": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 0.002277144159831667,
+      "observed_max": 15.0619535446167,
+      "observed_min": -8.209916114807129
+    },
+    "1:fc1": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 301056000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 7.003992913704276e-06,
+      "observed_max": 7.320849418640137,
+      "observed_min": -9.595433235168457
+    },
+    "1:fc2": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 2.567196653945049e-07,
+      "observed_max": 3.212691068649292,
+      "observed_min": -3.0989885330200195
+    },
+    "1:gelu": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 301056000,
+      "histogram_max": 64.0,
+      "histogram_min": -1.0,
+      "mse_estimate": 0.014061888586130531,
+      "observed_max": 7.320849418640137,
+      "observed_min": -0.16997122764587402
+    },
+    "1:k": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.06512267221837345,
+      "observed_max": 6.266242027282715,
+      "observed_min": -5.974450588226318
+    },
+    "1:ln1": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 16.0,
+      "histogram_min": -16.0,
+      "mse_estimate": 0.05343956189779162,
+      "observed_max": 6.762166500091553,
+      "observed_min": -7.1541290283203125
+    },
+    "1:ln2": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.07328902742827981,
+      "observed_max": 10.340991973876953,
+      "observed_min": -11.5775785446167
+    },
+    "1:mlp_residual": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 0.0018297010612016898,
+      "observed_max": 13.43388843536377,
+      "observed_min": -6.146278381347656
+    },
+    "1:o": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 1.4910680971584526e-07,
+      "observed_max": 2.942744255065918,
+      "observed_min": -2.941375255584717
+    },
+    "1:q": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.0799362570577652,
+      "observed_max": 6.491775989532471,
+      "observed_min": -7.013886451721191
+    },
+    "1:softmax": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 230496000,
+      "histogram_max": 1.0,
+      "histogram_min": 0.0,
+      "mse_estimate": 5.704961230517058e-05,
+      "observed_max": 0.9989451766014099,
+      "observed_min": 1.0492238159004826e-22
+    },
+    "1:v": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.020859913939759285,
+      "observed_max": 4.293264389038086,
+      "observed_min": -4.673015594482422
+    },
+    "2:a": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.0075217221445904045,
+      "observed_max": 3.5282483100891113,
+      "observed_min": -3.184680461883545
+    },
+    "2:attention_residual": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 0.002070009524533584,
+      "observed_max": 13.82730484008789,
+      "observed_min": -6.396692276000977
+    },
+    "2:fc1": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 301056000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 2.8076551499764224e-06,
+      "observed_max": 4.9215288162231445,
+      "observed_min": -8.296141624450684
+    },
+    "2:fc2": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 2.2707490224169432e-07,
+      "observed_max": 2.2459874153137207,
+      "observed_min": -2.4138731956481934
+    },
+    "2:gelu": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 301056000,
+      "histogram_max": 64.0,
+      "histogram_min": -1.0,
+      "mse_estimate": 0.01362071044735179,
+      "observed_max": 4.921526908874512,
+      "observed_min": -0.16997122764587402
+    },
+    "2:k": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.08318415200247428,
+      "observed_max": 6.658261299133301,
+      "observed_min": -6.994256019592285
+    },
+    "2:ln1": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 16.0,
+      "histogram_min": -16.0,
+      "mse_estimate": 0.09413402117019831,
+      "observed_max": 9.376977920532227,
+      "observed_min": -9.989900588989258
+    },
+    "2:ln2": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.04595638410078012,
+      "observed_max": 7.0896830558776855,
+      "observed_min": -7.273096561431885
+    },
+    "2:mlp_residual": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 0.0016611113245316304,
+      "observed_max": 12.820696830749512,
+      "observed_min": -6.002451419830322
+    },
+    "2:o": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 5.924729557829889e-08,
+      "observed_max": 1.913326382637024,
+      "observed_min": -2.232456684112549
+    },
+    "2:q": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.0890294098269858,
+      "observed_max": 7.814293384552002,
+      "observed_min": -7.350515842437744
+    },
+    "2:softmax": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 230496000,
+      "histogram_max": 1.0,
+      "histogram_min": 0.0,
+      "mse_estimate": 4.54728222364437e-05,
+      "observed_max": 0.9777851104736328,
+      "observed_min": 1.841560568487643e-22
+    },
+    "2:v": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.01897740377215443,
+      "observed_max": 4.369983673095703,
+      "observed_min": -4.565201759338379
+    },
+    "3:a": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.006081223187466164,
+      "observed_max": 2.8836987018585205,
+      "observed_min": -2.727416753768921
+    },
+    "3:attention_residual": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 0.0017657448806079224,
+      "observed_max": 13.252095222473145,
+      "observed_min": -6.165817737579346
+    },
+    "3:fc1": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 301056000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 2.4653238893255373e-06,
+      "observed_max": 4.268012523651123,
+      "observed_min": -6.790491104125977
+    },
+    "3:fc2": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 6.501721580402164e-08,
+      "observed_max": 1.8890278339385986,
+      "observed_min": -2.062556028366089
+    },
+    "3:gelu": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 301056000,
+      "histogram_max": 64.0,
+      "histogram_min": -1.0,
+      "mse_estimate": 0.013454067420393855,
+      "observed_max": 4.267970561981201,
+      "observed_min": -0.16997122764587402
+    },
+    "3:k": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.04892790989378155,
+      "observed_max": 6.0879740715026855,
+      "observed_min": -5.653289318084717
+    },
+    "3:ln1": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 16.0,
+      "histogram_min": -16.0,
+      "mse_estimate": 0.0687134059465403,
+      "observed_max": 7.519505500793457,
+      "observed_min": -9.302160263061523
+    },
+    "3:ln2": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.07992343304049597,
+      "observed_max": 9.104973793029785,
+      "observed_min": -9.204917907714844
+    },
+    "3:mlp_residual": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 0.0014096009357429356,
+      "observed_max": 12.202553749084473,
+      "observed_min": -5.95764684677124
+    },
+    "3:o": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 5.200210556394483e-08,
+      "observed_max": 1.7099239826202393,
+      "observed_min": -1.8145651817321777
+    },
+    "3:q": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.05428253043875885,
+      "observed_max": 6.301535129547119,
+      "observed_min": -6.180594444274902
+    },
+    "3:softmax": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 230496000,
+      "histogram_max": 1.0,
+      "histogram_min": 0.0,
+      "mse_estimate": 4.299168804483898e-05,
+      "observed_max": 0.936967670917511,
+      "observed_min": 5.163746166769734e-11
+    },
+    "3:v": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.02535273377061088,
+      "observed_max": 4.9491868019104,
+      "observed_min": -4.687456130981445
+    },
+    "4:a": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.005256962643672568,
+      "observed_max": 2.5860724449157715,
+      "observed_min": -2.561022996902466
+    },
+    "4:attention_residual": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 0.0014156553123993788,
+      "observed_max": 12.71821117401123,
+      "observed_min": -6.3424072265625
+    },
+    "4:fc1": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 301056000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 1.2567930257944659e-05,
+      "observed_max": 4.877706527709961,
+      "observed_min": -8.951606750488281
+    },
+    "4:fc2": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 1.895994064036467e-07,
+      "observed_max": 1.8441507816314697,
+      "observed_min": -2.075002431869507
+    },
+    "4:gelu": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 301056000,
+      "histogram_max": 64.0,
+      "histogram_min": -1.0,
+      "mse_estimate": 0.0124352879656327,
+      "observed_max": 4.87770414352417,
+      "observed_min": -0.16997122764587402
+    },
+    "4:k": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.03932906366418109,
+      "observed_max": 5.226144790649414,
+      "observed_min": -5.243292808532715
+    },
+    "4:ln1": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 16.0,
+      "histogram_min": -16.0,
+      "mse_estimate": 0.06446289377903536,
+      "observed_max": 7.971556663513184,
+      "observed_min": -8.677860260009766
+    },
+    "4:ln2": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.11565622381162079,
+      "observed_max": 10.834417343139648,
+      "observed_min": -10.756439208984375
+    },
+    "4:mlp_residual": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 0.0012673232841081841,
+      "observed_max": 11.83142375946045,
+      "observed_min": -5.825161933898926
+    },
+    "4:o": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 6.501575731405664e-08,
+      "observed_max": 1.7937443256378174,
+      "observed_min": -1.6488418579101562
+    },
+    "4:q": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.04986231654668822,
+      "observed_max": 5.45648193359375,
+      "observed_min": -5.789769649505615
+    },
+    "4:softmax": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 230496000,
+      "histogram_max": 1.0,
+      "histogram_min": 0.0,
+      "mse_estimate": 2.514689831569135e-05,
+      "observed_max": 0.9580180048942566,
+      "observed_min": 1.1898502094709329e-07
+    },
+    "4:v": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.025988124419356027,
+      "observed_max": 5.125033855438232,
+      "observed_min": -4.610180854797363
+    },
+    "5:a": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.0036899448097289273,
+      "observed_max": 2.3937723636627197,
+      "observed_min": -2.4462132453918457
+    },
+    "5:attention_residual": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 0.001392862333815601,
+      "observed_max": 12.693816184997559,
+      "observed_min": -6.138002872467041
+    },
+    "5:fc1": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 301056000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 2.7519293525631787e-06,
+      "observed_max": 5.9301323890686035,
+      "observed_min": -6.81517219543457
+    },
+    "5:fc2": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 2.2159384262713907e-06,
+      "observed_max": 2.208421468734741,
+      "observed_min": -2.6894140243530273
+    },
+    "5:gelu": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 301056000,
+      "histogram_max": 64.0,
+      "histogram_min": -1.0,
+      "mse_estimate": 0.01198687450134663,
+      "observed_max": 5.9301323890686035,
+      "observed_min": -0.16997122764587402
+    },
+    "5:k": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.03763679190569058,
+      "observed_max": 5.206638336181641,
+      "observed_min": -5.1425323486328125
+    },
+    "5:ln1": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 16.0,
+      "histogram_min": -16.0,
+      "mse_estimate": 0.06530227589639391,
+      "observed_max": 7.755080699920654,
+      "observed_min": -8.784632682800293
+    },
+    "5:ln2": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.14435096942720332,
+      "observed_max": 12.452458381652832,
+      "observed_min": -12.256396293640137
+    },
+    "5:mlp_residual": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 0.0012402667438555274,
+      "observed_max": 12.002596855163574,
+      "observed_min": -5.732156753540039
+    },
+    "5:o": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 8.320597578993103e-08,
+      "observed_max": 1.8901888132095337,
+      "observed_min": -1.4796303510665894
+    },
+    "5:q": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.046771779752227266,
+      "observed_max": 5.493353843688965,
+      "observed_min": -5.357517719268799
+    },
+    "5:softmax": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 230496000,
+      "histogram_max": 1.0,
+      "histogram_min": 0.0,
+      "mse_estimate": 4.7531901823660666e-05,
+      "observed_max": 0.9507598280906677,
+      "observed_min": 2.716885161291316e-09
+    },
+    "5:v": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.025043272694100092,
+      "observed_max": 4.346526622772217,
+      "observed_min": -4.7214765548706055
+    },
+    "6:a": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.005729758594108511,
+      "observed_max": 3.0978081226348877,
+      "observed_min": -2.6830880641937256
+    },
+    "6:attention_residual": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 0.0013176150882116848,
+      "observed_max": 13.566468238830566,
+      "observed_min": -6.205445766448975
+    },
+    "6:fc1": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 301056000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 3.3951283837242158e-06,
+      "observed_max": 6.980539321899414,
+      "observed_min": -7.490268230438232
+    },
+    "6:fc2": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 2.8030626668555028e-05,
+      "observed_max": 2.7305355072021484,
+      "observed_min": -3.0865471363067627
+    },
+    "6:gelu": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 301056000,
+      "histogram_max": 64.0,
+      "histogram_min": -1.0,
+      "mse_estimate": 0.01197166438753452,
+      "observed_max": 6.980539321899414,
+      "observed_min": -0.16997122764587402
+    },
+    "6:k": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.042011620608670336,
+      "observed_max": 5.296078205108643,
+      "observed_min": -4.964242935180664
+    },
+    "6:ln1": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 16.0,
+      "histogram_min": -16.0,
+      "mse_estimate": 0.06677546871226529,
+      "observed_max": 8.215667724609375,
+      "observed_min": -9.422783851623535
+    },
+    "6:ln2": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.1508192618978018,
+      "observed_max": 13.406612396240234,
+      "observed_min": -12.935491561889648
+    },
+    "6:mlp_residual": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 0.0011877067329666329,
+      "observed_max": 13.225996017456055,
+      "observed_min": -7.176002502441406
+    },
+    "6:o": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 1.8534123624478317e-06,
+      "observed_max": 2.5538523197174072,
+      "observed_min": -1.7330559492111206
+    },
+    "6:q": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.050539500645041806,
+      "observed_max": 5.905318737030029,
+      "observed_min": -5.657259464263916
+    },
+    "6:softmax": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 230496000,
+      "histogram_max": 1.0,
+      "histogram_min": 0.0,
+      "mse_estimate": 9.389515995706719e-05,
+      "observed_max": 0.9985358715057373,
+      "observed_min": 1.6618999232331788e-10
+    },
+    "6:v": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.030046463550096075,
+      "observed_max": 5.458710193634033,
+      "observed_min": -4.8971991539001465
+    },
+    "7:a": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.0046579147189852125,
+      "observed_max": 2.388395071029663,
+      "observed_min": -2.2934751510620117
+    },
+    "7:attention_residual": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 0.0012548649086055043,
+      "observed_max": 14.118234634399414,
+      "observed_min": -7.6880388259887695
+    },
+    "7:fc1": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 301056000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 4.392081929258899e-06,
+      "observed_max": 6.293290615081787,
+      "observed_min": -8.860166549682617
+    },
+    "7:fc2": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 6.472183528116077e-08,
+      "observed_max": 2.462203025817871,
+      "observed_min": -2.611032009124756
+    },
+    "7:gelu": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 301056000,
+      "histogram_max": 64.0,
+      "histogram_min": -1.0,
+      "mse_estimate": 0.009156669921805452,
+      "observed_max": 6.293290615081787,
+      "observed_min": -0.16997122764587402
+    },
+    "7:k": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.042976974151247085,
+      "observed_max": 5.829396724700928,
+      "observed_min": -5.74498176574707
+    },
+    "7:ln1": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 16.0,
+      "histogram_min": -16.0,
+      "mse_estimate": 0.06155957197639267,
+      "observed_max": 7.3836259841918945,
+      "observed_min": -8.116771697998047
+    },
+    "7:ln2": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.20823654759295682,
+      "observed_max": 16.401012420654297,
+      "observed_min": -14.949584007263184
+    },
+    "7:mlp_residual": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 0.0010631758457624702,
+      "observed_max": 13.273680686950684,
+      "observed_min": -9.822660446166992
+    },
+    "7:o": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 3.8445649859555026e-05,
+      "observed_max": 2.1282052993774414,
+      "observed_min": -1.5689427852630615
+    },
+    "7:q": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.05930746682005069,
+      "observed_max": 5.914145469665527,
+      "observed_min": -5.620418071746826
+    },
+    "7:softmax": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 230496000,
+      "histogram_max": 1.0,
+      "histogram_min": 0.0,
+      "mse_estimate": 7.810528206790245e-05,
+      "observed_max": 0.9911564588546753,
+      "observed_min": 2.0632835440181907e-09
+    },
+    "7:v": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.023772034226465028,
+      "observed_max": 4.381126880645752,
+      "observed_min": -4.422795295715332
+    },
+    "8:a": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.006208455140244994,
+      "observed_max": 3.1249802112579346,
+      "observed_min": -3.669020652770996
+    },
+    "8:attention_residual": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 0.0013671278983452577,
+      "observed_max": 13.966407775878906,
+      "observed_min": -10.556214332580566
+    },
+    "8:fc1": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 301056000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 1.0869611107238424e-05,
+      "observed_max": 9.71591567993164,
+      "observed_min": -13.439924240112305
+    },
+    "8:fc2": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 1.6258872152650903e-07,
+      "observed_max": 2.748260259628296,
+      "observed_min": -3.119804620742798
+    },
+    "8:gelu": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 301056000,
+      "histogram_max": 64.0,
+      "histogram_min": -1.0,
+      "mse_estimate": 0.006255650861829055,
+      "observed_max": 9.71591567993164,
+      "observed_min": -0.16997122764587402
+    },
+    "8:k": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.04753178036594479,
+      "observed_max": 5.34240198135376,
+      "observed_min": -5.231839656829834
+    },
+    "8:ln1": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 16.0,
+      "histogram_min": -16.0,
+      "mse_estimate": 0.06580493232481566,
+      "observed_max": 8.377409934997559,
+      "observed_min": -8.171563148498535
+    },
+    "8:ln2": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.4338413167897362,
+      "observed_max": 23.563644409179688,
+      "observed_min": -22.405147552490234
+    },
+    "8:mlp_residual": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 0.0006331977777170734,
+      "observed_max": 14.645801544189453,
+      "observed_min": -11.644333839416504
+    },
+    "8:o": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 1.4222544767276653e-07,
+      "observed_max": 1.7666327953338623,
+      "observed_min": -1.596813678741455
+    },
+    "8:q": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.055081546203633744,
+      "observed_max": 5.934610366821289,
+      "observed_min": -6.443785190582275
+    },
+    "8:softmax": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 230496000,
+      "histogram_max": 1.0,
+      "histogram_min": 0.0,
+      "mse_estimate": 5.1025315923804946e-05,
+      "observed_max": 0.9653632640838623,
+      "observed_min": 3.793083624969995e-09
+    },
+    "8:v": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.02856858441723078,
+      "observed_max": 5.414649963378906,
+      "observed_min": -5.160153865814209
+    },
+    "9:a": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.005924781403516704,
+      "observed_max": 3.2478132247924805,
+      "observed_min": -2.969378709793091
+    },
+    "9:attention_residual": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 0.0005094445389957307,
+      "observed_max": 14.685493469238281,
+      "observed_min": -12.388587951660156
+    },
+    "9:fc1": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 301056000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 7.03499322674167e-06,
+      "observed_max": 9.18704605102539,
+      "observed_min": -11.75778579711914
+    },
+    "9:fc2": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 8.436514725156501e-07,
+      "observed_max": 3.9562489986419678,
+      "observed_min": -4.072249889373779
+    },
+    "9:gelu": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 301056000,
+      "histogram_max": 64.0,
+      "histogram_min": -1.0,
+      "mse_estimate": 0.0064423545921189745,
+      "observed_max": 9.18704605102539,
+      "observed_min": -0.16997122764587402
+    },
+    "9:k": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.04319057708263267,
+      "observed_max": 5.201588153839111,
+      "observed_min": -5.702593803405762
+    },
+    "9:ln1": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 16.0,
+      "histogram_min": -16.0,
+      "mse_estimate": 0.05954217878951149,
+      "observed_max": 7.943669319152832,
+      "observed_min": -7.93113374710083
+    },
+    "9:ln2": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.29738223922204643,
+      "observed_max": 22.077064514160156,
+      "observed_min": -16.290061950683594
+    },
+    "9:mlp_residual": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 0.00016940868502518956,
+      "observed_max": 15.476693153381348,
+      "observed_min": -14.443123817443848
+    },
+    "9:o": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 64.0,
+      "histogram_min": -64.0,
+      "mse_estimate": 2.435821821969002e-07,
+      "observed_max": 1.5440239906311035,
+      "observed_min": -1.8193411827087402
+    },
+    "9:q": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.04478970496722125,
+      "observed_max": 5.231521129608154,
+      "observed_min": -5.635245323181152
+    },
+    "9:softmax": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 230496000,
+      "histogram_max": 1.0,
+      "histogram_min": 0.0,
+      "mse_estimate": 4.352063166475457e-05,
+      "observed_max": 0.9227941632270813,
+      "observed_min": 3.4820405403479526e-07
+    },
+    "9:v": {
+      "bins": 4096,
+      "candidate_count": 128,
+      "count": 75264000,
+      "histogram_max": 32.0,
+      "histogram_min": -32.0,
+      "mse_estimate": 0.02841247496119842,
+      "observed_max": 5.036696434020996,
+      "observed_min": -4.995784282684326
+    }
+  },
+  "calibration_manifest_sha256": "f967ebdb8bd614dcf335c2195895e746a9b02029ea022df21c7c1e6e58680609",
+  "checkpoint_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+  "config_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+  "duration_seconds": 3.8743020929396152,
+  "method": "fixed-grid histogram MSE search, 128 geometric candidates, ties-to-even",
+  "sample_count": 2000,
+  "schema_version": 1
+}

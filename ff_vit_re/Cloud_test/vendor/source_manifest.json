@@ -1,0 +1,92 @@
+{
+  "bitstream": {
+    "bytes": 26510953,
+    "copied_path": "/home/user/Desktop/ff_vit_re/Cloud_test/vendor/e06_base/hw/design_1_wrapper.bit",
+    "sha256": "fb64c88cdf155ed02d314703d7486b44338c4c25bceaa2c8caaeb279059f2f27",
+    "source": "/home/user/Desktop/FF_Vit/E04_weight_schedule/E06_measurement/board_250mhz_advanced/deploy/design_1_wrapper.bit"
+  },
+  "fsbl": {
+    "bytes": 676280,
+    "copied_path": "/home/user/Desktop/ff_vit_re/Cloud_test/vendor/e06_base/boot/fsbl.elf",
+    "sha256": "ef43542bbfdf7238dc6b53bda46705ac5a3c626cbe401370b3c02c97a6da8c79",
+    "source": "/home/user/Desktop/FF_Vit/E04_weight_schedule/E06_measurement/board_250mhz_advanced/deploy/fsbl.elf"
+  },
+  "inference_main": {
+    "bytes": 9889,
+    "copied_path": "/home/user/Desktop/ff_vit_re/Cloud_test/vendor/e06_base/reference_source/inference/main.c",
+    "sha256": "d7a555810580d75f6cf77c382dcfc99b9b6bc96728a22e657efbad1d168b1128",
+    "source": "/home/user/Desktop/FF_Vit/E04_weight_schedule/E06_measurement/board_250mhz_advanced/src/main.c"
+  },
+  "input": {
+    "bytes": 602112,
+    "copied_path": "/home/user/Desktop/ff_vit_re/Cloud_test/vendor/e06_base/data/input.bin",
+    "sha256": "f7fa33c31113271173effc4fb684c432378b85c2f15a6681aa682aacf2ba3a2c",
+    "source": "/home/user/Desktop/FF_Vit/E04_weight_schedule/E06_measurement/inputs/input.bin"
+  },
+  "output": {
+    "bytes": 4000,
+    "copied_path": "/home/user/Desktop/ff_vit_re/Cloud_test/vendor/e06_base/data/output.bin",
+    "sha256": "f2da31d910ab48a49c5a803f836478e2b54e0cd9fdd1081cc2eabc1d36afe842",
+    "source": "/home/user/Desktop/FF_Vit/E04_weight_schedule/E06_measurement/inputs/output.bin"
+  },
+  "pmufw": {
+    "bytes": 908524,
+    "copied_path": "/home/user/Desktop/ff_vit_re/Cloud_test/vendor/e06_base/boot/pmufw.elf",
+    "sha256": "aea326ee0dd43a0dbc00adf9099be2e4a1e2665ddfaedb1b301a1d57455ee954",
+    "source": "/home/user/Desktop/FF_Vit/E04_weight_schedule/E06_measurement/board_250mhz_advanced/deploy/pmufw.elf"
+  },
+  "power_main": {
+    "bytes": 12475,
+    "copied_path": "/home/user/Desktop/ff_vit_re/Cloud_test/vendor/e06_base/reference_source/power/main.c",
+    "sha256": "d6c92fe4be31486922ae63c6943615da34e80adf1d942887beea5fffbb319e4b",
+    "source": "/home/user/Desktop/FF_Vit/E04_weight_schedule/E06_measurement/board_250mhz_advanced/power_src/main.c"
+  },
+  "power_math_c": {
+    "bytes": 390,
+    "copied_path": "/home/user/Desktop/ff_vit_re/Cloud_test/vendor/e06_base/reference_source/power/power_math.c",
+    "sha256": "39453a849250b4b446a7db837a9fc7e0a0aa3ab090bd5975bdbe3f6a6edcb302",
+    "source": "/home/user/Desktop/FF_Vit/E04_weight_schedule/E06_measurement/board_250mhz_advanced/power_src/power_math.c"
+  },
+  "power_math_h": {
+    "bytes": 249,
+    "copied_path": "/home/user/Desktop/ff_vit_re/Cloud_test/vendor/e06_base/reference_source/power/power_math.h",
+    "sha256": "bdfda8a2bbf5589a1079695934ad09bba4774864e63fe9c4d3eec43cd3d49f6e",
+    "source": "/home/user/Desktop/FF_Vit/E04_weight_schedule/E06_measurement/board_250mhz_advanced/power_src/power_math.h"
+  },
+  "power_monitor_c": {
+    "bytes": 4656,
+    "copied_path": "/home/user/Desktop/ff_vit_re/Cloud_test/vendor/e06_base/reference_source/power/power_monitor.c",
+    "sha256": "d92024992fcb7b0db3eb97b0096b3a288100843e425812c5d854bddf83a34f1a",
+    "source": "/home/user/Desktop/FF_Vit/E04_weight_schedule/E06_measurement/board_250mhz_advanced/power_src/power_monitor.c"
+  },
+  "power_monitor_h": {
+    "bytes": 850,
+    "copied_path": "/home/user/Desktop/ff_vit_re/Cloud_test/vendor/e06_base/reference_source/power/power_monitor.h",
+    "sha256": "470e896297cf72bf33024e6d8662cfcaf2c287dda862b6e21a19d204343604a3",
+    "source": "/home/user/Desktop/FF_Vit/E04_weight_schedule/E06_measurement/board_250mhz_advanced/power_src/power_monitor.h"
+  },
+  "rail_map": {
+    "bytes": 1169,
+    "copied_path": "/home/user/Desktop/ff_vit_re/Cloud_test/vendor/e06_base/reference_source/power/zcu102_ina226_rails.csv",
+    "sha256": "8d260585eabe5c548461238a4d7cd58a99637bd88eff6c34fa88b0af152fb061",
+    "source": "/home/user/Desktop/FF_Vit/E04_weight_schedule/E06_measurement/board_250mhz_advanced/power_src/zcu102_ina226_rails.csv"
+  },
+  "weight_layout": {
+    "bytes": 2033,
+    "copied_path": "/home/user/Desktop/ff_vit_re/Cloud_test/vendor/e06_base/include/weight_layout.h",
+    "sha256": "20570cc27451b5ff48318cf0a2f9554973ea5637fa421ff8bd8691a4137eb8ad",
+    "source": "/home/user/Desktop/FF_Vit/E04_weight_schedule/E06_measurement/board_250mhz_advanced/src/weight_layout.h"
+  },
+  "weights": {
+    "bytes": 2772096,
+    "copied_path": "/home/user/Desktop/ff_vit_re/Cloud_test/vendor/e06_base/data/weights.bin",
+    "sha256": "0fac7e4cd09ae8367e5c8dfd5cb469473780055feccf9569a8376419028e2cd7",
+    "source": "/home/user/Desktop/FF_Vit/E04_weight_schedule/E06_measurement/inputs/weights.bin"
+  },
+  "xsa": {
+    "bytes": 9337970,
+    "copied_path": "/home/user/Desktop/ff_vit_re/Cloud_test/vendor/e06_base/hw/e06_measurement_250mhz.xsa",
+    "sha256": "9f41851e899418d63ae712930d10062744ffffa9a25763fa9a64b1043d6e7757",
+    "source": "/home/user/Desktop/FF_Vit/E04_weight_schedule/E06_measurement/board_250mhz_advanced/workspace/e06m_platform/export/e06m_platform/hw/e06_measurement_250mhz.xsa"
+  }
+}

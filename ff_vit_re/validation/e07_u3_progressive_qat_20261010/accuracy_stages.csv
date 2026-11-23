@@ -1,0 +1,13 @@
+dataset,stage,split,sample_count,correct,top1_percent,best_epoch,numeric_mode,source
+plantvillage,MLP_QAT,val,5417,5389,99.48310873177036,10,FAKE_QUANT_SOFTWARE,outputs/plantvillage/mlp/fakequant_accuracy.json
+plantvillage,MLP_QAT,test,5459,5429,99.45044880014655,10,FAKE_QUANT_SOFTWARE,outputs/plantvillage/mlp/fakequant_accuracy.json
+plantvillage,Attention_U3_QAT,val,5417,5372,99.1692818903452,8,FAKE_QUANT_SOFTWARE,outputs/plantvillage/attention/fakequant_accuracy.json
+plantvillage,Attention_U3_QAT,test,5459,5407,99.04744458692068,8,FAKE_QUANT_SOFTWARE,outputs/plantvillage/attention/fakequant_accuracy.json
+plantvillage,E07_INTEGER_LUT,val,5417,5335,98.4862470001846,8,INTEGER_LUT_SOFTWARE_NOT_FPGA,outputs/plantvillage/final/accuracy.json
+plantvillage,E07_INTEGER_LUT,test,5459,5381,98.57116688038103,8,INTEGER_LUT_SOFTWARE_NOT_FPGA,outputs/plantvillage/final/accuracy.json
+nwpu,MLP_QAT,val,2700,2522,93.4074074074074,9,FAKE_QUANT_SOFTWARE,outputs/nwpu/mlp/fakequant_accuracy.json
+nwpu,MLP_QAT,test,4500,4213,93.62222222222222,9,FAKE_QUANT_SOFTWARE,outputs/nwpu/mlp/fakequant_accuracy.json
+nwpu,Attention_U3_QAT,val,2700,2435,90.18518518518519,10,FAKE_QUANT_SOFTWARE,outputs/nwpu/attention/fakequant_accuracy.json
+nwpu,Attention_U3_QAT,test,4500,4034,89.64444444444445,10,FAKE_QUANT_SOFTWARE,outputs/nwpu/attention/fakequant_accuracy.json
+nwpu,E07_INTEGER_LUT,val,2700,2405,89.07407407407408,10,INTEGER_LUT_SOFTWARE_NOT_FPGA,outputs/nwpu/final/accuracy.json
+nwpu,E07_INTEGER_LUT,test,4500,3997,88.82222222222222,10,INTEGER_LUT_SOFTWARE_NOT_FPGA,outputs/nwpu/final/accuracy.json

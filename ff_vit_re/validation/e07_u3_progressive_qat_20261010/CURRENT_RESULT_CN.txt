@@ -1,0 +1,21 @@
+本轮方法：按原始渐进 QAT，先 MLP、后 Attention。
+2026-10-10 21:40（北京时间）已启动后台串行流程，driver PID2265989。
+启动时阶段：PlantVillage MLP；完成后自动Attention、整数导出/精度/误差，再执行NWPU。
+预检：13项单元/身份测试通过；两数据集真实图像训练及Block0+无符号Head导出冒烟通过。
+每阶段10 epoch，训练量化器逐步启用6→9→12个Block；验证统一全部12个。
+batch32，模型LR1e-5，量化尺度LR5e-4；AdamW WD0.02/0；KD alpha0.5、T2。
+Attention新增U3 Softmax和实际窄MAC边界；保留W3。训练为FP32 fake-quant，不是位准确前向。
+训练使用原W3父模型，不继续旧的exact-forward试验；旧试验保留不覆盖。
+最终重新拟合完整E07整数/LUT，含原无符号Head，再测完整val/test精度及同128图像非线性误差。
+2026-10-10 23:05（北京时间）：两个数据集全部软件实验完成。
+PlantVillage 测试集5459张：MLP fake-quant99.450449%；Attention U3 fake-quant99.047445%；最终E07整数/LUT98.571167%。
+NWPU 测试集4500张：MLP fake-quant93.622222%；Attention U3 fake-quant89.644444%；最终E07整数/LUT88.822222%。
+最终精度及新非线性误差：MEASURED（outputs/<dataset>/final/summary.json）。
+14项测试通过；逐样本数量/正确数/哈希、全部12个Softmax U3参数、绑定源码哈希核验通过。
+两数据集各2000个导出前后logits码一致；各24个LN与独立有限位宽软件比较无不匹配。这不是RTL/FPGA一致性。
+中途rsqrt汇总CSV缺count字段已修复；按对应LN输出数/192核对token数。修复前输出保留在PlantVillage的*_pre_rsqrt_fix目录，未重训；两次val/test预测SHA256相同。
+新HLS C-sim / RTL / FPGA板测：NOT_MEASURED。
+原工程、ImageNet68%模型、HLS/RTL/bitstream不修改。
+完成状态：status.json；日志：logs/；每阶段best.pth/last.pth均保留。
+查看：tail -n 20 validation/e07_u3_progressive_qat_20261010/logs/plantvillage_mlp.log
+恢复：PYTHONDONTWRITEBYTECODE=1 CUBLAS_WORKSPACE_CONFIG=:4096:8 /home/user/anaconda3/envs/vlm_token/bin/python -B validation/e07_u3_progressive_qat_20261010/run_all.py --resume

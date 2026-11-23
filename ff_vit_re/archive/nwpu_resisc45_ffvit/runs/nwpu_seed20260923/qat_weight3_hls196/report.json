@@ -1,0 +1,68 @@
+{
+  "best_test": 94.2,
+  "best_val": 94.51851851851852,
+  "epochs": [
+    {
+      "epoch": 1,
+      "loss": 0.321520275284724,
+      "train_top1": 90.64197530864197,
+      "val_top1": 91.55555555555556
+    },
+    {
+      "epoch": 2,
+      "loss": 0.13301129326408292,
+      "train_top1": 95.83539094650206,
+      "val_top1": 92.03703703703704
+    },
+    {
+      "epoch": 3,
+      "loss": 0.09411894837524665,
+      "train_top1": 97.09465020576131,
+      "val_top1": 93.25925925925925
+    },
+    {
+      "epoch": 4,
+      "loss": 0.06886878331992852,
+      "train_top1": 97.77777777777777,
+      "val_top1": 93.88888888888889
+    },
+    {
+      "epoch": 5,
+      "loss": 0.05013376696610156,
+      "train_top1": 98.46502057613169,
+      "val_top1": 93.85185185185185
+    },
+    {
+      "epoch": 6,
+      "loss": 0.03924420774715029,
+      "train_top1": 98.76954732510288,
+      "val_top1": 94.03703703703704
+    },
+    {
+      "epoch": 7,
+      "loss": 0.033619661753050555,
+      "train_top1": 98.93004115226337,
+      "val_top1": 94.48148148148148
+    },
+    {
+      "epoch": 8,
+      "loss": 0.027710152697661285,
+      "train_top1": 99.17283950617283,
+      "val_top1": 94.51851851851852
+    }
+  ],
+  "initial_w3_test": null,
+  "initial_w3_val": 32.666666666666664,
+  "quantization": {
+    "O_MLP_scales": "one per matrix",
+    "QKV_scales": "one per Q/K/V matrix",
+    "activations": "still floating point",
+    "backbone_weight_bits": 3,
+    "integer_range": [
+      -4,
+      3
+    ],
+    "patch_head": "still floating point"
+  },
+  "source_checkpoint": "/home/user/Desktop/ff_vit_re/archive/nwpu_resisc45_ffvit/runs/nwpu_seed20260923/hls196/best.pth"
+}

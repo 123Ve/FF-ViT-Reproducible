@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "accepted_outputs": 1000,
+  "mismatches": {},
+  "scope": "posedge TVALID && TREADY; data/keep/strb/last compared to C transaction zero"
+}

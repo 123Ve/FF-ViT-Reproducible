@@ -1,0 +1,20 @@
+{
+  "calibration_count": 4,
+  "correct1": 4,
+  "correct5": 6,
+  "elapsed_seconds": 1.3024012888781726,
+  "hls_verified": false,
+  "identity": {
+    "arrays": "f45323020e0435a2812b328d09742e05f1cf50b8b7afa2122fc5581d614886d2",
+    "artifact": "a2ee60d31b0fccec8ea8e4169990faeb003dc1743820f243755d145ddd9f4f2a",
+    "limit": 8,
+    "protocol": "crop09",
+    "source": "72456a55f51205d8838abf29e6c0ca069d38b3d157f25ea731799eeba0c97880"
+  },
+  "sample_count": 8,
+  "sample_ids_sha256": "10f4bfd7a81288a26da21654bdcc183cc37711b47665f243b18d088666061652",
+  "stage": "exact_integer_probe",
+  "target_69_reached": false,
+  "top1": 0.5,
+  "top5": 0.75
+}

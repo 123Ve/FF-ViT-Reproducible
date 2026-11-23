@@ -1,0 +1,142 @@
+{
+  "status": "FULL_DATA_AND_GOLDEN_READY_NOT_BOARD_MEASURED",
+  "dataset": "nwpu",
+  "count": 4500,
+  "classes": 45,
+  "chunk_frames": 1000,
+  "frame_bytes": 301056,
+  "logit_bytes": 4000,
+  "membership_sha256": "308a2bacfe97baa18a500ad19a768b569af90681399713d18d4f890b225fa0a6",
+  "transform": "Compose(\n    Resize(size=256, interpolation=bilinear, max_size=None, antialias=True)\n    CenterCrop(size=(224, 224))\n    ToTensor()\n    Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))\n)",
+  "input_scale": 0.015625,
+  "input_dtype": "little-endian int16",
+  "dma_layout": "[98,768,2]",
+  "all_196_input_patch_positions": true,
+  "token_layout": "PL replaces first Patch output by CLS; 195 Patch tokens plus CLS",
+  "class_names": [
+    "airplane",
+    "airport",
+    "baseball_diamond",
+    "basketball_court",
+    "beach",
+    "bridge",
+    "chaparral",
+    "church",
+    "circular_farmland",
+    "cloud",
+    "commercial_area",
+    "dense_residential",
+    "desert",
+    "forest",
+    "freeway",
+    "golf_course",
+    "ground_track_field",
+    "harbor",
+    "industrial_area",
+    "intersection",
+    "island",
+    "lake",
+    "meadow",
+    "medium_residential",
+    "mobile_home_park",
+    "mountain",
+    "overpass",
+    "palace",
+    "parking_lot",
+    "railway",
+    "railway_station",
+    "rectangular_farmland",
+    "river",
+    "roundabout",
+    "runway",
+    "sea_ice",
+    "ship",
+    "snowberg",
+    "sparse_residential",
+    "stadium",
+    "storage_tank",
+    "tennis_court",
+    "terrace",
+    "thermal_power_station",
+    "wetland"
+  ],
+  "checkpoint_sha256": "10a5d0a7e55dde178af2919b80fd1ec6f3fe0dee4fefe059f55e2a045b16a9c5",
+  "software_replay": {
+    "correct": 3997,
+    "correct5": 4447,
+    "top1_percent": 88.82222222222222
+  },
+  "board_tie_policy": "ascending class ID; only active dataset classes",
+  "expected_board_policy": {
+    "correct": 3997,
+    "correct5": 4447,
+    "top1_percent": 88.82222222222222,
+    "top5_percent": 98.82222222222222,
+    "top1_tied_frames": 0,
+    "changed_tie_predictions": 0
+  },
+  "csim_fixture_indices": [
+    0,
+    1499,
+    2999,
+    4499
+  ],
+  "files": {
+    "CLASSES.JSON": {
+      "bytes": 860,
+      "sha256": "ca9e5cff145f2fa17b00c96e2e6b535d01b1c3bb292835df4656cfca098f8b46"
+    },
+    "G000.BIN": {
+      "bytes": 4000000,
+      "sha256": "71e8a0252286d80531dc562703163b29043905eaecd15c60c06abbda2b451562"
+    },
+    "G001.BIN": {
+      "bytes": 4000000,
+      "sha256": "9527d0dcbbe495e1cee63d4065d70d33e9fb038e088401e0e74f2be5edf1039e"
+    },
+    "G002.BIN": {
+      "bytes": 4000000,
+      "sha256": "5918c35e9a0746b87d40642fdd64c998d3fefaf83718fda7cb0976c077c34e16"
+    },
+    "G003.BIN": {
+      "bytes": 4000000,
+      "sha256": "e4e6a1fdb003967f4c02820ecb02ae507fb7f23f0b9a27aec1e10ef7618a8c69"
+    },
+    "G004.BIN": {
+      "bytes": 2000000,
+      "sha256": "61af98a28e7975b666e27fc1f98a834e0ce85e2d3dce2ea5ce27f3df711c4ca9"
+    },
+    "I000.BIN": {
+      "bytes": 301056000,
+      "sha256": "0159a1a2bea9b86757af051d7da7808516bca6c9eaa81bc4fa4cb535bbc3068c"
+    },
+    "I001.BIN": {
+      "bytes": 301056000,
+      "sha256": "8d16c82de8a5a814bf3c51970ffa0323de09805c3c835eaed569c8807415e102"
+    },
+    "I002.BIN": {
+      "bytes": 301056000,
+      "sha256": "31477877c433964346511f5ef69005eb34bd6e663713ec13a4cfd8f3d681bd1b"
+    },
+    "I003.BIN": {
+      "bytes": 301056000,
+      "sha256": "abbdb155c16250dcb12b4cdeacfb7af80519bbc61a774d89a3d87bc6f38de591"
+    },
+    "I004.BIN": {
+      "bytes": 150528000,
+      "sha256": "d82e02c9a65d6fef3e1259059a39a069c1c582cf0157dd5b83bd180609d2ec67"
+    },
+    "INDEX.BIN": {
+      "bytes": 72040,
+      "sha256": "f7eb376fee869a1e0799147a5aa87c1a57f738c86e0682c1c5348bd376def5a1"
+    },
+    "SAMPLES.CSV": {
+      "bytes": 1724239,
+      "sha256": "85a5712bc8ab0120e7be5490425dd127ae69e5300770873930fb09bb8a409517"
+    },
+    "weights.bin": {
+      "bytes": 2772096,
+      "sha256": "8e14829a3078ca2cc4178cf6f8be55a361a394a90ec0da581c5d5ff0193e346f"
+    }
+  }
+}

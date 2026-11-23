@@ -1,0 +1,1332 @@
+--- before/PROTOCOL.md
++++ repair/PROTOCOL.md
+@@ -120,16 +120,18 @@
+ | ready, snapshot_valid | JSON booleans; cached arm prerequisites, coherent snapshot success |
+ | phase_id, state, faults, sampler_faults | service phase ID (increments each arm), service state and fault bitmasks |
+ | service_core, sampler_core | must be 0,1 |
+ | epoch, sampler_epoch | must match; service boot-counter value echoed by sampler |
+ | timer_hz, sampler_hz | must match, nonzero |
+ | now_ticks, sampler_heartbeat | current service observation and sampler publication tick |
+ | clock_checks, heartbeat_advances | successful bracketed clock observations and heartbeat advances |
+ | configured_mask, configured_tick | must be 262143 (all 18 bits); configuration-complete tick |
++| conversion_ready_mask | must be262143 before arm; each bit requires an actual post-configuration CVRF observation followed by a valid payload |
++| initializing_samples | cumulative unqualified startup reads before first conversion; not invalid samples or independent ADC conversions |
+ | mode, sampling_enabled, scan_ms, offset_ms | selected configuration; mode values above |
+ | t0, t1 | formal half-open board window [t0,t1) |
+ | sampler_phase, sampler_state | sampler acknowledgement; same phase during logging |
+ | rail_records, event_records, temperature_records, scan_count | published counts; scan_count can continue outside the phase |
+ | completed_full, completed_compact, completed_continuous | successful board completions inside [t0,t1), retained separately |
+ | continuous_begin, continuous_end | observed first loop start and last loop finish during recorded phase+guards; do not use their reciprocal as formal FPS |
+ | pending_ack | 0 or 1; business response awaiting full TCP ACK |
+ | temperature_mC, temperature_valid, temperature_tick | cached temperature (signed milli-Celsius), 0/1 validity, read tick |
+@@ -211,18 +213,20 @@
+ | --- | --- | --- |
+ | 0 | seq, phase, scan, flags | 4 × UINT32 |
+ | 16 | rail, config, calibration, shunt, bus, current, power, mask | 8 × UINT16 |
+ | 32 | begin[0..4] | 5 × UINT64 |
+ | 72 | end[0..4] | 5 × UINT64 |
+ | 112 | power_uW | INT64 |
+ | 120 | scan_start | UINT64 |
+ 
+-Read-array order is shunt(0x01), bus(0x02), current(0x04), power(0x03),
+-mask/enable(0x06). Each begin/end pair brackets the actual register transaction.
++Read-array storage order is shunt(0x01), bus(0x02), current(0x04), power(0x03),
++mask/enable(0x06). Actual transaction order in the2026-11-22 repair is Mask first,
++then shunt,bus,current,Power. A valid record requires end[4]<=each payload begin.
++Each begin/end pair brackets the actual register transaction.
+ The Power read time interval is begin[3]..end[3]; do not treat rail/multi-register
+ reads as simultaneous. `scan_start` is actual scan start; successive scan_start
+ values measure actual scan period. `scan` may start above zero because warmup
+ scans are unlogged. `seq` always starts at zero for each phase.
+ 
+ `power_export_latest` uses the same128-byte rail format but seq is the rail
+ index0..17. It is a diagnostic snapshot, not a phase log: before the first fault
+ it is the latest complete scan; the first scan containing any invalid reading
+@@ -230,23 +234,37 @@
+ reads recover. A separate seqlock protects the complete18-rail publication, and
+ the service copies a coherent snapshot into its own stable transmit buffer.
+ An in-progress snapshot can return snapshot_busy. This command never triggers
+ I2C. Use it when ready=false or arm fails, along with config export and status.
+ 
+ Rail flags: 1 valid, 2 observed CVRF, 4 I2C failure, 8 INA226 math overflow,
+ 16 saturated raw shunt/current/bus/power, 32 no observed
+ CVRF for >150 ms, 64 configuration error, 128 backward read clock,256 negative
+-signed shunt or current. Only a record
++signed shunt or current,512 first conversion not yet observed. Only a record
+ with valid bit set is usable. Invalid power_uW is INT64_MIN, never zero. `shunt`
+ and `current` are unsigned storage for signed int16 raw register codes. CVRF is
+ the mask register's bit 3, cleared on its read; it is an observation of at least
+ one completed averaged conversion, not a conversion count. Repeated reads with
+ no CVRF can still have valid bit set for <=150 ms, and must not be called new
+-independent ADC updates. Any invalid sample latches a sampler fault.
++independent ADC updates. Configuration installs CAL before writing CONFIG; the
++CONFIG write clears CVRF/restarts averaging. Last-observed-CVRF starts unknown,
++never at the configuration timestamp. Reads before the first observation have
++flag512, no valid bit and INT64_MIN power. In IDLE they are normal initialization
++for at most150ms from that rail's config completion; they do not freeze the fault
++scan or increment invalid_samples. Exceeding that deadline adds STALE and faults;
++the first observed CVRF timestamp is checked against the same deadline even if
++no pending sample happened to be taken after the deadline. Every transaction's
++begin must follow the previous transaction's end in physical order4,0,1,2,3;
++clock reversal is fatal even if the clock later catches up. Host acceptance and
++per-rail integration independently enforce this same transaction ordering.
++transport/overflow/clock errors still fault immediately. Formal logging cannot
++admit unqualified startup reads. Any faulty sample latches a sampler fault.
++The shared-memory ABI version is2; wire record sizes/schema remain unchanged.
++Use only matching newly built firmware/host identities, never mixed core images.
+ 
+ A small negative signed reading is not labeled ADC saturation. It can reflect
+ offset/noise or reverse current. Because the primary Power register is unsigned
+ and this candidate has no validated reverse-current interpretation, flag256
+ fails closed without clipping or substituting a different power estimate.
+ Historical board diagnostics have shown rail15 shunt=-1/-2; this policy may
+ prevent arm on that board. Preserve the frozen diagnostic scan and resolve the
+ measurement interpretation before formal testing. Compilation does not qualify
+--- before/README_CN.txt
++++ repair/README_CN.txt
+@@ -1,10 +1,21 @@
+ E07 双核独立采样候选包 / Windows 操作说明
+-版本：2026-11-21，E07_INDEPENDENT_POWER_V1
++版本：2026-11-22 首次转换修复版，E07_INDEPENDENT_POWER_V1
++
++本次修复：先观察真实CVRF再读取数据；每轨首次转换完成前不标有效、不积分。
++configured_mask只证明配置读回；conversion_ready_mask=262143才证明18轨均有过
++合格的首次转换。initializing_samples记录正常等待，不冒充ADC转换数。
++首次CVRF观察本身也必须在该轨配置后150ms内；超时后才看到CVRF不能补成通过。
++首次转换等待超过150ms、I2C/溢出/时钟错误或合格转换后的负读数仍会失败。
++M_NEGATIVE=256保留；新增NOT_READY=512，原始负码不裁零、不扣未知偏置。
++如果VCCOPS在合格转换后仍为负，新包仍会拒绝验收；本次没有证明它只是噪声。
++失败时回传diagnostics/fault-summary.json及完整原始目录，不要仅回传摘要。
++REPAIR_NOTES_CN.txt说明实测根因、修复边界；REPAIR.diff是完整源码改动。
++本包不提供新的正式功耗值，不能引用旧约9.100W/5.855W/9.506W替代新测量。
+ 
+ 交付边界：新固件物理启动、独立采样验收、功耗测量均为 NOT_RUN。
+ 本机只完成离线构建/测试/ZIP 校验；未运行 Windows PowerShell，未连接板卡。
+ BOOT/BIF/ELF map/Bootgen 通过只证明离线构建，不证明双核已在实物启动。
+ 固件清单/hello 的 physical_status=NOT_RUN 是交付资格字段，后续用户真实会话仍
+ 须另外记录 physical 来源并通过验收；该不可变字段不把未来真实数据变成模拟。
+ 
+ 一、准备与备份
+@@ -17,31 +28,39 @@
+    仅在用户手动操作时，把本包 SD_CARD 的5个文件复制到 SD 根目录；不要执行
+    任何自动刷写。确认盘符无误，保留原 SD 副本。
+ 4. 主机有线网卡设为192.168.10.1（与板卡192.168.10.2同网段），TCP5001。
+    板卡主动连接主机。必要时允许本 Python 的此有线网络入站连接。
+ 
+ 以下 PowerShell 示例假定解压目录 D:\E07 independent package，结果写到包外。
+ 若有多个 Python，用启动器 -Python 'C:\...\python.exe' 指定3.11+解释器。
+ 
+-  python -S 'D:\E07 independent package\package.py' --check-only
++  python -B -S 'D:\E07 independent package\package.py' --check-only
+   & 'D:\E07 independent package\Run-PowerRetest.ps1' -CheckOnly
+   & 'D:\E07 independent package\Run-PowerRetest.ps1' -PrepareSD -SDRoot 'E:\' -SDReceipt 'D:\E07 results\card1.json'
+ 
+ 第一个命令逐文件检查 PACKAGE_SHA256SUMS.json 全包清单；第二个检查 BOOT、
+ 两核 ELF、身份及 SD 冻结数据；两者均不启动监听、不产生测量结果。SHA256SUMS.json
+ 仅为 SD5文件清单，不要把它称为全包清单。清单是完整性检查，不是签名/设备认证。
+ PrepareSD 只读实际盘上文件并生成新收据，不复制文件；必须在复制后执行。
+ 卸载 SD 后直至上板须保证该卡未再改变；固件不会运行时计算 SD 的密码学哈希。
+ 路径/收据/结果目录应是新的，避免覆盖证据。每次换镜像或改采集器都重做收据与验收。
++controls.json、SD收据、结果及终端日志一律放在解压目录外。采集器会拒绝包内的
++controls/收据/结果路径。不要把新的ZIP、旧BOOT副本或测试日志混入解压目录。
++若全包校验报package file inventory differs from manifest，新版会列出missing和
++unexpected的准确相对路径：不要改清单或忽略报错，保留现场后重新解压到空目录。
++没有__pycache__目录豁免；其中任何未列入清单的文件也会失败。交付入口抑制
++Python字节码写入，PowerShell以-B -S运行Python，避免校验程序自身污染包目录。
++该校验适用于交付ZIP的完整解压目录，不适用于包含多个构建/日志的开发源目录。
+ 
+ 二、先短验收，再正式测量
+ 创建包外 controls.json，字段均填实测/实际设置的非空字符串：
+   {"cpu_clock":"实际值","pl_clock":"实际值","power_supply":"实际电源",
+    "fan":"实际风扇状态","network":"实际链路","environment":"实际室温及环境"}
++必须填实际值；本次失败记录中的“待核实/待测/待确认”尚不足以支撑正式实验条件。
+ BoardId 填同一块实物板可辨识标签；协议没有不可变设备序列号，该标签由操作者保证。
+ 
+ 先启动以下采集器，看到 Listening on192.168.10.1:5001 后才给已装新 SD 的板卡
+ 断电重上电。不要先开板再等待采集器。每个新采集会话均重复这个顺序。
+ 
+   & 'D:\E07 independent package\Run-PowerRetest.ps1' -Acceptance -SDReceipt 'D:\E07 results\card1.json' -BoardId '实际板卡标签' -Controls 'D:\E07 results\controls.json' -Output 'D:\E07 results\acceptance1'
+ 
+ 验收包含采样开/关各5秒吞吐对照，10秒 Idle/Full40/Compact120/PLContinuous，
+@@ -53,17 +72,18 @@
+ 正式门限必需重读两组 sampling0/1-observations.jsonl 和 throughput-sampling0/1.jsonl，
+ 核验心跳/扫描/控制/错误、逐帧输出校验、计数及 interval_start/end 真实主机区间；
+ 仅有汇总 PASS 或重新计算 inventory.json 不能替代这些原始证据。
+ 每阶段先在同一实际负载下预热至少30秒；最后30秒温度极差<=1°C、首尾10秒均值差
+ <=0.2°C，最长600秒。不满足则失败，不挑选更有利窗口。
+ 验收最低约15分钟，加导出/网络/温稳时间；最坏温稳等待会超过2小时。
+ 
+ 检查会话 COMPLETE 与所有阶段验收：两核心跳、同频时钟、18轨身份/0x4527/2048
+-配置、读数/推理时间重叠、输出逐码校验、温度、覆盖和无错误计数增长。
++配置及conversion_ready_mask=262143、读数/推理时间重叠、输出逐码校验、温度、
++覆盖和无错误计数增长。
+ 这些只是行为/覆盖证据；35.2ms ADC平均、读取区间、采样偏置/绝对精度仍待解释。
+ 任何负电流/分流读数（flag256）、OVF、I2C错、缺轨、长缺口、输出错或缓冲满均失败。
+ 若出现负值，不要裁成零或换旧固件数值；回传冻结 diagnostic latest 原始记录。
+ 
+ 通过上述真实验收后，首选 Target120 的五轮配对、每条件120秒：
+ 
+   & 'D:\E07 independent package\Run-PowerRetest.ps1' -Formal -Target120Only -Seconds 120 -Repetitions 5 -SDReceipt 'D:\E07 results\card1.json' -BoardId '实际板卡标签' -Controls 'D:\E07 results\controls.json' -AcceptanceSession 'D:\E07 results\acceptance1\session.json' -Output 'D:\E07 results\target120_1'
+ 
+@@ -75,33 +95,33 @@
+ 
+ 可选完整套件：去掉 -Target120Only 即保留原默认全部8条件×5轮：Idle、Target40
+ Full/Compact、Target120 Full/Compact、AppSaturation Full/Compact、PLContinuous。
+ 完整套件最低约103分钟，加导出/温稳时间。饱和是闭环请求，无固定输入FPS；
+ PLContinuous是DDR驻留数据连续串行推理，不经逐帧网络，不等于120FPS云负载。
+ 每阶段至少1秒前后保护期，不在正式窗口同步导出。长时间稳定性需由实物数据判断。
+ 
+ Python 等效（可从任意当前目录调用绝对路径）：
+-  python -S 'D:\E07 independent package\host\collect.py' --help
+-  python -S 'D:\E07 independent package\host\collect.py' --check-only
+-  python -S 'D:\E07 independent package\host\collect.py' --formal --target120-only --seconds 120 --repetitions 5 --sd-receipt 'D:\E07 results\card1.json' --board-id '实际板卡标签' --controls 'D:\E07 results\controls.json' --acceptance-session 'D:\E07 results\acceptance1\session.json' --output 'D:\E07 results\target120_1'
++  python -B -S 'D:\E07 independent package\host\collect.py' --help
++  python -B -S 'D:\E07 independent package\host\collect.py' --check-only
++  python -B -S 'D:\E07 independent package\host\collect.py' --formal --target120-only --seconds 120 --repetitions 5 --sd-receipt 'D:\E07 results\card1.json' --board-id '实际板卡标签' --controls 'D:\E07 results\controls.json' --acceptance-session 'D:\E07 results\acceptance1\session.json' --output 'D:\E07 results\target120_1'
+ 
+ 三、失败与回传
+ 失败即停止正常结果判定。不要删除记录、强制写 PASS、重选窗口或立即重启。
+ 采集器会尝试等待已武装阶段结束并冻结/导出恢复数据；原失败会话仍是 INCOMPLETE，
+ 恢复失败会保留明确错误且不 release。采样心跳永久停止时可能无法导出。
+ 先保存包外全部会话目录及控制文件/SD收据，再决定重新启动新会话。
+ 回传 acceptance1 和正式会话的完整原始目录，不能只发 CSV/截图/摘要。包括：
+ session-start/session.json、inventory.json、hello/身份/manifest、raw-wire、protocol
+ events、采样开关观察/吞吐记录；每阶段全部 phase/start/end/arm/status/warmup、
+ frame-events、host-counts、温度、exports 的 .bin/.json 和所有 recovery/diagnostics。
+ 原始收据、controls 和本包ZIP的SHA也一并保留。原始目录不得放入分析输出。
+ 
+ 四、分析
+-  python -S 'D:\E07 independent package\host\analyze.py' 'D:\E07 results\target120_1' --output 'D:\E07 results\target120_analysis1'
++  python -B -S 'D:\E07 independent package\host\analyze.py' 'D:\E07 results\target120_1' --output 'D:\E07 results\target120_analysis1'
+ 若数据移到另一台主机，接受验收原始目录的路径参数见 --help。须同时回传验收，
+ 不能以一个 PASS 标志替代它。--synthetic 仅供数学/软件测试，输出永久标记模拟，
+ 不用于实物结论。原始文件损坏/哈希不符时退出2且不创建派生目录。
+ 原始目录可从 Windows 返回 Linux 分析：新清单/阶段/原始哈希键统一使用正斜杠。
+ 旧清单反斜杠仅在内存比较时规范化，拒绝绝对路径、盘符、遍历及规范化冲突；
+ 不会重写原 inventory.json，验收绑定仍校验其原始文件字节哈希。
+ 输出 analysis.json、per-stage.csv（逐阶段/逐重复）、per-repeat.csv（条件均值及样本SD）。
+ 仅当18轨均完整覆盖且所有语义/验收门通过，使用板端实际[t0,t1)积分：逐轨Power
+@@ -125,13 +145,13 @@
+ 复现需要原工程的独立副本，并在 validation/cloud_power_retest_20261121/independent_sampler
+ 保持相对路径，取得原 Cloud_test/e07/vendor/e07_base 的同哈希bit/XSA/fsbl/pmufw
+ 及原service BSP，安装 AMD Vitis2025.1（Linux /opt/vivado/2025.1/Vitis）。
+ sampler BSP须用 build_platform.py 的明确64位EL3/USE_AMP配置在新工作区生成。
+ 浅层解压可导入纯固件地址验证器；实际重新构建仍必须具备上述原工程布局及依赖。
+ 然后运行 build_firmware.py；检查新身份的每个BSP库/头、完整commands与原身份的差异。
+ 工具版本/依赖不同导致新身份时，不能仍把它冒认为本包固件；重新生成收据与上板验收。
+ 本包没有独立解释器或GUI构建依赖；普通采集/分析无需Vitis，仅重新编译才需要它。
+-离线Python测试：python -S -m unittest discover -s '...\tests' -p test_host.py -v
+-分析测试：python -S -m unittest discover -s '...\tests' -p test_analysis.py -v
++离线Python测试：python -B -S -m unittest discover -s '...\tests' -p test_host.py -v
++分析测试：python -B -S -m unittest discover -s '...\tests' -p test_analysis.py -v
+ 固件测试含C/AArch64编译器依赖，仅在上述Linux工具环境运行；Windows未运行。
+ package.py --build 创建新命名ZIP，不覆盖既有包；PACKAGE_SHA256SUMS不含自身。
+ 最终ZIP哈希/离线测试报告保留在ZIP外，避免自引用清单。最终资格仍以实物验收为准。
+--- before/REPAIR_NOTES_CN.txt
++++ repair/REPAIR_NOTES_CN.txt
+@@ -0,0 +1,51 @@
++E07独立采样最小修复说明，2026-11-22
++
++证据：用户提供new_result/acceptance1_failure.zip，SHA256
++dcc936589455781ba6ed7f8c7863c4199cc08b8f2a92a3c372258ec0bd11a84d。
++其固件身份d8a0cf93bfd90119720f4e7ccf956675e3f26be474f25b9efa18c3164e8a75d6。
++
++已确认的实际失败：18轨配置读回成功，I2C/陈旧/扫描超时计数为0；首次冻结为
++scan1、VCCOPS rail7，shunt=current=0xFFFE即-2，flags258=NEGATIVE+CVRF，
++Mask0x0008、Power原码0、解释功率INT64_MIN。负值直接使旧m_sample返回失败，
++累计invalid_samples并锁存M_FAULT_SENSOR；随后host正确拒绝正式实验。
++invalid_samples=89是累计计数，包里只有第一次异常的完整18轨快照，不能反推
++其余88次分别发生在哪条轨。双核身份/心跳已出现，但clock_checks当时仍为0；
++修复没有把这一状态改成PASS，必须继续满足原时钟握手。
++
++另一个独立且确凿的缺陷：同一冻结扫描，多条CVRF=0的轨被标VALID，Current/Power
++仍为0；旧固件把配置完成时间当作首次新鲜时间，并在读取Power后才看CVRF。
++这可能把尚未完成首次平均转换的数据或CVRF置位前的旧数据视为有效。修复为：
++先写CAL再写CONFIG；逐轨新鲜状态初始未知；先读Mask/CVRF，再读数据；首次观察
++前的记录只作NOT_READY诊断。150ms有界等待及全部18轨conversion_ready_mask
++共同阻止未就绪数据进入正式积分。重复读数仍是held read，不伪造独立ADC更新。
++首次CVRF观察超时也会锁存故障，不能因两次扫描跨过截止点而放行。读序必须满足
++Mask完成->Shunt->Bus->Current->Power，跨寄存器时间倒退在固件、验收、逐轨积分
++均被拒绝；坏记录不会留下该轨valid=true的全窗口功率或能量。
++
++负值解释：Shunt/Current按16位二补码保存，-2对应-5uV。TI INA226数据手册给出
++2.5uV分流LSB和器件偏置规格，说明微小负值可能来自偏置/噪声或反向电流，但不能
++证明本板VCCOPS就是哪一种。当前正式功率路径仍不接纳未校准负值；不删除标志、
++不裁零、不取绝对值、不补入旧功率。如果真实转换后仍有负值，必须保留失败目录，
++另行做受控零点/已知负载及独立仪表核对后才能讨论修订测量规则。本包未完成校准。
++来源：https://www.ti.com/lit/ds/symlink/ina226.pdf，寄存器及转换就绪章节。
++
++诊断：保持首次故障完整18轨原始快照的seqlock冻结；正常初始化不提前占用首次
++故障槽。新增fault-summary.json仅解释原始有符号码和标志，不是积分输入或功率结果。
++握手超时等非传感器故障也会导出latest；因此该摘要不无条件宣称它是已冻结首次
++故障。原始状态和完整扫描仍供核对，不能单凭摘要文字认定硬件故障已被证明。
++固件端、host就绪/验收及分析器同步检查首次转换证据，分析器拒绝Mask晚于数据的
++所谓有效记录。所有原始时间戳、寄存器值、负值/错误标志均保留。
++
++包完整性：旧错误来自实际文件集合与PACKAGE_SHA256SUMS的集合不一致，旧报错
++未列差集。本次失败ZIP是结果目录，不包含Windows解压包的完整文件清单，因而
++不能断言现场多出的具体文件名。新校验仍严格拒绝差异，并列出missing/unexpected；
++没有__pycache__路径豁免；Python交付入口禁写字节码，启动器使用-B -S。
++采集器拒绝在不可变包内创建收据、controls或结果，说明要求日志也保存在包外。
++不能靠修改清单、忽略未知文件或绕过校验让它通过；请始终新目录完整解压。
++
++构建/测量边界：仅重建双核PS ELF/BOOT，不改PL、XSA、模型、输入、权重或推理
++算法。离线测试和Bootgen不能代替物理验收。新的上板验收、Windows/实际SD验证
++和Target120正式功耗均为NOT_RUN。用户旧失败会话不被改写或升级为通过。
++正式实验须真实验收通过后进行：4x30FPS输入、Full/Compact配对、120秒x5；实际
++完成FPS/丢帧/18轨功率与能量分别报告。旧9.100/5.855/9.506W不得替代新实验。
++精确构建日志、ELF maps、Bootgen分区、依赖与SHA清单随新包提供。
+--- before/Run-PowerRetest.ps1
++++ repair/Run-PowerRetest.ps1
+@@ -32,17 +32,17 @@
+     $prefix = @($candidate | Select-Object -Skip 1)
+     if (-not (Get-Command $exe -ErrorAction SilentlyContinue)) { continue }
+     try {
+         & $exe @prefix -c 'import sys; sys.exit(0 if sys.version_info >= (3,11) else 1)' 2>$null
+         if ($LASTEXITCODE -eq 0) { $chosen = $candidate; break }
+     } catch { continue }
+ }
+ if (-not $chosen) { throw 'Python 3.11+ not found. Activate Python or use -Python full-path.' }
+-$cli = @((Join-Path $PSScriptRoot 'host/collect.py'))
++$cli = @('-B', '-S', (Join-Path $PSScriptRoot 'host/collect.py'))
+ if ($Help) { $cli += '--help' }
+ else {
+     $actions = @($CheckOnly, $PrepareSD, $Acceptance, $Formal) | Where-Object { $_ }
+     if ($actions.Count -ne 1) { throw 'Choose exactly one: -CheckOnly, -PrepareSD, -Acceptance, -Formal. Use -Help.' }
+     if ($CheckOnly) { $cli += '--check-only' }
+     if ($PrepareSD) { $cli += '--prepare-sd' }
+     if ($Acceptance) { $cli += '--acceptance' }
+     if ($Formal) { $cli += '--formal' }
+--- before/firmware/common/monitor.h
++++ repair/firmware/common/monitor.h
+@@ -1,14 +1,14 @@
+ #ifndef INDEPENDENT_MONITOR_H
+ #define INDEPENDENT_MONITOR_H
+ #include <stdint.h>
+ #include <stddef.h>
+ #define M_MAGIC 0x314d5049u
+-#define M_VERSION 1u
++#define M_VERSION 2u
+ #define M_RAILS 18u
+ #define M_ALL_RAILS 0x3ffffu
+ #define M_CONFIG ((1u<<14)|(2u<<9)|(4u<<6)|(4u<<3)|7u)
+ #define M_CAL 2048u
+ #define M_RAIL_CAP 180000u
+ #define M_EVENT_CAP 262144u
+ #define M_TEMP_CAP 1024u
+ #define M_SHARED_BASE 0x30000000ull
+@@ -17,16 +17,17 @@
+ #define M_FRESH 2u
+ #define M_I2C_ERROR 4u
+ #define M_OVERFLOW 8u
+ #define M_SATURATED 16u
+ #define M_STALE 32u
+ #define M_CONFIG_ERROR 64u
+ #define M_CLOCK_ERROR 128u
+ #define M_NEGATIVE 256u
++#define M_NOT_READY 512u
+ #define M_FAULT_CONFIG 1u
+ #define M_FAULT_SENSOR 2u
+ #define M_FAULT_BUFFER 4u
+ #define M_FAULT_HANDSHAKE 8u
+ #define M_FAULT_INFERENCE 16u
+ #define M_FAULT_INPUT 32u
+ #define M_FAULT_NETWORK 64u
+ #define M_FAULT_TEMP 128u
+@@ -71,16 +72,17 @@
+     uint32_t magic, version, core, enabled, mode, scan_ms, offset_ms, command;
+     uint32_t phase, command_seq, ping_seq, reserved;
+     uint64_t epoch, hz, heartbeat, ping_tick, t0, t1;
+ } m_control;
+ typedef struct {
+     uint32_t core, configured, faults, phase, state, rail_count, temp_count, scan_count;
+     uint32_t i2c_errors, invalid_samples, stale_samples, scan_overruns, overflows;
+     uint32_t temp_errors, ping_seq, enabled;
++    uint32_t conversion_ready, initializing_samples;
+     uint64_t epoch, hz, heartbeat, ping_tick, configured_tick, scan_start;
+     int32_t temperature_mC;
+     uint32_t temperature_valid;
+     uint64_t temperature_tick;
+ } m_status;
+ typedef struct {
+     m_control control __attribute__((aligned(64)));
+     uint32_t status_seq __attribute__((aligned(64)));
+--- before/firmware/common/phase.c
++++ repair/firmware/common/phase.c
+@@ -76,16 +76,17 @@
+     if((s->faults&fault)!=fault) {
+         m_event e={.type=M_EVENT_FAULT,.request_id=id,.flags=fault,.tick=tick};
+         m_event_add(s,e);
+     }
+     s->faults|=fault;
+ }
+ static int ready_snapshot(const m_service *s,m_status t,uint64_t now) {
+     return t.core==1&&t.epoch==s->epoch&&t.hz==s->hz&&t.configured==M_ALL_RAILS&&
++        t.conversion_ready==M_ALL_RAILS&&
+         t.enabled&&s->shared->control.enabled&&!t.faults&&s->clock_checks>=3&&
+         s->heartbeat_advances>=3&&now>=t.heartbeat&&now-t.heartbeat<=s->hz/4&&
+         now>=t.configured_tick&&now-t.configured_tick>=s->hz&&t.temperature_valid&&
+         now>=t.temperature_tick&&now-t.temperature_tick<=2*s->hz;
+ }
+ int m_service_ready(const m_service *s,uint64_t now) {
+     m_status t;
+     if(!s->shared||!s->hz||s->shared->control.core!=0||m_status_read(s->shared,&t))return 0;
+--- before/firmware/common/sensor.c
++++ repair/firmware/common/sensor.c
+@@ -15,48 +15,61 @@
+ int m_configure(m_io *io,unsigned r,m_config_record *out) {
+     if(!io||!out||r>=M_RAILS)return -1;
+     memset(out,0,sizeof(*out));out->rail=r;out->begin=io->ticks(io->ctx);
+     const m_rail *rail=&m_rails[r];
+     int ok=io->select(io->ctx,rail->domain)==0 &&
+         io->read(io->ctx,rail->address,0xfe,&out->manufacturer)==0 &&
+         io->read(io->ctx,rail->address,0xff,&out->die)==0 &&
+         out->manufacturer==0x5449 && (out->die&0xfff0)==0x2260 &&
+-        io->write(io->ctx,rail->address,0,M_CONFIG)==0 &&
+         io->write(io->ctx,rail->address,5,M_CAL)==0 &&
++        /* Configuration starts a new averaging sequence and clears CVRF.
++           Calibration must already be installed for that first sequence. */
++        io->write(io->ctx,rail->address,0,M_CONFIG)==0 &&
+         io->read(io->ctx,rail->address,0,&out->config)==0 &&
+         io->read(io->ctx,rail->address,5,&out->calibration)==0 &&
+         out->config==M_CONFIG && out->calibration==M_CAL;
+     out->end=io->ticks(io->ctx);out->flags=ok?M_VALID:M_CONFIG_ERROR;
+     return ok?0:-1;
+ }
+ int64_t m_power_uW(unsigned r,uint16_t p) {
+     if(r>=M_RAILS)return INT64_MIN;
+     /* 25 * 0.00512/(2048 * R_ohm) W/code = 62500000/R_uohm uW/code. */
+     return (int64_t)p*62500000/m_rails[r].shunt_uohm;
+ }
+ int m_sample(m_io *io,unsigned r,uint64_t hz,uint64_t *fresh,m_rail_record *out) {
+     if(!io||!out||!fresh||r>=M_RAILS||!hz)return -1;
+     static const uint8_t registers[5]={1,2,4,3,6};
++    static const unsigned order[5]={4,0,1,2,3};
+     uint16_t raw[5]={0};
+     memset(out,0,sizeof(*out));out->rail=(uint16_t)r;
+     out->config=M_CONFIG;out->calibration=M_CAL;out->power_uW=INT64_MIN;
+     int selected=io->select(io->ctx,m_rails[r].domain)==0;
+-    for(unsigned n=0;n<5;n++) {
++    /* Observe/clear conversion-ready before payload reads, not afterwards.
++       Indices on the wire remain shunt,bus,current,Power,Mask. */
++    for(unsigned k=0;k<5;k++) {
++        unsigned n=order[k];
+         out->begin[n]=io->ticks(io->ctx);
+         if(!selected||io->read(io->ctx,m_rails[r].address,registers[n],&raw[n])!=0)
+             out->flags|=M_I2C_ERROR;
+         out->end[n]=io->ticks(io->ctx);
+         if(out->end[n]<out->begin[n])out->flags|=M_CLOCK_ERROR;
++        if(k&&out->begin[n]<out->end[order[k-1]])out->flags|=M_CLOCK_ERROR;
+     }
+     out->shunt=raw[0];out->bus=raw[1];out->current=raw[2];out->power=raw[3];out->mask=raw[4];
+     if(raw[4]&4u)out->flags|=M_OVERFLOW;
+     if(raw[0]==0x7fff||raw[0]==0x8000||raw[1]>=0x7fff||
+        raw[2]==0x7fff||raw[2]==0x8000||raw[3]==0xffff)out->flags|=M_SATURATED;
+     if((int16_t)raw[0]<0||(int16_t)raw[2]<0)out->flags|=M_NEGATIVE;
+     if(!(out->flags&M_I2C_ERROR)&&(raw[4]&8u)) {
+         out->flags|=M_FRESH;*fresh=out->end[4];
+     }
+     /* CVRF is a read-to-clear observation, never a conversion count. */
+-    if(out->end[4]<*fresh||out->end[4]-*fresh>hz*150u/1000u)out->flags|=M_STALE;
++    if(!*fresh) {
++        out->flags|=M_NOT_READY;
++        /* Preserve unqualified register contents, including signed flags.
++           No conversion has yet licensed their use as measurements. */
++        return out->flags&(M_I2C_ERROR|M_OVERFLOW|M_CLOCK_ERROR)?-1:1;
++    }
++    if(out->end[3]<*fresh||out->end[3]-*fresh>hz*150u/1000u)out->flags|=M_STALE;
+     if(out->flags&~M_FRESH)return -1;
+     out->flags|=M_VALID;out->power_uW=m_power_uW(r,raw[3]);return 0;
+ }
+--- before/firmware/sampler/sampler.c
++++ repair/firmware/sampler/sampler.c
+@@ -7,17 +7,17 @@
+         s->status.faults|=M_FAULT_HANDSHAKE;
+     for(unsigned rail=0;rail<M_RAILS;rail++) {
+         m_config_record record;
+         if(!m_configure(&s->io,rail,&record))s->status.configured|=1u<<rail;
+         else s->status.faults|=M_FAULT_CONFIG;
+         p->configuration[rail]=record;
+     }
+     s->status.configured_tick=io.ticks(io.ctx);
+-    for(unsigned rail=0;rail<M_RAILS;rail++)s->fresh[rail]=s->status.configured_tick;
++    /* Zero means no actual post-configuration CVRF has been observed. */
+     s->status.heartbeat=s->status.configured_tick;s->status.enabled=p->control.enabled;
+     s->published_tick=s->status.configured_tick;
+     m_status_publish(p,&s->status);return s->status.faults?-1:0;
+ }
+ void m_sampler_step(m_sampler *s) {
+     m_control *c=&s->shared->control;m_status *st=&s->status;
+     uint64_t now=s->io.ticks(s->io.ctx);
+     uint32_t seq=__atomic_load_n(&c->command_seq,__ATOMIC_ACQUIRE);
+@@ -50,22 +50,39 @@
+         uint32_t period=c->scan_ms;
+         if(period!=17&&period!=20&&period!=23){st->faults|=M_FAULT_CONFIG;period=20;}
+         uint64_t step=period*st->hz/1000;
+         st->scan_start=now;
+         int first_phase_scan=logging&&st->rail_count==0;
+         m_rail_record latest[M_RAILS];int invalid=0;
+         for(unsigned rail=0;rail<M_RAILS;rail++) {
+             m_rail_record r;
+-            if(m_sample(&s->io,rail,st->hz,&s->fresh[rail],&r)) {
++            int unqualified=!(st->conversion_ready&(1u<<rail));
++            int result=m_sample(&s->io,rail,st->hz,&s->fresh[rail],&r);
++            uint64_t configured=s->shared->configuration[rail].end;
++            if(unqualified) {
++                uint64_t observation=(r.flags&M_FRESH)?r.end[4]:r.end[3];
++                if(observation<configured||observation-configured>st->hz*150u/1000u) {
++                    r.flags=(r.flags&~M_VALID)|M_STALE;r.power_uW=INT64_MIN;result=-1;
++                } else if(!result&&!(r.flags&M_FRESH)) {
++                    /* A rejected first observation cannot license held data. */
++                    r.flags=(r.flags&~M_VALID)|M_NOT_READY;r.power_uW=INT64_MIN;result=1;
++                }
++            }
++            if(result>0) {
++                if(logging||r.end[3]<configured||r.end[3]-configured>st->hz*150u/1000u) {
++                    r.flags|=M_STALE;result=-1;
++                } else ++st->initializing_samples;
++            }
++            if(result<0) {
+                 invalid=1;
+                 ++st->invalid_samples;st->faults|=M_FAULT_SENSOR;
+                 if(r.flags&M_I2C_ERROR)++st->i2c_errors;
+                 if(r.flags&M_STALE)++st->stale_samples;
+-            }
++            } else if(!result&&(r.flags&M_FRESH))st->conversion_ready|=1u<<rail;
+             if(first_phase_scan&&(s->t0<st->hz||r.end[3]>s->t0-st->hz))
+                 st->faults|=M_FAULT_HANDSHAKE;
+             r.phase=st->phase;r.scan=st->scan_count;r.scan_start=now;
+             r.seq=rail;latest[rail]=r;
+             if(logging)m_publish_rail(s->shared,st,&r);
+         }
+         if(!s->diagnostic_frozen)m_latest_publish(s->shared,latest);
+         if(invalid)s->diagnostic_frozen=1; /* Preserve first bad raw scan, including before arm. */
+--- before/firmware/service/e06_network.c
++++ repair/firmware/service/e06_network.c
+@@ -475,29 +475,31 @@
+     m_status s={0};int snapshot=m_status_read(m_runtime.shared,&s)==0;
+     char json[1900];uint64_t now=network_ticks();m_control *c=&m_runtime.shared->control;
+     int n=snprintf(json,sizeof(json),
+         "{\"schema\":1,\"physical_status\":\"NOT_RUN\",\"ready\":%s,\"snapshot_valid\":%s,"
+         "\"phase_id\":%u,\"state\":%u,\"faults\":%u,\"sampler_faults\":%u,"
+         "\"service_core\":%u,\"sampler_core\":%u,\"epoch\":%llu,\"sampler_epoch\":%llu,"
+         "\"timer_hz\":%llu,\"sampler_hz\":%llu,\"now_ticks\":%llu,\"sampler_heartbeat\":%llu,"
+         "\"clock_checks\":%u,\"heartbeat_advances\":%u,\"configured_mask\":%u,\"configured_tick\":%llu,"
++        "\"conversion_ready_mask\":%u,\"initializing_samples\":%u,"
+         "\"mode\":%u,\"sampling_enabled\":%u,\"scan_ms\":%u,\"offset_ms\":%u,"
+         "\"t0\":%llu,\"t1\":%llu,\"sampler_phase\":%u,\"sampler_state\":%u,"
+         "\"rail_records\":%u,\"event_records\":%u,\"temperature_records\":%u,\"scan_count\":%u,"
+         "\"completed_full\":%u,\"completed_compact\":%u,\"completed_continuous\":%u,"
+         "\"continuous_begin\":%llu,\"continuous_end\":%llu,\"pending_ack\":%u,"
+         "\"temperature_mC\":%d,\"temperature_valid\":%u,\"temperature_tick\":%llu,"
+         "\"i2c_errors\":%u,\"invalid_samples\":%u,\"stale_samples\":%u,"
+         "\"scan_overruns\":%u,\"overflows\":%u,\"temperature_errors\":%u}",
+         m_service_ready(&m_runtime,now)?"true":"false",snapshot?"true":"false",
+         m_runtime.phase,m_runtime.state,m_runtime.faults,s.faults,c->core,s.core,
+         (unsigned long long)c->epoch,(unsigned long long)s.epoch,
+         (unsigned long long)c->hz,(unsigned long long)s.hz,(unsigned long long)now,(unsigned long long)s.heartbeat,
+         m_runtime.clock_checks,m_runtime.heartbeat_advances,s.configured,(unsigned long long)s.configured_tick,
++        s.conversion_ready,s.initializing_samples,
+         c->mode,c->enabled,c->scan_ms,c->offset_ms,(unsigned long long)m_runtime.t0,(unsigned long long)m_runtime.t1,
+         s.phase,s.state,s.rail_count,m_runtime.event_count,s.temp_count,s.scan_count,
+         m_runtime.completed_full,m_runtime.completed_compact,m_runtime.completed_continuous,
+         (unsigned long long)m_runtime.continuous_begin,(unsigned long long)m_runtime.continuous_end,m_runtime.pending_ack,
+         s.temperature_mC,s.temperature_valid,(unsigned long long)s.temperature_tick,
+         s.i2c_errors,s.invalid_samples,s.stale_samples,s.scan_overruns,s.overflows,s.temp_errors);
+     if(n<0||(size_t)n>=sizeof(json))return abort_connection(state,"monitor status too large");
+     return send_json(state,kind,id,json);
+--- before/host/analyze.py
++++ repair/host/analyze.py
+@@ -9,16 +9,17 @@
+ import hashlib
+ import json
+ import math
+ import pathlib
+ import re
+ import statistics
+ import struct
+ import sys
++sys.dont_write_bytecode=True
+ 
+ if __package__:
+     from . import collect, wire
+ else:
+     sys.path.insert(0,str(pathlib.Path(__file__).resolve().parents[1]))
+     from host import collect, wire
+ 
+ ROOT=pathlib.Path(__file__).resolve().parents[1]
+@@ -111,19 +112,21 @@
+     precision for large common-counter values. Raw intervals remain in exports.
+     """
+     if type(hz) is not int or hz<=0 or t1<=t0:raise AnalysisError('invalid integration clock/window')
+     duration=(t1-t0)/hz;reasons=[];points=[];updates=[];read_widths=[]
+     for r in rows:
+         begin=r['begin'][3];end=r['end'][3]
+         if type(begin) is not int or type(end) is not int:raise AnalysisError('noninteger board tick')
+         x=(begin+end-2*t0)/(2*hz)
+-        valid=(r['flags']&1 and not r['flags']&~3 and end>=begin and
++        ordered=collect.register_order_valid(r)
++        valid=(r['flags']&1 and not r['flags']&~3 and ordered and end>=begin and
+                r['power_uW']!=-(2**63) and r['power_uW']>=0)
+         if not valid:reasons.append('invalid sample interrupts interpolation')
++        if not ordered:reasons.append('invalid register observation order')
+         points.append((x,r['power_uW']/1e6,valid))
+         read_widths.append((end-begin)/hz)
+         if valid and r['flags']&2:updates.append(x)
+     monotonic=all(b[0]>a[0] for a,b in zip(points,points[1:]))
+     if not monotonic:reasons.append('nonmonotonic Power read times')
+     if not points or points[0][0]>0 or points[-1][0]<duration:
+         reasons.append('unbracketed integration boundary')
+     # A CVRF observation only says >=1 update occurred; do not count independent conversions.
+@@ -240,16 +243,18 @@
+         if s[key]!=len(raw[kind]):reasons.append('published '+kind+' count mismatch')
+     for r in raw['rails']:
+         if r['rail'] not in range(18):reasons.append('unexpected rail identity');continue
+         if (r['config']!=0x4527 or r['calibration']!=2048):reasons.append('sample sensor configuration mismatch')
+         if any(e<b for b,e in zip(r['begin'],r['end'])):reasons.append('backwards register read interval')
+         if (r['flags']&1 and r['power_uW']!=r['power']*(31250 if r['rail']==10 else 12500)):
+             reasons.append('raw Power-register conversion mismatch')
+         if bool(r['flags']&2)!=bool(r['mask']&8):reasons.append('CVRF flag/mask inconsistency')
++        if r['flags']&1 and r['end'][4]>min(r['begin'][:4]):
++            reasons.append('CVRF observation occurs after payload')
+         if (r['flags']&1 and (r['mask']&4 or r['shunt']>=32768 or r['current']>=32768 or
+             r['shunt'] in (32767,32768) or r['current'] in (32767,32768) or
+             r['bus']==65535 or r['power']==65535)):reasons.append('invalid overflow/saturation/signed sensor data')
+     rails=[]
+     for rail in range(18):
+         rows=[r for r in raw['rails'] if r['rail']==rail]
+         r=integrate_rail(rows,t0,t1,hz);r.update(rail=rail,group='PS' if rail<10 else 'PL',
+             Power_LSB_W=.03125 if rail==10 else .0125)
+@@ -416,16 +421,17 @@
+     parser=argparse.ArgumentParser(description=__doc__)
+     parser.add_argument('session',type=pathlib.Path,help='raw session directory')
+     parser.add_argument('--output',required=True,type=pathlib.Path,help='new derived-only directory outside the raw session')
+     parser.add_argument('--synthetic',action='store_true',help='label every output SYNTHETIC_NOT_PHYSICAL; cannot qualify acceptance')
+     parser.add_argument('--acceptance-session',type=pathlib.Path,help='relocated raw acceptance session.json; exact original hashes still required')
+     args=parser.parse_args(argv)
+     if sys.version_info<(3,11):raise AnalysisError('Python3.11+ required')
+     raw=args.session.resolve();out=args.output.resolve()
++    if out.is_relative_to(ROOT.resolve()):raise AnalysisError('derived output must be outside immutable package')
+     if out==raw or raw in out.parents:raise AnalysisError('derived output must be outside immutable raw session')
+     result=analyze_session(raw,args.synthetic,args.acceptance_session);write_results(out,result)
+     print(json.dumps(dict(status='VALID' if result['valid'] else 'INVALID',output=str(out),measurement_origin=result['measurement_origin'])))
+     return 0 if result['valid'] else 1
+ 
+ 
+ if __name__=='__main__':
+     try:sys.exit(main())
+--- before/host/collect.py
++++ repair/host/collect.py
+@@ -13,16 +13,17 @@
+ import pathlib
+ import platform
+ import socket
+ import statistics
+ import sys
+ import threading
+ import time
+ import traceback
++sys.dont_write_bytecode=True
+ 
+ if __package__:
+     from . import wire, load
+ else:
+     sys.path.insert(0,str(pathlib.Path(__file__).resolve().parents[1]))
+     from host import wire, load
+ 
+ ROOT=pathlib.Path(__file__).resolve().parents[1]
+@@ -127,16 +128,17 @@
+     return not (ip.is_loopback or ip.is_unspecified or ip.is_multicast)
+ 
+ 
+ def validate_status(s,require_ready=True):
+     try:
+         hz=s['timer_hz'];now=s['now_ticks']
+         checks=(s['schema']==1,s['snapshot_valid'] is True,s['service_core']==0,s['sampler_core']==1,
+             hz>0,hz==s['sampler_hz'],s['epoch']==s['sampler_epoch'],s['configured_mask']==262143,
++            s['conversion_ready_mask']==262143,
+             s['clock_checks']>=3,s['heartbeat_advances']>=3,
+             0<=now-s['sampler_heartbeat']<=hz/4,now-s['configured_tick']>=hz,
+             s['temperature_valid']==1,0<=now-s['temperature_tick']<=2*hz,
+             s['faults']==0,s['sampler_faults']==0,s['sampling_enabled']==1,
+             not require_ready or s['ready'] is True)
+         if not all(checks):raise GateError('sampler readiness/clock/configuration/fault gate failed')
+     except (KeyError,TypeError):raise GateError('incomplete/malformed power_status')
+ 
+@@ -208,16 +210,31 @@
+     path=pathlib.Path(path)/'diagnostics'
+     path.mkdir(parents=True,exist_ok=True)
+     for name,call in [('status',client.status),
+                       ('config',lambda:client.export('config',path)),
+                       ('latest',lambda:client.export('latest',path))]:
+         try:
+             value=call()
+             if name=='status':wire.save_json(path/'status.json',value)
++            elif name=='latest':
++                # Derived explanation only; original binary/registers remain untouched.
++                signed=lambda x:x-65536 if x&32768 else x
++                names={4:'I2C_ERROR',8:'OVERFLOW',16:'SATURATED',32:'STALE',
++                       64:'CONFIG_ERROR',128:'CLOCK_ERROR',256:'NEGATIVE',512:'NOT_READY'}
++                wire.save_json(path/'fault-summary.json',dict(
++                    scope='cached complete scan; live or frozen status not attested; not a power result or calibration',
++                    negative_policy='Unqualified negative readings remain excluded; no clipping or offset correction.',
++                    rails=[dict(rail=r['rail'],scan=r['scan'],flags=r['flags'],
++                        reasons=[label for bit,label in names.items() if r['flags']&bit],
++                        shunt_raw=r['shunt'],shunt_signed=signed(r['shunt']),
++                        shunt_uV=2.5*signed(r['shunt']),current_raw=r['current'],
++                        current_signed=signed(r['current']),power_raw=r['power'],
++                        power_uW=r['power_uW'],mask_raw=r['mask'],
++                        read_begin=r['begin'],read_end=r['end']) for r in value]))
+         except Exception as exc:
+             wire.save_json(path/(name+'-error.json'),dict(type=type(exc).__name__,detail=str(exc)))
+ 
+ 
+ def ensure_ready(client,path,timeout=5):
+     """Allow ordinary initialization, then require three healthy advances.
+ 
+     A coherent all-zero sampler publication may precede CPU1 initialization.
+@@ -281,16 +298,24 @@
+     typ=6 if mode==3 else 5
+     valid=[e for e in events if e['type']==typ and e['mode']==mode and e['flags']==1 and e['mismatch_count']==0]
+     n=sum(s['t0']<=e['tick']<s['t1'] for e in valid)
+     expected=s[{0:'completed_full',1:'completed_full',2:'completed_compact',3:'completed_continuous'}[mode]]
+     if mode and n!=expected:raise GateError('board counter differs from actual ACK/inference completion events')
+     return dict(completed_board=n,drain_board=sum(e['tick']>=s['t1'] for e in valid))
+ 
+ 
++def register_order_valid(row):
++    """Schema1 stores Mask last but the repaired firmware reads it first."""
++    begin,end=row['begin'],row['end']
++    order=(4,0,1,2,3)
++    return (len(begin)==len(end)==5 and all(e>=b for b,e in zip(begin,end)) and
++            all(end[a]<=begin[b] for a,b in zip(order,order[1:])))
++
++
+ def assess_phase(directory):
+     """Recompute acceptance evidence from exported records; never trust a PASS flag."""
+     directory=pathlib.Path(directory)
+     p=read_json(directory/'phase.json');s=read_json(directory/'end-status.json')
+     rails=read_json(directory/'exports/rails-records.json')
+     events=read_json(directory/'exports/events-records.json')
+     temps=read_json(directory/'exports/temperatures-records.json')
+     validate_config(read_json(directory/'exports/config-records.json'))
+@@ -303,25 +328,28 @@
+     validate_condition(start,p)
+     validate_condition(p['arm_status'],p)
+     validate_condition(s,p)
+     observations=[json.loads(line) for line in (directory/'phase-status.jsonl').read_text().splitlines()]
+     if not observations:raise GateError('missing measured-phase configuration observations')
+     for observation in observations:validate_condition(observation['status'],p)
+     warm=read_json(directory/'warmup-temperatures.json')
+     for status in warm:validate_condition(status,p)
++    for status in [start,p['arm_status'],s]+[o['status'] for o in observations]+warm:
++        if status.get('conversion_ready_mask')!=262143:
++            raise GateError('first valid conversion not established on all eighteen rails')
+     if any(s[k]!=start[k] for k in COUNTERS):raise GateError('sampler errors/overruns during phase')
+     if not thermal_stable(warm):
+         raise GateError('warmup thermal evidence failed')
+     hz=s['timer_hz'];coverage=[];overlap=0
+     intervals=sorted((e['begin'],e['end']) for e in events if e['type']==6 and e['flags']==1)
+     for rail in range(18):
+         rows=[r for r in rails if r['rail']==rail]
+         if any(not r['flags']&1 or r['flags']&~3 or r['power_uW']==-(2**63) or
+-               r['config']!=0x4527 or r['calibration']!=2048 for r in rows):
++               r['config']!=0x4527 or r['calibration']!=2048 or not register_order_valid(r) for r in rows):
+             raise GateError('invalid rail sample (including negative signed flag256)')
+         ticks=[(r['begin'][3]+r['end'][3])/2 for r in rows]
+         # The sampler stops scheduling at the postguard deadline. The final
+         # scan can precede that deadline by one scan period; require boundary
+         # bracketing plus actual guard data, not an impossible final exact tick.
+         if (not ticks or ticks[0]>s['t0']-hz or ticks[-1]<s['t1'] or
+             any(b<=a or b-a>.15*hz for a,b in zip(ticks,ticks[1:]))):
+             raise GateError('rail coverage/guards/freshness gap')
+@@ -452,16 +480,17 @@
+             previous=None;stable=None;qualified=False
+             for observation in [dict(host_monotonic=None,status=setting)]+observations:
+                 s=observation['status'];heartbeat=s['sampler_heartbeat'];now=s['now_ticks']
+                 validate_condition(s,setting,sampling_enabled=enabled)
+                 if (s['schema']!=1 or s['physical_status']!='NOT_RUN' or s['snapshot_valid'] is not True or
+                     s['service_core']!=0 or s['sampler_core']!=1 or type(hz) is not int or hz<=0 or
+                     s['timer_hz']!=hz or s['sampler_hz']!=hz or s['epoch']!=setting['epoch'] or
+                     s['sampler_epoch']!=s['epoch'] or s['configured_mask']!=262143 or
++                    s.get('conversion_ready_mask')!=262143 or
+                     now-s['configured_tick']<hz or s['clock_checks']<3 or s['heartbeat_advances']<3 or
+                     s['faults'] or s['sampler_faults'] or any(s[k] for k in COUNTERS) or
+                     not 0<=now-heartbeat<=hz/4 or s['temperature_valid']!=1 or
+                     not 0<=now-s['temperature_tick']<=2*hz or not -55000<=s['temperature_mC']<=150000):
+                     raise GateError('unhealthy raw toggle status/clock/configuration')
+                 if observation['host_monotonic'] is None:continue
+                 host=host_tick(observation['host_monotonic'])
+                 if previous and (host<=previous[0] or heartbeat<=previous[1]['sampler_heartbeat'] or
+@@ -824,16 +853,20 @@
+     return p
+ 
+ 
+ def main(argv=None):
+     args=parser().parse_args(argv)
+     if sys.version_info<(3,11):raise GateError('Python 3.11+ required')
+     if args.target120_only and not args.formal:raise GateError('--target120-only requires --formal')
+     root=args.package_root.resolve()
++    if not args.check_only:
++        for label,path in (('output',args.output),('SD receipt',args.sd_receipt),('controls',args.controls)):
++            if path is not None and path.resolve().is_relative_to(root):
++                raise GateError(label+' must be outside the immutable package directory')
+     info=preflight(root)
+     if args.check_only:
+         print(json.dumps(dict(status='PACKAGE_PREFLIGHT_PASS',firmware_sha256=info['identity']['firmware_sha256'],
+             copied_SD='NOT_CHECKED' if not args.sd_root else 'CHECK_REQUIRED_VIA_PREPARE_SD',
+             physical_startup='NOT_RUN',power_acceptance='NOT_RUN')))
+         return 0
+     if args.prepare_sd:
+         if not args.sd_root or not args.sd_receipt:raise GateError('--prepare-sd requires --sd-root and --sd-receipt')
+--- before/package.py
++++ repair/package.py
+@@ -5,16 +5,17 @@
+ PACKAGE_SHA256SUMS.json covers the archive payload except itself.
+ """
+ import argparse
+ import datetime
+ import hashlib
+ import json
+ import pathlib
+ import sys
++sys.dont_write_bytecode=True
+ import uuid
+ import zipfile
+ 
+ ROOT=pathlib.Path(__file__).resolve().parent
+ MANIFEST='PACKAGE_SHA256SUMS.json'
+ 
+ 
+ class PackageError(RuntimeError):
+@@ -54,38 +55,42 @@
+     def unique_pairs(items):
+         result={}
+         for key,value in items:
+             if key in result:raise PackageError('duplicate manifest key')
+             result[key]=value
+         return result
+     manifest=json.loads((root/MANIFEST).read_text(encoding='utf-8'),object_pairs_hook=unique_pairs)
+     if not isinstance(manifest,dict) or not manifest:raise PackageError('empty/malformed package manifest')
++    for name in manifest:safe_name(name)
++    actual={p.relative_to(root).as_posix() for p in root.rglob('*') if p.is_file() and
++            p.relative_to(root).as_posix()!=MANIFEST}
++    if set(manifest)!=actual:
++        raise PackageError('package file inventory differs from manifest: '+json.dumps(dict(
++            missing=sorted(set(manifest)-actual),unexpected=sorted(actual-set(manifest))),ensure_ascii=True))
+     for name,expected in manifest.items():
+         safe_name(name);path=root/name
+         if path.is_symlink() or not path.is_file() or not path.resolve().is_relative_to(root):
+             raise PackageError('missing/unsafe package file: '+name)
+         if path.stat().st_size!=expected['bytes'] or file_hash(path)!=expected['sha256']:
+             raise PackageError('package size/SHA mismatch: '+name)
+-    actual={p.relative_to(root).as_posix() for p in root.rglob('*') if p.is_file() and
+-            '__pycache__' not in p.parts and p.relative_to(root).as_posix()!=MANIFEST}
+-    if set(manifest)!=actual:raise PackageError('package file inventory differs from manifest')
+     from host import collect
+     info=collect.preflight(root)
+     return dict(status='WHOLE_PACKAGE_PREFLIGHT_PASS',file_count=len(manifest)+1,
+         firmware_sha256=info['identity']['firmware_sha256'],physical_startup='NOT_RUN',
+         power_acceptance='NOT_RUN',copied_SD='NOT_CHECKED')
+ 
+ 
+ def selected_files(root):
+     from host import collect
+     info=collect.preflight(root);identity=info['identity']
+     paths=set()
+     for name in ('FIRMWARE_IDENTITY.json','SHA256SUMS.json','README_CN.txt','PROTOCOL.md',
+-                 'Run-PowerRetest.ps1','package.py','build_firmware.py','build_platform.py'):
++                 'Run-PowerRetest.ps1','package.py','build_firmware.py','build_platform.py',
++                 'REPAIR_NOTES_CN.txt','REPAIR.diff'):
+         paths.add(root/name)
+     for directory in ('host','firmware','tests','SD_CARD'):
+         paths.update(p for p in (root/directory).rglob('*') if p.is_file() and '__pycache__' not in p.parts)
+     build=root/identity['build_directory']
+     paths.update(p for p in build.iterdir() if p.is_file() and p.suffix!='.o')
+     for name in ('provenance.json','platform_configuration.json'):
+         paths.add(root/'build'/name)
+     provenance=collect.read_json(root/'build/provenance.json')
+--- before/tests/test_analysis.py
++++ repair/tests/test_analysis.py
+@@ -8,16 +8,17 @@
+ import json
+ import pathlib
+ import shutil
+ import subprocess
+ import struct
+ import sys
+ import tempfile
+ import unittest
++from unittest import mock
+ import zipfile
+ 
+ ROOT = pathlib.Path(__file__).resolve().parents[1]
+ sys.path.insert(0, str(ROOT))
+ try:
+     analyze = importlib.import_module('host.analyze')
+ except ModuleNotFoundError:
+     analyze = None
+@@ -32,17 +33,18 @@
+     path.write_text(json.dumps(value), encoding='utf-8')
+ 
+ 
+ def fixture_status(**changes):
+     value = dict(schema=1, physical_status='NOT_RUN', ready=True, snapshot_valid=True,
+         phase_id=1, state=4, faults=0, sampler_faults=0, service_core=0, sampler_core=1,
+         epoch=7, sampler_epoch=7, timer_hz=8000, sampler_hz=8000, now_ticks=104100,
+         sampler_heartbeat=104000, clock_checks=4, heartbeat_advances=4, configured_mask=262143,
+-        configured_tick=8000, mode=1, sampling_enabled=1, scan_ms=20, offset_ms=0,
++        configured_tick=8000,conversion_ready_mask=262143,initializing_samples=18,
++        mode=1, sampling_enabled=1, scan_ms=20, offset_ms=0,
+         t0=80000, t1=96000, sampler_phase=1, sampler_state=4, rail_records=594,
+         event_records=244, temperature_records=5, scan_count=500, completed_full=240,
+         completed_compact=0, completed_continuous=0, continuous_begin=0, continuous_end=0,
+         pending_ack=0, temperature_mC=45000, temperature_valid=1, temperature_tick=104000,
+         i2c_errors=0, invalid_samples=0, stale_samples=0, scan_overruns=0, overflows=0,
+         temperature_errors=0)
+     value.update(changes)
+     return value
+@@ -62,17 +64,18 @@
+         self.rails = []
+         for scan in range(33):
+             tick = 72000+scan*1000  # board9..13s, window10..12s;125ms.
+             power = 1000000+scan*125000  # P=2+(board_time-10)W.
+             for rail in range(18):
+                 self.rails.append(dict(seq=len(self.rails), phase=1, scan=scan, flags=3,
+                     rail=rail, config=0x4527, calibration=2048, shunt=10, bus=800,
+                     current=100, power=power//(31250 if rail==10 else 12500), mask=8,
+-                    begin=[tick-1]*5, end=[tick+1]*5, power_uW=power, scan_start=tick-2))
++                    begin=[tick-8,tick-6,tick-4,tick-1,tick-10],
++                    end=[tick-7,tick-5,tick-3,tick+1,tick-9],power_uW=power,scan_start=tick-11))
+         self.config = [dict(rail=r, flags=1, manufacturer=0x5449, die=0x2260,
+             config=0x4527, calibration=2048, begin=100, end=101) for r in range(18)]
+         def event(typ, tick, **kw):
+             e=dict(seq=0,phase=1,type=typ,request_id=0,mode=1,flags=0,mismatch_count=0,
+                    reserved=0,begin=0,end=0,tick=tick,aux=0)
+             e.update(kw)
+             return e
+         self.events=[event(1,70000,begin=80000,end=96000),event(2,80000)]
+@@ -165,16 +168,29 @@
+         return result
+ 
+     def test_hand_derived_100ms_linear_integral(self):
+         r=analyze.integrate_rail(math_rows(),0,20000,10000)
+         self.assertTrue(r['valid'])
+         self.assertAlmostEqual(r['energy_J'],6.)
+         self.assertAlmostEqual(r['mean_W'],3.)
+ 
++    def test_cvrf_observed_after_payload_cannot_license_that_payload(self):
++        row=self.fixture.rails[18]
++        row['begin'][4]=row['end'][3]+1;row['end'][4]=row['end'][3]+2
++        self.invalid('CVRF observation occurs after payload')
++        result=self.result();rail=result['rails'][0]
++        self.assertFalse(rail['valid']);self.assertIsNone(rail['energy_J']);self.assertIsNone(rail['mean_W'])
++
++    def test_host_acceptance_independently_rejects_payload_before_mask(self):
++        from host import collect
++        row=self.fixture.rails[18];row['end'][4]=row['end'][3]+2
++        self.fixture.save()
++        with self.assertRaises(collect.GateError):collect.assess_phase(self.fixture.directory)
++
+     def test_raw_18_rails_board_completion_math_and_host_clock_separation(self):
+         r=self.result()
+         self.assertTrue(r['valid'],r['invalid_reasons'])
+         self.assertEqual(r['measurement_origin'],'SYNTHETIC_NOT_PHYSICAL')
+         self.assertAlmostEqual(r['energy_J'],108.)
+         self.assertAlmostEqual(r['mean_W'],54.)
+         self.assertEqual(r['completed_board'],240)
+         self.assertEqual(r['board_completed_fps'],120.)
+@@ -457,17 +473,18 @@
+         plan=collect.acceptance_plan()
+         for index,p in enumerate(plan):
+             f=RawFixture(root/'phases'/f'{index:03d}-{p["name"]}')
+             t1=80000+p['seconds']*8000
+             template=f.rails[:18];f.rails=[]
+             for scan,tick in enumerate(range(72000,t1+8001,1000)):
+                 for row in template:
+                     r=copy.deepcopy(row);r.update(scan=scan,power=96 if r['rail']==10 else 240,
+-                        power_uW=3000000,begin=[tick-1]*5,end=[tick+1]*5,scan_start=tick-2)
++                        power_uW=3000000,begin=[tick-8,tick-6,tick-4,tick-1,tick-10],
++                        end=[tick-7,tick-5,tick-3,tick+1,tick-9],scan_start=tick-11)
+                     f.rails.append(r)
+             f.phase.update(p,board_t1=t1)
+             for s in [f.start,f.end,f.phase['arm_status']]+f.warm:
+                 s.update({k:p[k] for k in ('mode','scan_ms','offset_ms')})
+             for s in (f.end,f.phase['arm_status']):
+                 s.update(t1=t1,now_ticks=t1+8100,sampler_heartbeat=t1+8000,temperature_tick=t1+8000)
+             f.events[0]['end']=t1;f.events[-2]['tick']=t1;f.events[-1]['tick']=t1+8001
+             for e in f.events:e['mode']=p['mode']
+@@ -600,16 +617,26 @@
+                     collect.validate_acceptance(root/'session.json',session['identity'],session['board_id'],session['controls'])
+     def test_analysis_cli_refuses_raw_output_directory(self):
+         root,_=self.session()
+         r=subprocess.run([sys.executable,'-S',str(ROOT/'host/analyze.py'),str(root),
+             '--synthetic','--output',str(root/'derived')],text=True,capture_output=True,cwd='/tmp')
+         self.assertEqual(r.returncode,2)
+         self.assertFalse((root/'derived').exists())
+ 
++    def test_analysis_refuses_output_in_immutable_package(self):
++        root,_=self.session()
++        with tempfile.TemporaryDirectory(prefix='e07 separate package ') as d:
++            base=pathlib.Path(d);archive=base/'delivery.zip';package.build_archive(ROOT,archive)
++            package_root=base/'extracted'
++            with zipfile.ZipFile(archive) as z:z.extractall(package_root)
++            with mock.patch.object(analyze,'ROOT',package_root),self.assertRaisesRegex(analyze.AnalysisError,'immutable package'):
++                analyze.main([str(root),'--synthetic','--output',str(package_root/'derived')])
++            self.assertFalse((package_root/'derived').exists())
++
+ 
+ class PackageTests(unittest.TestCase):
+     def setUp(self):
+         self.assertIsNotNone(package,'portable package implementation is missing')
+ 
+     def test_archive_unique_crc_manifest_relocation_and_tamper(self):
+         with tempfile.TemporaryDirectory(prefix='e07 test space ') as d:
+             base=pathlib.Path(d);archive=base/'portable candidate.zip'
+@@ -621,16 +648,20 @@
+             extracted=base/'extracted package'
+             verified=package.verify_package(extracted)
+             self.assertEqual(verified['file_count'],info['file_count'])
+             for args in ([sys.executable,'-S',str(extracted/'package.py'),'--check-only'],
+                          [sys.executable,'-S',str(extracted/'host/collect.py'),'--check-only'],
+                          [sys.executable,'-S',str(extracted/'host/analyze.py'),'--help']):
+                 r=subprocess.run(args,text=True,capture_output=True,cwd='/tmp')
+                 self.assertEqual(r.returncode,0,r.stderr)
++            repeated=subprocess.run([sys.executable,'-S',str(extracted/'package.py'),'--check-only'],
++                text=True,capture_output=True,cwd='/tmp')
++            self.assertEqual(repeated.returncode,0,repeated.stderr)
++            self.assertEqual(list(extracted.rglob('*.pyc')),[])
+             collector=extracted/'host/collect.py';original=collector.read_bytes()
+             marker=base/'unexpected results'
+             collector.write_text('import pathlib\npathlib.Path('+repr(str(marker))+').mkdir()\n')
+             r=subprocess.run([sys.executable,'-S',str(extracted/'package.py'),'--check-only'],
+                 text=True,capture_output=True,cwd='/tmp')
+             self.assertEqual(r.returncode,2)
+             self.assertFalse(marker.exists(),'tampered runtime imported before integrity verification')
+             collector.write_bytes(original)
+@@ -645,10 +676,29 @@
+             root=pathlib.Path(d)
+             write_json(root/'PACKAGE_SHA256SUMS.json',{'../escape':dict(bytes=1,sha256='0'*64)})
+             with self.assertRaises(package.PackageError):package.verify_package(root)
+ 
+     def test_required_python_version_is_enforced(self):
+         with self.assertRaises(package.PackageError):package.require_python((3,10,99))
+         package.require_python((3,11,0))
+ 
++    def test_inventory_mismatch_names_extra_files_without_waiving_integrity(self):
++        with tempfile.TemporaryDirectory(prefix='e07 inventory diff ') as d:
++            base=pathlib.Path(d);archive=base/'delivery.zip'
++            package.build_archive(ROOT,archive)
++            with zipfile.ZipFile(archive) as z:z.extractall(base/'extracted')
++            root=base/'extracted';(root/'controls.json').write_text('{}')
++            with self.assertRaises(package.PackageError) as caught:package.verify_package(root)
++            self.assertIn('controls.json',str(caught.exception))
++            self.assertIn('unexpected',str(caught.exception))
++
++    def test_cache_named_directory_cannot_hide_unmanifested_evidence(self):
++        with tempfile.TemporaryDirectory(prefix='e07 strict cache ') as d:
++            base=pathlib.Path(d);archive=base/'delivery.zip';package.build_archive(ROOT,archive)
++            with zipfile.ZipFile(archive) as z:z.extractall(base/'extracted')
++            root=base/'extracted';foreign=root/'host/__pycache__/controls.json'
++            foreign.parent.mkdir();foreign.write_text('{}')
++            with self.assertRaises(package.PackageError) as caught:package.verify_package(root)
++            self.assertIn('host/__pycache__/controls.json',str(caught.exception))
++
+ 
+ if __name__=='__main__':unittest.main()
+--- before/tests/test_firmware.py
++++ repair/tests/test_firmware.py
+@@ -48,26 +48,32 @@
+         spec=importlib.util.spec_from_file_location('independent_build',HERE/'build_firmware.py')
+         module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+         good={'service':[(0x100000,0x200000)],'sampler':[(0x20000000,0x20100000)]}
+         self.assertTrue(module.validate_segments(good))
+         for bad in [dict(good,service=[(0x100000,0x31000000)]),
+                     dict(good,sampler=[(0x100000,0x200000)]),
+                     dict(good,sampler=[(0x30000000,0x30001000)])]:
+             with self.subTest(bad=bad),self.assertRaises(ValueError):module.validate_segments(bad)
+-    def compile_run(self,name,sources,flags=()):
++    def compile_run(self,name,sources,flags=(),arguments=()):
+         with tempfile.TemporaryDirectory(prefix='independent-firmware-') as d:
+             command=['cc','-std=c11','-O2','-Wall','-Wextra','-Werror',
+                 '-I'+str(HERE/'firmware/common'),*flags,
+                 *[str(HERE/s) for s in sources],'-o',str(Path(d)/name)]
+             built=subprocess.run(command,text=True,capture_output=True)
+             self.assertEqual(built.returncode,0,built.stdout+built.stderr)
+-            result=subprocess.run([str(Path(d)/name)],text=True,capture_output=True)
++            result=subprocess.run([str(Path(d)/name),*arguments],text=True,capture_output=True)
+             self.assertEqual(result.returncode,0,result.stdout+result.stderr)
+             print(result.stdout.strip())
++    def test_first_conversion_observation_precedes_valid_payload_and_fault_freeze(self):
++        for case in ('pending','order','negative','sampler','timeout','pending-negative','late-first','late-negative','backward'):
++            with self.subTest(case=case):
++                self.compile_run('first-conversion',['tests/test_first_conversion.c',
++                    'firmware/common/sensor.c','firmware/sampler/sampler.c','firmware/common/phase.c'],
++                    ['-I'+str(HERE/'firmware/sampler')],[case])
+     def test_sensor_configuration_calibration_raw_and_invalid_samples(self):
+         self.compile_run('sensor',['tests/test_sensor.c','firmware/common/sensor.c'])
+     def test_publication_phase_ack_request_ids_and_faults(self):
+         self.compile_run('phase',['tests/test_phase.c','firmware/common/phase.c'])
+     def test_sampler_guard_records_temperature_and_faults(self):
+         self.compile_run('sampler',['tests/test_sampler.c','firmware/sampler/sampler.c',
+             'firmware/common/sensor.c','firmware/common/phase.c'],
+             ['-I'+str(HERE/'firmware/sampler')])
+--- before/tests/test_first_conversion.c
++++ repair/tests/test_first_conversion.c
+@@ -0,0 +1,124 @@
++/* Real sensor/sampler behavior: a read-to-clear register is the I/O double. */
++#include "sampler.h"
++#include <assert.h>
++#include <stdio.h>
++#include <stdlib.h>
++#include <string.h>
++typedef struct { uint16_t regs[18][256]; unsigned domain; uint64_t tick;
++    int fail_rail, ready_on_power, backward;unsigned calls; } fake;
++static uint64_t tick(void *v){
++    fake *f=v;++f->calls;
++    if(f->backward&&f->calls==3)f->tick-=100;
++    if(f->backward&&f->calls==9)f->tick+=200;
++    return ++f->tick;
++}
++static int select_domain(void *v,uint8_t d){((fake *)v)->domain=d;return 0;}
++static unsigned rail_for(fake *f,uint8_t a){
++    for(unsigned i=0;i<18;i++)if(m_rails[i].domain==f->domain&&m_rails[i].address==a)return i;
++    abort();
++}
++static int read_reg(void *v,uint8_t a,uint8_t r,uint16_t *value){
++    fake *f=v;unsigned i=rail_for(f,a);if((int)i==f->fail_rail)return -1;
++    *value=f->regs[i][r];
++    if(r==6)f->regs[i][6]&=(uint16_t)~8u; /* Real CVRF read-to-clear behavior. */
++    if(r==3&&f->ready_on_power){
++        f->regs[i][6]|=8;f->regs[i][3]=192;f->ready_on_power=0;
++    }
++    return 0;
++}
++static int write_reg(void *v,uint8_t a,uint8_t r,uint16_t value){
++    fake *f=v;unsigned i=rail_for(f,a);f->regs[i][r]=value;
++    if(r==0)f->regs[i][6]&=(uint16_t)~8u;
++    return 0;
++}
++static int temperature(uint32_t *raw,int32_t *mc){*raw=30000;*mc=42000;return 0;}
++static void init(fake *f){
++    memset(f,0,sizeof(*f));f->fail_rail=-1;f->tick=100;
++    for(unsigned i=0;i<18;i++){
++        f->regs[i][0xfe]=0x5449;f->regs[i][0xff]=0x2260;
++        f->regs[i][1]=100;f->regs[i][2]=800;f->regs[i][4]=100;f->regs[i][3]=192;
++    }
++}
++static m_io io_for(fake *f){return (m_io){f,select_domain,read_reg,write_reg,tick};}
++static void sensor_case(const char *name){
++    fake f;init(&f);m_io io=io_for(&f);m_rail_record row;uint64_t fresh=0;
++    if(!strcmp(name,"pending")){
++        f.regs[10][3]=0;f.ready_on_power=1;
++        assert(m_sample(&io,10,1000000,&fresh,&row)>0);
++        assert(!(row.flags&M_VALID)&&(row.flags&512u)&&fresh==0&&row.power_uW==INT64_MIN);
++        assert(row.mask==0&&row.power==0);
++        assert(m_sample(&io,10,1000000,&fresh,&row)==0);
++        assert(row.flags==(M_VALID|M_FRESH)&&row.power_uW==6000000&&fresh>0);
++        uint64_t observed=fresh;
++        assert(m_sample(&io,10,1000000,&fresh,&row)==0);
++        assert(row.flags==M_VALID&&fresh==observed); /* A held read is not another conversion. */
++        f.tick+=150001;
++        assert(m_sample(&io,10,1000000,&fresh,&row)<0&&(row.flags&M_STALE));
++    }else if(!strcmp(name,"backward")){
++        f.backward=1;f.regs[10][6]=8;
++        assert(m_sample(&io,10,1000000,&fresh,&row)<0);
++        assert(row.flags&M_CLOCK_ERROR&&!(row.flags&M_VALID)&&row.power_uW==INT64_MIN);
++    }else if(!strcmp(name,"order")){
++        f.regs[10][6]=8;assert(m_sample(&io,10,1000000,&fresh,&row)==0);
++        assert(row.end[4]<=row.begin[0]&&row.end[4]<=row.begin[3]);
++    }else{
++        f.regs[7][6]=8;f.regs[7][1]=65534;f.regs[7][4]=65534;f.regs[7][3]=0;
++        assert(m_sample(&io,7,1000000,&fresh,&row)<0);
++        assert(row.shunt==65534&&row.current==65534&&(row.flags&M_NEGATIVE));
++        assert(!(row.flags&M_SATURATED)&&!(row.flags&M_VALID)&&row.power_uW==INT64_MIN);
++    }
++}
++static void sampler_case(const char *name){
++    fake f;init(&f);m_io io=io_for(&f);m_shared *p=calloc(1,sizeof(*p));assert(p);
++    m_service service;m_sampler sampler;m_service_init(&service,p,1000000,0,1);
++    assert(m_sampler_init(&sampler,p,io,1,1000000,temperature)==0);
++    uint64_t base=f.tick;m_rail_record rows[18];
++    if(!strcmp(name,"late-first")||!strcmp(name,"late-negative")){
++        f.tick=base+140000;m_sampler_step(&sampler);assert(!sampler.status.faults);
++        for(unsigned i=0;i<18;i++)f.regs[i][6]=8;
++        if(!strcmp(name,"late-negative")){f.regs[7][1]=65534;f.regs[7][4]=65534;}
++        f.tick=base+161000;m_sampler_step(&sampler);
++        assert(sampler.status.faults&M_FAULT_SENSOR);
++        assert(sampler.status.invalid_samples==18&&sampler.status.conversion_ready==0);
++        assert(!m_latest_read(p,rows));
++        for(unsigned i=0;i<18;i++)assert((rows[i].flags&M_STALE)&&!(rows[i].flags&M_VALID)&&rows[i].power_uW==INT64_MIN);
++        if(!strcmp(name,"late-negative"))assert((rows[7].flags&M_NEGATIVE)&&rows[7].shunt==65534);
++        f.tick=base+181100;m_sampler_step(&sampler); /* No new CVRF; held read must not qualify. */
++        assert(sampler.status.conversion_ready==0&&sampler.status.invalid_samples==36);
++    }else if(!strcmp(name,"timeout")){
++        f.tick=base+151000;m_sampler_step(&sampler);
++        assert(sampler.status.faults&M_FAULT_SENSOR);
++        assert(sampler.status.invalid_samples==18&&sampler.status.stale_samples==18);
++        assert(!m_latest_read(p,rows));
++        for(unsigned i=0;i<18;i++)assert((rows[i].flags&512u)&&(rows[i].flags&M_STALE)&&!(rows[i].flags&M_VALID));
++    }else{
++        if(!strcmp(name,"pending-negative")){f.regs[7][1]=65534;f.regs[7][4]=65534;}
++        f.tick=base+20000;m_sampler_step(&sampler);
++        assert(!sampler.status.faults&&sampler.status.invalid_samples==0);
++        assert(!m_latest_read(p,rows));
++        for(unsigned i=0;i<18;i++)assert((rows[i].flags&512u)&&!(rows[i].flags&M_VALID));
++        for(unsigned i=0;i<18;i++)f.regs[i][6]=8;
++        f.tick=base+40000;m_sampler_step(&sampler);
++        if(!strcmp(name,"pending-negative")){
++            assert(sampler.status.faults&M_FAULT_SENSOR);
++            assert(sampler.status.invalid_samples==1&&!m_latest_read(p,rows));
++            assert(rows[7].flags&M_NEGATIVE&&rows[7].flags&M_FRESH&&rows[7].shunt==65534);
++        }else{
++            assert(!sampler.status.faults&&sampler.status.invalid_samples==0);
++            assert(!m_latest_read(p,rows));
++            for(unsigned i=0;i<18;i++)assert(rows[i].flags==(M_VALID|M_FRESH));
++            f.fail_rail=7;f.tick=base+60000;m_sampler_step(&sampler);
++            assert(sampler.status.invalid_samples==1&&!m_latest_read(p,rows));
++            assert(rows[7].flags&M_I2C_ERROR);
++            uint64_t frozen=rows[7].begin[0];f.fail_rail=-1;f.tick=base+80000;m_sampler_step(&sampler);
++            assert(!m_latest_read(p,rows)&&rows[7].begin[0]==frozen&&(rows[7].flags&M_I2C_ERROR));
++        }
++    }
++    free(p);
++}
++int main(int argc,char **argv){
++    assert(argc==2);
++    if(!strcmp(argv[1],"pending")||!strcmp(argv[1],"order")||!strcmp(argv[1],"negative")||!strcmp(argv[1],"backward"))sensor_case(argv[1]);
++    else sampler_case(argv[1]);
++    puts("FIRST_CONVERSION_AND_PRESERVED_FAULT_OK");return 0;
++}
+--- before/tests/test_host.py
++++ repair/tests/test_host.py
+@@ -24,17 +24,18 @@
+     wire = load = collect = None
+ 
+ 
+ def status(**changes):
+     value = dict(schema=1, physical_status='NOT_RUN', ready=True, snapshot_valid=True,
+         phase_id=0, state=0, faults=0, sampler_faults=0, service_core=0, sampler_core=1,
+         epoch=7, sampler_epoch=7, timer_hz=1000, sampler_hz=1000, now_ticks=10000,
+         sampler_heartbeat=9990, clock_checks=4, heartbeat_advances=4, configured_mask=262143,
+-        configured_tick=1000, mode=2, sampling_enabled=1, scan_ms=20, offset_ms=0,
++        configured_tick=1000, conversion_ready_mask=262143,initializing_samples=18,
++        mode=2, sampling_enabled=1, scan_ms=20, offset_ms=0,
+         t0=0, t1=0, sampler_phase=0, sampler_state=0, rail_records=0, event_records=0,
+         temperature_records=0, scan_count=500, completed_full=0, completed_compact=0,
+         completed_continuous=0, continuous_begin=0, continuous_end=0, pending_ack=0,
+         temperature_mC=45000, temperature_valid=1, temperature_tick=9900,
+         i2c_errors=0, invalid_samples=0, stale_samples=0, scan_overruns=0, overflows=0,
+         temperature_errors=0)
+     value.update(changes)
+     return value
+@@ -104,16 +105,26 @@
+             raise errors[0]
+ 
+ 
+ class HostTests(unittest.TestCase):
+     def setUp(self):
+         self.assertIsNotNone(wire, 'portable host implementation is missing')
+         self.identity = json.loads((ROOT/'FIRMWARE_IDENTITY.json').read_text())
+ 
++    def test_configuration_readback_alone_cannot_establish_first_conversion(self):
++        with self.assertRaises(collect.GateError):
++            collect.validate_status(status(conversion_ready_mask=0,initializing_samples=18))
++
++    def test_result_and_receipt_paths_cannot_pollute_immutable_package(self):
++        for option in ('--output','--sd-receipt'):
++            with self.subTest(option=option),self.assertRaisesRegex(collect.GateError,'outside'):
++                collect.main(['--acceptance',option,str(ROOT/'must-not-create')])
++        self.assertFalse((ROOT/'must-not-create').exists())
++
+     def test_startup_waits_for_delayed_healthy_handshake_then_three_advances(self):
+         requests=[]
+         def handle(name,args,body,rid):
+             requests.append(name);n=len(requests);now=10000+100*n
+             return packet(6,rid,status(ready=n>=4,clock_checks=min(n,4),heartbeat_advances=min(n,4),
+                 now_ticks=now,sampler_heartbeat=now-1,temperature_tick=now-1))
+         with tempfile.TemporaryDirectory() as tmp,server(self.identity,handle) as sock:
+             client=wire.Client(sock,self.identity)
+@@ -254,16 +265,40 @@
+             return packet(1,rid,dict(schema=1,record_type=typ,phase_id=0,first=0,
+                 count=18,total=18,record_bytes=32 if typ=='config' else 128,next=18,done=True),data)
+         with tempfile.TemporaryDirectory() as tmp,server(self.identity,handle) as sock:
+             c=wire.Client(sock,self.identity)
+             out=pathlib.Path(tmp)
+             with self.assertRaises(collect.GateError):collect.ensure_ready(c,out)
+             self.assertEqual(json.loads((out/'diagnostics/latest-records.json').read_text())[15]['flags'],256)
+             self.assertTrue((out/'diagnostics/config-000000.bin').exists())
++            summary_path=out/'diagnostics/fault-summary.json'
++            self.assertTrue(summary_path.is_file())
++            summary=json.loads(summary_path.read_text())
++            self.assertEqual(len(summary['rails']),18)
++            negative=summary['rails'][15]
++            self.assertEqual((negative['shunt_raw'],negative['shunt_signed'],negative['shunt_uV']),
++                             (65535,-1,-2.5))
++            self.assertEqual(negative['current_signed'],-1)
++            self.assertEqual(negative['power_uW'],-(2**63))
++            self.assertIn('NEGATIVE',negative['reasons'])
++
++    def test_unrelated_diagnostic_does_not_claim_healthy_live_scan_was_frozen(self):
++        configs=b''.join(struct.pack('<II4HQQ',r,1,0x5449,0x2260,0x4527,2048,1,2) for r in range(18))
++        rails=b''.join(struct.pack('<4I8H5Q5QqQ',r,0,2,3,r,0x4527,2048,1,1,1,1,8,
++                                 *([1]*5),*([2]*5),12500,1) for r in range(18))
++        def handle(name,args,body,rid):
++            if name=='power_status':return packet(6,rid,status())
++            typ=name[13:];data=configs if typ=='config' else rails
++            return packet(1,rid,dict(schema=1,record_type=typ,phase_id=0,first=0,count=18,total=18,
++                record_bytes=32 if typ=='config' else 128,next=18,done=True),data)
++        with tempfile.TemporaryDirectory() as tmp,server(self.identity,handle) as sock:
++            collect.diagnostics(wire.Client(sock,self.identity),tmp)
++            summary=json.loads((pathlib.Path(tmp)/'diagnostics/fault-summary.json').read_text())
++            self.assertNotIn('frozen first faulty scan',summary['scope'])
+ 
+     def test_invalid_config_refuses_arm(self):
+         records=[dict(rail=r,flags=1,manufacturer=0x5449,die=0x2260,config=0x4527,
+                       calibration=2048,begin=1,end=2) for r in range(18)]
+         collect.validate_config(records)
+         records[4]['calibration']=2047
+         raw=b''.join(struct.pack('<II4HQQ',*(r[k] for k in
+             ('rail','flags','manufacturer','die','config','calibration','begin','end'))) for r in records)
+@@ -416,17 +451,19 @@
+                 else:
+                     records=[]
+                     # Scheduled postguard ends at +1000ms; last scan is at +980ms.
+                     base=board['t0'] or 2000
+                     stop=board['t1']+981 if board['t1'] else base+20
+                     for tick in range(base-1020,stop,20):
+                         for rail in range(18):
+                             records.append(struct.pack('<4I8H5Q5QqQ',len(records),1,(tick-board['t0']+1100)//20,3,
+-                                rail,0x4527,2048,1,1,1,1,8,*([tick]*5),*([tick+1]*5),12500,tick))
++                                rail,0x4527,2048,1,1,1,1,8,
++                                tick-6,tick-4,tick-2,tick,tick-8,
++                                tick-5,tick-3,tick-1,tick+1,tick-7,12500,tick-9))
+                     data=b''.join(records)
+                 size=struct.calcsize(wire.FORMATS[typ]);total=len(data)//size;first=args['count']
+                 count=min(256,total-first)
+                 return packet(1,rid,dict(schema=1,record_type=typ,phase_id=board['phase'],first=first,
+                     count=count,total=total,record_bytes=size,next=first+count,done=first+count==total),data[first*size:(first+count)*size])
+             return packet(4,rid,current())
+         with tempfile.TemporaryDirectory() as tmp,server(self.identity,handle) as sock:
+             client=wire.Client(sock,self.identity)
+--- before/tests/test_phase.c
++++ repair/tests/test_phase.c
+@@ -37,17 +37,17 @@
+     st.rail_count=M_RAIL_CAP;assert(m_publish_rail(p,&st,&row)!=0);
+     assert(st.overflows==1&&(st.faults&M_FAULT_BUFFER)&&p->rails[0].phase==7);
+     m_temperature temp={.temperature_mC=42000};st.temp_count=M_TEMP_CAP;
+     assert(m_publish_temp(p,&st,&temp)!=0&&st.overflows==2);
+     p->status_seq=1;assert(m_status_read(p,&got)!=0);p->status_seq=2;
+     m_service s={0};m_service_init(&s,p,1000,0,99);
+     assert(m_arm(&s,120,100)!=0); /* no sampler cannot arm */
+     memset(&st,0,sizeof(st));st.core=1;st.hz=1000;st.epoch=99;
+-    st.configured=M_ALL_RAILS;st.configured_tick=1;st.enabled=1;
++    st.configured=M_ALL_RAILS;st.conversion_ready=M_ALL_RAILS;st.configured_tick=1;st.enabled=1;
+     st.temperature_valid=1;st.temperature_tick=1100;
+     reply(&s,&st,1100);reply(&s,&st,1200);reply(&s,&st,1300);reply(&s,&st,1400);
+     assert(m_service_ready(&s,1403));
+     st.faults=M_FAULT_CONFIG;m_status_publish(p,&st);assert(m_arm(&s,120,1403)!=0);
+     st.faults=0;m_status_publish(p,&st);assert(m_arm(&s,151,1403)!=0);
+     assert(m_arm(&s,2,1403)==0&&s.t0==2653&&s.t1==4653&&s.phase==1);
+     assert(m_arm(&s,1,1404)!=0);st.phase=1;st.state=M_GUARD;
+     assert(m_ack_begin(&s,41,M_LOAD_FULL,100,2000,2200)==0);

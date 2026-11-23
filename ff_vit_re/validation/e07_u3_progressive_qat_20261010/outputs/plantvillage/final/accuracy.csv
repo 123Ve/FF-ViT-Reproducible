@@ -1,0 +1,3 @@
+dataset,split,sample_count,correct,correct5,top1_percent,top5_percent,complete_split,predictions_sha256,numeric_mode
+plantvillage,val,5417,5335,5416,98.4862470001846,99.98153959756323,True,c86e5658eb83f116af3803e5c3a87e2da93a868c0ddce8867d675511ee07be2c,strict E07 integer/LUT software with original unsigned Head; NOT FPGA
+plantvillage,test,5459,5381,5459,98.57116688038103,100.0,True,0fe864310569549699fe006227c5d7e6ebc7b32abd1ff231aa09e7e0dccfc3da,strict E07 integer/LUT software with original unsigned Head; NOT FPGA

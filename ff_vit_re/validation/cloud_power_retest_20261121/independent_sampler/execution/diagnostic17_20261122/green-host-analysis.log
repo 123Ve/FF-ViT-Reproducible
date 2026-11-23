@@ -1,0 +1,8 @@
+test_diagnostic_framing_status_and_wrong_boot (test_host.HostTests.test_diagnostic_framing_status_and_wrong_boot) ... ok
+test_cross_profile_card_receipt_is_refused (test_host.HostTests.test_cross_profile_card_receipt_is_refused) ... ok
+test_diagnostic_hand_fixture_exclusion_and_scope (test_analysis.AnalysisTests.test_diagnostic_hand_fixture_exclusion_and_scope) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.206s
+
+OK

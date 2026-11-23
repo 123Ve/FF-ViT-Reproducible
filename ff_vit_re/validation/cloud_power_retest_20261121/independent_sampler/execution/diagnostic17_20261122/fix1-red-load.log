@@ -1,0 +1,15 @@
+test_missed_deadline_block_straddles_both_host_window_edges (test_host.HostTests.test_missed_deadline_block_straddles_both_host_window_edges) ... FAIL
+
+======================================================================
+FAIL: test_missed_deadline_block_straddles_both_host_window_edges (test_host.HostTests.test_missed_deadline_block_straddles_both_host_window_edges)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/Desktop/ff_vit_re/validation/cloud_power_retest_20261121/independent_sampler/tests/test_host.py", line 369, in test_missed_deadline_block_straddles_both_host_window_edges
+    self.assertEqual(q.counts().get('window_missed_slots'),4)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: None != 4
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (failures=1)

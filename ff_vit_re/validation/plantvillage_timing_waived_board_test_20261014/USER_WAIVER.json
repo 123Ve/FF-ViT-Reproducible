@@ -1,0 +1,18 @@
+{
+  "dataset": "plantvillage",
+  "user_request": "不管时序，PlantVillage  也生成bin文件测试",
+  "scope": "Generate experimental BOOT.BIN at the existing clock despite the reported setup timing failure; do not change arithmetic, weights, LUTs, clock or the formal release gate.",
+  "status": "EXPERIMENTAL_TIMING_FAILED_NOT_BOARD_MEASURED",
+  "timing_qualified": false,
+  "board_measured": false,
+  "rtl_cosimulation_measured": false,
+  "clock_mhz": 300.21509875000004,
+  "wns_ns": -0.115,
+  "tns_ns": -31.367,
+  "setup_failing_endpoints": 781,
+  "frames": 5459,
+  "classes": 38,
+  "source_dcp_sha256": "22a20a705f55984ace741863ba2ca0374652f2eb8c0bbf8eac2bab2a03b1124b",
+  "source_checkpoint_sha256": "baf8a8768174ff6fabef334f5a8fdf57943d2ea8a9230e23f643a083466f56e5",
+  "firmware_sha256": "d438ffd59ad30ef9545fd5b151eb956f185b11d6f1104caf3b02255a1789e425"
+}

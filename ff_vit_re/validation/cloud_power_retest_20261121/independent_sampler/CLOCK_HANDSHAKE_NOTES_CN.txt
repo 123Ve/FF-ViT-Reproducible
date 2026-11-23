@@ -1,0 +1,24 @@
+r9 时钟握手修复
+
+用户r8真实日志：配置、adc_observed_mask、conversion_ready_mask均为262143；
+Core1心跳/扫描前进，I2C/无效/陈旧/溢出/采样超时/温度错误均0，included_negative为0。
+clock_checks在0、1、0之间，未达到3，因而5秒启动等待超时。这次不是负值锁存故障。
+
+源码两处时序问题：
+1.Core1每次循环改写同一个ping编号的ping_tick，使应答时间不是首次观察时间。
+2.Core0在读共享状态前采now，再用它比较读到的新应答；读取期间更新的真实时戳可能大于旧now。
+
+修复：Core1按ping_seq锁存首次实际观察时间，heartbeat继续独立前进；Core0从真实平台时钟
+在一致性状态读取完成后取得接收时刻，再检查 sent <= sampler <= received 和RTT<=250ms。
+三次连续有效握手、心跳、配置、温度、数据覆盖及其他传感器/推理故障规则均保留。
+新增的clock_rejections记录历史拒绝，last_clock三时刻和flags用于解释最后一次握手，
+不用于伪造通过。活动阶段的无效握手仍置故障。
+
+针对性原生C检查覆盖首次应答锁存、心跳继续、同一应答不重复计数、读取期间更新的合法应答、
+真正未来/发送前/超过250ms/接收时钟倒退的拒绝，以及strict18/diagnostic17/diagnostic16。
+实际PS固件使用既有Vitis2025.1和BSP重新构建，不重新综合PL，不改变模型/量化/数据。
+当前r9检查日志见execution/clock_handshake_20261122。其他full-suite日志为历史结果，不冒称本次全套回归。
+
+操作：复制本包SD_CARD_DIAG16全部5文件到实际SD根目录，重新生成r9收据，然后按原命令运行
+-Acceptance -Diagnostic16，输出到新目录acceptance_diag16_r9。保留r8失败目录。
+实物SD、Windows PowerShell、ZCU102 r9启动/验收/Target120正式测量尚未执行。

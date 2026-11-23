@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "seed": 20260923,
+  "batch_size": 128,
+  "workers": 16,
+  "learning_rate": 0.00003,
+  "scale_learning_rate": 0.001,
+  "temperature": 2.0,
+  "kd_weight": 1.0,
+  "feature_weight": 0.5,
+  "ce_weight": 1.0,
+  "gradient_clip": 1.0,
+  "ema_decay": 0.999,
+  "progressive_epochs": 4,
+  "joint_epochs": 10,
+  "warmup_epochs": 0.25,
+  "training_precision": "bf16_autocast_with_fp32_activation_quantizers",
+  "evaluation_precision": "fp32",
+  "transform": "deterministic_crop09_full_training_corpus_excluding_4000_frozen_role_holdouts_and_byte_identical_aliases",
+  "checkpoint_every_steps": 250,
+  "probe_grid": {"conservative": {"learning_rate": 0.00001, "scale_learning_rate": 0.0003, "kd_weight": 2.0, "feature_weight": 0.5}},
+  "recovery_grid": [
+    {"epochs": 2, "learning_rate": 0.00001, "scale_learning_rate": 0.0003, "kd_weight": 2.0, "feature_weight": 0.5},
+    {"epochs": 2, "learning_rate": 0.00002, "scale_learning_rate": 0.0005, "kd_weight": 1.0, "feature_weight": 1.0},
+    {"epochs": 2, "learning_rate": 0.000005, "scale_learning_rate": 0.0001, "kd_weight": 3.0, "feature_weight": 0.25}
+  ]
+}

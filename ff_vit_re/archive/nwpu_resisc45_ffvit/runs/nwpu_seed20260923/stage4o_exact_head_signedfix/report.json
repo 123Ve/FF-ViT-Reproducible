@@ -1,0 +1,127 @@
+{
+  "cursor6": {
+    "classifier": {
+      "accumulator_wrap_rate": 0.0,
+      "active_logit_max": 239330,
+      "active_logit_min": -106277,
+      "logit_mse_centered": 0.0007617467842229112,
+      "logit_scale": 5.9463712766904766e-05,
+      "weight_scale": 0.0009708738304571961
+    },
+    "ln": {
+      "affine_max_abs_code_error": 5,
+      "affine_mismatch_rate": 0.2915617823600769,
+      "affine_mse_code": 0.309252025462963,
+      "cursor_bits": 6,
+      "output_scale": 0.06124762137105147,
+      "real_mse": 0.0009410386898712402,
+      "rel9_wrap_rate": 0.0,
+      "rsqrt_cursor_wrap_rate": 0.0,
+      "rsqrt_rel_p999": 0.0327845128503838,
+      "scalars": [
+        683,
+        17,
+        0,
+        14,
+        63,
+        19,
+        8,
+        0
+      ],
+      "stats": {
+        "diff_overflow_rate": 0.0,
+        "mean_max": 0,
+        "mean_min": -6,
+        "mean_overflow_rate": 0.0,
+        "sum_max": -88,
+        "sum_min": -1141,
+        "sum_overflow_rate": 0.0,
+        "tmp_overflow_rate": 0.0,
+        "var_max": 733832,
+        "var_min": 88449,
+        "var_overflow_rate": 0.0
+      }
+    },
+    "validation": {
+      "accumulator_wrap_rate": 0.0,
+      "float_top1_same_codes": 89.74074125289917,
+      "logit_max": 249076,
+      "logit_min": -110973,
+      "top1": 89.70370292663574
+    }
+  },
+  "cursor7": {
+    "classifier": {
+      "accumulator_wrap_rate": 0.0,
+      "active_logit_max": 245110,
+      "active_logit_min": -110112,
+      "logit_mse_centered": 0.00040041908220314805,
+      "logit_scale": 5.761987671211701e-05,
+      "weight_scale": 0.0009031384469369266
+    },
+    "ln": {
+      "affine_max_abs_code_error": 2,
+      "affine_mismatch_rate": 0.22868923842906952,
+      "affine_mse_code": 0.22938368055555555,
+      "cursor_bits": 7,
+      "output_scale": 0.06379960559484527,
+      "real_mse": 0.000683096124376915,
+      "rel9_wrap_rate": 0.0,
+      "rsqrt_cursor_wrap_rate": 0.0,
+      "rsqrt_rel_p999": 0.015438098179699449,
+      "scalars": [
+        683,
+        17,
+        0,
+        13,
+        127,
+        21,
+        8,
+        0
+      ],
+      "stats": {
+        "diff_overflow_rate": 0.0,
+        "mean_max": 0,
+        "mean_min": -6,
+        "mean_overflow_rate": 0.0,
+        "sum_max": -88,
+        "sum_min": -1141,
+        "sum_overflow_rate": 0.0,
+        "tmp_overflow_rate": 0.0,
+        "var_max": 733832,
+        "var_min": 88449,
+        "var_overflow_rate": 0.0
+      }
+    },
+    "validation": {
+      "accumulator_wrap_rate": 0.0,
+      "float_top1_same_codes": 89.74074125289917,
+      "logit_max": 255625,
+      "logit_min": -113276,
+      "top1": 89.70370292663574
+    }
+  },
+  "cursor_choice": {
+    "if_selected_7bit_change": "__head_ln_cursor_t: ap_uint<6> -> ap_uint<7>",
+    "selected_bits": 7
+  },
+  "final_encoder_int13_scale": 0.02188682369887829,
+  "mandatory_type_changes": {
+    "__head_ln_divc_t": "ap_int<30>",
+    "__head_ln_mu_t": "ap_int<7>",
+    "__head_ln_sum_t": "ap_int<15>"
+  },
+  "scope": "Exact Stage4M encoder + proposed signed Head LayerNorm fix + exact W8/int19 active-class classifier. 1000-logit ROM padding is generated; HLS C-sim parity is still required.",
+  "selected": {
+    "active_logit_max": 255625,
+    "active_logit_min": -113276,
+    "cursor_bits": 7,
+    "float_head_same_exact_encoder_codes_top1": 89.74074125289917,
+    "head_accumulator_wrap_rate": 0.0,
+    "head_ln_output_scale": 0.06379960559484527,
+    "head_logit_scale": 5.761987671211701e-05,
+    "head_weight_scale": 0.0009031384469369266,
+    "inactive_962_bias": -262144,
+    "validation_top1": 89.70370292663574
+  }
+}

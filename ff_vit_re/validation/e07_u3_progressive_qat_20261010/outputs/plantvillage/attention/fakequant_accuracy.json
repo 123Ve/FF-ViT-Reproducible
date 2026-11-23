@@ -1,0 +1,15 @@
+{
+  "validation": {
+    "sample_count": 5417,
+    "correct": 5372,
+    "top1_percent": 99.1692818903452
+  },
+  "test": {
+    "sample_count": 5459,
+    "correct": 5407,
+    "top1_percent": 99.04744458692068
+  },
+  "best_epoch": 8,
+  "best_sha256": "baf8a8768174ff6fabef334f5a8fdf57943d2ea8a9230e23f643a083466f56e5",
+  "numeric_mode": "FAKE_QUANT_SOFTWARE_NOT_FPGA"
+}

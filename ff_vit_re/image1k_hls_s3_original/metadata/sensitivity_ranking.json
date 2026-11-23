@@ -1,0 +1,25 @@
+{
+  "basis": "whole-block Top-1 descending on formal validation",
+  "identity": {
+    "checkpoint_sha256": "b449e4572c27bc382571b5e34a1939e79a14b5e0aff6d9f392fa9bf307c98aab",
+    "config_sha256": "87e13d16f7a95ac7989467af6087f626f4939a948dc6c4035829a408a606d9ab",
+    "data_sha256": "4756b1af44e3b44a1346b9b7e58b20e4aa92b3e6da8649ac038852ed321cf15b",
+    "sample_count": 50000,
+    "scales_sha256": "c2648ccacd57e79b636fc84805f7d52fa45efa0ed79cbd0b14214206a8cd2b31"
+  },
+  "low_sensitivity_order": [
+    11,
+    10,
+    9,
+    8,
+    7,
+    4,
+    5,
+    3,
+    1,
+    6,
+    2,
+    0
+  ],
+  "schema_version": 1
+}

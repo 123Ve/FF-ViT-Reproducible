@@ -1,0 +1,578 @@
+{
+  "blocks.0.attn.k.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.06698296964168549,
+    "signed": true
+  },
+  "blocks.0.attn.q.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.06923361122608185,
+    "signed": true
+  },
+  "blocks.0.attn.v.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.06051315739750862,
+    "signed": true
+  },
+  "blocks.0.mlp1.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.053834542632102966,
+    "signed": true
+  },
+  "blocks.0.mlp2.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.03801138326525688,
+    "signed": true
+  },
+  "blocks.0.o.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.0457671694457531,
+    "signed": true
+  },
+  "blocks.1.attn.k.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.09146802872419357,
+    "signed": true
+  },
+  "blocks.1.attn.q.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.07757913321256638,
+    "signed": true
+  },
+  "blocks.1.attn.v.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.040221478790044785,
+    "signed": true
+  },
+  "blocks.1.mlp1.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.04875853657722473,
+    "signed": true
+  },
+  "blocks.1.mlp2.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.04000236466526985,
+    "signed": true
+  },
+  "blocks.1.o.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.04105132445693016,
+    "signed": true
+  },
+  "blocks.10.attn.k.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.04315946623682976,
+    "signed": true
+  },
+  "blocks.10.attn.q.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.030813829973340034,
+    "signed": true
+  },
+  "blocks.10.attn.v.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.038017649203538895,
+    "signed": true
+  },
+  "blocks.10.mlp1.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.03369706869125366,
+    "signed": true
+  },
+  "blocks.10.mlp2.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.0662558376789093,
+    "signed": true
+  },
+  "blocks.10.o.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.040319669991731644,
+    "signed": true
+  },
+  "blocks.11.attn.k.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.044675640761852264,
+    "signed": true
+  },
+  "blocks.11.attn.q.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.030595621094107628,
+    "signed": true
+  },
+  "blocks.11.attn.v.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.0399441234767437,
+    "signed": true
+  },
+  "blocks.11.mlp1.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.04016919434070587,
+    "signed": true
+  },
+  "blocks.11.mlp2.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.06710421293973923,
+    "signed": true
+  },
+  "blocks.11.o.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.048789337277412415,
+    "signed": true
+  },
+  "blocks.2.attn.k.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.06825815141201019,
+    "signed": true
+  },
+  "blocks.2.attn.q.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.05948714539408684,
+    "signed": true
+  },
+  "blocks.2.attn.v.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.03495921939611435,
+    "signed": true
+  },
+  "blocks.2.mlp1.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.04485224187374115,
+    "signed": true
+  },
+  "blocks.2.mlp2.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.04462110623717308,
+    "signed": true
+  },
+  "blocks.2.o.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.03241116181015968,
+    "signed": true
+  },
+  "blocks.3.attn.k.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.06034088134765625,
+    "signed": true
+  },
+  "blocks.3.attn.q.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.05052701383829117,
+    "signed": true
+  },
+  "blocks.3.attn.v.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.03609881550073624,
+    "signed": true
+  },
+  "blocks.3.mlp1.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.03862055391073227,
+    "signed": true
+  },
+  "blocks.3.mlp2.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.049922965466976166,
+    "signed": true
+  },
+  "blocks.3.o.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.04024655744433403,
+    "signed": true
+  },
+  "blocks.4.attn.k.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.049716539680957794,
+    "signed": true
+  },
+  "blocks.4.attn.q.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.042099643498659134,
+    "signed": true
+  },
+  "blocks.4.attn.v.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.033168476074934006,
+    "signed": true
+  },
+  "blocks.4.mlp1.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.03780665248632431,
+    "signed": true
+  },
+  "blocks.4.mlp2.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.03872095048427582,
+    "signed": true
+  },
+  "blocks.4.o.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.034476786851882935,
+    "signed": true
+  },
+  "blocks.5.attn.k.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.05304134264588356,
+    "signed": true
+  },
+  "blocks.5.attn.q.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.045814890414476395,
+    "signed": true
+  },
+  "blocks.5.attn.v.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.03377257660031319,
+    "signed": true
+  },
+  "blocks.5.mlp1.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.03906223177909851,
+    "signed": true
+  },
+  "blocks.5.mlp2.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.04728638008236885,
+    "signed": true
+  },
+  "blocks.5.o.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.035450294613838196,
+    "signed": true
+  },
+  "blocks.6.attn.k.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.048674631863832474,
+    "signed": true
+  },
+  "blocks.6.attn.q.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.04084235429763794,
+    "signed": true
+  },
+  "blocks.6.attn.v.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.03677525371313095,
+    "signed": true
+  },
+  "blocks.6.mlp1.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.03756292164325714,
+    "signed": true
+  },
+  "blocks.6.mlp2.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.04796544834971428,
+    "signed": true
+  },
+  "blocks.6.o.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.035158634185791016,
+    "signed": true
+  },
+  "blocks.7.attn.k.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.0507173091173172,
+    "signed": true
+  },
+  "blocks.7.attn.q.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.04568088427186012,
+    "signed": true
+  },
+  "blocks.7.attn.v.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.03247000649571419,
+    "signed": true
+  },
+  "blocks.7.mlp1.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.031654004007577896,
+    "signed": true
+  },
+  "blocks.7.mlp2.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.04956020414829254,
+    "signed": true
+  },
+  "blocks.7.o.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.032137803733348846,
+    "signed": true
+  },
+  "blocks.8.attn.k.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.05147458240389824,
+    "signed": true
+  },
+  "blocks.8.attn.q.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.048606522381305695,
+    "signed": true
+  },
+  "blocks.8.attn.v.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.03320395573973656,
+    "signed": true
+  },
+  "blocks.8.mlp1.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.03255428001284599,
+    "signed": true
+  },
+  "blocks.8.mlp2.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.05776016414165497,
+    "signed": true
+  },
+  "blocks.8.o.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.033394262194633484,
+    "signed": true
+  },
+  "blocks.9.attn.k.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.049523137509822845,
+    "signed": true
+  },
+  "blocks.9.attn.q.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.039187170565128326,
+    "signed": true
+  },
+  "blocks.9.attn.v.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.03555213660001755,
+    "signed": true
+  },
+  "blocks.9.mlp1.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.035357918590307236,
+    "signed": true
+  },
+  "blocks.9.mlp2.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.05802888423204422,
+    "signed": true
+  },
+  "blocks.9.o.weight": {
+    "bitwidth": 3,
+    "granularity": "per_tensor",
+    "qmax": 3,
+    "qmin": -4,
+    "scale": 0.03709401935338974,
+    "signed": true
+  }
+}

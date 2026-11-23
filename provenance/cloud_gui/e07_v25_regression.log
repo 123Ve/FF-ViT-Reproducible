@@ -1,0 +1,275 @@
+test_records_size_and_sha256_without_modifying_sources (test_artifacts.ArtifactTests.test_records_size_and_sha256_without_modifying_sources) ... ok
+test_duplicate_hello_is_persisted_as_a_session_error (test_board_server.BoardCollectorTests.test_duplicate_hello_is_persisted_as_a_session_error) ... ok
+test_fragmented_real_socket_flow_persists_frozen_firmware_schemas (test_board_server.BoardCollectorTests.test_fragmented_real_socket_flow_persists_frozen_firmware_schemas) ... ok
+test_hello_requires_the_frozen_board_address_and_port (test_board_server.BoardCollectorTests.test_hello_requires_the_frozen_board_address_and_port) ... ok
+test_malformed_frame_and_reconnect_preserve_completed_session (test_board_server.BoardCollectorTests.test_malformed_frame_and_reconnect_preserve_completed_session) ... ok
+test_rejects_out_of_order_and_identity_mismatch_without_killing_server (test_board_server.BoardCollectorTests.test_rejects_out_of_order_and_identity_mismatch_without_killing_server) ... ok
+test_shutdown_cannot_miss_socket_before_worker_thread_runs (test_board_server.BoardCollectorTests.test_shutdown_cannot_miss_socket_before_worker_thread_runs) ... ok
+test_shutdown_closes_active_board_socket_and_persists_disconnect (test_board_server.BoardCollectorTests.test_shutdown_closes_active_board_socket_and_persists_disconnect) ... ok
+test_bif_order_and_el3_destination_are_explicit (test_build_contract.BootPolicyTests.test_bif_order_and_el3_destination_are_explicit) ... ok
+test_boot_output_outside_cloud_boot_is_rejected (test_build_contract.BootPolicyTests.test_boot_output_outside_cloud_boot_is_rejected) ... ok
+test_boot_output_symlink_escape_is_rejected (test_build_contract.BootPolicyTests.test_boot_output_symlink_escape_is_rejected) ... ok
+test_bootgen_failure_does_not_write_success_manifest (test_build_contract.BootPolicyTests.test_bootgen_failure_does_not_write_success_manifest) ... ok
+test_manifest_hashes_literal_inputs_and_output (test_build_contract.BootPolicyTests.test_manifest_hashes_literal_inputs_and_output) ... ok
+test_missing_output_does_not_write_success_manifest (test_build_contract.BootPolicyTests.test_missing_output_does_not_write_success_manifest) ... ok
+test_version_failure_leaves_no_final_artifacts (test_build_contract.BootPolicyTests.test_version_failure_leaves_no_final_artifacts) ... ok
+test_zero_advertised_identity_is_rejected (test_build_contract.BootPolicyTests.test_zero_advertised_identity_is_rejected) ... ok
+test_build_configuration_is_a53_standalone_with_exact_libraries (test_build_contract.BuildPolicyTests.test_build_configuration_is_a53_standalone_with_exact_libraries) ... ok
+test_build_identity_is_nonzero_deterministic_and_source_sensitive (test_build_contract.BuildPolicyTests.test_build_identity_is_nonzero_deterministic_and_source_sensitive) ... ok
+test_clean_refuses_any_workspace_except_exact_generated_path (test_build_contract.BuildPolicyTests.test_clean_refuses_any_workspace_except_exact_generated_path) ... ok
+test_existing_workspace_requires_explicit_bounded_clean (test_build_contract.BuildPolicyTests.test_existing_workspace_requires_explicit_bounded_clean) ... ok
+test_firmware_contains_standalone_lwip_timer_platform (test_build_contract.BuildPolicyTests.test_firmware_contains_standalone_lwip_timer_platform) ... ok
+test_generated_identity_header_contains_exact_identity_without_placeholder (test_build_contract.BuildPolicyTests.test_generated_identity_header_contains_exact_identity_without_placeholder) ... ok
+test_source_copy_preserves_vitis_build_metadata (test_build_contract.BuildPolicyTests.test_source_copy_preserves_vitis_build_metadata) ... ok
+test_source_enumeration_excludes_tests_and_fakes (test_build_contract.BuildPolicyTests.test_source_enumeration_excludes_tests_and_fakes) ... ok
+test_vendor_verifier_catches_changed_byte (test_build_contract.BuildPolicyTests.test_vendor_verifier_catches_changed_byte) ... ok
+test_workspace_symlink_escape_is_rejected (test_build_contract.BuildPolicyTests.test_workspace_symlink_escape_is_rejected) ... ok
+test_c_encoder_matches_python_wire_header (test_c_protocol.CProtocolTests.test_c_encoder_matches_python_wire_header) ... ok
+test_c_header_is_readable_by_python_with_metadata_and_payload (test_c_protocol.CProtocolTests.test_c_header_is_readable_by_python_with_metadata_and_payload) ... ok
+test_compiler_flags_reject_warnings (test_c_protocol.CProtocolTests.test_compiler_flags_reject_warnings) ... ok
+test_decode_rejects_malformed_cli_and_header (test_c_protocol.CProtocolTests.test_decode_rejects_malformed_cli_and_header) ... ok
+test_magic_bytes_survive_non_ascii_execution_charset (test_c_protocol.CProtocolTests.test_magic_bytes_survive_non_ascii_execution_charset) ... ok
+test_python_header_decodes_to_literal_c_fields (test_c_protocol.CProtocolTests.test_python_header_decodes_to_literal_c_fields) ... ok
+test_selftest_covers_validation_without_output (test_c_protocol.CProtocolTests.test_selftest_covers_validation_without_output) ... ok
+test_cloud_rejects_bad_address_port_and_paths_before_serving (test_cli_help.CliHelpTests.test_cloud_rejects_bad_address_port_and_paths_before_serving) ... ok
+test_dashboard_rejects_bad_address_port_and_store_before_serving (test_cli_help.CliHelpTests.test_dashboard_rejects_bad_address_port_and_store_before_serving) ... ok
+test_entrypoints_are_import_safe (test_cli_help.CliHelpTests.test_entrypoints_are_import_safe) ... ok
+test_every_entrypoint_help_exits_zero_without_starting_service (test_cli_help.CliHelpTests.test_every_entrypoint_help_exits_zero_without_starting_service) ... ok
+test_bounded_fixture_has_verifiable_provenance (test_cli_help.PhysicalConfigTests.test_bounded_fixture_has_verifiable_provenance) ... ok
+test_config_hashes_match_generated_release_artifacts (test_cli_help.PhysicalConfigTests.test_config_hashes_match_generated_release_artifacts) ... ok
+test_frozen_e06_physical_identity_and_endpoints (test_cli_help.PhysicalConfigTests.test_frozen_e06_physical_identity_and_endpoints) ... ok
+test_runbook_firewalld_rule_is_runtime_bounded_and_reversible (test_cli_help.PhysicalConfigTests.test_runbook_firewalld_rule_is_runtime_bounded_and_reversible) ... ok
+test_runbook_has_physical_gate_and_operator_safety_contract (test_cli_help.PhysicalConfigTests.test_runbook_has_physical_gate_and_operator_safety_contract) ... ok
+test_release_manifest_excludes_runtime_churn_caches_and_itself (test_cli_help.ReleaseManifestTests.test_release_manifest_excludes_runtime_churn_caches_and_itself) ... ok
+test_energy_never_bridges_unavailable_power (test_cloud_measurements.MeasurementTests.test_energy_never_bridges_unavailable_power) ... ok
+test_matched_per_frame_ratio_and_duplicate_accounting (test_cloud_measurements.MeasurementTests.test_matched_per_frame_ratio_and_duplicate_accounting) ... ok
+test_physical_runner_collects_both_modes_with_fake_board (test_cloud_measurements.MeasurementTests.test_physical_runner_collects_both_modes_with_fake_board) ... STREAM_LISTENING=127.0.0.1:59843
+Now power on the board; stop the other collector before this run.
+FULL={"frames_sent": 4, "frames_received": 4, "unique_frames_received": 4, "missing_responses": 0, "duplicate_responses": 0, "sequence_continuous": true, "socket_received_bytes": 312, "bytes_received_per_frame": 78.0, "elapsed_s": 0.20032065594568849, "bandwidth_bytes_s": 1557.5028871939714, "bandwidth_mbit_s": 0.012460023097551771, "fps": 19.967985733256043, "command_response_latency_mean_ms": 0.17481075, "command_response_latency_p95_ms": 0.23534339999999998, "tcp_retransmissions": null, "packet_loss": null, "monitored_system_energy_J": 0.40039008000000004, "monitored_system_energy_per_received_frame_J": 0.10009752000000001, "energy_sample_intervals": 3, "energy_coverage_s": 0.20019504000000002, "energy_coverage_fraction": 0.9993729256471559, "nic_transmission_energy_J": null, "socket_total_received_bytes_including_telemetry": 808, "status": "COMPLETE", "failure": null, "offered_fps": 20, "measurement_seconds_requested": 0.2, "completed_requested_duration": true, "total_ticks_mean": null, "pl_ticks_mean": null, "mm2s_ticks_mean": null, "s2mm_ticks_mean": null, "timer_frequency_hz": 99990005, "board_latency_mean_ms": null, "reciprocal_board_latency_fps": null}
+COMPACT={"frames_sent": 4, "frames_received": 4, "unique_frames_received": 4, "missing_responses": 0, "duplicate_responses": 0, "sequence_continuous": true, "socket_received_bytes": 496, "bytes_received_per_frame": 124.0, "elapsed_s": 0.20034222002141178, "bandwidth_bytes_s": 2475.763720432915, "bandwidth_mbit_s": 0.01980610976346332, "fps": 19.96583645510415, "command_response_latency_mean_ms": 0.17018775, "command_response_latency_p95_ms": 0.24272634999999998, "tcp_retransmissions": null, "packet_loss": null, "monitored_system_energy_J": 0.400418286, "monitored_system_energy_per_received_frame_J": 0.1001045715, "energy_sample_intervals": 3, "energy_coverage_s": 0.200209143, "energy_coverage_fraction": 0.9993357514886401, "nic_transmission_energy_J": null, "socket_total_received_bytes_including_telemetry": 992, "status": "COMPLETE", "failure": null, "offered_fps": 20, "measurement_seconds_requested": 0.2, "completed_requested_duration": true, "total_ticks_mean": 100.0, "pl_ticks_mean": 80.0, "mm2s_ticks_mean": 10.0, "s2mm_ticks_mean": 10.0, "timer_frequency_hz": 99990005, "board_latency_mean_ms": 0.0010000999599910011, "reciprocal_board_latency_fps": 999900.05}
+ok
+test_empty_store_apis_are_json_and_health_waits_for_board (test_dashboard.DashboardTests.test_empty_store_apis_are_json_and_health_waits_for_board) ... ok
+test_headless_chrome_renders_plotly_without_csp_violations (test_dashboard.DashboardTests.test_headless_chrome_renders_plotly_without_csp_violations) ... 127.0.0.1 - - [07/Oct/2026 16:32:03] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 16:32:03] "GET /static/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 16:32:03] "GET /static/dashboard.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 16:32:03] "GET /static/plotly.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 16:32:03] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 16:32:03] "GET /api/measurements/latest HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 16:32:03] "GET /api/sessions HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 16:32:03] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Oct/2026 16:32:03] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 16:32:03] "GET /api/sessions HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 16:32:03] "GET /api/measurements/latest HTTP/1.1" 200 -
+ok
+test_index_is_offline_responsive_and_uses_safe_rendering (test_dashboard.DashboardTests.test_index_is_offline_responsive_and_uses_safe_rendering) ... ok
+test_populated_session_preserves_evidence_nulls_and_hides_paths (test_dashboard.DashboardTests.test_populated_session_preserves_evidence_nulls_and_hides_paths) ... ok
+test_unknown_and_invalid_session_ids_return_bounded_json_errors (test_dashboard.DashboardTests.test_unknown_and_invalid_session_ids_return_bounded_json_errors) ... ok
+test_boolean_offered_rate_is_not_a_matching_numeric_rate (test_e07_cloud.E07CloudTests.test_boolean_offered_rate_is_not_a_matching_numeric_rate) ... ok
+test_build_identity_binds_window_batch_and_optimization (test_e07_cloud.E07CloudTests.test_build_identity_binds_window_batch_and_optimization) ... ok
+test_compiled_c_replay_verifies_input_and_preserves_full_payload (test_e07_cloud.E07CloudTests.test_compiled_c_replay_verifies_input_and_preserves_full_payload) ... ok
+test_complete_but_saturated_pair_cannot_claim_bandwidth_savings (test_e07_cloud.E07CloudTests.test_complete_but_saturated_pair_cannot_claim_bandwidth_savings) ... ok
+test_complete_error_response_is_preserved_in_failure_evidence (test_e07_cloud.E07CloudTests.test_complete_error_response_is_preserved_in_failure_evidence) ... E07_TRANSACTION_FAILURE={"kind": "transaction_failure", "command": "replay_full", "request_id": 23, "send_wall_ns": 1791361925822609113, "send_monotonic_ns": 1744566714011982, "socket_sent_bytes": 57, "source_send_complete_monotonic_ns": 1744566714038328, "receive_monotonic_ns": 1744566714071557, "receive_wall_ns": 1791361925822669446, "socket_received_bytes": 47, "metadata": {"code": "fixture_mismatch"}, "failure": "replay_full failed: error {'code': 'fixture_mismatch'}", "failure_type": "ValueError", "failed_monotonic_ns": 1744566714082387, "response_received_bytes": 47, "response_request_id": 23, "response_kind_code": 255, "expected_response_bytes": 47, "response_payload_received_bytes": 0}
+ok
+test_corrupted_complete_full_response_is_logged_as_transaction_failure (test_e07_cloud.E07CloudTests.test_corrupted_complete_full_response_is_logged_as_transaction_failure) ... E07_TRANSACTION_FAILURE={"kind": "transaction_failure", "command": "replay_full", "request_id": 23, "send_wall_ns": 1791361925822892248, "send_monotonic_ns": 1744566714294828, "socket_sent_bytes": 61, "source_send_complete_monotonic_ns": 1744566714313277, "receive_monotonic_ns": 1744566714335532, "receive_wall_ns": 1791361925822933366, "socket_received_bytes": 92, "metadata": {"fixture": "E07_FIXED_INPUT", "mismatch_count": 0, "mode": "replay_full"}, "failure": "full upload payload corruption", "failure_type": "ValueError", "failed_monotonic_ns": 1744566714343007, "response_received_bytes": 92, "response_request_id": 23, "response_kind_code": 1, "expected_response_bytes": 92, "response_payload_received_bytes": 3}
+ok
+test_dashboard_experiment_api_reports_latest_measurements_without_raw_paths (test_e07_cloud.E07CloudTests.test_dashboard_experiment_api_reports_latest_measurements_without_raw_paths) ... ok
+test_e07_manifest_accepts_only_matching_e07_identity (test_e07_cloud.E07CloudTests.test_e07_manifest_accepts_only_matching_e07_identity) ... ok
+test_failed_pair_does_not_publish_bandwidth_or_energy_savings (test_e07_cloud.E07CloudTests.test_failed_pair_does_not_publish_bandwidth_or_energy_savings) ... ok
+test_inadequate_power_coverage_cannot_claim_power_difference (test_e07_cloud.E07CloudTests.test_inadequate_power_coverage_cannot_claim_power_difference) ... ok
+test_invalid_numeric_metrics_cannot_break_or_poison_comparison_json (test_e07_cloud.E07CloudTests.test_invalid_numeric_metrics_cannot_break_or_poison_comparison_json) ... ok
+test_latency_breakdown_uses_board_clock_and_marks_estimated_one_way_times (test_e07_cloud.E07CloudTests.test_latency_breakdown_uses_board_clock_and_marks_estimated_one_way_times) ... ok
+test_matched_pair_uses_coverage_normalized_power_not_stage_energy_difference (test_e07_cloud.E07CloudTests.test_matched_pair_uses_coverage_normalized_power_not_stage_energy_difference) ... ok
+test_missing_measurement_fields_fail_closed_without_exception (test_e07_cloud.E07CloudTests.test_missing_measurement_fields_fail_closed_without_exception) ... ok
+test_packaging_rejects_boot_manifest_mismatch (test_e07_cloud.E07CloudTests.test_packaging_rejects_boot_manifest_mismatch) ... ok
+test_packet_capture_summary_deduplicates_retransmission_flags (test_e07_cloud.E07CloudTests.test_packet_capture_summary_deduplicates_retransmission_flags) ... ok
+test_partial_payload_is_counted_even_when_response_times_out (test_e07_cloud.E07CloudTests.test_partial_payload_is_counted_even_when_response_times_out) ... ok
+test_real_socket_replay_suite_captures_all_six_modes_and_actual_bytes (test_e07_cloud.E07CloudTests.test_real_socket_replay_suite_captures_all_six_modes_and_actual_bytes) ... E07_COLLECTOR_LISTENING=127.0.0.1:57909
+Power on the E07 board now. Do not run another collector.
+E07_STAGE trial=1 streams=1 load=fixed fps=20 mode=full duration=0.15s
+E07_STAGE trial=1 streams=1 load=fixed fps=20 mode=compact duration=0.15s
+E07_STAGE trial=1 streams=2 load=fixed fps=20 mode=full duration=0.15s
+E07_STAGE trial=1 streams=2 load=fixed fps=20 mode=compact duration=0.15s
+E07_STAGE trial=1 streams=4 load=fixed fps=20 mode=full duration=0.15s
+E07_STAGE trial=1 streams=4 load=fixed fps=20 mode=compact duration=0.15s
+ok
+test_rendered_dashboard_and_client_messages_are_english (test_e07_cloud.E07CloudTests.test_rendered_dashboard_and_client_messages_are_english) ... ok
+test_reported_fps_must_match_verified_counts_and_elapsed (test_e07_cloud.E07CloudTests.test_reported_fps_must_match_verified_counts_and_elapsed) ... ok
+test_transaction_failure_records_partial_body_and_request (test_e07_cloud.E07CloudTests.test_transaction_failure_records_partial_body_and_request) ... E07_TRANSACTION_FAILURE={"kind": "transaction_failure", "command": "replay_full", "request_id": 23, "send_wall_ns": 1791361926787976478, "send_monotonic_ns": 1744567679378985, "socket_sent_bytes": 57, "source_send_complete_monotonic_ns": 1744567679396866, "failure": "timed out", "failure_type": "TimeoutError", "failed_monotonic_ns": 1744567709483010, "response_received_bytes": 139, "response_request_id": 23, "response_kind_code": 1, "expected_response_bytes": 1022, "response_payload_received_bytes": 117}
+ok
+test_trickle_response_cannot_extend_transaction_deadline (test_e07_cloud.E07CloudTests.test_trickle_response_cannot_extend_transaction_deadline) ... ok
+test_zero_timer_sync_is_logged_as_validation_failure_not_zero_division (test_e07_cloud.E07CloudTests.test_zero_timer_sync_is_logged_as_validation_failure_not_zero_division) ... E07_TRANSACTION_FAILURE={"kind": "transaction_failure", "command": "time_sync", "request_id": 23, "send_wall_ns": 1791361926879018383, "send_monotonic_ns": 1744567770420985, "socket_sent_bytes": 55, "source_send_complete_monotonic_ns": 1744567770438354, "receive_monotonic_ns": 1744567770466401, "receive_wall_ns": 1791361926879064186, "socket_received_bytes": 80, "metadata": {"edge_rx_ticks": 1, "edge_tx_ticks": 2, "timer_frequency_hz": 0}, "failure": "invalid board timer frequency", "failure_type": "ValueError", "failed_monotonic_ns": 1744567770475714, "response_received_bytes": 80, "response_request_id": 23, "response_kind_code": 4, "expected_response_bytes": 80, "response_payload_received_bytes": 0}
+ok
+test_real_lwip_held_tail_recovery_and_dma_ownership_guards (test_e07_gem_recovery.GemRecoveryTests.test_real_lwip_held_tail_recovery_and_dma_ownership_guards) ... ok
+test_browser_cards_follow_live_report_instead_of_empty_session (test_e07_performance.PerformanceTests.test_browser_cards_follow_live_report_instead_of_empty_session) ... 127.0.0.1 - - [07/Oct/2026 16:32:08] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 16:32:08] "GET /static/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 16:32:08] "GET /static/plotly.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 16:32:08] "GET /static/dashboard.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 16:32:09] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Oct/2026 16:32:09] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 16:32:09] "GET /api/sessions HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 16:32:09] "GET /api/measurements/latest HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 16:32:09] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 16:32:09] "GET /api/sessions HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 16:32:09] "GET /api/measurements/latest HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 16:32:09] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 16:32:09] "GET /api/sessions HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 16:32:09] "GET /api/measurements/latest HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 16:32:09] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 16:32:09] "GET /api/sessions HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 16:32:09] "GET /api/measurements/latest HTTP/1.1" 200 -
+ok
+test_firewall_helper_preserves_chinese_interface_name_on_windows_powershell (test_e07_performance.PerformanceTests.test_firewall_helper_preserves_chinese_interface_name_on_windows_powershell) ... ok
+test_live_api_can_follow_custom_measurement_output_root (test_e07_performance.PerformanceTests.test_live_api_can_follow_custom_measurement_output_root) ... ok
+test_live_api_exposes_current_counters_without_local_paths (test_e07_performance.PerformanceTests.test_live_api_exposes_current_counters_without_local_paths) ... ok
+test_load_schedule_preserves_rates_repeats_and_alternates_order (test_e07_performance.PerformanceTests.test_load_schedule_preserves_rates_repeats_and_alternates_order) ... ok
+test_paper_export_checks_raw_hash_and_derives_quantiles (test_e07_performance.PerformanceTests.test_paper_export_checks_raw_hash_and_derives_quantiles) ... ok
+test_repeat_command_is_sent_with_count_and_validated (test_e07_performance.PerformanceTests.test_repeat_command_is_sent_with_count_and_validated) ... ok
+test_saturation_pair_never_claims_matched_rate_bandwidth_saving (test_e07_performance.PerformanceTests.test_saturation_pair_never_claims_matched_rate_bandwidth_saving) ... ok
+test_socket_suite_publishes_during_stage_and_runs_saturation_and_board_batches (test_e07_performance.PerformanceTests.test_socket_suite_publishes_during_stage_and_runs_saturation_and_board_batches) ... E07_COLLECTOR_LISTENING=127.0.0.1:52395
+Power on the E07 board now. Do not run another collector.
+E07_STAGE trial=1 streams=1 load=saturation fps=None mode=full duration=0.06s
+E07_STAGE trial=1 streams=1 load=saturation fps=None mode=compact duration=0.06s
+E07_STAGE trial=2 streams=1 load=saturation fps=None mode=compact duration=0.06s
+E07_STAGE trial=2 streams=1 load=saturation fps=None mode=full duration=0.06s
+ok
+test_summary_reports_quantiles_input_bytes_and_unreliable_clock (test_e07_performance.PerformanceTests.test_summary_reports_quantiles_input_bytes_and_unreliable_clock) ... ok
+test_dashboard_renders_detail_without_removed_accuracy_nodes (test_e07_tail_recovery.E07TailRecoveryTests.test_dashboard_renders_detail_without_removed_accuracy_nodes) ... ok
+test_dropped_1044_byte_tail_is_recovered_by_production_timer_and_real_lwip (test_e07_tail_recovery.E07TailRecoveryTests.test_dropped_1044_byte_tail_is_recovered_by_production_timer_and_real_lwip) ... ok
+test_new_release_paths_do_not_replace_v22 (test_e07_tail_recovery.E07TailRecoveryTests.test_new_release_paths_do_not_replace_v22) ... ok
+test_real_network_keeps_servicing_queued_tail_before_retransmission_timer (test_e07_tail_recovery.E07TailRecoveryTests.test_real_network_keeps_servicing_queued_tail_before_retransmission_timer) ... ok
+test_tcp_timers_advance_without_tick_interrupts (test_e07_tail_recovery.E07TailRecoveryTests.test_tcp_timers_advance_without_tick_interrupts) ... ok
+test_unmeasured_accuracy_card_is_absent_from_rendered_dashboard (test_e07_tail_recovery.E07TailRecoveryTests.test_unmeasured_accuracy_card_is_absent_from_rendered_dashboard) ... ok
+test_v22_firmware_paths_are_preserved_and_its_image_is_verified (test_e07_tail_recovery.E07TailRecoveryTests.test_v22_firmware_paths_are_preserved_and_its_image_is_verified) ... ok
+test_v25_collector_default_accepts_new_firmware_and_rejects_old_identity (test_e07_tail_recovery.E07TailRecoveryTests.test_v25_collector_default_accepts_new_firmware_and_rejects_old_identity) ... E07_REPORT=/tmp/tmp9yx6nu1z/20261007T083214.211445Z/report.json
+E07_STATUS=COMPLETE
+ok
+test_v25_package_binds_sd_image_and_current_collector (test_e07_tail_recovery.E07TailRecoveryTests.test_v25_package_binds_sd_image_and_current_collector) ... ok
+test_windows_freeze_includes_v25_identity_manifest (test_e07_tail_recovery.E07TailRecoveryTests.test_windows_freeze_includes_v25_identity_manifest) ... ok
+test_script_runs_directly_from_project_root (test_entrypoint.EntrypointTests.test_script_runs_directly_from_project_root) ... ok
+test_fragmented_protocol_and_connection_lifecycle (test_firmware_network_contract.E06NetworkTests.test_fragmented_protocol_and_connection_lifecycle) ... ok
+test_main_compiles_against_firmware_boundary (test_firmware_network_contract.E06NetworkTests.test_main_compiles_against_firmware_boundary) ... ok
+test_parser_has_no_heap_calls (test_firmware_network_contract.E06NetworkTests.test_parser_has_no_heap_calls) ... ok
+test_production_config_has_no_zero_identity_fallback (test_firmware_network_contract.E06NetworkTests.test_production_config_has_no_zero_identity_fallback) ... ok
+test_uart_boot_identity_includes_gate_required_hashes (test_firmware_network_contract.E06NetworkTests.test_uart_boot_identity_includes_gate_required_hashes) ... ok
+test_hardware_boundary_preserves_module_behavior (test_firmware_source_contract.E06ModuleTests.test_hardware_boundary_preserves_module_behavior) ... ok
+test_weight_layout_matches_pinned_vendor_bytes (test_firmware_source_contract.E06ModuleTests.test_weight_layout_matches_pinned_vendor_bytes) ... ok
+test_cli_preserves_a_conflicting_manifest (test_import_e06.ImportE06Tests.test_cli_preserves_a_conflicting_manifest) ... ok
+test_conflicting_destination_fails_without_overwrite (test_import_e06.ImportE06Tests.test_conflicting_destination_fails_without_overwrite) ... ok
+test_copies_literal_bytes_and_hand_checked_hash (test_import_e06.ImportE06Tests.test_copies_literal_bytes_and_hand_checked_hash) ... ok
+test_duplicate_destination_is_rejected_before_copy (test_import_e06.ImportE06Tests.test_duplicate_destination_is_rejected_before_copy) ... ok
+test_identical_rerun_succeeds (test_import_e06.ImportE06Tests.test_identical_rerun_succeeds) ... ok
+test_rejects_destination_outside_vendor_root (test_import_e06.ImportE06Tests.test_rejects_destination_outside_vendor_root) ... ok
+test_rejects_missing_allowlist_entry (test_import_e06.ImportE06Tests.test_rejects_missing_allowlist_entry) ... ok
+test_rejects_source_symlink (test_import_e06.ImportE06Tests.test_rejects_source_symlink) ... ok
+test_source_directory_symlink_is_rejected (test_import_e06.ImportE06Tests.test_source_directory_symlink_is_rejected) ... ok
+test_command_rejects_empty_name_and_non_json_arguments (test_messages.TypedMessageTests.test_command_rejects_empty_name_and_non_json_arguments) ... ok
+test_each_type_round_trips_through_wire (test_messages.TypedMessageTests.test_each_type_round_trips_through_wire) ... ok
+test_from_message_rejects_invalid_field_values (test_messages.TypedMessageTests.test_from_message_rejects_invalid_field_values) ... ok
+test_from_message_rejects_wrong_kind_missing_extra_and_payload (test_messages.TypedMessageTests.test_from_message_rejects_wrong_kind_missing_extra_and_payload) ... ok
+test_hello_accepts_all_phases_and_port_bounds (test_messages.TypedMessageTests.test_hello_accepts_all_phases_and_port_bounds) ... ok
+test_hello_rejects_invalid_phase_hash_ip_and_port (test_messages.TypedMessageTests.test_hello_rejects_invalid_phase_hash_ip_and_port) ... ok
+test_inference_rejects_negative_counters (test_messages.TypedMessageTests.test_inference_rejects_negative_counters) ... ok
+test_telemetry_rejects_invalid_counters_and_sensor_combinations (test_messages.TypedMessageTests.test_telemetry_rejects_invalid_counters_and_sensor_combinations) ... ok
+test_reports_edge_uplink_reduction_against_cloud_frames (test_metrics.MetricsTests.test_reports_edge_uplink_reduction_against_cloud_frames) ... ok
+test_cloud_and_edge_messages_complete_over_real_tcp (test_network_flow.NetworkFlowTests.test_cloud_and_edge_messages_complete_over_real_tcp) ... ok
+test_all_six_commands_use_one_verified_board_connection (test_physical_gate.PhysicalCommandPathTests.test_all_six_commands_use_one_verified_board_connection) ... ok
+test_standard_plan_is_exactly_1007_ordered_commands (test_physical_gate.PhysicalCommandPathTests.test_standard_plan_is_exactly_1007_ordered_commands) ... ok
+test_adversarial_causal_order_reconnect_and_unknown_events_fail (test_physical_gate.PhysicalGateTests.test_adversarial_causal_order_reconnect_and_unknown_events_fail) ... ok
+test_adversarial_plan_schema_clock_uart_and_time_tampering_fail (test_physical_gate.PhysicalGateTests.test_adversarial_plan_schema_clock_uart_and_time_tampering_fail) ... ok
+test_complete_synthetic_raw_fixture_passes_and_ignores_summary (test_physical_gate.PhysicalGateTests.test_complete_synthetic_raw_fixture_passes_and_ignores_summary) ... ok
+test_identical_external_evidence_and_manifest_symlinks_are_rejected (test_physical_gate.PhysicalGateTests.test_identical_external_evidence_and_manifest_symlinks_are_rejected) ... ok
+test_missing_tampered_and_host_loopback_evidence_fail (test_physical_gate.PhysicalGateTests.test_missing_tampered_and_host_loopback_evidence_fail) ... ok
+test_reanalysis_is_byte_deterministic (test_physical_gate.PhysicalGateTests.test_reanalysis_is_byte_deterministic) ... ok
+test_session_path_must_be_contained (test_physical_gate.PhysicalGateTests.test_session_path_must_be_contained) ... ok
+test_symlinked_sessions_root_is_rejected_before_resolution (test_physical_gate.PhysicalGateTests.test_symlinked_sessions_root_is_rejected_before_resolution) ... ok
+test_capture_writer_rejects_broken_symlink_target (test_physical_gate.ReadinessTests.test_capture_writer_rejects_broken_symlink_target) ... ok
+test_default_readiness_is_non_mutating_and_reports_missing_inputs (test_physical_gate.ReadinessTests.test_default_readiness_is_non_mutating_and_reports_missing_inputs) ... ok
+test_binary_payload_round_trip (test_protocol.ProtocolTests.test_binary_payload_round_trip) ... ok
+test_new_message_kinds_have_stable_distinct_wire_codes (test_protocol.ProtocolTests.test_new_message_kinds_have_stable_distinct_wire_codes) ... ok
+test_one_byte_reads_reconstruct_header_metadata_and_payload (test_protocol.ProtocolTests.test_one_byte_reads_reconstruct_header_metadata_and_payload) ... ok
+test_oversize_lengths_are_rejected_before_body_reads (test_protocol.ProtocolTests.test_oversize_lengths_are_rejected_before_body_reads) ... ok
+test_rejects_bad_magic (test_protocol.ProtocolTests.test_rejects_bad_magic) ... ok
+test_rejects_nonzero_reserved_header_bytes (test_protocol.ProtocolTests.test_rejects_nonzero_reserved_header_bytes) ... ok
+test_atomic_summary_survives_platforms_that_cannot_open_directories (test_session_store.SessionStoreTests.test_atomic_summary_survives_platforms_that_cannot_open_directories)
+Windows cannot open a directory fd for the POSIX durability fsync. ... ok
+test_concurrent_snapshot_reads_never_observe_partial_json (test_session_store.SessionStoreTests.test_concurrent_snapshot_reads_never_observe_partial_json) ... ok
+test_energy_does_not_bridge_an_invalid_telemetry_gap (test_session_store.SessionStoreTests.test_energy_does_not_bridge_an_invalid_telemetry_gap) ... ok
+test_rejects_unsafe_session_ids_non_json_and_non_e06_identity (test_session_store.SessionStoreTests.test_rejects_unsafe_session_ids_non_json_and_non_e06_identity) ... ok
+test_session_is_append_only_recoverable_and_keeps_e06_accuracy_unavailable (test_session_store.SessionStoreTests.test_session_is_append_only_recoverable_and_keeps_e06_accuracy_unavailable) ... ok
+test_wire_reduction_fps_energy_and_invalid_sensor_are_derived_without_raw_float_loss (test_session_store.SessionStoreTests.test_wire_reduction_fps_energy_and_invalid_sensor_are_derived_without_raw_float_loss) ... ok
+test_cli_omits_its_redirected_output_within_scanned_tree (test_tree_manifest.TreeManifestTests.test_cli_omits_its_redirected_output_within_scanned_tree) ... ok
+test_recurses_regular_files_in_deterministic_path_order (test_tree_manifest.TreeManifestTests.test_recurses_regular_files_in_deterministic_path_order) ... ok
+test_rejects_directory_symlink (test_tree_manifest.TreeManifestTests.test_rejects_directory_symlink) ... ok
+test_rejects_file_symlink (test_tree_manifest.TreeManifestTests.test_rejects_file_symlink) ... ok
+test_rejects_path_outside_root (test_tree_manifest.TreeManifestTests.test_rejects_path_outside_root) ... ok
+test_cli_accepts_windows_defaults_and_rejects_invalid_values (test_windows_launcher.WindowsLauncherRuntimeTests.test_cli_accepts_windows_defaults_and_rejects_invalid_values) ... usage: python -m unittest [-h] [--collector-host COLLECTOR_HOST]
+                          [--collector-port COLLECTOR_PORT]
+                          [--gui-host GUI_HOST] [--gui-port GUI_PORT]
+                          [--sessions-dir SESSIONS_DIR]
+                          [--boot-manifest BOOT_MANIFEST]
+                          [--socket-timeout SOCKET_TIMEOUT]
+                          [--physical-gate-plan] [--no-browser]
+python -m unittest: error: argument --collector-host: invalid IPv4 address: localhost
+usage: python -m unittest [-h] [--collector-host COLLECTOR_HOST]
+                          [--collector-port COLLECTOR_PORT]
+                          [--gui-host GUI_HOST] [--gui-port GUI_PORT]
+                          [--sessions-dir SESSIONS_DIR]
+                          [--boot-manifest BOOT_MANIFEST]
+                          [--socket-timeout SOCKET_TIMEOUT]
+                          [--physical-gate-plan] [--no-browser]
+python -m unittest: error: argument --collector-port: port must be in 1..65535
+usage: python -m unittest [-h] [--collector-host COLLECTOR_HOST]
+                          [--collector-port COLLECTOR_PORT]
+                          [--gui-host GUI_HOST] [--gui-port GUI_PORT]
+                          [--sessions-dir SESSIONS_DIR]
+                          [--boot-manifest BOOT_MANIFEST]
+                          [--socket-timeout SOCKET_TIMEOUT]
+                          [--physical-gate-plan] [--no-browser]
+python -m unittest: error: argument --gui-port: port must be in 1..65535
+usage: python -m unittest [-h] [--collector-host COLLECTOR_HOST]
+                          [--collector-port COLLECTOR_PORT]
+                          [--gui-host GUI_HOST] [--gui-port GUI_PORT]
+                          [--sessions-dir SESSIONS_DIR]
+                          [--boot-manifest BOOT_MANIFEST]
+                          [--socket-timeout SOCKET_TIMEOUT]
+                          [--physical-gate-plan] [--no-browser]
+python -m unittest: error: argument --socket-timeout: value must be positive
+usage: python -m unittest [-h] [--collector-host COLLECTOR_HOST]
+                          [--collector-port COLLECTOR_PORT]
+                          [--gui-host GUI_HOST] [--gui-port GUI_PORT]
+                          [--sessions-dir SESSIONS_DIR]
+                          [--boot-manifest BOOT_MANIFEST]
+                          [--socket-timeout SOCKET_TIMEOUT]
+                          [--physical-gate-plan] [--no-browser]
+python -m unittest: error: argument --socket-timeout: value must be positive
+usage: python -m unittest [-h] [--collector-host COLLECTOR_HOST]
+                          [--collector-port COLLECTOR_PORT]
+                          [--gui-host GUI_HOST] [--gui-port GUI_PORT]
+                          [--sessions-dir SESSIONS_DIR]
+                          [--boot-manifest BOOT_MANIFEST]
+                          [--socket-timeout SOCKET_TIMEOUT]
+                          [--physical-gate-plan] [--no-browser]
+python -m unittest: error: argument --socket-timeout: value must be positive
+usage: python -m unittest [-h] [--collector-host COLLECTOR_HOST]
+                          [--collector-port COLLECTOR_PORT]
+                          [--gui-host GUI_HOST] [--gui-port GUI_PORT]
+                          [--sessions-dir SESSIONS_DIR]
+                          [--boot-manifest BOOT_MANIFEST]
+                          [--socket-timeout SOCKET_TIMEOUT]
+                          [--physical-gate-plan] [--no-browser]
+python -m unittest: error: argument --socket-timeout: expected one argument
+ok
+test_combined_runtime_serves_dashboard_and_releases_both_ports (test_windows_launcher.WindowsLauncherRuntimeTests.test_combined_runtime_serves_dashboard_and_releases_both_ports) ... 127.0.0.1 - - [07/Oct/2026 16:32:18] "GET /api/health HTTP/1.1" 200 -
+ok
+test_frozen_paths_keep_resources_in_bundle_and_sessions_beside_exe (test_windows_launcher.WindowsLauncherRuntimeTests.test_frozen_paths_keep_resources_in_bundle_and_sessions_beside_exe) ... ok
+test_build_recipe_bundles_manifest_dashboard_and_offline_plotly (test_windows_launcher.WindowsPackagingContractTests.test_build_recipe_bundles_manifest_dashboard_and_offline_plotly) ... ok
+test_build_recipe_rejects_non_x64_or_unsupported_python (test_windows_launcher.WindowsPackagingContractTests.test_build_recipe_rejects_non_x64_or_unsupported_python) ... ok
+test_network_script_requires_explicit_adapter_and_refuses_default_route (test_windows_launcher.WindowsPackagingContractTests.test_network_script_requires_explicit_adapter_and_refuses_default_route) ... ok
+test_source_bundle_is_self_contained_and_excludes_runtime_and_hardware_payloads (test_windows_launcher.WindowsPackagingContractTests.test_source_bundle_is_self_contained_and_excludes_runtime_and_hardware_payloads) ... ok
+test_windows_readme_distinguishes_e06_from_plantvillage_accuracy (test_windows_launcher.WindowsPackagingContractTests.test_windows_readme_distinguishes_e06_from_plantvillage_accuracy) ... ok
+test_creates_self_contained_smoke_evidence (test_workflow.WorkflowTests.test_creates_self_contained_smoke_evidence) ... ok
+
+----------------------------------------------------------------------
+Ran 160 tests in 22.839s
+
+OK
